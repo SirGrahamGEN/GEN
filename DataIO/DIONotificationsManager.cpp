@@ -67,7 +67,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIONOTIFICATION::DIONOTIFICATION()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -80,7 +80,7 @@ DIONOTIFICATION::DIONOTIFICATION()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIONOTIFICATION::~DIONOTIFICATION()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -94,7 +94,7 @@ DIONOTIFICATION::~DIONOTIFICATION()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* DIONOTIFICATION::Get_Title()
-* @brief      GetTitle
+* @brief      Get title
 * @ingroup    DATAIO
 *
 * @return     XSTRING* :
@@ -109,7 +109,7 @@ XSTRING* DIONOTIFICATION::Get_Title()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* DIONOTIFICATION::Get_Message()
-* @brief      GetMessage
+* @brief      Get message
 * @ingroup    DATAIO
 *
 * @return     XSTRING* :
@@ -124,7 +124,7 @@ XSTRING* DIONOTIFICATION::Get_Message()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void* DIONOTIFICATION::Application_GetHandle()
-* @brief      Application_GetHandle
+* @brief      Application get handle
 * @ingroup    DATAIO
 *
 * @return     void* :
@@ -139,7 +139,7 @@ void* DIONOTIFICATION::Application_GetHandle()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIONOTIFICATION::Application_SetHandle(void* applicationhandle)
-* @brief      Application_SetHandle
+* @brief      Application set handle
 * @ingroup    DATAIO
 *
 * @param[in]  applicationhandle :
@@ -154,7 +154,7 @@ void DIONOTIFICATION::Application_SetHandle(void* applicationhandle)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void* DIONOTIFICATION::GetApplicationIcon()
-* @brief      GetApplicationIcon
+* @brief      Get application icon
 * @ingroup    DATAIO
 *
 * @return     void* :
@@ -169,7 +169,7 @@ void* DIONOTIFICATION::GetApplicationIcon()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIONOTIFICATION::SetApplicationIcon(void* applicationicon)
-* @brief      SetApplicationIcon
+* @brief      Set application icon
 * @ingroup    DATAIO
 *
 * @param[in]  applicationicon :
@@ -184,7 +184,7 @@ void DIONOTIFICATION::SetApplicationIcon(void* applicationicon)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIONOTIFICATION::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *
@@ -205,7 +205,7 @@ void DIONOTIFICATION::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIONOTIFICATIONSMANAGER::DIONOTIFICATIONSMANAGER()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -218,7 +218,7 @@ DIONOTIFICATIONSMANAGER::DIONOTIFICATIONSMANAGER()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIONOTIFICATIONSMANAGER::~DIONOTIFICATIONSMANAGER()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -299,7 +299,7 @@ bool DIONOTIFICATIONSMANAGER::End()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIONOTIFICATIONSMANAGER::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

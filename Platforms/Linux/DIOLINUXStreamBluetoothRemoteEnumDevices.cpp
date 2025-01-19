@@ -109,7 +109,7 @@ extern "C"
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_LINUX
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -143,7 +143,7 @@ DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVIC
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::~DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
 *
@@ -202,7 +202,7 @@ bool DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::Search()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::StopSearch(bool waitend)
-* @brief      StopSearch
+* @brief      Stop search
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  waitend : 
@@ -235,7 +235,7 @@ bool DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::StopSearch(bool waitend)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::IsSearching()
-* @brief      IsSearching
+* @brief      Is searching
 * @ingroup    PLATFORM_LINUX
 *
 * @return     bool : true if is succesful. 
@@ -256,7 +256,7 @@ bool DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::IsSearching()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::GetAddrFromLocalDevice(int localdeviceindex, char* btaddr)
-* @brief      GetAddrFromLocalDevice
+* @brief      Get addr from local device
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  localdeviceindex : 
@@ -286,7 +286,7 @@ bool DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::GetAddrFromLocalDevice(int locald
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::IsReadyConnect(int socket)
-* @brief      IsReadyConnect
+* @brief      Is ready connect
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  socket : 
@@ -333,7 +333,7 @@ int DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::IsReadyConnect(int socket)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::ScanDevices(XVECTOR<DIOSTREAMDEVICE*>* devices)
-* @brief      ScanDevices
+* @brief      Scan devices
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  devices : 
@@ -393,7 +393,7 @@ bool DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::ScanDevices(XVECTOR<DIOSTREAMDEVI
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::ScanDevicesName(DIOSTREAMDEVICEBLUETOOTH* device)
-* @brief      ScanDevicesName
+* @brief      Scan devices name
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  device : 
@@ -443,7 +443,7 @@ bool DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::ScanDevicesName(DIOSTREAMDEVICEBL
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::ScanDevicesServices(XVECTOR<DIOSTREAMDEVICE*>* devices)
-* @brief      ScanDevicesServices
+* @brief      Scan devices services
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  devices : 
@@ -490,7 +490,7 @@ bool DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::ScanDevicesServices(XVECTOR<DIOST
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::ScanDeviceServices(DIOSTREAMDEVICEBLUETOOTH* device, struct search_context* context)
-* @brief      ScanDeviceServices
+* @brief      Scan device services
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  device : 
@@ -609,7 +609,7 @@ bool DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::ScanDeviceServices(DIOSTREAMDEVIC
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::ThreadEnumDevices(void* param)
-* @brief      ThreadEnumDevices
+* @brief      Thread enum devices
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  param : 
@@ -663,7 +663,7 @@ void DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::ThreadEnumDevices(void* param)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
 *
@@ -708,7 +708,7 @@ extern "C"
   *
   * @fn         void print_service_desc(void* value, void* user)
   * @brief      rint_service_desc
-  * @ingroup    PLATFORM_LINUX  
+  * @ingroup    PLATFORM_LINUX
   *
   * @param[in]  value : 
   * @param[in]  user : 

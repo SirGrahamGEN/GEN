@@ -76,7 +76,7 @@ LPSERVICE_FAILURE_ACTIONS   XWINDOWSSERVICEBASE::service_failureactions   = NULL
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XWINDOWSSERVICEBASE::XWINDOWSSERVICEBASE(XCHAR* servicename, bool can_stop, bool can_shutdown, bool can_pause, bool can_powerevent, bool can_sessionchange)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @param[in]  servicename : 
@@ -99,7 +99,7 @@ XWINDOWSSERVICEBASE::XWINDOWSSERVICEBASE(XCHAR* servicename, bool can_stop, bool
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XWINDOWSSERVICEBASE::~XWINDOWSSERVICEBASE()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
 *
@@ -341,7 +341,7 @@ bool XWINDOWSSERVICEBASE::Uninstall(XCHAR* servicename)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSSERVICEBASE::Start(XCHAR* servicename)
-* @brief      StartService
+* @brief      Start
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  servicename :
@@ -414,7 +414,7 @@ bool XWINDOWSSERVICEBASE::Stopped(XCHAR* servicename)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         LPQUERY_SERVICE_CONFIG XWINDOWSSERVICEBASE::GetConfig(XCHAR* servicename)
-* @brief      GetConfig
+* @brief      Get config
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  servicename : 
@@ -433,7 +433,7 @@ LPQUERY_SERVICE_CONFIG  XWINDOWSSERVICEBASE::GetConfig(XCHAR* servicename)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         LPSERVICE_DESCRIPTION XWINDOWSSERVICEBASE::GetDescription(XCHAR* servicename)
-* @brief      GetDescription
+* @brief      Get description
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  servicename : 
@@ -452,7 +452,7 @@ LPSERVICE_DESCRIPTION  XWINDOWSSERVICEBASE::GetDescription(XCHAR* servicename)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         LPSERVICE_FAILURE_ACTIONS XWINDOWSSERVICEBASE::GetFailureActions(XCHAR* servicename)
-* @brief      GetFailureActions
+* @brief      Get failure actions
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  servicename : 
@@ -471,7 +471,7 @@ LPSERVICE_FAILURE_ACTIONS XWINDOWSSERVICEBASE::GetFailureActions(XCHAR* servicen
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XCHAR* XWINDOWSSERVICEBASE::GetServiceName()
-* @brief      GetServiceName
+* @brief      Get service name
 * @ingroup    PLATFORM_WINDOWS
 *
 * @return     XCHAR* : 
@@ -486,7 +486,7 @@ XCHAR* XWINDOWSSERVICEBASE::GetServiceName()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XWINDOWSSERVICEBASE::On_Start(DWORD argc, XCHAR** args)
-* @brief      On_Start
+* @brief      On start
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  argc :
@@ -502,7 +502,7 @@ void XWINDOWSSERVICEBASE::On_Start(DWORD argc, XCHAR** args)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XWINDOWSSERVICEBASE::On_Stop()
-* @brief      On_Stop
+* @brief      On stop
 * @ingroup    PLATFORM_WINDOWS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -515,7 +515,7 @@ void XWINDOWSSERVICEBASE::On_Stop()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XWINDOWSSERVICEBASE::On_Pause()
-* @brief      On_Pause
+* @brief      On pause
 * @ingroup    PLATFORM_WINDOWS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -528,7 +528,7 @@ void XWINDOWSSERVICEBASE::On_Pause()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XWINDOWSSERVICEBASE::On_Continue()
-* @brief      On_Continue
+* @brief      On continue
 * @ingroup    PLATFORM_WINDOWS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -541,7 +541,7 @@ void XWINDOWSSERVICEBASE::On_Continue()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XWINDOWSSERVICEBASE::On_Shutdown()
-* @brief      On_Shutdown
+* @brief      On shutdown
 * @ingroup    PLATFORM_WINDOWS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -554,7 +554,7 @@ void XWINDOWSSERVICEBASE::On_Shutdown()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XWINDOWSSERVICEBASE::On_PowerEvent(DWORD eventtype)
-* @brief      On_PowerEvent
+* @brief      On power event
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  eventtype :
@@ -569,7 +569,7 @@ void XWINDOWSSERVICEBASE::On_PowerEvent(DWORD eventtype)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XWINDOWSSERVICEBASE::On_SessionChange(DWORD eventtype)
-* @brief      On_SessionChange
+* @brief      On session change
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  eventtype :
@@ -584,7 +584,7 @@ void XWINDOWSSERVICEBASE::On_SessionChange(DWORD eventtype)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XWINDOWSSERVICEBASE::SetServiceStatus(XDWORD currentstate, XDWORD win32exitcode, XDWORD waithint)
-* @brief      SetServiceStatus
+* @brief      Set service status
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  currentstate :
@@ -610,7 +610,7 @@ void XWINDOWSSERVICEBASE::SetServiceStatus(XDWORD currentstate, XDWORD win32exit
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XWINDOWSSERVICEBASE::WriteEventLogEntry(XCHAR* message, XWORD type)
-* @brief      WriteEventLogEntry
+* @brief      Write event log entry
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  message :
@@ -645,7 +645,7 @@ void XWINDOWSSERVICEBASE::WriteEventLogEntry(XCHAR* message, XWORD type)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XWINDOWSSERVICEBASE::WriteErrorLogEntry(XCHAR* function, XDWORD error)
-* @brief      WriteErrorLogEntry
+* @brief      Write error log entry
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  function :
@@ -665,7 +665,7 @@ void XWINDOWSSERVICEBASE::WriteErrorLogEntry(XCHAR* function, XDWORD error)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSSERVICEBASE::GetServiceConfig(XCHAR* servicename)
-* @brief      GetServiceConfig
+* @brief      Get service config
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  servicename : 
@@ -719,7 +719,7 @@ bool XWINDOWSSERVICEBASE::GetServiceConfig(XCHAR* servicename)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSSERVICEBASE::SetConfig(XCHAR* servicename, XDWORD type, XDWORD starttype, XDWORD errorcontrol)
-* @brief      SetConfig
+* @brief      Set config
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  servicename : 
@@ -761,7 +761,7 @@ bool XWINDOWSSERVICEBASE::SetConfig(XCHAR* servicename, XDWORD type, XDWORD star
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSSERVICEBASE::GetServiceDescription(XCHAR* servicename)
-* @brief      GetServiceDescription
+* @brief      Get service description
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  servicename : 
@@ -815,7 +815,7 @@ bool XWINDOWSSERVICEBASE::GetServiceDescription(XCHAR* servicename)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSSERVICEBASE::SetDescription(XCHAR* servicename, LPSERVICE_DESCRIPTION description)
-* @brief      SetDescription
+* @brief      Set description
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  servicename : 
@@ -845,7 +845,7 @@ bool XWINDOWSSERVICEBASE::SetDescription(XCHAR* servicename, LPSERVICE_DESCRIPTI
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSSERVICEBASE::GetServiceFaiilureActions(XCHAR* servicename)
-* @brief      GetServiceFaiilureActions
+* @brief      Get service faiilure actions
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  servicename : 
@@ -899,7 +899,7 @@ bool XWINDOWSSERVICEBASE::GetServiceFaiilureActions(XCHAR* servicename)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSSERVICEBASE::SetFailureActions(XCHAR* servicename, LPSERVICE_FAILURE_ACTIONS failureactions)
-* @brief      SetFailureActions
+* @brief      Set failure actions
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  servicename : 
@@ -929,7 +929,7 @@ bool XWINDOWSSERVICEBASE::SetFailureActions(XCHAR* servicename, LPSERVICE_FAILUR
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void WINAPI XWINDOWSSERVICEBASE::ServiceMain(XDWORD argc, XCHAR** args)
-* @brief      ServiceMain
+* @brief      Service main
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  argc :
@@ -954,7 +954,7 @@ void WINAPI XWINDOWSSERVICEBASE::ServiceMain(DWORD argc, LPWSTR* argv)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void WINAPI XWINDOWSSERVICEBASE::ServiceCtrlHandler(XDWORD ctrl)
-* @brief      ServiceCtrlHandler
+* @brief      Service ctrl handler
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  ctrl :
@@ -1087,7 +1087,7 @@ void XWINDOWSSERVICEBASE::Shutdown()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XWINDOWSSERVICEBASE::PowerEvent(DWORD eventtype)
-* @brief      PowerEvent
+* @brief      Power event
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  eventtype :
@@ -1106,7 +1106,7 @@ void XWINDOWSSERVICEBASE::PowerEvent(DWORD eventtype)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XWINDOWSSERVICEBASE::SessionChange(DWORD eventtype)
-* @brief      SessionChange
+* @brief      Session change
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  eventtype :
@@ -1125,7 +1125,7 @@ void XWINDOWSSERVICEBASE::SessionChange(DWORD eventtype)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XWINDOWSSERVICEBASE::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
 *

@@ -67,8 +67,8 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XESP32RAND::XESP32RAND()
-* @brief      Constructor
-* @ingroup    PLATFORM_ESP32 
+* @brief      Constructor of class
+* @ingroup    PLATFORM_ESP32
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XESP32RAND::XESP32RAND()
@@ -82,7 +82,7 @@ XESP32RAND::XESP32RAND()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XESP32RAND::~XESP32RAND()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_ESP32
 *
@@ -111,7 +111,7 @@ bool XESP32RAND::Ini()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XESP32RAND::MaxElements(int max)
-* @brief      MaxElements
+* @brief      Max elements
 * @ingroup    PLATFORM_ESP32
 *
 * @param[in]  max :
@@ -163,7 +163,7 @@ int XESP32RAND::Between(int min,int max)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void XESP32RAND::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_ESP32
 *

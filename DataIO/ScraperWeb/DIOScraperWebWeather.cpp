@@ -67,7 +67,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSCRAPERWEBWEATHER::DIOSCRAPERWEBWEATHER()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -80,7 +80,7 @@ DIOSCRAPERWEBWEATHER::DIOSCRAPERWEBWEATHER() : DIOSCRAPERWEB()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSCRAPERWEBWEATHER::~DIOSCRAPERWEBWEATHER()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -94,7 +94,7 @@ DIOSCRAPERWEBWEATHER::~DIOSCRAPERWEBWEATHER()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSCRAPERWEBWEATHER::ChangeURL(XCHAR* maskurl, DIOURL& url)
-* @brief      ChangeURL
+* @brief      Change URL
 * @ingroup    DATAIO
 *
 * @param[in]  maskurl :
@@ -192,7 +192,7 @@ bool DIOSCRAPERWEBWEATHER::Get(XSTRING& location, bool iscelsius,  XSTRING& cond
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSCRAPERWEBWEATHER::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

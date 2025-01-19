@@ -87,7 +87,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XLINUXTRACE::XLINUXTRACE()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_LINUX
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -105,7 +105,7 @@ XLINUXTRACE::XLINUXTRACE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XLINUXTRACE::~XLINUXTRACE()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
 *
@@ -135,7 +135,7 @@ XLINUXTRACE::~XLINUXTRACE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XLINUXTRACE::PrintSpecial(XDEBUGTRACETARGET* target, XBYTE level, XCHAR* string)
-* @brief      Print Special aim
+* @brief      Print special
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  target : target to print the debug
@@ -199,7 +199,7 @@ void XLINUXTRACE::PrintSpecial(XTRACE_TARGET* target, XBYTE level, XCHAR* string
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XLINUXTRACE::PrintFile(XTRACE_TARGET* target, XBYTE level, XCHAR* string)
-* @brief      Print File aim
+* @brief      Print file
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  target : target to print the debug
@@ -281,7 +281,7 @@ void XLINUXTRACE::PrintFile(XTRACE_TARGET* target, XBYTE level, XCHAR* string)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XLINUXTRACE::PrintNet(XTRACE_TARGET* target, XBYTE level, XCHAR* string)
-* @brief      Print Net aim
+* @brief      Print net
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  target : target to print the debug
@@ -322,7 +322,7 @@ void XLINUXTRACE::PrintNet(XTRACE_TARGET* target, XBYTE level, XCHAR* string)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XLINUXTRACE::GetHandleNet(XTRACE_TARGET* target)
-* @brief      Get Handle NET (LINUX)
+* @brief      Get handle net
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  target : target of debug
@@ -374,7 +374,7 @@ bool XLINUXTRACE::GetHandleNet(XTRACE_TARGET* target)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XLINUXTRACE::CloseHandleNet(XDEBUGTRACETARGET* target)
-* @brief      Close Handle NET (LINUX)
+* @brief      Close handle net
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  target : target of debug
@@ -401,7 +401,7 @@ bool XLINUXTRACE::CloseHandleNet(XTRACE_TARGET* target)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XLINUXTRACE::Lock()
-* @brief      Lock (Mutex to print)
+* @brief      Lock
 * @ingroup    PLATFORM_LINUX
 *
 * @return     bool : true if is succesful.
@@ -419,7 +419,7 @@ bool XLINUXTRACE::Lock()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XLINUXTRACE::UnLock()
-* @brief      Unlock (Mutex to print)
+* @brief      Un lock
 * @ingroup    PLATFORM_LINUX
 *
 * @return     bool : true if is succesful.

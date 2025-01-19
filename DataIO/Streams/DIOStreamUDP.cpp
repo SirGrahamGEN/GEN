@@ -74,7 +74,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMUDPDATAGRAM::DIOSTREAMUDPDATAGRAM()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -88,7 +88,7 @@ DIOSTREAMUDPDATAGRAM::DIOSTREAMUDPDATAGRAM()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMUDPDATAGRAM::~DIOSTREAMUDPDATAGRAM()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -104,7 +104,7 @@ DIOSTREAMUDPDATAGRAM::~DIOSTREAMUDPDATAGRAM()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMUDPDATAGRAM::IsToSend()
-* @brief      IsToSend
+* @brief      Is to send
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -119,7 +119,7 @@ bool DIOSTREAMUDPDATAGRAM::IsToSend()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSTREAMUDPDATAGRAM::SetIsToSend(bool istosend)
-* @brief      SetIsToSend
+* @brief      Set is to send
 * @ingroup    DATAIO
 *
 * @param[in]  istosend :
@@ -134,7 +134,7 @@ void DIOSTREAMUDPDATAGRAM::SetIsToSend(bool istosend)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* DIOSTREAMUDPDATAGRAM::GetAddress()
-* @brief      GetAddress
+* @brief      Get address
 * @ingroup    DATAIO
 *
 * @return     XSTRING* :
@@ -149,7 +149,7 @@ XSTRING* DIOSTREAMUDPDATAGRAM::GetAddress()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMUDPDATAGRAM::SetAddress(XCHAR* address)
-* @brief      SetAddress
+* @brief      Set address
 * @ingroup    DATAIO
 *
 * @param[in]  address :
@@ -170,7 +170,7 @@ bool DIOSTREAMUDPDATAGRAM::SetAddress(XCHAR* address)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMUDPDATAGRAM::SetAddress(XSTRING& address)
-* @brief      SetAddress
+* @brief      Set address
 * @ingroup    DATAIO
 *
 * @param[in]  address :
@@ -187,7 +187,7 @@ bool DIOSTREAMUDPDATAGRAM::SetAddress(XSTRING& address)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XWORD DIOSTREAMUDPDATAGRAM::GetPort()
-* @brief      GetPort
+* @brief      Get port
 * @ingroup    DATAIO
 *
 * @return     XWORD :
@@ -202,7 +202,7 @@ XWORD DIOSTREAMUDPDATAGRAM::GetPort()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSTREAMUDPDATAGRAM::SetPorts(XWORD port)
-* @brief      SetPorts
+* @brief      Set ports
 * @ingroup    DATAIO
 *
 * @param[in]  port :
@@ -217,7 +217,7 @@ void DIOSTREAMUDPDATAGRAM::SetPorts(XWORD port)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XBUFFER* DIOSTREAMUDPDATAGRAM::GetData()
-* @brief      GetData
+* @brief      Get data
 * @ingroup    DATAIO
 *
 * @return     XBUFFER* :
@@ -232,7 +232,7 @@ XBUFFER* DIOSTREAMUDPDATAGRAM::GetData()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMUDPDATAGRAM::SetData(XBYTE* data,XDWORD size)
-* @brief      SetData
+* @brief      Set data
 * @ingroup    DATAIO
 *
 * @param[in]  data :
@@ -255,7 +255,7 @@ bool DIOSTREAMUDPDATAGRAM::SetData(XBYTE* data,XDWORD size)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSTREAMUDPDATAGRAM::SetData(XBUFFER& data)
-* @brief      SetData
+* @brief      Set data
 * @ingroup    DATAIO
 *
 * @param[in]  data :
@@ -270,7 +270,7 @@ void DIOSTREAMUDPDATAGRAM::SetData(XBUFFER& data)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSTREAMUDPDATAGRAM::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *
@@ -293,7 +293,7 @@ void DIOSTREAMUDPDATAGRAM::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMUDP::DIOSTREAMUDP()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -309,7 +309,7 @@ DIOSTREAMUDP::DIOSTREAMUDP() : DIOSTREAM()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMUDP::~DIOSTREAMUDP()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -329,7 +329,7 @@ DIOSTREAMUDP::~DIOSTREAMUDP()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMCONFIG* DIOSTREAMUDP::GetConfig()
-* @brief      GetConfig
+* @brief      Get config
 * @ingroup    DATAIO
 *
 * @return     DIOSTREAMCONFIG* :
@@ -344,7 +344,7 @@ DIOSTREAMCONFIG* DIOSTREAMUDP::GetConfig()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMUDP::SetConfig(DIOSTREAMCONFIG* config)
-* @brief      SetConfig
+* @brief      Set config
 * @ingroup    DATAIO
 *
 * @param[in]  config :
@@ -379,7 +379,7 @@ bool DIOSTREAMUDP::Open()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMUDP::ReadDatagram(XSTRING& address, XWORD& port, XBUFFER& xbuffer)
-* @brief      ReadDatagram
+* @brief      Read datagram
 * @ingroup    DATAIO
 *
 * @param[in]  address :
@@ -419,7 +419,7 @@ bool DIOSTREAMUDP::ReadDatagram(XSTRING& address, XWORD& port, XBUFFER& xbuffer)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMUDP::WriteDatagram(XSTRING& address, XWORD port, XBYTE* buffer, XDWORD size)
-* @brief      WriteDatagram
+* @brief      Write datagram
 * @ingroup    DATAIO
 *
 * @param[in]  address :
@@ -443,7 +443,7 @@ bool DIOSTREAMUDP::WriteDatagram(XSTRING& address, XWORD port, XBYTE* buffer, XD
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMUDP::WriteDatagram(XSTRING& address, XWORD port, XBUFFER& xbuffer)
-* @brief      WriteDatagram
+* @brief      Write datagram
 * @ingroup    DATAIO
 *
 * @param[in]  address :
@@ -492,7 +492,7 @@ bool DIOSTREAMUDP::Close()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMUDP::ResetXBuffers()
-* @brief      ResetXBuffers
+* @brief      Reset X buffers
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -509,7 +509,7 @@ bool DIOSTREAMUDP::ResetXBuffers()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMUDP::ResetInXBuffer()
-* @brief      ResetInXBuffer
+* @brief      Reset in X buffer
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -540,7 +540,7 @@ bool DIOSTREAMUDP::ResetInXBuffer()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMUDP::ResetOutXBuffer()
-* @brief      ResetOutXBuffer
+* @brief      Reset out X buffer
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -571,7 +571,7 @@ bool DIOSTREAMUDP::ResetOutXBuffer()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOURL* DIOSTREAMUDP::GetHost()
-* @brief      GetHost
+* @brief      Get host
 * @ingroup    DATAIO
 *
 * @return     DIOURL* :
@@ -586,7 +586,7 @@ DIOURL* DIOSTREAMUDP::GetHost()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMUDP::WaitToWriteDatagramsEmpty(int timeout)
-* @brief      WaitToWriteDatagramsEmpty
+* @brief      Wait to write datagrams empty
 * @ingroup    DATAIO
 *
 * @param[in]  timeout :
@@ -622,7 +622,7 @@ bool DIOSTREAMUDP::WaitToWriteDatagramsEmpty(int timeout)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOSTREAMUDP::WaitToGetFirstDatagram(bool tosend, int timeout)
-* @brief      WaitToGetFirstDatagram
+* @brief      Wait to get first datagram
 * @ingroup    DATAIO
 *
 * @param[in]  tosend :
@@ -659,7 +659,7 @@ int DIOSTREAMUDP::WaitToGetFirstDatagram(bool tosend, int timeout)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XVECTOR<DIOSTREAMUDPDATAGRAM*>* DIOSTREAMUDP::GetDatagramsVector()
-* @brief      GetDatagramsVector
+* @brief      Get datagrams vector
 * @ingroup    DATAIO
 *
 * @return     XVECTOR<DIOSTREAMUDPDATAGRAM*>* :
@@ -674,7 +674,7 @@ XVECTOR<DIOSTREAMUDPDATAGRAM*>* DIOSTREAMUDP::GetDatagramsVector()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMUDPDATAGRAM* DIOSTREAMUDP::GetDatagram(int index)
-* @brief      GetDatagram
+* @brief      Get datagram
 * @ingroup    DATAIO
 *
 * @param[in]  index :
@@ -697,7 +697,7 @@ DIOSTREAMUDPDATAGRAM* DIOSTREAMUDP::GetDatagram(int index)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMUDP::DeleteDatagram(int index)
-* @brief      DeleteDatagram
+* @brief      Delete datagram
 * @ingroup    DATAIO
 *
 * @param[in]  index :
@@ -726,7 +726,7 @@ bool DIOSTREAMUDP::DeleteDatagram(int index)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMUDP::DeleteAllDatagrams()
-* @brief      DeleteAllDatagrams
+* @brief      Delete all datagrams
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -751,7 +751,7 @@ bool DIOSTREAMUDP::DeleteAllDatagrams()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMUDP::AddDatagram(bool istosend, XCHAR* address, XWORD port, XBYTE* data, XDWORD size)
-* @brief      AddDatagram
+* @brief      Add datagram
 * @ingroup    DATAIO
 *
 * @param[in]  istosend :
@@ -790,7 +790,7 @@ bool DIOSTREAMUDP::AddDatagram(bool istosend, XCHAR* address, XWORD port, XBYTE*
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMUDP::AddDatagram(bool istosend, XSTRING& address, XWORD port, XBYTE* data,XDWORD size)
-* @brief      AddDatagram
+* @brief      Add datagram
 * @ingroup    DATAIO
 *
 * @param[in]  istosend :
@@ -811,7 +811,7 @@ bool DIOSTREAMUDP::AddDatagram(bool istosend, XSTRING& address, XWORD port, XBYT
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOSTREAMUDP::GetFirstDatagram(bool tosend)
-* @brief      GetFirstDatagram
+* @brief      Get first datagram
 * @ingroup    DATAIO
 *
 * @param[in]  tosend :
@@ -847,7 +847,7 @@ int DIOSTREAMUDP::GetFirstDatagram(bool tosend)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSTREAMUDP::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

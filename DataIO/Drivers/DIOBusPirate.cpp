@@ -73,7 +73,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOBUSPIRATE::DIOBUSPIRATE(DIOSTREAM* diostream)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 * 
 * @param[in]  diostream : 
@@ -92,7 +92,7 @@ DIOBUSPIRATE::DIOBUSPIRATE(DIOSTREAM* diostream)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOBUSPIRATE::~DIOBUSPIRATE()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 * 
@@ -139,7 +139,7 @@ bool DIOBUSPIRATE::Ini(int timeout)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOBUSPIRATETYPEPROCOTOL DIOBUSPIRATE::GetActualProtocol(int timeout)
-* @brief      GetActualProtocol
+* @brief      Get actual protocol
 * @ingroup    DATAIO
 * 
 * @param[in]  timeout : 
@@ -172,7 +172,7 @@ DIOBUSPIRATETYPEPROCOTOL DIOBUSPIRATE::GetActualProtocol(int timeout)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOBUSPIRATE::SetMode(DIOBUSPIRATETYPEPROCOTOL protocol, bool issoftware, int speed, bool issniffer, int timeout)
-* @brief      SetMode
+* @brief      Set mode
 * @ingroup    DATAIO
 * 
 * @param[in]  protocol : 
@@ -232,7 +232,7 @@ bool DIOBUSPIRATE::SetMode(DIOBUSPIRATETYPEPROCOTOL protocol, bool issoftware, i
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOBUSPIRATE::ReadI2CSnifferCommand(XBUFFER& in, XBUFFER& out)
-* @brief      ReadI2CSnifferCommand
+* @brief      Read I2C sniffer command
 * @ingroup    DATAIO
 * 
 * @param[in]  in : 
@@ -301,7 +301,7 @@ bool DIOBUSPIRATE::End()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOBUSPIRATE::ReadPromptStatus(XSTRING& promptstatus, int timeout)
-* @brief      ReadPromptStatus
+* @brief      Read prompt status
 * @ingroup    DATAIO
 * 
 * @param[in]  promptstatus : 
@@ -348,7 +348,7 @@ bool DIOBUSPIRATE::ReadPromptStatus(XSTRING& promptstatus, int timeout)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOBUSPIRATE::WriteCommand(XCHAR* command, int timeout)
-* @brief      WriteCommand
+* @brief      Write command
 * @ingroup    DATAIO
 * 
 * @param[in]  command : 
@@ -381,7 +381,7 @@ bool DIOBUSPIRATE::WriteCommand(XCHAR* command, int timeout)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOBUSPIRATE::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 * 

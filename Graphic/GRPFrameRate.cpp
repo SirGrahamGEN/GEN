@@ -68,7 +68,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPFRAMERATE::GRPFRAMERATE()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    GRAPHIC
 *
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -88,7 +88,7 @@ GRPFRAMERATE::GRPFRAMERATE()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPFRAMERATE::~GRPFRAMERATE()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
 *
@@ -112,7 +112,7 @@ GRPFRAMERATE::~GRPFRAMERATE()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XTIMER* GRPFRAMERATE::GetXTimer()
-* @brief      GetXTimer
+* @brief      Get X timer
 * @ingroup    GRAPHIC
 * 
 * @return     XTIMER* : 
@@ -127,7 +127,7 @@ XTIMER* GRPFRAMERATE::GetXTimer()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRPFRAMERATE::AddNFrames()
-* @brief      AddNFrames
+* @brief      Add N frames
 * @ingroup    GRAPHIC
 *
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -140,7 +140,7 @@ void GRPFRAMERATE::AddNFrames()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD GRPFRAMERATE::GetNFrames()
-* @brief      GetNFrames
+* @brief      Get N frames
 * @ingroup    GRAPHIC
 *
 * @return     XDWORD : 
@@ -190,7 +190,7 @@ float GRPFRAMERATE::Get()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRPFRAMERATE::ThreadRunFunction_Framerate(void* param)
-* @brief      ThreadRunFunction_Framerate
+* @brief      Thread run function framerate
 * @ingroup    GRAPHIC
 *
 * @param[in]  param : 
@@ -215,7 +215,7 @@ void GRPFRAMERATE::ThreadRunFunction_Framerate(void* param)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRPFRAMERATE::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    GRAPHIC
 *

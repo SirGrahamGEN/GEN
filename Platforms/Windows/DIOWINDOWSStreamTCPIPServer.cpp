@@ -86,7 +86,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOWINDOWSSTREAMTCPIPSERVER::DIOWINDOWSSTREAMTCPIPSERVER()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_WINDOWS
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -136,7 +136,7 @@ DIOWINDOWSSTREAMTCPIPSERVER::DIOWINDOWSSTREAMTCPIPSERVER() : DIOSTREAMTCPIPSERVE
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOWINDOWSSTREAMTCPIPSERVER::~DIOWINDOWSSTREAMTCPIPSERVER()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
 * 
@@ -292,7 +292,7 @@ SOCKET DIOWINDOWSSTREAMTCPIPSERVER::Accept(SOCKET handlesocket, void* addr, void
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int DIOWINDOWSSTREAMTCPIPSERVER::IsReadyConnect(SOCKET handlesocket)
-* @brief      IsReadyConnect
+* @brief      Is ready connect
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @param[in]  handlesocket : 
@@ -351,7 +351,7 @@ int DIOWINDOWSSTREAMTCPIPSERVER::IsReadyConnect(SOCKET handlesocket)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOSTREAM* DIOWINDOWSSTREAMTCPIPSERVER::CreateStream()
-* @brief      CreateStream
+* @brief      Create stream
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @return     DIOSTREAM* : 
@@ -389,7 +389,7 @@ DIOSTREAM* DIOWINDOWSSTREAMTCPIPSERVER::CreateStream()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOWINDOWSSTREAMTCPIPSERVER::DeleteAllStreamDisconnected()
-* @brief      DeleteAllStreamDisconnected
+* @brief      Delete all stream disconnected
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @return     bool : true if is succesful. 
@@ -429,7 +429,7 @@ bool DIOWINDOWSSTREAMTCPIPSERVER::DeleteAllStreamDisconnected()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOWINDOWSSTREAMTCPIPSERVER::DeleteAllStream()
-* @brief      DeleteAllStream
+* @brief      Delete all stream
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @return     bool : true if is succesful. 
@@ -465,7 +465,7 @@ bool DIOWINDOWSSTREAMTCPIPSERVER::DeleteAllStream()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOWINDOWSSTREAMTCPIPSERVER::GetHandleServer()
-* @brief      GetHandleServer
+* @brief      Get handle server
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @return     bool : true if is succesful. 
@@ -628,7 +628,7 @@ bool DIOWINDOWSSTREAMTCPIPSERVER::GetHandleServer(DIOSTREAMTCPIP* diostream)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOWINDOWSSTREAMTCPIPSERVER::ThreadConnection(void* data)
-* @brief      ThreadConnection
+* @brief      Thread connection
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @param[in]  data : 
@@ -824,7 +824,7 @@ void DIOWINDOWSSTREAMTCPIPSERVER::ThreadConnection(void* data)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOWINDOWSSTREAMTCPIPSERVER::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
 * 

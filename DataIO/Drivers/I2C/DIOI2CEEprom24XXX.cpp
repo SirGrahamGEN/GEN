@@ -72,7 +72,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOI2CEEPROM24XXX::DIOI2CEEPROM24XXX()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -85,7 +85,7 @@ DIOI2CEEPROM24XXX::DIOI2CEEPROM24XXX(): DIODEVICEI2C()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOI2CEEPROM24XXX::~DIOI2CEEPROM24XXX()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -101,7 +101,7 @@ DIOI2CEEPROM24XXX::~DIOI2CEEPROM24XXX()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOI2CEEPROM24XXXTYPE DIOI2CEEPROM24XXX::GetType()
-* @brief      GetType
+* @brief      Get type
 * @ingroup    DATAIO
 *
 * @return     DIOI2CEEPROM24XXXTYPE : 
@@ -116,7 +116,7 @@ DIOI2CEEPROM24XXXTYPE DIOI2CEEPROM24XXX::GetType()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOI2CEEPROM24XXX::SetType(DIOI2CEEPROM24XXXTYPE type)
-* @brief      SetType
+* @brief      Set type
 * @ingroup    DATAIO
 *
 * @param[in]  type : 
@@ -131,7 +131,7 @@ void DIOI2CEEPROM24XXX::SetType(DIOI2CEEPROM24XXXTYPE type)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD DIOI2CEEPROM24XXX::GetSize()
-* @brief      GetSize
+* @brief      Get size
 * @ingroup    DATAIO
 *
 * @return     XDWORD : 
@@ -280,7 +280,7 @@ bool DIOI2CEEPROM24XXX::End()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOI2CEEPROM24XXX::IniDevice()
-* @brief      IniDevice
+* @brief      Ini device
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -340,7 +340,7 @@ bool DIOI2CEEPROM24XXX::IniDevice()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOI2CEEPROM24XXX::ReadBYTE(XDWORD address, XBYTE& data)
-* @brief      ReadBYTE
+* @brief      Read BYTE
 * @ingroup    DATAIO
 * 
 * @param[in]  address : 
@@ -397,7 +397,7 @@ bool DIOI2CEEPROM24XXX::ReadBYTE(XDWORD address, XBYTE& data)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOI2CEEPROM24XXX::WriteBYTE(XDWORD address, XBYTE data)
-* @brief      WriteBYTE
+* @brief      Write BYTE
 * @ingroup    DATAIO
 *
 * @param[in]  address :
@@ -456,7 +456,7 @@ bool DIOI2CEEPROM24XXX::WriteBYTE(XDWORD address, XBYTE data)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOI2CEEPROM24XXX::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

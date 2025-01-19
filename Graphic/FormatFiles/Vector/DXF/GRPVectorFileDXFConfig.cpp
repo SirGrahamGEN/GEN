@@ -70,7 +70,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVECTORFILEDXFCONFIG::GRPVECTORFILEDXFCONFIG()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    GRAPHIC
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -85,7 +85,7 @@ GRPVECTORFILEDXFCONFIG::GRPVECTORFILEDXFCONFIG()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVECTORFILEDXFCONFIG::~GRPVECTORFILEDXFCONFIG()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
 * 
@@ -104,7 +104,7 @@ GRPVECTORFILEDXFCONFIG::~GRPVECTORFILEDXFCONFIG()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVECTORFILEDXFTEXTSECTIONHEADER* GRPVECTORFILEDXFCONFIG::GetHeader()
-* @brief      GetHeader
+* @brief      Get header
 * @ingroup    GRAPHIC
 * 
 * @return     GRPVECTORFILEDXFTEXTSECTIONHEADER* : 
@@ -119,7 +119,7 @@ GRPVECTORFILEDXFTEXTSECTIONHEADER* GRPVECTORFILEDXFCONFIG::GetHeader()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPVECTORFILEDXFCONFIG::SetHeader(GRPVECTORFILEDXFTEXTSECTIONHEADER* header)
-* @brief      SetHeader
+* @brief      Set header
 * @ingroup    GRAPHIC
 * 
 * @param[in]  header : 
@@ -175,7 +175,7 @@ bool GRPVECTORFILEDXFCONFIG::SetHeader(GRPVECTORFILEDXFTEXTSECTIONHEADER* header
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPVECTORFILEDXFCONFIG::Create_File(XCHAR* pathfile)
-* @brief      Create_File
+* @brief      Create file
 * @ingroup    GRAPHIC
 * 
 * @param[in]  pathfile : 
@@ -201,7 +201,7 @@ bool GRPVECTORFILEDXFCONFIG::Create_File(XCHAR* pathfile)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPVECTORFILEDXFCONFIG::Load_File(XCHAR* pathfile)
-* @brief      Load_File
+* @brief      Load file
 * @ingroup    GRAPHIC
 * 
 * @param[in]  pathfile : 
@@ -276,7 +276,7 @@ bool GRPVECTORFILEDXFCONFIG::Load_File(XCHAR* pathfile)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRPVECTORFILEDXFCONFIG::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    GRAPHIC
 * 

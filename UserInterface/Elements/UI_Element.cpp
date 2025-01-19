@@ -71,7 +71,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_ELEMENT::UI_ELEMENT()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    USERINTERFACE
 *
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -92,7 +92,7 @@ UI_ELEMENT::UI_ELEMENT()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_ELEMENT::~UI_ELEMENT()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
 *
@@ -114,7 +114,7 @@ UI_ELEMENT::~UI_ELEMENT()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* UI_ELEMENT::GetName()
-* @brief      GetName
+* @brief      Get name
 * @ingroup    USERINTERFACE
 *
 * @return     XSTRING* : 
@@ -129,7 +129,7 @@ XSTRING* UI_ELEMENT::GetName()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_ELEMENT_TYPE UI_ELEMENT::GetType()
-* @brief      GetType
+* @brief      Get type
 * @ingroup    USERINTERFACE
 *
 * @return     UI_ELEMENT_TYPE : 
@@ -144,7 +144,7 @@ UI_ELEMENT_TYPE UI_ELEMENT::GetType()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_ELEMENT::SetType(UI_ELEMENT_TYPE type)
-* @brief      SetType
+* @brief      Set type
 * @ingroup    USERINTERFACE
 *
 * @param[in]  type : 
@@ -159,7 +159,7 @@ void UI_ELEMENT::SetType(UI_ELEMENT_TYPE type)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* UI_ELEMENT::GetTypeString()
-* @brief      GetTypeString
+* @brief      Get type string
 * @ingroup    USERINTERFACE
 *
 * @return     XSTRING* : 
@@ -174,7 +174,7 @@ XSTRING* UI_ELEMENT::GetTypeString()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_ELEMENT* UI_ELEMENT::GetFather()
-* @brief      GetFather
+* @brief      Get father
 * @ingroup    USERINTERFACE
 *
 * @return     UI_ELEMENT* : 
@@ -189,7 +189,7 @@ UI_ELEMENT* UI_ELEMENT::GetFather()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_ELEMENT::SetFather(UI_ELEMENT* father)
-* @brief      SetFather
+* @brief      Set father
 * @ingroup    USERINTERFACE
 *
 * @param[in]  father : 
@@ -204,7 +204,7 @@ void UI_ELEMENT::SetFather(UI_ELEMENT* father)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_ELEMENT::IsDetached()
-* @brief      IsDetached
+* @brief      Is detached
 * @ingroup    USERINTERFACE
 *
 * @return     bool : true if is succesful. 
@@ -219,7 +219,7 @@ bool UI_ELEMENT::IsDetached()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_ELEMENT::SetIsDetached(bool hasfather)
-* @brief      SetIsDetached
+* @brief      Set is detached
 * @ingroup    USERINTERFACE
 *
 * @param[in]  hasfather : 
@@ -234,7 +234,7 @@ void UI_ELEMENT::SetIsDetached(bool isdetached)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_COLOR* UI_ELEMENT::GetColor()
-* @brief      GetColor
+* @brief      Get color
 * @ingroup    USERINTERFACE
 *
 * @return     UI_COLOR* : 
@@ -249,7 +249,7 @@ UI_COLOR* UI_ELEMENT::GetColor()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_COLOR* UI_ELEMENT::GetBackgroundColor()
-* @brief      GetBackgroundColor
+* @brief      Get background color
 * @ingroup    USERINTERFACE
 *
 * @return     UI_COLOR* : 
@@ -264,7 +264,7 @@ UI_COLOR* UI_ELEMENT::GetBackgroundColor()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         double UI_ELEMENT::GetXPosition()
-* @brief      GetXPosition
+* @brief      Get X position
 * @ingroup    USERINTERFACE
 *
 * @return     double : 
@@ -279,7 +279,7 @@ double UI_ELEMENT::GetXPosition()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_ELEMENT::SetXPosition(double x_position)
-* @brief      SetXPosition
+* @brief      Set X position
 * @ingroup    USERINTERFACE
 *
 * @param[in]  x_position : 
@@ -298,7 +298,7 @@ bool UI_ELEMENT::SetXPosition(double x_position)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         double UI_ELEMENT::GetYPosition()
-* @brief      GetYPosition
+* @brief      Get Y position
 * @ingroup    USERINTERFACE
 *
 * @return     double : 
@@ -313,7 +313,7 @@ double UI_ELEMENT::GetYPosition()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_ELEMENT::SetYPosition(double y_position)
-* @brief      SetYPosition
+* @brief      Set Y position
 * @ingroup    USERINTERFACE
 *
 * @param[in]  y_position : 
@@ -332,7 +332,7 @@ bool UI_ELEMENT::SetYPosition(double y_position)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD UI_ELEMENT::GetZLevel()
-* @brief      GetZLevel
+* @brief      Get Z level
 * @ingroup    USERINTERFACE
 *
 * @return     XDWORD : 
@@ -347,7 +347,7 @@ XDWORD UI_ELEMENT::GetZLevel()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_ELEMENT::SetZLevel(XDWORD z_level)
-* @brief      SetZLevel
+* @brief      Set Z level
 * @ingroup    USERINTERFACE
 *
 * @param[in]  z_level : 
@@ -366,7 +366,7 @@ bool UI_ELEMENT::SetZLevel(XDWORD z_level)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_ELEMENT_TYPE_DIRECTION UI_ELEMENT::GetDirection()
-* @brief      GetDirection
+* @brief      Get direction
 * @ingroup    USERINTERFACE
 *
 * @return     UI_ELEMENT_TYPE_DIRECTION : 
@@ -381,7 +381,7 @@ UI_ELEMENT_TYPE_DIRECTION UI_ELEMENT::GetDirection()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_ELEMENT::SetDirection(UI_ELEMENT_TYPE_DIRECTION direction)
-* @brief      SetDirection
+* @brief      Set direction
 * @ingroup    USERINTERFACE
 *
 * @param[in]  direction : 
@@ -400,7 +400,7 @@ bool UI_ELEMENT::SetDirection(UI_ELEMENT_TYPE_DIRECTION direction)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         double UI_ELEMENT::GetXPositionWithScroll()
-* @brief      GetXPositionWithScroll
+* @brief      Get X position with scroll
 * @ingroup    USERINTERFACE
 *
 * @return     double : 
@@ -415,7 +415,7 @@ double UI_ELEMENT::GetXPositionWithScroll()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_ELEMENT::SetXPositionWithScroll(double x_positionwithscroll)
-* @brief      SetXPositionWithScroll
+* @brief      Set X position with scroll
 * @ingroup    USERINTERFACE
 *
 * @param[in]  x_positionwithscroll : 
@@ -434,7 +434,7 @@ bool UI_ELEMENT::SetXPositionWithScroll(double x_positionwithscroll)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         double UI_ELEMENT::GetYPositionWithScroll()
-* @brief      GetYPositionWithScroll
+* @brief      Get Y position with scroll
 * @ingroup    USERINTERFACE
 *
 * @return     double : 
@@ -449,7 +449,7 @@ double UI_ELEMENT::GetYPositionWithScroll()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_ELEMENT::SetYPositionWithScroll(double y_positionwithscroll)
-* @brief      SetYPositionWithScroll
+* @brief      Set Y position with scroll
 * @ingroup    USERINTERFACE
 *
 * @param[in]  y_positionwithscroll : 
@@ -468,7 +468,7 @@ bool UI_ELEMENT::SetYPositionWithScroll(double y_positionwithscroll)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_BOUNDARYLINE* UI_ELEMENT::GetBoundaryLine()
-* @brief      GetBoundaryLine
+* @brief      Get boundary line
 * @ingroup    USERINTERFACE
 *
 * @return     UI_BOUNDARYLINE* : 
@@ -483,7 +483,7 @@ UI_BOUNDARYLINE* UI_ELEMENT::GetBoundaryLine()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_ELEMENT::SetBoundaryLine(XRECT& boundaryline)
-* @brief      SetBoundaryLine
+* @brief      Set boundary line
 * @ingroup    USERINTERFACE
 *
 * @param[in]  boundaryline : 
@@ -498,7 +498,7 @@ void UI_ELEMENT::SetBoundaryLine(UI_BOUNDARYLINE& boundaryline)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         double UI_ELEMENT::GetMargin(UI_ELEMENT_TYPE_ALIGN position)
-* @brief      GetMargin
+* @brief      Get margin
 * @ingroup    USERINTERFACE
 *
 * @param[in]  position : 
@@ -523,7 +523,7 @@ double UI_ELEMENT::GetMargin(UI_ELEMENT_TYPE_ALIGN position)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_ELEMENT::SetMargin(UI_ELEMENT_TYPE_ALIGN position, double value)
-* @brief      SetMargin
+* @brief      Set margin
 * @ingroup    USERINTERFACE
 *
 * @param[in]  position : 
@@ -545,7 +545,7 @@ void UI_ELEMENT::SetMargin(UI_ELEMENT_TYPE_ALIGN position, double value)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_ELEMENT::IsActive()
-* @brief      IsActive
+* @brief      Is active
 * @ingroup    USERINTERFACE
 *
 * @return     bool : true if is succesful. 
@@ -560,7 +560,7 @@ bool UI_ELEMENT::IsActive()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_ELEMENT::SetActive(bool isactive)
-* @brief      SetActive
+* @brief      Set active
 * @ingroup    USERINTERFACE
 *
 * @param[in]  isactive : 
@@ -575,7 +575,7 @@ void UI_ELEMENT::SetActive(bool isactive)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_ELEMENT::IsPreSelect()
-* @brief      IsPreSelect
+* @brief      Is pre select
 * @ingroup    USERINTERFACE
 *
 * @return     bool : true if is succesful. 
@@ -590,7 +590,7 @@ bool UI_ELEMENT::IsPreSelect()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_ELEMENT::SetPreSelect(bool ispreselect)
-* @brief      SetPreSelect
+* @brief      Set pre select
 * @ingroup    USERINTERFACE
 *
 * @param[in]  ispreselect : 
@@ -605,7 +605,7 @@ void UI_ELEMENT::SetPreSelect(bool ispreselect)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_ELEMENT::IsSelected()
-* @brief      IsSelected
+* @brief      Is selected
 * @ingroup    USERINTERFACE
 *
 * @return     bool : true if is succesful. 
@@ -620,7 +620,7 @@ bool UI_ELEMENT::IsSelected()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_ELEMENT::SetSelected(bool isselected)
-* @brief      SetSelected
+* @brief      Set selected
 * @ingroup    USERINTERFACE
 *
 * @param[in]  isselected : 
@@ -635,7 +635,7 @@ void UI_ELEMENT::SetSelected(bool isselected)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_ELEMENT::IsVisible()
-* @brief      IsVisible
+* @brief      Is visible
 * @ingroup    USERINTERFACE
 *
 * @return     bool : true if is succesful. 
@@ -650,7 +650,7 @@ bool UI_ELEMENT::IsVisible()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_ELEMENT::SetVisible(bool isvisible)
-* @brief      SetVisible
+* @brief      Set visible
 * @ingroup    USERINTERFACE
 *
 * @param[in]  isvisible : 
@@ -671,7 +671,7 @@ void UI_ELEMENT::SetVisible(bool isvisible)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD UI_ELEMENT::GetRoundRect()
-* @brief      GetRoundRect
+* @brief      Get round rect
 * @ingroup    USERINTERFACE
 *
 * @return     XDWORD : 
@@ -686,7 +686,7 @@ XDWORD UI_ELEMENT::GetRoundRect()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_ELEMENT::SetRoundRect(XDWORD roundrect)
-* @brief      SetRoundRect
+* @brief      Set round rect
 * @ingroup    USERINTERFACE
 *
 * @param[in]  roundrect : 
@@ -701,7 +701,7 @@ void UI_ELEMENT::SetRoundRect(XDWORD roundrect)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD UI_ELEMENT::IsBlinking()
-* @brief      IsBlinking
+* @brief      Is blinking
 * @ingroup    USERINTERFACE
 *
 * @return     XDWORD : 
@@ -716,7 +716,7 @@ XDWORD UI_ELEMENT::IsBlinking()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_ELEMENT::SetBlink(XDWORD blink_time)
-* @brief      SetBlink
+* @brief      Set blink
 * @ingroup    USERINTERFACE
 *
 * @param[in]  blink_time : 
@@ -741,7 +741,7 @@ bool UI_ELEMENT::SetBlink(XDWORD blink_time)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_ELEMENT::GetStateBlink()
-* @brief      GetStateBlink
+* @brief      Get state blink
 * @ingroup    USERINTERFACE
 *
 * @return     bool : true if is succesful. 
@@ -756,7 +756,7 @@ bool UI_ELEMENT::GetStateBlink()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_ELEMENT::SwicthStateBlink()
-* @brief      SwicthStateBlink
+* @brief      Swicth state blink
 * @ingroup    USERINTERFACE
 *
 * @return     bool : true if is succesful. 
@@ -785,7 +785,7 @@ bool UI_ELEMENT::SwicthStateBlink()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XTIMER* UI_ELEMENT::GetTimerBlink()
-* @brief      GetTimerBlink
+* @brief      Get timer blink
 * @ingroup    USERINTERFACE
 *
 * @return     XTIMER* : 
@@ -800,7 +800,7 @@ XTIMER* UI_ELEMENT::GetTimerBlink()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_ELEMENT_TRANSITION_STATE_SHOW UI_ELEMENT::GetTransitionStateShow()
-* @brief      GetTransitionStateShow
+* @brief      Get transition state show
 * @ingroup    USERINTERFACE
 *
 * @return     UI_ELEMENT_TRANSITION_STATE_SHOW : 
@@ -815,7 +815,7 @@ UI_ELEMENT_TRANSITION_STATE_SHOW UI_ELEMENT::GetTransitionStateShow()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_ELEMENT::SetTransitionStateShow(UI_ELEMENT_TRANSITION_STATE_SHOW transitionstateshow)
-* @brief      SetTransitionStateShow
+* @brief      Set transition state show
 * @ingroup    USERINTERFACE
 *
 * @param[in]  transitionstateshow : 
@@ -830,7 +830,7 @@ void UI_ELEMENT::SetTransitionStateShow(UI_ELEMENT_TRANSITION_STATE_SHOW transit
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_ELEMENT::HasScroll()
-* @brief      HasScroll
+* @brief      Has scroll
 * @ingroup    USERINTERFACE
 *
 * @return     bool : true if is succesful. 
@@ -845,7 +845,7 @@ bool UI_ELEMENT::HasScroll()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_ELEMENT::SetHasScroll(bool hasscroll)
-* @brief      SetHasScroll
+* @brief      Set has scroll
 * @ingroup    USERINTERFACE
 *
 * @param[in]  hasscroll : 
@@ -860,7 +860,7 @@ void UI_ELEMENT::SetHasScroll(bool hasscroll)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* UI_ELEMENT::GetExtra()
-* @brief      GetExtra
+* @brief      Get extra
 * @ingroup    USERINTERFACE
 *
 * @return     XSTRING* : 
@@ -875,7 +875,7 @@ XSTRING* UI_ELEMENT::GetExtra()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_ELEMENT::MustReDraw()
-* @brief      MustReDraw
+* @brief      Must re draw
 * @ingroup    USERINTERFACE
 *
 * @return     bool : true if is succesful. 
@@ -890,7 +890,7 @@ bool UI_ELEMENT::MustReDraw()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_ELEMENT::SetMustReDraw(bool mustredraw)
-* @brief      SetMustReDraw
+* @brief      Set must re draw
 * @ingroup    USERINTERFACE
 *
 * @param[in]  mustredraw : 
@@ -905,7 +905,7 @@ void UI_ELEMENT::SetMustReDraw(bool mustredraw)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XVECTOR<UI_ELEMENT*>* UI_ELEMENT::GetComposeElements()
-* @brief      GetComposeElements
+* @brief      Get compose elements
 * @ingroup    USERINTERFACE
 *
 * @return     XVECTOR<UI_ELEMENT*>* : 
@@ -920,7 +920,7 @@ XVECTOR<UI_ELEMENT*>* UI_ELEMENT::GetComposeElements()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_ELEMENT::DeleteAllComposeElements()
-* @brief      DeleteAllComposeElements
+* @brief      Delete all compose elements
 * @ingroup    USERINTERFACE
 *
 * @return     bool : true if is succesful. 
@@ -940,7 +940,7 @@ bool UI_ELEMENT::DeleteAllComposeElements()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_ELEMENT::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
 *

@@ -77,7 +77,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XWINDOWSMUTEX::XWINDOWSMUTEX()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_WINDOWS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -92,7 +92,7 @@ XWINDOWSMUTEX::XWINDOWSMUTEX()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XWINDOWSMUTEX::~XWINDOWSMUTEX()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
 *
@@ -136,7 +136,7 @@ bool XWINDOWSMUTEX::Lock()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSMUTEX::UnLock()
-* @brief      UnLock
+* @brief      Un lock
 * @ingroup    PLATFORM_WINDOWS
 *
 * @return     bool : true if is succesful.
@@ -163,7 +163,7 @@ bool XWINDOWSMUTEX::UnLock()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XWINDOWSMUTEX::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
 *
@@ -177,7 +177,7 @@ void XWINDOWSMUTEX::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XWINDOWSTHREAD::XWINDOWSTHREAD(XTHREADGROUPID groupID, XCHAR* ID,XTHREADFUNCTION function,void* data)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  groupID :
@@ -201,7 +201,7 @@ XWINDOWSTHREAD::XWINDOWSTHREAD(XTHREADGROUPID groupID, XCHAR* ID, XTHREADFUNCTIO
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XWINDOWSTHREAD::~XWINDOWSTHREAD()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
 *
@@ -388,7 +388,7 @@ DWORD WINAPI XWINDOWSTHREAD::Callback(LPVOID thread)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XWINDOWSTHREAD::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
 *

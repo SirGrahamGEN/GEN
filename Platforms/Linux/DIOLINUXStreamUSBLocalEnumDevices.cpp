@@ -79,7 +79,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOLINUXSTREAMUSBLOCALENUMDEVICES::DIOLINUXSTREAMUSBLOCALENUMDEVICES()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_LINUX
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -92,7 +92,7 @@ DIOLINUXSTREAMUSBLOCALENUMDEVICES::DIOLINUXSTREAMUSBLOCALENUMDEVICES() : DIOSTRE
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOLINUXSTREAMUSBLOCALENUMDEVICES::~DIOLINUXSTREAMUSBLOCALENUMDEVICES()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
 * 
@@ -241,7 +241,7 @@ bool DIOLINUXSTREAMUSBLOCALENUMDEVICES::Search()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOLINUXSTREAMUSBLOCALENUMDEVICES::IsDeviceAvailable(XCHAR* resource)
-* @brief      IsDeviceAvailable
+* @brief      Is device available
 * @ingroup    PLATFORM_LINUX
 * 
 * @param[in]  resource : 
@@ -258,7 +258,7 @@ bool DIOLINUXSTREAMUSBLOCALENUMDEVICES::IsDeviceAvailable(XCHAR* resource)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOLINUXSTREAMUSBLOCALENUMDEVICES::GetDescriptor(struct udev_device* udevdevice, DIOSTREAMDEVICEUSB_DESCRIPTOR* descriptor)
-* @brief      GetDescriptor
+* @brief      Get descriptor
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  udev_device* udevdevice :
@@ -302,7 +302,7 @@ bool DIOLINUXSTREAMUSBLOCALENUMDEVICES::GetDescriptor(struct udev_device* udevde
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOLINUXSTREAMUSBLOCALENUMDEVICES::SearchAndDeleteEqualDevices()
-* @brief      SearchAndDeleteEqualDevices
+* @brief      Search and delete equal devices
 * @ingroup    PLATFORM_LINUX
 * 
 * @return     bool : true if is succesful. 

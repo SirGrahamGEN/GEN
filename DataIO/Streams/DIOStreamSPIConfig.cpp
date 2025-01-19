@@ -67,7 +67,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOSTREAMSPICONFIG::DIOSTREAMSPICONFIG()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -81,7 +81,7 @@ DIOSTREAMSPICONFIG::DIOSTREAMSPICONFIG() : DIOSTREAMCONFIG()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOSTREAMSPICONFIG::~DIOSTREAMSPICONFIG()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -95,7 +95,7 @@ DIOSTREAMSPICONFIG::~DIOSTREAMSPICONFIG()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int DIOSTREAMSPICONFIG::GetPort()
-* @brief      GetPort
+* @brief      Get port
 * @ingroup    DATAIO
 *
 * @return     int : 
@@ -110,7 +110,7 @@ int DIOSTREAMSPICONFIG::GetPort()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOSTREAMSPICONFIG::SetPort(int port)
-* @brief      SetPort
+* @brief      Set port
 * @ingroup    DATAIO
 *
 * @param[in]  port : 
@@ -125,7 +125,7 @@ void DIOSTREAMSPICONFIG::SetPort(int port)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* DIOSTREAMSPICONFIG::GetLocalDeviceName()
-* @brief      GetLocalDeviceName
+* @brief      Get local device name
 * @ingroup    DATAIO
 *
 * @return     XSTRING* : 
@@ -140,7 +140,7 @@ XSTRING* DIOSTREAMSPICONFIG::GetLocalDeviceName()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOSTREAMSPICONFIG::SetLocalDeviceNameByPort()
-* @brief      SetLocalDeviceNameByPort
+* @brief      Set local device name by port
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful. 
@@ -175,7 +175,7 @@ bool DIOSTREAMSPICONFIG::SetLocalDeviceNameByPort()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int DIOSTREAMSPICONFIG::GetChipSelect()
-* @brief      GetChipSelect
+* @brief      Get chip select
 * @ingroup    DATAIO
 *
 * @return     int : 
@@ -190,7 +190,7 @@ int DIOSTREAMSPICONFIG::GetChipSelect()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOSTREAMSPICONFIG::SetChipSelect(int chipselect)
-* @brief      SetChipSelect
+* @brief      Set chip select
 * @ingroup    DATAIO
 *
 * @param[in]  chipselect : 
@@ -205,7 +205,7 @@ void DIOSTREAMSPICONFIG::SetChipSelect(int chipselect)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOSTREAMSPICONFIG::IsDirectAccess()
-* @brief      IsDirectAccess
+* @brief      Is direct access
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful. 
@@ -220,7 +220,7 @@ bool DIOSTREAMSPICONFIG::IsDirectAccess()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTE DIOSTREAMSPICONFIG::GetSPIMode()
-* @brief      GetSPIMode
+* @brief      Get SPI mode
 * @ingroup    DATAIO
 *
 * @return     XBYTE : 
@@ -235,7 +235,7 @@ XBYTE DIOSTREAMSPICONFIG::GetSPIMode()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTE DIOSTREAMSPICONFIG::GetNBitsWord()
-* @brief      GetNBitsWord
+* @brief      Get N bits word
 * @ingroup    DATAIO
 *
 * @return     XBYTE : 
@@ -250,7 +250,7 @@ XBYTE DIOSTREAMSPICONFIG::GetNBitsWord()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD DIOSTREAMSPICONFIG::GetSpeed()
-* @brief      GetSpeed
+* @brief      Get speed
 * @ingroup    DATAIO
 *
 * @return     XDWORD : 
@@ -265,7 +265,7 @@ XDWORD DIOSTREAMSPICONFIG::GetSpeed()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XWORD DIOSTREAMSPICONFIG::GetDelay()
-* @brief      GetDelay
+* @brief      Get delay
 * @ingroup    DATAIO
 *
 * @return     XWORD : 
@@ -280,7 +280,7 @@ XWORD DIOSTREAMSPICONFIG::GetDelay()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOSTREAMSPICONFIG::IsOnlyWrite()
-* @brief      IsOnlyWrite
+* @brief      Is only write
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful. 
@@ -295,7 +295,7 @@ bool DIOSTREAMSPICONFIG::IsOnlyWrite()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD* DIOSTREAMSPICONFIG::GetPinsDirectAccess()
-* @brief      GetPinsDirectAccess
+* @brief      Get pins direct access
 * @ingroup    DATAIO
 *
 * @return     XDWORD* : 
@@ -310,7 +310,7 @@ XDWORD* DIOSTREAMSPICONFIG::GetPinsDirectAccess()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOSTREAMSPICONFIG::SetPinsDirectAccess(XDWORD GPIOID_CLK, XDWORD GPIOID_MISO, XDWORD GPIOID_MOSI, XDWORD GPIOID_CS)
-* @brief      SetPinsDirectAccess
+* @brief      Set pins direct access
 * @ingroup    DATAIO
 *
 * @param[in]  GPIOID_CLK : 
@@ -337,7 +337,7 @@ bool DIOSTREAMSPICONFIG::SetPinsDirectAccess(XDWORD GPIOID_CLK, XDWORD GPIOID_MI
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOSTREAMSPICONFIG::SetSPIMode(XBYTE SPImode)
-* @brief      SetSPIMode
+* @brief      Set SPI mode
 * @ingroup    DATAIO
 *
 * @param[in]  SPImode : 
@@ -352,7 +352,7 @@ void DIOSTREAMSPICONFIG::SetSPIMode(XBYTE SPImode)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOSTREAMSPICONFIG::SetNBitsWord(XBYTE nbitsword)
-* @brief      SetNBitsWord
+* @brief      Set N bits word
 * @ingroup    DATAIO
 *
 * @param[in]  nbitsword : 
@@ -367,7 +367,7 @@ void DIOSTREAMSPICONFIG::SetNBitsWord(XBYTE nbitsword)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOSTREAMSPICONFIG::SetSpeed(XDWORD speed)
-* @brief      SetSpeed
+* @brief      Set speed
 * @ingroup    DATAIO
 *
 * @param[in]  speed : 
@@ -382,7 +382,7 @@ void DIOSTREAMSPICONFIG::SetSpeed(XDWORD speed)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOSTREAMSPICONFIG::SetDelay(XWORD delay)
-* @brief      SetDelay
+* @brief      Set delay
 * @ingroup    DATAIO
 *
 * @param[in]  delay : 
@@ -397,7 +397,7 @@ void DIOSTREAMSPICONFIG::SetDelay(XWORD delay)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOSTREAMSPICONFIG::SetIsOnlyWrite(bool isonlywrite)
-* @brief      SetIsOnlyWrite
+* @brief      Set is only write
 * @ingroup    DATAIO
 *
 * @param[in]  isonlywrite : 
@@ -412,7 +412,7 @@ void DIOSTREAMSPICONFIG::SetIsOnlyWrite(bool isonlywrite)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOSTREAMSPICONFIG::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

@@ -66,7 +66,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVECTORFILEDXFENTITYOBJLWPOLYLINE::GRPVECTORFILEDXFENTITYOBJLWPOLYLINE(XCHAR* nametype)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    GRAPHIC
 * 
 * @param[in]  nametype : 
@@ -83,7 +83,7 @@ GRPVECTORFILEDXFENTITYOBJLWPOLYLINE::GRPVECTORFILEDXFENTITYOBJLWPOLYLINE(XCHAR* 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVECTORFILEDXFENTITYOBJLWPOLYLINE::~GRPVECTORFILEDXFENTITYOBJLWPOLYLINE()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
 * 
@@ -97,7 +97,7 @@ GRPVECTORFILEDXFENTITYOBJLWPOLYLINE::~GRPVECTORFILEDXFENTITYOBJLWPOLYLINE()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int GRPVECTORFILEDXFENTITYOBJLWPOLYLINE::GetNVertex()
-* @brief      GetNVertex
+* @brief      Get N vertex
 * @ingroup    GRAPHIC
 * 
 * @return     int : 
@@ -112,7 +112,7 @@ int GRPVECTORFILEDXFENTITYOBJLWPOLYLINE::GetNVertex()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRPVECTORFILEDXFENTITYOBJLWPOLYLINE::SetNVertex(int nvertex)
-* @brief      SetNVertex
+* @brief      Set N vertex
 * @ingroup    GRAPHIC
 * 
 * @param[in]  nvertex : 
@@ -127,7 +127,7 @@ void GRPVECTORFILEDXFENTITYOBJLWPOLYLINE::SetNVertex(int nvertex)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int GRPVECTORFILEDXFENTITYOBJLWPOLYLINE::GetPolyLineFlag()
-* @brief      GetPolyLineFlag
+* @brief      Get poly line flag
 * @ingroup    GRAPHIC
 * 
 * @return     int : 
@@ -142,7 +142,7 @@ int GRPVECTORFILEDXFENTITYOBJLWPOLYLINE::GetPolyLineFlag()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRPVECTORFILEDXFENTITYOBJLWPOLYLINE::SetPolyLineFlag(int polylineflag)
-* @brief      SetPolyLineFlag
+* @brief      Set poly line flag
 * @ingroup    GRAPHIC
 * 
 * @param[in]  polylineflag : 
@@ -157,7 +157,7 @@ void GRPVECTORFILEDXFENTITYOBJLWPOLYLINE::SetPolyLineFlag(int polylineflag)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         double GRPVECTORFILEDXFENTITYOBJLWPOLYLINE::GetConstantWidth()
-* @brief      GetConstantWidth
+* @brief      Get constant width
 * @ingroup    GRAPHIC
 * 
 * @return     double : 
@@ -172,7 +172,7 @@ double GRPVECTORFILEDXFENTITYOBJLWPOLYLINE::GetConstantWidth()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRPVECTORFILEDXFENTITYOBJLWPOLYLINE::SetConstantWidth(double constantwidth)
-* @brief      SetConstantWidth
+* @brief      Set constant width
 * @ingroup    GRAPHIC
 * 
 * @param[in]  constantwidth : 
@@ -187,7 +187,7 @@ void GRPVECTORFILEDXFENTITYOBJLWPOLYLINE::SetConstantWidth(double constantwidth)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         double GRPVECTORFILEDXFENTITYOBJLWPOLYLINE::GetElevation()
-* @brief      GetElevation
+* @brief      Get elevation
 * @ingroup    GRAPHIC
 * 
 * @return     double : 
@@ -202,7 +202,7 @@ double GRPVECTORFILEDXFENTITYOBJLWPOLYLINE::GetElevation()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRPVECTORFILEDXFENTITYOBJLWPOLYLINE::SetElevation(double elevation)
-* @brief      SetElevation
+* @brief      Set elevation
 * @ingroup    GRAPHIC
 * 
 * @param[in]  elevation : 
@@ -217,7 +217,7 @@ void GRPVECTORFILEDXFENTITYOBJLWPOLYLINE::SetElevation(double elevation)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         double GRPVECTORFILEDXFENTITYOBJLWPOLYLINE::GetThickness()
-* @brief      GetThickness
+* @brief      Get thickness
 * @ingroup    GRAPHIC
 * 
 * @return     double : 
@@ -232,7 +232,7 @@ double GRPVECTORFILEDXFENTITYOBJLWPOLYLINE::GetThickness()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRPVECTORFILEDXFENTITYOBJLWPOLYLINE::SetThickness(double thickness)
-* @brief      SetThickness
+* @brief      Set thickness
 * @ingroup    GRAPHIC
 * 
 * @param[in]  thickness : 
@@ -247,7 +247,7 @@ void GRPVECTORFILEDXFENTITYOBJLWPOLYLINE::SetThickness(double thickness)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVECTORFILEDXFENTITYDEFPOINT* GRPVECTORFILEDXFENTITYOBJLWPOLYLINE::GetDirExtrusion()
-* @brief      GetDirExtrusion
+* @brief      Get dir extrusion
 * @ingroup    GRAPHIC
 * 
 * @return     GRPVECTORFILEDXFENTITYDEFPOINT* : 
@@ -262,7 +262,7 @@ GRPVECTORFILEDXFENTITYDEFPOINT* GRPVECTORFILEDXFENTITYOBJLWPOLYLINE::GetDirExtru
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPVECTORFILEDXFENTITYOBJLWPOLYLINE::SetDirExtrusion(GRPVECTORFILEDXFENTITYDEFPOINT* dirextrusion)
-* @brief      SetDirExtrusion
+* @brief      Set dir extrusion
 * @ingroup    GRAPHIC
 * 
 * @param[in]  dirextrusion : 
@@ -286,7 +286,7 @@ bool GRPVECTORFILEDXFENTITYOBJLWPOLYLINE::SetDirExtrusion(GRPVECTORFILEDXFENTITY
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPVECTORFILEDXFENTITYOBJLWPOLYLINE::ApplyData(GRPVECTORFILEDXFENTITY* entity)
-* @brief      ApplyData
+* @brief      Apply data
 * @ingroup    GRAPHIC
 * 
 * @param[in]  entity : 
@@ -337,7 +337,7 @@ bool GRPVECTORFILEDXFENTITYOBJLWPOLYLINE::ApplyData(GRPVECTORFILEDXFENTITY* enti
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRPVECTORFILEDXFENTITYOBJLWPOLYLINE::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    GRAPHIC
 * 

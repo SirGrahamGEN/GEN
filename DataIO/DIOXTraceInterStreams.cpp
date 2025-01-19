@@ -66,7 +66,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOXTRACEINTERSTREAMS::DIOXTRACEINTERSTREAMS(DIOSTREAM* DIOstream, bool iswithlog)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 * 
 * @param[in]  DIOstream : 
@@ -85,7 +85,7 @@ DIOXTRACEINTERSTREAMS::DIOXTRACEINTERSTREAMS(DIOSTREAM* DIOstream, bool iswithlo
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOXTRACEINTERSTREAMS::~DIOXTRACEINTERSTREAMS()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 * 
@@ -158,7 +158,7 @@ bool DIOXTRACEINTERSTREAMS::Process()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOXTRACEINTERSTREAMS::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 * 

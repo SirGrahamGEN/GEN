@@ -4,7 +4,7 @@
 * 
 * @class      POSTGRESQL_CONNECTION
 * @brief      DataBase SQL PostgreSQL Connection class
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 * 
 * @copyright  GEN Group. All rights reserved.
 * 
@@ -67,8 +67,8 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         POSTGRESQL_CONNECTION::POSTGRESQL_CONNECTION(DB_SQL_DATABASE* database) : DB_SQL_CONNECTION(database)
-* @brief      Constructor
-* @ingroup    DATABASES
+* @brief      Constructor of class
+* @ingroup    DATABASE
 *
 * @param[in]  DB_SQL_DATABASE* :
 *
@@ -82,9 +82,9 @@ POSTGRESQL_CONNECTION::POSTGRESQL_CONNECTION(DB_SQL_DATABASE* database) : DB_SQL
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         POSTGRESQL_CONNECTION::~POSTGRESQL_CONNECTION()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 POSTGRESQL_CONNECTION::~POSTGRESQL_CONNECTION()
@@ -97,7 +97,7 @@ POSTGRESQL_CONNECTION::~POSTGRESQL_CONNECTION()
 *
 * @fn         bool POSTGRESQL_CONNECTION::Connect()
 * @brief      Connect
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 *
 * @return     bool : true if is succesful.
 *
@@ -211,7 +211,7 @@ bool POSTGRESQL_CONNECTION::Connect()
 *
 * @fn         bool POSTGRESQL_CONNECTION::Disconnect()
 * @brief      Disconnect
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 *
 * @return     bool : true if is succesful.
 *
@@ -227,9 +227,9 @@ bool POSTGRESQL_CONNECTION::Disconnect()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void POSTGRESQL_CONNECTION::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void POSTGRESQL_CONNECTION::Clean()

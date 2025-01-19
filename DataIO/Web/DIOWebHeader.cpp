@@ -72,7 +72,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOWEBHEADER::DIOWEBHEADER()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -85,7 +85,7 @@ DIOWEBHEADER::DIOWEBHEADER()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOWEBHEADER::~DIOWEBHEADER()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -194,7 +194,7 @@ bool DIOWEBHEADER::Write(DIOSTREAMTCPIP* diostream, int timeout)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWEBHEADER::AddLine(XCHAR* line)
-* @brief      AddLine
+* @brief      Add line
 * @ingroup    DATAIO
 *
 * @param[in]  line :
@@ -220,7 +220,7 @@ bool DIOWEBHEADER::AddLine(XCHAR* line)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWEBHEADER::AddLine(XSTRING& line)
-* @brief      AddLine
+* @brief      Add line
 * @ingroup    DATAIO
 *
 * @param[in]  line :
@@ -237,7 +237,7 @@ bool DIOWEBHEADER::AddLine(XSTRING& line)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XVECTOR<XSTRING*>* DIOWEBHEADER::GetLines()
-* @brief      GetLines
+* @brief      Get lines
 * @ingroup    DATAIO
 *
 * @return     XVECTOR<XSTRING*>* :
@@ -252,7 +252,7 @@ XVECTOR<XSTRING*>* DIOWEBHEADER::GetLines()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWEBHEADER::GetLines(XSTRING& result)
-* @brief      GetLines
+* @brief      Get lines
 * @ingroup    DATAIO
 *
 * @param[in]  result :
@@ -283,7 +283,7 @@ bool DIOWEBHEADER::GetLines(XSTRING& result)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XCHAR* DIOWEBHEADER::GetFieldValue(XCHAR* field)
-* @brief      GetFieldValue
+* @brief      Get field value
 * @ingroup    DATAIO
 *
 * @param[in]  field :
@@ -315,7 +315,7 @@ XCHAR* DIOWEBHEADER::GetFieldValue(XCHAR* field)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XCHAR* DIOWEBHEADER::GetFieldValue(XSTRING& field)
-* @brief      GetFieldValue
+* @brief      Get field value
 * @ingroup    DATAIO
 *
 * @param[in]  field :
@@ -332,7 +332,7 @@ XCHAR* DIOWEBHEADER::GetFieldValue(XSTRING& field)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWEBHEADER::DeleteAllLines()
-* @brief      DeleteAllLines
+* @brief      Delete all lines
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -353,7 +353,7 @@ bool DIOWEBHEADER::DeleteAllLines()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWEBHEADER::GetFormat(bool isserver, int type, void* data)
-* @brief      GetFormat
+* @brief      Get format
 * @ingroup    DATAIO
 *
 * @param[in]  isserver :
@@ -422,7 +422,7 @@ bool DIOWEBHEADER::GetFormat(bool isserver, int type, void* data)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOWEBHEADER::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

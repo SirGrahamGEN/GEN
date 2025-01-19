@@ -69,7 +69,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMENUMSERVERS::DIOSTREAMENUMSERVERS()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -84,7 +84,7 @@ DIOSTREAMENUMSERVERS::DIOSTREAMENUMSERVERS(): DIOSTREAMENUMDEVICES()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMENUMSERVERS::~DIOSTREAMENUMSERVERS()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -100,7 +100,7 @@ DIOSTREAMENUMSERVERS::~DIOSTREAMENUMSERVERS()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD DIOSTREAMENUMSERVERS::GetSearchTimeout()
-* @brief      GetSearchTimeout
+* @brief      Get search timeout
 * @ingroup    DATAIO
 *
 * @return     XDWORD :
@@ -115,7 +115,7 @@ XDWORD DIOSTREAMENUMSERVERS::GetSearchTimeout()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSTREAMENUMSERVERS::SetSearchTimeout(int searchtimeout)
-* @brief      SetSearchTimeout
+* @brief      Set search timeout
 * @ingroup    DATAIO
 *
 * @param[in]  searchtimeout :
@@ -168,7 +168,7 @@ bool DIOSTREAMENUMSERVERS::Search()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMENUMSERVERS::StopSearch(bool waitend)
-* @brief      StopSearch
+* @brief      Stop search
 * @ingroup    DATAIO
 *
 * @param[in]  waitend :
@@ -185,7 +185,7 @@ bool DIOSTREAMENUMSERVERS::StopSearch(bool waitend)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMENUMSERVERS::IsSearching()
-* @brief      IsSearching
+* @brief      Is searching
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -200,7 +200,7 @@ bool DIOSTREAMENUMSERVERS::IsSearching()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMENUMSERVERS::IsDeviceAvailable(XCHAR* resource)
-* @brief      IsDeviceAvailable
+* @brief      Is device available
 * @ingroup    DATAIO
 *
 * @param[in]  resource :
@@ -217,7 +217,7 @@ bool DIOSTREAMENUMSERVERS::IsDeviceAvailable(XCHAR* resource)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XTIMER* DIOSTREAMENUMSERVERS::GetXTimer()
-* @brief      GetXTimer
+* @brief      Get X timer
 * @ingroup    DATAIO
 *
 * @return     XTIMER* :
@@ -232,7 +232,7 @@ XTIMER* DIOSTREAMENUMSERVERS::GetXTimer()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMENUMSERVERS::SendSignal()
-* @brief      SendSignal
+* @brief      Send signal
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -247,7 +247,7 @@ bool DIOSTREAMENUMSERVERS::SendSignal()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD DIOSTREAMENUMSERVERS::GetID()
-* @brief      GetID
+* @brief      Get ID
 * @ingroup    DATAIO
 *
 * @return     XDWORD :
@@ -262,7 +262,7 @@ XDWORD DIOSTREAMENUMSERVERS::GetID()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMENUMSERVERS::SetID(XDWORD ID)
-* @brief      SetID
+* @brief      Set ID
 * @ingroup    DATAIO
 *
 * @param[in]  ID :
@@ -281,7 +281,7 @@ bool DIOSTREAMENUMSERVERS::SetID(XDWORD ID)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSTREAMENUMSERVERS::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

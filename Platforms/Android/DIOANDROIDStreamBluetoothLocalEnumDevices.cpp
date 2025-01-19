@@ -73,7 +73,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOANDROIDSTREAMBLUETOOTHLOCALENUMDEVICES::DIOANDROIDSTREAMBLUETOOTHLOCALENUMDEVICES()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_ANDROID
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -86,7 +86,7 @@ DIOANDROIDSTREAMBLUETOOTHLOCALENUMDEVICES::DIOANDROIDSTREAMBLUETOOTHLOCALENUMDEV
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOANDROIDSTREAMBLUETOOTHLOCALENUMDEVICES::~DIOANDROIDSTREAMBLUETOOTHLOCALENUMDEVICES()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_ANDROID
 * 

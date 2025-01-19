@@ -72,7 +72,7 @@ XWINDOWSVIRTUALDESKTOPMANAGER*     XWINDOWSVIRTUALDESKTOPMANAGER::instance = NUL
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XWINDOWSVIRTUALDESKTOP::XWINDOWSVIRTUALDESKTOP()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_WINDOWS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -85,7 +85,7 @@ XWINDOWSVIRTUALDESKTOP::XWINDOWSVIRTUALDESKTOP()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XWINDOWSVIRTUALDESKTOP::~XWINDOWSVIRTUALDESKTOP()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
 *
@@ -99,7 +99,7 @@ XWINDOWSVIRTUALDESKTOP::~XWINDOWSVIRTUALDESKTOP()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* XWINDOWSVIRTUALDESKTOP::GetName()
-* @brief      GetName
+* @brief      Get name
 * @ingroup    PLATFORM_WINDOWS
 *
 * @return     XSTRING* :
@@ -114,7 +114,7 @@ XSTRING* XWINDOWSVIRTUALDESKTOP::GetName()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XWINDOWSVIRTUALDESKTOP::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
 *
@@ -134,8 +134,8 @@ void XWINDOWSVIRTUALDESKTOP::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSVIRTUALDESKTOPMANAGER::GetIsInstanced()
-* @brief      GetIsInstanced
-* @ingroup    XUTILS
+* @brief      Get is instanced
+* @ingroup    PLATFORM_WINDOWS
 *
 * @return     bool : true if is succesful.
 *
@@ -149,8 +149,8 @@ bool XWINDOWSVIRTUALDESKTOPMANAGER::GetIsInstanced()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XWINDOWSVIRTUALDESKTOPMANAGER& XWINDOWSVIRTUALDESKTOPMANAGER::GetInstance()
-* @brief      GetInstance
-* @ingroup    XUTILS
+* @brief      Get instance
+* @ingroup    PLATFORM_WINDOWS
 *
 * @return     XWINDOWSVIRTUALDESKTOPMANAGER& :
 *
@@ -166,8 +166,8 @@ XWINDOWSVIRTUALDESKTOPMANAGER& XWINDOWSVIRTUALDESKTOPMANAGER::GetInstance()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSVIRTUALDESKTOPMANAGER::DelInstance()
-* @brief      DelInstance
-* @ingroup    XUTILS
+* @brief      Del instance
+* @ingroup    PLATFORM_WINDOWS
 *
 * @return     bool : true if is succesful.
 *
@@ -189,7 +189,7 @@ bool XWINDOWSVIRTUALDESKTOPMANAGER::DelInstance()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XVECTOR<XWINDOWSVIRTUALDESKTOP*>* XWINDOWSVIRTUALDESKTOPMANAGER::EnumAllDesktops()
-* @brief      EnumAllDesktops
+* @brief      Enum all desktops
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @return     XVECTOR<XWINDOWSVIRTUALDESKTOP*>* : 
@@ -211,7 +211,7 @@ XVECTOR<XWINDOWSVIRTUALDESKTOP*>* XWINDOWSVIRTUALDESKTOPMANAGER::EnumAllDesktops
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSVIRTUALDESKTOPMANAGER::AddDesktopToList(XSTRING& name)
-* @brief      AddDesktopToList
+* @brief      Add desktop to list
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  name :
@@ -235,7 +235,7 @@ bool XWINDOWSVIRTUALDESKTOPMANAGER::AddDesktopToList(XSTRING& name)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSVIRTUALDESKTOPMANAGER::CreateNewDesktop(XCHAR* name, bool addexplorer)
-* @brief      CreateNewDesktop
+* @brief      Create new desktop
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  name :
@@ -289,7 +289,7 @@ bool XWINDOWSVIRTUALDESKTOPMANAGER::CreateNewDesktop(XCHAR* name, bool addexplor
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSVIRTUALDESKTOPMANAGER::CreateNewDesktop(XSTRING& name, bool addexplorer)
-* @brief      CreateNewDesktop
+* @brief      Create new desktop
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  name :
@@ -307,7 +307,7 @@ bool XWINDOWSVIRTUALDESKTOPMANAGER::CreateNewDesktop(XSTRING& name, bool addexpl
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSVIRTUALDESKTOPMANAGER::SwitchDesktop(XCHAR* desktopname, bool inherit)
-* @brief      SwitchDesktop
+* @brief      Switch desktop
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  desktopname : 
@@ -340,7 +340,7 @@ bool XWINDOWSVIRTUALDESKTOPMANAGER::SwitchDesktop(XCHAR* desktopname, bool inher
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSVIRTUALDESKTOPMANAGER::SwitchDesktop(XSTRING& desktopname, bool inherit)
-* @brief      SwitchDesktop
+* @brief      Switch desktop
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  desktopname : 
@@ -357,7 +357,7 @@ bool XWINDOWSVIRTUALDESKTOPMANAGER::SwitchDesktop(XSTRING& desktopname, bool inh
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSVIRTUALDESKTOPMANAGER::IsCurrentDesktop(XCHAR* desktopname)
-* @brief      IsCurrentDesktop
+* @brief      Is current desktop
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  desktopname :
@@ -382,7 +382,7 @@ bool XWINDOWSVIRTUALDESKTOPMANAGER::IsCurrentDesktop(XCHAR* desktopname)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSVIRTUALDESKTOPMANAGER::IsCurrentDesktop(XSTRING& desktopname)
-* @brief      IsCurrentDesktop
+* @brief      Is current desktop
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  desktopname :
@@ -399,7 +399,7 @@ bool XWINDOWSVIRTUALDESKTOPMANAGER::IsCurrentDesktop(XSTRING& desktopname)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSVIRTUALDESKTOPMANAGER::IsDesktopCreated(XCHAR* desktopname)
-* @brief      IsDesktopCreated
+* @brief      Is desktop created
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  desktopname :
@@ -426,7 +426,7 @@ bool XWINDOWSVIRTUALDESKTOPMANAGER::IsDesktopCreated(XCHAR* desktopname)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSVIRTUALDESKTOPMANAGER::IsDesktopCreated(XSTRING& desktopname)
-* @brief      IsDesktopCreated
+* @brief      Is desktop created
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  desktopname :
@@ -443,7 +443,7 @@ bool XWINDOWSVIRTUALDESKTOPMANAGER::IsDesktopCreated(XSTRING& desktopname)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSVIRTUALDESKTOPMANAGER::SwitchProcessSpecifiedDesktop(XCHAR* desktopname)
-* @brief      SwitchProcessSpecifiedDesktop
+* @brief      Switch process specified desktop
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  desktopname :
@@ -483,7 +483,7 @@ bool XWINDOWSVIRTUALDESKTOPMANAGER::SwitchProcessSpecifiedDesktop(XCHAR* desktop
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSVIRTUALDESKTOPMANAGER::SwitchProcessSpecifiedDesktop(XSTRING& desktopname)
-* @brief      SwitchProcessSpecifiedDesktop
+* @brief      Switch process specified desktop
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  desktopname :
@@ -500,7 +500,7 @@ bool XWINDOWSVIRTUALDESKTOPMANAGER::SwitchProcessSpecifiedDesktop(XSTRING& deskt
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSVIRTUALDESKTOPMANAGER::IsUserInteractive()
-* @brief      IsUserInteractive
+* @brief      Is user interactive
 * @ingroup    PLATFORM_WINDOWS
 *
 * @return     bool : true if is succesful.
@@ -526,7 +526,7 @@ bool XWINDOWSVIRTUALDESKTOPMANAGER::IsUserInteractive()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XWINDOWSVIRTUALDESKTOPMANAGER::XWINDOWSVIRTUALDESKTOPMANAGER()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_WINDOWS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -543,7 +543,7 @@ XWINDOWSVIRTUALDESKTOPMANAGER::XWINDOWSVIRTUALDESKTOPMANAGER()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XWINDOWSVIRTUALDESKTOPMANAGER::~XWINDOWSVIRTUALDESKTOPMANAGER()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
 *
@@ -560,7 +560,7 @@ XWINDOWSVIRTUALDESKTOPMANAGER::~XWINDOWSVIRTUALDESKTOPMANAGER()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSVIRTUALDESKTOPMANAGER::LaunchApplication(XCHAR* applicationfilepath, XCHAR* desktopname)
-* @brief      LaunchApplication
+* @brief      Launch application
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  applicationfilepath :
@@ -609,7 +609,7 @@ bool XWINDOWSVIRTUALDESKTOPMANAGER::LaunchApplication(XCHAR* applicationfilepath
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         BOOL __stdcall XWINDOWSVIRTUALDESKTOPMANAGER::EnumDesktopProc(LPTSTR desktop, LPARAM param)
-* @brief      EnumDesktopProc
+* @brief      Enum desktop proc
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  desktop :
@@ -636,7 +636,7 @@ BOOL __stdcall XWINDOWSVIRTUALDESKTOPMANAGER::EnumDesktopProc(LPTSTR namedesktop
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XWINDOWSVIRTUALDESKTOPMANAGER::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
 *

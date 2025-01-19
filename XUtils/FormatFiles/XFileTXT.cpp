@@ -71,7 +71,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILETXT::XFILETXT()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -88,7 +88,7 @@ XFILETXT::XFILETXT(): XFILECONTAINER()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILETXT::~XFILETXT()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -203,7 +203,7 @@ bool XFILETXT::Create(XPATH& xpath, XFILETXTFORMATCHAR formatchar, XFILETXTTYPEL
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILETXT::IsOpen()
-* @brief      IsOpen
+* @brief      Is open
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -238,7 +238,7 @@ bool XFILETXT::Close()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILETXTFORMATCHAR XFILETXT::GetFormatChar()
-* @brief      GetFormatChar
+* @brief      Get format char
 * @ingroup    XUTILS
 *
 * @return     XFILETXTFORMATCHAR :
@@ -253,7 +253,7 @@ XFILETXTFORMATCHAR XFILETXT::GetFormatChar()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILETXT::SetFormatChar(XFILETXTFORMATCHAR formatchar)
-* @brief      SetFormatChar
+* @brief      Set format char
 * @ingroup    XUTILS
 *
 * @param[in]  formatchar :
@@ -272,7 +272,7 @@ bool XFILETXT::SetFormatChar(XFILETXTFORMATCHAR formatchar)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILETXTFORMATCHAR XFILETXT::GetFormatCharFromFile(XDWORD* sizeBOM)
-* @brief      GetFormatCharFromFile
+* @brief      Get format char from file
 * @ingroup    XUTILS
 *
 * @param[in]  sizeBOM :
@@ -328,7 +328,7 @@ XFILETXTFORMATCHAR XFILETXT::GetFormatCharFromFile(XDWORD* sizeBOM)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILETXT::CreateBOMFormatChar(XFILETXTFORMATCHAR formatchar, XBYTE* BOM, XDWORD& sizeBOM)
-* @brief      CreateBOMFormatChar
+* @brief      Create BOM format char
 * @ingroup    XUTILS
 *
 * @param[in]  formatchar :
@@ -372,7 +372,7 @@ bool XFILETXT::CreateBOMFormatChar(XFILETXTFORMATCHAR formatchar, XBYTE* BOM, XD
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XFILETXT::SizeOfCharacter(XFILETXTFORMATCHAR formatchar)
-* @brief      SizeOfCharacter
+* @brief      Size of character
 * @ingroup    XUTILS
 *
 * @param[in]  formatchar :
@@ -400,7 +400,7 @@ int XFILETXT::SizeOfCharacter(XFILETXTFORMATCHAR formatchar)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILETXTTYPELF XFILETXT::GetTypeLF()
-* @brief      GetTypeLF
+* @brief      Get type LF
 * @ingroup    XUTILS
 *
 * @return     XFILETXTTYPELF :
@@ -415,7 +415,7 @@ XFILETXTTYPELF XFILETXT::GetTypeLF()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILETXT::SetTypeLF(XFILETXTTYPELF typeLF)
-* @brief      SetTypeLF
+* @brief      Set type LF
 * @ingroup    XUTILS
 *
 * @param[in]  typeLF :
@@ -434,7 +434,7 @@ bool XFILETXT::SetTypeLF(XFILETXTTYPELF typeLF)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILETXT::CreateTypeLF(XFILETXTFORMATCHAR formatchar, XFILETXTTYPELF typeLF, XBYTE* LF, XDWORD& sizeLF)
-* @brief      CreateTypeLF
+* @brief      Create type LF
 * @ingroup    XUTILS
 *
 * @param[in]  formatchar :
@@ -547,7 +547,7 @@ bool XFILETXT::CreateTypeLF(XFILETXTFORMATCHAR formatchar, XFILETXTTYPELF typeLF
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILETXT::GetLF(XBUFFER& lfdata)
-* @brief      GetLF
+* @brief      Get LF
 * @ingroup    XUTILS
 *
 * @param[in]  lfdata :
@@ -583,7 +583,7 @@ bool XFILETXT::GetLF(XBUFFER& lfdata)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* XFILETXT::GetLF()
-* @brief      GetLF
+* @brief      Get LF
 * @ingroup    XUTILS
 *
 * @return     XSTRING* :
@@ -598,7 +598,7 @@ XSTRING* XFILETXT::GetLF()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* XFILETXT::GetLF(XFILETXTTYPELF typeLF)
-* @brief      GetLF
+* @brief      Get LF
 * @ingroup    XUTILS
 * 
 * @param[in]  typeLF : 
@@ -626,7 +626,7 @@ XSTRING* XFILETXT::GetLF(XFILETXTTYPELF typeLF)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XFILETXT::IsBinaryFile()
-* @brief      IsBinaryFile
+* @brief      Is binary file
 * @ingroup    XUTILS
 * 
 * @return     bool : true if is succesful. 
@@ -670,7 +670,7 @@ bool XFILETXT::IsBinaryFile()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XFILETXT::GetNLines()
-* @brief      GetNLines
+* @brief      Get N lines
 * @ingroup    XUTILS
 *
 * @return     int :
@@ -685,7 +685,7 @@ int XFILETXT::GetNLines()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* XFILETXT::GetLine(int index)
-* @brief      GetLine
+* @brief      Get line
 * @ingroup    XUTILS
 *
 * @param[in]  index :
@@ -709,7 +709,7 @@ XSTRING* XFILETXT::GetLine(int index)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XCHAR* XFILETXT::GetLineText(int index)
-* @brief      GetLineText
+* @brief      Get line text
 * @ingroup    XUTILS
 *
 * @param[in]  index :
@@ -729,7 +729,7 @@ XCHAR* XFILETXT::GetLineText(int index)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XFILETXT::GetAllInOneLine(XSTRING& alllines, XFILETXTTYPELF typeLF, XDWORD start, XDWORD end)
-* @brief      GetAllInOneLine
+* @brief      Get all in one line
 * @ingroup    XUTILS
 * 
 * @param[in]  alllines : 
@@ -771,7 +771,7 @@ bool XFILETXT::GetAllInOneLine(XSTRING& alllines, XFILETXTTYPELF typeLF, XDWORD 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XFILETXT::GetAllInBuffer(XBUFFER& xbuffer, XFILETXTTYPELF typeLF, XDWORD start, XDWORD end)
-* @brief      GetAllInBuffer
+* @brief      Get all in buffer
 * @ingroup    XUTILS
 * 
 * @param[in]  xbuffer : 
@@ -813,7 +813,7 @@ bool XFILETXT::GetAllInBuffer(XBUFFER& xbuffer, XFILETXTTYPELF typeLF, XDWORD st
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILETXT::ReadAllFile()
-* @brief      ReadAllFile
+* @brief      Read all file
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -828,7 +828,7 @@ bool XFILETXT::ReadAllFile()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILETXT::WriteAllFile()
-* @brief      WriteAllFile
+* @brief      Write all file
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -941,7 +941,7 @@ bool XFILETXT::WriteAllFile()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XFILETXT::ReadNLines(int nlines)
-* @brief      ReadNLines
+* @brief      Read N lines
 * @ingroup    XUTILS
 * 
 * @param[in]  nlines : number of lines to read in list. XFILETXT_ALLLINES for all
@@ -1030,7 +1030,7 @@ bool XFILETXT::ReadNLines(int nlines)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILETXT::DeleteFormatFile()
-* @brief      DeleteFormatFile
+* @brief      Delete format file
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -1048,7 +1048,7 @@ bool XFILETXT::DeleteFormatFile()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILETXT::AddLine(XCHAR* line)
-* @brief      AddLine
+* @brief      Add line
 * @ingroup    XUTILS
 *
 * @param[in]  line :
@@ -1069,7 +1069,7 @@ bool XFILETXT::AddLine(XCHAR* line)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILETXT::AddLine(XSTRING& line)
-* @brief      AddLine
+* @brief      Add line
 * @ingroup    XUTILS
 *
 * @param[in]  line :
@@ -1091,7 +1091,7 @@ bool XFILETXT::AddLine(XSTRING& line)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XFILETXT::AddLine(XBUFFER& data, XFILETXTFORMATCHAR formatchar)
-* @brief      AddLine
+* @brief      Add line
 * @ingroup    XUTILS
 * 
 * @param[in]  data : 
@@ -1130,7 +1130,7 @@ bool XFILETXT::AddLine(XBUFFER& data, XFILETXTFORMATCHAR formatchar)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILETXT::GenerateLineFromBuffer(XFILETXTFORMATCHAR formatchar, XBYTE* line, XDWORD sizeline, XSTRING& string)
-* @brief      GenerateLineFromBuffer
+* @brief      Generate line from buffer
 * @ingroup    XUTILS
 *
 * @param[in]  formatchar :
@@ -1197,7 +1197,7 @@ bool XFILETXT::GenerateLineFromBuffer(XFILETXTFORMATCHAR formatchar, XBYTE* line
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILETXT::AddLine(XFILETXTFORMATCHAR formatchar, XBYTE* line, XDWORD sizeline)
-* @brief      AddLine
+* @brief      Add line
 * @ingroup    XUTILS
 *
 * @param[in]  formatchar :
@@ -1229,7 +1229,7 @@ bool XFILETXT::AddLine(XFILETXTFORMATCHAR formatchar, XBYTE* line, XDWORD sizeli
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILETXT::AddLineAlready(XCHAR* line, XDWORD* resultsizeline, XDWORD* resultsizeLF)
-* @brief      AddLineAlready
+* @brief      Add line already
 * @ingroup    XUTILS
 *
 * @param[in]  line :
@@ -1252,7 +1252,7 @@ bool XFILETXT::AddLineAlready(XCHAR* line, XDWORD* resultsizeline, XDWORD* resul
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILETXT::AddLineAlready(XSTRING& line, XDWORD* resultsizeline, XDWORD* resultsizeLF)
-* @brief      AddLineAlready
+* @brief      Add line already
 * @ingroup    XUTILS
 *
 * @param[in]  line :
@@ -1343,7 +1343,7 @@ bool XFILETXT::AddLineAlready(XSTRING& line, XDWORD* resultsizeline, XDWORD* res
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILETXT::InsertLine(int index, XCHAR* line)
-* @brief      InsertLine
+* @brief      Insert line
 * @ingroup    XUTILS
 *
 * @param[in]  index :
@@ -1365,7 +1365,7 @@ bool XFILETXT::InsertLine(int index, XCHAR* line)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILETXT::InsertLine(int index, XSTRING& line)
-* @brief      InsertLine
+* @brief      Insert line
 * @ingroup    XUTILS
 *
 * @param[in]  index :
@@ -1386,7 +1386,7 @@ bool XFILETXT::InsertLine(int index, XSTRING& line)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILETXT::DeleteLine(int index)
-* @brief      DeleteLine
+* @brief      Delete line
 * @ingroup    XUTILS
 *
 * @param[in]  index :
@@ -1413,7 +1413,7 @@ bool XFILETXT::DeleteLine(int index)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILETXT::DeleteAllLines()
-* @brief      DeleteAllLines
+* @brief      Delete all lines
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -1433,7 +1433,7 @@ bool XFILETXT::DeleteAllLines()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILETXT::AddBufferLines(XFILETXTFORMATCHAR formatchar, XBUFFER& xbuffer)
-* @brief      AddBufferLines
+* @brief      Add buffer lines
 * @ingroup    XUTILS
 *
 * @param[in]  formatchar :
@@ -1487,7 +1487,7 @@ bool XFILETXT::AddBufferLines(XFILETXTFORMATCHAR formatchar, XBUFFER& xbuffer)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILETXT::GetSizeOfLine(XFILETXTFORMATCHAR formatchar, XBYTE* buffer, XFILETXTTYPELF& typeLF, XDWORD& sizeLF, XDWORD& size, XDWORD maxsize)
-* @brief      GetSizeOfLine
+* @brief      Get size of line
 * @ingroup    XUTILS
 *
 * @param[in]  formatchar :
@@ -1619,7 +1619,7 @@ bool XFILETXT::GetSizeOfLine(XFILETXTFORMATCHAR formatchar, XBYTE* buffer, XFILE
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XVECTOR<XSTRING*>* XFILETXT::GetLines()
-* @brief      GetLines
+* @brief      Get lines
 * @ingroup    XUTILS
 *
 * @return     XVECTOR<XSTRING*>* :
@@ -1634,7 +1634,7 @@ XVECTOR<XSTRING*>* XFILETXT::GetLines()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILETXT::CopyFrom(XFILETXT* filetxt)
-* @brief      CopyFrom
+* @brief      Copy from
 * @ingroup    XUTILS
 *
 * @param[in]  filetxt :
@@ -1653,7 +1653,7 @@ bool XFILETXT::CopyFrom(XFILETXT* filetxt)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILETXT::CopyTo(XFILETXT* filetxt)
-* @brief      CopyTo
+* @brief      Copy to
 * @ingroup    XUTILS
 *
 * @param[in]  filetxt :
@@ -1689,7 +1689,7 @@ bool XFILETXT::CopyTo(XFILETXT* filetxt)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XFILETXT::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    XUTILS
 *

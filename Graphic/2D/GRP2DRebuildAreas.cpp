@@ -69,7 +69,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRP2DREBUILDAREA::GRP2DREBUILDAREA()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    GRAPHIC
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -82,7 +82,7 @@ GRP2DREBUILDAREA::GRP2DREBUILDAREA()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRP2DREBUILDAREA::~GRP2DREBUILDAREA()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
 *
@@ -102,7 +102,7 @@ GRP2DREBUILDAREA::~GRP2DREBUILDAREA()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         double GRP2DREBUILDAREA::GetXPos()
-* @brief      GetXPos
+* @brief      Get X pos
 * @ingroup    GRAPHIC
 *
 * @return     double :
@@ -117,7 +117,7 @@ double GRP2DREBUILDAREA::GetXPos()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         double GRP2DREBUILDAREA::GetYPos()
-* @brief      GetYPos
+* @brief      Get Y pos
 * @ingroup    GRAPHIC
 *
 * @return     double :
@@ -132,7 +132,7 @@ double GRP2DREBUILDAREA::GetYPos()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void GRP2DREBUILDAREA::SetXPos(double xpos)
-* @brief      SetXPos
+* @brief      Set X pos
 * @ingroup    GRAPHIC
 *
 * @param[in]  xpos :
@@ -147,7 +147,7 @@ void GRP2DREBUILDAREA::SetXPos(double xpos)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void GRP2DREBUILDAREA::SetYPos(double ypos)
-* @brief      SetYPos
+* @brief      Set Y pos
 * @ingroup    GRAPHIC
 *
 * @param[in]  ypos :
@@ -162,7 +162,7 @@ void GRP2DREBUILDAREA::SetYPos(double ypos)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPBITMAP* GRP2DREBUILDAREA::GetBitmap()
-* @brief      GetBitmap
+* @brief      Get bitmap
 * @ingroup    GRAPHIC
 *
 * @return     GRPBITMAP* :
@@ -177,7 +177,7 @@ GRPBITMAP* GRP2DREBUILDAREA::GetBitmap()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void GRP2DREBUILDAREA::SetBitmap(GRPBITMAP* bitmap)
-* @brief      SetBitmap
+* @brief      Set bitmap
 * @ingroup    GRAPHIC
 *
 * @param[in]  bitmap :
@@ -192,7 +192,7 @@ void GRP2DREBUILDAREA::SetBitmap(GRPBITMAP* bitmap)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void* GRP2DREBUILDAREA::GetExtraData()
-* @brief      GetExtraData
+* @brief      Get extra data
 * @ingroup    GRAPHIC
 *
 * @return     void* : 
@@ -207,7 +207,7 @@ void* GRP2DREBUILDAREA::GetExtraData()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRP2DREBUILDAREA::SetExtraData(void* extra_data)
-* @brief      SetExtraData
+* @brief      Set extra data
 * @ingroup    GRAPHIC
 *
 * @param[in]  extra_data : 
@@ -222,7 +222,7 @@ void GRP2DREBUILDAREA::SetExtraData(void* extra_data)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void GRP2DREBUILDAREA::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    GRAPHIC
 *
@@ -247,7 +247,7 @@ void GRP2DREBUILDAREA::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRP2DREBUILDAREAS::GRP2DREBUILDAREAS()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    GRAPHIC
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -260,7 +260,7 @@ GRP2DREBUILDAREAS::GRP2DREBUILDAREAS()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRP2DREBUILDAREAS::~GRP2DREBUILDAREAS()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
 *
@@ -276,7 +276,7 @@ GRP2DREBUILDAREAS::~GRP2DREBUILDAREAS()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD GRP2DREBUILDAREAS::GetExcessEdge()
-* @brief      GetExcessEdge
+* @brief      Get excess edge
 * @ingroup    GRAPHIC
 *
 * @return     XDWORD :
@@ -291,7 +291,7 @@ XDWORD GRP2DREBUILDAREAS::GetExcessEdge()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRP2DREBUILDAREAS::SetExcessEdge(XDWORD excessedge)
-* @brief      SetExcessEdge
+* @brief      Set excess edge
 * @ingroup    GRAPHIC
 *
 * @param[in]  excessedge :
@@ -309,7 +309,7 @@ bool GRP2DREBUILDAREAS::SetExcessEdge(XDWORD excessedge)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XVECTOR<GRP2DREBUILDAREA*>* GRP2DREBUILDAREAS::GetRebuildAreas()
-* @brief      GetRebuildAreas
+* @brief      Get rebuild areas
 * @ingroup    GRAPHIC
 *
 * @return     XVECTOR<GRP2DREBUILDAREA*>* :
@@ -324,7 +324,7 @@ XVECTOR<GRP2DREBUILDAREA*>* GRP2DREBUILDAREAS::GetRebuildAreas()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRP2DREBUILDAREAS::RebuildAllAreas()
-* @brief      RebuildAllAreas
+* @brief      Rebuild all areas
 * @ingroup    GRAPHIC
 *
 * @return     bool : true if is succesful.
@@ -345,7 +345,7 @@ bool GRP2DREBUILDAREAS::RebuildAllAreas()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRP2DREBUILDAREAS::DeleteAllRebuildAreas()
-* @brief      DeleteAllRebuildAreas
+* @brief      Delete all rebuild areas
 * @ingroup    GRAPHIC
 *
 * @return     bool : true if is succesful.
@@ -365,7 +365,7 @@ bool GRP2DREBUILDAREAS::DeleteAllRebuildAreas()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRP2DREBUILDAREAS::CreateRebuildArea(double x, double y, double width, double height, void* extra_data)
-* @brief      CreateRebuildArea
+* @brief      Create rebuild area
 * @ingroup    GRAPHIC
 * 
 * @param[in]  x : 
@@ -409,7 +409,7 @@ bool GRP2DREBUILDAREAS::CreateRebuildArea(double x, double y, double width, doub
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPBITMAP* GRP2DREBUILDAREAS::GetBitmap(double x, double y, double width, double height)
-* @brief      GetBitmap
+* @brief      Get bitmap
 * @ingroup    GRAPHIC
 *
 * @param[in]  x :
@@ -429,7 +429,7 @@ GRPBITMAP* GRP2DREBUILDAREAS::GetBitmap(double x, double y, double width, double
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void GRP2DREBUILDAREAS::PutBitmapNoAlpha(double x, double y, GRPBITMAP* bitmap)
-* @brief      PutBitmapNoAlpha
+* @brief      Put bitmap no alpha
 * @ingroup    GRAPHIC
 *
 * @param[in]  x :
@@ -446,7 +446,7 @@ void GRP2DREBUILDAREAS::PutBitmapNoAlpha(double x, double y, GRPBITMAP* bitmap)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void GRP2DREBUILDAREAS::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    GRAPHIC
 *

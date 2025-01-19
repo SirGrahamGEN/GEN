@@ -64,7 +64,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSCHEDULER_XEVENT::XSCHEDULER_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * @param[in]  subject :
@@ -81,7 +81,7 @@ XSCHEDULER_XEVENT::XSCHEDULER_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD fami
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSCHEDULER_XEVENT::~XSCHEDULER_XEVENT()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -95,7 +95,7 @@ XSCHEDULER_XEVENT::~XSCHEDULER_XEVENT()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSCHEDULER* XSCHEDULER_XEVENT::GetScheduler()
-* @brief      GetScheduler
+* @brief      Get scheduler
 * @ingroup    XUTILS
 *
 * @return     XSCHEDULER* :
@@ -110,7 +110,7 @@ XSCHEDULER*  XSCHEDULER_XEVENT::GetScheduler()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XSCHEDULER_XEVENT::SetScheduler(XSCHEDULER* xscheduler)
-* @brief      SetScheduler
+* @brief      Set scheduler
 * @ingroup    XUTILS
 *
 * @param[in]  xscheduler :
@@ -125,7 +125,7 @@ void XSCHEDULER_XEVENT::SetScheduler(XSCHEDULER* xscheduler)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSCHEDULERTASK* XSCHEDULER_XEVENT::GetTask()
-* @brief      GetTask
+* @brief      Get task
 * @ingroup    XUTILS
 *
 * @return     XSCHEDULERTASK* :
@@ -140,7 +140,7 @@ XSCHEDULERTASK* XSCHEDULER_XEVENT::GetTask()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XSCHEDULER_XEVENT::SetTask(XSCHEDULERTASK* xtask)
-* @brief      SetTask
+* @brief      Set task
 * @ingroup    XUTILS
 *
 * @param[in]  xtask :
@@ -155,7 +155,7 @@ void XSCHEDULER_XEVENT::SetTask(XSCHEDULERTASK* xtask)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDATETIME* XSCHEDULER_XEVENT::GetDateTime()
-* @brief      GetDateTime
+* @brief      Get date time
 * @ingroup    XUTILS
 *
 * @return     XDATETIME* :
@@ -170,7 +170,7 @@ XDATETIME* XSCHEDULER_XEVENT::GetDateTime()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XSCHEDULER_XEVENT::SetDateTime(XDATETIME* xdatetime)
-* @brief      SetDateTime
+* @brief      Set date time
 * @ingroup    XUTILS
 *
 * @param[in]  xdatetime :
@@ -185,7 +185,7 @@ void XSCHEDULER_XEVENT::SetDateTime(XDATETIME* xdatetime)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XSCHEDULER_XEVENT::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    XUTILS
 *

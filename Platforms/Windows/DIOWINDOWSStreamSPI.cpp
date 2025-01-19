@@ -66,7 +66,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOWINDOWSSTREAMSPI::DIOWINDOWSSTREAMSPI()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_WINDOWS
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -79,7 +79,7 @@ DIOWINDOWSSTREAMSPI::DIOWINDOWSSTREAMSPI() : DIOSTREAMSPI()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOWINDOWSSTREAMSPI::~DIOWINDOWSSTREAMSPI()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
 * 
@@ -111,7 +111,7 @@ void DIOWINDOWSSTREAMSPI::Sleep(int count)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOWINDOWSSTREAMSPI::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
 * 

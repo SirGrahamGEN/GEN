@@ -80,7 +80,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XLINUXSLEEP::XLINUXSLEEP()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_LINUX
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -93,7 +93,7 @@ XLINUXSLEEP::XLINUXSLEEP()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XLINUXSLEEP::~XLINUXSLEEP()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
 *
@@ -107,7 +107,7 @@ XLINUXSLEEP::~XLINUXSLEEP()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XLINUXSLEEP::Seconds(int seconds)
-* @brief      Sleep n Seconds
+* @brief      Seconds
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  seconds : n seconds to sleep
@@ -122,7 +122,7 @@ void XLINUXSLEEP::Seconds(int seconds)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XLINUXSLEEP::MilliSeconds(int milliseconds)
-* @brief      Sleep n MilliSeconds
+* @brief      Milli seconds
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  milliseconds : n milliseconds to sleep
@@ -137,7 +137,7 @@ void XLINUXSLEEP::MilliSeconds(int milliseconds)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XLINUXSLEEP::MicroSeconds(int microseconds)
-* @brief      Sleep n MicroSeconds
+* @brief      Micro seconds
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  microseconds : n microseconds to sleep
@@ -152,7 +152,7 @@ void XLINUXSLEEP::MicroSeconds(int microseconds)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XLINUXSLEEP::NanoSeconds(int nanoseconds)
-* @brief      Sleep n NanoSeconds
+* @brief      Nano seconds
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  nanoseconds : n nanoseconds to sleep
@@ -176,7 +176,7 @@ void XLINUXSLEEP::NanoSeconds(int nanoseconds)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XLINUXSLEEP::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
 *

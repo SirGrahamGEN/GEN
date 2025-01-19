@@ -72,7 +72,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOCOREPROTOCOL_HEADER::DIOCOREPROTOCOL_HEADER()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -97,7 +97,7 @@ DIOCOREPROTOCOL_HEADER::DIOCOREPROTOCOL_HEADER()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOCOREPROTOCOL_HEADER::~DIOCOREPROTOCOL_HEADER()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 * 
@@ -121,7 +121,7 @@ DIOCOREPROTOCOL_HEADER::~DIOCOREPROTOCOL_HEADER()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XUUID* DIOCOREPROTOCOL_HEADER::GetIDMessage()
-* @brief      GetIDMessage
+* @brief      Get ID message
 * @ingroup    DATAIO
 * 
 * @return     XUUID* : 
@@ -136,7 +136,7 @@ XUUID* DIOCOREPROTOCOL_HEADER::GetIDMessage()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOCOREPROTOCOL_HEADER_MESSAGETYPE DIOCOREPROTOCOL_HEADER::GetMessageType()
-* @brief      GetMessageType
+* @brief      Get message type
 * @ingroup    DATAIO
 * 
 * @return     DIOCOREPROTOCOL_HEADER_MESSAGETYPE : 
@@ -151,7 +151,7 @@ DIOCOREPROTOCOL_HEADER_MESSAGETYPE DIOCOREPROTOCOL_HEADER::GetMessageType()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOCOREPROTOCOL_HEADER::SetMessageType(DIOCOREPROTOCOL_HEADER_MESSAGETYPE message_type)
-* @brief      SetMessageType
+* @brief      Set message type
 * @ingroup    DATAIO
 * 
 * @param[in]  message_type : 
@@ -167,7 +167,7 @@ void DIOCOREPROTOCOL_HEADER::SetMessageType(DIOCOREPROTOCOL_HEADER_MESSAGETYPE m
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL_HEADER::GetMessageTypeToString(XSTRING& message_typestr)
-* @brief      GetMessageTypeToString
+* @brief      Get message type to string
 * @ingroup    DATAIO
 * 
 * @param[in]  message_typestr : 
@@ -193,7 +193,7 @@ bool DIOCOREPROTOCOL_HEADER::GetMessageTypeToString(XSTRING& message_typestr)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL_HEADER::GetMessageTypeFromString(XSTRING* message_typestr, DIOCOREPROTOCOL_HEADER_MESSAGETYPE& message_type)
-* @brief      GetMessageTypeFromString
+* @brief      Get message type from string
 * @ingroup    DATAIO
 * 
 * @param[in]  message_typestr : 
@@ -234,7 +234,7 @@ bool DIOCOREPROTOCOL_HEADER::GetMessageTypeFromString(XSTRING* message_typestr, 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOCOREPROTOCOL_HEADER_OPERATION DIOCOREPROTOCOL_HEADER::GetOperation()
-* @brief      GetOperation
+* @brief      Get operation
 * @ingroup    DATAIO
 * 
 * @return     DIOCOREPROTOCOL_HEADER_OPERATION : 
@@ -249,7 +249,7 @@ DIOCOREPROTOCOL_HEADER_OPERATION DIOCOREPROTOCOL_HEADER::GetOperation()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOCOREPROTOCOL_HEADER::SetOperation(DIOCOREPROTOCOL_HEADER_OPERATION operation)
-* @brief      SetOperation
+* @brief      Set operation
 * @ingroup    DATAIO
 * 
 * @param[in]  operation : 
@@ -265,7 +265,7 @@ void DIOCOREPROTOCOL_HEADER::SetOperation(DIOCOREPROTOCOL_HEADER_OPERATION opera
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL_HEADER::GetOperationToString(XSTRING& operationstr)
-* @brief      GetOperationToString
+* @brief      Get operation to string
 * @ingroup    DATAIO
 * 
 * @param[in]  operationstr : 
@@ -295,7 +295,7 @@ bool DIOCOREPROTOCOL_HEADER::GetOperationToString(XSTRING& operationstr)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL_HEADER::GetOperationFromString (XSTRING* operationstr, DIOCOREPROTOCOL_HEADER_OPERATION& operation)
-* @brief      GetOperationFromString
+* @brief      Get operation from string 
 * @ingroup    DATAIO
 * 
 * @param[in]  operationstr : 
@@ -356,7 +356,7 @@ bool DIOCOREPROTOCOL_HEADER::GetOperationFromString(XSTRING* operationstr, DIOCO
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* DIOCOREPROTOCOL_HEADER::GetOperationParam()
-* @brief      GetOperationParam
+* @brief      Get operation param
 * @ingroup    DATAIO
 * 
 * @return     XSTRING* : 
@@ -371,7 +371,7 @@ XSTRING* DIOCOREPROTOCOL_HEADER::GetOperationParam()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDATETIME* DIOCOREPROTOCOL_HEADER::GetDateTimeSend()
-* @brief      GetDateTimeSend
+* @brief      Get date time send
 * @ingroup    DATAIO
 * 
 * @return     XDATETIME* : 
@@ -386,7 +386,7 @@ XDATETIME* DIOCOREPROTOCOL_HEADER::GetDateTimeSend()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOCOREPROTOCOL_HEADER_CONTENTTYPE DIOCOREPROTOCOL_HEADER::GetContentType()
-* @brief      GetContentType
+* @brief      Get content type
 * @ingroup    DATAIO
 * 
 * @return     DIOCOREPROTOCOL_HEADER_CONTENTTYPE : 
@@ -401,7 +401,7 @@ DIOCOREPROTOCOL_HEADER_CONTENTTYPE DIOCOREPROTOCOL_HEADER::GetContentType()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOCOREPROTOCOL_HEADER::SetContentType(DIOCOREPROTOCOL_HEADER_CONTENTTYPE contenttype)
-* @brief      SetContentType
+* @brief      Set content type
 * @ingroup    DATAIO
 * 
 * @param[in]  contenttype : 
@@ -417,7 +417,7 @@ void DIOCOREPROTOCOL_HEADER::SetContentType(DIOCOREPROTOCOL_HEADER_CONTENTTYPE c
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL_HEADER::GetContentTypeToString(XSTRING& content_typestr)
-* @brief      GetContentTypeToString
+* @brief      Get content type to string
 * @ingroup    DATAIO
 * 
 * @param[in]  contenttypestr : 
@@ -444,7 +444,7 @@ bool DIOCOREPROTOCOL_HEADER::GetContentTypeToString(XSTRING& content_typestr)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL_HEADER::GetContentTypeFromString(XSTRING* content_typestr, DIOCOREPROTOCOL_HEADER_CONTENTTYPE& content_type)
-* @brief      GetContentTypeFromString
+* @brief      Get content type from string
 * @ingroup    DATAIO
 * 
 * @param[in]  content_typestr : 
@@ -490,7 +490,7 @@ bool DIOCOREPROTOCOL_HEADER::GetContentTypeFromString(XSTRING* content_typestr, 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD DIOCOREPROTOCOL_HEADER::GetBlockIndex()
-* @brief      GetBlockIndex
+* @brief      Get block index
 * @ingroup    DATAIO
 * 
 * @return     XDWORD : 
@@ -505,7 +505,7 @@ XDWORD DIOCOREPROTOCOL_HEADER::GetBlockIndex()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOCOREPROTOCOL_HEADER::SetBlockIndex(XDWORD block_index)
-* @brief      SetBlockIndex
+* @brief      Set block index
 * @ingroup    DATAIO
 * 
 * @param[in]  block_index : 
@@ -520,7 +520,7 @@ void DIOCOREPROTOCOL_HEADER::SetBlockIndex(XDWORD block_index)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD DIOCOREPROTOCOL_HEADER::GetBlockAmount()
-* @brief      GetBlockAmount
+* @brief      Get block amount
 * @ingroup    DATAIO
 * 
 * @return     XDWORD : 
@@ -535,7 +535,7 @@ XDWORD DIOCOREPROTOCOL_HEADER::GetBlockAmount()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOCOREPROTOCOL_HEADER::SetBlockAmount(XDWORD block_amount)
-* @brief      SetBlockAmount
+* @brief      Set block amount
 * @ingroup    DATAIO
 * 
 * @param[in]  block_amount : 
@@ -550,7 +550,7 @@ void DIOCOREPROTOCOL_HEADER::SetBlockAmount(XDWORD block_amount)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD DIOCOREPROTOCOL_HEADER::GetContentSize()
-* @brief      GetContentSize
+* @brief      Get content size
 * @ingroup    DATAIO
 * 
 * @return     XDWORD : 
@@ -565,7 +565,7 @@ XDWORD DIOCOREPROTOCOL_HEADER::GetContentSize()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOCOREPROTOCOL_HEADER::SetContentSize(XDWORD content_size)
-* @brief      SetContentSize
+* @brief      Set content size
 * @ingroup    DATAIO
 * 
 * @param[in]  content_size : 
@@ -580,7 +580,7 @@ void DIOCOREPROTOCOL_HEADER::SetContentSize(XDWORD content_size)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD DIOCOREPROTOCOL_HEADER::GetContentCompressSize()
-* @brief      GetContentCompressSize
+* @brief      Get content compress size
 * @ingroup    DATAIO
 * 
 * @return     XDWORD : 
@@ -595,7 +595,7 @@ XDWORD DIOCOREPROTOCOL_HEADER::GetContentCompressSize()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOCOREPROTOCOL_HEADER::SetContentCompressSize(XDWORD content_compresssize)
-* @brief      SetContentCompressSize
+* @brief      Set content compress size
 * @ingroup    DATAIO
 * 
 * @param[in]  content_compresssize : 
@@ -610,7 +610,7 @@ void DIOCOREPROTOCOL_HEADER::SetContentCompressSize(XDWORD content_compresssize)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD DIOCOREPROTOCOL_HEADER::GetContentCRC32()
-* @brief      GetContentCRC32
+* @brief      Get content CRC32
 * @ingroup    DATAIO
 * 
 * @return     XDWORD : 
@@ -625,7 +625,7 @@ XDWORD DIOCOREPROTOCOL_HEADER::GetContentCRC32()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOCOREPROTOCOL_HEADER::SetContentCRC32(XDWORD content_CRC32)
-* @brief      SetContentCRC32
+* @brief      Set content CRC32
 * @ingroup    DATAIO
 * 
 * @param[in]  content_CRC32 : 
@@ -640,7 +640,7 @@ void DIOCOREPROTOCOL_HEADER::SetContentCRC32(XDWORD content_CRC32)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XFILEJSON* DIOCOREPROTOCOL_HEADER::GetSerializationXFileJSON()
-* @brief      GetSerializationXFileJSON
+* @brief      Get serialization X file JSON
 * @ingroup    DATAIO
 * 
 * @return     XFILEJSON* : 
@@ -655,7 +655,7 @@ XFILEJSON* DIOCOREPROTOCOL_HEADER::GetSerializationXFileJSON()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSERIALIZATIONMETHOD* DIOCOREPROTOCOL_HEADER::GetSerializationMethod()
-* @brief      GetSerializationMethod
+* @brief      Get serialization method
 * @ingroup    DATAIO
 * 
 * @return     XSERIALIZATIONMETHOD* : 
@@ -670,7 +670,7 @@ XSERIALIZATIONMETHOD* DIOCOREPROTOCOL_HEADER::GetSerializationMethod()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL_HEADER::CopyFrom(DIOCOREPROTOCOL_HEADER* header)
-* @brief      CopyFrom
+* @brief      Copy from
 * @ingroup    DATAIO
 * 
 * @param[in]  header : 
@@ -709,7 +709,7 @@ bool DIOCOREPROTOCOL_HEADER::CopyFrom(DIOCOREPROTOCOL_HEADER* header)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL_HEADER::CopyTo(DIOCOREPROTOCOL_HEADER* header)
-* @brief      CopyTo
+* @brief      Copy to
 * @ingroup    DATAIO
 * 
 * @param[in]  header : 
@@ -943,7 +943,7 @@ bool DIOCOREPROTOCOL_HEADER::Deserialize()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOCOREPROTOCOL_HEADER::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 * 

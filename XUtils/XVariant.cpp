@@ -72,7 +72,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XVARIANT::XVARIANT()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -85,7 +85,7 @@ XVARIANT::XVARIANT()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XVARIANT::XVARIANT(const bool value)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 * 
 * @param[in]  value : 
@@ -102,7 +102,7 @@ XVARIANT::XVARIANT(const bool value)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XVARIANT::XVARIANT(const short value)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 * 
 * @param[in]  value : 
@@ -119,7 +119,7 @@ XVARIANT::XVARIANT(const short value)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XVARIANT::XVARIANT(const XWORD value)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 * 
 * @param[in]  value : 
@@ -136,7 +136,7 @@ XVARIANT::XVARIANT(const XWORD value)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XVARIANT::XVARIANT(const int value)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 * 
 * @param[in]  value : 
@@ -153,7 +153,7 @@ XVARIANT::XVARIANT(const int value)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XVARIANT::XVARIANT(const XDWORD value)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 * 
 * @param[in]  value : 
@@ -170,7 +170,7 @@ XVARIANT::XVARIANT(const XDWORD value)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XVARIANT::XVARIANT(const long long value)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 * 
 * @param[in]  value : 
@@ -187,7 +187,7 @@ XVARIANT::XVARIANT(const long long value)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XVARIANT::XVARIANT(const XQWORD value)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 * 
 * @param[in]  value : 
@@ -204,7 +204,7 @@ XVARIANT::XVARIANT(const XQWORD value)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XVARIANT::XVARIANT(const float value)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 * 
 * @param[in]  value : 
@@ -221,7 +221,7 @@ XVARIANT::XVARIANT(const float value)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XVARIANT::XVARIANT(const double value)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 * 
 * @param[in]  value : 
@@ -238,7 +238,7 @@ XVARIANT::XVARIANT(const double value)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XVARIANT::XVARIANT(const char value)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 * 
 * @param[in]  value : 
@@ -255,7 +255,7 @@ XVARIANT::XVARIANT(const char value)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XVARIANT::XVARIANT(const char* value)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 * 
 * @param[in]  value : 
@@ -272,7 +272,7 @@ XVARIANT::XVARIANT(const char* value)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XVARIANT::XVARIANT(const XCHAR value)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 * 
 * @param[in]  value : 
@@ -289,7 +289,7 @@ XVARIANT::XVARIANT(const XCHAR value)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XVARIANT::XVARIANT(const XCHAR* value)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 * 
 * @param[in]  value : 
@@ -306,7 +306,7 @@ XVARIANT::XVARIANT(const XCHAR* value)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XVARIANT::XVARIANT(const XSTRING& value)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 * 
 * @param[in]  value : 
@@ -323,7 +323,7 @@ XVARIANT::XVARIANT(const XSTRING& value)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XVARIANT::XVARIANT(const XDATETIME& value)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 * 
 * @param[in]  value: 
@@ -340,7 +340,7 @@ XVARIANT::XVARIANT(const XDATETIME& value)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XVARIANT::XVARIANT(const XBUFFER& value)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 * 
 * @param[in]  value : 
@@ -358,7 +358,7 @@ XVARIANT::XVARIANT(const XBUFFER& value)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XVARIANT::XVARIANT(const void* value)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 * 
 * @param[in]  value : 
@@ -375,7 +375,7 @@ XVARIANT::XVARIANT(const void* value)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XVARIANT::XVARIANT(const XVARIANT& value)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 * 
 * @param[in]  value : 
@@ -393,7 +393,7 @@ XVARIANT::XVARIANT(const XVARIANT& value)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XVARIANT::~XVARIANT()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -412,7 +412,7 @@ XVARIANT::~XVARIANT()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         const XVARIANT& XVARIANT::operator = (const bool value)
-* @brief      operator =
+* @brief      operator = 
 * @ingroup    XUTILS
 * 
 * @param[in]  value : 
@@ -431,7 +431,7 @@ const XVARIANT& XVARIANT::operator = (const bool value)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         const XVARIANT& XVARIANT::operator = (short value)
-* @brief      operator =
+* @brief      operator = 
 * @ingroup    XUTILS
 * 
 * @param[in]  value : 
@@ -450,7 +450,7 @@ const XVARIANT& XVARIANT::operator = (const short value)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         const XVARIANT& XVARIANT::operator = (const XWORD ushortinteger)
-* @brief      operator =
+* @brief      operator = 
 * @ingroup    XUTILS
 * 
 * @param[in]  ushortinteger : 
@@ -469,7 +469,7 @@ const XVARIANT& XVARIANT::operator = (const XWORD value)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         const XVARIANT& XVARIANT::operator = (const int value)
-* @brief      operator =
+* @brief      operator = 
 * @ingroup    XUTILS
 * 
 * @param[in]  value : 
@@ -488,7 +488,7 @@ const XVARIANT& XVARIANT::operator = (const int value)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         const XVARIANT& XVARIANT::operator = (const XDWORD value)
-* @brief      operator =
+* @brief      operator = 
 * @ingroup    XUTILS
 * 
 * @param[in]  value : 
@@ -507,7 +507,7 @@ const XVARIANT& XVARIANT::operator = (const XDWORD value)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         const XVARIANT& XVARIANT::operator = (const long long value)
-* @brief      operator =
+* @brief      operator = 
 * @ingroup    XUTILS
 * 
 * @param[in]  value : 
@@ -526,7 +526,7 @@ const XVARIANT& XVARIANT::operator = (const long long value)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         const XVARIANT& XVARIANT::operator = (const XQWORD value)
-* @brief      operator =
+* @brief      operator = 
 * @ingroup    XUTILS
 * 
 * @param[in]  value : 
@@ -545,7 +545,7 @@ const XVARIANT& XVARIANT::operator = (const XQWORD value)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         const XVARIANT& XVARIANT::operator = (const float value)
-* @brief      operator =
+* @brief      operator = 
 * @ingroup    XUTILS
 * 
 * @param[in]  value : 
@@ -564,7 +564,7 @@ const XVARIANT& XVARIANT::operator = (const float value)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         const XVARIANT& XVARIANT::operator = (const double value)
-* @brief      operator =
+* @brief      operator = 
 * @ingroup    XUTILS
 * 
 * @param[in]  value : 
@@ -583,7 +583,7 @@ const XVARIANT& XVARIANT::operator = (const double value)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         const XVARIANT& XVARIANT::operator = (const char value)
-* @brief      operator =
+* @brief      operator = 
 * @ingroup    XUTILS
 * 
 * @param[in]  value : 
@@ -602,7 +602,7 @@ const XVARIANT& XVARIANT::operator = (const char value)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         const XVARIANT& XVARIANT::operator = (const char* value)
-* @brief      operator =
+* @brief      operator = 
 * @ingroup    XUTILS
 * 
 * @param[in]  value : 
@@ -621,7 +621,7 @@ const XVARIANT& XVARIANT::operator = (const char* value)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         const XVARIANT& XVARIANT::operator = (XCHAR value)
-* @brief      operator =
+* @brief      operator = 
 * @ingroup    XUTILS
 * 
 * @param[in]  value : 
@@ -640,7 +640,7 @@ const XVARIANT& XVARIANT::operator = (const XCHAR value)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         const XVARIANT& XVARIANT::operator = (const XCHAR* value)
-* @brief      operator =
+* @brief      operator = 
 * @ingroup    XUTILS
 * 
 * @param[in]  value : 
@@ -659,7 +659,7 @@ const XVARIANT& XVARIANT::operator = (const XCHAR* value)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         const XVARIANT& XVARIANT::operator = (const XSTRING& value)
-* @brief      operator =
+* @brief      operator = 
 * @ingroup    XUTILS
 * 
 * @param[in]  value : 
@@ -678,7 +678,7 @@ const XVARIANT& XVARIANT::operator = (const XSTRING& value)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         const XVARIANT& XVARIANT::operator = (const XDATETIME& value)
-* @brief      operator =
+* @brief      operator = 
 * @ingroup    XUTILS
 * 
 * @param[in]  value : 
@@ -709,7 +709,7 @@ const XVARIANT& XVARIANT::operator = (const XDATETIME& value)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         const XVARIANT& XVARIANT::operator = (const XBUFFER& value)
-* @brief      operator =
+* @brief      operator = 
 * @ingroup    XUTILS
 * 
 * @param[in]  value : 
@@ -740,7 +740,7 @@ const XVARIANT& XVARIANT::operator = (const XBUFFER& value)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         const XVARIANT& XVARIANT::operator = (const void* value)
-* @brief      operator =
+* @brief      operator = 
 * @ingroup    XUTILS
 * 
 * @param[in]  value : 
@@ -759,7 +759,7 @@ const XVARIANT& XVARIANT::operator = (const void* value)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         const XVARIANT& XVARIANT::operator = (const XVARIANT& value)
-* @brief      operator =
+* @brief      operator = 
 * @ingroup    XUTILS
 * 
 * @param[in]  value : 
@@ -778,7 +778,7 @@ const XVARIANT& XVARIANT::operator = (const XVARIANT& value)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XVARIANT::operator bool() const
-* @brief      bool
+* @brief      operator bool
 * @ingroup    XUTILS
 * 
 * @return     const bool : 
@@ -793,7 +793,7 @@ XVARIANT::operator bool() const
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XVARIANT::operator short() const 
-* @brief      short
+* @brief      operator short
 * @ingroup    XUTILS
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -806,7 +806,7 @@ XVARIANT::operator short() const
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XVARIANT::operator XWORD() const 
-* @brief      WORD
+* @brief      operator XWORD
 * @ingroup    XUTILS
 *  
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -819,7 +819,7 @@ XVARIANT::operator XWORD() const
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XVARIANT::operator int() const 
-* @brief      int
+* @brief      operator int
 * @ingroup    XUTILS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -832,7 +832,7 @@ XVARIANT::operator int() const
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XVARIANT::operator XDWORD() const 
-* @brief      DWORD
+* @brief      operator XDWORD
 * @ingroup    XUTILS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -845,7 +845,7 @@ XVARIANT::operator XDWORD() const
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XVARIANT::operator long long() const 
-* @brief      ong long
+* @brief      operator long long
 * @ingroup    XUTILS
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -858,7 +858,7 @@ XVARIANT::operator long long() const
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XVARIANT::operator XQWORD() const 
-* @brief      QWORD
+* @brief      operator XQWORD
 * @ingroup    XUTILS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -871,7 +871,7 @@ XVARIANT::operator XQWORD() const
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XVARIANT::operator float() const 
-* @brief      loat
+* @brief      operator float
 * @ingroup    XUTILS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -884,7 +884,7 @@ XVARIANT::operator float() const
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XVARIANT::operator double() const 
-* @brief      ouble
+* @brief      operator double
 * @ingroup    XUTILS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -897,7 +897,7 @@ XVARIANT::operator double() const
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XVARIANT::operator char() const 
-* @brief      har
+* @brief      operator char
 * @ingroup    XUTILS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -910,7 +910,7 @@ XVARIANT::operator char() const
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XVARIANT::operator char*() const 
-* @brief      har*
+* @brief      operator char*
 * @ingroup    XUTILS
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -923,7 +923,7 @@ XVARIANT::operator char*() const
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XVARIANT::operator XCHAR() const 
-* @brief      CHAR
+* @brief      operator XCHAR
 * @ingroup    XUTILS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -936,7 +936,7 @@ XVARIANT::operator XCHAR() const
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XVARIANT::operator XCHAR*() const 
-* @brief      CHAR*
+* @brief      operator XCHAR*
 * @ingroup    XUTILS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -954,7 +954,7 @@ XVARIANT::operator XCHAR*() const
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XVARIANT::operator XSTRING() const 
-* @brief      XSTRING
+* @brief      operator XSTRING
 * @ingroup    XUTILS
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -974,7 +974,7 @@ XVARIANT::operator XSTRING() const
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XVARIANT::operator XDATETIME() const 
-* @brief      XDATETIME
+* @brief      operator XDATETIME
 * @ingroup    XUTILS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -994,7 +994,7 @@ XVARIANT::operator XDATETIME() const
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XVARIANT::operator XBUFFER() const 
-* @brief      XBUFFER
+* @brief      operator XBUFFER
 * @ingroup    XUTILS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -1014,7 +1014,7 @@ XVARIANT::operator XBUFFER() const
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XVARIANT::operator void*()
-* @brief      void*
+* @brief      operator void*
 * @ingroup    XUTILS
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -1036,7 +1036,7 @@ XVARIANT::operator void*() const
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XVARIANT_TYPE XVARIANT::GetType()
-* @brief      GetType
+* @brief      Get type
 * @ingroup    XUTILS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -1049,7 +1049,7 @@ XVARIANT_TYPE XVARIANT::GetType()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XVARIANT::GetType(XSTRING& typestr)
-* @brief      GetType
+* @brief      Get type
 * @ingroup    XUTILS
 * 
 * @param[in]  typestr : 
@@ -1087,7 +1087,7 @@ bool XVARIANT::GetType(XSTRING& typestr)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XVARIANT::SetType(XVARIANT_TYPE type)
-* @brief      SetType
+* @brief      Set type
 * @ingroup    XUTILS
 *
 * @param[in]  type :
@@ -1102,7 +1102,7 @@ void XVARIANT::SetType(XVARIANT_TYPE type)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD XVARIANT::GetSize()
-* @brief      GetSize
+* @brief      Get size
 * @ingroup    XUTILS
 *
 * @return     XDWORD :
@@ -1117,7 +1117,7 @@ XDWORD XVARIANT::GetSize()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void* XVARIANT::GetData()
-* @brief      GetData
+* @brief      Get data
 * @ingroup    XUTILS
 *
 * @return     void* :
@@ -1176,7 +1176,7 @@ bool XVARIANT::Set(XVARIANT_TYPE type, void* data, XDWORD size)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XVARIANT::GetDataFromString(char* string)
-* @brief      GetDataFromString
+* @brief      Get data from string
 * @ingroup    XUTILS
 * 
 * @param[in]  string : 
@@ -1209,7 +1209,7 @@ bool XVARIANT::GetDataFromString(char* string)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XVARIANT::GetDataFromString(XCHAR* string)
-* @brief      GetDataFromString
+* @brief      Get data from string
 * @ingroup    XUTILS
 *
 * @param[in]  string :
@@ -1242,7 +1242,7 @@ bool XVARIANT::GetDataFromString(XCHAR* string)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XVARIANT::GetDataVariant(XVARIANT& value)
-* @brief      GetDataVariant
+* @brief      Get data variant
 * @ingroup    XUTILS
 * 
 * @param[in]  value : 
@@ -1306,7 +1306,7 @@ bool XVARIANT::GetDataVariant(XVARIANT& value)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XVARIANT::ToString(XSTRING& to)
-* @brief      ToString
+* @brief      To string
 * @ingroup    XUTILS
 *
 * @param[in]  to :
@@ -1413,7 +1413,7 @@ bool XVARIANT::ToString(XSTRING& to)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XVARIANT::FromString(XSTRING& from, XVARIANT_TYPE from_type)
-* @brief      FromString
+* @brief      From string
 * @ingroup    XUTILS
 * 
 * @param[in]  from : 
@@ -1629,7 +1629,7 @@ bool XVARIANT::FromString(XSTRING& from, XVARIANT_TYPE from_type)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XVARIANT::IsNull()
-* @brief      IsNull
+* @brief      Is null
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -1708,7 +1708,7 @@ bool XVARIANT::Destroy()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XVARIANT::PrintDebug()
-* @brief      PrintDebug
+* @brief      Print debug
 * @ingroup    XUTILS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -1730,7 +1730,7 @@ void XVARIANT::PrintDebug()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XVARIANT::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    XUTILS
 *

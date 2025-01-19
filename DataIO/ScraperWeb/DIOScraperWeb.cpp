@@ -81,7 +81,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSCRAPERWEB::DIOSCRAPERWEB()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -108,7 +108,7 @@ DIOSCRAPERWEB::DIOSCRAPERWEB()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSCRAPERWEB::~DIOSCRAPERWEB()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -209,7 +209,7 @@ bool DIOSCRAPERWEB::Load(XPATH& namefile)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOURL* DIOSCRAPERWEB::GetURLDownload()
-* @brief      GetURLDownload
+* @brief      Get URL download
 * @ingroup    DATAIO
 *
 * @return     DIOURL* :
@@ -486,7 +486,7 @@ bool DIOSCRAPERWEB::Do(XSTRING& namewebservice, int timeoutforurl, XSTRING* loca
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSCRAPERWEB::ChangeURL(XCHAR* maskurl, DIOURL& url)
-* @brief      ChangeURL
+* @brief      Change URL
 * @ingroup    DATAIO
 *
 * @param[in]  maskurl :
@@ -508,7 +508,7 @@ bool DIOSCRAPERWEB::ChangeURL(XCHAR* maskurl, DIOURL& url)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSCRAPERWEB::AddValue(XCHAR* name, XCHAR* value)
-* @brief      AddValue
+* @brief      Add value
 * @ingroup    DATAIO
 *
 * @param[in]  name :
@@ -542,7 +542,7 @@ bool DIOSCRAPERWEB::AddValue(XCHAR* name, XCHAR* value)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSCRAPERWEB::AddValue(XCHAR* name, XSTRING& value)
-* @brief      AddValue
+* @brief      Add value
 * @ingroup    DATAIO
 *
 * @param[in]  name :
@@ -560,7 +560,7 @@ bool DIOSCRAPERWEB::AddValue(XCHAR* name, XSTRING& value)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSCRAPERWEB::AddValue(XSTRING& name,XCHAR* value)
-* @brief      AddValue
+* @brief      Add value
 * @ingroup    DATAIO
 *
 * @param[in]  name :
@@ -578,7 +578,7 @@ bool DIOSCRAPERWEB::AddValue(XSTRING& name,XCHAR*  value)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSCRAPERWEB::AddValue(XSTRING& name, XSTRING& value)
-* @brief      AddValue
+* @brief      Add value
 * @ingroup    DATAIO
 *
 * @param[in]  name :
@@ -596,7 +596,7 @@ bool DIOSCRAPERWEB::AddValue(XSTRING& name, XSTRING& value)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XCHAR* DIOSCRAPERWEB::GetValue(XCHAR* namevalue)
-* @brief      GetValue
+* @brief      Get value
 * @ingroup    DATAIO
 * 
 * @param[in]  namevalue : 
@@ -633,7 +633,7 @@ XCHAR* DIOSCRAPERWEB::GetValue(XCHAR* namevalue)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XCHAR* DIOSCRAPERWEB::GetValue(XSTRING& namevalue)
-* @brief      GetValue
+* @brief      Get value
 * @ingroup    DATAIO
 *
 * @param[in]  namevalue :
@@ -650,7 +650,7 @@ XCHAR* DIOSCRAPERWEB::GetValue(XSTRING& namevalue)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSCRAPERWEB::DeleteAllValues()
-* @brief      DeleteAllValues
+* @brief      Delete all values
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -671,7 +671,7 @@ bool DIOSCRAPERWEB::DeleteAllValues()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOWEBCLIENT* DIOSCRAPERWEB::GetWebClient()
-* @brief      GetWebClient
+* @brief      Get web client
 * @ingroup    DATAIO
 *
 * @return     DIOWEBCLIENT* :
@@ -686,7 +686,7 @@ DIOWEBCLIENT* DIOSCRAPERWEB::GetWebClient()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSCRAPERWEB::ExtractString(XCHAR* searchini,XCHAR* searchend,XBUFFER* xbuffer,bool usebufferpos,XSTRING& result)
-* @brief      ExtractString
+* @brief      Extract string
 * @ingroup    DATAIO
 *
 * @param[in]  searchini :
@@ -715,7 +715,7 @@ bool DIOSCRAPERWEB::ExtractString(XCHAR* searchini,XCHAR* searchend,XBUFFER* xbu
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSCRAPERWEB::ExtractString(XCHAR* searchini,XSTRING& searchend,XBUFFER* xbuffer,bool usebufferpos,XSTRING& result)
-* @brief      ExtractString
+* @brief      Extract string
 * @ingroup    DATAIO
 *
 * @param[in]  searchini :
@@ -742,7 +742,7 @@ bool DIOSCRAPERWEB::ExtractString(XCHAR* searchini, XSTRING& searchend, XBUFFER*
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSCRAPERWEB::ExtractString(XSTRING& searchini,XCHAR* searchend,XBUFFER* xbuffer,bool usebufferpos,XSTRING& result)
-* @brief      ExtractString
+* @brief      Extract string
 * @ingroup    DATAIO
 *
 * @param[in]  searchini :
@@ -769,7 +769,7 @@ bool DIOSCRAPERWEB::ExtractString(XSTRING& searchini,XCHAR* searchend,XBUFFER* x
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSCRAPERWEB::ExtractString(XSTRING& searchini,XSTRING& searchend,XBUFFER* xbuffer,bool usebufferpos,XSTRING& result)
-* @brief      ExtractString
+* @brief      Extract string
 * @ingroup    DATAIO
 *
 * @param[in]  searchini :
@@ -819,7 +819,7 @@ bool DIOSCRAPERWEB::ExtractString(XSTRING& searchini, XSTRING& searchend, XBUFFE
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSCRAPERWEB::HandleEvent(XEVENT* xevent)
-* @brief      Handle Event for the observer manager of this class
+* @brief      Handle event
 * @note       INTERNAL
 * @ingroup    DATAIO
 *
@@ -835,7 +835,7 @@ void DIOSCRAPERWEB::HandleEvent(XEVENT* xevent)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSCRAPERWEB::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

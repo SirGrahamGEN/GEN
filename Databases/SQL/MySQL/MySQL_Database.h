@@ -4,7 +4,7 @@
 * 
 * @class      MYSQL_DATABASE
 * @brief      DataBase SQL MySQL Database class
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 * 
 * @copyright  GEN Group. All rights reserved.
 * 

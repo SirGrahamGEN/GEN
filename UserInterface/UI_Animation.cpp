@@ -70,7 +70,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_ANIMATION::UI_ANIMATION()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    USERINTERFACE
 *
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -83,7 +83,7 @@ UI_ANIMATION::UI_ANIMATION()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_ANIMATION::~UI_ANIMATION()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
 *
@@ -99,7 +99,7 @@ UI_ANIMATION::~UI_ANIMATION()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_ANIMATION::LoadFromFile(XSTRING& resourcename, GRPPROPERTYMODE mode)
-* @brief      LoadFromFile
+* @brief      Load from file
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  resourcename : 
@@ -218,7 +218,7 @@ bool UI_ANIMATION::LoadFromFile(XSTRING& resourcename, GRPPROPERTYMODE mode)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* UI_ANIMATION::GetName()
-* @brief      GetName
+* @brief      Get name
 * @ingroup    USERINTERFACE
 *
 * @return     XSTRING* : 
@@ -233,7 +233,7 @@ XSTRING* UI_ANIMATION::GetName()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* UI_ANIMATION::GetResource()
-* @brief      GetResource
+* @brief      Get resource
 * @ingroup    USERINTERFACE
 *
 * @return     XSTRING* : 
@@ -248,7 +248,7 @@ XSTRING* UI_ANIMATION::GetResource()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XVECTOR<GRPBITMAP*>* UI_ANIMATION::GetBitmaps()
-* @brief      GetBitmaps
+* @brief      Get bitmaps
 * @ingroup    USERINTERFACE
 *
 * @return     XVECTOR<GRPBITMAP*>* : 
@@ -263,7 +263,7 @@ XVECTOR<GRPBITMAP*>* UI_ANIMATION::GetBitmaps()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPBITMAP* UI_ANIMATION::GetBitmap(int index)
-* @brief      GetBitmap
+* @brief      Get bitmap
 * @ingroup    USERINTERFACE
 *
 * @param[in]  index : 
@@ -280,7 +280,7 @@ GRPBITMAP* UI_ANIMATION::GetBitmap(int index)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_ANIMATION::DeleteAll()
-* @brief      DeleteAll
+* @brief      Delete all
 * @ingroup    USERINTERFACE
 *
 * @return     bool : true if is succesful. 
@@ -300,7 +300,7 @@ bool UI_ANIMATION::DeleteAll()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPPROPERTYMODE UI_ANIMATION::ChangeModeWithAlpha(GRPBITMAPFILE_TYPE typefile, GRPPROPERTYMODE modescreen)
-* @brief      ChangeModeWithAlpha
+* @brief      Change mode with alpha
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  typefile : 
@@ -350,7 +350,7 @@ GRPPROPERTYMODE UI_ANIMATION::ChangeModeWithAlpha(GRPBITMAPFILE_TYPE typefile, G
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_ANIMATION::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
 *

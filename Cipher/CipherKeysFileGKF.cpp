@@ -74,7 +74,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         CIPHERKEYSFILEGKF::CIPHERKEYSFILEGKF(XPATH& xpath)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    CIPHER
 * 
 * @param[in]  xpath : 
@@ -96,7 +96,7 @@ CIPHERKEYSFILEGKF::CIPHERKEYSFILEGKF(XPATH& xpath)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         CIPHERKEYSFILEGKF::~CIPHERKEYSFILEGKF()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    CIPHER
 * 
@@ -114,7 +114,7 @@ CIPHERKEYSFILEGKF::~CIPHERKEYSFILEGKF()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* CIPHERKEYSFILEGKF::GetCreatorName()
-* @brief      GetCreatorName
+* @brief      Get creator name
 * @ingroup    CIPHER
 * 
 * @return     XSTRING* : 
@@ -129,7 +129,7 @@ XSTRING* CIPHERKEYSFILEGKF::GetCreatorName()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDATETIME* CIPHERKEYSFILEGKF::GetCreatorDateTime()
-* @brief      GetCreatorDateTime
+* @brief      Get creator date time
 * @ingroup    CIPHER
 * 
 * @return     XDATETIME* : 
@@ -144,7 +144,7 @@ XDATETIME* CIPHERKEYSFILEGKF::GetCreatorDateTime()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDATETIME* CIPHERKEYSFILEGKF::GetCreatorLastModifiedDateTime()
-* @brief      GetCreatorLastModifiedDateTime
+* @brief      Get creator last modified date time
 * @ingroup    CIPHER
 * 
 * @return     XDATETIME* : 
@@ -159,7 +159,7 @@ XDATETIME* CIPHERKEYSFILEGKF::GetCreatorLastModifiedDateTime()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool CIPHERKEYSFILEGKF::HaveKey(CIPHERKEYTYPE type)
-* @brief      HaveKey
+* @brief      Have key
 * @ingroup    CIPHER
 * 
 * @param[in]  type : 
@@ -185,7 +185,7 @@ bool CIPHERKEYSFILEGKF::HaveKey(CIPHERKEYTYPE type)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         CIPHERKEY* CIPHERKEYSFILEGKF::GetKey(CIPHERKEYTYPE type)
-* @brief      GetKey
+* @brief      Get key
 * @ingroup    CIPHER
 * 
 * @param[in]  type : 
@@ -211,7 +211,7 @@ CIPHERKEY* CIPHERKEYSFILEGKF::GetKey(CIPHERKEYTYPE type)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool CIPHERKEYSFILEGKF::AddKey(CIPHERKEY& key)
-* @brief      AddKey
+* @brief      Add key
 * @ingroup    CIPHER
 * 
 * @param[in]  key : 
@@ -257,7 +257,7 @@ bool CIPHERKEYSFILEGKF::AddKey(CIPHERKEY& key)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool CIPHERKEYSFILEGKF::DeleteKey(CIPHERKEYTYPE type)
-* @brief      DeleteKey
+* @brief      Delete key
 * @ingroup    CIPHER
 * 
 * @param[in]  type : 
@@ -287,7 +287,7 @@ bool CIPHERKEYSFILEGKF::DeleteKey(CIPHERKEYTYPE type)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool CIPHERKEYSFILEGKF::DeleteAllKeys()
-* @brief      DeleteAllKeys
+* @brief      Delete all keys
 * @ingroup    CIPHER
 * 
 * @return     bool : true if is succesful. 
@@ -308,7 +308,7 @@ bool CIPHERKEYSFILEGKF::DeleteAllKeys()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool CIPHERKEYSFILEGKF::UpdateFile()
-* @brief      UpdateFile
+* @brief      Update file
 * @ingroup    CIPHER
 * 
 * @return     bool : true if is succesful. 
@@ -441,7 +441,7 @@ bool CIPHERKEYSFILEGKF::UpdateFile()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool CIPHERKEYSFILEGKF::ExportToPEMFile(CIPHERKEY* key, XSTRING& publicPEM)
-* @brief      ExportToPEMFile
+* @brief      Export to PEM file
 * @ingroup    CIPHER
 * 
 * @param[in]  key : 
@@ -552,7 +552,7 @@ bool CIPHERKEYSFILEGKF::ExportToPEMFile(CIPHERKEY* key, XSTRING& publicPEM)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool CIPHERKEYSFILEGKF::ExportToPEMFile(CIPHERKEY* key, XPATH& xpath)
-* @brief      ExportToPEMFile
+* @brief      Export to PEM file
 * @ingroup    CIPHER
 * 
 * @param[in]  key : 
@@ -592,7 +592,7 @@ bool CIPHERKEYSFILEGKF::ExportToPEMFile(CIPHERKEY* key, XPATH& xpath)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XPATH& CIPHERKEYSFILEGKF::GetXPath()
-* @brief      GetXPath
+* @brief      Get X path
 * @ingroup    CIPHER
 * 
 * @return     XPATH& : 
@@ -607,7 +607,7 @@ XPATH& CIPHERKEYSFILEGKF::GetXPath()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XFILEXML* CIPHERKEYSFILEGKF::GetXFileXML()
-* @brief      GetXFileXML
+* @brief      Get X file XML
 * @ingroup    CIPHER
 * 
 * @return     XFILEXML* : 
@@ -622,7 +622,7 @@ XFILEXML* CIPHERKEYSFILEGKF::GetXFileXML()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool CIPHERKEYSFILEGKF::ReadAllFile()
-* @brief      ReadAllFile
+* @brief      Read all file
 * @ingroup    CIPHER
 * 
 * @return     bool : true if is succesful. 
@@ -772,7 +772,7 @@ bool CIPHERKEYSFILEGKF::ReadAllFile()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void CIPHERKEYSFILEGKF::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    CIPHER
 * 

@@ -64,7 +64,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_ELEMENT_TEXTBOX::UI_ELEMENT_TEXTBOX()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    USERINTERFACE
 *
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -81,7 +81,7 @@ UI_ELEMENT_TEXTBOX::UI_ELEMENT_TEXTBOX()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_ELEMENT_TEXTBOX::~UI_ELEMENT_TEXTBOX()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
 *
@@ -95,7 +95,7 @@ UI_ELEMENT_TEXTBOX::~UI_ELEMENT_TEXTBOX()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD UI_ELEMENT_TEXTBOX::GetSizeFont()
-* @brief      GetSizeFont
+* @brief      Get size font
 * @ingroup    USERINTERFACE
 *
 * @return     XDWORD : 
@@ -110,7 +110,7 @@ XDWORD UI_ELEMENT_TEXTBOX::GetSizeFont()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_ELEMENT_TEXTBOX::SetSizeFont(XDWORD sizefont)
-* @brief      SetSizeFont
+* @brief      Set size font
 * @ingroup    USERINTERFACE
 *
 * @param[in]  sizefont : 
@@ -125,7 +125,7 @@ void UI_ELEMENT_TEXTBOX::SetSizeFont(XDWORD sizefont)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD UI_ELEMENT_TEXTBOX::GetLineSpacing()
-* @brief      GetLineSpacing
+* @brief      Get line spacing
 * @ingroup    USERINTERFACE
 *
 * @return     XDWORD : 
@@ -140,7 +140,7 @@ XDWORD UI_ELEMENT_TEXTBOX::GetLineSpacing()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_ELEMENT_TEXTBOX::SetLineSpacing(XDWORD linespacing)
-* @brief      SetLineSpacing
+* @brief      Set line spacing
 * @ingroup    USERINTERFACE
 *
 * @param[in]  linespacing : 
@@ -155,7 +155,7 @@ void UI_ELEMENT_TEXTBOX::SetLineSpacing(XDWORD linespacing)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_ELEMENT_TYPE_ALIGN UI_ELEMENT_TEXTBOX::GetTextAlignment()
-* @brief      GetTextAlignment
+* @brief      Get text alignment
 * @ingroup    USERINTERFACE
 *
 * @return     UI_ELEMENT_TYPE_ALIGN : 
@@ -170,7 +170,7 @@ UI_ELEMENT_TYPE_ALIGN UI_ELEMENT_TEXTBOX::GetTextAlignment()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_ELEMENT_TEXTBOX::SetTextAlignment(UI_ELEMENT_TYPE_ALIGN textalignment)
-* @brief      SetTextAlignment
+* @brief      Set text alignment
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  textalignment : 
@@ -185,7 +185,7 @@ void UI_ELEMENT_TEXTBOX::SetTextAlignment(UI_ELEMENT_TYPE_ALIGN textalignment)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_ELEMENT_TEXTBOX::IsWordClipping()
-* @brief      IsWordClipping
+* @brief      Is word clipping
 * @ingroup    USERINTERFACE
 *
 * @return     bool : true if is succesful. 
@@ -200,7 +200,7 @@ bool UI_ELEMENT_TEXTBOX::IsWordClipping()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_ELEMENT_TEXTBOX::SetIsWordClipping(bool iswordclipping)
-* @brief      SetIsWordClipping
+* @brief      Set is word clipping
 * @ingroup    USERINTERFACE
 *
 * @param[in]  iswordclipping : 
@@ -215,7 +215,7 @@ void UI_ELEMENT_TEXTBOX::SetIsWordClipping(bool iswordclipping)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* UI_ELEMENT_TEXTBOX::GetText()
-* @brief      GetText
+* @brief      Get text
 * @ingroup    USERINTERFACE
 *
 * @return     XSTRING* : 
@@ -230,7 +230,7 @@ XSTRING* UI_ELEMENT_TEXTBOX::GetText()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* UI_ELEMENT_TEXTBOX::GetMaskText()
-* @brief      GetMaskText
+* @brief      Get mask text
 * @ingroup    USERINTERFACE
 *
 * @return     XSTRING* : 
@@ -245,7 +245,7 @@ XSTRING* UI_ELEMENT_TEXTBOX::GetMaskText()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_ELEMENT_TEXTBOX::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
 *

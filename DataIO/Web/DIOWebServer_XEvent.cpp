@@ -67,7 +67,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOWEBSERVER_XEVENT::DIOWEBSERVER_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * @param[in]  subject :
@@ -84,7 +84,7 @@ DIOWEBSERVER_XEVENT::DIOWEBSERVER_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD 
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOWEBSERVER_XEVENT::~DIOWEBSERVER_XEVENT()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -98,7 +98,7 @@ DIOWEBSERVER_XEVENT::~DIOWEBSERVER_XEVENT()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOWEBSERVER* DIOWEBSERVER_XEVENT::GetServer()
-* @brief      GetServer
+* @brief      Get server
 * @ingroup    DATAIO
 *
 * @return     DIOWEBSERVER* :
@@ -113,7 +113,7 @@ DIOWEBSERVER* DIOWEBSERVER_XEVENT::GetServer()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOWEBSERVER_XEVENT::SetServer(DIOWEBSERVER* server)
-* @brief      SetServer
+* @brief      Set server
 * @ingroup    DATAIO
 *
 * @param[in]  server :
@@ -128,7 +128,7 @@ void DIOWEBSERVER_XEVENT::SetServer(DIOWEBSERVER* server)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOWEBSERVER_CONNECTION* DIOWEBSERVER_XEVENT::GetConnection()
-* @brief      GetConnection
+* @brief      Get connection
 * @ingroup    DATAIO
 *
 * @return     DIOWEBSERVER_CONNECTION* :
@@ -143,7 +143,7 @@ DIOWEBSERVER_CONNECTION* DIOWEBSERVER_XEVENT::GetConnection()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOWEBSERVER_XEVENT::SetConnection(DIOWEBSERVER_CONNECTION* connection)
-* @brief      SetConnection
+* @brief      Set connection
 * @ingroup    DATAIO
 *
 * @param[in]  connection :
@@ -158,7 +158,7 @@ void DIOWEBSERVER_XEVENT::SetConnection(DIOWEBSERVER_CONNECTION* connection)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOWEBSERVER_REQUEST* DIOWEBSERVER_XEVENT::GetRequest()
-* @brief      GetRequest
+* @brief      Get request
 * @ingroup    DATAIO
 *
 * @return     DIOWEBSERVER_REQUEST* :
@@ -173,7 +173,7 @@ DIOWEBSERVER_REQUEST* DIOWEBSERVER_XEVENT::GetRequest()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOWEBSERVER_XEVENT::SetRequest(DIOWEBSERVER_REQUEST* request)
-* @brief      SetRequest
+* @brief      Set request
 * @ingroup    DATAIO
 *
 * @param[in]  request :
@@ -188,7 +188,7 @@ void DIOWEBSERVER_XEVENT::SetRequest(DIOWEBSERVER_REQUEST* request)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOWEBSERVER_XEVENT::GetTimeOut()
-* @brief      GetTimeOut
+* @brief      Get time out
 * @ingroup    DATAIO
 *
 * @return     int :
@@ -203,7 +203,7 @@ int DIOWEBSERVER_XEVENT::GetTimeOut()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOWEBSERVER_XEVENT::SetTimeOut(int timeout)
-* @brief      SetTimeOut
+* @brief      Set time out
 * @ingroup    DATAIO
 *
 * @param[in]  timeout :
@@ -218,7 +218,7 @@ void DIOWEBSERVER_XEVENT::SetTimeOut(int timeout)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOWEBSERVER_QUERYSTRINGS* DIOWEBSERVER_XEVENT::GetQueryString()
-* @brief      GetQueryString
+* @brief      Get query string
 * @ingroup    DATAIO
 *
 * @return     DIOWEBSERVER_QUERYSTRINGS* :
@@ -233,7 +233,7 @@ DIOWEBSERVER_QUERYSTRINGS*  DIOWEBSERVER_XEVENT::GetQueryString()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOWEBSERVER_XEVENT::SetQueryString(DIOWEBSERVER_QUERYSTRINGS* querystring)
-* @brief      SetQueryString
+* @brief      Set query string
 * @ingroup    DATAIO
 *
 * @param[in]  querystring :
@@ -248,7 +248,7 @@ void DIOWEBSERVER_XEVENT::SetQueryString(DIOWEBSERVER_QUERYSTRINGS* querystring)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XBUFFER* DIOWEBSERVER_XEVENT::GetReadDataWebSocket()
-* @brief      GetReadDataWebSocket
+* @brief      Get read data web socket
 * @ingroup    DATAIO
 *
 * @return     XBUFFER* :
@@ -263,7 +263,7 @@ XBUFFER* DIOWEBSERVER_XEVENT::GetReadDataWebSocket()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* DIOWEBSERVER_XEVENT::GetOutputString()
-* @brief      GetOutputString
+* @brief      Get output string
 * @ingroup    DATAIO
 *
 * @return     XSTRING* :
@@ -278,7 +278,7 @@ XSTRING* DIOWEBSERVER_XEVENT::GetOutputString()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBUFFER* DIOWEBSERVER_XEVENT::GetOutputBuffer()
-* @brief      GetOutputBuffer
+* @brief      Get output buffer
 * @ingroup    DATAIO
 * 
 * @return     XBUFFER* : 
@@ -293,7 +293,7 @@ XBUFFER* DIOWEBSERVER_XEVENT::GetOutputBuffer()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWEBSERVER_XEVENT::IsRequestAuthenticate()
-* @brief      IsRequestAuthenticate
+* @brief      Is request authenticate
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -308,7 +308,7 @@ bool DIOWEBSERVER_XEVENT::IsRequestAuthenticate()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOWEBSERVER_XEVENT::SetIsRequestAuthenticate(bool isrequestauthenticate)
-* @brief      SetIsRequestAuthenticate
+* @brief      Set is request authenticate
 * @ingroup    DATAIO
 *
 * @param[in]  isrequestauthenticate :
@@ -323,7 +323,7 @@ void DIOWEBSERVER_XEVENT::SetIsRequestAuthenticate(bool isrequestauthenticate)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOWEBHEADER_RESULT DIOWEBSERVER_XEVENT::GetResult()
-* @brief      GetResult
+* @brief      Get result
 * @ingroup    DATAIO
 *
 * @return     DIOWEBHEADER_RESULT :
@@ -338,7 +338,7 @@ DIOWEBHEADER_RESULT DIOWEBSERVER_XEVENT::GetResult()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOWEBSERVER_XEVENT::SetResult(DIOWEBHEADER_RESULT result)
-* @brief      SetResult
+* @brief      Set result
 * @ingroup    DATAIO
 *
 * @param[in]  result :
@@ -353,7 +353,7 @@ void DIOWEBSERVER_XEVENT::SetResult(DIOWEBHEADER_RESULT result)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWEBSERVER_XEVENT::GetStatus()
-* @brief      GetStatus
+* @brief      Get status
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -368,7 +368,7 @@ bool DIOWEBSERVER_XEVENT::GetStatus()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOWEBSERVER_XEVENT::SetStatus(bool status)
-* @brief      SetStatus
+* @brief      Set status
 * @ingroup    DATAIO
 *
 * @param[in]  status :
@@ -383,7 +383,7 @@ void DIOWEBSERVER_XEVENT::SetStatus(bool status)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOWEBSERVER_XEVENT::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

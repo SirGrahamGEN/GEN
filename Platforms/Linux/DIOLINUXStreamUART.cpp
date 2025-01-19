@@ -91,7 +91,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOLINUXSTREAMUART::DIOLINUXSTREAMUART()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_LINUX
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -128,7 +128,7 @@ DIOLINUXSTREAMUART::DIOLINUXSTREAMUART() : DIOSTREAMUART() , XFSMACHINE(0)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOLINUXSTREAMUART::~DIOLINUXSTREAMUART()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
 * 
@@ -146,7 +146,7 @@ DIOLINUXSTREAMUART::~DIOLINUXSTREAMUART()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOSTREAMSTATUS DIOLINUXSTREAMUART::GetStatus()
-* @brief      GetStatus
+* @brief      Get status
 * @ingroup    PLATFORM_LINUX
 * 
 * @return     DIOSTREAMSTATUS : 
@@ -356,7 +356,7 @@ bool DIOLINUXSTREAMUART::Config(XWORD mask)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD DIOLINUXSTREAMUART::ReadDirect(XBYTE* buffer, XDWORD size)
-* @brief      ReadDirect
+* @brief      Read direct
 * @ingroup    PLATFORM_LINUX
 * 
 * @param[in]  buffer : 
@@ -409,7 +409,7 @@ XDWORD DIOLINUXSTREAMUART::ReadDirect(XBYTE* buffer, XDWORD size)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD DIOLINUXSTREAMUART::WriteDirect(XBYTE* buffer, XDWORD size)
-* @brief      WriteDirect
+* @brief      Write direct
 * @ingroup    PLATFORM_LINUX
 * 
 * @param[in]  buffer : 
@@ -471,7 +471,7 @@ bool DIOLINUXSTREAMUART::Close()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOLINUXSTREAMUART::GetCTS()
-* @brief      GetCTS
+* @brief      Get CTS
 * @ingroup    PLATFORM_LINUX
 * 
 * @return     bool : true if is succesful. 
@@ -492,7 +492,7 @@ bool DIOLINUXSTREAMUART::GetCTS()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOLINUXSTREAMUART::GetDSR()
-* @brief      GetDSR
+* @brief      Get DSR
 * @ingroup    PLATFORM_LINUX
 * 
 * @return     bool : true if is succesful. 
@@ -513,7 +513,7 @@ bool DIOLINUXSTREAMUART::GetDSR()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOLINUXSTREAMUART::GetRing()
-* @brief      GetRing
+* @brief      Get ring
 * @ingroup    PLATFORM_LINUX
 * 
 * @return     bool : true if is succesful. 
@@ -534,7 +534,7 @@ bool DIOLINUXSTREAMUART::GetRing()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOLINUXSTREAMUART::GetRLSD()
-* @brief      GetRLSD
+* @brief      Get RLSD
 * @ingroup    PLATFORM_LINUX
 * 
 * @return     bool : true if is succesful. 
@@ -551,7 +551,7 @@ bool DIOLINUXSTREAMUART::GetRLSD()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOLINUXSTREAMUART::SetRTS(bool on)
-* @brief      SetRTS
+* @brief      Set RTS
 * @ingroup    PLATFORM_LINUX
 * 
 * @param[in]  on : 
@@ -578,7 +578,7 @@ bool DIOLINUXSTREAMUART::SetRTS(bool on)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOLINUXSTREAMUART::SetDTR(bool on)
-* @brief      SetDTR
+* @brief      Set DTR
 * @ingroup    PLATFORM_LINUX
 * 
 * @param[in]  on : 
@@ -605,7 +605,7 @@ bool DIOLINUXSTREAMUART::SetDTR(bool on)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOLINUXSTREAMUART::CleanBuffers()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean buffers
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
 * 
@@ -625,7 +625,7 @@ bool DIOLINUXSTREAMUART::CleanBuffers()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOLINUXSTREAMUART::ThreadConnection(void* param)
-* @brief      ThreadConnection
+* @brief      Thread connection
 * @ingroup    PLATFORM_LINUX
 * 
 * @param[in]  param : 
@@ -720,7 +720,7 @@ void DIOLINUXSTREAMUART::ThreadConnection(void* param)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOLINUXSTREAMUART::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
 * 

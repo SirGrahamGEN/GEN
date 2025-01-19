@@ -64,7 +64,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XOBSERVER::XOBSERVER()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -77,7 +77,7 @@ XOBSERVER::XOBSERVER()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XOBSERVER::~XOBSERVER()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -91,7 +91,7 @@ XOBSERVER::~XOBSERVER()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XOBSERVER::SubscribeEvent(XDWORD type, XSUBJECT* subject, XOBSERVER* observer)
-* @brief      SubscribeEvent
+* @brief      Subscribe event
 * @ingroup    XUTILS
 *
 * @param[in]  type :
@@ -110,7 +110,7 @@ bool XOBSERVER::SubscribeEvent(XDWORD type, XSUBJECT* subject, XOBSERVER* observ
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XOBSERVER::UnSubscribeEvent(XDWORD type, XSUBJECT* subject, XOBSERVER* observer)
-* @brief      UnSubscribeEvent
+* @brief      Un subscribe event
 * @ingroup    XUTILS
 *
 * @param[in]  type :
@@ -129,7 +129,7 @@ bool XOBSERVER::UnSubscribeEvent(XDWORD type, XSUBJECT* subject, XOBSERVER* obse
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XOBSERVER::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    XUTILS
 *

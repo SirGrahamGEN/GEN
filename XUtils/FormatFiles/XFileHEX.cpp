@@ -70,7 +70,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILEHEX_ENTRY::XFILEHEX_ENTRY()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -83,7 +83,7 @@ XFILEHEX_ENTRY::XFILEHEX_ENTRY()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILEHEX_ENTRY::~XFILEHEX_ENTRY()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -97,7 +97,7 @@ XFILEHEX_ENTRY::~XFILEHEX_ENTRY()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XBYTE XFILEHEX_ENTRY::GetSizeData()
-* @brief      GetSizeData
+* @brief      Get size data
 * @ingroup    XUTILS
 *
 * @return     XBYTE :
@@ -112,7 +112,7 @@ XBYTE XFILEHEX_ENTRY::GetSizeData()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XFILEHEX_ENTRY::SetSizeData(XBYTE size)
-* @brief      SetSizeData
+* @brief      Set size data
 * @ingroup    XUTILS
 *
 * @param[in]  size :
@@ -127,7 +127,7 @@ void XFILEHEX_ENTRY::SetSizeData(XBYTE sizedata)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XWORD XFILEHEX_ENTRY::GetAddress()
-* @brief      GetAddress
+* @brief      Get address
 * @ingroup    XUTILS
 *
 * @return     XWORD :
@@ -142,7 +142,7 @@ XWORD XFILEHEX_ENTRY::GetAddress()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XFILEHEX_ENTRY::SetAddress(XWORD address)
-* @brief      SetAddress
+* @brief      Set address
 * @ingroup    XUTILS
 *
 * @param[in]  address :
@@ -157,7 +157,7 @@ void XFILEHEX_ENTRY::SetAddress(XWORD address)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILEHEX_ENTRYTYPE XFILEHEX_ENTRY::GetEntryType()
-* @brief      GetEntryType
+* @brief      Get entry type
 * @ingroup    XUTILS
 *
 * @return     XFILEHEX_ENTRYTYPE :
@@ -172,7 +172,7 @@ XFILEHEX_ENTRYTYPE XFILEHEX_ENTRY::GetEntryType()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XFILEHEX_ENTRY::SetEntryType(XFILEHEX_ENTRYTYPE entrytype)
-* @brief      SetEntryType
+* @brief      Set entry type
 * @ingroup    XUTILS
 *
 * @param[in]  entrytype :
@@ -187,7 +187,7 @@ void XFILEHEX_ENTRY::SetEntryType(XFILEHEX_ENTRYTYPE entrytype)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XBUFFER* XFILEHEX_ENTRY::GetData()
-* @brief      GetData
+* @brief      Get data
 * @ingroup    XUTILS
 *
 * @return     XBUFFER* :
@@ -202,7 +202,7 @@ XBUFFER* XFILEHEX_ENTRY::GetData()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XBYTE XFILEHEX_ENTRY::CalculeCRC(XBUFFER data)
-* @brief      CalculeCRC
+* @brief      Calcule CRC
 * @ingroup    XUTILS
 *
 * @param[in]  data :
@@ -228,7 +228,7 @@ XBYTE XFILEHEX_ENTRY::CalculeCRC(XBUFFER& data)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XFILEHEX_ENTRY::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    XUTILS
 *
@@ -252,7 +252,7 @@ void XFILEHEX_ENTRY::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILEHEX::XFILEHEX()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -265,7 +265,7 @@ XFILEHEX::XFILEHEX(): XFILETXT()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILEHEX::~XFILEHEX()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -281,7 +281,7 @@ XFILEHEX::~XFILEHEX()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEHEX::DecodeAllLines()
-* @brief      DecodeAllLines
+* @brief      Decode all lines
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -317,7 +317,7 @@ bool XFILEHEX::DecodeAllLines()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEHEX::EncodeAllLines()
-* @brief      EncodeAllLines
+* @brief      Encode all lines
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -349,7 +349,7 @@ bool XFILEHEX::EncodeAllLines()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEHEX::DecodeLine(XSTRING* line, XFILEHEX_ENTRY& entry)
-* @brief      DecodeLine
+* @brief      Decode line
 * @ingroup    XUTILS
 *
 * @param[in]  line :
@@ -409,7 +409,7 @@ bool XFILEHEX::DecodeLine(XSTRING* line, XFILEHEX_ENTRY& entry)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEHEX::EncodeLine(XFILEHEX_ENTRY* entry, XSTRING& line)
-* @brief      EncodeLine
+* @brief      Encode line
 * @ingroup    XUTILS
 *
 * @param[in]  entry :
@@ -449,7 +449,7 @@ bool XFILEHEX::EncodeLine(XFILEHEX_ENTRY* entry, XSTRING& line)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD XFILEHEX::GetNEntrys()
-* @brief      GetNEntrys
+* @brief      Get N entrys
 * @ingroup    XUTILS
 *
 * @return     XDWORD :
@@ -464,7 +464,7 @@ XDWORD XFILEHEX::GetNEntrys()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEHEX::Entry_Add(XSTRING* line)
-* @brief      Entry_Add
+* @brief      Entry add
 * @ingroup    XUTILS
 *
 * @param[in]  line :
@@ -495,7 +495,7 @@ bool XFILEHEX::Entry_Add(XSTRING* line)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILEHEX_ENTRY* XFILEHEX::Entry_Get(XWORD address, XFILEHEX_ENTRYTYPE type)
-* @brief      Entry_Get
+* @brief      Entry get
 * @ingroup    XUTILS
 *
 * @param[in]  address :
@@ -527,7 +527,7 @@ XFILEHEX_ENTRY* XFILEHEX::Entry_Get(XWORD address, XFILEHEX_ENTRYTYPE type)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILEHEX_ENTRY* XFILEHEX::Entry_Get(int index)
-* @brief      Entry_Get
+* @brief      Entry get
 * @ingroup    XUTILS
 *
 * @param[in]  index :
@@ -544,7 +544,7 @@ XFILEHEX_ENTRY* XFILEHEX::Entry_Get(int index)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEHEX::Entry_Delete(XWORD address, XFILEHEX_ENTRYTYPE type)
-* @brief      Entry_Delete
+* @brief      Entry delete
 * @ingroup    XUTILS
 *
 * @param[in]  address :
@@ -569,7 +569,7 @@ bool XFILEHEX::Entry_Delete(XWORD address, XFILEHEX_ENTRYTYPE type)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEHEX::Entry_Delete(int index)
-* @brief      Entry_Delete
+* @brief      Entry delete
 * @ingroup    XUTILS
 *
 * @param[in]  index :
@@ -593,7 +593,7 @@ bool XFILEHEX::Entry_Delete(int index)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEHEX::Entry_DeleteAll()
-* @brief      Entry_DeleteAll
+* @brief      Entry delete all
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -613,7 +613,7 @@ bool XFILEHEX::Entry_DeleteAll()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XFILEHEX::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    XUTILS
 *

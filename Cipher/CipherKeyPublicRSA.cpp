@@ -64,7 +64,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         CIPHERKEYPUBLICRSA::CIPHERKEYPUBLICRSA()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    CIPHER
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -82,7 +82,7 @@ CIPHERKEYPUBLICRSA::CIPHERKEYPUBLICRSA() : CIPHERKEY()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         CIPHERKEYPUBLICRSA::~CIPHERKEYPUBLICRSA()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    CIPHER
 * 
@@ -141,7 +141,7 @@ bool CIPHERKEYPUBLICRSA::Set(XMPINTEGER& modulus, XMPINTEGER& exponent)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int CIPHERKEYPUBLICRSA::GetSizeInBytes()
-* @brief      GetSizeInBytes
+* @brief      Get size in bytes
 * @ingroup    CIPHER
 * 
 * @return     int : 
@@ -156,7 +156,7 @@ int CIPHERKEYPUBLICRSA::GetSizeInBytes()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool CIPHERKEYPUBLICRSA::CopyFrom(CIPHERKEYPUBLICRSA* key)
-* @brief      CopyFrom
+* @brief      Copy from
 * @ingroup    CIPHER
 * 
 * @param[in]  key : 
@@ -197,7 +197,7 @@ bool CIPHERKEYPUBLICRSA::Check()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void CIPHERKEYPUBLICRSA::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    CIPHER
 * 

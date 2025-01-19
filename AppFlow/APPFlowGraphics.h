@@ -4,7 +4,7 @@
 * 
 * @class      APPFLOWGRAPHICS
 * @brief      Application Flow Graphics class
-* @ingroup    APPFLOW
+* @ingroup    GRAPHIC
 * 
 * @copyright  GEN Group. All rights reserved.
 * 

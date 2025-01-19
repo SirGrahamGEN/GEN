@@ -69,7 +69,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XUUID::XUUID()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -88,7 +88,7 @@ XUUID::XUUID()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XUUID::~XUUID()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -107,7 +107,7 @@ XUUID::~XUUID()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD XUUID::GetData1()
-* @brief      GetData1
+* @brief      Get data1
 * @ingroup    XUTILS
 *
 * @return     XDWORD : 
@@ -122,7 +122,7 @@ XDWORD XUUID::GetData1()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XWORD XUUID::GetData2()
-* @brief      GetData2
+* @brief      Get data2
 * @ingroup    XUTILS
 *
 * @return     XWORD : 
@@ -137,7 +137,7 @@ XWORD XUUID::GetData2()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XWORD XUUID::GetData3()
-* @brief      GetData3
+* @brief      Get data3
 * @ingroup    XUTILS
 *
 * @return     XWORD : 
@@ -152,7 +152,7 @@ XWORD XUUID::GetData3()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTE XUUID::GetData4()
-* @brief      GetData4
+* @brief      Get data4
 * @ingroup    XUTILS
 *
 * @return     XBYTE : 
@@ -167,7 +167,7 @@ XBYTE XUUID::GetData4()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTE XUUID::GetData4()
-* @brief      GetData4
+* @brief      Get data4
 * @ingroup    XUTILS
 *
 * @return     XBYTE : 
@@ -182,7 +182,7 @@ XBYTE XUUID::GetData5()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTE* XUUID::GetData6()
-* @brief      GetData6
+* @brief      Get data6
 * @ingroup    XUTILS
 *
 * @return     XBYTE* : 
@@ -197,7 +197,7 @@ XBYTE* XUUID::GetData6()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XUUID::SetData1(XDWORD data)
-* @brief      SetData1
+* @brief      Set data1
 * @ingroup    XUTILS
 *
 * @param[in]  data : 
@@ -216,7 +216,7 @@ bool XUUID::SetData1(XDWORD data)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XUUID::SetData2(XWORD data)
-* @brief      SetData2
+* @brief      Set data2
 * @ingroup    XUTILS
 *
 * @param[in]  data : 
@@ -235,7 +235,7 @@ bool XUUID::SetData2(XWORD data)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XUUID::SetData3(XWORD data)
-* @brief      SetData3
+* @brief      Set data3
 * @ingroup    XUTILS
 *
 * @param[in]  data : 
@@ -254,7 +254,7 @@ bool XUUID::SetData3(XWORD data)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XUUID::SetData4(XBYTE data)
-* @brief      SetData4
+* @brief      Set data4
 * @ingroup    XUTILS
 *
 * @param[in]  data : 
@@ -273,7 +273,7 @@ bool XUUID::SetData4(XBYTE data)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XUUID::SetData5(XBYTE data)
-* @brief      SetData5
+* @brief      Set data5
 * @ingroup    XUTILS
 *
 * @param[in]  data : 
@@ -292,7 +292,7 @@ bool XUUID::SetData5(XBYTE data)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XUUID::SetData6(XBYTE* data)
-* @brief      SetData6
+* @brief      Set data6
 * @ingroup    XUTILS
 *
 * @param[in]  data : 
@@ -314,7 +314,7 @@ bool XUUID::SetData6(XBYTE* data)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XUUID::IsEmpty()
-* @brief      IsEmpty
+* @brief      Is empty
 * @ingroup    XUTILS
 * 
 * @return     bool : true if is succesful. 
@@ -417,7 +417,7 @@ bool XUUID::Set(XDWORD data1, XWORD data2, XWORD data3, XBYTE data4, XBYTE data5
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XUUID::CopyFrom(XUUID& uuid)
-* @brief      CopyFrom
+* @brief      Copy from
 * @ingroup    XUTILS
 *
 * @param[in]  uuid : 
@@ -434,7 +434,7 @@ bool XUUID::CopyFrom(XUUID& uuid)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XUUID::CopyTo(XUUID& uuid)
-* @brief      CopyTo
+* @brief      Copy to
 * @ingroup    XUTILS
 *
 * @param[in]  uuid : 
@@ -451,7 +451,7 @@ bool XUUID::CopyTo(XUUID& uuid)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XUUID::GenerateRandom()
-* @brief      GenerateRandom
+* @brief      Generate random
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful. 
@@ -560,7 +560,7 @@ bool XUUID::Compare(XUUID& uuid)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XUUID::GetToString(XSTRING& string)
-* @brief      GetToString
+* @brief      Get to string
 * @ingroup    XUTILS
 *
 * @param[in]  string : 
@@ -582,7 +582,7 @@ bool XUUID::GetToString(XSTRING& string)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XUUID::SetFromString(XSTRING& string)
-* @brief      SetFromString
+* @brief      Set from string
 * @ingroup    XUTILS
 *
 * @param[in]  string : 
@@ -632,7 +632,7 @@ bool XUUID::SetFromString(XSTRING& string)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XUUID::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    XUTILS
 *

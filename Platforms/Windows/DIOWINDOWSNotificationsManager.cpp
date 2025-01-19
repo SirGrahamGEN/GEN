@@ -64,7 +64,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOWINDOWSNOTIFICATIONSMANAGER::DIOWINDOWSNOTIFICATIONSMANAGER()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_WINDOWS
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -77,7 +77,7 @@ DIOWINDOWSNOTIFICATIONSMANAGER::DIOWINDOWSNOTIFICATIONSMANAGER()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOWINDOWSNOTIFICATIONSMANAGER::~DIOWINDOWSNOTIFICATIONSMANAGER()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
 * 
@@ -211,7 +211,7 @@ bool DIOWINDOWSNOTIFICATIONSMANAGER::End()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         BOOL DIOWINDOWSNOTIFICATIONSMANAGER::ShowBaloon(LPCTSTR title, LPCTSTR text, HWND hwnd, HICON hicon)
-* @brief      ShowBaloon
+* @brief      Show baloon
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @param[in]  title : 
@@ -256,7 +256,7 @@ BOOL DIOWINDOWSNOTIFICATIONSMANAGER::ShowBaloon(LPCTSTR title, LPCTSTR text, HWN
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         HRESULT DIOWINDOWSNOTIFICATIONSMANAGER::RegisterCOMServer(_In_z_ PCWSTR pszExePath)
-* @brief      RegisterCOMServer
+* @brief      Register COM server
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  pszExePath :
@@ -274,7 +274,7 @@ HRESULT  DIOWINDOWSNOTIFICATIONSMANAGER::RegisterCOMServer(_In_z_ PCWSTR pszExeP
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         HRESULT DIOWINDOWSNOTIFICATIONSMANAGER::UnRegisterCOMServer()
-* @brief      UnRegisterCOMServer
+* @brief      Un register COM server
 * @ingroup    PLATFORM_WINDOWS
 *
 * @return     HRESULT :
@@ -292,7 +292,7 @@ HRESULT  DIOWINDOWSNOTIFICATIONSMANAGER::UnRegisterCOMServer()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         HRESULT DIOWINDOWSNOTIFICATIONSMANAGER::RegisterActivator()
-* @brief      RegisterActivator
+* @brief      Register activator
 * @ingroup    PLATFORM_WINDOWS
 *
 * @return     HRESULT :
@@ -317,7 +317,7 @@ HRESULT  DIOWINDOWSNOTIFICATIONSMANAGER::RegisterActivator()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOWINDOWSNOTIFICATIONSMANAGER::UnregisterActivator()
-* @brief      UnregisterActivator
+* @brief      Unregister activator
 * @ingroup    PLATFORM_WINDOWS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -331,7 +331,7 @@ void  DIOWINDOWSNOTIFICATIONSMANAGER::UnregisterActivator()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOWINDOWSNOTIFICATIONSMANAGER::ReportToastNotification(_In_z_ LPCTSTR pszDetails, _In_ BOOL bAppend)
-* @brief      ReportToastNotification
+* @brief      Report toast notification
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  LPCTSTR pszDetails :
@@ -347,7 +347,7 @@ void DIOWINDOWSNOTIFICATIONSMANAGER::ReportToastNotification(_In_z_ LPCTSTR pszD
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOWINDOWSNOTIFICATIONSMANAGER::OnToastActivated(_In_opt_ ABI::Windows::UI::Notifications::IToastNotification* pSender, _In_opt_ IInspectable* pArgs)
-* @brief      OnToastActivated
+* @brief      On toast activated
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  pSender :
@@ -363,7 +363,7 @@ void DIOWINDOWSNOTIFICATIONSMANAGER::OnToastActivated(_In_opt_ ABI::Windows::UI:
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOWINDOWSNOTIFICATIONSMANAGER::OnToastDismissed(_In_opt_ ABI::Windows::UI::Notifications::IToastNotification* pSender, _In_ ABI::Windows::UI::Notifications::ToastDismissalReason reason)
-* @brief      OnToastDismissed
+* @brief      On toast dismissed
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  pSender :
@@ -379,7 +379,7 @@ void DIOWINDOWSNOTIFICATIONSMANAGER::OnToastDismissed(_In_opt_ ABI::Windows::UI:
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOWINDOWSNOTIFICATIONSMANAGER::OnToastFailed(_In_opt_ ABI::Windows::UI::Notifications::IToastNotification* pSender, _In_ HRESULT errorCode)
-* @brief      OnToastFailed
+* @brief      On toast failed
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  pSender :
@@ -398,7 +398,7 @@ void DIOWINDOWSNOTIFICATIONSMANAGER::OnToastFailed(_In_opt_ ABI::Windows::UI::No
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOWINDOWSNOTIFICATIONSMANAGER::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
 * 

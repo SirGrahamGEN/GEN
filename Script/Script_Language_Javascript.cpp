@@ -72,7 +72,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         SCRIPT_LNG_JAVASCRIPT::SCRIPT_LNG_JAVASCRIPT()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    SCRIPT
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -93,7 +93,7 @@ SCRIPT_LNG_JAVASCRIPT::SCRIPT_LNG_JAVASCRIPT() : SCRIPT()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         SCRIPT_LNG_JAVASCRIPT::~SCRIPT_LNG_JAVASCRIPT()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    SCRIPT
 *
@@ -152,7 +152,7 @@ int SCRIPT_LNG_JAVASCRIPT::Run(int* returnval)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool SCRIPT_LNG_JAVASCRIPT::AddLibraryFunction(SCRIPT_LIB* library, XCHAR* name, SCRFUNCIONLIBRARY ptrfunction)
-* @brief      AddLibraryFunction
+* @brief      Add library function
 * @ingroup    SCRIPT
 *
 * @param[in]  library :
@@ -186,7 +186,7 @@ bool SCRIPT_LNG_JAVASCRIPT::AddLibraryFunction(SCRIPT_LIB* library, XCHAR* name,
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool SCRIPT_LNG_JAVASCRIPT::HaveError(SCRIPT_G_ERRORCODE errorcode)
-* @brief      HaveError
+* @brief      Have error
 * @ingroup    SCRIPT
 *
 * @param[in]  errorcode :
@@ -238,7 +238,7 @@ bool SCRIPT_LNG_JAVASCRIPT::HaveError(int _errorcode)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool SCRIPT_LNG_JAVASCRIPT::HaveMainFunction()
-* @brief      HaveMainFunction
+* @brief      Have main function
 * @ingroup    SCRIPT
 *
 * @return     bool : true if is succesful.
@@ -295,7 +295,7 @@ bool SCRIPT_LNG_JAVASCRIPT::HaveMainFunction()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         duk_ret_t SCRIPT_LNG_JAVASCRIPT::LibraryCallBack(duk_context* context)
-* @brief      LibraryCallBack
+* @brief      Library call back
 * @ingroup    SCRIPT
 *
 * @param[in]  context :
@@ -450,7 +450,7 @@ duk_ret_t SCRIPT_LNG_JAVASCRIPT::LibraryCallBack(duk_context* context)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void SCRIPT_LNG_JAVASCRIPT::FatalErrorHandler(void* udata, const char* msg)
-* @brief      JS_FatalErrorHandler
+* @brief      Fatal error handler
 * @ingroup    SCRIPT
 *
 * @param[in]  udata :
@@ -473,7 +473,7 @@ void SCRIPT_LNG_JAVASCRIPT::FatalErrorHandler(void* udata, const char* msg)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void SCRIPT_LNG_JAVASCRIPT::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    SCRIPT
 *
@@ -485,15 +485,15 @@ void SCRIPT_LNG_JAVASCRIPT::Clean()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         double __builtin_inf (void)
-* @brief      _builtin_inf
+* @brief      builtin inf
 * @ingroup    SCRIPT
-*
-* @param[in]  void :
-*
-* @return     double :
-*
+* 
+* @param[in]  void : 
+* 
+* @return     double : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 double __builtin_inf (void)
 {

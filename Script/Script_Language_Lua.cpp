@@ -70,7 +70,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         SCRIPT_LNG_LUA::SCRIPT_LNG_LUA()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    SCRIPT
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -92,7 +92,7 @@ SCRIPT_LNG_LUA::SCRIPT_LNG_LUA()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         SCRIPT_LNG_LUA::~SCRIPT_LNG_LUA()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    SCRIPT
 *
@@ -135,7 +135,7 @@ int SCRIPT_LNG_LUA::Run(int* returnval)
 
       if(!HaveMainFunction())
         {
-          // Exec to ajust the Stack in Lua with Main Function. lua_getglobal don´t work well without this.
+          // Exec to ajust the Stack in Lua with Main Function. lua_getglobal dont work well without this.
           lua_pcall(state, 0, LUA_MULTRET, 0);
         }
        else
@@ -188,7 +188,7 @@ int SCRIPT_LNG_LUA::Run(int* returnval)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool SCRIPT_LNG_LUA::AddLibraryFunction(SCRIPT_LIB* library, XCHAR* name, SCRFUNCIONLIBRARY ptrfunction)
-* @brief      AddLibraryFunction
+* @brief      Add library function
 * @ingroup    SCRIPT
 *
 * @param[in]  library :
@@ -216,7 +216,7 @@ bool SCRIPT_LNG_LUA::AddLibraryFunction(SCRIPT_LIB* library, XCHAR* name, SCRFUN
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool SCRIPT_LNG_LUA::HaveError(SCRIPT_G_ERRORCODE errorcode)
-* @brief      HaveError
+* @brief      Have error
 * @ingroup    SCRIPT
 *
 * @param[in]  errorcode :
@@ -276,7 +276,7 @@ bool SCRIPT_LNG_LUA::HaveError(int errorcode)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool SCRIPT_LNG_LUA::HaveMainFunction()
-* @brief      HaveMainFunction
+* @brief      Have main function
 * @ingroup    SCRIPT
 *
 * @return     bool : true if is succesful.
@@ -333,7 +333,7 @@ bool SCRIPT_LNG_LUA::HaveMainFunction()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void SCRIPT_LNG_LUA::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    SCRIPT
 *
@@ -421,7 +421,7 @@ int LUA_LibraryCallBack(lua_State* state)
 
               case LUA_TSTRING        : (*variant) = (char*)(lua_tostring(state, c));         break;
               case LUA_TTABLE         :                                                       break;
-              case LUA_TFUNCTION      : // XVARIANT don´t suppor pointers yet
+              case LUA_TFUNCTION      : // XVARIANT dont suppor pointers yet
                                         //(*variant) = (void*)(lua_tocfunction(state,c));
                                         break;
               case LUA_TUSERDATA      :                                                       break;

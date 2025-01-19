@@ -64,7 +64,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XANDROIDSHAREDMEMORY::XANDROIDSHAREDMEMORY()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_ANDROID
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -77,7 +77,7 @@ XANDROIDSHAREDMEMORY::XANDROIDSHAREDMEMORY()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XANDROIDSHAREDMEMORY::~XANDROIDSHAREDMEMORY()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_ANDROID
 *

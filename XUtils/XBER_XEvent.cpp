@@ -66,7 +66,7 @@ XBER_XEVENT  XBER_XEVENT::beforeevent;
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBER_XEVENT::XBER_XEVENT()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -79,7 +79,7 @@ XBER_XEVENT::XBER_XEVENT() : XEVENT(NULL, 0, 0)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XBER_XEVENT::XBER_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * @param[in]  subject :
@@ -96,7 +96,7 @@ XBER_XEVENT::XBER_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family): XEVENT(
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XBER_XEVENT::~XBER_XEVENT()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -110,7 +110,7 @@ XBER_XEVENT::~XBER_XEVENT()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int XBER_XEVENT::GetLevel()
-* @brief      GetLevel
+* @brief      Get level
 * @ingroup    XUTILS
 * 
 * @return     int : 
@@ -125,7 +125,7 @@ int XBER_XEVENT::GetLevel()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void XBER_XEVENT::SetLevel(int level)
-* @brief      SetLevel
+* @brief      Set level
 * @ingroup    XUTILS
 * 
 * @param[in]  level : 
@@ -140,7 +140,7 @@ void XBER_XEVENT::SetLevel(int level)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD* XBER_XEVENT::GetLevels()
-* @brief      GetLevels
+* @brief      Get levels
 * @ingroup    XUTILS
 * 
 * @return     XDWORD* : 
@@ -155,7 +155,7 @@ XDWORD* XBER_XEVENT::GetLevels()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* XBER_XEVENT::GetLevelsString()
-* @brief      GetLevelsString
+* @brief      Get levels string
 * @ingroup    XUTILS
 * 
 * @return     XSTRING* : 
@@ -170,7 +170,7 @@ XSTRING* XBER_XEVENT::GetLevelsString()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* XBER_XEVENT::GetLine()
-* @brief      GetLine
+* @brief      Get line
 * @ingroup    XUTILS
 * 
 * @return     XSTRING* : 
@@ -185,7 +185,7 @@ XSTRING* XBER_XEVENT::GetLine()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBUFFER* XBER_XEVENT::GetData()
-* @brief      GetData
+* @brief      Get data
 * @ingroup    XUTILS
 * 
 * @return     XBUFFER* : 
@@ -200,7 +200,7 @@ XBUFFER* XBER_XEVENT::GetData()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTE XBER_XEVENT::GetTagType()
-* @brief      GetTagType
+* @brief      Get tag type
 * @ingroup    XUTILS
 * 
 * @return     XBYTE : 
@@ -215,7 +215,7 @@ XBYTE XBER_XEVENT::GetTagType()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void XBER_XEVENT::SetTagType(XBYTE tagtype)
-* @brief      SetTagType
+* @brief      Set tag type
 * @ingroup    XUTILS
 * 
 * @param[in]  tagtype : 
@@ -230,7 +230,7 @@ void XBER_XEVENT::SetTagType(XBYTE tagtype)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* XBER_XEVENT::GetTagTypeName()
-* @brief      GetTagTypeName
+* @brief      Get tag type name
 * @ingroup    XUTILS
 * 
 * @return     XSTRING* : 
@@ -245,7 +245,7 @@ XSTRING* XBER_XEVENT::GetTagTypeName()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBER_TAGCLASS XBER_XEVENT::GetTagClass()
-* @brief      GetTagClass
+* @brief      Get tag class
 * @ingroup    XUTILS
 * 
 * @return     XBER_TAGCLASS : 
@@ -260,7 +260,7 @@ XBER_TAGCLASS XBER_XEVENT::GetTagClass()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void XBER_XEVENT::SetTagClass(XBER_TAGCLASS tagclass)
-* @brief      SetTagClass
+* @brief      Set tag class
 * @ingroup    XUTILS
 * 
 * @param[in]  tagclass : 
@@ -275,7 +275,7 @@ void XBER_XEVENT::SetTagClass(XBER_TAGCLASS tagclass)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XASN1_OID_PROPERTY* XBER_XEVENT::GetProperty()
-* @brief      GetProperty
+* @brief      Get property
 * @ingroup    XUTILS
 * 
 * @return     XASN1_OID_PROPERTY* : 
@@ -290,7 +290,7 @@ XASN1_OID_PROPERTY* XBER_XEVENT::GetProperty()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void XBER_XEVENT::SetProperty(XASN1_OID_PROPERTY* property)
-* @brief      SetProperty
+* @brief      Set property
 * @ingroup    XUTILS
 * 
 * @param[in]  property : 
@@ -305,7 +305,7 @@ void XBER_XEVENT::SetProperty(XASN1_OID_PROPERTY* property)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XVARIANT* XBER_XEVENT::GetValue()
-* @brief      GetValue
+* @brief      Get value
 * @ingroup    XUTILS
 * 
 * @return     XVARIANT* : 
@@ -320,7 +320,7 @@ XVARIANT* XBER_XEVENT::GetValue()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XBER_XEVENT::GetStatus()
-* @brief      GetStatus
+* @brief      Get status
 * @ingroup    XUTILS
 * 
 * @return     bool : true if is succesful. 
@@ -335,7 +335,7 @@ bool XBER_XEVENT::GetStatus()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void XBER_XEVENT::SetStatus(bool status)
-* @brief      SetStatus
+* @brief      Set status
 * @ingroup    XUTILS
 * 
 * @param[in]  status : 
@@ -350,7 +350,7 @@ void XBER_XEVENT::SetStatus(bool status)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBER_XEVENT* XBER_XEVENT::GetBeforeEvent()
-* @brief      GetBeforeEvent
+* @brief      Get before event
 * @ingroup    XUTILS
 * 
 * @return     XBER_XEVENT* : 
@@ -365,7 +365,7 @@ XBER_XEVENT* XBER_XEVENT::GetBeforeEvent()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XBER_XEVENT::SetBeforeEvent(XBER_XEVENT& event)
-* @brief      SetBeforeEvent
+* @brief      Set before event
 * @ingroup    XUTILS
 * 
 * @param[in]  event : 
@@ -403,7 +403,7 @@ bool XBER_XEVENT::SetBeforeEvent(XBER_XEVENT& event)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XBER_XEVENT::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    XUTILS
 *

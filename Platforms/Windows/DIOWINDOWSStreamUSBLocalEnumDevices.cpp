@@ -81,7 +81,7 @@ DEFINE_GUID(GUID_DEVINTERFACE_USB_PRINT, 0x28D78FAD , 0x5A12, 0x11D1, 0xAE, 0x5B
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOWINDOWSSTREAMUSBLOCALENUMDEVICES::DIOWINDOWSSTREAMUSBLOCALENUMDEVICES()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_WINDOWS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -94,7 +94,7 @@ DIOWINDOWSSTREAMUSBLOCALENUMDEVICES::DIOWINDOWSSTREAMUSBLOCALENUMDEVICES() : DIO
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOWINDOWSSTREAMUSBLOCALENUMDEVICES::~DIOWINDOWSSTREAMUSBLOCALENUMDEVICES()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
 *
@@ -130,7 +130,7 @@ bool DIOWINDOWSSTREAMUSBLOCALENUMDEVICES::Search()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWINDOWSSTREAMUSBLOCALENUMDEVICES::SearchGUID(const GUID* interfaceclassguid)
-* @brief      SearchGUID
+* @brief      Search GUID
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  GUID* interfaceclassguid :
@@ -229,7 +229,7 @@ bool DIOWINDOWSSTREAMUSBLOCALENUMDEVICES::SearchGUID(const GUID* interfaceclassg
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWINDOWSSTREAMUSBLOCALENUMDEVICES::GetInfoFromRegistry(DIOSTREAMDEVICEUSB* device)
-* @brief      GetInfoFromRegistry
+* @brief      Get info from registry
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  device :
@@ -347,7 +347,7 @@ bool DIOWINDOWSSTREAMUSBLOCALENUMDEVICES::GetInfoFromRegistry(DIOSTREAMDEVICEUSB
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWINDOWSSTREAMUSBLOCALENUMDEVICES::GetUSBDescriptor(HDEVINFO* hdevinfo, int memberindex, DIOSTREAMDEVICEUSB* device)
-* @brief      GetUSBDescriptor
+* @brief      Get USB descriptor
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  hdevinfo :
@@ -450,7 +450,7 @@ bool DIOWINDOWSSTREAMUSBLOCALENUMDEVICES::GetUSBDescriptor(HDEVINFO& hdevinfo, i
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWINDOWSSTREAMUSBLOCALENUMDEVICES::SearchAndDeleteEqualDevices()
-* @brief      SearchAndDeleteEqualDevices
+* @brief      Search and delete equal devices
 * @ingroup    PLATFORM_WINDOWS
 *
 * @return     bool : true if is succesful.
@@ -500,7 +500,7 @@ bool DIOWINDOWSSTREAMUSBLOCALENUMDEVICES::SearchAndDeleteEqualDevices()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOWINDOWSSTREAMUSBLOCALENUMDEVICES::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
 *

@@ -73,7 +73,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOWINDOWSSTREAMUDP::DIOWINDOWSSTREAMUDP()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_WINDOWS
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -122,7 +122,7 @@ DIOWINDOWSSTREAMUDP::DIOWINDOWSSTREAMUDP() : DIOSTREAMUDP() , XFSMACHINE(0)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOWINDOWSSTREAMUDP::~DIOWINDOWSSTREAMUDP()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
 * 
@@ -250,7 +250,7 @@ bool DIOWINDOWSSTREAMUDP::Close()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int DIOWINDOWSSTREAMUDP::IsReadyConnect(SOCKET socket)
-* @brief      IsReadyConnect
+* @brief      Is ready connect
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @param[in]  socket : 
@@ -306,7 +306,7 @@ int DIOWINDOWSSTREAMUDP::IsReadyConnect(SOCKET socket)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOWINDOWSSTREAMUDP::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
 * 
@@ -322,7 +322,7 @@ void DIOWINDOWSSTREAMUDP::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOWINDOWSSTREAMUDP::ThreadConnection(void* data)
-* @brief      ThreadConnection
+* @brief      Thread connection
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @param[in]  data : 

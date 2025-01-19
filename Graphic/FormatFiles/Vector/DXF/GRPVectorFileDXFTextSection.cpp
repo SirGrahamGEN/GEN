@@ -181,7 +181,7 @@ GRPVECTORFILEDXFTEXTSECTIONGENERICDEFTYPE GRPVECTORFILEDXFTEXTSECTION::genericde
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVECTORFILEDXFTEXTSECTION::GRPVECTORFILEDXFTEXTSECTION()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    GRAPHIC
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -194,7 +194,7 @@ GRPVECTORFILEDXFTEXTSECTION::GRPVECTORFILEDXFTEXTSECTION()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVECTORFILEDXFTEXTSECTION::~GRPVECTORFILEDXFTEXTSECTION()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
 * 
@@ -208,7 +208,7 @@ GRPVECTORFILEDXFTEXTSECTION::~GRPVECTORFILEDXFTEXTSECTION()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVECTORFILE* GRPVECTORFILEDXFTEXTSECTION::GetGrpVectorFile()
-* @brief      GetGrpVectorFile
+* @brief      Get grp vector file
 * @ingroup    GRAPHIC
 * 
 * @return     GRPVECTORFILE* : 
@@ -223,7 +223,7 @@ GRPVECTORFILE* GRPVECTORFILEDXFTEXTSECTION::GetGrpVectorFile()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRPVECTORFILEDXFTEXTSECTION::SetGrpVectorFile(GRPVECTORFILE* vectorfile)
-* @brief      SetGrpVectorFile
+* @brief      Set grp vector file
 * @ingroup    GRAPHIC
 * 
 * @param[in]  vectorfile : 
@@ -238,7 +238,7 @@ void GRPVECTORFILEDXFTEXTSECTION::SetGrpVectorFile(GRPVECTORFILE* vectorfile)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVECTORFILEDXFTEXTSECTION* GRPVECTORFILEDXFTEXTSECTION::CreateInstance(GRPVECTORFILEDXFTEXTSECTION_TYPESECTION type)
-* @brief      CreateInstance
+* @brief      Create instance
 * @ingroup    GRAPHIC
 * 
 * @param[in]  type : 
@@ -279,7 +279,7 @@ GRPVECTORFILEDXFTEXTSECTION* GRPVECTORFILEDXFTEXTSECTION::CreateInstance(GRPVECT
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVECTORFILEDXFTEXTSECTION_TYPESECTION GRPVECTORFILEDXFTEXTSECTION::GetTypeSection(XSTRING& namesection)
-* @brief      GetTypeSection
+* @brief      Get type section
 * @ingroup    GRAPHIC
 * 
 * @param[in]  namesection : 
@@ -304,7 +304,7 @@ GRPVECTORFILEDXFTEXTSECTION_TYPESECTION GRPVECTORFILEDXFTEXTSECTION::GetTypeSect
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVECTORFILEDXFTEXTSECTION_BASICTYPE GRPVECTORFILEDXFTEXTSECTION::GetTypeBasic(int type)
-* @brief      GetTypeBasic
+* @brief      Get type basic
 * @ingroup    GRAPHIC
 * 
 * @param[in]  type : 
@@ -851,7 +851,7 @@ GRPVECTORFILEDXFTEXTSECTION_BASICTYPE GRPVECTORFILEDXFTEXTSECTION::GetTypeBasic(
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVECTORFILEDXFTEXTSECTIONGENERICDEFTYPE* GRPVECTORFILEDXFTEXTSECTION::GetGenericDefType(int type)
-* @brief      GetGenericDefType
+* @brief      Get generic def type
 * @ingroup    GRAPHIC
 * 
 * @param[in]  type : 
@@ -887,7 +887,7 @@ GRPVECTORFILEDXFTEXTSECTIONGENERICDEFTYPE* GRPVECTORFILEDXFTEXTSECTION::GetGener
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRPVECTORFILEDXFTEXTSECTION::GetVariableFromLine(XCHAR* namevar, int type, XSTRING* line, XVARIANT& variant)
-* @brief      GetVariableFromLine
+* @brief      Get variable from line
 * @ingroup    GRAPHIC
 * 
 * @param[in]  namevar : 
@@ -924,7 +924,7 @@ void GRPVECTORFILEDXFTEXTSECTION::GetVariableFromLine(XCHAR* namevar, int type, 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVECTORFILEDXFText_XDataCtrl_Status GRPVECTORFILEDXFTEXTSECTION::IsXDataControl(int type, XSTRING& line)
-* @brief      IsXDataControl
+* @brief      Is X data control
 * @ingroup    GRAPHIC
 * 
 * @param[in]  type : 
@@ -958,7 +958,7 @@ GRPVECTORFILEDXFText_XDataCtrl_Status GRPVECTORFILEDXFTEXTSECTION::IsXDataContro
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVECTORFILERESULT GRPVECTORFILEDXFTEXTSECTION::ParserTextSection (XFILETXT* fileTXT)
-* @brief      ParserTextSection
+* @brief      Parser text section 
 * @ingroup    GRAPHIC
 * 
 * @param[in]  fileTXT : 
@@ -975,7 +975,7 @@ GRPVECTORFILERESULT GRPVECTORFILEDXFTEXTSECTION::ParserTextSection (XFILETXT* fi
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRPVECTORFILEDXFTEXTSECTION::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    GRAPHIC
 * 

@@ -73,7 +73,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XCONSOLE::XCONSOLE()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -86,7 +86,7 @@ XCONSOLE::XCONSOLE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XCONSOLE::~XCONSOLE()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -100,7 +100,7 @@ XCONSOLE::~XCONSOLE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XCONSOLE::GetSize(int& width, int& height)
-* @brief      Get size Of Console
+* @brief      Get size
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -122,7 +122,7 @@ bool XCONSOLE::GetSize(int& width, int& height)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XCONSOLE::SetSize(int width, int height)
-* @brief      Set Size oif console
+* @brief      Set size
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -141,7 +141,7 @@ bool XCONSOLE::SetSize(int width, int height)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XCONSOLE::GetSizeText(int& columns, int& rows)
-* @brief      GetSizeText
+* @brief      Get size text
 * @ingroup    XUTILS
 *
 * @param[in]  columns :
@@ -159,7 +159,7 @@ bool XCONSOLE::GetSizeText(int& columns, int& rows)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XCONSOLE::Maximize()
-* @brief      Maximize console
+* @brief      Maximize
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -175,7 +175,7 @@ bool XCONSOLE::Maximize()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XCONSOLE::Minimize()
-* @brief      Minimize console
+* @brief      Minimize
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -191,7 +191,7 @@ bool XCONSOLE::Minimize()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XCONSOLE::Hide()
-* @brief      Hide console
+* @brief      Hide
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -207,7 +207,7 @@ bool XCONSOLE::Hide()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XCONSOLE::IsHide()
-* @brief      Check if the console is hide
+* @brief      Is hide
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -223,7 +223,7 @@ bool XCONSOLE::IsHide()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XCONSOLE::UnHide()
-* @brief      unhide console
+* @brief      Un hide
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -256,7 +256,7 @@ bool XCONSOLE::Clear(bool fill)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XCONSOLE::KBHit()
-* @brief      Kbhit in console
+* @brief      KB hit
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -272,7 +272,7 @@ bool XCONSOLE::KBHit()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XCONSOLE::GetChar()
-* @brief      GetChar Console
+* @brief      Get char
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -288,7 +288,7 @@ int XCONSOLE::GetChar()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XCONSOLE::Print(XCHAR* string)
-* @brief      Print a string
+* @brief      Print
 * @ingroup    XUTILS
 *
 * @param[in]  string : string to print
@@ -307,7 +307,7 @@ bool XCONSOLE::Print(XCHAR* string)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XCONSOLE::Printf(XCHAR* mask,...)
-* @brief      Print variables with a mask
+* @brief      Printf
 * @ingroup    XUTILS
 *
 * @param[in]  mask : mask to use
@@ -339,7 +339,7 @@ bool XCONSOLE::Printf(XCHAR* mask,...)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XCONSOLE::PrintDataBlock(XBYTE* data, XDWORD size, XDWORD marginsize, XDWORD sizeline, bool showoffset, bool showtext)
-* @brief      Print data block in HEX and Character
+* @brief      Print data block
 * @ingroup    XUTILS
 *
 * @param[in]  data : data to print
@@ -426,7 +426,7 @@ bool XCONSOLE::PrintDataBlock(XBYTE* data, XDWORD size, XDWORD marginsize, XDWOR
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XCONSOLE::PrintDataBlock(XBUFFER& data, XDWORD marginsize, XDWORD sizeline, bool showoffset, bool showtext)
-* @brief      Print data block in HEX and Character
+* @brief      Print data block
 * @ingroup    XUTILS
 *
 * @param[in]  data : buffer data to print
@@ -447,7 +447,7 @@ bool XCONSOLE::PrintDataBlock(XBUFFER& data, XDWORD marginsize, XDWORD sizeline,
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XCONSOLE::Format_Message(XCHAR* message, XDWORD margin, bool prelude, bool returnline, XSTRING& string)
-* @brief      Format a message to string.
+* @brief      Format message
 * @ingroup    XUTILS
 *
 * @param[in]  message : Message to format.
@@ -481,7 +481,7 @@ bool XCONSOLE::Format_Message(XCHAR* message, XDWORD margin, bool prelude, bool 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XCONSOLE::PrintMessage(XCHAR* message, XDWORD margin, bool prelude, bool returnline)
-* @brief      PrintMessage
+* @brief      Print message
 * @ingroup    XUTILS
 * 
 * @param[in]  message : 
@@ -505,7 +505,7 @@ bool XCONSOLE::PrintMessage(XCHAR* message, XDWORD margin, bool prelude, bool re
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XCONSOLE::WaitKey(XCHAR* text, XDWORD margin, bool prelude, XDWORD timeout)
-* @brief      Prints a Wait menssage with timeout
+* @brief      Wait key
 * @ingroup    XUTILS
 *
 * @param[in]  text : Text of the wait
@@ -572,7 +572,7 @@ bool XCONSOLE::WaitKey(XCHAR* text, XDWORD margin, bool prelude, XDWORD timeout)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XCONSOLE::EraseToEndLine(int actualpos)
-* @brief      EraseToEndLine
+* @brief      Erase to end line
 * @ingroup    XUTILS
 *
 * @param[in]  actualpos :
@@ -595,7 +595,7 @@ void XCONSOLE::EraseToEndLine(int actualpos)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XCONSOLE::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    XUTILS
 *

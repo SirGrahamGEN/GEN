@@ -74,7 +74,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOI2CPWMCONTROLERPCA9685::DIOI2CPWMCONTROLERPCA9685()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -87,7 +87,7 @@ DIOI2CPWMCONTROLERPCA9685::DIOI2CPWMCONTROLERPCA9685(): DIODEVICEI2C()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOI2CPWMCONTROLERPCA9685::~DIOI2CPWMCONTROLERPCA9685()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -118,7 +118,7 @@ bool DIOI2CPWMCONTROLERPCA9685::Reset()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOI2CPWMCONTROLERPCA9685::SetPWMFrequency(float frequency)
-* @brief      SetPWMFrequency
+* @brief      Set PWM frequency
 * @ingroup    DATAIO
 *
 * @param[in]  frequency :
@@ -164,7 +164,7 @@ bool DIOI2CPWMCONTROLERPCA9685::SetPWMFrequency(float frequency)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOI2CPWMCONTROLERPCA9685::SetPWM(XBYTE channel, XWORD on, XWORD off, bool wait)
-* @brief      SetPWM
+* @brief      Set PWM
 * @ingroup    DATAIO
 *
 * @param[in]  channel :
@@ -210,7 +210,7 @@ bool DIOI2CPWMCONTROLERPCA9685::End()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOI2CPWMCONTROLERPCA9685::IniDevice()
-* @brief      IniDevice
+* @brief      Ini device
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -236,7 +236,7 @@ bool DIOI2CPWMCONTROLERPCA9685::IniDevice()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOI2CPWMCONTROLERPCA9685::ReadCommand(XBYTE cmd, XBYTE& value)
-* @brief      ReadCommand
+* @brief      Read command
 * @ingroup    DATAIO
 *
 * @param[in]  cmd :
@@ -266,7 +266,7 @@ bool DIOI2CPWMCONTROLERPCA9685::ReadCommand(XBYTE cmd, XBYTE& value)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOI2CPWMCONTROLERPCA9685::SendCommand(XBYTE cmd, XBYTE value, bool wait)
-* @brief      SendCommand
+* @brief      Send command
 * @ingroup    DATAIO
 *
 * @param[in]  cmd :
@@ -300,7 +300,7 @@ bool DIOI2CPWMCONTROLERPCA9685::SendCommand(XBYTE cmd, XBYTE value, bool wait)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOI2CPWMCONTROLERPCA9685::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

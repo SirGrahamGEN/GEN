@@ -68,7 +68,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         HASHSHA1::HASHSHA1()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    CIPHER
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -85,7 +85,7 @@ HASHSHA1::HASHSHA1() : HASH()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         HASHSHA1::~HASHSHA1()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    CIPHER
 * 
@@ -130,7 +130,7 @@ bool HASHSHA1::Do(XBYTE* input, XQWORD size)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int HASHSHA1::GetDefaultSize()
-* @brief      GetDefaultSize
+* @brief      Get default size
 * @ingroup    CIPHER
 * 
 * @return     int : 
@@ -211,7 +211,7 @@ void HASHSHA1::Input(XBYTE* input, XQWORD length)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void HASHSHA1::ProcessMessageBlock()
-* @brief      ProcessMessageBlock
+* @brief      Process message block
 * @ingroup    CIPHER
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -307,7 +307,7 @@ void HASHSHA1::ProcessMessageBlock()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void HASHSHA1::PadMessage()
-* @brief      PadMessage
+* @brief      Pad message
 * @ingroup    CIPHER
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -364,7 +364,7 @@ void HASHSHA1::PadMessage()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD HASHSHA1::CircularShift(int bits, XDWORD word)
-* @brief      CircularShift
+* @brief      Circular shift
 * @ingroup    CIPHER
 * 
 * @param[in]  bits : 
@@ -412,7 +412,7 @@ bool HASHSHA1::Result(XDWORD* msgdigest)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void HASHSHA1::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    CIPHER
 * 

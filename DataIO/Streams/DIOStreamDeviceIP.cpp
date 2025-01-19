@@ -66,7 +66,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMDEVICEIP::DIOSTREAMDEVICEIP()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -79,7 +79,7 @@ DIOSTREAMDEVICEIP::DIOSTREAMDEVICEIP()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOSTREAMDEVICEIP::~DIOSTREAMDEVICEIP()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 * 
@@ -96,7 +96,7 @@ DIOSTREAMDEVICEIP::~DIOSTREAMDEVICEIP()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOSTREAMDEVICEIP::IsActive()
-* @brief      IsActive
+* @brief      Is active
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
@@ -111,7 +111,7 @@ bool DIOSTREAMDEVICEIP::IsActive()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOSTREAMDEVICEIP::SetIsActive(bool isactive)
-* @brief      SetIsActive
+* @brief      Set is active
 * @ingroup    DATAIO
 * 
 * @param[in]  isactive : 
@@ -126,7 +126,7 @@ void DIOSTREAMDEVICEIP::SetIsActive(bool isactive)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOIP* DIOSTREAMDEVICEIP::GetIP()
-* @brief      GetIP
+* @brief      Get IP
 * @ingroup    DATAIO
 *
 * @return     DIOIP* :
@@ -141,7 +141,7 @@ DIOIP* DIOSTREAMDEVICEIP::GetIP()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOMAC* DIOSTREAMDEVICEIP::GetMAC()
-* @brief      GetMAC
+* @brief      Get MAC
 * @ingroup    DATAIO
 *
 * @return     DIOMAC* :
@@ -156,7 +156,7 @@ DIOMAC* DIOSTREAMDEVICEIP::GetMAC()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMIPDEVICE_TYPE DIOSTREAMDEVICEIP::GetIPType()
-* @brief      GetIPType
+* @brief      Get IP type
 * @ingroup    DATAIO
 *
 * @return     DIOSTREAMIPDEVICE_TYPE :
@@ -171,7 +171,7 @@ DIOSTREAMIPDEVICE_TYPE DIOSTREAMDEVICEIP::GetIPType()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMDEVICEIP::SetIPType(DIOSTREAMIPDEVICE_TYPE iptype)
-* @brief      SetIPType
+* @brief      Set IP type
 * @ingroup    DATAIO
 *
 * @param[in]  iptype :
@@ -190,7 +190,7 @@ bool DIOSTREAMDEVICEIP::SetIPType(DIOSTREAMIPDEVICE_TYPE iptype)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XVECTOR<XSTRING*>* DIOSTREAMDEVICEIP::GetDNSservers()
-* @brief      GetDNSservers
+* @brief      Get DN sservers
 * @ingroup    DATAIO
 * 
 * @return     XVECTOR<XSTRING*>* : 
@@ -205,7 +205,7 @@ XVECTOR<XSTRING*>* DIOSTREAMDEVICEIP::GetDNSservers()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMDEVICEIP::DebugPrintInfo()
-* @brief      DebugPrintInfo
+* @brief      Debug print info
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -245,7 +245,7 @@ bool DIOSTREAMDEVICEIP::DebugPrintInfo()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSTREAMDEVICEIP::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

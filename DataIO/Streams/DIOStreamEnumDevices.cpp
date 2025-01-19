@@ -69,7 +69,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMENUMDEVICES::DIOSTREAMENUMDEVICES()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -84,7 +84,7 @@ DIOSTREAMENUMDEVICES::DIOSTREAMENUMDEVICES()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMENUMDEVICES::~DIOSTREAMENUMDEVICES()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -102,7 +102,7 @@ DIOSTREAMENUMDEVICES::~DIOSTREAMENUMDEVICES()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMENUMTYPE DIOSTREAMENUMDEVICES::GetType()
-* @brief      GetType
+* @brief      Get type
 * @ingroup    DATAIO
 *
 * @return     DIOSTREAMENUMTYPE :
@@ -117,7 +117,7 @@ DIOSTREAMENUMTYPE DIOSTREAMENUMDEVICES::GetType()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOSTREAMENUMDEVICES::SetType(DIOSTREAMENUMTYPE type)
-* @brief      SetType
+* @brief      Set type
 * @ingroup    DATAIO
 * 
 * @param[in]  type : 
@@ -151,7 +151,7 @@ bool DIOSTREAMENUMDEVICES::Search()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMENUMDEVICES::StopSearch(bool waitend)
-* @brief      StopSearch
+* @brief      Stop search
 * @ingroup    DATAIO
 *
 * @param[in]  waitend :
@@ -168,7 +168,7 @@ bool DIOSTREAMENUMDEVICES::StopSearch(bool waitend)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMENUMDEVICES::IsSearching()
-* @brief      IsSearching
+* @brief      Is searching
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -183,7 +183,7 @@ bool DIOSTREAMENUMDEVICES::IsSearching()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMENUMDEVICES::AddDevice(DIOSTREAMDEVICE* device)
-* @brief      AddDevice
+* @brief      Add device
 * @ingroup    DATAIO
 *
 * @param[in]  device :
@@ -202,7 +202,7 @@ bool DIOSTREAMENUMDEVICES::AddDevice(DIOSTREAMDEVICE* device)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XVECTOR<DIOSTREAMDEVICE*>* DIOSTREAMENUMDEVICES::GetDevices()
-* @brief      GetDevices
+* @brief      Get devices
 * @ingroup    DATAIO
 *
 * @return     XVECTOR<DIOSTREAMDEVICE*>* :
@@ -217,7 +217,7 @@ XVECTOR<DIOSTREAMDEVICE*>* DIOSTREAMENUMDEVICES::GetDevices()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMENUMDEVICES::DelAllDevices()
-* @brief      DelAllDevices
+* @brief      Del all devices
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -237,7 +237,7 @@ bool DIOSTREAMENUMDEVICES::DelAllDevices()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMENUMDEVICES::IsDeviceAvailable(XCHAR* string)
-* @brief      IsDeviceAvailable
+* @brief      Is device available
 * @ingroup    DATAIO
 *
 * @param[in]  string :
@@ -254,7 +254,7 @@ bool DIOSTREAMENUMDEVICES::IsDeviceAvailable(XCHAR* string)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMENUMDEVICES::IsDeviceAvailable(XSTRING& string)
-* @brief      IsDeviceAvailable
+* @brief      Is device available
 * @ingroup    DATAIO
 *
 * @param[in]  string :
@@ -271,7 +271,7 @@ bool DIOSTREAMENUMDEVICES::IsDeviceAvailable(XSTRING& string)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMENUMDEVICES::AreDevicesAvailable()
-* @brief      AreDevicesAvailable
+* @brief      Are devices available
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -286,7 +286,7 @@ bool DIOSTREAMENUMDEVICES::AreDevicesAvailable()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMDEVICE* DIOSTREAMENUMDEVICES::GetDeviceByName(XCHAR* name)
-* @brief      GetDeviceByName
+* @brief      Get device by name
 * @ingroup    DATAIO
 *
 * @param[in]  name :
@@ -314,7 +314,7 @@ DIOSTREAMDEVICE* DIOSTREAMENUMDEVICES::GetDeviceByName(XCHAR* name)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMDEVICE* DIOSTREAMENUMDEVICES::GetDeviceByName(XSTRING& name)
-* @brief      GetDeviceByName
+* @brief      Get device by name
 * @ingroup    DATAIO
 *
 * @param[in]  name :
@@ -331,7 +331,7 @@ DIOSTREAMDEVICE* DIOSTREAMENUMDEVICES::GetDeviceByName(XSTRING& name)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMDEVICE* DIOSTREAMENUMDEVICES::GetDeviceByIndex(int index)
-* @brief      GetDeviceByIndex
+* @brief      Get device by index
 * @ingroup    DATAIO
 *
 * @param[in]  index :
@@ -357,7 +357,7 @@ DIOSTREAMDEVICE* DIOSTREAMENUMDEVICES::GetDeviceByIndex(int index)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSTREAMENUMDEVICES::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

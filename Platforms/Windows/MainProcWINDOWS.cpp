@@ -181,7 +181,7 @@ BOOL                    Exception_ConsoleHandler      (DWORD fdwctrltype);
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         MAINPROCWINDOWS::MAINPROCWINDOWS()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_WINDOWS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -194,7 +194,7 @@ MAINPROCWINDOWS::MAINPROCWINDOWS()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         MAINPROCWINDOWS::~MAINPROCWINDOWS()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
 *
@@ -423,7 +423,7 @@ bool MAINPROCWINDOWS::End()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool MAINPROCWINDOWS::Factorys_Ini()
-* @brief      Factorys Ini
+* @brief      Factorys ini
 * @ingroup    PLATFORM_WINDOWS
 *
 * @return     bool : true if is succesful.
@@ -563,7 +563,7 @@ bool MAINPROCWINDOWS::Factorys_Ini()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool MAINPROCWINDOWS::Factorys_End()
-* @brief      Factorys End
+* @brief      Factorys end
 * @ingroup    PLATFORM_WINDOWS
 *
 * @return     bool : true if is succesful.
@@ -688,7 +688,7 @@ bool MAINPROCWINDOWS::Factorys_End()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int MAINPROCWINDOWS::MainLoop()
-* @brief      MainLoop
+* @brief      Main loop
 * @ingroup    PLATFORM_WINDOWS
 *
 * @return     int :
@@ -733,7 +733,7 @@ int MAINPROCWINDOWS::MainLoop()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool MAINPROCWINDOWS::IsRunningAsService()
-* @brief      IsRunningAsService
+* @brief      Is running as service
 * @ingroup    PLATFORM_WINDOWS
 *
 * @return     bool : true if is succesful.
@@ -797,7 +797,7 @@ bool MAINPROCWINDOWS::IsRunningAsService()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void MAINPROCWINDOWS::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
 *
@@ -846,7 +846,7 @@ WINDOWSSERVICE::WINDOWSSERVICE(XCHAR* servicename, bool can_stop, bool can_shutd
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         WINDOWSSERVICE::~WINDOWSSERVICE()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
 *
@@ -866,7 +866,7 @@ WINDOWSSERVICE::~WINDOWSSERVICE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         HANDLE WINDOWSSERVICE::GetHandleStoppedEvent()
-* @brief      GetHandleStoppedEvent
+* @brief      Get handle stopped event
 * @ingroup    PLATFORM_WINDOWS
 *
 * @return     HANDLE :
@@ -881,7 +881,7 @@ HANDLE WINDOWSSERVICE::GetHandleStoppedEvent()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool WINDOWSSERVICE::MustRestartService()
-* @brief      MustRestartService
+* @brief      Must restart service
 * @ingroup    PLATFORM_WINDOWS
 *
 * @return     bool : true if is succesful. 
@@ -896,7 +896,7 @@ bool WINDOWSSERVICE::MustRestartService()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void WINDOWSSERVICE::SetMustRestartService(bool mustrestartservice)
-* @brief      SetMustRestartService
+* @brief      Set must restart service
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  mustrestartservice : 
@@ -911,7 +911,7 @@ void WINDOWSSERVICE::SetMustRestartService(bool mustrestartservice)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void WINDOWSSERVICE::On_Start(DWORD argc, XCHAR** args)
-* @brief      On_Start
+* @brief      On start
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  argc :
@@ -927,7 +927,7 @@ void WINDOWSSERVICE::On_Start(DWORD argc, XCHAR** args)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void WINDOWSSERVICE::On_Stop()
-* @brief      On_Stop
+* @brief      On stop
 * @ingroup    PLATFORM_WINDOWS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -964,7 +964,7 @@ void WINDOWSSERVICE::On_Stop()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void WINDOWSSERVICE::On_Shutdown()
-* @brief      On_Shutdown
+* @brief      On shutdown
 * @ingroup    PLATFORM_WINDOWS
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -985,7 +985,7 @@ void WINDOWSSERVICE::On_Shutdown()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void WINDOWSSERVICE::On_PowerEvent(DWORD eventtype)
-* @brief      On_PowerEvent
+* @brief      On power event
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  eventtype :
@@ -1013,7 +1013,7 @@ void WINDOWSSERVICE::On_PowerEvent(DWORD eventtype)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void WINDOWSSERVICE::On_SessionChange(DWORD eventtype)
-* @brief      On_SessionChange
+* @brief      On session change
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  eventtype :
@@ -1046,7 +1046,7 @@ void WINDOWSSERVICE::On_SessionChange(DWORD eventtype)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void WINDOWSSERVICE::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
 *
@@ -1382,7 +1382,7 @@ BOOL WINAPI DllMain(HINSTANCE hinstDLL, XDWORD fdwReason,LPVOID lpvReserved)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void MAINPROCWINDOWSSTACKWALKER::OnSymInit(LPCSTR szSearchPath, DWORD symOptions, LPCSTR szUserName)
-* @brief      OnSymInit
+* @brief      On sym init
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
 *
@@ -1400,7 +1400,7 @@ void MAINPROCWINDOWSSTACKWALKER::OnSymInit(LPCSTR szSearchPath, DWORD symOptions
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void MAINPROCWINDOWSSTACKWALKER::OnCallstackEntry(CallstackEntryType eType, CallstackEntry& entry)
-* @brief      On Call Stack Entry
+* @brief      On callstack entry
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
 *
@@ -1512,7 +1512,7 @@ BOOL Exception_ConsoleHandler(DWORD fdwctrltype)
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @param[in]  code : 
-* @param[in]  _EXCEPTION_POINTERS* ep : 
+* @param[in]  ep : 
 * 
 * @return     int : 
 * 

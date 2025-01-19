@@ -67,7 +67,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOSTREAMI2CCONFIG::DIOSTREAMI2CCONFIG()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -82,7 +82,7 @@ DIOSTREAMI2CCONFIG::DIOSTREAMI2CCONFIG() : DIOSTREAMCONFIG()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOSTREAMI2CCONFIG::~DIOSTREAMI2CCONFIG()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -96,7 +96,7 @@ DIOSTREAMI2CCONFIG::~DIOSTREAMI2CCONFIG()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int DIOSTREAMI2CCONFIG::GetPort()
-* @brief      GetPort
+* @brief      Get port
 * @ingroup    DATAIO
 * 
 * @return     int : 
@@ -111,7 +111,7 @@ int DIOSTREAMI2CCONFIG::GetPort()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOSTREAMI2CCONFIG::SetPort(int port)
-* @brief      SetPort
+* @brief      Set port
 * @ingroup    DATAIO
 * 
 * @param[in]  port : 
@@ -126,7 +126,7 @@ void DIOSTREAMI2CCONFIG::SetPort(int port)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* DIOSTREAMI2CCONFIG::GetLocalDeviceName()
-* @brief      GetLocalDeviceName
+* @brief      Get local device name
 * @ingroup    DATAIO
 * 
 * @return     XSTRING* : 
@@ -141,7 +141,7 @@ XSTRING* DIOSTREAMI2CCONFIG::GetLocalDeviceName()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOSTREAMI2CCONFIG::SetLocalDeviceNameByPort()
-* @brief      SetLocalDeviceNameByPort
+* @brief      Set local device name by port
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful. 
@@ -171,7 +171,7 @@ bool DIOSTREAMI2CCONFIG::SetLocalDeviceNameByPort()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int DIOSTREAMI2CCONFIG::GetLocalAddress()
-* @brief      GetLocalAddress
+* @brief      Get local address
 * @ingroup    DATAIO
 *
 * @return     int : 
@@ -186,7 +186,7 @@ int DIOSTREAMI2CCONFIG::GetLocalAddress()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOSTREAMI2CCONFIG::SetLocalAddress(int localaddress)
-* @brief      SetLocalAddress
+* @brief      Set local address
 * @ingroup    DATAIO
 *
 * @param[in]  localaddress : 
@@ -201,7 +201,7 @@ void DIOSTREAMI2CCONFIG::SetLocalAddress(int localaddress)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int DIOSTREAMI2CCONFIG::GetRemoteAddress()
-* @brief      GetRemoteAddress
+* @brief      Get remote address
 * @ingroup    DATAIO
 *
 * @return     int : 
@@ -216,7 +216,7 @@ int DIOSTREAMI2CCONFIG::GetRemoteAddress()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOSTREAMI2CCONFIG::SetRemoteAddress(int remoteaddress)
-* @brief      SetRemoteAddress
+* @brief      Set remote address
 * @ingroup    DATAIO
 *
 * @param[in]  remoteaddress : 
@@ -231,7 +231,7 @@ void DIOSTREAMI2CCONFIG::SetRemoteAddress(int remoteaddress)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOSTREAMI2CCONFIG_ADDRESSSIZE DIOSTREAMI2CCONFIG::GetAddressSize()
-* @brief      GetAddressSize
+* @brief      Get address size
 * @ingroup    DATAIO
 *
 * @return     DIOSTREAMI2CCONFIG_ADDRESSSIZE : 
@@ -246,7 +246,7 @@ DIOSTREAMI2CCONFIG_ADDRESSSIZE DIOSTREAMI2CCONFIG::GetAddressSize()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOSTREAMI2CCONFIG::SetAddressSize(DIOSTREAMI2CCONFIG_ADDRESSSIZE addresssize)
-* @brief      SetAddressSize
+* @brief      Set address size
 * @ingroup    DATAIO
 *
 * @param[in]  addresssize : 
@@ -261,7 +261,7 @@ void DIOSTREAMI2CCONFIG::SetAddressSize(DIOSTREAMI2CCONFIG_ADDRESSSIZE addresssi
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOSTREAMI2CCONFIG::IsStretchActive()
-* @brief      IsStretchActive
+* @brief      Is stretch active
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful. 
@@ -276,7 +276,7 @@ bool DIOSTREAMI2CCONFIG::IsStretchActive()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOSTREAMI2CCONFIG::SetIsStretchActive(bool isstretchactive)
-* @brief      SetIsStretchActive
+* @brief      Set is stretch active
 * @ingroup    DATAIO
 *
 * @param[in]  isstretchactive : 
@@ -291,7 +291,7 @@ void DIOSTREAMI2CCONFIG::SetIsStretchActive(bool isstretchactive)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOSTREAMI2CCONFIG::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

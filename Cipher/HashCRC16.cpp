@@ -67,7 +67,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         HASHCRC16::HASHCRC16()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    CIPHER
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -90,7 +90,7 @@ HASHCRC16::HASHCRC16() : HASH()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         HASHCRC16::~HASHCRC16()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    CIPHER
 * 
@@ -142,7 +142,7 @@ bool HASHCRC16::Do(XBYTE* input, XQWORD size)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool HASHCRC16::ResetResult()
-* @brief      ResetResult
+* @brief      Reset result
 * @ingroup    CIPHER
 * 
 * @return     bool : true if is succesful. 
@@ -164,7 +164,7 @@ bool HASHCRC16::ResetResult()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int HASHCRC16::GetDefaultSize()
-* @brief      GetDefaultSize
+* @brief      Get default size
 * @ingroup    CIPHER
 * 
 * @return     int : 
@@ -179,7 +179,7 @@ int HASHCRC16::GetDefaultSize()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBUFFER* HASHCRC16::GetResult()
-* @brief      GetResult
+* @brief      Get result
 * @ingroup    CIPHER
 * 
 * @return     XBUFFER* : 
@@ -196,7 +196,7 @@ XBUFFER* HASHCRC16::GetResult()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTE* HASHCRC16::GetResult(XDWORD& resultsize)
-* @brief      GetResult
+* @brief      Get result
 * @ingroup    CIPHER
 * 
 * @param[in]  resultsize : 
@@ -217,7 +217,7 @@ XBYTE* HASHCRC16::GetResult(XDWORD& resultsize)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XWORD HASHCRC16::GetResultCRC16()
-* @brief      GetResultCRC16
+* @brief      Get result CRC16
 * @ingroup    CIPHER
 * 
 * @return     XWORD : 
@@ -313,7 +313,7 @@ XWORD HASHCRC16::Update(XWORD CRC16, XBYTE c)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void HASHCRC16::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    CIPHER
 * 

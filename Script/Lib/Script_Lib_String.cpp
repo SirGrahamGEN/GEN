@@ -67,7 +67,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         SCRIPT_LIB_STRING::SCRIPT_LIB_STRING()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    SCRIPT
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -80,7 +80,7 @@ SCRIPT_LIB_STRING::SCRIPT_LIB_STRING() : SCRIPT_LIB(SCRIPT_LIB_NAME_STRING)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         SCRIPT_LIB_STRING::~SCRIPT_LIB_STRING()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    SCRIPT
 *
@@ -94,7 +94,7 @@ SCRIPT_LIB_STRING::~SCRIPT_LIB_STRING()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool SCRIPT_LIB_STRING::AddLibraryFunctions(SCRIPT* script)
-* @brief      AddLibraryFunctions
+* @brief      Add library functions
 * @ingroup    SCRIPT
 *
 * @param[in]  script :
@@ -121,7 +121,7 @@ bool SCRIPT_LIB_STRING::AddLibraryFunctions(SCRIPT* script)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void SCRIPT_LIB_STRING::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    SCRIPT
 *

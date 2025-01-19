@@ -71,7 +71,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         COMPRESS_ZIP::COMPRESS_ZIP()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    COMPRESS
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -86,7 +86,7 @@ COMPRESS_ZIP::COMPRESS_ZIP() : COMPRESSBASE()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         COMPRESS_ZIP::~COMPRESS_ZIP()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    COMPRESS
 * 
@@ -164,7 +164,7 @@ bool COMPRESS_ZIP::Decompress(XBYTE* source,XDWORD size,XBUFFER* xbuffer)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int COMPRESS_ZIP::ZCompress(XBYTE* target,XDWORD* targetsize,XBYTE* source,XDWORD sourcesize)
-* @brief      ZCompress
+* @brief      Z compress
 * @ingroup    COMPRESS
 * 
 * @param[in]  target : 
@@ -225,7 +225,7 @@ int COMPRESS_ZIP::ZCompress(XBYTE* target,XDWORD* targetsize,XBYTE* source,XDWOR
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int COMPRESS_ZIP::ZDecompress(XBYTE* target,XDWORD* targetsize,XBYTE* source,XDWORD sourcesize)
-* @brief      ZDecompress
+* @brief      Z decompress
 * @ingroup    COMPRESS
 * 
 * @param[in]  target : 
@@ -290,7 +290,7 @@ int COMPRESS_ZIP::ZDecompress(XBYTE* target,XDWORD* targetsize,XBYTE* source,XDW
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void COMPRESS_ZIP::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    COMPRESS
 * 

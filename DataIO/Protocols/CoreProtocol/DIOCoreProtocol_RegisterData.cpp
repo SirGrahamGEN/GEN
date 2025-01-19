@@ -67,7 +67,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOCOREPROTOCOL_REGISTERDATA::DIOCOREPROTOCOL_REGISTERDATA()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -80,7 +80,7 @@ DIOCOREPROTOCOL_REGISTERDATA::DIOCOREPROTOCOL_REGISTERDATA()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOCOREPROTOCOL_REGISTERDATA::~DIOCOREPROTOCOL_REGISTERDATA()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 * 
@@ -94,7 +94,7 @@ DIOCOREPROTOCOL_REGISTERDATA::~DIOCOREPROTOCOL_REGISTERDATA()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL_REGISTERDATA::InitializeData(bool isserver)
-* @brief      InitializeData
+* @brief      Initialize data
 * @ingroup    DATAIO
 * 
 * @param[in]  isserver : 
@@ -126,7 +126,7 @@ bool DIOCOREPROTOCOL_REGISTERDATA::InitializeData(bool isserver)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XUUID* DIOCOREPROTOCOL_REGISTERDATA::GetIDMmachine()
-* @brief      GetIDMmachine
+* @brief      Get ID mmachine
 * @ingroup    DATAIO
 * 
 * @return     XUUID* : 
@@ -141,7 +141,7 @@ XUUID* DIOCOREPROTOCOL_REGISTERDATA::GetIDMmachine()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XUUID* DIOCOREPROTOCOL_REGISTERDATA::GetIDConnection()
-* @brief      GetIDConnection
+* @brief      Get ID connection
 * @ingroup    DATAIO
 * 
 * @return     XUUID* : 
@@ -156,7 +156,7 @@ XUUID* DIOCOREPROTOCOL_REGISTERDATA::GetIDConnection()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* DIOCOREPROTOCOL_REGISTERDATA::GetBiosSerialNumber()
-* @brief      GetBiosSerialNumber
+* @brief      Get bios serial number
 * @ingroup    DATAIO
 * 
 * @return     XSTRING* : 
@@ -171,7 +171,7 @@ XSTRING* DIOCOREPROTOCOL_REGISTERDATA::GetBiosSerialNumber()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* DIOCOREPROTOCOL_REGISTERDATA::GetCPUSerialNumber()
-* @brief      GetCPUSerialNumber
+* @brief      Get CPU serial number
 * @ingroup    DATAIO
 * 
 * @return     XSTRING* : 
@@ -186,7 +186,7 @@ XSTRING* DIOCOREPROTOCOL_REGISTERDATA::GetCPUSerialNumber()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* DIOCOREPROTOCOL_REGISTERDATA::GetPlataformName()
-* @brief      GetPlataformName
+* @brief      Get plataform name
 * @ingroup    DATAIO
 * 
 * @return     XSTRING* : 
@@ -201,7 +201,7 @@ XSTRING* DIOCOREPROTOCOL_REGISTERDATA::GetPlataformName()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* DIOCOREPROTOCOL_REGISTERDATA::GetSOIdentifier()
-* @brief      GetSOIdentifier
+* @brief      Get SO identifier
 * @ingroup    DATAIO
 * 
 * @return     XSTRING* : 
@@ -216,7 +216,7 @@ XSTRING* DIOCOREPROTOCOL_REGISTERDATA::GetSOIdentifier()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* DIOCOREPROTOCOL_REGISTERDATA::GetUser()
-* @brief      GetUser
+* @brief      Get user
 * @ingroup    DATAIO
 * 
 * @return     XSTRING* : 
@@ -231,7 +231,7 @@ XSTRING* DIOCOREPROTOCOL_REGISTERDATA::GetUser()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* DIOCOREPROTOCOL_REGISTERDATA::GetDomain()
-* @brief      GetDomain
+* @brief      Get domain
 * @ingroup    DATAIO
 * 
 * @return     XSTRING* : 
@@ -321,7 +321,7 @@ bool DIOCOREPROTOCOL_REGISTERDATA::Deserialize()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL_REGISTERDATA::CreateIDMachine(XUUID& ID)
-* @brief      CreateIDMachine
+* @brief      Create ID machine
 * @ingroup    DATAIO
 * 
 * @param[in]  ID : 
@@ -390,7 +390,7 @@ bool DIOCOREPROTOCOL_REGISTERDATA::CreateIDMachine(XUUID& ID)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL_REGISTERDATA::ShowDebug()
-* @brief      ShowDebug
+* @brief      Show debug
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
@@ -423,7 +423,7 @@ bool DIOCOREPROTOCOL_REGISTERDATA::ShowDebug()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOCOREPROTOCOL_REGISTERDATA::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 * 

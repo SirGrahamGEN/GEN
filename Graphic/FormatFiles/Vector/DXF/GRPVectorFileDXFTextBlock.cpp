@@ -69,7 +69,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVECTORFILEDXFTEXTBLOCK::GRPVECTORFILEDXFTEXTBLOCK()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    GRAPHIC
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -82,7 +82,7 @@ GRPVECTORFILEDXFTEXTBLOCK::GRPVECTORFILEDXFTEXTBLOCK()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVECTORFILEDXFTEXTBLOCK::~GRPVECTORFILEDXFTEXTBLOCK()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
 * 
@@ -103,7 +103,7 @@ GRPVECTORFILEDXFTEXTBLOCK::~GRPVECTORFILEDXFTEXTBLOCK()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* GRPVECTORFILEDXFTEXTBLOCK::GetName()
-* @brief      GetName
+* @brief      Get name
 * @ingroup    GRAPHIC
 * 
 * @return     XSTRING* : 
@@ -118,7 +118,7 @@ XSTRING* GRPVECTORFILEDXFTEXTBLOCK::GetName()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPVECTORFILEDXFTEXTBLOCK::IsEndBlock()
-* @brief      IsEndBlock
+* @brief      Is end block
 * @ingroup    GRAPHIC
 * 
 * @return     bool : true if is succesful. 
@@ -133,7 +133,7 @@ bool GRPVECTORFILEDXFTEXTBLOCK::IsEndBlock()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRPVECTORFILEDXFTEXTBLOCK::SetIsEndBlock(bool isendblock)
-* @brief      SetIsEndBlock
+* @brief      Set is end block
 * @ingroup    GRAPHIC
 * 
 * @param[in]  isendblock : 
@@ -148,7 +148,7 @@ void GRPVECTORFILEDXFTEXTBLOCK::SetIsEndBlock(bool isendblock)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPVECTORFILEDXFTEXTBLOCK::AddValue(GRPVECTORFILEDXFVALUE* value)
-* @brief      AddValue
+* @brief      Add value
 * @ingroup    GRAPHIC
 * 
 * @param[in]  value : 
@@ -167,7 +167,7 @@ bool GRPVECTORFILEDXFTEXTBLOCK::AddValue(GRPVECTORFILEDXFVALUE* value)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XVECTOR<GRPVECTORFILEDXFVALUE*>* GRPVECTORFILEDXFTEXTBLOCK::GetValues()
-* @brief      GetValues
+* @brief      Get values
 * @ingroup    GRAPHIC
 * 
 * @return     XVECTOR<GRPVECTORFILEDXFVALUE*>* : 
@@ -182,7 +182,7 @@ XVECTOR<GRPVECTORFILEDXFVALUE*>* GRPVECTORFILEDXFTEXTBLOCK::GetValues()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVECTORFILEDXFVALUE* GRPVECTORFILEDXFTEXTBLOCK::GetValue(int index)
-* @brief      GetValue
+* @brief      Get value
 * @ingroup    GRAPHIC
 * 
 * @param[in]  index : 
@@ -204,7 +204,7 @@ GRPVECTORFILEDXFVALUE* GRPVECTORFILEDXFTEXTBLOCK::GetValue(int index)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPVECTORFILEDXFTEXTBLOCK::DeleteValue(int index)
-* @brief      DeleteValue
+* @brief      Delete value
 * @ingroup    GRAPHIC
 * 
 * @param[in]  index : 
@@ -226,7 +226,7 @@ bool GRPVECTORFILEDXFTEXTBLOCK::DeleteValue(int index)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPVECTORFILEDXFTEXTBLOCK::DeleteAllValues()
-* @brief      DeleteAllValues
+* @brief      Delete all values
 * @ingroup    GRAPHIC
 * 
 * @return     bool : true if is succesful. 
@@ -252,7 +252,7 @@ bool GRPVECTORFILEDXFTEXTBLOCK::DeleteAllValues()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XVECTOR<GRPVECTORFILEDXFXDATACTRL*>* GRPVECTORFILEDXFTEXTBLOCK::GetXDataCtrlList()
-* @brief      GetXDataCtrlList
+* @brief      Get X data ctrl list
 * @ingroup    GRAPHIC
 * 
 * @return     XVECTOR<GRPVECTORFILEDXFXDATACTRL*>* : 
@@ -267,7 +267,7 @@ XVECTOR<GRPVECTORFILEDXFXDATACTRL*>* GRPVECTORFILEDXFTEXTBLOCK::GetXDataCtrlList
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVECTORFILEDXFTEXTSECTIONENTITIES* GRPVECTORFILEDXFTEXTBLOCK::GetSectionEntities()
-* @brief      GetSectionEntities
+* @brief      Get section entities
 * @ingroup    GRAPHIC
 * 
 * @return     GRPVECTORFILEDXFTEXTSECTIONENTITIES* : 
@@ -282,7 +282,7 @@ GRPVECTORFILEDXFTEXTSECTIONENTITIES* GRPVECTORFILEDXFTEXTBLOCK::GetSectionEntiti
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRPVECTORFILEDXFTEXTBLOCK::SetSectionEntities(GRPVECTORFILEDXFTEXTSECTIONENTITIES* section)
-* @brief      SetSectionEntities
+* @brief      Set section entities
 * @ingroup    GRAPHIC
 * 
 * @param[in]  section : 
@@ -297,7 +297,7 @@ void GRPVECTORFILEDXFTEXTBLOCK::SetSectionEntities(GRPVECTORFILEDXFTEXTSECTIONEN
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRPVECTORFILEDXFTEXTBLOCK::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    GRAPHIC
 * 

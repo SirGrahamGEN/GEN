@@ -132,7 +132,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOSTREAMENUMDEVICES* DIOANDROIDFACTORY::CreateStreamEnumDevices(DIOSTREAMENUMTYPE type)
-* @brief      CreateStreamEnumDevices
+* @brief      Create stream enum devices
 * @ingroup    PLATFORM_ANDROID
 * 
 * @param[in]  type : 
@@ -177,7 +177,7 @@ DIOSTREAMENUMDEVICES* DIOANDROIDFACTORY::CreateStreamEnumDevices(DIOSTREAMENUMTY
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOANDROIDFACTORY::DeleteStreamEnumDevices(DIOSTREAMENUMDEVICES* enumdevices)
-* @brief      DeleteStreamEnumDevices
+* @brief      Delete stream enum devices
 * @ingroup    PLATFORM_ANDROID
 * 
 * @param[in]  enumdevices : 
@@ -198,7 +198,7 @@ bool DIOANDROIDFACTORY::DeleteStreamEnumDevices(DIOSTREAMENUMDEVICES* enumdevice
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOSTREAM* DIOANDROIDFACTORY::CreateStreamIO(DIOSTREAMCONFIG* config)
-* @brief      CreateStreamIO
+* @brief      Create stream IO
 * @ingroup    PLATFORM_ANDROID
 * 
 * @param[in]  config : 
@@ -262,7 +262,7 @@ DIOSTREAM* DIOANDROIDFACTORY::CreateStreamIO(DIOSTREAMCONFIG* config)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOANDROIDFACTORY::DeleteStreamIO(DIOSTREAM* diostream)
-* @brief      DeleteStreamIO
+* @brief      Delete stream IO
 * @ingroup    PLATFORM_ANDROID
 * 
 * @param[in]  diostream : 
@@ -283,7 +283,7 @@ bool DIOANDROIDFACTORY::DeleteStreamIO(DIOSTREAM* diostream)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOPING* DIOANDROIDFACTORY::CreatePing()
-* @brief      CreatePing
+* @brief      Create ping
 * @ingroup    PLATFORM_ANDROID
 * 
 * @return     DIOPING* : 
@@ -300,7 +300,7 @@ DIOPING* DIOANDROIDFACTORY::CreatePing()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOANDROIDFACTORY::DeletePing(DIOPING* ping)
-* @brief      DeletePing
+* @brief      Delete ping
 * @ingroup    PLATFORM_ANDROID
 * 
 * @param[in]  ping : 
@@ -325,7 +325,7 @@ bool DIOANDROIDFACTORY::DeletePing(DIOPING* ping)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOPCAP* DIOANDROIDFACTORY::CreatePCap()
-* @brief      CreatePCap
+* @brief      Create P cap
 * @ingroup    PLATFORM_ANDROID
 * 
 * @return     DIOPCAP* : 
@@ -342,7 +342,7 @@ DIOPCAP* DIOANDROIDFACTORY::CreatePCap()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOANDROIDFACTORY::DeletePCap(DIOPCAP* pcap)
-* @brief      DeletePCap
+* @brief      Delete P cap
 * @ingroup    PLATFORM_ANDROID
 * 
 * @param[in]  pcap : 
@@ -368,7 +368,7 @@ bool DIOANDROIDFACTORY::DeletePCap(DIOPCAP* pcap)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOGPIO* DIOANDROIDFACTORY::CreateGPIO()
-* @brief      CreateGPIO
+* @brief      Create GPIO
 * @ingroup    PLATFORM_ANDROID
 * 
 * @return     DIOGPIO* : 
@@ -385,7 +385,7 @@ DIOGPIO* DIOANDROIDFACTORY::CreateGPIO()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOANDROIDFACTORY::DeleteGPIO(DIOGPIO* port)
-* @brief      DeleteGPIO
+* @brief      Delete GPIO
 * @ingroup    PLATFORM_ANDROID
 * 
 * @param[in]  port : 

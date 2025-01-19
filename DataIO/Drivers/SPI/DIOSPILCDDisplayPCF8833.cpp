@@ -73,7 +73,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOSPILCDDISPLAYPCF8833::DIOSPILCDDISPLAYPCF8833(DIOSPILCDDISPLAYPCF8833_TYPE type)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 * 
 * @param[in]  type : 
@@ -90,7 +90,7 @@ DIOSPILCDDISPLAYPCF8833::DIOSPILCDDISPLAYPCF8833(DIOSPILCDDISPLAYPCF8833_TYPE ty
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSPILCDDISPLAYPCF8833::~DIOSPILCDDISPLAYPCF8833()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -106,7 +106,7 @@ DIOSPILCDDISPLAYPCF8833::~DIOSPILCDDISPLAYPCF8833()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSPILCDDISPLAYPCF8833::IniDevice()
-* @brief      IniDevice
+* @brief      Ini device
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -246,7 +246,7 @@ bool DIOSPILCDDISPLAYPCF8833::Update(XBYTE* buffer)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSPILCDDISPLAYPCF8833::PutPixel(XWORD x, XWORD y, XWORD color)
-* @brief      PutPixel
+* @brief      Put pixel
 * @ingroup    DATAIO
 *
 * @param[in]  x :
@@ -461,7 +461,7 @@ bool DIOSPILCDDISPLAYPCF8833::Reset()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSPILCDDISPLAYPCF8833::SetWindow(XWORD x0, XWORD y0, XWORD x1, XWORD y1)
-* @brief      SetWindow
+* @brief      Set window
 * @ingroup    DATAIO
 *
 * @param[in]  x0 :
@@ -517,7 +517,7 @@ bool DIOSPILCDDISPLAYPCF8833::SetWindow(XWORD x0, XWORD y0, XWORD x1, XWORD y1)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSPILCDDISPLAYPCF8833::Draw_HLine(XBYTE x, XBYTE y, XBYTE width, XWORD color)
-* @brief      Draw_HLine
+* @brief      Draw H line
 * @ingroup    DATAIO
 *
 * @param[in]  x :
@@ -554,7 +554,7 @@ bool DIOSPILCDDISPLAYPCF8833::Draw_HLine(XBYTE x, XBYTE y, XBYTE width, XWORD co
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSPILCDDISPLAYPCF8833::Draw_HLine(XBYTE x, XBYTE y, XBYTE width, XWORD* buffer)
-* @brief      Draw_HLine
+* @brief      Draw H line
 * @ingroup    DATAIO
 *
 * @param[in]  x :
@@ -594,7 +594,7 @@ bool DIOSPILCDDISPLAYPCF8833::Draw_HLine(XBYTE x, XBYTE y, XBYTE width, XWORD* b
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSPILCDDISPLAYPCF8833::Buffer_AjustWithNOP(XBUFFER& databuffer)
-* @brief      Buffer_AjustWithNOP
+* @brief      Buffer ajust with NOP
 * @ingroup    DATAIO
 *
 * @param[in]  databuffer :
@@ -615,7 +615,7 @@ bool DIOSPILCDDISPLAYPCF8833::Buffer_AjustWithNOP(XBUFFER& databuffer)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSPILCDDISPLAYPCF8833::Buffer_Send(XBUFFER& databuffer)
-* @brief      Buffer_Send
+* @brief      Buffer send
 * @ingroup    DATAIO
 *
 * @param[in]  databuffer :
@@ -639,7 +639,7 @@ bool DIOSPILCDDISPLAYPCF8833::Buffer_Send(XBUFFER& databuffer)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSPILCDDISPLAYPCF8833::Buffer_Delete()
-* @brief      Buffer_Delete
+* @brief      Buffer delete
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -658,7 +658,7 @@ bool DIOSPILCDDISPLAYPCF8833::Buffer_Delete(XBUFFER& databuffer)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSPILCDDISPLAYPCF8833::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

@@ -65,15 +65,15 @@
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         METHODDEF(void) GRPBITMAPFILEJPG_ErrorExit(j_common_ptr info)
 * @brief      Callback error Exist
 * @ingroup    GRAPHIC
 *
-* @param[in]  j_common_ptr: ptr struct common
-*
-* @return     METHODDEF(void)
-*
+* @param[in]  j_common_ptr: ptr struct common 
+* 
+* @param[in]  METHODDEF(void) 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 METHODDEF(void) GRPBITMAPFILEJPG_ErrorExit(j_common_ptr info)
 {
@@ -90,7 +90,7 @@ METHODDEF(void) GRPBITMAPFILEJPG_ErrorExit(j_common_ptr info)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPBITMAPFILEJPG::GRPBITMAPFILEJPG()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    GRAPHIC
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -106,7 +106,7 @@ GRPBITMAPFILEJPG::GRPBITMAPFILEJPG(): GRPBITMAPFILEBASE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPBITMAPFILEJPG::~GRPBITMAPFILEJPG()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
 *
@@ -123,7 +123,7 @@ GRPBITMAPFILEJPG::~GRPBITMAPFILEJPG()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPBITMAP* GRPBITMAPFILEJPG::CreateBitmapFromFile(XPATH& xpath, GRPPROPERTYMODE forcemode)
-* @brief      CreateBitmapFromFile
+* @brief      Create bitmap from file
 * @ingroup    GRAPHIC
 *
 * @param[in]  xpath :
@@ -197,7 +197,7 @@ GRPBITMAP* GRPBITMAPFILEJPG::CreateBitmapFromFile(XPATH& xpath, GRPPROPERTYMODE 
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPBITMAP* GRPBITMAPFILEJPG::CreateBitmapFromBuffer(XBYTE* buffer, XDWORD size, GRPPROPERTYMODE forcemode)
-* @brief      CreateBitmapFromBuffer
+* @brief      Create bitmap from buffer
 * @ingroup    GRAPHIC
 *
 * @param[in]  buffer :
@@ -269,7 +269,7 @@ GRPBITMAP* GRPBITMAPFILEJPG::CreateBitmapFromBuffer(XBYTE* buffer, XDWORD size, 
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPBITMAPFILEJPG::CreateFileFromBitmap(XPATH& xpath, GRPBITMAP* bitmap, int quality)
-* @brief      CreateFileFromBitmap
+* @brief      Create file from bitmap
 * @ingroup    GRAPHIC
 *
 * @param[in]  xpath :
@@ -331,7 +331,7 @@ bool GRPBITMAPFILEJPG::CreateFileFromBitmap(XPATH& xpath, GRPBITMAP* bitmap, int
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPBITMAPFILEJPG::ReadHeaderFile(GRPBITMAPFILEJPGHEADER* header)
-* @brief      ReadHeader
+* @brief      Read header file
 * @ingroup    GRAPHIC
 *
 * @param[in]  header :
@@ -388,7 +388,7 @@ bool GRPBITMAPFILEJPG::ReadHeaderFile(GRPBITMAPFILEJPGHEADER* header)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPBITMAPFILEJPG::ReadHeaderBuffer(XBYTE* buffer, XDWORD size, GRPBITMAPFILEJPGHEADER* header)
-* @brief      ReadHeaderBuffer
+* @brief      Read header buffer
 * @ingroup    GRAPHIC
 *
 * @param[in]  buffer :
@@ -432,7 +432,7 @@ bool GRPBITMAPFILEJPG::ReadHeaderBuffer(XBYTE* buffer, XDWORD size, GRPBITMAPFIL
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPBITMAPFILEJPG::DecodeToBufferFromFile(XBYTE* buffer)
-* @brief      DecodeToBufferFromFile
+* @brief      Decode to buffer from file
 * @ingroup    GRAPHIC
 * 
 * @param[in]  buffer : 
@@ -509,7 +509,7 @@ bool GRPBITMAPFILEJPG::DecodeToBufferFromFile(XBYTE* buffer)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPBITMAPFILEJPG::DecodeToBufferFromRawBuffer(XBYTE* buffer, XDWORD size, XBYTE* tobuffer)
-* @brief      DecodeToBufferFromRawBuffer
+* @brief      Decode to buffer from raw buffer
 * @ingroup    GRAPHIC
 *
 * @param[in]  buffer :
@@ -575,7 +575,7 @@ bool GRPBITMAPFILEJPG::DecodeToBufferFromRawBuffer(XBYTE* buffer, XDWORD size, X
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPBITMAPFILEJPG::EncodeToFile(int width, int height, XBYTE* buffer, int quality, bool baseline)
-* @brief      EncodeToFile
+* @brief      Encode to file
 * @ingroup    GRAPHIC
 *
 * @param[in]  width :
@@ -645,7 +645,7 @@ bool GRPBITMAPFILEJPG::EncodeToFile(int width, int height,  XBYTE* buffer, int q
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void GRPBITMAPFILEJPG::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    GRAPHIC
 *

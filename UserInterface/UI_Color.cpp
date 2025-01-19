@@ -66,7 +66,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_COLOR::UI_COLOR()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    USERINTERFACE
 *
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -79,7 +79,7 @@ UI_COLOR::UI_COLOR()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_COLOR::UI_COLOR(XCHAR* string)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  string : 
@@ -96,7 +96,7 @@ UI_COLOR::UI_COLOR(XCHAR* string)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_COLOR::UI_COLOR(XSTRING& string)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  string : 
@@ -113,7 +113,7 @@ UI_COLOR::UI_COLOR(XSTRING& string)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_COLOR::~UI_COLOR()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
 *
@@ -127,7 +127,7 @@ UI_COLOR::~UI_COLOR()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_COLOR::IsValid()
-* @brief      IsValid
+* @brief      Is valid
 * @ingroup    USERINTERFACE
 * 
 * @return     bool : true if is succesful. 
@@ -142,7 +142,7 @@ bool UI_COLOR::IsValid()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_COLOR::SetValid(bool valid)
-* @brief      SetValid
+* @brief      Set valid
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  valid : 
@@ -160,7 +160,7 @@ bool UI_COLOR::SetValid(bool valid)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_COLOR::SetInvalid()
-* @brief      SetInvalid
+* @brief      Set invalid
 * @ingroup    USERINTERFACE
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -178,7 +178,7 @@ void UI_COLOR::SetInvalid()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int UI_COLOR::GetRed()
-* @brief      GetRed
+* @brief      Get red
 * @ingroup    USERINTERFACE
 *
 * @return     int : 
@@ -193,7 +193,7 @@ int UI_COLOR::GetRed()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_COLOR::SetRed(int red)
-* @brief      SetRed
+* @brief      Set red
 * @ingroup    USERINTERFACE
 *
 * @param[in]  red : 
@@ -208,7 +208,7 @@ void UI_COLOR::SetRed(int red)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int UI_COLOR::GetGreen()
-* @brief      GetGreen
+* @brief      Get green
 * @ingroup    USERINTERFACE
 *
 * @return     int : 
@@ -223,7 +223,7 @@ int UI_COLOR::GetGreen()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_COLOR::SetGreen(int green)
-* @brief      SetGreen
+* @brief      Set green
 * @ingroup    USERINTERFACE
 *
 * @param[in]  green : 
@@ -238,7 +238,7 @@ void UI_COLOR::SetGreen(int green)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int UI_COLOR::GetBlue()
-* @brief      GetBlue
+* @brief      Get blue
 * @ingroup    USERINTERFACE
 *
 * @return     int : 
@@ -253,7 +253,7 @@ int UI_COLOR::GetBlue()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_COLOR::SetBlue(int blue)
-* @brief      SetBlue
+* @brief      Set blue
 * @ingroup    USERINTERFACE
 *
 * @param[in]  blue : 
@@ -268,7 +268,7 @@ void UI_COLOR::SetBlue(int blue)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int UI_COLOR::GetAlpha()
-* @brief      GetAlpha
+* @brief      Get alpha
 * @ingroup    USERINTERFACE
 *
 * @return     int : 
@@ -283,7 +283,7 @@ int UI_COLOR::GetAlpha()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_COLOR::SetAlpha(int alpha)
-* @brief      SetAlpha
+* @brief      Set alpha
 * @ingroup    USERINTERFACE
 *
 * @param[in]  alpha : 
@@ -298,7 +298,7 @@ void UI_COLOR::SetAlpha(int alpha)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_COLOR::SetFromString(XCHAR* string)
-* @brief      SetFromString
+* @brief      Set from string
 * @ingroup    USERINTERFACE
 *
 * @param[in]  string : 
@@ -391,7 +391,7 @@ bool UI_COLOR::SetFromString(XCHAR* string)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_COLOR::SetFromString(XSTRING& string)
-* @brief      SetFromString
+* @brief      Set from string
 * @ingroup    USERINTERFACE
 *
 * @param[in]  string : 
@@ -408,7 +408,7 @@ bool UI_COLOR::SetFromString(XSTRING& string)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_COLOR::CopyFrom(UI_COLOR* color)
-* @brief      CopyFrom
+* @brief      Copy from
 * @ingroup    USERINTERFACE
 *
 * @param[in]  color : 
@@ -436,7 +436,7 @@ bool UI_COLOR::CopyFrom(UI_COLOR* color)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_COLOR::CopyTo(UI_COLOR* color)
-* @brief      CopyTo
+* @brief      Copy to
 * @ingroup    USERINTERFACE
 *
 * @param[in]  color : 
@@ -464,7 +464,7 @@ bool UI_COLOR::CopyTo(UI_COLOR* color)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int UI_COLOR::GetAlphaForPercent(int percent)
-* @brief      GetAlphaForPercent
+* @brief      Get alpha for percent
 * @ingroup    USERINTERFACE
 *
 * @param[in]  percent : 
@@ -486,7 +486,7 @@ int UI_COLOR::GetAlphaForPercent(int percent)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_COLOR::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
 *

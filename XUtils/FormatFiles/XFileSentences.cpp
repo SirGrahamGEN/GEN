@@ -71,7 +71,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILESENTENCES::XFILESENTENCES(HASH* hash, XPATH& xpath) : XFILEXDB(hash, xpath)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * @param[in]  hash :
@@ -87,7 +87,7 @@ XFILESENTENCES::XFILESENTENCES(HASH* hash, XPATH& xpath) : XFILEXDB(hash, xpath)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILESENTENCES::~XFILESENTENCES()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -101,7 +101,7 @@ XFILESENTENCES::~XFILESENTENCES()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILESENTENCES::ConvertFileFromDBF(XPATH& xpath)
-* @brief      ConvertFileFromDBF
+* @brief      Convert file from DBF
 * @ingroup    XUTILS
 *
 * @param[in]  xpath :
@@ -221,7 +221,7 @@ bool XFILESENTENCES::ConvertFileFromDBF(XPATH& xpath)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XFILESENTENCES::GetNumberSentences()
-* @brief      GetNumberSentences
+* @brief      Get number sentences
 * @ingroup    XUTILS
 *
 * @return     int :
@@ -236,7 +236,7 @@ int XFILESENTENCES::GetNumberSentences()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILESENTENCES::GetSentence(XDWORD index,XSTRING& sentence)
-* @brief      GetSentence
+* @brief      Get sentence
 * @ingroup    XUTILS
 *
 * @param[in]  index :

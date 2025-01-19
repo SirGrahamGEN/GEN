@@ -51,7 +51,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIONODEITEMHANDLER_SENSORAM2315::DIONODEITEMHANDLER_SENSORAM2315(int port, int remoteitemaddress, int timeout)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 * 
 * @param[in]  port: 
@@ -77,7 +77,7 @@ DIONODEITEMHANDLER_SENSORAM2315::DIONODEITEMHANDLER_SENSORAM2315(int port, int r
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIONODEITEMHANDLER_SENSORAM2315::~DIONODEITEMHANDLER_SENSORAM2315()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 * 
@@ -222,7 +222,7 @@ bool DIONODEITEMHANDLER_SENSORAM2315::Close()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIONODEITEMHANDLER_SENSORAM2315::SetNodeItem(DIONODEITEM* nodeitem)
-* @brief      SetNodeItem
+* @brief      Set node item
 * @ingroup    DATAIO
 * 
 * @param[in]  nodeitem : 
@@ -283,7 +283,7 @@ bool DIONODEITEMHANDLER_SENSORAM2315::SetNodeItem(DIONODEITEM* nodeitem)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIONODEITEMHANDLER_SENSORAM2315::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 * 

@@ -65,7 +65,7 @@ INPFACTORY* INPFACTORY::instance = NULL;
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         INPFACTORY::INPFACTORY()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    INPUT
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -78,7 +78,7 @@ INPFACTORY::INPFACTORY()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         INPFACTORY::~INPFACTORY()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    INPUT
 *
@@ -92,7 +92,7 @@ INPFACTORY::~INPFACTORY()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool INPFACTORY::GetIsInstanced()
-* @brief      Get if Is Instanced
+* @brief      Get is instanced
 * @note       STATIC
 * @ingroup    INPUT
 *
@@ -108,7 +108,7 @@ bool INPFACTORY::GetIsInstanced()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         INPFACTORY& INPFACTORY::GetInstance()
-* @brief      GetInstance
+* @brief      Get instance
 * @ingroup    INPUT
 * 
 * @return     INPFACTORY& : 
@@ -125,7 +125,7 @@ INPFACTORY& INPFACTORY::GetInstance()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool INPFACTORY::SetInstance(INPFACTORY* _instance)
-* @brief      SetInstance
+* @brief      Set instance
 * @ingroup    INPUT
 * 
 * @param[in]  _instance : 
@@ -146,7 +146,7 @@ bool INPFACTORY::SetInstance(INPFACTORY* _instance)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool INPFACTORY::DelInstance()
-* @brief      DelInstance
+* @brief      Del instance
 * @ingroup    INPUT
 * 
 * @return     bool : true if is succesful. 
@@ -166,7 +166,7 @@ bool INPFACTORY::DelInstance()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         INPDEVICE* INPFACTORY::CreateDevice(XCHAR* device, void* param)
-* @brief      Create a input Device
+* @brief      Create device
 * @ingroup    INPUT
 *
 * @param[in]  type  : device type of the input device
@@ -184,7 +184,7 @@ INPDEVICE* INPFACTORY::CreateDevice(INPDEVICE_TYPE type, void* param)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool INPFACTORY::DeleteDevice(INPDEVICE* device)
-* @brief      Delete Device
+* @brief      Delete device
 * @ingroup    INPUT
 *
 * @param[in]  device : delete device
@@ -202,7 +202,7 @@ bool INPFACTORY::DeleteDevice(INPDEVICE* device)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         INPSIMULATE* INPFACTORY::CreateSimulator()
-* @brief      CreateSimulator
+* @brief      Create simulator
 * @ingroup    INPUT
 * 
 * @return     INPSIMULATE* : 
@@ -217,7 +217,7 @@ INPSIMULATE* INPFACTORY::CreateSimulator()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool INPFACTORY::DeleteSimulator(INPSIMULATE* inputsimulated)
-* @brief      DeleteSimulator
+* @brief      Delete simulator
 * @ingroup    INPUT
 * 
 * @param[in]  inputsimulated : 
@@ -236,7 +236,7 @@ bool INPFACTORY::DeleteSimulator(INPSIMULATE* inputsimulated)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         INPCAPTURE* INPFACTORY::CreateCapture()
-* @brief      CreateCapture
+* @brief      Create capture
 * @ingroup    INPUT
 * 
 * @return     INPCAPTURE* : 
@@ -251,7 +251,7 @@ INPCAPTURE* INPFACTORY::CreateCapture()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool INPFACTORY::DeleteCapture(INPCAPTURE* inputcapture)
-* @brief      DeleteCapture
+* @brief      Delete capture
 * @ingroup    INPUT
 * 
 * @param[in]  inputcapture : 
@@ -270,7 +270,7 @@ bool INPFACTORY::DeleteCapture(INPCAPTURE* inputcapture)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void INPFACTORY::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    INPUT
 *

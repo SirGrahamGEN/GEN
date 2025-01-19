@@ -70,7 +70,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSPITFTDISPLAYILI9341::DIOSPITFTDISPLAYILI9341()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -83,7 +83,7 @@ DIOSPITFTDISPLAYILI9341::DIOSPITFTDISPLAYILI9341()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSPITFTDISPLAYILI9341::~DIOSPITFTDISPLAYILI9341()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -99,7 +99,7 @@ DIOSPITFTDISPLAYILI9341::~DIOSPITFTDISPLAYILI9341()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSPITFTDISPLAYILI9341::IniDevice()
-* @brief      IniDevice
+* @brief      Ini device
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -207,7 +207,7 @@ bool DIOSPITFTDISPLAYILI9341::Update(XBYTE* buffer)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSPITFTDISPLAYILI9341::PutPixel(XWORD x, XWORD y, XWORD color)
-* @brief      PutPixel
+* @brief      Put pixel
 * @ingroup    DATAIO
 *
 * @param[in]  x :
@@ -253,7 +253,7 @@ bool DIOSPITFTDISPLAYILI9341::End()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSPITFTDISPLAYILI9341::TFT_Init()
-* @brief      TFT_Init
+* @brief      TFT init
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -347,7 +347,7 @@ bool DIOSPITFTDISPLAYILI9341::TFT_Init()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSPITFTDISPLAYILI9341::TFT_Reset()
-* @brief      TFT_Reset
+* @brief      TFT reset
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -370,7 +370,7 @@ bool DIOSPITFTDISPLAYILI9341::TFT_Reset()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSPITFTDISPLAYILI9341::TFT_RotateRGB(int rotate, XBYTE bgr)
-* @brief      TFT_RotateRGB
+* @brief      TFT rotate RGB
 * @ingroup    DATAIO
 *
 * @param[in]  rotate :
@@ -406,7 +406,7 @@ bool DIOSPITFTDISPLAYILI9341::TFT_RotateRGB(int rotate, XBYTE bgr)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSPITFTDISPLAYILI9341::TFT_SetWindow(int xs, int ys, int xe, int ye)
-* @brief      TFT_SetWindow
+* @brief      TFT set window
 * @ingroup    DATAIO
 *
 * @param[in]  xs :
@@ -434,7 +434,7 @@ bool DIOSPITFTDISPLAYILI9341::TFT_SetWindow(int xs, int ys, int xe, int ye)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSPITFTDISPLAYILI9341::SendCommand(XBYTE command)
-* @brief      SendCommand
+* @brief      Send command
 * @ingroup    DATAIO
 *
 * @param[in]  command :
@@ -458,7 +458,7 @@ bool DIOSPITFTDISPLAYILI9341::SendCommand(XBYTE command)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSPITFTDISPLAYILI9341::SendData()
-* @brief      SendData
+* @brief      Send data
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -482,7 +482,7 @@ bool DIOSPITFTDISPLAYILI9341::SendData()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSPITFTDISPLAYILI9341::WriteRegister(XBYTE reg, int ndata, ...)
-* @brief      WriteRegister
+* @brief      Write register
 * @ingroup    DATAIO
 *
 * @param[in]  reg :
@@ -519,7 +519,7 @@ bool DIOSPITFTDISPLAYILI9341::WriteRegister(XBYTE reg, int ndata, ...)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSPITFTDISPLAYILI9341::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

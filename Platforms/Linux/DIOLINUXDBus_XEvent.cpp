@@ -68,7 +68,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOLINUXDBUS_XEVENT::DIOLINUXDBUS_XEVENT(XSUBJECT* subject, XDWORD type)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_LINUX
 * 
 * @param[in]  subject : 
@@ -84,7 +84,7 @@ DIOLINUXDBUS_XEVENT::DIOLINUXDBUS_XEVENT(XSUBJECT* subject, XDWORD type) : XEVEN
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOLINUXDBUS_XEVENT::~DIOLINUXDBUS_XEVENT()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
 * 
@@ -98,7 +98,7 @@ DIOLINUXDBUS_XEVENT::~DIOLINUXDBUS_XEVENT()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOLINUXDBUS_SIGNAL* DIOLINUXDBUS_XEVENT::GetSignal()
-* @brief      GetSignal
+* @brief      Get signal
 * @ingroup    PLATFORM_LINUX
 *
 * @return     DIOLINUXDBUS_SIGNAL* : 
@@ -113,7 +113,7 @@ DIOLINUXDBUS_SIGNAL* DIOLINUXDBUS_XEVENT::GetSignal()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOLINUXDBUS_XEVENT::SetSignal(DIOLINUXDBUS_SIGNAL* signal)
-* @brief      SetSignal
+* @brief      Set signal
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  signal : 
@@ -128,7 +128,7 @@ void DIOLINUXDBUS_XEVENT::SetSignal(DIOLINUXDBUS_SIGNAL* signal)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOLINUXDBUS_MESSAGE* DIOLINUXDBUS_XEVENT::GetMessage()
-* @brief      GetMessage
+* @brief      Get message
 * @ingroup    PLATFORM_LINUX
 *
 * @return     DIOLINUXDBUS_MESSAGE* : 
@@ -143,7 +143,7 @@ DIOLINUXDBUS_MESSAGE* DIOLINUXDBUS_XEVENT::GetMessage()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOLINUXDBUS_XEVENT::SetMessage(DIOLINUXDBUS_MESSAGE* message)
-* @brief      SetMessage
+* @brief      Set message
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  message : 
@@ -158,7 +158,7 @@ void DIOLINUXDBUS_XEVENT::SetMessage(DIOLINUXDBUS_MESSAGE* message)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOLINUXDBUS_XEVENT::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
 * 

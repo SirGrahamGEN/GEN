@@ -66,7 +66,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIONODE::DIONODE()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -82,7 +82,7 @@ DIONODE::DIONODE()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIONODE::~DIONODE()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 * 
@@ -99,7 +99,7 @@ DIONODE::~DIONODE()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XUUID& DIONODE::GetID()
-* @brief      GetID
+* @brief      Get ID
 * @ingroup    DATAIO
 * 
 * @return     XUUID& : 
@@ -114,7 +114,7 @@ XUUID& DIONODE::GetID()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIONODE::SetID(XUUID& UUID)
-* @brief      SetID
+* @brief      Set ID
 * @ingroup    DATAIO
 * 
 * @param[in]  UUID : 
@@ -129,7 +129,7 @@ void DIONODE::SetID(XUUID& UUID)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XVECTOR<DIONODEITEM*>* DIONODE::GetItems()
-* @brief      GetItems
+* @brief      Get items
 * @ingroup    DATAIO
 * 
 * @return     XVECTOR<DIONODEITEM*>* : 
@@ -144,7 +144,7 @@ XVECTOR<DIONODEITEM*>* DIONODE::GetItems()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIONODE::IsLocal()
-* @brief      IsLocal
+* @brief      Is local
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
@@ -159,7 +159,7 @@ bool DIONODE::IsLocal()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIONODE::SetIsLocal(bool islocal)
-* @brief      SetIsLocal
+* @brief      Set is local
 * @ingroup    DATAIO
 * 
 * @param[in]  islocal : 
@@ -174,7 +174,7 @@ void DIONODE::SetIsLocal(bool islocal)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* DIONODE::GetGroup()
-* @brief      GetGroup
+* @brief      Get group
 * @ingroup    DATAIO
 * 
 * @return     XSTRING* : 
@@ -189,7 +189,7 @@ XSTRING* DIONODE::GetGroup()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIONODE::GetSubGroups(XVECTOR<XSTRING*>& listsubgroups)
-* @brief      GetSubGroups
+* @brief      Get sub groups
 * @ingroup    DATAIO
 * 
 * @param[in]  listsubgroups : 
@@ -244,7 +244,7 @@ bool DIONODE::GetSubGroups(XVECTOR<XSTRING*>& listsubgroups)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIONODE::GetSubGroup(XDWORD level, XSTRING& subgroup)
-* @brief      GetSubGroup
+* @brief      Get sub group
 * @ingroup    DATAIO
 * 
 * @param[in]  level : 
@@ -305,7 +305,7 @@ bool DIONODE::Update()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIONODE::CreateJSONSerialization()
-* @brief      CreateJSONSerialization
+* @brief      Create JSON serialization
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
@@ -391,7 +391,7 @@ bool DIONODE::Deserialize()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIONODE::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 * 

@@ -71,7 +71,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         SCRIPT_LIB_MATH::SCRIPT_LIB_MATH()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    SCRIPT
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -84,7 +84,7 @@ SCRIPT_LIB_MATH::SCRIPT_LIB_MATH() : SCRIPT_LIB(SCRIPT_LIB_MATH_NAME)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         SCRIPT_LIB_MATH::~SCRIPT_LIB_MATH()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    SCRIPT
 *
@@ -98,7 +98,7 @@ SCRIPT_LIB_MATH::~SCRIPT_LIB_MATH()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool SCRIPT_LIB_MATH::AddLibraryFunctions(SCRIPT* script)
-* @brief      AddLibraryFunctions
+* @brief      Add library functions
 * @ingroup    SCRIPT
 *
 * @param[in]  script :
@@ -121,7 +121,7 @@ bool SCRIPT_LIB_MATH::AddLibraryFunctions(SCRIPT* script)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void SCRIPT_LIB_MATH::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    SCRIPT
 *

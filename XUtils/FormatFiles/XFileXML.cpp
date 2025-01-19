@@ -74,7 +74,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILEXMLATTRIBUTE::XFILEXMLATTRIBUTE()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -87,7 +87,7 @@ XFILEXMLATTRIBUTE::XFILEXMLATTRIBUTE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILEXMLATTRIBUTE::XFILEXMLATTRIBUTE(XSTRING& name)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * @param[in]  name :
@@ -104,7 +104,7 @@ XFILEXMLATTRIBUTE::XFILEXMLATTRIBUTE(XSTRING& name)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILEXMLATTRIBUTE::XFILEXMLATTRIBUTE(XCHAR* name)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * @param[in]  name :
@@ -121,7 +121,7 @@ XFILEXMLATTRIBUTE::XFILEXMLATTRIBUTE(XCHAR* name)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILEXMLATTRIBUTE::XFILEXMLATTRIBUTE(XSTRING& name,XSTRING& value)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * @param[in]  name :
@@ -140,7 +140,7 @@ XFILEXMLATTRIBUTE::XFILEXMLATTRIBUTE(XSTRING& name, XSTRING& value)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XFILEXMLATTRIBUTE::XFILEXMLATTRIBUTE(XCHAR* name, XCHAR* value)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 * 
 * @param[in]  name : 
@@ -159,7 +159,7 @@ XFILEXMLATTRIBUTE::XFILEXMLATTRIBUTE(XCHAR* name, XCHAR* value)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILEXMLATTRIBUTE::~XFILEXMLATTRIBUTE()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -173,7 +173,7 @@ XFILEXMLATTRIBUTE::~XFILEXMLATTRIBUTE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING& XFILEXMLATTRIBUTE::GetName()
-* @brief      GetName
+* @brief      Get name
 * @ingroup    XUTILS
 *
 * @return     XSTRING& :
@@ -188,7 +188,7 @@ XSTRING& XFILEXMLATTRIBUTE::GetName()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEXMLATTRIBUTE::SetName(XSTRING& name)
-* @brief      SetName
+* @brief      Set name
 * @ingroup    XUTILS
 *
 * @param[in]  name :
@@ -207,7 +207,7 @@ bool XFILEXMLATTRIBUTE::SetName(XSTRING& name)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEXMLATTRIBUTE::SetName(XCHAR* name)
-* @brief      SetName
+* @brief      Set name
 * @ingroup    XUTILS
 *
 * @param[in]  name :
@@ -226,7 +226,7 @@ bool XFILEXMLATTRIBUTE::SetName(XCHAR* name)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING& XFILEXMLATTRIBUTE::GetValue()
-* @brief      GetValue
+* @brief      Get value
 * @ingroup    XUTILS
 *
 * @return     XSTRING& :
@@ -241,7 +241,7 @@ XSTRING& XFILEXMLATTRIBUTE::GetValue()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEXMLATTRIBUTE::SetValue(XSTRING& value)
-* @brief      SetValue
+* @brief      Set value
 * @ingroup    XUTILS
 *
 * @param[in]  value :
@@ -260,7 +260,7 @@ bool XFILEXMLATTRIBUTE::SetValue(XSTRING& value)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEXMLATTRIBUTE::SetValue(XCHAR* value)
-* @brief      SetValue
+* @brief      Set value
 * @ingroup    XUTILS
 *
 * @param[in]  value :
@@ -279,7 +279,7 @@ bool XFILEXMLATTRIBUTE::SetValue(XCHAR* value)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XFILEXMLATTRIBUTE::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    XUTILS
 *
@@ -300,7 +300,7 @@ void XFILEXMLATTRIBUTE::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILEXMLELEMENT::XFILEXMLELEMENT()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -313,7 +313,7 @@ XFILEXMLELEMENT::XFILEXMLELEMENT()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XFILEXMLELEMENT::XFILEXMLELEMENT(XSTRING& name, XFILEXMLELEMENTTYPE type)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 * 
 * @param[in]  name : 
@@ -332,7 +332,7 @@ XFILEXMLELEMENT::XFILEXMLELEMENT(XSTRING& name, XFILEXMLELEMENTTYPE type)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILEXMLELEMENT::XFILEXMLELEMENT(XCHAR* name, XFILEXMLELEMENTTYPE type)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * @param[in]  name :
@@ -351,7 +351,7 @@ XFILEXMLELEMENT::XFILEXMLELEMENT(XCHAR* name, XFILEXMLELEMENTTYPE type)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILEXMLELEMENT::XFILEXMLELEMENT(XSTRING& name,XSTRING& value, XFILEXMLELEMENTTYPE type)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * @param[in]  name :
@@ -372,7 +372,7 @@ XFILEXMLELEMENT::XFILEXMLELEMENT(XSTRING& name,XSTRING& value, XFILEXMLELEMENTTY
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILEXMLELEMENT::XFILEXMLELEMENT(XCHAR* name,XCHAR* value, XFILEXMLELEMENTTYPE type)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * @param[in]  name :
@@ -393,7 +393,7 @@ XFILEXMLELEMENT::XFILEXMLELEMENT(XCHAR* name,XCHAR* value, XFILEXMLELEMENTTYPE t
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILEXMLELEMENT::~XFILEXMLELEMENT()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -410,7 +410,7 @@ XFILEXMLELEMENT::~XFILEXMLELEMENT()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING& XFILEXMLELEMENT::GetName()
-* @brief      GetName
+* @brief      Get name
 * @ingroup    XUTILS
 *
 * @return     XSTRING& :
@@ -425,7 +425,7 @@ XSTRING& XFILEXMLELEMENT::GetName()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEXMLELEMENT::SetName(XSTRING& name)
-* @brief      SetName
+* @brief      Set name
 * @ingroup    XUTILS
 *
 * @param[in]  name :
@@ -444,7 +444,7 @@ bool XFILEXMLELEMENT::SetName(XSTRING& name)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEXMLELEMENT::SetName(XCHAR* name)
-* @brief      SetName
+* @brief      Set name
 * @ingroup    XUTILS
 *
 * @param[in]  name :
@@ -463,7 +463,7 @@ bool XFILEXMLELEMENT::SetName(XCHAR* name)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILEXMLATTRIBUTE* XFILEXMLELEMENT::AddAtribute(XSTRING& name, XSTRING& value)
-* @brief      AddAtribute
+* @brief      Add atribute
 * @ingroup    XUTILS
 *
 * @param[in]  name :
@@ -486,7 +486,7 @@ XFILEXMLATTRIBUTE* XFILEXMLELEMENT::AddAtribute(XSTRING& name, XSTRING& value)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILEXMLATTRIBUTE* XFILEXMLELEMENT::AddAtribute(XCHAR* name, XCHAR* value)
-* @brief      AddAtribute
+* @brief      Add atribute
 * @ingroup    XUTILS
 *
 * @param[in]  name :
@@ -509,7 +509,7 @@ XFILEXMLATTRIBUTE* XFILEXMLELEMENT::AddAtribute(XCHAR* name, XCHAR* value)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XFILEXMLELEMENT::GetNAttributes()
-* @brief      GetNAttributes
+* @brief      Get N attributes
 * @ingroup    XUTILS
 *
 * @return     int :
@@ -524,7 +524,7 @@ int XFILEXMLELEMENT::GetNAttributes()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILEXMLATTRIBUTE* XFILEXMLELEMENT::GetAttribute(int index)
-* @brief      GetAttribute
+* @brief      Get attribute
 * @ingroup    XUTILS
 *
 * @param[in]  index :
@@ -544,7 +544,7 @@ XFILEXMLATTRIBUTE* XFILEXMLELEMENT::GetAttribute(int index)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XCHAR* XFILEXMLELEMENT::GetValueAttribute(XSTRING& name)
-* @brief      GetValueAttribute
+* @brief      Get value attribute
 * @ingroup    XUTILS
 *
 * @param[in]  name :
@@ -561,7 +561,7 @@ XCHAR* XFILEXMLELEMENT::GetValueAttribute(XSTRING& name)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XCHAR* XFILEXMLELEMENT::GetValueAttribute(XCHAR* name)
-* @brief      GetValueAttribute
+* @brief      Get value attribute
 * @ingroup    XUTILS
 *
 * @param[in]  name :
@@ -592,7 +592,7 @@ XCHAR* XFILEXMLELEMENT::GetValueAttribute(XCHAR* name)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEXMLELEMENT::GetValueAttribute(XSTRING& name, XSTRING& value)
-* @brief      GetValueAttribute
+* @brief      Get value attribute
 * @ingroup    XUTILS
 *
 * @param[in]  name :
@@ -610,7 +610,7 @@ bool XFILEXMLELEMENT::GetValueAttribute(XSTRING& name, XSTRING& value)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEXMLELEMENT::GetValueAttribute(XCHAR* name,XSTRING& value)
-* @brief      GetValueAttribute
+* @brief      Get value attribute
 * @ingroup    XUTILS
 *
 * @param[in]  name :
@@ -642,7 +642,7 @@ bool XFILEXMLELEMENT::GetValueAttribute(XCHAR* name,XSTRING& value)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XFILEXMLELEMENT::GetIntValueAttribute(XSTRING& name)
-* @brief      GetIntValueAttribute
+* @brief      Get int value attribute
 * @ingroup    XUTILS
 *
 * @param[in]  name :
@@ -659,7 +659,7 @@ int XFILEXMLELEMENT::GetIntValueAttribute(XSTRING& name)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XFILEXMLELEMENT::GetIntValueAttribute(XCHAR* name)
-* @brief      GetIntValueAttribute
+* @brief      Get int value attribute
 * @ingroup    XUTILS
 *
 * @param[in]  name :
@@ -680,7 +680,7 @@ int XFILEXMLELEMENT::GetIntValueAttribute(XCHAR* name)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEXMLELEMENT::GetBoolValueAttribute(XCHAR* name)
-* @brief      GetBoolValueAttribute
+* @brief      Get bool value attribute
 * @ingroup    XUTILS
 *
 * @param[in]  name :
@@ -702,7 +702,7 @@ bool XFILEXMLELEMENT::GetBoolValueAttribute(XCHAR* name)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         double XFILEXMLELEMENT::GetFloatValueAttribute(XCHAR* name)
-* @brief      GetFloatValueAttribute
+* @brief      Get float value attribute
 * @ingroup    XUTILS
 *
 * @param[in]  name :
@@ -724,7 +724,7 @@ double XFILEXMLELEMENT::GetFloatValueAttribute(XCHAR* name)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEXMLELEMENT::DeleteAtribute(int index)
-* @brief      DeleteAtribute
+* @brief      Delete atribute
 * @ingroup    XUTILS
 *
 * @param[in]  index :
@@ -748,7 +748,7 @@ bool XFILEXMLELEMENT::DeleteAtribute(int index)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEXMLELEMENT::DeleteAllAtributes()
-* @brief      DeleteAllAtributes
+* @brief      Delete all atributes
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -769,7 +769,7 @@ bool XFILEXMLELEMENT::DeleteAllAtributes()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING& XFILEXMLELEMENT::GetValue()
-* @brief      GetValue
+* @brief      Get value
 * @ingroup    XUTILS
 *
 * @return     XSTRING& :
@@ -784,7 +784,7 @@ XSTRING& XFILEXMLELEMENT::GetValue()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEXMLELEMENT::SetValue(XSTRING& value)
-* @brief      SetValue
+* @brief      Set value
 * @ingroup    XUTILS
 *
 * @param[in]  value :
@@ -803,7 +803,7 @@ bool XFILEXMLELEMENT::SetValue(XSTRING& value)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEXMLELEMENT::SetValue(XCHAR* value)
-* @brief      SetValue
+* @brief      Set value
 * @ingroup    XUTILS
 *
 * @param[in]  value :
@@ -822,7 +822,7 @@ bool XFILEXMLELEMENT::SetValue(XCHAR* value)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILEXMLELEMENT* XFILEXMLELEMENT::AddElement()
-* @brief      AddElement
+* @brief      Add element
 * @ingroup    XUTILS
 *
 * @return     XFILEXMLELEMENT* :
@@ -844,7 +844,7 @@ XFILEXMLELEMENT* XFILEXMLELEMENT::AddElement()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILEXMLELEMENT* XFILEXMLELEMENT::AddElement(XSTRING& name)
-* @brief      AddElement
+* @brief      Add element
 * @ingroup    XUTILS
 *
 * @param[in]  name :
@@ -868,7 +868,7 @@ XFILEXMLELEMENT* XFILEXMLELEMENT::AddElement(XSTRING& name)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILEXMLELEMENT* XFILEXMLELEMENT::AddElement(XCHAR* name)
-* @brief      AddElement
+* @brief      Add element
 * @ingroup    XUTILS
 *
 * @param[in]  name :
@@ -892,7 +892,7 @@ XFILEXMLELEMENT* XFILEXMLELEMENT::AddElement(XCHAR* name)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILEXMLELEMENT* XFILEXMLELEMENT::AddElement(XSTRING& name,XSTRING& value)
-* @brief      AddElement
+* @brief      Add element
 * @ingroup    XUTILS
 *
 * @param[in]  name :
@@ -917,7 +917,7 @@ XFILEXMLELEMENT* XFILEXMLELEMENT::AddElement(XSTRING& name,XSTRING& value)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILEXMLELEMENT* XFILEXMLELEMENT::AddElement(XCHAR* name,XCHAR* value)
-* @brief      AddElement
+* @brief      Add element
 * @ingroup    XUTILS
 *
 * @param[in]  name :
@@ -943,7 +943,7 @@ XFILEXMLELEMENT* XFILEXMLELEMENT::AddElement(XCHAR* name,XCHAR* value)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XFILEXMLELEMENT::GetNElements()
-* @brief      GetNElements
+* @brief      Get N elements
 * @ingroup    XUTILS
 *
 * @return     int :
@@ -958,7 +958,7 @@ int XFILEXMLELEMENT::GetNElements()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILEXMLELEMENT* XFILEXMLELEMENT::GetElement(int index)
-* @brief      GetElement
+* @brief      Get element
 * @ingroup    XUTILS
 *
 * @param[in]  index :
@@ -978,7 +978,7 @@ XFILEXMLELEMENT* XFILEXMLELEMENT::GetElement(int index)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEXMLELEMENT::DeleteElement(int index)
-* @brief      DeleteElement
+* @brief      Delete element
 * @ingroup    XUTILS
 *
 * @param[in]  index :
@@ -1002,7 +1002,7 @@ bool XFILEXMLELEMENT::DeleteElement(int index)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEXMLELEMENT::DeleteAllElements()
-* @brief      DeleteAllElements
+* @brief      Delete all elements
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -1022,7 +1022,7 @@ bool XFILEXMLELEMENT::DeleteAllElements()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILEXMLELEMENT* XFILEXMLELEMENT::GetFather()
-* @brief      GetFather
+* @brief      Get father
 * @ingroup    XUTILS
 *
 * @return     XFILEXMLELEMENT* :
@@ -1037,7 +1037,7 @@ XFILEXMLELEMENT* XFILEXMLELEMENT::GetFather()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEXMLELEMENT::SetFather(XFILEXMLELEMENT* father)
-* @brief      SetFather
+* @brief      Set father
 * @ingroup    XUTILS
 *
 * @param[in]  father :
@@ -1056,7 +1056,7 @@ bool XFILEXMLELEMENT::SetFather(XFILEXMLELEMENT* father)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILEXMLELEMENTTYPE XFILEXMLELEMENT::GetType()
-* @brief      GetType
+* @brief      Get type
 * @ingroup    XUTILS
 *
 * @return     XFILEXMLELEMENTTYPE :
@@ -1071,7 +1071,7 @@ XFILEXMLELEMENTTYPE XFILEXMLELEMENT::GetType()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEXMLELEMENT::SetType(XFILEXMLELEMENTTYPE type)
-* @brief      SetType
+* @brief      Set type
 * @ingroup    XUTILS
 *
 * @param[in]  type :
@@ -1090,7 +1090,7 @@ bool XFILEXMLELEMENT::SetType(XFILEXMLELEMENTTYPE type)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XFILEXMLELEMENT::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    XUTILS
 *
@@ -1113,7 +1113,7 @@ void XFILEXMLELEMENT::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILEXML::XFILEXML()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -1126,7 +1126,7 @@ XFILEXML::XFILEXML() : XFILETXT()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILEXML::~XFILEXML()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -1144,7 +1144,7 @@ XFILEXML::~XFILEXML()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILEXMLELEMENT* XFILEXML::GetRoot()
-* @brief      GetRoot
+* @brief      Get root
 * @ingroup    XUTILS
 *
 * @return     XFILEXMLELEMENT* :
@@ -1159,7 +1159,7 @@ XFILEXMLELEMENT* XFILEXML::GetRoot()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEXML::SetRoot(XFILEXMLELEMENT* root)
-* @brief      SetRoot
+* @brief      Set root
 * @ingroup    XUTILS
 *
 * @param[in]  root :
@@ -1180,7 +1180,7 @@ bool XFILEXML::SetRoot(XFILEXMLELEMENT* root)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEXML::EncodeAllLines(bool istabulatedline)
-* @brief      EncodeAllLines
+* @brief      Encode all lines
 * @ingroup    XUTILS
 *
 * @param[in]  istabulatedline :
@@ -1210,7 +1210,7 @@ bool XFILEXML::EncodeAllLines(bool istabulatedline)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEXML::DecodeAllLines()
-* @brief      DecodeAllLines
+* @brief      Decode all lines
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -1281,7 +1281,7 @@ bool XFILEXML::DecodeAllLines()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEXML::ReadAndDecodeAllLines()
-* @brief      ReadAndDecodeAllLines
+* @brief      Read and decode all lines
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -1302,7 +1302,7 @@ bool XFILEXML::ReadAndDecodeAllLines()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEXML::WriteAndEncodeAllLines(bool istabulatedline,XFILETXTFORMATCHAR formatchar, XFILETXTTYPELF typeLF)
-* @brief      WriteAndEncodeAllLines
+* @brief      Write and encode all lines
 * @ingroup    XUTILS
 *
 * @param[in]  istabulatedline :
@@ -1324,7 +1324,7 @@ bool XFILEXML::WriteAndEncodeAllLines(bool istabulatedline, XFILETXTFORMATCHAR f
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEXML::WriteAndEncodeAllLines(bool istabulatedline)
-* @brief      WriteAndEncodeAllLines
+* @brief      Write and encode all lines
 * @ingroup    XUTILS
 *
 * @param[in]  istabulatedline :
@@ -1349,7 +1349,7 @@ bool XFILEXML::WriteAndEncodeAllLines(bool istabulatedline)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILEXMLELEMENT* XFILEXML::SearchChild(XCHAR* name, XFILEXMLELEMENT* father)
-* @brief      SearchChild
+* @brief      Search child
 * @ingroup    XUTILS
 *
 * @param[in]  name :
@@ -1380,7 +1380,7 @@ XFILEXMLELEMENT* XFILEXML::SearchChild(XCHAR* name, XFILEXMLELEMENT* father)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILEXMLELEMENT* XFILEXML::SearchElement(XSTRING& name, int& index, XFILEXMLELEMENT* father)
-* @brief      SearchElement
+* @brief      Search element
 * @ingroup    XUTILS
 *
 * @param[in]  name :
@@ -1399,7 +1399,7 @@ XFILEXMLELEMENT* XFILEXML::SearchElement(XSTRING& name, int& index, XFILEXMLELEM
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILEXMLELEMENT* XFILEXML::SearchElement(XCHAR* name, int& index, XFILEXMLELEMENT* father)
-* @brief      SearchElement
+* @brief      Search element
 * @ingroup    XUTILS
 *
 * @param[in]  name :
@@ -1444,7 +1444,7 @@ XFILEXMLELEMENT* XFILEXML::SearchElement(XCHAR* name, int& index, XFILEXMLELEMEN
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILEXMLELEMENT* XFILEXML::SearchElement(XCHAR* name, int& index, XSTRING& namefather)
-* @brief      SearchElement
+* @brief      Search element
 * @ingroup    XUTILS
 *
 * @param[in]  name :
@@ -1463,7 +1463,7 @@ XFILEXMLELEMENT* XFILEXML::SearchElement(XCHAR* name, int& index, XSTRING& namef
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILEXMLELEMENT* XFILEXML::SearchElement(XCHAR* name, int& index, XCHAR* namefather)
-* @brief      SearchElement
+* @brief      Search element
 * @ingroup    XUTILS
 *
 * @param[in]  name :
@@ -1486,7 +1486,7 @@ XFILEXMLELEMENT* XFILEXML::SearchElement(XCHAR* name, int& index, XCHAR* namefat
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEXML::SearchAttributeValue(XFILEXMLELEMENT* element, XSTRING& nameattribute, XSTRING& value)
-* @brief      SearchAttributeValue
+* @brief      Search attribute value
 * @ingroup    XUTILS
 *
 * @param[in]  element :
@@ -1505,7 +1505,7 @@ bool XFILEXML::SearchAttributeValue(XFILEXMLELEMENT* element, XSTRING& nameattri
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEXML::SearchAttributeValue(XFILEXMLELEMENT* element,XCHAR* nameattribute,XSTRING& value)
-* @brief      SearchAttributeValue
+* @brief      Search attribute value
 * @ingroup    XUTILS
 *
 * @param[in]  element :
@@ -1541,7 +1541,7 @@ bool XFILEXML::SearchAttributeValue(XFILEXMLELEMENT* element,XCHAR* nameattribut
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XVECTOR<XFILEXMLATTRIBUTE*>* XFILEXML::GetCFGAtributes()
-* @brief      GetCFGAtributes
+* @brief      Get CFG atributes
 * @ingroup    XUTILS
 *
 * @return     XVECTOR<XFILEXMLATTRIBUTE*>* :
@@ -1556,7 +1556,7 @@ XVECTOR<XFILEXMLATTRIBUTE*>* XFILEXML::GetCFGAtributes()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEXML::DeleteAllCFGAtributes()
-* @brief      DeleteAllCFGAtributes
+* @brief      Delete all CFG atributes
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -1576,7 +1576,7 @@ bool XFILEXML::DeleteAllCFGAtributes()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEXML::DeleteAllElements()
-* @brief      DeleteAllElements
+* @brief      Delete all elements
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -1599,7 +1599,7 @@ bool XFILEXML::DeleteAllElements()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XFILEXML::DecodeLine(XSTRING& string, bool iselement)
-* @brief      DecodeLine
+* @brief      Decode line
 * @ingroup    XUTILS
 *
 * @param[in]  string :
@@ -1679,7 +1679,7 @@ int XFILEXML::DecodeLine(XSTRING& string,bool iselement)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEXML::DecodeConfig(XSTRING& string)
-* @brief      DecodeConfig
+* @brief      Decode config
 * @ingroup    XUTILS
 *
 * @param[in]  string :
@@ -1721,7 +1721,7 @@ bool XFILEXML::DecodeConfig(XSTRING& string)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEXML::DecodeComent(XSTRING& string)
-* @brief      DecodeComent
+* @brief      Decode coment
 * @ingroup    XUTILS
 *
 * @param[in]  string :
@@ -1751,7 +1751,7 @@ bool XFILEXML::DecodeComent(XSTRING& string)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEXML::DecodeCDATA(XSTRING& string)
-* @brief      DecodeCDATA
+* @brief      Decode CDATA
 * @ingroup    XUTILS
 *
 * @param[in]  string :
@@ -1780,7 +1780,7 @@ bool XFILEXML::DecodeCDATA(XSTRING& string)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEXML::DecodeElement(XSTRING& string, XFILEXMLELEMENTTYPELINE typeline)
-* @brief      DecodeElement
+* @brief      Decode element
 * @ingroup    XUTILS
 *
 * @param[in]  string :
@@ -1865,7 +1865,7 @@ bool XFILEXML::DecodeElement(XSTRING& string, XFILEXMLELEMENTTYPELINE typeline)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEXML::AddTabs(int level,int spacetabs,XSTRING& string)
-* @brief      AddTabs
+* @brief      Add tabs
 * @ingroup    XUTILS
 *
 * @param[in]  level :
@@ -1894,7 +1894,7 @@ bool XFILEXML::AddTabs(int level,int spacetabs,XSTRING& string)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEXML::EncodeConfig(XSTRING& string)
-* @brief      EncodeConfig
+* @brief      Encode config
 * @ingroup    XUTILS
 *
 * @param[in]  string :
@@ -1929,7 +1929,7 @@ bool XFILEXML::EncodeConfig(XSTRING& string)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEXML::EncodeElements(bool istabulatedline, XFILEXMLELEMENT* element)
-* @brief      EncodeElements
+* @brief      Encode elements
 * @ingroup    XUTILS
 *
 * @param[in]  istabulatedline :
@@ -2048,7 +2048,7 @@ bool XFILEXML::EncodeElements(bool istabulatedline, XFILEXMLELEMENT* element)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XFILEXML::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    XUTILS
 *

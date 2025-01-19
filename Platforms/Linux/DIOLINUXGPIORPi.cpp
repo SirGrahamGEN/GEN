@@ -74,7 +74,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOLINUXGPIORPI::DIOLINUXGPIORPI()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_LINUX
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -88,7 +88,7 @@ DIOLINUXGPIORPI::DIOLINUXGPIORPI(): DIOLINUXGPIO()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOLINUXGPIORPI::~DIOLINUXGPIORPI()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
 *
@@ -220,7 +220,7 @@ bool DIOLINUXGPIORPI::Ini()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOLINUXGPIORPI::SetMode(DIOGPIO_ENTRY* entry, XWORD mode)
-* @brief      SetMode
+* @brief      Set mode
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  entry : 
@@ -248,7 +248,7 @@ bool DIOLINUXGPIORPI::SetMode(DIOGPIO_ENTRY* entry, XWORD mode)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOLINUXGPIORPI::GetValue(DIOGPIO_ENTRY* entry)
-* @brief      GetValue
+* @brief      Get value
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  entry : 
@@ -270,7 +270,7 @@ bool DIOLINUXGPIORPI::GetValue(DIOGPIO_ENTRY* entry)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOLINUXGPIORPI::SetValue(DIOGPIO_ENTRY* entry, bool value)
-* @brief      SetValue
+* @brief      Set value
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  entry : 
@@ -310,7 +310,7 @@ bool DIOLINUXGPIORPI::End()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOLINUXGPIORPI::RPI_Ini()
-* @brief      RPI_Ini
+* @brief      RPI ini
 * @ingroup    PLATFORM_LINUX
 *
 * @return     bool : true if is succesful.
@@ -355,7 +355,7 @@ bool DIOLINUXGPIORPI::RPI_Ini()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOLINUXGPIORPI::RPI_End()
-* @brief      RPI_End
+* @brief      RPI end
 * @ingroup    PLATFORM_LINUX
 *
 * @return     bool : true if is succesful.
@@ -380,7 +380,7 @@ bool DIOLINUXGPIORPI::RPI_End()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOLINUXGPIORPI::RPI_IsGPIOValid(XQWORD GPIO)
-* @brief      RPI_IsGPIOValid
+* @brief      RPI is GPIO valid
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  GPIO : 
@@ -401,7 +401,7 @@ bool DIOLINUXGPIORPI::RPI_IsGPIOValid(XQWORD GPIO)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOLINUXGPIORPI::RPI_GPIOMode(XQWORD GPIO, bool isinput)
-* @brief      RPI_GPIOMode
+* @brief      RPIGPIO mode
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  GPIO : 
@@ -468,7 +468,7 @@ bool DIOLINUXGPIORPI::RPI_GPIOMode(XQWORD GPIO, bool isinput)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOLINUXGPIORPI::RPI_GPIORead(XQWORD GPIO)
-* @brief      RPI_GPIORead
+* @brief      RPIGPIO read
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  GPIO : 
@@ -513,7 +513,7 @@ bool DIOLINUXGPIORPI::RPI_GPIORead(XQWORD GPIO)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOLINUXGPIORPI::RPI_GPIOWrite(XQWORD GPIO, bool isactive)
-* @brief      RPI_GPIOWrite
+* @brief      RPIGPIO write
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  GPIO : 
@@ -582,7 +582,7 @@ bool DIOLINUXGPIORPI::RPI_GPIOWrite(XQWORD GPIO, bool isactive)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOLINUXGPIORPI::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
 *

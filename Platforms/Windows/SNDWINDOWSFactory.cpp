@@ -69,8 +69,8 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         SNDWINDOWSFACTORY::SNDWINDOWSFACTORY()
-* @brief      Constructor
-* @ingroup    SOUND
+* @brief      Constructor of class
+* @ingroup    PLATFORM_WINDOWS
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 SNDWINDOWSFACTORY::SNDWINDOWSFACTORY()
@@ -82,9 +82,9 @@ SNDWINDOWSFACTORY::SNDWINDOWSFACTORY()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         SNDWINDOWSFACTORY::~SNDWINDOWSFACTORY()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
-* @ingroup    SOUND
+* @ingroup    PLATFORM_WINDOWS
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 SNDWINDOWSFACTORY::~SNDWINDOWSFACTORY()
@@ -96,9 +96,9 @@ SNDWINDOWSFACTORY::~SNDWINDOWSFACTORY()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void SNDWINDOWSFACTORY::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
-* @ingroup    SOUND
+* @ingroup    PLATFORM_WINDOWS
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void SNDWINDOWSFACTORY::Clean()

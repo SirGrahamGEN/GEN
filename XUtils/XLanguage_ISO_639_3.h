@@ -161,7 +161,7 @@ enum XLANGUAGE_ISO_639_3_CODE
   XLANGUAGE_ISO_639_3_CODE_NDO       = 116,     //   Ndonga
   XLANGUAGE_ISO_639_3_CODE_NEP       = 117,     //   Nepali
   XLANGUAGE_ISO_639_3_CODE_NNO       = 118,     //   Norwegian Nynorsk
-  XLANGUAGE_ISO_639_3_CODE_NOB       = 119,     //   Bokmål Norwegian
+  XLANGUAGE_ISO_639_3_CODE_NOB       = 119,     //   Bokm_l Norwegian
   XLANGUAGE_ISO_639_3_CODE_NOR       = 120,     //   Norwegian
   XLANGUAGE_ISO_639_3_CODE_NYA       = 121,     //   Chichewa
   XLANGUAGE_ISO_639_3_CODE_OCI       = 122,     //   Occitan (post 1500)
@@ -219,7 +219,7 @@ enum XLANGUAGE_ISO_639_3_CODE
   XLANGUAGE_ISO_639_3_CODE_UZB       = 174,     //   Uzbek
   XLANGUAGE_ISO_639_3_CODE_VEN       = 175,     //   Venda
   XLANGUAGE_ISO_639_3_CODE_VIE       = 176,     //   Vietnamese
-  XLANGUAGE_ISO_639_3_CODE_VOL       = 177,     //   Volapük
+  XLANGUAGE_ISO_639_3_CODE_VOL       = 177,     //   Volap_k
   XLANGUAGE_ISO_639_3_CODE_WEL       = 178,     //   Welsh
   XLANGUAGE_ISO_639_3_CODE_WLN       = 179,     //   Walloon
   XLANGUAGE_ISO_639_3_CODE_WOL       = 180,     //   Wolof

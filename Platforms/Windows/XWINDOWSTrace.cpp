@@ -63,7 +63,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XWINDOWSTRACE::XWINDOWSTRACE()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_WINDOWS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -81,7 +81,7 @@ XWINDOWSTRACE::XWINDOWSTRACE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XWINDOWSTRACE::~XWINDOWSTRACE()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
 *
@@ -111,7 +111,7 @@ XWINDOWSTRACE::~XWINDOWSTRACE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XWINDOWSTRACE::PrintSpecial(XTRACE_TARGET* target, XBYTE level, XCHAR* string)
-* @brief      Print Special aim
+* @brief      Print special
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  target : target to print the debug
@@ -167,7 +167,7 @@ void XWINDOWSTRACE::PrintSpecial(XTRACE_TARGET* target, XBYTE level, XCHAR* stri
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XWINDOWSTRACE::PrintFile(XTRACE_TARGET* target, XBYTE level, XCHAR* string)
-* @brief      Print File aim
+* @brief      Print file
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  target : target to print the debug
@@ -264,7 +264,7 @@ void XWINDOWSTRACE::PrintFile(XTRACE_TARGET* target, XBYTE level, XCHAR* string)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XWINDOWSTRACE::PrintNet(XTRACE_TARGET* target, XBYTE level, XCHAR* string)
-* @brief      Print Net aim
+* @brief      Print net
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  target : target to print the debug
@@ -304,7 +304,7 @@ void XWINDOWSTRACE::PrintNet(XTRACE_TARGET* target, XBYTE level, XCHAR* string)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSTRACE::GetHandleNet(XTRACE_TARGET* target)
-* @brief      Get Handle NET (WINDOWS)
+* @brief      Get handle net
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  target : target of debug
@@ -358,7 +358,7 @@ bool XWINDOWSTRACE::GetHandleNet(XTRACE_TARGET* target)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSTRACE::CloseHandleNet(XTRACE_TARGET* target)
-* @brief      Close Handle NET (WINDOWS)
+* @brief      Close handle net
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  target : target of debug
@@ -385,7 +385,7 @@ bool XWINDOWSTRACE::CloseHandleNet(XTRACE_TARGET* target)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSTRACE::Lock()
-* @brief      Lock (Mutex to print)
+* @brief      Lock
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
 *
@@ -404,7 +404,7 @@ bool XWINDOWSTRACE::Lock()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSTRACE::UnLock()
-* @brief      Unlock (Mutex to print)
+* @brief      Un lock
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
 *
@@ -423,7 +423,7 @@ bool XWINDOWSTRACE::UnLock()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XWINDOWSTRACE::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
 *

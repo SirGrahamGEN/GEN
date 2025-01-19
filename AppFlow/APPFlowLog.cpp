@@ -76,7 +76,7 @@ APPFLOWLOG* APPFLOWLOG::instance = NULL;
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool APPFLOWLOG::GetIsInstanced()
-* @brief      GetIsInstanced
+* @brief      Get is instanced
 * @ingroup    APPFLOW
 *
 * @return     bool : true if is succesful. 
@@ -91,7 +91,7 @@ bool APPFLOWLOG::GetIsInstanced()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         APPFLOWLOG& APPFLOWLOG::GetInstance()
-* @brief      GetInstance
+* @brief      Get instance
 * @ingroup    APPFLOW
 *
 * @return     APPFLOWLOG& : 
@@ -108,7 +108,7 @@ APPFLOWLOG& APPFLOWLOG::GetInstance()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool APPFLOWLOG::DelInstance()
-* @brief      DelInstance
+* @brief      Del instance
 * @ingroup    APPFLOW
 *
 * @return     bool : true if is succesful. 
@@ -190,7 +190,7 @@ bool APPFLOWLOG::End()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         APPFLOWLOG::APPFLOWLOG()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    APPFLOW
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -203,7 +203,7 @@ APPFLOWLOG::APPFLOWLOG()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         APPFLOWLOG::~APPFLOWLOG()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    APPFLOW
 *
@@ -219,7 +219,7 @@ APPFLOWLOG::~APPFLOWLOG()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void APPFLOWLOG::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    APPFLOW
 *

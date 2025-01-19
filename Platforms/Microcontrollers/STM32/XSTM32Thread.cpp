@@ -56,7 +56,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTM32MUTEX::XSTM32MUTEX()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_STM32
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -70,7 +70,7 @@ XSTM32MUTEX::XSTM32MUTEX()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTM32MUTEX::~XSTM32MUTEX()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_STM32
 *
@@ -104,7 +104,7 @@ bool XSTM32MUTEX::Lock()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTM32MUTEX::UnLock()
-* @brief      UnLock
+* @brief      Un lock
 * @ingroup    PLATFORM_STM32
 *
 * @return     bool : true if is succesful.
@@ -125,7 +125,7 @@ bool XSTM32MUTEX::UnLock()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XSTM32MUTEX::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_STM32
 *
@@ -146,7 +146,7 @@ void XSTM32MUTEX::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTM32THREAD::XSTM32THREAD(XTHREADGROUPID groupID, XCHAR* ID, XTHREADFUNCTION function, void* data)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_STM32
 *
 * @param[in]  groupID :
@@ -166,7 +166,7 @@ XSTM32THREAD::XSTM32THREAD(XTHREADGROUPID groupID, XCHAR* ID, XTHREADFUNCTION fu
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTM32THREAD::~XSTM32THREAD()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_STM32
 *
@@ -249,7 +249,7 @@ bool XSTM32THREAD::End()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XSTM32THREAD::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_STM32
 *

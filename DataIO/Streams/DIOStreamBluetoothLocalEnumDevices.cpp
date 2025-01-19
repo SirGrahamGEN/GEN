@@ -64,7 +64,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOSTREAMBLUETOOTHLOCALENUMDEVICES::DIOSTREAMBLUETOOTHLOCALENUMDEVICES()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -77,7 +77,7 @@ DIOSTREAMBLUETOOTHLOCALENUMDEVICES::DIOSTREAMBLUETOOTHLOCALENUMDEVICES() : DIOST
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMBLUETOOTHLOCALENUMDEVICES::~DIOSTREAMBLUETOOTHLOCALENUMDEVICES()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -106,7 +106,7 @@ bool DIOSTREAMBLUETOOTHLOCALENUMDEVICES::Search()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMBLUETOOTHLOCALENUMDEVICES::StopSearch(bool waitend)
-* @brief      StopSearch
+* @brief      Stop search
 * @ingroup    DATAIO
 *
 * @param[in]  waitend : 
@@ -123,7 +123,7 @@ bool DIOSTREAMBLUETOOTHLOCALENUMDEVICES::StopSearch(bool waitend)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMBLUETOOTHLOCALENUMDEVICES::IsSearching()
-* @brief      IsSearching
+* @brief      Is searching
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful. 
@@ -138,7 +138,7 @@ bool DIOSTREAMBLUETOOTHLOCALENUMDEVICES::IsSearching()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMBLUETOOTHLOCALENUMDEVICES::IsDeviceAvailable(XCHAR* resource)
-* @brief      IsDeviceAvailable
+* @brief      Is device available
 * @ingroup    DATAIO
 *
 * @param[in]  resource : 
@@ -155,7 +155,7 @@ bool DIOSTREAMBLUETOOTHLOCALENUMDEVICES::IsDeviceAvailable(XCHAR* resource)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSTREAMBLUETOOTHLOCALENUMDEVICES::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

@@ -4,7 +4,7 @@
 * 
 * @class      COMMON_DEFAULTXTRACECFG
 * @brief      GEN Default XTrace Config 
-* @ingroup    PLATFORM_COMMON
+* @ingroup    COMMON
 * 
 * @copyright  GEN Group. All rights reserved.
 * 

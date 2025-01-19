@@ -48,7 +48,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTM32TIMER::XSTM32TIMER()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_STM32
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -62,7 +62,7 @@ XSTM32TIMER::XSTM32TIMER()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTM32TIMER::~XSTM32TIMER()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_STM32
 *
@@ -77,7 +77,7 @@ XSTM32TIMER::~XSTM32TIMER()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XQWORD XSTM32TIMER::GetMicroSecondsTickCounter()
-* @brief      GetMicroSecondsTickCounter
+* @brief      Get micro seconds tick counter
 * @ingroup    PLATFORM_STM32
 *
 * @return     XQWORD :

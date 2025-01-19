@@ -64,7 +64,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMBLUETOOTHCONFIG::DIOSTREAMBLUETOOTHCONFIG()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -79,7 +79,7 @@ DIOSTREAMBLUETOOTHCONFIG::DIOSTREAMBLUETOOTHCONFIG(): DIOSTREAMCONFIG()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMBLUETOOTHCONFIG::~DIOSTREAMBLUETOOTHCONFIG()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -93,7 +93,7 @@ DIOSTREAMBLUETOOTHCONFIG::~DIOSTREAMBLUETOOTHCONFIG()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOSTREAMBLUETOOTHCONFIG::GetDeviceSelect()
-* @brief      GetDeviceSelect
+* @brief      Get device select
 * @ingroup    DATAIO
 *
 * @return     int : 
@@ -108,7 +108,7 @@ int DIOSTREAMBLUETOOTHCONFIG::GetDeviceSelect()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMBLUETOOTHCONFIG::SetDeviceSelect(int deviceselect)
-* @brief      SetDeviceSelect
+* @brief      Set device select
 * @ingroup    DATAIO
 *
 * @param[in]  deviceselect : 
@@ -127,7 +127,7 @@ bool DIOSTREAMBLUETOOTHCONFIG::SetDeviceSelect(int deviceselect)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOMAC* DIOSTREAMBLUETOOTHCONFIG::GetLocalMAC()
-* @brief      GetLocalMAC
+* @brief      Get local MAC
 * @ingroup    DATAIO
 *
 * @return     DIOMAC* : 
@@ -142,7 +142,7 @@ DIOMAC* DIOSTREAMBLUETOOTHCONFIG::GetLocalMAC()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOMAC* DIOSTREAMBLUETOOTHCONFIG::GetRemoteMAC()
-* @brief      GetRemoteMAC
+* @brief      Get remote MAC
 * @ingroup    DATAIO
 *
 * @return     DIOMAC* : 
@@ -158,7 +158,7 @@ DIOMAC* DIOSTREAMBLUETOOTHCONFIG::GetRemoteMAC()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOSTREAMBLUETOOTHCONFIG::GetRemoteChannel()
-* @brief      GetRemoteChannel
+* @brief      Get remote channel
 * @ingroup    DATAIO
 *
 * @return     int : 
@@ -173,7 +173,7 @@ int DIOSTREAMBLUETOOTHCONFIG::GetRemoteChannel()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMBLUETOOTHCONFIG::SetRemoteChannel(int channel)
-* @brief      SetRemoteChannel
+* @brief      Set remote channel
 * @ingroup    DATAIO
 *
 * @param[in]  channel : 
@@ -192,7 +192,7 @@ bool DIOSTREAMBLUETOOTHCONFIG::SetRemoteChannel(int channel)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* DIOSTREAMBLUETOOTHCONFIG::GetPIN()
-* @brief      GetPIN
+* @brief      Get PIN
 * @ingroup    DATAIO
 *
 * @return     XSTRING* : 
@@ -207,7 +207,7 @@ XSTRING* DIOSTREAMBLUETOOTHCONFIG::GetPIN()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void* DIOSTREAMBLUETOOTHCONFIG::GetServerPropertys(int index)
-* @brief      GetServerPropertys
+* @brief      Get server propertys
 * @ingroup    DATAIO
 *
 * @param[in]  index : 
@@ -227,7 +227,7 @@ void* DIOSTREAMBLUETOOTHCONFIG::GetServerPropertys(int index)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSTREAMBLUETOOTHCONFIG::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

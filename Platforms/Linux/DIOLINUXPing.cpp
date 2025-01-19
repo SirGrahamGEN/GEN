@@ -105,7 +105,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOLINUXPING::DIOLINUXPING()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_LINUX
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -118,7 +118,7 @@ DIOLINUXPING::DIOLINUXPING()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOLINUXPING::~DIOLINUXPING()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
 * 
@@ -318,7 +318,7 @@ bool DIOLINUXPING::Do(XDWORD nretries, XDWORD timebetweenchecks, bool exitfirstg
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOLINUXPING::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
 * 

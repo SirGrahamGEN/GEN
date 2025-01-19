@@ -4,7 +4,7 @@
 * 
 * @class      DIOLINUXLEDNEOPIXELWS2812BRPI
 * @brief      LINUX Data Input/Output Led Neopixel WS2812B Raspberry Pi class
-* @ingroup    DATAIO
+* @ingroup    PLATFORM_LINUX
 * 
 * @copyright  GEN Group. All rights reserved.
 * 
@@ -399,8 +399,8 @@ const uint32_t spi_bases[] =    { RP1_SPI0_BASE   ,
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOLINUXLEDNEOPIXELWS2812BRPI::DIOLINUXLEDNEOPIXELWS2812BRPI()
-* @brief      Constructor
-* @ingroup    DATAIO
+* @brief      Constructor of class
+* @ingroup    PLATFORM_LINUX
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOLINUXLEDNEOPIXELWS2812BRPI::DIOLINUXLEDNEOPIXELWS2812BRPI()
@@ -432,9 +432,9 @@ DIOLINUXLEDNEOPIXELWS2812BRPI::DIOLINUXLEDNEOPIXELWS2812BRPI()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOLINUXLEDNEOPIXELWS2812BRPI::~DIOLINUXLEDNEOPIXELWS2812BRPI()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
-* @ingroup    DATAIO
+* @ingroup    PLATFORM_LINUX
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOLINUXLEDNEOPIXELWS2812BRPI::~DIOLINUXLEDNEOPIXELWS2812BRPI()
@@ -447,7 +447,7 @@ DIOLINUXLEDNEOPIXELWS2812BRPI::~DIOLINUXLEDNEOPIXELWS2812BRPI()
 * 
 * @fn         bool DIOLINUXLEDNEOPIXELWS2812BRPI::Ini(XDWORD nled)
 * @brief      Ini
-* @ingroup    DATAIO
+* @ingroup    PLATFORM_LINUX
 * 
 * @param[in]  nled : 
 * 
@@ -542,7 +542,7 @@ bool DIOLINUXLEDNEOPIXELWS2812BRPI::Ini(XDWORD nled)
 *
 * @fn         bool DIOLINUXLEDNEOPIXELWS2812BRPI::Send()
 * @brief      Send
-* @ingroup    DATAIO
+* @ingroup    PLATFORM_LINUX
 *
 * @return     bool : true if is succesful.
 *
@@ -635,7 +635,7 @@ bool DIOLINUXLEDNEOPIXELWS2812BRPI::Send()
 *
 * @fn         bool DIOLINUXLEDNEOPIXELWS2812BRPI::End()
 * @brief      End
-* @ingroup    DATAIO
+* @ingroup    PLATFORM_LINUX
 *
 * @return     bool : true if is succesful.
 *
@@ -674,7 +674,7 @@ bool DIOLINUXLEDNEOPIXELWS2812BRPI::End()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void* DIOLINUXLEDNEOPIXELWS2812BRPI::MapGPIO(off_t dev_base, off_t dev_size)
-* @brief      MapGPIO
+* @brief      Map GPIO
 * @ingroup    PLATFORM_LINUX
 * 
 * @param[in]  dev_base : 
@@ -710,7 +710,7 @@ void* DIOLINUXLEDNEOPIXELWS2812BRPI::MapGPIO(off_t dev_base, off_t dev_size)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOLINUXLEDNEOPIXELWS2812BRPI::CreateRP1(RP1_T** rp1, void* base)
-* @brief      CreateRP1
+* @brief      Create RP1
 * @ingroup    PLATFORM_LINUX
 * 
 * @param[in]  rp1 : 
@@ -743,7 +743,7 @@ bool DIOLINUXLEDNEOPIXELWS2812BRPI::CreateRP1(RP1_T** rp1, void* base)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOLINUXLEDNEOPIXELWS2812BRPI::CreateMOSIPin(RP1_T* rp1, uint32_t funcmask)
-* @brief      CreateMOSIPin
+* @brief      Create MOSI pin
 * @ingroup    PLATFORM_LINUX
 * 
 * @param[in]  rp1 : 
@@ -784,7 +784,7 @@ bool DIOLINUXLEDNEOPIXELWS2812BRPI::CreateMOSIPin(RP1_T* rp1, uint32_t funcmask)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         uint8_t DIOLINUXLEDNEOPIXELWS2812BRPI::GetBit(uint8_t value, short bit)
-* @brief      GetBit
+* @brief      Get bit
 * @ingroup    PLATFORM_LINUX
 * 
 * @param[in]  value : 
@@ -802,7 +802,7 @@ uint8_t DIOLINUXLEDNEOPIXELWS2812BRPI::GetBit(uint8_t value, short bit)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         uint8_t DIOLINUXLEDNEOPIXELWS2812BRPI::RotateByte(uint8_t byte)
-* @brief      RotateByte
+* @brief      Rotate byte
 * @ingroup    PLATFORM_LINUX
 * 
 * @param[in]  byte : 
@@ -817,7 +817,7 @@ uint8_t DIOLINUXLEDNEOPIXELWS2812BRPI::RotateByte(uint8_t byte)
   // Recorremos los 8 bits del byte original
   for(int i = 0; i < 8; i++) 
     {
-      // Desplazamos el bit i-esimo del byte original a la posición opuesta
+      // Desplazamos el bit i-esimo del byte original a la posici?n opuesta
       if(byte & (1 << i)) 
         {
           resultado |= (1 << (7 - i));
@@ -831,7 +831,7 @@ uint8_t DIOLINUXLEDNEOPIXELWS2812BRPI::RotateByte(uint8_t byte)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOLINUXLEDNEOPIXELWS2812BRPI::RP1SPICreate(RP1_T* rp1, uint8_t spinum, RP1_SPI_INSTANCE_T** spi)
-* @brief      RP1SPICreate
+* @brief      RP1SPI create
 * @ingroup    PLATFORM_LINUX
 * 
 * @param[in]  rp1 : 
@@ -863,7 +863,7 @@ bool DIOLINUXLEDNEOPIXELWS2812BRPI::RP1SPICreate(RP1_T* rp1, uint8_t spinum, RP1
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOLINUXLEDNEOPIXELWS2812BRPI::RP1SPIWriteArrayBlocking(RP1_SPI_INSTANCE_T* spi, uint8_t data[], int data_length)
-* @brief      RP1SPIWriteArrayBlocking
+* @brief      RP1SPI write array blocking
 * @ingroup    PLATFORM_LINUX
 * 
 * @param[in]  spi : 
@@ -941,9 +941,9 @@ int DIOLINUXLEDNEOPIXELWS2812BRPI::Sleep(long msec)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOLINUXLEDNEOPIXELWS2812BRPI::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
-* @ingroup    DATAIO
+* @ingroup    PLATFORM_LINUX
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOLINUXLEDNEOPIXELWS2812BRPI::Clean()

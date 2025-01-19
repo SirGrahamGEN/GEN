@@ -64,7 +64,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XANDROIDDIR::XANDROIDDIR()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_ANDROID
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -77,7 +77,7 @@ XANDROIDDIR::XANDROIDDIR(): XLINUXDIR()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XANDROIDDIR::~XANDROIDDIR()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_ANDROID
 *

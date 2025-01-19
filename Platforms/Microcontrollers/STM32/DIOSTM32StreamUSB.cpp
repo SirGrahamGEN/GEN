@@ -59,7 +59,7 @@ DIOSTM32STREAMUSB*      diostreamusbptrhandle =  NULL;
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTM32STREAMUSB::DIOSTM32STREAMUSB()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_STM32
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -95,7 +95,7 @@ DIOSTM32STREAMUSB::DIOSTM32STREAMUSB() : DIOSTREAMUSB(), XFSMACHINE(0)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTM32STREAMUSB::~DIOSTM32STREAMUSB()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_STM32
 *
@@ -114,7 +114,7 @@ DIOSTM32STREAMUSB::~DIOSTM32STREAMUSB()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMSTATUS DIOSTM32STREAMUSB::GetStatus()
-* @brief      GetStatus
+* @brief      Get status
 * @ingroup    PLATFORM_STM32
 *
 * @return     DIOSTREAMSTATUS :
@@ -161,7 +161,7 @@ bool DIOSTM32STREAMUSB::Open()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD DIOSTM32STREAMUSB::WriteDirect(XBYTE* buffer, XDWORD size)
-* @brief      WriteDirect
+* @brief      Write direct
 * @ingroup    PLATFORM_STM32
 *
 * @param[in]  buffer :
@@ -257,7 +257,7 @@ bool DIOSTM32STREAMUSB::Close()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTM32STREAMUSB::CleanBuffers()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean buffers
 * @note       INTERNAL
 * @ingroup    PLATFORM_STM32
 *
@@ -275,7 +275,7 @@ bool DIOSTM32STREAMUSB::CleanBuffers()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSTM32STREAMUSB::HAL_USB_RxCpltCallback(uint8_t* buffer, uint32_t*len)
-* @brief      HAL_USB_RxCpltCallback
+* @brief      HALUSB rx cplt callback
 * @ingroup    PLATFORM_STM32
 *
 * @param[in]  buffer :
@@ -308,7 +308,7 @@ void DIOSTM32STREAMUSB::HAL_USB_RxCpltCallback(uint8_t* buffer, uint32_t *len)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSTM32STREAMUSB::ThreadConnection(void* param)
-* @brief      ThreadConnection
+* @brief      Thread connection
 * @ingroup    PLATFORM_STM32
 *
 * @param[in]  param :
@@ -400,7 +400,7 @@ void DIOSTM32STREAMUSB::ThreadConnection(void* param)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSTM32STREAMUSB::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_STM32
 *

@@ -47,7 +47,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTM32SLEEP::XSTM32SLEEP()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_STM32
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -61,7 +61,7 @@ XSTM32SLEEP::XSTM32SLEEP()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTM32SLEEP::~XSTM32SLEEP()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_STM32
 *
@@ -95,7 +95,7 @@ void XSTM32SLEEP::Seconds(int seconds)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XSTM32SLEEP::MilliSeconds(int milliseconds)
-* @brief      MilliSeconds
+* @brief      Milli seconds
 * @ingroup    PLATFORM_STM32
 *
 * @param[in]  milliseconds :
@@ -111,7 +111,7 @@ void XSTM32SLEEP::MilliSeconds(int milliseconds)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XSTM32SLEEP::MicroSeconds(int microseconds)
-* @brief      MicroSeconds
+* @brief      Micro seconds
 * @ingroup    PLATFORM_STM32
 *
 * @param[in]  microseconds :
@@ -127,7 +127,7 @@ void XSTM32SLEEP::MicroSeconds(int microseconds)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XSTM32SLEEP::NanoSeconds(int nanoseconds)
-* @brief      NanoSeconds
+* @brief      Nano seconds
 * @ingroup    PLATFORM_STM32
 *
 * @param[in]  nanoseconds :

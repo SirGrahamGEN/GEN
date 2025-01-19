@@ -64,7 +64,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMWIFIREMOTEENUMDEVICES::DIOSTREAMWIFIREMOTEENUMDEVICES()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -77,7 +77,7 @@ DIOSTREAMWIFIREMOTEENUMDEVICES::DIOSTREAMWIFIREMOTEENUMDEVICES() : DIOSTREAMENUM
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMWIFIREMOTEENUMDEVICES::~DIOSTREAMWIFIREMOTEENUMDEVICES()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -106,7 +106,7 @@ bool DIOSTREAMWIFIREMOTEENUMDEVICES::Search()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMWIFIREMOTEENUMDEVICES::StopSearch(bool waitend)
-* @brief      StopSearch
+* @brief      Stop search
 * @ingroup    DATAIO
 *
 * @param[in]  waitend :
@@ -123,7 +123,7 @@ bool DIOSTREAMWIFIREMOTEENUMDEVICES::StopSearch(bool waitend)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMWIFIREMOTEENUMDEVICES::IsSearching()
-* @brief      IsSearching
+* @brief      Is searching
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -138,7 +138,7 @@ bool DIOSTREAMWIFIREMOTEENUMDEVICES::IsSearching()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMWIFIREMOTEENUMDEVICES::IsDeviceAvailable(XCHAR* resource)
-* @brief      IsDeviceAvailable
+* @brief      Is device available
 * @ingroup    DATAIO
 *
 * @param[in]  resource :
@@ -155,7 +155,7 @@ bool DIOSTREAMWIFIREMOTEENUMDEVICES::IsDeviceAvailable(XCHAR* resource)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSTREAMWIFIREMOTEENUMDEVICES::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

@@ -73,7 +73,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDIRELEMENT::XDIRELEMENT()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -86,7 +86,7 @@ XDIRELEMENT::XDIRELEMENT()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDIRELEMENT::~XDIRELEMENT()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -101,7 +101,7 @@ XDIRELEMENT::~XDIRELEMENT()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDIRELEMENTTYPE XDIRELEMENT::GetType()
-* @brief      GetType
+* @brief      Get type
 * @ingroup    XUTILS
 *
 * @return     XDIRELEMENTTYPE :
@@ -116,7 +116,7 @@ XDIRELEMENTTYPE XDIRELEMENT::GetType()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XDIRELEMENT::SetType(XDIRELEMENTTYPE type)
-* @brief      SetType
+* @brief      Set type
 * @ingroup    XUTILS
 *
 * @param[in]  type :
@@ -131,7 +131,7 @@ void XDIRELEMENT::SetType(XDIRELEMENTTYPE type)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XPATH* XDIRELEMENT::GetPathSearch()
-* @brief      GetPathSearch
+* @brief      Get path search
 * @ingroup    XUTILS
 *
 * @return     XPATH* :
@@ -146,7 +146,7 @@ XPATH* XDIRELEMENT::GetPathSearch()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* XDIRELEMENT::GetPatternSearch()
-* @brief      GetPatternSearch
+* @brief      Get pattern search
 * @ingroup    XUTILS
 *
 * @return     XSTRING* :
@@ -161,7 +161,7 @@ XSTRING* XDIRELEMENT::GetPatternSearch()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XPATH* XDIRELEMENT::GetNameFile()
-* @brief      GetNameFile
+* @brief      Get name file
 * @ingroup    XUTILS
 *
 * @return     XPATH* :
@@ -176,7 +176,7 @@ XPATH* XDIRELEMENT::GetNameFile()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDATETIME* XDIRELEMENT::GetDateTimeFile_Created()
-* @brief      GetDateTimeFile_Created
+* @brief      Get date time file created
 * @ingroup    XUTILS
 *
 * @return     XDATETIME* : 
@@ -191,7 +191,7 @@ XDATETIME* XDIRELEMENT::GetDateTimeFile_Created()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDATETIME* XDIRELEMENT::GetDateTimeFile_Modificated()
-* @brief      GetDateTimeFile_Modificated
+* @brief      Get date time file modificated
 * @ingroup    XUTILS
 *
 * @return     XDATETIME* : 
@@ -206,7 +206,7 @@ XDATETIME* XDIRELEMENT::GetDateTimeFile_Modificated()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDATETIME* XDIRELEMENT::GetDateTimeFile_LastAccess()
-* @brief      GetDateTimeFile_LastAccess
+* @brief      Get date time file last access
 * @ingroup    XUTILS
 *
 * @return     XDATETIME* : 
@@ -221,7 +221,7 @@ XDATETIME* XDIRELEMENT::GetDateTimeFile_LastAccess()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void* XDIRELEMENT::GetHandle()
-* @brief      GetHandle
+* @brief      Get handle
 * @ingroup    XUTILS
 *
 * @return     void* :
@@ -236,7 +236,7 @@ void* XDIRELEMENT::GetHandle()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XDIRELEMENT::SetHandle(void* handle)
-* @brief      SetHandle
+* @brief      Set handle
 * @ingroup    XUTILS
 *
 * @param[in]  handle :
@@ -251,7 +251,7 @@ void XDIRELEMENT::SetHandle(void* handle)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void* XDIRELEMENT::GetFindFileData()
-* @brief      GetFindFileData
+* @brief      Get find file data
 * @ingroup    XUTILS
 *
 * @return     void* :
@@ -266,7 +266,7 @@ void* XDIRELEMENT::GetFindFileData()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XDIRELEMENT::SetFindFileData(void* findfiledata)
-* @brief      SetFindFileData
+* @brief      Set find file data
 * @ingroup    XUTILS
 *
 * @param[in]  findfiledata :
@@ -281,7 +281,7 @@ void XDIRELEMENT::SetFindFileData(void* findfiledata)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XDIRELEMENT::DeleteFindFileData()
-* @brief      DeleteFindFileData
+* @brief      Delete find file data
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -302,7 +302,7 @@ bool XDIRELEMENT::DeleteFindFileData()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XDIRELEMENT::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    XUTILS
 *
@@ -325,7 +325,7 @@ void XDIRELEMENT::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDIR::XDIR()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -338,7 +338,7 @@ XDIR::XDIR()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDIR::~XDIR()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -387,7 +387,7 @@ bool XDIR::Make(XPATH& xpath, bool recursive)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XDIR::ChangeTo(XPATH& xpath)
-* @brief      ChangeTo
+* @brief      Change to
 * @ingroup    XUTILS
 *
 * @param[in]  xpath :
@@ -422,7 +422,7 @@ bool XDIR::Delete(XPATH& xpath,bool all)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XDIR::FirstSearch(XPATH& xpath,XSTRING& patternsearch,XDIRELEMENT* searchelement)
-* @brief      FirstSearch
+* @brief      First search
 * @ingroup    XUTILS
 *
 * @param[in]  xpath :
@@ -441,7 +441,7 @@ bool XDIR::FirstSearch(XPATH& xpath,XSTRING& patternsearch,XDIRELEMENT* searchel
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XDIR::FirstSearch(XPATH& xpath,XCHAR* patternsearch,XDIRELEMENT* searchelement)
-* @brief      FirstSearch
+* @brief      First search
 * @ingroup    XUTILS
 *
 * @param[in]  xpath :
@@ -460,7 +460,7 @@ bool XDIR::FirstSearch(XPATH& xpath,XCHAR* patternsearch,XDIRELEMENT* searchelem
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XDIR::FirstSearch(XCHAR* xpath,XSTRING& patternsearch,XDIRELEMENT* searchelement)
-* @brief      FirstSearch
+* @brief      First search
 * @ingroup    XUTILS
 *
 * @param[in]  xpath :
@@ -609,7 +609,7 @@ bool XDIR::Copy(XCHAR* xpathsource,XCHAR* xpathtarget)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XDIR::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    XUTILS
 *

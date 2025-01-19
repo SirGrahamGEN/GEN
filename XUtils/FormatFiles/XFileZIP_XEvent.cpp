@@ -64,7 +64,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILEZIP_XEVENT::XFILEZIP_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * @param[in]  subject :
@@ -81,7 +81,7 @@ XFILEZIP_XEVENT::XFILEZIP_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family) 
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILEZIP_XEVENT::~XFILEZIP_XEVENT()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -95,7 +95,7 @@ XFILEZIP_XEVENT::~XFILEZIP_XEVENT()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XPATH* XFILEZIP_XEVENT::GetFileName()
-* @brief      GetFileName
+* @brief      Get file name
 * @ingroup    XUTILS
 *
 * @return     XPATH* :
@@ -110,7 +110,7 @@ XPATH* XFILEZIP_XEVENT::GetFileName()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILECMPZIP* XFILEZIP_XEVENT::GetFileCompress()
-* @brief      GetFileCompress
+* @brief      Get file compress
 * @ingroup    XUTILS
 *
 * @return     XFILECMPZIP* :
@@ -125,7 +125,7 @@ XFILECMPZIP* XFILEZIP_XEVENT::GetFileCompress()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void XFILEZIP_XEVENT::SetFileCompress(XFILECMPZIP* filecmp)
-* @brief      SetFileCompress
+* @brief      Set file compress
 * @ingroup    XUTILS
 * 
 * @param[in]  filecmp : 
@@ -140,7 +140,7 @@ void XFILEZIP_XEVENT::SetFileCompress(XFILECMPZIP* filecmp)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         float XFILEZIP_XEVENT::GetOperationPercent()
-* @brief      GetOperationPercent
+* @brief      Get operation percent
 * @ingroup    XUTILS
 *
 * @return     float :
@@ -155,7 +155,7 @@ float XFILEZIP_XEVENT::GetOperationPercent()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XFILEZIP_XEVENT::SetOperationPercent(float operationpercent)
-* @brief      SetOperationPercent
+* @brief      Set operation percent
 * @ingroup    XUTILS
 *
 * @param[in]  operationpercent :
@@ -170,7 +170,7 @@ void XFILEZIP_XEVENT::SetOperationPercent(float operationpercent)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILEZIP_ERROR XFILEZIP_XEVENT::GetError()
-* @brief      GetError
+* @brief      Get error
 * @ingroup    XUTILS
 *
 * @return     XFILEZIP_ERROR :
@@ -185,7 +185,7 @@ XFILEZIP_ERROR XFILEZIP_XEVENT::GetError()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XFILEZIP_XEVENT::SetError(XFILEZIP_ERROR error)
-* @brief      SetError
+* @brief      Set error
 * @ingroup    XUTILS
 *
 * @param[in]  error :
@@ -200,7 +200,7 @@ void XFILEZIP_XEVENT::SetError(XFILEZIP_ERROR error)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XFILEZIP_XEVENT::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    XUTILS
 *

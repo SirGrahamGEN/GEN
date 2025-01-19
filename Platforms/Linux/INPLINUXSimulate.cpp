@@ -65,7 +65,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         INPLINUXSIMULATE::INPLINUXSIMULATE()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_LINUX
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -78,7 +78,7 @@ INPLINUXSIMULATE::INPLINUXSIMULATE()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         INPLINUXSIMULATE::~INPLINUXSIMULATE()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
 * 
@@ -92,7 +92,7 @@ INPLINUXSIMULATE::~INPLINUXSIMULATE()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void INPLINUXSIMULATE::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
 * 

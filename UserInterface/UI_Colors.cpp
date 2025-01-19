@@ -66,7 +66,7 @@ UI_COLORS* UI_COLORS::instance = NULL;
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_COLORS::GetIsInstanced()
-* @brief      GetIsInstanced
+* @brief      Get is instanced
 * @ingroup    USERINTERFACE
 *
 * @return     bool : true if is succesful. 
@@ -81,7 +81,7 @@ bool UI_COLORS::GetIsInstanced()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_COLORS& UI_COLORS::GetInstance()
-* @brief      GetInstance
+* @brief      Get instance
 * @ingroup    USERINTERFACE
 *
 * @return     UI_COLORS& : 
@@ -98,7 +98,7 @@ UI_COLORS& UI_COLORS::GetInstance()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_COLORS::DelInstance()
-* @brief      DelInstance
+* @brief      Del instance
 * @ingroup    USERINTERFACE
 *
 * @return     bool : true if is succesful. 
@@ -222,7 +222,7 @@ XSTRING* UI_COLORS::Get(XSTRING& name)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_COLORS::DeleteAll()
-* @brief      DeleteAll
+* @brief      Delete all
 * @ingroup    USERINTERFACE
 *
 * @return     bool : true if is succesful. 
@@ -241,7 +241,7 @@ bool UI_COLORS::DeleteAll()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_COLORS::UI_COLORS()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    USERINTERFACE
 *
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -264,7 +264,7 @@ UI_COLORS::UI_COLORS()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_COLORS::~UI_COLORS()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
 *
@@ -280,7 +280,7 @@ UI_COLORS::~UI_COLORS()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_COLORS::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
 *

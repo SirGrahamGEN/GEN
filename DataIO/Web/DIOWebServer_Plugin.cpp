@@ -66,7 +66,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOWEBSERVER_PLUGIN::DIOWEBSERVER_PLUGIN()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -79,7 +79,7 @@ DIOWEBSERVER_PLUGIN::DIOWEBSERVER_PLUGIN()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOWEBSERVER_PLUGIN::~DIOWEBSERVER_PLUGIN()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -95,7 +95,7 @@ DIOWEBSERVER_PLUGIN::~DIOWEBSERVER_PLUGIN()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* DIOWEBSERVER_PLUGIN::GetName()
-* @brief      GetName
+* @brief      Get name
 * @ingroup    DATAIO
 *
 * @return     XSTRING* :
@@ -110,7 +110,7 @@ XSTRING* DIOWEBSERVER_PLUGIN::GetName()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWEBSERVER_PLUGIN::PageExtension_Add(XCHAR* ext)
-* @brief      PageExtension_Add
+* @brief      Page extension add
 * @ingroup    DATAIO
 *
 * @param[in]  ext :
@@ -134,7 +134,7 @@ bool DIOWEBSERVER_PLUGIN::PageExtension_Add(XCHAR* ext)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWEBSERVER_PLUGIN::PageExtension_Add(XSTRING& ext)
-* @brief      PageExtension_Add
+* @brief      Page extension add
 * @ingroup    DATAIO
 *
 * @param[in]  ext :
@@ -151,7 +151,7 @@ bool DIOWEBSERVER_PLUGIN::PageExtension_Add(XSTRING& ext)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* DIOWEBSERVER_PLUGIN::PageExtension_Get(int index)
-* @brief      PageExtension_Get
+* @brief      Page extension get
 * @ingroup    DATAIO
 *
 * @param[in]  index :
@@ -168,7 +168,7 @@ XSTRING* DIOWEBSERVER_PLUGIN::PageExtension_Get(int index)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWEBSERVER_PLUGIN::PageExtension_IsContent(XCHAR* ext)
-* @brief      PageExtension_IsContent
+* @brief      Page extension is content
 * @ingroup    DATAIO
 *
 * @param[in]  ext :
@@ -195,7 +195,7 @@ bool DIOWEBSERVER_PLUGIN::PageExtension_IsContent(XCHAR* ext)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWEBSERVER_PLUGIN::PageExtension_IsContent(XSTRING& ext)
-* @brief      PageExtension_IsContent
+* @brief      Page extension is content
 * @ingroup    DATAIO
 *
 * @param[in]  ext :
@@ -212,7 +212,7 @@ bool DIOWEBSERVER_PLUGIN::PageExtension_IsContent(XSTRING& ext)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWEBSERVER_PLUGIN::PageExtension_DeleteAll()
-* @brief      PageExtension_DeleteAll
+* @brief      Page extension delete all
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -232,7 +232,7 @@ bool DIOWEBSERVER_PLUGIN::PageExtension_DeleteAll()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWEBSERVER_PLUGIN::PageExtension(XPATH& pathfile, DIOWEBSERVER_REQUEST* request, DIOWEBSERVER_QUERYSTRINGS* querystrings, DIOWEBHEADER_RESULT& headerresult, XSTRING& result)
-* @brief      PageExtension
+* @brief      Page extension
 * @ingroup    DATAIO
 *
 * @param[in]  pathfile :
@@ -253,7 +253,7 @@ bool DIOWEBSERVER_PLUGIN::PageExtension(XPATH& pathfile, DIOWEBSERVER_REQUEST* r
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWEBSERVER_PLUGIN::SeparedResult(XSTRING& result, XSTRING& head, XSTRING& data)
-* @brief      SeparedResult
+* @brief      Separed result
 * @ingroup    DATAIO
 *
 * @param[in]  result :
@@ -288,7 +288,7 @@ bool DIOWEBSERVER_PLUGIN::SeparedResult(XSTRING& result, XSTRING& head, XSTRING&
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOWEBSERVER_PLUGIN::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

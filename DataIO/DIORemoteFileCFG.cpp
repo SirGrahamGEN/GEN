@@ -71,7 +71,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOREMOTEFILECFG::DIOREMOTEFILECFG(XCHAR* namefile)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * @param[in]  namefile : name file of config
@@ -88,7 +88,7 @@ DIOREMOTEFILECFG::DIOREMOTEFILECFG(XCHAR* namefile): XFILECFG(namefile)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOREMOTEFILECFG::~DIOREMOTEFILECFG()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -104,7 +104,7 @@ DIOREMOTEFILECFG::~DIOREMOTEFILECFG()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* DIOREMOTEFILECFG::GetURLRemoteCFG()
-* @brief      GetURLRemoteCFG
+* @brief      Get URL remote CFG
 * @ingroup    DATAIO
 * 
 * @return     XSTRING* : 
@@ -119,7 +119,7 @@ XSTRING* DIOREMOTEFILECFG::GetURLRemoteCFG()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOREMOTEFILECFG::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

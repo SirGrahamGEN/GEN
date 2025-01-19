@@ -175,10 +175,10 @@ XLANGUAGE_ISO_639_3_ENTRY  iso_639_3_entry[] = {   {  XLANGUAGE_ISO_639_3_CODE_E
                                                    {  XLANGUAGE_ISO_639_3_CODE_NDO,  __L("ndo")   ,  __L("ng")   ,  __L("Ndonga")                , __L("")                   , __L("")                       },
                                                    {  XLANGUAGE_ISO_639_3_CODE_NEP,  __L("nep")   ,  __L("ne")   ,  __L("Nepali")                , __L("")                   , __L("")                       },
                                                    {  XLANGUAGE_ISO_639_3_CODE_NNO,  __L("nno")   ,  __L("nn")   ,  __L("Norwegian Nynorsk")     , __L("Nynorsk Norwegian")  , __L("")                       },
-                                                   {  XLANGUAGE_ISO_639_3_CODE_NOB,  __L("nob")   ,  __L("nb")   ,  __L("Bokmål Norwegian")     , __L("Norwegian Bokmål")  , __L("")                       },
+                                                   {  XLANGUAGE_ISO_639_3_CODE_NOB,  __L("nob")   ,  __L("nb")   ,  __L("Bokm_l Norwegian")     , __L("Norwegian Bokm_l")  , __L("")                       },
                                                    {  XLANGUAGE_ISO_639_3_CODE_NOR,  __L("nor")   ,  __L("no")   ,  __L("Norwegian")             , __L("")                   , __L("")                       },
                                                    {  XLANGUAGE_ISO_639_3_CODE_NYA,  __L("nya")   ,  __L("ny")   ,  __L("Chichewa")              , __L("Chewa")              ,  __L("Nyanja")                },
-                                                   {  XLANGUAGE_ISO_639_3_CODE_OCI,  __L("oci")   ,  __L("oc")   ,  __L("Occitan (post 1500)")   , __L("Provençal")         , __L("")                       },
+                                                   {  XLANGUAGE_ISO_639_3_CODE_OCI,  __L("oci")   ,  __L("oc")   ,  __L("Occitan (post 1500)")   , __L("Proven_al")         , __L("")                       },
                                                    {  XLANGUAGE_ISO_639_3_CODE_OJI,  __L("oji")   ,  __L("oj")   ,  __L("Ojibwa")                , __L("")                   , __L("")                       },
                                                    {  XLANGUAGE_ISO_639_3_CODE_ORI,  __L("ori")   ,  __L("or")   ,  __L("Oriya")                 , __L("")                   , __L("")                       },
                                                    {  XLANGUAGE_ISO_639_3_CODE_ORM,  __L("orm")   ,  __L("om")   ,  __L("Oromo")                 , __L("")                   , __L("")                       },
@@ -232,7 +232,7 @@ XLANGUAGE_ISO_639_3_ENTRY  iso_639_3_entry[] = {   {  XLANGUAGE_ISO_639_3_CODE_E
                                                    {  XLANGUAGE_ISO_639_3_CODE_UZB,  __L("uzb")   ,  __L("uz")   ,  __L("Uzbek")                 , __L("")                   , __L("")                       },
                                                    {  XLANGUAGE_ISO_639_3_CODE_VEN,  __L("ven")   ,  __L("ve")   ,  __L("Venda")                 , __L("")                   , __L("")                       },
                                                    {  XLANGUAGE_ISO_639_3_CODE_VIE,  __L("vie")   ,  __L("vi")   ,  __L("Vietnamese")            , __L("")                   , __L("")                       },
-                                                   {  XLANGUAGE_ISO_639_3_CODE_VOL,  __L("vol")   ,  __L("vo")   ,  __L("Volapük")              , __L("")                   , __L("")                       },
+                                                   {  XLANGUAGE_ISO_639_3_CODE_VOL,  __L("vol")   ,  __L("vo")   ,  __L("Volap_k")              , __L("")                   , __L("")                       },
                                                    {  XLANGUAGE_ISO_639_3_CODE_WEL,  __L("wel")   ,  __L("cy")   ,  __L("Welsh")                 , __L("")                   , __L("")                       },
                                                    {  XLANGUAGE_ISO_639_3_CODE_WLN,  __L("wln")   ,  __L("wa")   ,  __L("Walloon")               , __L("")                   , __L("")                       },
                                                    {  XLANGUAGE_ISO_639_3_CODE_WOL,  __L("wol")   ,  __L("wo")   ,  __L("Wolof")                 , __L("")                   , __L("")                       },
@@ -254,7 +254,7 @@ XLANGUAGE_ISO_639_3_ENTRY  iso_639_3_entry[] = {   {  XLANGUAGE_ISO_639_3_CODE_E
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XLANGUAGE_ISO_639_3::XLANGUAGE_ISO_639_3()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -267,7 +267,7 @@ XLANGUAGE_ISO_639_3::XLANGUAGE_ISO_639_3()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XLANGUAGE_ISO_639_3::~XLANGUAGE_ISO_639_3()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -281,7 +281,7 @@ XLANGUAGE_ISO_639_3::~XLANGUAGE_ISO_639_3()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD XLANGUAGE_ISO_639_3::Code_GetByCodeAlpha3(XCHAR* codealpha3)
-* @brief      Code_GetByCodeAlpha3
+* @brief      Code get by code alpha3
 * @ingroup    XUTILS
 *
 * @param[in]  codealpha3 :
@@ -305,7 +305,7 @@ XDWORD XLANGUAGE_ISO_639_3::Code_GetByCodeAlpha3(XCHAR* codealpha3)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD XLANGUAGE_ISO_639_3::Code_GetByCodeAlpha2(XCHAR* codealpha2)
-* @brief      Code_GetByCodeAlpha2
+* @brief      Code get by code alpha2
 * @ingroup    XUTILS
 *
 * @param[in]  codealpha2 :
@@ -329,7 +329,7 @@ XDWORD XLANGUAGE_ISO_639_3::Code_GetByCodeAlpha2(XCHAR* codealpha2)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD XLANGUAGE_ISO_639_3::Code_GetByEnglishName(XCHAR* englishname)
-* @brief      Code_GetByEnglishName
+* @brief      Code get by english name
 * @ingroup    XUTILS
 *
 * @param[in]  englishname :
@@ -353,7 +353,7 @@ XDWORD XLANGUAGE_ISO_639_3::Code_GetByEnglishName(XCHAR* englishname)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD XLANGUAGE_ISO_639_3::Code_GetByAlias(XCHAR* alias)
-* @brief      Code_GetByAlias
+* @brief      Code get by alias
 * @ingroup    XUTILS
 *
 * @param[in]  alias :
@@ -381,7 +381,7 @@ XDWORD XLANGUAGE_ISO_639_3::Code_GetByAlias(XCHAR* alias)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XLANGUAGE_ISO_639_3::CodeAlpha3_GetByCode(XDWORD code, XSTRING& codealpha3)
-* @brief      CodeAlpha3_GetByCode
+* @brief      Code alpha3 get by code
 * @ingroup    XUTILS
 *
 * @param[in]  code :
@@ -410,7 +410,7 @@ bool XLANGUAGE_ISO_639_3::CodeAlpha3_GetByCode(XDWORD code, XSTRING& codealpha3)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XLANGUAGE_ISO_639_3::CodeAlpha3_GetByCodeAlpha2(XCHAR* codealpha2, XSTRING& codealpha3)
-* @brief      CodeAlpha3_GetByCodeAlpha2
+* @brief      Code alpha3 get by code alpha2
 * @ingroup    XUTILS
 *
 * @param[in]  codealpha2 :
@@ -441,7 +441,7 @@ bool XLANGUAGE_ISO_639_3::CodeAlpha3_GetByCodeAlpha2(XCHAR* codealpha2, XSTRING&
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XLANGUAGE_ISO_639_3::CodeAlpha3_GetByEnglishName(XCHAR* englishname, XSTRING& codealpha3)
-* @brief      CodeAlpha3_GetByEnglishName
+* @brief      Code alpha3 get by english name
 * @ingroup    XUTILS
 *
 * @param[in]  englishname :
@@ -472,7 +472,7 @@ bool XLANGUAGE_ISO_639_3::CodeAlpha3_GetByEnglishName(XCHAR* englishname, XSTRIN
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XLANGUAGE_ISO_639_3::CodeAlpha3_GetByAlias(XCHAR* alias, XSTRING& codealpha3)
-* @brief      CodeAlpha3_GetByAlias
+* @brief      Code alpha3 get by alias
 * @ingroup    XUTILS
 *
 * @param[in]  alias :
@@ -511,7 +511,7 @@ bool XLANGUAGE_ISO_639_3::CodeAlpha3_GetByAlias(XCHAR* alias, XSTRING& codealpha
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XLANGUAGE_ISO_639_3::EnglishName_GetByCode(XDWORD code, XSTRING& englishname)
-* @brief      EnglishName_GetByCode
+* @brief      English name get by code
 * @ingroup    XUTILS
 *
 * @param[in]  code :
@@ -540,7 +540,7 @@ bool XLANGUAGE_ISO_639_3::EnglishName_GetByCode(XDWORD code, XSTRING& englishnam
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XLANGUAGE_ISO_639_3::EnglishName_GetByCodeAlpha3(XCHAR* codealpha2, XSTRING& englishname)
-* @brief      EnglishName_GetByCodeAlpha3
+* @brief      English name get by code alpha3
 * @ingroup    XUTILS
 *
 * @param[in]  codealpha2 :
@@ -571,7 +571,7 @@ bool XLANGUAGE_ISO_639_3::EnglishName_GetByCodeAlpha3(XCHAR* codealpha3, XSTRING
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XLANGUAGE_ISO_639_3::EnglishName_GetByCodeAlpha2(XCHAR* codealpha2, XSTRING& englishname)
-* @brief      EnglishName_GetByCodeAlpha2
+* @brief      English name get by code alpha2
 * @ingroup    XUTILS
 *
 * @param[in]  codealpha2 :
@@ -602,7 +602,7 @@ bool XLANGUAGE_ISO_639_3::EnglishName_GetByCodeAlpha2(XCHAR* codealpha2, XSTRING
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XLANGUAGE_ISO_639_3::EnglishName_GetByAlias(XCHAR* alias, XSTRING& englishname)
-* @brief      EnglishName_GetByAlias
+* @brief      English name get by alias
 * @ingroup    XUTILS
 *
 * @param[in]  alias :
@@ -641,7 +641,7 @@ bool XLANGUAGE_ISO_639_3::EnglishName_GetByAlias(XCHAR* alias, XSTRING& englishn
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XLANGUAGE_ISO_639_3::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    XUTILS
 *

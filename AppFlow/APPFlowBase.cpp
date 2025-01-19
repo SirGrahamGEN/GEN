@@ -80,7 +80,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         APPFLOWBASE::APPFLOWBASE()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    APPFLOW
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -95,7 +95,7 @@ APPFLOWBASE::APPFLOWBASE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         APPFLOWBASE::~APPFLOWBASE()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    APPFLOW
 *
@@ -143,7 +143,7 @@ bool APPFLOWBASE::Ini(XVECTOR<XSTRING*>* execparams)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool APPFLOWBASE::UpdateStep()
-* @brief      Update Step application
+* @brief      Update step
 * @ingroup    APPFLOW
 *
 * @return     bool : true if is succesful.
@@ -166,7 +166,7 @@ bool APPFLOWBASE::UpdateStep()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool APPFLOWBASE::End()
-* @brief      End application function
+* @brief      End
 * @ingroup    APPFLOW
 *
 * @return     bool : true if is succesful.
@@ -198,7 +198,7 @@ bool APPFLOWBASE::End()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XVECTOR<XSTRING*>* APPFLOWBASE::GetExecParams()
-* @brief      Obtain the parameters of the application in command line (all on strings)
+* @brief      Get exec params
 * @ingroup    APPFLOW
 *
 * @return     XVECTOR<XSTRING*>* : Vector of strings with the params
@@ -213,7 +213,7 @@ XVECTOR<XSTRING*>*  APPFLOWBASE::GetExecParams()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         APPFLOWBASE_MODE_TYPE APPFLOWBASE::Application_GetMode()
-* @brief      Application_GetMode
+* @brief      Application get mode
 * @ingroup    APPFLOW
 *
 * @return     APPFLOWBASE_MODE_TYPE : 
@@ -228,7 +228,7 @@ APPFLOWBASE_MODE_TYPE APPFLOWBASE::Application_GetMode()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void APPFLOWBASE::Application_SetMode(APPFLOWBASE_MODE_TYPE application_mode)
-* @brief      application  set mode
+* @brief      Application set mode
 * @ingroup    APPFLOW
 * 
 * @param[in]  application_mode : 
@@ -243,7 +243,7 @@ void APPFLOWBASE::Application_SetMode(APPFLOWBASE_MODE_TYPE application_mode)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void* APPFLOWBASE::Application_GetHandle()
-* @brief      Application_GetHandle
+* @brief      Application get handle
 * @ingroup    APPFLOW
 *
 * @return     void* : 
@@ -258,7 +258,7 @@ void* APPFLOWBASE::Application_GetHandle()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void APPFLOWBASE::Application_SetHandle(void* handle)
-* @brief      Application_SetHandle
+* @brief      Application set handle
 * @ingroup    APPFLOW
 *
 * @param[in]  handle : 
@@ -273,7 +273,7 @@ void APPFLOWBASE::Application_SetHandle(void* handle)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* APPFLOWBASE::Application_GetName()
-* @brief      Application_GetName
+* @brief      Application get name
 * @ingroup    APPFLOW
 *
 * @return     XSTRING* : String pointer with the name of the application
@@ -288,7 +288,7 @@ XSTRING* APPFLOWBASE::Application_GetName()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void APPFLOWBASE::Application_SetName(XCHAR* name)
-* @brief      Application_SetName
+* @brief      Application set name
 * @ingroup    APPFLOW
 *
 * @param[in]  name : name of the application
@@ -303,7 +303,7 @@ void APPFLOWBASE::Application_SetName(XCHAR* name)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* APPFLOWBASE::Application_GetExecutable()
-* @brief      application  get executable
+* @brief      Application get executable
 * @ingroup    APPFLOW
 * 
 * @return     XSTRING* : 
@@ -318,7 +318,7 @@ XSTRING* APPFLOWBASE::Application_GetExecutable()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void APPFLOWBASE::Application_SetExecutable(XCHAR* name)
-* @brief      Application_SetExecutable
+* @brief      Application set executable
 * @ingroup    APPFLOW
 *
 * @param[in]  name : 
@@ -333,7 +333,7 @@ void APPFLOWBASE::Application_SetExecutable(XCHAR* name)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* APPFLOWBASE::Application_GetID()
-* @brief      Application_GetID
+* @brief      Application get ID
 * @ingroup    APPFLOW
 *
 * @return     XSTRING* : String with the ID of the aplication
@@ -348,7 +348,7 @@ XSTRING* APPFLOWBASE::Application_GetID()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XTIMER* APPFLOWBASE::GetTimerGlobal()
-* @brief      Get timer global for the application
+* @brief      Get timer global
 * @ingroup    APPFLOW
 *
 * @return     XTIMER* : XTIMER class global
@@ -363,7 +363,7 @@ XTIMER* APPFLOWBASE::GetTimerGlobal()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         APPFLOWBASEEXITTYPE APPFLOWBASE::GetExitType()
-* @brief      Ge the exit type for the application
+* @brief      Get exit type
 * @ingroup    APPFLOW
 *
 * @return     APPFLOWBASE_EXITTYPE : status of the exit
@@ -378,7 +378,7 @@ APPFLOWBASE_EXITTYPE APPFLOWBASE::GetExitType()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void APPFLOWBASE::SetExitType(APPFLOWBASE_EXITTYPE exittype)
-* @brief      SetExitType
+* @brief      Set exit type
 * @ingroup    APPFLOW
 * 
 * @param[in]  exittype : 
@@ -395,7 +395,7 @@ void APPFLOWBASE::SetExitType(APPFLOWBASE_EXITTYPE exittype)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool APPFLOWBASE::GetExitTypeString(XSTRING exittypestring)
-* @brief      GetExitTypeString
+* @brief      Get exit type string
 * @ingroup    APPFLOW
 *
 * @param[in]  exittypestring :
@@ -427,7 +427,7 @@ bool APPFLOWBASE::GetExitTypeString(XSTRING& exittypestring)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSYSTEM_CHANGESTATUSTYPE APPFLOWBASE::GetSystemChangeStatus()
-* @brief      GetSystemChangeStatus
+* @brief      Get system change status
 * @ingroup    APPFLOW
 *
 * @return     XSYSTEM_CHANGESTATUSTYPE :
@@ -442,7 +442,7 @@ XSYSTEM_CHANGESTATUSTYPE APPFLOWBASE::GetSystemChangeStatus()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void APPFLOWBASE::SetSystemChangeStatus(XSYSTEM_CHANGESTATUSTYPE systemchangestatustype)
-* @brief      SetSystemChangeStatus
+* @brief      Set system change status
 * @ingroup    APPFLOW
 * 
 * @param[in]  systemchangestatustype : 
@@ -486,7 +486,7 @@ void APPFLOWBASE::SetSystemChangeStatus(XSYSTEM_CHANGESTATUSTYPE systemchangesta
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool APPFLOWBASE::AppProc_PlatformIni()
-* @brief      AppProc_PlatformIni
+* @brief      App proc platform ini
 * @ingroup    APPFLOW
 *
 * @return     bool : true if is succesful.
@@ -501,7 +501,7 @@ bool APPFLOWBASE::AppProc_PlatformIni()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool APPFLOWBASE::AppProc_Ini()
-* @brief      Ini callback for this class to use for the application class real
+* @brief      App proc ini
 * @note       VIRTUAL
 * @ingroup    APPFLOW
 *
@@ -517,7 +517,7 @@ bool APPFLOWBASE::AppProc_Ini()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool APPFLOWBASE::AppProc_FirstUpdate()
-* @brief      First Update callback for this class to use for the application class real
+* @brief      App proc first update
 * @note       VIRTUAL
 * @ingroup    APPFLOW
 *
@@ -533,7 +533,7 @@ bool APPFLOWBASE::AppProc_FirstUpdate()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool APPFLOWBASE::AppProc_Update()
-* @brief      Update callback for this class to use for the application class real
+* @brief      App proc update
 * @note       VIRTUAL
 * @ingroup    APPFLOW
 *
@@ -549,7 +549,7 @@ bool APPFLOWBASE::AppProc_Update()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool APPFLOWBASE::AppProc_LastUpdate()
-* @brief      Last Update callback for this class to use for the application class real
+* @brief      App proc last update
 * @note       VIRTUAL
 * @ingroup    APPFLOW
 *
@@ -565,7 +565,7 @@ bool APPFLOWBASE::AppProc_LastUpdate()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool APPFLOWBASE::AppProc_EndBlockedResources()
-* @brief      AppProc_EndBlockedResources
+* @brief      App proc end blocked resources
 * @ingroup    APPFLOW
 *
 * @return     bool : true if is succesful.
@@ -580,7 +580,7 @@ bool APPFLOWBASE::AppProc_EndBlockedResources()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool APPFLOWBASE::AppProc_End()
-* @brief      End callback for this class to use for the application class real
+* @brief      App proc end
 * @note       VIRTUAL
 * @ingroup    APPFLOW
 *
@@ -596,7 +596,7 @@ bool APPFLOWBASE::AppProc_End()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool APPFLOWBASE::AppProc_PlatformEnd()
-* @brief      AppProc_PlatformEnd
+* @brief      App proc platform end
 * @ingroup    APPFLOW
 *
 * @return     bool : true if is succesful.
@@ -611,7 +611,7 @@ bool APPFLOWBASE::AppProc_PlatformEnd()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void APPFLOWBASE::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    APPFLOW
 *

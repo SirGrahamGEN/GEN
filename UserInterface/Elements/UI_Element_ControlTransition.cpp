@@ -64,7 +64,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_ELEMENT_CONTROLTRANSITION::UI_ELEMENT_CONTROLTRANSITION()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    USERINTERFACE
 *
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -77,7 +77,7 @@ UI_ELEMENT_CONTROLTRANSITION::UI_ELEMENT_CONTROLTRANSITION()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_ELEMENT_CONTROLTRANSITION::~UI_ELEMENT_CONTROLTRANSITION()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
 *
@@ -91,7 +91,7 @@ UI_ELEMENT_CONTROLTRANSITION::~UI_ELEMENT_CONTROLTRANSITION()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_ELEMENT_CONTROLTRANSITION::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
 *

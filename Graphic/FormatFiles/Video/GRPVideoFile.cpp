@@ -4,7 +4,7 @@
 * 
 * @class      GRPVIDEOFILE
 * @brief      Graphic Video File class
-* @ingroup    VIDEO
+* @ingroup    GRAPHIC
 * 
 * @copyright  GEN Group. All rights reserved.
 * 
@@ -74,8 +74,8 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVIDEOFILE_PROPERTYS::GRPVIDEOFILE_PROPERTYS()
-* @brief      Constructor
-* @ingroup    VIDEO
+* @brief      Constructor of class
+* @ingroup    GRAPHIC
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 GRPVIDEOFILE_PROPERTYS::GRPVIDEOFILE_PROPERTYS()
@@ -87,9 +87,9 @@ GRPVIDEOFILE_PROPERTYS::GRPVIDEOFILE_PROPERTYS()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVIDEOFILE_PROPERTYS::~GRPVIDEOFILE_PROPERTYS()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
-* @ingroup    VIDEO
+* @ingroup    GRAPHIC
 *
 * ---------------------------------------------------------------------------------------------------------------------*/
 GRPVIDEOFILE_PROPERTYS::~GRPVIDEOFILE_PROPERTYS()
@@ -101,9 +101,9 @@ GRPVIDEOFILE_PROPERTYS::~GRPVIDEOFILE_PROPERTYS()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRPVIDEOFILE_PROPERTYS::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
-* @ingroup    VIDEO
+* @ingroup    GRAPHIC
 *
 * ---------------------------------------------------------------------------------------------------------------------*/
 void GRPVIDEOFILE_PROPERTYS::Clean()
@@ -124,8 +124,8 @@ void GRPVIDEOFILE_PROPERTYS::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPVIDEOFILE::GRPVIDEOFILE()
-* @brief      Constructor
-* @ingroup    VIDEO
+* @brief      Constructor of class
+* @ingroup    GRAPHIC
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 GRPVIDEOFILE::GRPVIDEOFILE()
@@ -137,9 +137,9 @@ GRPVIDEOFILE::GRPVIDEOFILE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPVIDEOFILE::~GRPVIDEOFILE()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
-* @ingroup    VIDEO
+* @ingroup    GRAPHIC
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 GRPVIDEOFILE::~GRPVIDEOFILE()
@@ -152,7 +152,7 @@ GRPVIDEOFILE::~GRPVIDEOFILE()
 * 
 * @fn         bool GRPVIDEOFILE::Open(XCHAR* xpath)
 * @brief      Open
-* @ingroup    VIDEO
+* @ingroup    GRAPHIC
 *
 * @param[in]  xpath : 
 * 
@@ -169,7 +169,7 @@ bool GRPVIDEOFILE::Open(XCHAR* xpath)
 * 
 * @fn         bool GRPVIDEOFILE::Create(XCHAR* xpath, GRPVIDEOFILE_PROPERTYS& propertys)
 * @brief      Create
-* @ingroup    VIDEO
+* @ingroup    GRAPHIC
 * 
 * @param[in]  xpath : 
 * @param[in]  propertys : 
@@ -186,8 +186,8 @@ bool GRPVIDEOFILE::Create(XCHAR* xpath, GRPVIDEOFILE_PROPERTYS& propertys)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVIDEOFILE_PROPERTYS* GRPVIDEOFILE::GetPropertys()
-* @brief      GetPropertys
-* @ingroup    VIDEO
+* @brief      Get propertys
+* @ingroup    GRAPHIC
 *
 * @return     GRPVIDEOFILE_PROPERTYS* : 
 * 
@@ -201,8 +201,8 @@ GRPVIDEOFILE_PROPERTYS*  GRPVIDEOFILE::GetPropertys()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTE* GRPVIDEOFILE::GetDataFrame(XDWORD index_frame, XDWORD& sizeframe)
-* @brief      GetDataFrame
-* @ingroup    VIDEO
+* @brief      Get data frame
+* @ingroup    GRAPHIC
 *
 * @param[in]  index_frame : 
 * @param[in]  sizeframe : 
@@ -219,8 +219,8 @@ XBYTE* GRPVIDEOFILE::GetDataFrame(XDWORD index_frame, XDWORD& sizeframe)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPVIDEOFILE::AddFrame(XBYTE* dataframe, XDWORD dataframesize)
-* @brief      AddFrame
-* @ingroup    VIDEO
+* @brief      Add frame
+* @ingroup    GRAPHIC
 *
 * @param[in]  dataframe : 
 * @param[in]  dataframesize : 
@@ -238,7 +238,7 @@ bool GRPVIDEOFILE::AddFrame(XBYTE* dataframe, XDWORD dataframesize)
 * 
 * @fn         bool GRPVIDEOFILE::Close()
 * @brief      Close
-* @ingroup    VIDEO
+* @ingroup    GRAPHIC
 *
 * @return     bool : true if is succesful. 
 * 
@@ -252,9 +252,9 @@ bool GRPVIDEOFILE::Close()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void GRPVIDEOFILE::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
-* @ingroup    VIDEO
+* @ingroup    GRAPHIC
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPVIDEOFILE::Clean()

@@ -66,7 +66,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILEHASH::XFILEHASH(HASH* hash)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * @param[in]  hash :
@@ -85,7 +85,7 @@ XFILEHASH::XFILEHASH(HASH* hash): XFILECONTAINER()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILEHASH::~XFILEHASH()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -280,7 +280,7 @@ bool XFILEHASH::Close()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XWORD XFILEHASH::GetID()
-* @brief      GetID
+* @brief      Get ID
 * @ingroup    XUTILS
 *
 * @return     XWORD :
@@ -295,7 +295,7 @@ XWORD XFILEHASH::GetID()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XWORD XFILEHASH::GetType()
-* @brief      GetType
+* @brief      Get type
 * @ingroup    XUTILS
 *
 * @return     XWORD :
@@ -311,7 +311,7 @@ XWORD XFILEHASH::GetType()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XWORD XFILEHASH::GetVersion()
-* @brief      GetVersion
+* @brief      Get version
 * @ingroup    XUTILS
 *
 * @return     XWORD :
@@ -326,7 +326,7 @@ XWORD XFILEHASH::GetVersion()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* XFILEHASH::GetIDString()
-* @brief      GetIDString
+* @brief      Get ID string
 * @ingroup    XUTILS
 *
 * @return     XSTRING* :
@@ -366,7 +366,7 @@ bool XFILEHASH::Set(XWORD ID, XWORD type, XWORD version, XCHAR* IDstring)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEHASH::SetID(XWORD ID)
-* @brief      SetID
+* @brief      Set ID
 * @ingroup    XUTILS
 *
 * @param[in]  ID :
@@ -385,7 +385,7 @@ bool XFILEHASH::SetID(XWORD ID)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEHASH::SetType(XWORD type)
-* @brief      SetType
+* @brief      Set type
 * @ingroup    XUTILS
 *
 * @param[in]  type :
@@ -404,7 +404,7 @@ bool XFILEHASH::SetType(XWORD type)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEHASH::SetVersion(XWORD version)
-* @brief      SetVersion
+* @brief      Set version
 * @ingroup    XUTILS
 *
 * @param[in]  version :
@@ -423,7 +423,7 @@ bool XFILEHASH::SetVersion(XWORD version)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEHASH::SetIDString(XCHAR* IDstring)
-* @brief      SetIDString
+* @brief      Set ID string
 * @ingroup    XUTILS
 *
 * @param[in]  IDstring :
@@ -442,7 +442,7 @@ bool XFILEHASH::SetIDString(XCHAR* IDstring)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEHASH::SetIDString(XSTRING& IDstring)
-* @brief      SetIDString
+* @brief      Set ID string
 * @ingroup    XUTILS
 *
 * @param[in]  IDstring :
@@ -461,7 +461,7 @@ bool XFILEHASH::SetIDString(XSTRING& IDstring)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XFILEHASH::GetDataPosition()
-* @brief      GetDataPosition
+* @brief      Get data position
 * @ingroup    XUTILS
 *
 * @return     int :
@@ -476,7 +476,7 @@ XQWORD XFILEHASH::GetDataPosition()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEHASH::UpdateHash()
-* @brief      UpdateHash
+* @brief      Update hash
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -508,7 +508,7 @@ bool XFILEHASH::UpdateHash()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XFILEHASH::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    XUTILS
 *

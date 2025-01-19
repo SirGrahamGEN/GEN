@@ -143,7 +143,7 @@ XDWORD  CIPHERAES::RCON[10];
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         CIPHERAES::CIPHERAES()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    CIPHER
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -161,7 +161,7 @@ CIPHERAES::CIPHERAES()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         CIPHERAES::~CIPHERAES()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    CIPHER
 * 
@@ -306,7 +306,7 @@ bool CIPHERAES::Uncipher(XBYTE* input, XDWORD size)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void CIPHERAES::AESGenTables(void)
-* @brief      AESGenTables
+* @brief      AES gen tables
 * @ingroup    CIPHER
 * 
 * @param[in]  void : 
@@ -394,7 +394,7 @@ void CIPHERAES::AESGenTables(void)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool CIPHERAES::AESSetKeyCipher(CIPHERAES_CONTEXT* ctx, XBYTE* key, XDWORD keysize)
-* @brief      AESSetKeyCipher
+* @brief      AES set key cipher
 * @ingroup    CIPHER
 * 
 * @param[in]  ctx : 
@@ -489,7 +489,7 @@ bool CIPHERAES::AESSetKeyCipher(CIPHERAES_CONTEXT* ctx, XBYTE* key, XDWORD keysi
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool CIPHERAES::AESSetKeyUncipher(CIPHERAES_CONTEXT* ctx, XBYTE* key, XDWORD keysize)
-* @brief      AESSetKeyUncipher
+* @brief      AES set key uncipher
 * @ingroup    CIPHER
 * 
 * @param[in]  ctx : 
@@ -552,7 +552,7 @@ bool CIPHERAES::AESSetKeyUncipher(CIPHERAES_CONTEXT* ctx, XBYTE* key, XDWORD key
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool CIPHERAES::AESCipher_ECB_Block(CIPHERAES_CONTEXT* ctx, int mode, XBYTE input[16], XBYTE output[16])
-* @brief      AESCipher_ECB_Block
+* @brief      AES cipher ECB block
 * @ingroup    CIPHER
 * 
 * @param[in]  ctx : 
@@ -666,7 +666,7 @@ bool CIPHERAES::AESCipher_ECB_Block(CIPHERAES_CONTEXT* ctx, int mode, XBYTE inpu
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool CIPHERAES::AESCipher_ECB(CIPHERAES_CONTEXT* ctx, int mode, XDWORD size, XBYTE* input, XBYTE* output)
-* @brief      AESCipher_ECB
+* @brief      AES cipher ECB
 * @ingroup    CIPHER
 * 
 * @param[in]  ctx : 
@@ -698,7 +698,7 @@ bool CIPHERAES::AESCipher_ECB(CIPHERAES_CONTEXT* ctx, int mode, XDWORD size, XBY
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool CIPHERAES::AESCipher_CBC(CIPHERAES_CONTEXT* ctx, int mode, XDWORD size, XBYTE iv[16], XBYTE* input, XBYTE* output)
-* @brief      AESCipher_CBC
+* @brief      AES cipher CBC
 * @ingroup    CIPHER
 * 
 * @param[in]  ctx : 
@@ -762,7 +762,7 @@ bool CIPHERAES::AESCipher_CBC(CIPHERAES_CONTEXT* ctx, int mode, XDWORD size, XBY
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool CIPHERAES::AESCipher_CFB128(CIPHERAES_CONTEXT* ctx, int mode, XDWORD size, int* iv_off, XBYTE iv[16], XBYTE* input, XBYTE* output)
-* @brief      AESCipher_CFB128
+* @brief      AES cipher CFB128
 * @ingroup    CIPHER
 * 
 * @param[in]  ctx : 
@@ -821,7 +821,7 @@ bool CIPHERAES::AESCipher_CFB128(CIPHERAES_CONTEXT* ctx, int mode, XDWORD size, 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool CIPHERAES::AESCipher_CTR(CIPHERAES_CONTEXT* ctx, XDWORD size, int* nc_off, XBYTE nonce_counter[16], XBYTE stream_block[16], XBYTE* input, XBYTE* output)
-* @brief      AESCipher_CTR
+* @brief      AES cipher CTR
 * @ingroup    CIPHER
 * 
 * @param[in]  ctx : 
@@ -867,7 +867,7 @@ bool CIPHERAES::AESCipher_CTR(CIPHERAES_CONTEXT* ctx, XDWORD size, int* nc_off, 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void CIPHERAES::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    CIPHER
 * 

@@ -74,7 +74,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         SCRIPT_LIB_PROCESS::SCRIPT_LIB_PROCESS()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    SCRIPT
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -87,7 +87,7 @@ SCRIPT_LIB_PROCESS::SCRIPT_LIB_PROCESS() : SCRIPT_LIB(SCRIPT_LIB_NAME_PROCESS)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         SCRIPT_LIB_PROCESS::~SCRIPT_LIB_PROCESS()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    SCRIPT
 * 
@@ -101,7 +101,7 @@ SCRIPT_LIB_PROCESS::~SCRIPT_LIB_PROCESS()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool SCRIPT_LIB_PROCESS::AddLibraryFunctions(SCRIPT* script)
-* @brief      AddLibraryFunctions
+* @brief      Add library functions
 * @ingroup    SCRIPT
 * 
 * @param[in]  script : 
@@ -128,7 +128,7 @@ bool SCRIPT_LIB_PROCESS::AddLibraryFunctions(SCRIPT* script)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void SCRIPT_LIB_PROCESS::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    SCRIPT
 * 

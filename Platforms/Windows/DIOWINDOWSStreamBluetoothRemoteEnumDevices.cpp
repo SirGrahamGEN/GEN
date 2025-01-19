@@ -82,7 +82,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOWINDOWSSTREAMBLUETOOTHREMOTEENUMDEVICES::DIOWINDOWSSTREAMBLUETOOTHREMOTEENUMDEVICES()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_WINDOWS
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -116,7 +116,7 @@ DIOWINDOWSSTREAMBLUETOOTHREMOTEENUMDEVICES::DIOWINDOWSSTREAMBLUETOOTHREMOTEENUMD
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOWINDOWSSTREAMBLUETOOTHREMOTEENUMDEVICES::~DIOWINDOWSSTREAMBLUETOOTHREMOTEENUMDEVICES()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
 * 
@@ -175,7 +175,7 @@ bool DIOWINDOWSSTREAMBLUETOOTHREMOTEENUMDEVICES::Search()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOWINDOWSSTREAMBLUETOOTHREMOTEENUMDEVICES::StopSearch(bool waitend)
-* @brief      StopSearch
+* @brief      Stop search
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @param[in]  waitend : 
@@ -208,7 +208,7 @@ bool DIOWINDOWSSTREAMBLUETOOTHREMOTEENUMDEVICES::StopSearch(bool waitend)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOWINDOWSSTREAMBLUETOOTHREMOTEENUMDEVICES::IsSearching()
-* @brief      IsSearching
+* @brief      Is searching
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @return     bool : true if is succesful. 
@@ -229,7 +229,7 @@ bool DIOWINDOWSSTREAMBLUETOOTHREMOTEENUMDEVICES::IsSearching()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOWINDOWSSTREAMBLUETOOTHREMOTEENUMDEVICES::ThreadEnumDevices(void* data)
-* @brief      ThreadEnumDevices
+* @brief      Thread enum devices
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @param[in]  data : 
@@ -356,7 +356,7 @@ void DIOWINDOWSSTREAMBLUETOOTHREMOTEENUMDEVICES::ThreadEnumDevices(void* data)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOWINDOWSSTREAMBLUETOOTHREMOTEENUMDEVICES::SearchServices()
-* @brief      SearchServices
+* @brief      Search services
 * @ingroup    PLATFORM_WINDOWS
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -629,7 +629,7 @@ BOOL __stdcall SDP_ServiceCallback(ULONG attribID, LPBYTE valuestream, ULONG cbs
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOWINDOWSSTREAMBLUETOOTHREMOTEENUMDEVICES::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
 * 

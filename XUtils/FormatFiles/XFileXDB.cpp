@@ -72,7 +72,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILEXDB::XFILEXDB(HASH* hash)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * @param[in]  hash :
@@ -91,7 +91,7 @@ XFILEXDB::XFILEXDB(HASH* hash) : XFILEHASH(hash)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILEXDB::XFILEXDB(HASH* hash, XPATH& xpath)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * @param[in]  hash :
@@ -114,7 +114,7 @@ XFILEXDB::XFILEXDB(HASH* hash, XPATH& xpath)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILEXDB::~XFILEXDB()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -130,7 +130,7 @@ XFILEXDB::~XFILEXDB()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEXDB::SetPath(XPATH& xpath)
-* @brief      SetPath
+* @brief      Set path
 * @ingroup    XUTILS
 *
 * @param[in]  xpath :
@@ -181,7 +181,7 @@ bool XFILEXDB::End()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XMAP<XDWORD, XDWORD>* XFILEXDB::GetIndexMap()
-* @brief      GetIndexMap
+* @brief      Get index map
 * @ingroup    XUTILS
 *
 * @return     XMAP<XDWORD, :
@@ -196,7 +196,7 @@ XMAP<XDWORD, XDWORD>* XFILEXDB::GetIndexMap()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEXDB::OpenFile()
-* @brief      OpenFile
+* @brief      Open file
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -239,7 +239,7 @@ bool XFILEXDB::OpenFile()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XFILEXDB::GetNumberRecords()
-* @brief      GetNumberRecords
+* @brief      Get number records
 * @ingroup    XUTILS
 *
 * @return     int :
@@ -254,7 +254,7 @@ int XFILEXDB::GetNumberRecords()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XBUFFER* XFILEXDB::GetRecord(XDWORD ID)
-* @brief      GetRecord
+* @brief      Get record
 * @ingroup    XUTILS
 *
 * @param[in]  ID :
@@ -305,7 +305,7 @@ XBUFFER* XFILEXDB::GetRecord(XDWORD ID)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XBUFFER* XFILEXDB::GetRecordIndex(XDWORD index)
-* @brief      GetRecordIndex
+* @brief      Get record index
 * @ingroup    XUTILS
 *
 * @param[in]  index :
@@ -356,7 +356,7 @@ XBUFFER* XFILEXDB::GetRecordIndex(XDWORD index)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD XFILEXDB::GetPosition(XDWORD ID)
-* @brief      GetPosition
+* @brief      Get position
 * @ingroup    XUTILS
 *
 * @param[in]  ID :
@@ -385,7 +385,7 @@ XDWORD XFILEXDB::GetPosition(XDWORD ID)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEXDB::CloseFile()
-* @brief      CloseFile
+* @brief      Close file
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -408,7 +408,7 @@ bool XFILEXDB::CloseFile()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XFILEXDB::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    XUTILS
 *

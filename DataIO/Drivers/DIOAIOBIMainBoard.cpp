@@ -64,7 +64,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOAIOBIMAINBOARD::DIOAIOBIMAINBOARD()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -77,7 +77,7 @@ DIOAIOBIMAINBOARD::DIOAIOBIMAINBOARD()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOAIOBIMAINBOARD::~DIOAIOBIMAINBOARD()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -172,7 +172,7 @@ bool DIOAIOBIMAINBOARD::Ini()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOAIOBIMAINBOARD::IsIni()
-* @brief      IsIni
+* @brief      Is ini
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -187,7 +187,7 @@ bool DIOAIOBIMAINBOARD::IsIni()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOAIOBIMAINBOARD::SetModeHeaderPin(DIOAIOBIMAINBOARD_HEADER header, int pin, bool isinput)
-* @brief      SetModeHeaderPin
+* @brief      Set mode header pin
 * @ingroup    DATAIO
 *
 * @param[in]  header :
@@ -245,7 +245,7 @@ bool DIOAIOBIMAINBOARD::SetModeHeaderPin(DIOAIOBIMAINBOARD_HEADER header, int pi
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOAIOBIMAINBOARD::GetStatusHeaderPin(DIOAIOBIMAINBOARD_HEADER header, int pin)
-* @brief      GetStatusHeaderPin
+* @brief      Get status header pin
 * @ingroup    DATAIO
 *
 * @param[in]  header :
@@ -302,7 +302,7 @@ bool DIOAIOBIMAINBOARD::GetStatusHeaderPin(DIOAIOBIMAINBOARD_HEADER header, int 
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOAIOBIMAINBOARD::SetStatusHeaderPin(DIOAIOBIMAINBOARD_HEADER header, int pin, bool active)
-* @brief      SetStatusHeaderPin
+* @brief      Set status header pin
 * @ingroup    DATAIO
 *
 * @param[in]  header :
@@ -360,7 +360,7 @@ bool DIOAIOBIMAINBOARD::SetStatusHeaderPin(DIOAIOBIMAINBOARD_HEADER header, int 
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOAIOBIMAINBOARD::SetP4HeaderForExternalButton(bool on)
-* @brief      SetP4HeaderForExternalButton
+* @brief      Set P4 header for external button
 * @ingroup    DATAIO
 *
 * @param[in]  on :
@@ -387,7 +387,7 @@ bool DIOAIOBIMAINBOARD::SetP4HeaderForExternalButton(bool on)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOAIOBIMAINBOARD::IsButtonAPressed()
-* @brief      IsButtonAPressed
+* @brief      Is button A pressed
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -403,7 +403,7 @@ bool DIOAIOBIMAINBOARD::IsButtonAPressed()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOAIOBIMAINBOARD::IsButtonBPressed()
-* @brief      IsButtonBPressed
+* @brief      Is button B pressed
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -419,7 +419,7 @@ bool DIOAIOBIMAINBOARD::IsButtonBPressed()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOAIOBIMAINBOARD::SetLedA(bool on)
-* @brief      SetLedA
+* @brief      Set led a
 * @ingroup    DATAIO
 *
 * @param[in]  on :
@@ -437,7 +437,7 @@ bool DIOAIOBIMAINBOARD::SetLedA(bool on)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOAIOBIMAINBOARD::SetLedB(bool on)
-* @brief      SetLedB
+* @brief      Set led b
 * @ingroup    DATAIO
 *
 * @param[in]  on :
@@ -455,7 +455,7 @@ bool DIOAIOBIMAINBOARD::SetLedB(bool on)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOAIOBIMAINBOARD::GetDigitalInput(XBYTE& data)
-* @brief      GetDigitalInput
+* @brief      Get digital input
 * @ingroup    DATAIO
 *
 * @param[in]  data :
@@ -475,7 +475,7 @@ bool DIOAIOBIMAINBOARD::GetDigitalInput(XBYTE& data)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOAIOBIMAINBOARD::SetDigitalOutput(XBYTE bit, bool on)
-* @brief      SetDigitalOutput
+* @brief      Set digital output
 * @ingroup    DATAIO
 *
 * @param[in]  bit :
@@ -507,7 +507,7 @@ bool DIOAIOBIMAINBOARD::SetDigitalOutput(XBYTE bit, bool on)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOAIOBIMAINBOARD::SwitchReleK1(bool on)
-* @brief      SwitchReleK1
+* @brief      Switch rele K1
 * @ingroup    DATAIO
 *
 * @param[in]  on :
@@ -531,7 +531,7 @@ bool DIOAIOBIMAINBOARD::SwitchReleK1(bool on)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOAIOBIMAINBOARD::SwitchReleK2(bool on)
-* @brief      SwitchReleK2
+* @brief      Switch rele K2
 * @ingroup    DATAIO
 *
 * @param[in]  on :
@@ -555,7 +555,7 @@ bool DIOAIOBIMAINBOARD::SwitchReleK2(bool on)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOAIOBIMAINBOARD::SwitchReleK3(bool on)
-* @brief      SwitchReleK3
+* @brief      Switch rele K3
 * @ingroup    DATAIO
 *
 * @param[in]  on :
@@ -579,7 +579,7 @@ bool DIOAIOBIMAINBOARD::SwitchReleK3(bool on)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOAIOBIMAINBOARD::EEProm(bool write, XBUFFER& xbuffer)
-* @brief      EEProm
+* @brief      EE prom
 * @ingroup    DATAIO
 *
 * @param[in]  write :
@@ -606,7 +606,7 @@ bool DIOAIOBIMAINBOARD::EEProm(bool write, XBUFFER& xbuffer)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOGPIO* DIOAIOBIMAINBOARD::GetGPIO()
-* @brief      GetGPIO
+* @brief      Get GPIO
 * @ingroup    DATAIO
 *
 * @return     DIOGPIO* :
@@ -621,7 +621,7 @@ DIOGPIO* DIOAIOBIMAINBOARD::GetGPIO()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOAIOBIMAINBOARD::SetPWM(XBYTE channel, XWORD on, XWORD off, bool wait)
-* @brief      SetPWM
+* @brief      Set PWM
 * @ingroup    DATAIO
 *
 * @param[in]  channel :
@@ -642,7 +642,7 @@ bool DIOAIOBIMAINBOARD::SetPWM(XBYTE channel, XWORD on, XWORD off, bool wait)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOAIOBIMAINBOARD::ResetMicroControler()
-* @brief      ResetMicroControler
+* @brief      Reset micro controler
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -723,7 +723,7 @@ bool DIOAIOBIMAINBOARD::End()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOAIOBIMAINBOARD::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

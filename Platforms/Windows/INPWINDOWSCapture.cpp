@@ -77,7 +77,7 @@ INPWINDOWSCAPTURE* INPWINDOWSCAPTURE::capture = NULL;
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         INPWINDOWSCAPTURE::INPWINDOWSCAPTURE()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_WINDOWS
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -92,7 +92,7 @@ INPWINDOWSCAPTURE::INPWINDOWSCAPTURE()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         INPWINDOWSCAPTURE::~INPWINDOWSCAPTURE()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
 * 
@@ -169,7 +169,7 @@ bool INPWINDOWSCAPTURE::Deactivate()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         LRESULT CALLBACK INPWINDOWSCAPTURE::LowLevelKeyboardProc(int ncode, WPARAM wparam, LPARAM lparam)
-* @brief      LowLevelKeyboardProc
+* @brief      Low level keyboard proc
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @param[in]  ncode : 
@@ -247,7 +247,7 @@ LRESULT CALLBACK INPWINDOWSCAPTURE::LowLevelKeyboardProc(int ncode, WPARAM wpara
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void INPWINDOWSCAPTURE::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
 * 

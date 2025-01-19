@@ -66,7 +66,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPBITMAP::GRPBITMAP(int width, int height, GRPPROPERTYMODE mode, bool isbufferinverse)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    GRAPHIC
 *
 * @param[in]  width :
@@ -89,7 +89,7 @@ GRPBITMAP::GRPBITMAP(int width, int height, GRPPROPERTYMODE mode, bool isbufferi
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPBITMAP::~GRPBITMAP()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
 *
@@ -103,7 +103,7 @@ GRPBITMAP::~GRPBITMAP()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPBITMAP::IsValid()
-* @brief      Is Valid
+* @brief      Is valid
 * @ingroup    GRAPHIC
 *
 * @return     bool : true if is succesful.
@@ -118,7 +118,7 @@ bool GRPBITMAP::IsValid()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XBYTE* GRPBITMAP::GetBuffer()
-* @brief      Get Buffer
+* @brief      Get buffer
 * @ingroup    GRAPHIC
 *
 * @return     XBYTE* : pointer to array
@@ -133,7 +133,7 @@ XBYTE* GRPBITMAP::GetBuffer()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XBYTE** GRPBITMAP::GetBufferPointer()
-* @brief      Get Buffer Pointer
+* @brief      Get buffer pointer
 * @ingroup    GRAPHIC
 *
 * @return     XBYTE** : pointer to pointer array
@@ -148,7 +148,7 @@ XBYTE** GRPBITMAP::GetBufferPointer()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int GRPBITMAP::GetBufferSize()
-* @brief      Get Buffer Size
+* @brief      Get buffer size
 * @ingroup    GRAPHIC
 *
 * @return     int : size of buffer
@@ -163,7 +163,7 @@ int GRPBITMAP::GetBufferSize()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPBITMAP* GRPBITMAP::GetSubBitmap(GRPRECTINT& rect)
-* @brief      Get Sub-Bitmap
+* @brief      Get sub bitmap
 * @ingroup    GRAPHIC
 *
 * @param[in]  rect : rect to get sub-bitmap
@@ -195,7 +195,7 @@ GRPBITMAP* GRPBITMAP::Clone()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPBITMAP::CopyFrom(GRPBITMAP* bitmap)
-* @brief      Copy From
+* @brief      Copy from
 * @ingroup    GRAPHIC
 *
 * @param[in]  bitmap : bitmap origin to clone
@@ -212,7 +212,7 @@ bool GRPBITMAP::CopyFrom(GRPBITMAP* bitmap)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPBITMAP* GRPBITMAP::ConvertToMode(GRPPROPERTYMODE newmode)
-* @brief      ConvertToMode
+* @brief      Convert to mode
 * @ingroup    GRAPHIC
 *
 * @param[in]  newmode :
@@ -229,7 +229,7 @@ GRPBITMAP* GRPBITMAP::ConvertToMode(GRPPROPERTYMODE newmode)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPBITMAP::FlipHorizontal()
-* @brief      Flip Horizontal
+* @brief      Flip horizontal
 * @ingroup    GRAPHIC
 *
 * @return     bool : true if is succesful.
@@ -244,7 +244,7 @@ bool GRPBITMAP::FlipHorizontal()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPBITMAP::FlipVertical()
-* @brief      Flip Vertical
+* @brief      Flip vertical
 * @ingroup    GRAPHIC
 *
 * @return     bool : true if is succesful.
@@ -259,7 +259,7 @@ bool GRPBITMAP::FlipVertical()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPBITMAP::Rotate(float degrees)
-* @brief      Rotate bitmap
+* @brief      Rotate
 * @ingroup    GRAPHIC
 *
 * @param[in]  degrees : degrees to rotate
@@ -360,7 +360,7 @@ bool GRPBITMAP::Compare(GRPBITMAP* bitmap)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPBITMAP::FindSubBitmap(GRPBITMAP* bitmapref, int& x, int& y, XBYTE difflimitpercent, XBYTE pixelmargin)
-* @brief      FindSubBitmap
+* @brief      Find sub bitmap
 * @ingroup    GRAPHIC
 * 
 * @param[in]  bitmapref : 
@@ -492,7 +492,7 @@ XDWORD GRPBITMAP::GetHandle()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void GRPBITMAP::SetHandle(XDWORD handle)
-* @brief      Set Handle
+* @brief      Set handle
 * @ingroup    GRAPHIC
 *
 * @param[in]  handle :
@@ -507,7 +507,7 @@ void GRPBITMAP::SetHandle(XDWORD handle)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPBITMAP::DifferencesPerCent(XDWORD ndiff, XDWORD max, int limit)
-* @brief      DifferencesPerCent
+* @brief      Differences per cent
 * @ingroup    GRAPHIC
 * 
 * @param[in]  ndiff : 
@@ -530,7 +530,7 @@ bool GRPBITMAP::DifferencesPerCent(XDWORD ndiff, XDWORD max, int limit)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPBITMAP::IsSimilarPixel(XDWORD origin, XDWORD target, XBYTE margin)
-* @brief      IsSimilarPixel
+* @brief      Is similar pixel
 * @ingroup    GRAPHIC
 * 
 * @param[in]  origin : 
@@ -568,7 +568,7 @@ bool GRPBITMAP::IsSimilarPixel(XDWORD origin, XDWORD target, XBYTE margin)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void GRPBITMAP::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    GRAPHIC
 *

@@ -75,7 +75,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOWINDOWSSTREAMUART::DIOWINDOWSSTREAMUART()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_WINDOWS
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -110,7 +110,7 @@ DIOWINDOWSSTREAMUART::DIOWINDOWSSTREAMUART() : DIOSTREAMUART(), XFSMACHINE(0)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOWINDOWSSTREAMUART::~DIOWINDOWSSTREAMUART()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
 * 
@@ -128,7 +128,7 @@ DIOWINDOWSSTREAMUART::~DIOWINDOWSSTREAMUART()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOSTREAMSTATUS DIOWINDOWSSTREAMUART::GetStatus()
-* @brief      GetStatus
+* @brief      Get status
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @return     DIOSTREAMSTATUS : 
@@ -324,7 +324,7 @@ bool DIOWINDOWSSTREAMUART::Config(XWORD mask)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD DIOWINDOWSSTREAMUART::ReadDirect(XBYTE* buffer,XDWORD size)
-* @brief      ReadDirect
+* @brief      Read direct
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @param[in]  buffer : 
@@ -393,7 +393,7 @@ XDWORD DIOWINDOWSSTREAMUART::ReadDirect(XBYTE* buffer,XDWORD size)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD DIOWINDOWSSTREAMUART::WriteDirect(XBYTE* buffer, XDWORD size)
-* @brief      WriteDirect
+* @brief      Write direct
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @param[in]  buffer : 
@@ -477,7 +477,7 @@ bool DIOWINDOWSSTREAMUART::Close()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOWINDOWSSTREAMUART::GetCTS()
-* @brief      GetCTS
+* @brief      Get CTS
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @return     bool : true if is succesful. 
@@ -501,7 +501,7 @@ bool DIOWINDOWSSTREAMUART::GetCTS()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOWINDOWSSTREAMUART::GetDSR()
-* @brief      GetDSR
+* @brief      Get DSR
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @return     bool : true if is succesful. 
@@ -525,7 +525,7 @@ bool DIOWINDOWSSTREAMUART::GetDSR()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOWINDOWSSTREAMUART::GetRing()
-* @brief      GetRing
+* @brief      Get ring
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @return     bool : true if is succesful. 
@@ -549,7 +549,7 @@ bool DIOWINDOWSSTREAMUART::GetRing()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOWINDOWSSTREAMUART::GetRLSD()
-* @brief      GetRLSD
+* @brief      Get RLSD
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @return     bool : true if is succesful. 
@@ -573,7 +573,7 @@ bool DIOWINDOWSSTREAMUART::GetRLSD()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOWINDOWSSTREAMUART::SetRTS(bool on)
-* @brief      SetRTS
+* @brief      Set RTS
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @param[in]  on : 
@@ -594,7 +594,7 @@ bool DIOWINDOWSSTREAMUART::SetRTS(bool on)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOWINDOWSSTREAMUART::SetDTR(bool on)
-* @brief      SetDTR
+* @brief      Set DTR
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @param[in]  on : 
@@ -615,7 +615,7 @@ bool DIOWINDOWSSTREAMUART::SetDTR(bool on)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOWINDOWSSTREAMUART::CleanBuffers()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean buffers
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
 * 
@@ -639,7 +639,7 @@ bool DIOWINDOWSSTREAMUART::CleanBuffers()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOWINDOWSSTREAMUART::SetMask(XDWORD mask)
-* @brief      SetMask
+* @brief      Set mask
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @param[in]  mask : 
@@ -666,7 +666,7 @@ bool DIOWINDOWSSTREAMUART::SetMask(XDWORD mask)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOWINDOWSSTREAMUART::SetTimeouts()
-* @brief      SetTimeouts
+* @brief      Set timeouts
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @return     bool : true if is succesful. 
@@ -705,7 +705,7 @@ bool DIOWINDOWSSTREAMUART::SetTimeouts()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOWINDOWSSTREAMUART::ThreadConnection(void* data)
-* @brief      ThreadConnection
+* @brief      Thread connection
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @param[in]  data : 
@@ -794,7 +794,7 @@ void DIOWINDOWSSTREAMUART::ThreadConnection(void* data)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOWINDOWSSTREAMUART::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
 * 

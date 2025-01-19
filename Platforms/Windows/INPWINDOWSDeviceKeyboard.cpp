@@ -68,7 +68,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         INPWINDOWSDEVICEKEYBOARD::INPWINDOWSDEVICEKEYBOARD()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_WINDOWS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -87,7 +87,7 @@ INPWINDOWSDEVICEKEYBOARD::INPWINDOWSDEVICEKEYBOARD() : INPDEVICE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         INPWINDOWSDEVICEKEYBOARD::~INPWINDOWSDEVICEKEYBOARD()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
 *
@@ -174,7 +174,7 @@ bool INPWINDOWSDEVICEKEYBOARD::Update()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void INPWINDOWSDEVICEKEYBOARD::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
 *
@@ -188,7 +188,7 @@ void INPWINDOWSDEVICEKEYBOARD::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool INPWINDOWSDEVICEKEYBOARD::CreateAllButtons()
-* @brief      Create All Buttons
+* @brief      Create all buttons
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
 *

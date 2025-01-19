@@ -69,7 +69,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOWAKEONLAN::DIOWAKEONLAN()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -82,7 +82,7 @@ DIOWAKEONLAN::DIOWAKEONLAN()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOWAKEONLAN::~DIOWAKEONLAN()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -96,7 +96,7 @@ DIOWAKEONLAN::~DIOWAKEONLAN()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWAKEONLAN::SendActivation(DIOMAC* MAC, DIOIP* broadcastIP, int timeout)
-* @brief      SendActivation
+* @brief      Send activation
 * @ingroup    DATAIO
 *
 * @param[in]  MAC : 
@@ -162,7 +162,7 @@ bool DIOWAKEONLAN::SendActivation(DIOMAC* MAC, DIOIP* broadcastIP, int timeout)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOWAKEONLAN::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

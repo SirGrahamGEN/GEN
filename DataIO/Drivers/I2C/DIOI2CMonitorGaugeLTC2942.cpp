@@ -76,7 +76,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOI2CMONITORGAUGELTC2942::DIOI2CMONITORGAUGELTC2942()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -89,7 +89,7 @@ DIOI2CMONITORGAUGELTC2942::DIOI2CMONITORGAUGELTC2942() : DIODEVICEI2C()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOI2CMONITORGAUGELTC2942::~DIOI2CMONITORGAUGELTC2942()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -105,7 +105,7 @@ DIOI2CMONITORGAUGELTC2942::~DIOI2CMONITORGAUGELTC2942()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         float DIOI2CMONITORGAUGELTC2942::GetVoltage (void)
-* @brief      GetVoltage
+* @brief      Get voltage 
 * @ingroup    DATAIO
 *  
 * @return     float : 
@@ -136,7 +136,7 @@ float DIOI2CMONITORGAUGELTC2942::GetVoltage (void)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOI2CMONITORGAUGELTC2942::SetAC(XWORD ac)
-* @brief      SetAC
+* @brief      Set AC
 * @ingroup    DATAIO
 *
 * @param[in]  ac : 
@@ -169,8 +169,8 @@ bool DIOI2CMONITORGAUGELTC2942::SetAC(XWORD ac)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XWORD DIOI2CMONITORGAUGELTC2942::GetAC(void)
-* @brief      GetAC
-* @ingroup    DATAIO 
+* @brief      Get AC
+* @ingroup    DATAIO
 * 
 * @return     XWORD : 
 * 
@@ -191,7 +191,7 @@ XWORD DIOI2CMONITORGAUGELTC2942::GetAC(void)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XWORD DIOI2CMONITORGAUGELTC2942::GetMaxAC(void)
-* @brief      GetMaxAC
+* @brief      Get max AC
 * @ingroup    DATAIO
 *  
 * @return     XWORD : 
@@ -223,7 +223,7 @@ bool DIOI2CMONITORGAUGELTC2942::End()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOI2CMONITORGAUGELTC2942::IniDevice()
-* @brief      IniDevice
+* @brief      Ini device
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -271,17 +271,17 @@ bool DIOI2CMONITORGAUGELTC2942::Initialize()
 
 	// Set prescaler M value 
   // 
-  //                  0.085mAh • 50momh • M
+  //                  0.085mAh  50momh  M
   //    qLSB =       ----------------------- = 
-  //	                  	RSENSE • 128
+  //	                  	RSENSE  128
 
-  //                  0.085mAh • 50momh • 16
+  //                  0.085mAh  50momh  16
   //    qLSB =       ----------------------- = 0,0133mAh ->  MaxValue: 870,38mAh (not valid)
-  //	                  	40momh • 128  
+  //	                  	40momh  128  
     
-  //                  0.085mAh • 50momh • 32
+  //                  0.085mAh  50momh  32
   //    qLSB =       ----------------------- = 0,0265625mAh ->  MaxValue: 1.740,7mAh valid
-  //	                  	40momh • 128    
+  //	                  	40momh  128    
     
   // M=32 for 1050mA battery AC max value 39.530    
         
@@ -309,7 +309,7 @@ bool DIOI2CMONITORGAUGELTC2942::Initialize()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOI2CMONITORGAUGELTC2942::ReadRegister(XBYTE offset, XBYTE& data)
-* @brief      ReadRegister
+* @brief      Read register
 * @ingroup    DATAIO
 * 
 * @param[in]  offset : 
@@ -327,7 +327,7 @@ bool DIOI2CMONITORGAUGELTC2942::ReadRegister(XBYTE offset, XBYTE& data)
 /**-------------------------------------------------------------------------------------------------------------------
 *+
 * @fn         bool DIOI2CMONITORGAUGELTC2942::ReadRegister(XBYTE offset, XBYTE* data, XDWORD sizedata)
-* @brief      ReadMultiRegister
+* @brief      Read register
 * @ingroup    DATAIO
 *
 * @param[in]  offset :
@@ -358,7 +358,7 @@ bool DIOI2CMONITORGAUGELTC2942::ReadRegister(XBYTE offset, XBYTE* data, XDWORD s
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOI2CMONITORGAUGELTC2942::WriteRegister(XBYTE offset, XBYTE data)
-* @brief      WriteRegister
+* @brief      Write register
 * @ingroup    DATAIO
 *
 * @param[in]  offset :
@@ -376,7 +376,7 @@ bool DIOI2CMONITORGAUGELTC2942::WriteRegister(XBYTE offset, XBYTE data)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOI2CMONITORGAUGELTC2942::WriteRegister(XBYTE offset, XBYTE* data, XDWORD sizedata)
-* @brief      WriteMultiRegister
+* @brief      Write register
 * @ingroup    DATAIO
 *
 * @param[in]  offset :
@@ -406,7 +406,7 @@ bool DIOI2CMONITORGAUGELTC2942::WriteRegister(XBYTE offset, XBYTE* data, XDWORD 
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOI2CMONITORGAUGELTC2942::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

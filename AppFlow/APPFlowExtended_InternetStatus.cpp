@@ -69,7 +69,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         APPFLOWEXTENDED_INTERNETSTATUS::APPFLOWEXTENDED_INTERNETSTATUS(APPFLOWCFG* cfg)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    APPFLOW
 * 
 * @param[in]  cfg : 
@@ -92,7 +92,7 @@ APPFLOWEXTENDED_INTERNETSTATUS::APPFLOWEXTENDED_INTERNETSTATUS(APPFLOWCFG* cfg) 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         APPFLOWEXTENDED_INTERNETSTATUS::~APPFLOWEXTENDED_INTERNETSTATUS()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    APPFLOW
 * 
@@ -112,7 +112,7 @@ APPFLOWEXTENDED_INTERNETSTATUS::~APPFLOWEXTENDED_INTERNETSTATUS()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         APPFLOWINTERNETSERVICES* APPFLOWEXTENDED_INTERNETSTATUS::GetInternetServices()
-* @brief      GetInternetServices
+* @brief      Get internet services
 * @ingroup    APPFLOW
 * 
 * @return     APPFLOWINTERNETSERVICES* : 
@@ -127,7 +127,7 @@ APPFLOWINTERNETSERVICES* APPFLOWEXTENDED_INTERNETSTATUS::GetInternetServices()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* APPFLOWEXTENDED_INTERNETSTATUS::GetLocalIP()
-* @brief      GetLocalIP
+* @brief      Get local IP
 * @ingroup    APPFLOW
 * 
 * @return     XSTRING* : 
@@ -142,7 +142,7 @@ XSTRING* APPFLOWEXTENDED_INTERNETSTATUS::GetLocalIP()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool APPFLOWEXTENDED_INTERNETSTATUS::GetHaveInternetConnection()
-* @brief      GetHaveInternetConnection
+* @brief      Get have internet connection
 * @ingroup    APPFLOW
 * 
 * @return     bool : true if is succesful. 
@@ -157,7 +157,7 @@ bool APPFLOWEXTENDED_INTERNETSTATUS::GetHaveInternetConnection()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* APPFLOWEXTENDED_INTERNETSTATUS::GetPublicIP()
-* @brief      GetPublicIP
+* @brief      Get public IP
 * @ingroup    APPFLOW
 * 
 * @return     XSTRING* : 
@@ -279,7 +279,7 @@ bool APPFLOWEXTENDED_INTERNETSTATUS::Deserialize()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void APPFLOWEXTENDED_INTERNETSTATUS::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    APPFLOW
 * 

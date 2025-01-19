@@ -4,7 +4,7 @@
 * 
 * @class      GEN_CONTROL
 * @brief      GEN Control precompilated
-* @ingroup    PLATFORM_COMMON
+* @ingroup    COMMON
 * 
 * @copyright  GEN Group. All rights reserved.
 * 

@@ -70,7 +70,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         SNDFILE::SNDFILE()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    SOUND
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -83,7 +83,7 @@ SNDFILE::SNDFILE()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         SNDFILE::~SNDFILE()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    SOUND
 * 
@@ -189,7 +189,7 @@ SNDFILE* SNDFILE::Create(XPATH& xpath)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         SNDFILE_TYPE SNDFILE::GetType()
-* @brief      GetType
+* @brief      Get type
 * @ingroup    SOUND
 * 
 * @return     SNDFILE_TYPE : 
@@ -204,7 +204,7 @@ SNDFILE_TYPE SNDFILE::GetType()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XPATH* SNDFILE::GetPath()
-* @brief      GetPath
+* @brief      Get path
 * @ingroup    SOUND
 * 
 * @return     XPATH* : 
@@ -219,7 +219,7 @@ XPATH* SNDFILE::GetPath()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBUFFER* SNDFILE::GetData()
-* @brief      GetData
+* @brief      Get data
 * @ingroup    SOUND
 * 
 * @return     XBUFFER* : 
@@ -234,7 +234,7 @@ XBUFFER* SNDFILE::GetData()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XWORD SNDFILE::GetChannels()
-* @brief      GetChannels
+* @brief      Get channels
 * @ingroup    SOUND
 * 
 * @return     XWORD : 
@@ -249,7 +249,7 @@ XWORD SNDFILE::GetChannels()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD SNDFILE::GetNSamples()
-* @brief      GetNSamples
+* @brief      Get N samples
 * @ingroup    SOUND
 * 
 * @return     XDWORD : 
@@ -264,7 +264,7 @@ XDWORD SNDFILE::GetNSamples()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD SNDFILE::GetSampleRate()
-* @brief      GetSampleRate
+* @brief      Get sample rate
 * @ingroup    SOUND
 * 
 * @return     XDWORD : 
@@ -279,7 +279,7 @@ XDWORD SNDFILE::GetSampleRate()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD SNDFILE::GetDuration()
-* @brief      GetDuration
+* @brief      Get duration
 * @ingroup    SOUND
 * 
 * @return     XDWORD : 
@@ -294,7 +294,7 @@ XDWORD SNDFILE::GetDuration()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool SNDFILE::LoadFile()
-* @brief      LoadFile
+* @brief      Load file
 * @ingroup    SOUND
 * 
 * @return     bool : true if is succesful. 
@@ -309,7 +309,7 @@ bool SNDFILE::LoadFile()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void SNDFILE::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    SOUND
 * 

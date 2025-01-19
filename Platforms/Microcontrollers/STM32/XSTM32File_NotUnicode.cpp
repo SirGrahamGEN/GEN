@@ -53,7 +53,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTM32FILE_NOTUNICODE::XSTM32FILE_NOTUNICODE()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_STM32
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -71,7 +71,7 @@ XSTM32FILE_NOTUNICODE::XSTM32FILE_NOTUNICODE(): XFILE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTM32FILE_NOTUNICODE::~XSTM32FILE_NOTUNICODE()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_STM32
 *
@@ -208,7 +208,7 @@ bool XSTM32FILE_NOTUNICODE::Create(XCHAR* path)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTM32FILE_NOTUNICODE::SetSize(XQWORD size)
-* @brief      SetSize
+* @brief      Set size
 * @ingroup    PLATFORM_STM32
 *
 * @param[in]  size :
@@ -235,7 +235,7 @@ bool XSTM32FILE_NOTUNICODE::SetSize(XQWORD size)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTM32FILE_NOTUNICODE::GetPosition(XQWORD& position)
-* @brief      GetPosition
+* @brief      Get position
 * @ingroup    PLATFORM_STM32
 *
 * @param[in]  position :
@@ -261,7 +261,7 @@ bool XSTM32FILE_NOTUNICODE::GetPosition(XQWORD& position)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTM32FILE_NOTUNICODE::SetPosition(XQWORD position)
-* @brief      SetPosition
+* @brief      Set position
 * @ingroup    PLATFORM_STM32
 *
 * @param[in]  position :
@@ -501,7 +501,7 @@ bool XSTM32FILE_NOTUNICODE::Rename(XCHAR* pathold, XCHAR* pathnew)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         FILE* XSTM32FILE_NOTUNICODE::CreateStructHandle()
-* @brief      CreateStructHandle
+* @brief      Create struct handle
 * @ingroup    PLATFORM_STM32
 *
 * @return     FILE* : 
@@ -517,7 +517,7 @@ FILE* XSTM32FILE_NOTUNICODE::CreateStructHandle()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XSTM32FILE_NOTUNICODE::DeleteStructHandle()
-* @brief      DeleteStructHandle
+* @brief      Delete struct handle
 * @ingroup    PLATFORM_STM32
 *
 * @return     bool : true if is succesful. 
@@ -533,7 +533,7 @@ bool XSTM32FILE_NOTUNICODE::DeleteStructHandle()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XSTM32FILE_NOTUNICODE::ActualizeSize()
-* @brief      ActualizeSize
+* @brief      Actualize size
 * @ingroup    PLATFORM_STM32
 *
 * @return     bool : true if is succesful. 
@@ -549,7 +549,7 @@ bool XSTM32FILE_NOTUNICODE::ActualizeSize()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XSTM32FILE_NOTUNICODE::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_STM32
 *

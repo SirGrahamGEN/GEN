@@ -68,7 +68,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPDISPLAYDEVICE::GRPDISPLAYDEVICE()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    GRAPHIC
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -81,7 +81,7 @@ GRPDISPLAYDEVICE::GRPDISPLAYDEVICE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPDISPLAYDEVICE::~GRPDISPLAYDEVICE()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
 *
@@ -176,7 +176,7 @@ bool GRPDISPLAYDEVICE::Resize(int width, int height)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPDISPLAYDEVICE::IsShow()
-* @brief      IsShow
+* @brief      Is show
 * @ingroup    GRAPHIC
 *
 * @return     bool : true if is succesful.
@@ -210,7 +210,7 @@ bool GRPDISPLAYDEVICE::Show(bool active)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPDISPLAYDEVICE::ShowCursor(bool active)
-* @brief      ShowCursor
+* @brief      Show cursor
 * @ingroup    GRAPHIC
 *
 * @param[in]  active :
@@ -242,7 +242,7 @@ void* GRPDISPLAYDEVICE::GetHandle()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void GRPDISPLAYDEVICE::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    GRAPHIC
 *

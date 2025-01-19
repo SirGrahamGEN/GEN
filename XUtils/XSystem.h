@@ -4,7 +4,7 @@
 * 
 * @class      XSYSTEM
 * @brief      System class
-* @note       Can´t be construct Factory + singelton without depends of system. IT´S NOT A SINGLETON.
+* @note       Cant be construct Factory + singelton without depends of system. ITS NOT A SINGLETON.
 * @ingroup    XUTILS
 * 
 * @copyright  GEN Group. All rights reserved.

@@ -75,7 +75,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOSTREAMUDPACKNOWLEDGE::DIOSTREAMUDPACKNOWLEDGE(DIOSTREAMUDPCONFIG* config)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 * 
 * @param[in]  config : 
@@ -96,7 +96,7 @@ DIOSTREAMUDPACKNOWLEDGE::DIOSTREAMUDPACKNOWLEDGE(DIOSTREAMUDPCONFIG* config) : D
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOSTREAMUDPACKNOWLEDGE::~DIOSTREAMUDPACKNOWLEDGE()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 * 
@@ -115,7 +115,7 @@ DIOSTREAMUDPACKNOWLEDGE::~DIOSTREAMUDPACKNOWLEDGE()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOSTREAMCONFIG* DIOSTREAMUDPACKNOWLEDGE::GetConfig()
-* @brief      GetConfig
+* @brief      Get config
 * @ingroup    DATAIO
 * 
 * @return     DIOSTREAMCONFIG* : 
@@ -130,7 +130,7 @@ DIOSTREAMCONFIG* DIOSTREAMUDPACKNOWLEDGE::GetConfig()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOSTREAMUDPACKNOWLEDGE::SetConfig(DIOSTREAMCONFIG* config)
-* @brief      SetConfig
+* @brief      Set config
 * @ingroup    DATAIO
 * 
 * @param[in]  config : 
@@ -148,7 +148,7 @@ bool DIOSTREAMUDPACKNOWLEDGE::SetConfig(DIOSTREAMCONFIG* config)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOSTREAMSTATUS DIOSTREAMUDPACKNOWLEDGE::GetStatus()
-* @brief      GetStatus
+* @brief      Get status
 * @ingroup    DATAIO
 * 
 * @return     DIOSTREAMSTATUS : 
@@ -164,7 +164,7 @@ DIOSTREAMSTATUS DIOSTREAMUDPACKNOWLEDGE::GetStatus()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int DIOSTREAMUDPACKNOWLEDGE::GetTimeout()
-* @brief      GetTimeout
+* @brief      Get timeout
 * @ingroup    DATAIO
 * 
 * @return     int : 
@@ -179,7 +179,7 @@ int DIOSTREAMUDPACKNOWLEDGE::GetTimeout()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOSTREAMUDPACKNOWLEDGE::SetTimeout(int timeout)
-* @brief      SetTimeout
+* @brief      Set timeout
 * @ingroup    DATAIO
 * 
 * @param[in]  timeout : 
@@ -304,7 +304,7 @@ XDWORD DIOSTREAMUDPACKNOWLEDGE::Write(XBYTE* buffer, XDWORD size)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOSTREAMUDPACKNOWLEDGE::WriteDatagram(XSTRING& address, XWORD port, XBYTE* buffer, XDWORD size)
-* @brief      WriteDatagram
+* @brief      Write datagram
 * @ingroup    DATAIO
 * 
 * @param[in]  address : 
@@ -338,7 +338,7 @@ bool DIOSTREAMUDPACKNOWLEDGE::WriteDatagram(XSTRING& address, XWORD port, XBYTE*
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOSTREAMUDPACKNOWLEDGE::WriteDatagram(XSTRING& address, XWORD port, XBUFFER& xbuffer)
-* @brief      WriteDatagram
+* @brief      Write datagram
 * @ingroup    DATAIO
 * 
 * @param[in]  address : 
@@ -419,7 +419,7 @@ bool DIOSTREAMUDPACKNOWLEDGE::Close()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOSTREAM* DIOSTREAMUDPACKNOWLEDGE::GetDIOStreamBase()
-* @brief      GetDIOStreamBase
+* @brief      Get DIO stream base
 * @ingroup    DATAIO
 * 
 * @return     DIOSTREAM* : 
@@ -434,7 +434,7 @@ DIOSTREAM* DIOSTREAMUDPACKNOWLEDGE::GetDIOStreamBase()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOSTREAMUDPACKNOWLEDGE::ThreadRunFunction(void* param)
-* @brief      ThreadRunFunction
+* @brief      Thread run function
 * @ingroup    DATAIO
 * 
 * @param[in]  param : 
@@ -477,7 +477,7 @@ void DIOSTREAMUDPACKNOWLEDGE::ThreadRunFunction(void* param)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOSTREAMUDPACKNOWLEDGE::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 * 

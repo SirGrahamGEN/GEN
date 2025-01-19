@@ -78,7 +78,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XWINDOWSFILE::XWINDOWSFILE()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_WINDOWS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -91,7 +91,7 @@ XWINDOWSFILE::XWINDOWSFILE(): XFILE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XWINDOWSFILE::~XWINDOWSFILE()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
 *
@@ -167,7 +167,7 @@ bool XWINDOWSFILE::Create(XCHAR* xpath)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSFILE::SetSize(XQWORD size)
-* @brief      SetSize
+* @brief      Set size
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  size :
@@ -191,7 +191,7 @@ bool XWINDOWSFILE::SetSize(XQWORD size)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSFILE::GetPosition(XQWORD& position)
-* @brief      GetPosition
+* @brief      Get position
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  position :
@@ -214,7 +214,7 @@ bool XWINDOWSFILE::GetPosition(XQWORD& position)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSFILE::SetPosition(XQWORD position)
-* @brief      SetPosition
+* @brief      Set position
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  position :
@@ -471,7 +471,7 @@ bool XWINDOWSFILE::Rename(XCHAR* xpathold, XCHAR* xpathnew)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         FILE* XWINDOWSFILE::CreateStructHandle()
-* @brief      CreateStructHandle
+* @brief      Create struct handle
 * @ingroup    PLATFORM_WINDOWS
 *
 * @return     FILE* : 
@@ -506,7 +506,7 @@ FILE* XWINDOWSFILE::CreateStructHandle()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSFILE::DeleteStructHandle()
-* @brief      DeleteStructHandle
+* @brief      Delete struct handle
 * @ingroup    PLATFORM_WINDOWS
 *
 * @return     bool : true if is succesful. 
@@ -525,7 +525,7 @@ bool XWINDOWSFILE::DeleteStructHandle()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSFILE::ActualizeSize()
-* @brief      ActualizeSize
+* @brief      Actualize size
 * @ingroup    PLATFORM_WINDOWS
 *
 * @return     bool : true if is succesful.
@@ -555,7 +555,7 @@ bool XWINDOWSFILE::ActualizeSize()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSFILE::ExtendedOpen(XCHAR* xpath, XWINDOWSFILEMODE mode)
-* @brief      ExtendedOpen
+* @brief      Extended open
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  xpath :
@@ -602,7 +602,7 @@ bool XWINDOWSFILE::ExtendedOpen(XCHAR* xpath, XWINDOWSFILEMODE mode)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XWINDOWSFILE::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
 *

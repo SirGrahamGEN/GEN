@@ -72,7 +72,7 @@ DIOFACTORY* DIOFACTORY::instance = NULL;
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOFACTORY::DIOFACTORY()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -85,7 +85,7 @@ DIOFACTORY::DIOFACTORY()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOFACTORY::~DIOFACTORY()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -99,7 +99,7 @@ DIOFACTORY::~DIOFACTORY()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOFACTORY::GetIsInstanced()
-* @brief      GetIsInstanced
+* @brief      Get is instanced
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
@@ -114,7 +114,7 @@ bool DIOFACTORY::GetIsInstanced()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOFACTORY& DIOFACTORY::GetInstance()
-* @brief      GetInstance
+* @brief      Get instance
 * @ingroup    DATAIO
 * 
 * @return     DIOFACTORY& : 
@@ -131,7 +131,7 @@ DIOFACTORY& DIOFACTORY::GetInstance()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOFACTORY::SetInstance(DIOFACTORY* _instance)
-* @brief      SetInstance
+* @brief      Set instance
 * @ingroup    DATAIO
 * 
 * @param[in]  _instance : 
@@ -152,7 +152,7 @@ bool DIOFACTORY::SetInstance(DIOFACTORY* _instance)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOFACTORY::DelInstance()
-* @brief      DelInstance
+* @brief      Del instance
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
@@ -174,7 +174,7 @@ bool DIOFACTORY::DelInstance()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMENUMDEVICES* DIOFACTORY::CreateStreamEnumDevices(DIOSTREAMENUMTYPE type)
-* @brief      Create Stream Enum Devices
+* @brief      Create stream enum devices
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -192,7 +192,7 @@ DIOSTREAMENUMDEVICES* DIOFACTORY::CreateStreamEnumDevices(DIOSTREAMENUMTYPE type
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOFACTORY::DeleteStreamEnumDevices(DIOSTREAMENUMDEVICES* enumdevices)
-* @brief      Delete Stream Enum Devices
+* @brief      Delete stream enum devices
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -210,7 +210,7 @@ bool DIOFACTORY::DeleteStreamEnumDevices(DIOSTREAMENUMDEVICES* enumdevices)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOSTREAM* DIOFACTORY::CreateStreamIO(DIOSTREAMCONFIG* config, bool multisocketserver)
-* @brief      CreateStreamIO
+* @brief      Create stream IO
 * @ingroup    DATAIO
 * 
 * @param[in]  config : 
@@ -228,7 +228,7 @@ DIOSTREAM* DIOFACTORY::CreateStreamIO(DIOSTREAMCONFIG* config)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOFACTORY::DeleteStreamIO(DIOSTREAM* streamio)
-* @brief      Delete Stream IO
+* @brief      Delete stream IO
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -251,7 +251,7 @@ bool DIOFACTORY::DeleteStreamIO(DIOSTREAM* streamio)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOWIFIMANAGERMODE* DIOFACTORY::CreateWifiManagerMode()
-* @brief      CreateWifiManagerMode
+* @brief      Create wifi manager mode
 * @ingroup    DATAIO
 *
 * @return     DIOWIFIMANAGERMODE* : 
@@ -266,7 +266,7 @@ DIOWIFIMANAGERMODE* DIOFACTORY::CreateWifiManagerMode()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOFACTORY::DeleteWifiManagerMode(DIOWIFIMANAGERMODE* wifimanagermode)
-* @brief      DeleteWifiManagerMode
+* @brief      Delete wifi manager mode
 * @ingroup    DATAIO
 *
 * @param[in]  wifimanagermode : 
@@ -288,7 +288,7 @@ bool DIOFACTORY::DeleteWifiManagerMode(DIOWIFIMANAGERMODE* wifimanagermode)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOPCAP* DIOFACTORY::CreatePCap()
-* @brief      Create PCap
+* @brief      Create P cap
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -304,7 +304,7 @@ DIOPCAP* DIOFACTORY::CreatePCap()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOFACTORY::DeletePCap(DIOPCAP* pcap)
-* @brief      DeletePCap
+* @brief      Delete P cap
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -324,7 +324,7 @@ bool DIOFACTORY::DeletePCap(DIOPCAP* pcap)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIONOTIFICATIONSMANAGER* DIOFACTORY::CreateNotificationsManager()
-* @brief      CreateNotificationsManager
+* @brief      Create notifications manager
 * @ingroup    DATAIO
 *
 * @return     DIONOTIFICATIONSMANAGER* :
@@ -339,7 +339,7 @@ DIONOTIFICATIONSMANAGER* DIOFACTORY::CreateNotificationsManager()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOFACTORY::DeleteNotificationsManager(DIONOTIFICATIONSMANAGER* notificationsmanager)
-* @brief      DeleteNotificationsManager
+* @brief      Delete notifications manager
 * @ingroup    DATAIO
 *
 * @param[in]  notificationsmanager :
@@ -358,7 +358,7 @@ bool DIOFACTORY::DeleteNotificationsManager(DIONOTIFICATIONSMANAGER* notificatio
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOLEDNEOPIXELWS2812B* DIOFACTORY::CreateLedNeopixelWS2812B()
-* @brief      CreateLedNeopixelWS2812B
+* @brief      Create led neopixel WS2812B
 * @ingroup    DATAIO
 *
 * @return     DIOLEDNEOPIXELWS2812B* : 
@@ -375,7 +375,7 @@ DIOLEDNEOPIXELWS2812B* DIOFACTORY::CreateLedNeopixelWS2812B()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOFACTORY::DeleteLedNeopixelWS2812B(DIOLEDNEOPIXELWS2812B* ledneopixelws2812b)
-* @brief      DeleteLedNeopixelWS2812B
+* @brief      Delete led neopixel WS2812B
 * @ingroup    DATAIO
 *
 * @param[in]  ledneopixelws2812b : 
@@ -400,7 +400,7 @@ bool DIOFACTORY::DeleteLedNeopixelWS2812B(DIOLEDNEOPIXELWS2812B* ledneopixelws28
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOFACTORY::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

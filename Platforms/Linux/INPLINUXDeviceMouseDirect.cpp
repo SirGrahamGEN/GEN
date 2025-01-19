@@ -80,7 +80,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         INPLINUXDEVICEMOUSEDIRECT::INPLINUXDEVICEMOUSEDIRECT()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_LINUX
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -109,7 +109,7 @@ INPLINUXDEVICEMOUSEDIRECT::INPLINUXDEVICEMOUSEDIRECT(): INPDEVICE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         INPLINUXDEVICEMOUSEDIRECT::~INPLINUXDEVICEMOUSEDIRECT()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
 *
@@ -295,7 +295,7 @@ bool INPLINUXDEVICEMOUSEDIRECT::Update()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool INPLINUXDEVICEMOUSEDIRECT::CreateAllButtons()
-* @brief      Create All Buttons
+* @brief      Create all buttons
 * @ingroup    PLATFORM_LINUX
 *
 * @return     bool : true if is succesful.
@@ -315,7 +315,7 @@ bool INPLINUXDEVICEMOUSEDIRECT::CreateAllButtons()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool INPLINUXDEVICEMOUSEDIRECT::CreateAllCursors()
-* @brief      Create All Cursors
+* @brief      Create all cursors
 * @ingroup    PLATFORM_LINUX
 *
 * @return     bool : true if is succesful.
@@ -339,7 +339,7 @@ bool INPLINUXDEVICEMOUSEDIRECT::CreateAllCursors()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool INPLINUXDEVICEMOUSEDIRECT::OpenAllDevicesID()
-* @brief      Open All Devices ID
+* @brief      Open all devices ID
 * @ingroup    PLATFORM_LINUX
 *
 * @return     bool : true if is succesful.
@@ -410,7 +410,7 @@ bool INPLINUXDEVICEMOUSEDIRECT::OpenAllDevicesID()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool INPLINUXDEVICEMOUSEDIRECT::CloseAllDevicesID()
-* @brief      Close All Devices ID
+* @brief      Close all devices ID
 * @ingroup    PLATFORM_LINUX
 *
 * @return     bool : true if is succesful.
@@ -436,7 +436,7 @@ bool INPLINUXDEVICEMOUSEDIRECT::CloseAllDevicesID()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool INPLINUXDEVICEMOUSEDIRECT::UpdateMouseData()
-* @brief      Update Mouse Data
+* @brief      Update mouse data
 * @ingroup    PLATFORM_LINUX
 *
 * @return     bool : true if is succesful.
@@ -473,7 +473,7 @@ bool INPLINUXDEVICEMOUSEDIRECT::UpdateMouseData()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void INPLINUXDEVICEMOUSEDIRECT::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
 *

@@ -64,7 +64,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOAPPLICATIONUPDATE_XEVENT::DIOAPPLICATIONUPDATE_XEVENT(XSUBJECT* subject, XDWORD family, XDWORD type)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * @param[in]  subject :
@@ -81,7 +81,7 @@ DIOAPPLICATIONUPDATE_XEVENT::DIOAPPLICATIONUPDATE_XEVENT(XSUBJECT* subject, XDWO
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOAPPLICATIONUPDATE_XEVENT::~DIOAPPLICATIONUPDATE_XEVENT()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -95,7 +95,7 @@ DIOAPPLICATIONUPDATE_XEVENT::~DIOAPPLICATIONUPDATE_XEVENT()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOAPPLICATIONUPDATE_VERSIONDATA* DIOAPPLICATIONUPDATE_XEVENT::GetVersionData()
-* @brief      GetVersionData
+* @brief      Get version data
 * @ingroup    DATAIO
 *
 * @return     DIOAPPLICATIONUPDATE_VERSIONDATA* :
@@ -110,7 +110,7 @@ DIOAPPLICATIONUPDATE_VERSIONDATA* DIOAPPLICATIONUPDATE_XEVENT::GetVersionData()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOAPPLICATIONUPDATE_XEVENT::SetVersionData(DIOAPPLICATIONUPDATE_VERSIONDATA* versiondata)
-* @brief      SetVersionData
+* @brief      Set version data
 * @ingroup    DATAIO
 *
 * @param[in]  versiondata :
@@ -125,7 +125,7 @@ void DIOAPPLICATIONUPDATE_XEVENT::SetVersionData(DIOAPPLICATIONUPDATE_VERSIONDAT
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOAPPLICATIONUPDATE_XEVENT::GetVersionComparation()
-* @brief      GetVersionComparation
+* @brief      Get version comparation
 * @ingroup    DATAIO
 *
 * @return     int :
@@ -140,7 +140,7 @@ int DIOAPPLICATIONUPDATE_XEVENT::GetVersionComparation()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOAPPLICATIONUPDATE_XEVENT::SetVersionComparation(int versioncomparation);
-* @brief      SetVersionComparation
+* @brief      Set version comparation
 * @ingroup    DATAIO
 *
 * @param[in]  versioncomparation) :
@@ -156,7 +156,7 @@ void DIOAPPLICATIONUPDATE_XEVENT::SetVersionComparation(int versioncomparation)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XVECTOR<DIOAPPLICATIONUPDATE_FILE*>* DIOAPPLICATIONUPDATE_XEVENT::GetFilesToUpdate()
-* @brief      GetFilesToUpdate
+* @brief      Get files to update
 * @ingroup    DATAIO
 *
 * @return     XVECTOR<DIOAPPLICATIONUPDATE_FILE*>* :
@@ -171,7 +171,7 @@ XVECTOR<DIOAPPLICATIONUPDATE_FILE*>* DIOAPPLICATIONUPDATE_XEVENT::GetFilesToUpda
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOAPPLICATIONUPDATE_XEVENT::SetFilesToUpdate(XVECTOR<DIOAPPLICATIONUPDATE_FILE*>* filestoupdate)
-* @brief      SetFilesToUpdate
+* @brief      Set files to update
 * @ingroup    DATAIO
 *
 * @param[in]  filestoupdate :
@@ -186,7 +186,7 @@ void DIOAPPLICATIONUPDATE_XEVENT::SetFilesToUpdate(XVECTOR<DIOAPPLICATIONUPDATE_
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD DIOAPPLICATIONUPDATE_XEVENT::GetIndexOfOperation()
-* @brief      GetIndexOfOperation
+* @brief      Get index of operation
 * @ingroup    DATAIO
 *
 * @return     XDWORD :
@@ -201,7 +201,7 @@ XDWORD DIOAPPLICATIONUPDATE_XEVENT::GetIndexOfOperation()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOAPPLICATIONUPDATE_XEVENT::SetIndexOfOperation(XDWORD indexoperation)
-* @brief      SetIndexOfOperation
+* @brief      Set index of operation
 * @ingroup    DATAIO
 *
 * @param[in]  indexoperation :
@@ -216,7 +216,7 @@ void DIOAPPLICATIONUPDATE_XEVENT::SetIndexOfOperation(XDWORD indexoperation)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOAPPLICATIONUPDATE_XEVENT::GetError()
-* @brief      GetError
+* @brief      Get error
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -231,7 +231,7 @@ DIOAPPLICATIONUPDATE_ERROR DIOAPPLICATIONUPDATE_XEVENT::GetError()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOAPPLICATIONUPDATE_XEVENT::SetError(DIOAPPLICATIONUPDATE_ERROR error)
-* @brief      SetError
+* @brief      Set error
 * @ingroup    DATAIO
 *
 * @param[in]  error :
@@ -246,7 +246,7 @@ void DIOAPPLICATIONUPDATE_XEVENT::SetError(DIOAPPLICATIONUPDATE_ERROR error)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOAPPLICATIONUPDATE_FILE* DIOAPPLICATIONUPDATE_XEVENT::GetActualFileToUpdate()
-* @brief      GetActualFileToUpdate
+* @brief      Get actual file to update
 * @ingroup    DATAIO
 *
 * @return     DIOAPPLICATIONUPDATE_FILE* :
@@ -263,7 +263,7 @@ DIOAPPLICATIONUPDATE_FILE* DIOAPPLICATIONUPDATE_XEVENT::GetActualFileToUpdate()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* DIOAPPLICATIONUPDATE_XEVENT::GetActualUnzipFileName()
-* @brief      GetActualUnzipFileName
+* @brief      Get actual unzip file name
 * @ingroup    DATAIO
 *
 * @return     XSTRING* :
@@ -278,7 +278,7 @@ XSTRING* DIOAPPLICATIONUPDATE_XEVENT::GetActualUnzipFileName()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOAPPLICATIONUPDATE_XEVENT::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

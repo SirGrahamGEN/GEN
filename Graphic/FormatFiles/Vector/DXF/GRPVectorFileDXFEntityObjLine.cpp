@@ -66,7 +66,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVECTORFILEDXFENTITYOBJLINE::GRPVECTORFILEDXFENTITYOBJLINE(XCHAR* nametype)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    GRAPHIC
 * 
 * @param[in]  nametype : 
@@ -83,7 +83,7 @@ GRPVECTORFILEDXFENTITYOBJLINE::GRPVECTORFILEDXFENTITYOBJLINE(XCHAR* nametype) : 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVECTORFILEDXFENTITYOBJLINE::~GRPVECTORFILEDXFENTITYOBJLINE()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
 * 
@@ -97,7 +97,7 @@ GRPVECTORFILEDXFENTITYOBJLINE::~GRPVECTORFILEDXFENTITYOBJLINE()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVECTORFILEDXFENTITYDEFPOINT* GRPVECTORFILEDXFENTITYOBJLINE::GetIni()
-* @brief      GetIni
+* @brief      Get ini
 * @ingroup    GRAPHIC
 * 
 * @return     GRPVECTORFILEDXFENTITYDEFPOINT* : 
@@ -112,7 +112,7 @@ GRPVECTORFILEDXFENTITYDEFPOINT* GRPVECTORFILEDXFENTITYOBJLINE::GetIni()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPVECTORFILEDXFENTITYOBJLINE::SetIni(GRPVECTORFILEDXFENTITYDEFPOINT* point)
-* @brief      SetIni
+* @brief      Set ini
 * @ingroup    GRAPHIC
 * 
 * @param[in]  point : 
@@ -133,7 +133,7 @@ bool GRPVECTORFILEDXFENTITYOBJLINE::SetIni(GRPVECTORFILEDXFENTITYDEFPOINT* point
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVECTORFILEDXFENTITYDEFPOINT* GRPVECTORFILEDXFENTITYOBJLINE::GetEnd()
-* @brief      GetEnd
+* @brief      Get end
 * @ingroup    GRAPHIC
 * 
 * @return     GRPVECTORFILEDXFENTITYDEFPOINT* : 
@@ -148,7 +148,7 @@ GRPVECTORFILEDXFENTITYDEFPOINT* GRPVECTORFILEDXFENTITYOBJLINE::GetEnd()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPVECTORFILEDXFENTITYOBJLINE::SetEnd(GRPVECTORFILEDXFENTITYDEFPOINT* point)
-* @brief      SetEnd
+* @brief      Set end
 * @ingroup    GRAPHIC
 * 
 * @param[in]  point : 
@@ -169,7 +169,7 @@ bool GRPVECTORFILEDXFENTITYOBJLINE::SetEnd(GRPVECTORFILEDXFENTITYDEFPOINT* point
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         double GRPVECTORFILEDXFENTITYOBJLINE::GetThickness()
-* @brief      GetThickness
+* @brief      Get thickness
 * @ingroup    GRAPHIC
 * 
 * @return     double : 
@@ -184,7 +184,7 @@ double GRPVECTORFILEDXFENTITYOBJLINE::GetThickness()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRPVECTORFILEDXFENTITYOBJLINE::SetThickness (double thickness)
-* @brief      SetThickness
+* @brief      Set thickness 
 * @ingroup    GRAPHIC
 * 
 * @param[in]  thickness : 
@@ -199,7 +199,7 @@ void GRPVECTORFILEDXFENTITYOBJLINE::SetThickness (double thickness)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVECTORFILEDXFENTITYDEFPOINT* GRPVECTORFILEDXFENTITYOBJLINE::GetDirExtrusion()
-* @brief      GetDirExtrusion
+* @brief      Get dir extrusion
 * @ingroup    GRAPHIC
 * 
 * @return     GRPVECTORFILEDXFENTITYDEFPOINT* : 
@@ -214,7 +214,7 @@ GRPVECTORFILEDXFENTITYDEFPOINT* GRPVECTORFILEDXFENTITYOBJLINE::GetDirExtrusion()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPVECTORFILEDXFENTITYOBJLINE::SetDirExtrusion(GRPVECTORFILEDXFENTITYDEFPOINT* dirextrusion)
-* @brief      SetDirExtrusion
+* @brief      Set dir extrusion
 * @ingroup    GRAPHIC
 * 
 * @param[in]  dirextrusion : 
@@ -238,7 +238,7 @@ bool GRPVECTORFILEDXFENTITYOBJLINE::SetDirExtrusion(GRPVECTORFILEDXFENTITYDEFPOI
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPVECTORFILEDXFENTITYOBJLINE::ApplyData(GRPVECTORFILEDXFENTITY* entity)
-* @brief      ApplyData
+* @brief      Apply data
 * @ingroup    GRAPHIC
 * 
 * @param[in]  entity : 
@@ -319,7 +319,7 @@ bool GRPVECTORFILEDXFENTITYOBJLINE::ApplyData(GRPVECTORFILEDXFENTITY* entity)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRPVECTORFILEDXFENTITYOBJLINE::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    GRAPHIC
 * 

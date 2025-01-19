@@ -68,7 +68,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIONODEITEM::DIONODEITEM()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -85,7 +85,7 @@ DIONODEITEM::DIONODEITEM()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIONODEITEM::DIONODEITEM(DIONODEITEMHANDLER* itemhandler)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 * 
 * @param[in]  itemhandler : 
@@ -106,7 +106,7 @@ DIONODEITEM::DIONODEITEM(DIONODEITEMHANDLER* itemhandler)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIONODEITEM::~DIONODEITEM()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 * 
@@ -131,7 +131,7 @@ DIONODEITEM::~DIONODEITEM()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD DIONODEITEM::GetCategory()
-* @brief      GetCategory
+* @brief      Get category
 * @ingroup    DATAIO
 * 
 * @return     XDWORD : 
@@ -146,7 +146,7 @@ XDWORD DIONODEITEM::GetCategory()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIONODEITEM::SetCategory(XDWORD category)
-* @brief      SetCategory
+* @brief      Set category
 * @ingroup    DATAIO
 * 
 * @param[in]  category : 
@@ -168,7 +168,7 @@ void DIONODEITEM::SetCategory(XDWORD category)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* DIONODEITEM::GetDescription()
-* @brief      GetDescription
+* @brief      Get description
 * @ingroup    DATAIO
 * 
 * @return     XSTRING* : 
@@ -183,7 +183,7 @@ XSTRING* DIONODEITEM::GetDescription()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XUUID& DIONODEITEM::GetID()
-* @brief      GetID
+* @brief      Get ID
 * @ingroup    DATAIO
 * 
 * @return     XUUID& : 
@@ -198,7 +198,7 @@ XUUID& DIONODEITEM::GetID()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIONODEITEM::SetID(XUUID& UUID)
-* @brief      SetID
+* @brief      Set ID
 * @ingroup    DATAIO
 * 
 * @param[in]  UUID : 
@@ -213,7 +213,7 @@ void DIONODEITEM::SetID(XUUID& UUID)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIONODEITEMHANDLER* DIONODEITEM::ItemHandler_Get()
-* @brief      ItemHandler_Get
+* @brief      Item handler get
 * @ingroup    DATAIO
 * 
 * @return     DIONODEITEMHANDLER* : 
@@ -228,7 +228,7 @@ DIONODEITEMHANDLER* DIONODEITEM::ItemHandler_Get()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIONODEITEM::ItemHandler_Set(DIONODEITEMHANDLER* itemhandler)
-* @brief      ItemHandler_Set
+* @brief      Item handler set
 * @ingroup    DATAIO
 * 
 * @param[in]  itemhandler : 
@@ -257,7 +257,7 @@ bool DIONODEITEM::ItemHandler_Set(DIONODEITEMHANDLER* itemhandler)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIONODEITEM::ItemHandler_Open()
-* @brief      ItemHandler_Open
+* @brief      Item handler open
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
@@ -292,7 +292,7 @@ bool DIONODEITEM::ItemHandler_Open()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIONODEITEM::ItemHandler_Close()
-* @brief      ItemHandler_Close
+* @brief      Item handler close
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
@@ -322,7 +322,7 @@ bool DIONODEITEM::ItemHandler_Close()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIONODEITEM::IsSimulate()
-* @brief      IsSimulate
+* @brief      Is simulate
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
@@ -337,7 +337,7 @@ bool DIONODEITEM::IsSimulate()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIONODEITEM::SetIsSimulate(bool issimulated)
-* @brief      SetIsSimulate
+* @brief      Set is simulate
 * @ingroup    DATAIO
 * 
 * @param[in]  issimulated : 
@@ -352,7 +352,7 @@ void DIONODEITEM::SetIsSimulate(bool issimulated)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XQWORD DIONODEITEM::GetTimeToUpdate()
-* @brief      GetTimeToUpdate
+* @brief      Get time to update
 * @ingroup    DATAIO
 * 
 * @return     XQWORD : 
@@ -367,7 +367,7 @@ XQWORD DIONODEITEM::GetTimeToUpdate()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIONODEITEM::SetTimeToUpdate(XQWORD timetoupdate)
-* @brief      SetTimeToUpdate
+* @brief      Set time to update
 * @ingroup    DATAIO
 * 
 * @param[in]  timetoupdate : 
@@ -388,7 +388,7 @@ void DIONODEITEM::SetTimeToUpdate(XQWORD timetoupdate)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XTIMER* DIONODEITEM::GetUpdateTimer()
-* @brief      GetUpdateTimer
+* @brief      Get update timer
 * @ingroup    DATAIO
 * 
 * @return     XTIMER* : 
@@ -403,7 +403,7 @@ XTIMER* DIONODEITEM::GetUpdateTimer()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XVECTOR<DIONODEITEMVALUE*>* DIONODEITEM::GetValues()
-* @brief      GetValues
+* @brief      Get values
 * @ingroup    DATAIO
 * 
 * @return     XVECTOR<DIONODEITEMVALUE*>* : 
@@ -517,7 +517,7 @@ bool DIONODEITEM::Deserialize()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIONODEITEM::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 * 

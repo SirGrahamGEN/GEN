@@ -4,7 +4,7 @@
 * 
 * @class      MYSQL_DATABASE
 * @brief      DataBase SQL MySQL Database class
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 * 
 * @copyright  GEN Group. All rights reserved.
 * 
@@ -70,8 +70,8 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         MYSQL_DATABASE::MYSQL_DATABASE()
-* @brief      Constructor
-* @ingroup    DATABASES
+* @brief      Constructor of class
+* @ingroup    DATABASE
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 MYSQL_DATABASE::MYSQL_DATABASE(): DB_SQL_DATABASE()
@@ -86,9 +86,9 @@ MYSQL_DATABASE::MYSQL_DATABASE(): DB_SQL_DATABASE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         MYSQL_DATABASE::~MYSQL_DATABASE()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 MYSQL_DATABASE::~MYSQL_DATABASE()
@@ -100,8 +100,8 @@ MYSQL_DATABASE::~MYSQL_DATABASE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DB_SQL_DATABASE_TYPE MYSQL_DATABASE::GetType()
-* @brief      GetType
-* @ingroup    DATABASES
+* @brief      Get type
+* @ingroup    DATABASE
 *
 * @return     DB_SQL_DATABASE_TYPE :
 *
@@ -115,8 +115,8 @@ DB_SQL_DATABASE_TYPE MYSQL_DATABASE::GetType()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XCHAR* MYSQL_DATABASE::GetTypeName()
-* @brief      GetTypeName
-* @ingroup    DATABASES
+* @brief      Get type name
+* @ingroup    DATABASE
 *
 * @return     XCHAR* :
 *
@@ -130,8 +130,8 @@ XCHAR* MYSQL_DATABASE::GetTypeName()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DB_SQL_VARIANT* MYSQL_DATABASE::CreateVariant()
-* @brief      CreateVariant
-* @ingroup    DATABASES
+* @brief      Create variant
+* @ingroup    DATABASE
 *
 * @return     DB_SQL_VARIANT* :
 *
@@ -146,7 +146,7 @@ DB_SQL_VARIANT* MYSQL_DATABASE::CreateVariant()
 *
 * @fn         bool MYSQL_DATABASE::Transaction()
 * @brief      Transaction
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 *
 * @return     bool : true if is succesful.
 *
@@ -174,7 +174,7 @@ bool MYSQL_DATABASE::Transaction()
 *
 * @fn         bool MYSQL_DATABASE::Commit()
 * @brief      Commit
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 *
 * @return     bool : true if is succesful.
 *
@@ -208,7 +208,7 @@ bool MYSQL_DATABASE::Commit()
 *
 * @fn         bool MYSQL_DATABASE::Rollback(XCHAR* savepointname)
 * @brief      Rollback
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 *
 * @param[in]  savepointname :
 *
@@ -259,7 +259,7 @@ bool MYSQL_DATABASE::Rollback(XCHAR* savepointname)
 *
 * @fn         bool MYSQL_DATABASE::Savepoint(XCHAR* savepoint)
 * @brief      Savepoint
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 *
 * @param[in]  savepoint :
 *
@@ -293,8 +293,8 @@ bool MYSQL_DATABASE::Savepoint(XCHAR* savepoint)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool MYSQL_DATABASE::ReleaseSavepoint(XCHAR* savepoint)
-* @brief      ReleaseSavepoint
-* @ingroup    DATABASES
+* @brief      Release savepoint
+* @ingroup    DATABASE
 *
 * @param[in]  savepoint :
 *
@@ -327,8 +327,8 @@ bool MYSQL_DATABASE::ReleaseSavepoint(XCHAR* savepoint)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DB_SQL_QUERY* MYSQL_DATABASE::CreateQuery()
-* @brief      CreateQuery
-* @ingroup    DATABASES
+* @brief      Create query
+* @ingroup    DATABASE
 *
 * @return     DB_SQL_QUERY* :
 *
@@ -343,8 +343,8 @@ DB_SQL_QUERY* MYSQL_DATABASE::CreateQuery()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DB_SQL_CONNECTION* MYSQL_DATABASE::CreateConnection()
-* @brief      CreateConnection
-* @ingroup    DATABASES
+* @brief      Create connection
+* @ingroup    DATABASE
 *
 * @return     DB_SQL_CONNECTION* :
 *
@@ -359,8 +359,8 @@ DB_SQL_CONNECTION* MYSQL_DATABASE::CreateConnection()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool MYSQL_DATABASE::GetTables()
-* @brief      GetTables
-* @ingroup    DATABASES
+* @brief      Get tables
+* @ingroup    DATABASE
 *
 * @return     bool : true if is succesful.
 *
@@ -422,8 +422,8 @@ bool MYSQL_DATABASE::GetTables()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DB_SQL_DATABASE_ENCODING MYSQL_DATABASE::GetDatabaseEncoding()
-* @brief      GetDatabaseEncoding
-* @ingroup    DATABASES
+* @brief      Get database encoding
+* @ingroup    DATABASE
 *
 * @return     DB_SQL_DATABASE_ENCODING :
 *
@@ -448,8 +448,8 @@ DB_SQL_DATABASE_ENCODING MYSQL_DATABASE::GetDatabaseEncoding()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool MYSQL_DATABASE::SetDatabaseEncoding(DB_SQL_DATABASE_ENCODING encodingtouse)
-* @brief      SetDatabaseEncoding
-* @ingroup    DATABASES
+* @brief      Set database encoding
+* @ingroup    DATABASE
 *
 * @param[in]  encodingtouse :
 *
@@ -519,9 +519,9 @@ bool MYSQL_DATABASE::SetDatabaseEncoding(DB_SQL_DATABASE_ENCODING encodingtouse)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void MYSQL_DATABASE::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void MYSQL_DATABASE::Clean()

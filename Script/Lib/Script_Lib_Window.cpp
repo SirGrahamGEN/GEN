@@ -124,7 +124,7 @@ SCRIPT_LIB_WINDOW::~SCRIPT_LIB_WINDOW()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool SCRIPT_LIB_WINDOW::AddLibraryFunctions(SCRIPT* script)
-* @brief      AddLibraryFunctions
+* @brief      Add library functions
 * @ingroup    SCRIPT
 * 
 * @param[in]  script : 
@@ -154,7 +154,7 @@ bool SCRIPT_LIB_WINDOW::AddLibraryFunctions(SCRIPT* script)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTE SCRIPT_LIB_WINDOW::BmpFindCFG_GetDiffLimitPercent()
-* @brief      BmpFindCFG_GetDiffLimitPercent
+* @brief      Bmp find CFG get diff limit percent
 * @ingroup    SCRIPT
 * 
 * @return     XBYTE : 
@@ -169,7 +169,7 @@ XBYTE SCRIPT_LIB_WINDOW::BmpFindCFG_GetDiffLimitPercent()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void SCRIPT_LIB_WINDOW::BmpFindCFG_SetDiffLimitPercent(XBYTE difflimitpercent)
-* @brief      BmpFindCFG_SetDiffLimitPercent
+* @brief      Bmp find CFG set diff limit percent
 * @ingroup    SCRIPT
 * 
 * @param[in]  difflimitpercent : 
@@ -184,7 +184,7 @@ void SCRIPT_LIB_WINDOW::BmpFindCFG_SetDiffLimitPercent(XBYTE difflimitpercent)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTE SCRIPT_LIB_WINDOW::BmpFindCFG_GetPixelMargin()
-* @brief      BmpFindCFG_GetPixelMargin
+* @brief      Bmp find CFG get pixel margin
 * @ingroup    SCRIPT
 * 
 * @return     XBYTE : 
@@ -199,7 +199,7 @@ XBYTE SCRIPT_LIB_WINDOW::BmpFindCFG_GetPixelMargin()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void SCRIPT_LIB_WINDOW::BmpFindCFG_SetPixelMargin(XBYTE pixelmargin)
-* @brief      BmpFindCFG_SetPixelMargin
+* @brief      Bmp find CFG set pixel margin
 * @ingroup    SCRIPT
 * 
 * @param[in]  pixelmargin : 
@@ -216,7 +216,7 @@ void SCRIPT_LIB_WINDOW::BmpFindCFG_SetPixelMargin(XBYTE pixelmargin)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         APPFLOWGRAPHICS* SCRIPT_LIB_WINDOW::GetAppGraphics()
-* @brief      GetAppGraphics
+* @brief      Get app graphics
 * @ingroup    SCRIPT
 * 
 * @return     APPFLOWGRAPHICS* : 
@@ -231,7 +231,7 @@ APPFLOWGRAPHICS* SCRIPT_LIB_WINDOW::GetAppGraphics()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void SCRIPT_LIB_WINDOW::SetAppGraphics(APPFLOWGRAPHICS* appgraphics)
-* @brief      SetAppGraphics
+* @brief      Set app graphics
 * @ingroup    SCRIPT
 * 
 * @param[in]  _appgraphics : 
@@ -247,7 +247,7 @@ void SCRIPT_LIB_WINDOW::SetAppGraphics(APPFLOWGRAPHICS* _appgraphics)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void SCRIPT_LIB_WINDOW::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    SCRIPT
 * 

@@ -82,7 +82,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOCLIPROTOCOLCOMMAND::DIOCLIPROTOCOLCOMMAND()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -95,7 +95,7 @@ DIOCLIPROTOCOLCOMMAND::DIOCLIPROTOCOLCOMMAND()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOCLIPROTOCOLCOMMAND::~DIOCLIPROTOCOLCOMMAND()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 * 
@@ -109,7 +109,7 @@ DIOCLIPROTOCOLCOMMAND::~DIOCLIPROTOCOLCOMMAND()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XCHAR* DIOCLIPROTOCOLCOMMAND::GetCommand()
-* @brief      GetCommand
+* @brief      Get command
 * @ingroup    DATAIO
 * 
 * @return     XCHAR* : 
@@ -124,7 +124,7 @@ XCHAR* DIOCLIPROTOCOLCOMMAND::GetCommand()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int DIOCLIPROTOCOLCOMMAND::GetNParams()
-* @brief      GetNParams
+* @brief      Get N params
 * @ingroup    DATAIO
 * 
 * @return     int : 
@@ -160,7 +160,7 @@ bool DIOCLIPROTOCOLCOMMAND::Set(XCHAR* command, int nparams)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOCLIPROTOCOLCOMMAND::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 * 
@@ -181,7 +181,7 @@ void DIOCLIPROTOCOLCOMMAND::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOCLIPROTOCOLANSWER::DIOCLIPROTOCOLANSWER()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -194,7 +194,7 @@ DIOCLIPROTOCOLANSWER::DIOCLIPROTOCOLANSWER()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOCLIPROTOCOLANSWER::~DIOCLIPROTOCOLANSWER()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 * 
@@ -208,7 +208,7 @@ DIOCLIPROTOCOLANSWER::~DIOCLIPROTOCOLANSWER()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* DIOCLIPROTOCOLANSWER::GetOriginID()
-* @brief      GetOriginID
+* @brief      Get origin ID
 * @ingroup    DATAIO
 * 
 * @return     XSTRING* : 
@@ -223,7 +223,7 @@ XSTRING* DIOCLIPROTOCOLANSWER::GetOriginID()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* DIOCLIPROTOCOLANSWER::GetCommand()
-* @brief      GetCommand
+* @brief      Get command
 * @ingroup    DATAIO
 * 
 * @return     XSTRING* : 
@@ -238,7 +238,7 @@ XSTRING* DIOCLIPROTOCOLANSWER::GetCommand()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* DIOCLIPROTOCOLANSWER::GetAnswer()
-* @brief      GetAnswer
+* @brief      Get answer
 * @ingroup    DATAIO
 * 
 * @return     XSTRING* : 
@@ -253,7 +253,7 @@ XSTRING* DIOCLIPROTOCOLANSWER::GetAnswer()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOCLIPROTOCOLANSWER::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 * 
@@ -274,7 +274,7 @@ void DIOCLIPROTOCOLANSWER::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOCLIPROTOCOL::DIOCLIPROTOCOL()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -289,7 +289,7 @@ DIOCLIPROTOCOL::DIOCLIPROTOCOL()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOCLIPROTOCOL::~DIOCLIPROTOCOL()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 * 
@@ -346,7 +346,7 @@ bool DIOCLIPROTOCOL::Ini(DIOSTREAM* diostream, XCHAR* ID, int timeout)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCLIPROTOCOL::IsIni()
-* @brief      IsIni
+* @brief      Is ini
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
@@ -361,7 +361,7 @@ bool DIOCLIPROTOCOL::IsIni()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOCLIPROTOCOL::ActiveCRC(bool activated)
-* @brief      ActiveCRC
+* @brief      Active CRC
 * @ingroup    DATAIO
 * 
 * @param[in]  activated : 
@@ -376,7 +376,7 @@ void DIOCLIPROTOCOL::ActiveCRC(bool activated)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCLIPROTOCOL::SendCommand(XCHAR* command, XSTRING* target, XSTRING* answer, int timeoutanswer, ...)
-* @brief      SendCommand
+* @brief      Send command
 * @ingroup    DATAIO
 * 
 * @param[in]  command : 
@@ -405,7 +405,7 @@ bool DIOCLIPROTOCOL::SendCommand(XCHAR* command, XSTRING* target, XSTRING* answe
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCLIPROTOCOL::SendCommandArg(XCHAR* command, XSTRING* target, XSTRING* answer, int timeoutanswer, va_list* arg)
-* @brief      SendCommandArg
+* @brief      Send command arg
 * @ingroup    DATAIO
 * 
 * @param[in]  command : 
@@ -539,7 +539,7 @@ bool DIOCLIPROTOCOL::SendCommandArg(XCHAR* command, XSTRING* target, XSTRING* an
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCLIPROTOCOL::ReceivedCommand(XSTRING& originID, XSTRING& command, XVECTOR<XSTRING*>& params, XSTRING& answer)
-* @brief      ReceivedCommand
+* @brief      Received command
 * @ingroup    DATAIO
 * 
 * @param[in]  originID : 
@@ -559,7 +559,7 @@ bool DIOCLIPROTOCOL::ReceivedCommand(XSTRING& originID, XSTRING& command, XVECTO
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCLIPROTOCOL::ReceivedAnswer(XSTRING& origin, XSTRING& command, XSTRING& answer)
-* @brief      ReceivedAnswer
+* @brief      Received answer
 * @ingroup    DATAIO
 * 
 * @param[in]  origin : 
@@ -578,7 +578,7 @@ bool DIOCLIPROTOCOL::ReceivedAnswer(XSTRING& origin, XSTRING& command, XSTRING& 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOCLIPROTOCOL::ReceivedCommandManager()
-* @brief      ReceivedCommandManager
+* @brief      Received command manager
 * @ingroup    DATAIO
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -787,7 +787,7 @@ void DIOCLIPROTOCOL::ReceivedCommandManager()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCLIPROTOCOL::AddAnswer(XSTRING& origin, XSTRING& command, XSTRING& answer)
-* @brief      AddAnswer
+* @brief      Add answer
 * @ingroup    DATAIO
 * 
 * @param[in]  origin : 
@@ -819,7 +819,7 @@ bool DIOCLIPROTOCOL::AddAnswer(XSTRING& originID, XSTRING& command, XSTRING& ans
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOCLIPROTOCOLANSWER* DIOCLIPROTOCOL::GetFirstAnswer(XCHAR* command)
-* @brief      GetFirstAnswer
+* @brief      Get first answer
 * @ingroup    DATAIO
 * 
 * @param[in]  command : 
@@ -857,7 +857,7 @@ DIOCLIPROTOCOLANSWER* DIOCLIPROTOCOL::GetFirstAnswer(XCHAR* command)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCLIPROTOCOL::DeleteFirstAnswer(XCHAR* command)
-* @brief      DeleteFirstAnswer
+* @brief      Delete first answer
 * @ingroup    DATAIO
 * 
 * @param[in]  command : 
@@ -898,7 +898,7 @@ bool DIOCLIPROTOCOL::DeleteFirstAnswer(XCHAR* command)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCLIPROTOCOL::DeleteAllAnswers()
-* @brief      DeleteAllAnswers
+* @brief      Delete all answers
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
@@ -953,7 +953,7 @@ void DIOCLIPROTOCOL::End()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCLIPROTOCOL::AddCommand(XCHAR* command, int nparams)
-* @brief      AddCommand
+* @brief      Add command
 * @ingroup    DATAIO
 * 
 * @param[in]  command : 
@@ -985,7 +985,7 @@ bool DIOCLIPROTOCOL::AddCommand(XCHAR* command, int nparams)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOCLIPROTOCOLCOMMAND* DIOCLIPROTOCOL::GetCommand(XCHAR* command)
-* @brief      GetCommand
+* @brief      Get command
 * @ingroup    DATAIO
 * 
 * @param[in]  command : 
@@ -1021,7 +1021,7 @@ DIOCLIPROTOCOLCOMMAND* DIOCLIPROTOCOL::GetCommand(XCHAR* command)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCLIPROTOCOL::DeleteAllCommand()
-* @brief      DeleteAllCommand
+* @brief      Delete all command
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
@@ -1041,7 +1041,7 @@ bool DIOCLIPROTOCOL::DeleteAllCommand()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCLIPROTOCOL::ExtractParamsFromCommand(XSTRING& stringreceived, XSTRING& command, XVECTOR<XSTRING*>& params)
-* @brief      ExtractParamsFromCommand
+* @brief      Extract params from command
 * @ingroup    DATAIO
 * 
 * @param[in]  stringreceived : 
@@ -1115,7 +1115,7 @@ bool DIOCLIPROTOCOL::ExtractParamsFromCommand(XSTRING& stringreceived, XSTRING& 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOCLIPROTOCOL::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 * 

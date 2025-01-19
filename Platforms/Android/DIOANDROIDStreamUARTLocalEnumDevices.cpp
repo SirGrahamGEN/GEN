@@ -83,7 +83,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOANDROIDSTREAMUARTLOCALENUMDEVICES::DIOANDROIDSTREAMUARTLOCALENUMDEVICES()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_ANDROID
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -96,7 +96,7 @@ DIOANDROIDSTREAMUARTLOCALENUMDEVICES::DIOANDROIDSTREAMUARTLOCALENUMDEVICES() : D
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOANDROIDSTREAMUARTLOCALENUMDEVICES::~DIOANDROIDSTREAMUARTLOCALENUMDEVICES()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_ANDROID
 * 
@@ -230,7 +230,7 @@ bool DIOANDROIDSTREAMUARTLOCALENUMDEVICES::Search()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOANDROIDSTREAMUARTLOCALENUMDEVICES::IsDeviceAvailable(XCHAR* resource)
-* @brief      IsDeviceAvailable
+* @brief      Is device available
 * @ingroup    PLATFORM_ANDROID
 * 
 * @param[in]  resource : 

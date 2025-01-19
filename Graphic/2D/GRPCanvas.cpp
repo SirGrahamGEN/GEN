@@ -70,7 +70,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPCANVAS_VECTORFONT_CONFIG::GRPCANVAS_VECTORFONT_CONFIG()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    GRAPHIC
 *
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -84,7 +84,7 @@ GRPCANVAS_VECTORFONT_CONFIG::GRPCANVAS_VECTORFONT_CONFIG()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPCANVAS_VECTORFONT_CONFIG::~GRPCANVAS_VECTORFONT_CONFIG()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
 *
@@ -104,7 +104,7 @@ GRPCANVAS_VECTORFONT_CONFIG::~GRPCANVAS_VECTORFONT_CONFIG()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPCANVAS_VECTORFONT_CONFIG::GetSize(double& width, double& height)
-* @brief      GetSize
+* @brief      Get size
 * @ingroup    GRAPHIC
 *
 * @param[in]  width : 
@@ -125,7 +125,7 @@ bool GRPCANVAS_VECTORFONT_CONFIG::GetSize(double& width, double& height)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPCANVAS_VECTORFONT_CONFIG::SetSize(double width, double height)
-* @brief      SetSize
+* @brief      Set size
 * @ingroup    GRAPHIC
 *
 * @param[in]  width : 
@@ -146,7 +146,7 @@ bool GRPCANVAS_VECTORFONT_CONFIG::SetSize(double width, double height)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         double GRPCANVAS_VECTORFONT_CONFIG::GetSize()
-* @brief      GetSize
+* @brief      Get size
 * @ingroup    GRAPHIC
 *
 * @return     double : 
@@ -165,7 +165,7 @@ double GRPCANVAS_VECTORFONT_CONFIG::GetSize()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPCANVAS_VECTORFONT_CONFIG::SetSize(double size)
-* @brief      SetSize
+* @brief      Set size
 * @ingroup    GRAPHIC
 *
 * @param[in]  size : 
@@ -185,7 +185,7 @@ bool GRPCANVAS_VECTORFONT_CONFIG::SetSize(double size)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         double GRPCANVAS_VECTORFONT_CONFIG::GetWidth()
-* @brief      GetWidth
+* @brief      Get width
 * @ingroup    GRAPHIC
 *
 * @return     double : 
@@ -200,7 +200,7 @@ double GRPCANVAS_VECTORFONT_CONFIG::GetWidth()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRPCANVAS_VECTORFONT_CONFIG::SetWidth(double width)
-* @brief      SetWidth
+* @brief      Set width
 * @ingroup    GRAPHIC
 *
 * @param[in]  width : 
@@ -215,7 +215,7 @@ void GRPCANVAS_VECTORFONT_CONFIG::SetWidth(double width)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         double GRPCANVAS_VECTORFONT_CONFIG::GetHeight()
-* @brief      GetHeight
+* @brief      Get height
 * @ingroup    GRAPHIC
 *
 * @return     double : 
@@ -230,7 +230,7 @@ double GRPCANVAS_VECTORFONT_CONFIG::GetHeight()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRPCANVAS_VECTORFONT_CONFIG::SetHeight(double height)
-* @brief      SetHeight
+* @brief      Set height
 * @ingroup    GRAPHIC
 *
 * @param[in]  height : 
@@ -245,7 +245,7 @@ void GRPCANVAS_VECTORFONT_CONFIG::SetHeight(double height)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRP2DCOLOR_RGBA8* GRPCANVAS_VECTORFONT_CONFIG::GetColor()
-* @brief      GetColor
+* @brief      Get color
 * @ingroup    GRAPHIC
 *
 * @return     GRP2DCOLOR_RGBA8* : 
@@ -260,7 +260,7 @@ GRP2DCOLOR_RGBA8* GRPCANVAS_VECTORFONT_CONFIG::GetColor()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRPCANVAS_VECTORFONT_CONFIG::SetColor(GRP2DCOLOR_RGBA8* color)
-* @brief      SetColor
+* @brief      Set color
 * @ingroup    GRAPHIC
 *
 * @param[in]  color : 
@@ -280,7 +280,7 @@ void GRPCANVAS_VECTORFONT_CONFIG::SetColor(GRP2DCOLOR_RGBA8* color)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPCANVAS_VECTORFONT_CONFIG::IsKerning()
-* @brief      IsKerning
+* @brief      Is kerning
 * @ingroup    GRAPHIC
 *
 * @return     bool : true if is succesful. 
@@ -295,7 +295,7 @@ bool GRPCANVAS_VECTORFONT_CONFIG::IsKerning()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRPCANVAS_VECTORFONT_CONFIG::SetKerning(bool iskerning)
-* @brief      SetKerning
+* @brief      Set kerning
 * @ingroup    GRAPHIC
 *
 * @param[in]  iskerning : 
@@ -310,7 +310,7 @@ void GRPCANVAS_VECTORFONT_CONFIG::SetKerning(bool iskerning)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRPCANVAS_VECTORFONT_CONFIG::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    GRAPHIC
 *
@@ -333,7 +333,7 @@ void GRPCANVAS_VECTORFONT_CONFIG::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPCANVAS::GRPCANVAS()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    GRAPHIC
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -346,7 +346,7 @@ GRPCANVAS::GRPCANVAS()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPCANVAS::~GRPCANVAS()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
 *
@@ -363,7 +363,7 @@ GRPCANVAS::~GRPCANVAS()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPCANVAS::Buffer_Create()
-* @brief      Buffer_Create
+* @brief      Buffer create
 * @ingroup    GRAPHIC
 * 
 * @return     bool : true if is succesful. 
@@ -381,7 +381,7 @@ bool GRPCANVAS::Buffer_Create()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTE* GRPCANVAS::Buffer_Get()
-* @brief      Buffer_Get
+* @brief      Buffer get
 * @ingroup    GRAPHIC
 * 
 * @return     XBYTE* : 
@@ -396,7 +396,7 @@ XBYTE* GRPCANVAS::Buffer_Get()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD GRPCANVAS::Buffer_GetSize()
-* @brief      Buffer_GetSize
+* @brief      Buffer get size
 * @ingroup    GRAPHIC
 * 
 * @return     XDWORD : 
@@ -411,7 +411,7 @@ XDWORD GRPCANVAS::Buffer_GetSize()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPCANVAS::Buffer_SetToZero()
-* @brief      Buffer_SetToZero
+* @brief      Buffer set to zero
 * @ingroup    GRAPHIC
 * 
 * @return     bool : true if is succesful. 
@@ -433,7 +433,7 @@ bool GRPCANVAS::Buffer_SetToZero()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPCANVAS::Buffer_Delete()
-* @brief      Buffer_Delete
+* @brief      Buffer delete
 * @ingroup    GRAPHIC
 * 
 * @return     bool : true if is succesful. 
@@ -473,7 +473,7 @@ void GRPCANVAS::Clear(const GRP2DCOLOR* color)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRPCANVAS::GetClipBox(double& x1, double& y1, double& x2, double& y2)
-* @brief      GetClipBox
+* @brief      Get clip box
 * @ingroup    GRAPHIC
 *
 * @param[in]  x1 : 
@@ -494,7 +494,7 @@ void GRPCANVAS::GetClipBox(double& x1, double& y1, double& x2, double& y2)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRPCANVAS::GetClipBox(XRECT& rect)
-* @brief      GetClipBox
+* @brief      Get clip box
 * @ingroup    GRAPHIC
 *
 * @param[in]  rect : 
@@ -509,7 +509,7 @@ void GRPCANVAS::GetClipBox(XRECT& rect)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XRECT& GRPCANVAS::GetClipBox()
-* @brief      GetClipBox
+* @brief      Get clip box
 * @ingroup    GRAPHIC
 *
 * @return     XRECT& : 
@@ -524,7 +524,7 @@ XRECT& GRPCANVAS::GetClipBox()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRPCANVAS::SetClipBox(double x1, double y1, double x2, double y2)
-* @brief      SetClipBox
+* @brief      Set clip box
 * @ingroup    GRAPHIC
 *
 * @param[in]  x1 : 
@@ -545,7 +545,7 @@ void  GRPCANVAS::SetClipBox(double x1, double y1, double x2, double y2)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRPCANVAS::SetClipBox(XRECT& rect)
-* @brief      SetClipBox
+* @brief      Set clip box
 * @ingroup    GRAPHIC
 *
 * @param[in]  rect : 
@@ -560,7 +560,7 @@ void GRPCANVAS::SetClipBox(XRECT& rect)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRP2DCOLOR* GRPCANVAS::GetPixel(double x, double y)
-* @brief      Get Pixel
+* @brief      Get pixel
 * @ingroup    GRAPHIC
 *
 * @param[in]  x : x pos of pixel
@@ -578,7 +578,7 @@ GRP2DCOLOR* GRPCANVAS::GetPixel(double x, double y)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void GRPCANVAS::PutPixel(double x, double y, const GRP2DCOLOR* color)
-* @brief      PutPixel
+* @brief      Put pixel
 * @ingroup    GRAPHIC
 *
 * @param[in]  x : x pos to put pixel
@@ -595,7 +595,7 @@ void GRPCANVAS::PutPixel(double x, double y, const GRP2DCOLOR* color)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void GRPCANVAS::PutBlendPixel(double x, double y, const GRP2DCOLOR* color, double alpha)
-* @brief      PutBlendPixel
+* @brief      Put blend pixel
 * @ingroup    GRAPHIC
 *
 * @param[in]  x : x pos to put pixel
@@ -613,7 +613,7 @@ void GRPCANVAS::PutBlendPixel(double x, double y, const GRP2DCOLOR* color, doubl
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRP2DCOLOR* GRPCANVAS::GetFillColor()
-* @brief      Get Fill Color
+* @brief      Get fill color
 * @ingroup    GRAPHIC
 *
 * @return     GRP2DCOLOR* : color of fill
@@ -628,7 +628,7 @@ GRP2DCOLOR* GRPCANVAS::GetFillColor()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void GRPCANVAS::SetFillColor(const GRP2DCOLOR* color)
-* @brief      Set Fill Color
+* @brief      Set fill color
 * @ingroup    GRAPHIC
 *
 * @param[in]  color : color to fill
@@ -643,7 +643,7 @@ void GRPCANVAS::SetFillColor(const GRP2DCOLOR* color)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRP2DCOLOR* GRPCANVAS::GetLineColor()
-* @brief      Get Line Color
+* @brief      Get line color
 * @ingroup    GRAPHIC
 *
 * @return     GRP2DCOLOR* : color of line
@@ -658,7 +658,7 @@ GRP2DCOLOR* GRPCANVAS::GetLineColor()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void GRPCANVAS::SetLineColor(const GRP2DCOLOR* color)
-* @brief      Set Line Color
+* @brief      Set line color
 * @ingroup    GRAPHIC
 *
 * @param[in]  color : color to lines
@@ -673,7 +673,7 @@ void GRPCANVAS::SetLineColor(const GRP2DCOLOR* color)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         double GRPCANVAS::GetLineWidth()
-* @brief      GetLineWidth
+* @brief      Get line width
 * @ingroup    GRAPHIC
 *
 * @return     double : line width
@@ -688,7 +688,7 @@ double GRPCANVAS::GetLineWidth()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void GRPCANVAS::SetLineWidth(double linewidth)
-* @brief      SetLineWidth
+* @brief      Set line width
 * @ingroup    GRAPHIC
 *
 * @param[in]  linewidth : new line width
@@ -703,7 +703,7 @@ void GRPCANVAS::SetLineWidth(double linewidth)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         double GRPCANVAS::GetDashLength()
-* @brief      GetDashLength
+* @brief      Get dash length
 * @ingroup    GRAPHIC
 *
 * @return     double : dash length
@@ -718,7 +718,7 @@ double GRPCANVAS::GetDashLength()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void GRPCANVAS::SetDashLenght(double dashlength)
-* @brief      SetDashLenght
+* @brief      Set dash lenght
 * @ingroup    GRAPHIC
 *
 * @param[in]  dashlength : new dash lenght
@@ -823,7 +823,7 @@ void GRPCANVAS::Polygon(GRP2DVERTEXS& vertexs, bool isfill)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void GRPCANVAS::RoundRect(double x1, double y1, double x2, double y2, double radius, bool isfill)
-* @brief      RoundRect
+* @brief      Round rect
 * @ingroup    GRAPHIC
 *
 * @param[in]  x1 :
@@ -843,7 +843,7 @@ void GRPCANVAS::RoundRect(double x1, double y1, double x2, double y2, double rad
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPBITMAP* GRPCANVAS::GetBitmap(double x, double y, double width, double height)
-* @brief      GetBitmap
+* @brief      Get bitmap
 * @ingroup    GRAPHIC
 *
 * @param[in]  x :
@@ -863,7 +863,7 @@ GRPBITMAP* GRPCANVAS::GetBitmap(double x, double y, double width, double height)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void GRPCANVAS::PutBitmapNoAlpha(double x, double y, GRPBITMAP* bitmap)
-* @brief      PutBitmapNoAlpha
+* @brief      Put bitmap no alpha
 * @ingroup    GRAPHIC
 *
 * @param[in]  x :
@@ -880,7 +880,7 @@ void GRPCANVAS::PutBitmapNoAlpha(double x, double y, GRPBITMAP* bitmap)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void GRPCANVAS::PutBitmap(double x, double y, GRPBITMAP* bitmap)
-* @brief      Draw Bitmap
+* @brief      Put bitmap
 * @ingroup    GRAPHIC
 *
 * @param[in]  x : x pos of bitmap
@@ -897,7 +897,7 @@ void GRPCANVAS::PutBitmap(double x, double y, GRPBITMAP* bitmap)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void GRPCANVAS::PutBitmapAlpha(double x, double y, GRPBITMAP* bitmap, double alpha = 100)
-* @brief      PutBitmapAlpha
+* @brief      Put bitmap alpha
 * @ingroup    GRAPHIC
 *
 * @param[in]  x :
@@ -915,7 +915,7 @@ void GRPCANVAS::PutBitmapAlpha(double x, double y, GRPBITMAP* bitmap, double alp
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void GRPCANVAS::PutBitmapFrame(double x, double y, GRPBITMAPFRAME* bitmapframe)
-* @brief      Draw Bitmap Frame
+* @brief      Put bitmap frame
 * @ingroup    GRAPHIC
 *
 * @param[in]  x : x pos of bitmap
@@ -938,7 +938,7 @@ void GRPCANVAS::PutBitmapFrame(double x, double y, GRPBITMAPFRAME* bitmapframe, 
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPCANVAS::RasterFont_Select(XCHAR* fontname)
-* @brief      SelectRasterFont
+* @brief      Raster font select
 * @ingroup    GRAPHIC
 *
 * @param[in]  fontname :
@@ -955,7 +955,7 @@ bool GRPCANVAS::RasterFont_Select(XCHAR* fontname)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPCANVAS::RasterFont_Select(XSTRING* fontname)
-* @brief      RasterFont_Select
+* @brief      Raster font select
 * @ingroup    GRAPHIC
 * 
 * @param[in]  fontname : 
@@ -972,7 +972,7 @@ bool GRPCANVAS::RasterFont_Select(XSTRING* fontname)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRP2DCOLOR* GRPCANVAS::RasterFont_GetColor()
-* @brief      RasterFont_GetColor
+* @brief      Raster font get color
 * @ingroup    GRAPHIC
 *
 * @return     GRP2DCOLOR* :
@@ -987,7 +987,7 @@ GRP2DCOLOR* GRPCANVAS::RasterFont_GetColor()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void GRPCANVAS::RasterFont_SetColor(const GRP2DCOLOR* color)
-* @brief      RasterFont_SetColor
+* @brief      Raster font set color
 * @ingroup    GRAPHIC
 *
 * @param[in]  color :
@@ -1002,7 +1002,7 @@ void GRPCANVAS::RasterFont_SetColor(const GRP2DCOLOR* c)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         double GRPCANVAS::RasterFont_GetWidth(XCHAR* string)
-* @brief      RasterFont_GetWidth
+* @brief      Raster font get width
 * @ingroup    GRAPHIC
 *
 * @param[in]  string :
@@ -1019,7 +1019,7 @@ double GRPCANVAS::RasterFont_GetWidth(XCHAR* string)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         double GRPCANVAS::RasterFont_GetHeight()
-* @brief      RasterFont_GetHeight
+* @brief      Raster font get height
 * @ingroup    GRAPHIC
 *
 * @return     double :
@@ -1034,7 +1034,7 @@ double GRPCANVAS::RasterFont_GetHeight()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPCANVAS::RasterFont_Printf(double x, double y, XCHAR* mask, ...)
-* @brief      RasterFont_Printf
+* @brief      Raster font printf
 * @ingroup    GRAPHIC
 *
 * @param[in]  x : 
@@ -1054,7 +1054,7 @@ bool GRPCANVAS::RasterFont_Printf(double x, double y, XCHAR* mask, ...)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPCANVAS::VectorFont_Load(XCHAR* fontnamefile)
-* @brief      VectorFont_Load
+* @brief      Vector font load
 * @ingroup    GRAPHIC
 *
 * @param[in]  fontnamefile : 
@@ -1075,7 +1075,7 @@ bool GRPCANVAS::VectorFont_Load(XCHAR* fontnamefile)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPCANVAS::VectorFont_Load(XPATH& fontnamefile)
-* @brief      VectorFont_Load
+* @brief      Vector font load
 * @ingroup    GRAPHIC
 *
 * @param[in]  fontnamefile : 
@@ -1092,7 +1092,7 @@ bool GRPCANVAS::VectorFont_Load(XPATH& fontnamefile)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPCANVAS_VECTORFONT_CONFIG* GRPCANVAS::Vectorfont_GetConfig()
-* @brief      Vectorfont_GetConfig
+* @brief      Vectorfont get config
 * @ingroup    GRAPHIC
 *
 * @return     GRPCANVAS_VECTORFONT_CONFIG* : 
@@ -1107,7 +1107,7 @@ GRPCANVAS_VECTORFONT_CONFIG* GRPCANVAS::Vectorfont_GetConfig()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         double GRPCANVAS::VectorFont_GetWidth(XCHAR* string)
-* @brief      VectorFont_GetWidth
+* @brief      Vector font get width
 * @ingroup    GRAPHIC
 * 
 * @param[in]  string : 
@@ -1124,7 +1124,7 @@ double GRPCANVAS::VectorFont_GetWidth(XCHAR* string)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         double GRPCANVAS::VectorFont_GetHeight(XCHAR* string)
-* @brief      VectorFont_GetHeight
+* @brief      Vector font get height
 * @ingroup    GRAPHIC
 *
 * @param[in]  string : 
@@ -1141,7 +1141,7 @@ double GRPCANVAS::VectorFont_GetHeight(XCHAR* string)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         double GRPCANVAS::VectorFont_GetHeight()
-* @brief      VectorFont_GetHeight
+* @brief      Vector font get height
 * @ingroup    GRAPHIC
 *
 * @return     double : 
@@ -1156,7 +1156,7 @@ double GRPCANVAS::VectorFont_GetHeight()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPCANVAS::VectorFont_Print(double x, double y, XCHAR* outstring)
-* @brief      VectorFont_Print
+* @brief      Vector font print
 * @ingroup    GRAPHIC
 *
 * @param[in]  x : 
@@ -1175,7 +1175,7 @@ bool GRPCANVAS::VectorFont_Print(double x, double y, XCHAR* outstring)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPCANVAS::VectorFont_Printf(double x, double y, XCHAR* mask, ...)
-* @brief      VectorFont_Printf
+* @brief      Vector font printf
 * @ingroup    GRAPHIC
 *
 * @param[in]  x : 
@@ -1195,7 +1195,7 @@ bool GRPCANVAS::VectorFont_Printf(double x, double y, XCHAR* mask, ...)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPCANVAS::CopyBufferRenderToScreen(GRPSCREEN* screen)
-* @brief      CopyBufferRenderToScreen
+* @brief      Copy buffer render to screen
 * @ingroup    GRAPHIC
 * 
 * @param[in]  screen : 
@@ -1212,7 +1212,7 @@ bool GRPCANVAS::CopyBufferRenderToScreen(GRPSCREEN* screen)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPCANVAS::CopyBufferRenderToBufferScreen(XBYTE* buffer, XDWORD width, XDWORD height, bool isinverse)
-* @brief      CopyBufferRenderToBufferScreen
+* @brief      Copy buffer render to buffer screen
 * @ingroup    GRAPHIC
 *
 * @param[in]  buffer :
@@ -1232,7 +1232,7 @@ bool GRPCANVAS::CopyBufferRenderToBufferScreen(XBYTE* buffer, XDWORD width, XDWO
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPCANVAS::CopyBufferRenderFromViewport(GRPVIEWPORT* viewport)
-* @brief      CopyBufferRenderFromViewport
+* @brief      Copy buffer render from viewport
 * @ingroup    GRAPHIC
 *
 * @param[in]  viewport :
@@ -1249,7 +1249,7 @@ bool GRPCANVAS::CopyBufferRenderFromViewport(GRPVIEWPORT* viewport)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPCANVAS::ReleaseDrawFramerate()
-* @brief      ReleaseDrawFramerate
+* @brief      Release draw framerate
 * @ingroup    GRAPHIC
 *
 * @return     bool : true if is succesful. 
@@ -1264,7 +1264,7 @@ bool GRPCANVAS::ReleaseDrawFramerate()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPCANVAS::DrawFramerate(GRPSCREEN* screen, double x, double y)
-* @brief      DrawFramerate
+* @brief      Draw framerate
 * @ingroup    GRAPHIC
 * 
 * @param[in]  screen : 
@@ -1283,7 +1283,7 @@ bool GRPCANVAS::DrawFramerate(GRPSCREEN* screen, double x, double y)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void GRPCANVAS::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    GRAPHIC
 *

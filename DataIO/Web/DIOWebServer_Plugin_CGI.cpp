@@ -72,7 +72,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOWEBSERVER_PLUGIN_CGI::DIOWEBSERVER_PLUGIN_CGI()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -87,7 +87,7 @@ DIOWEBSERVER_PLUGIN_CGI::DIOWEBSERVER_PLUGIN_CGI()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOWEBSERVER_PLUGIN_CGI::~DIOWEBSERVER_PLUGIN_CGI()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -124,7 +124,7 @@ bool DIOWEBSERVER_PLUGIN_CGI::Config(XPATH* pathCGIinterpreter, XCHAR* nameexec)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWEBSERVER_PLUGIN_CGI::PageExtension(XPATH& pathfile, DIOWEBSERVER_REQUEST* request, DIOWEBSERVER_QUERYSTRINGS* querystrings, DIOWEBHEADER_RESULT& headerresult, XSTRING& result)
-* @brief      PageExtension
+* @brief      Page extension
 * @ingroup    DATAIO
 *
 * @param[in]  pathfile :
@@ -213,7 +213,7 @@ bool DIOWEBSERVER_PLUGIN_CGI::PageExtension(XPATH& pathfile, DIOWEBSERVER_REQUES
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOWEBSERVER_PLUGIN_CGI::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

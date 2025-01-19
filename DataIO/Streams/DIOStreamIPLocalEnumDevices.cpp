@@ -67,7 +67,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMIPLOCALENUMDEVICES::DIOSTREAMIPLOCALENUMDEVICES()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -80,7 +80,7 @@ DIOSTREAMIPLOCALENUMDEVICES::DIOSTREAMIPLOCALENUMDEVICES(): DIOSTREAMENUMDEVICES
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMIPLOCALENUMDEVICES::~DIOSTREAMIPLOCALENUMDEVICES()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -109,7 +109,7 @@ bool DIOSTREAMIPLOCALENUMDEVICES::Search()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMIPLOCALENUMDEVICES::StopSearch(bool waitend)
-* @brief      StopSearch
+* @brief      Stop search
 * @ingroup    DATAIO
 *
 * @param[in]  waitend :
@@ -126,7 +126,7 @@ bool DIOSTREAMIPLOCALENUMDEVICES::StopSearch(bool waitend)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMIPLOCALENUMDEVICES::IsSearching()
-* @brief      IsSearching
+* @brief      Is searching
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -141,7 +141,7 @@ bool DIOSTREAMIPLOCALENUMDEVICES::IsSearching()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMIPLOCALENUMDEVICES::IsDeviceAvailable(XCHAR* resource)
-* @brief      IsDeviceAvailable
+* @brief      Is device available
 * @ingroup    DATAIO
 *
 * @param[in]  resource :
@@ -158,7 +158,7 @@ bool DIOSTREAMIPLOCALENUMDEVICES::IsDeviceAvailable(XCHAR* resource)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMDEVICE* DIOSTREAMIPLOCALENUMDEVICES::GetFirstActiveDevice()
-* @brief      GetFirstActiveDevice
+* @brief      Get first active device
 * @ingroup    DATAIO
 *
 * @return     DIOSTREAMDEVICE* :
@@ -191,7 +191,7 @@ DIOSTREAMDEVICE* DIOSTREAMIPLOCALENUMDEVICES::GetFirstActiveDevice()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSTREAMIPLOCALENUMDEVICES::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

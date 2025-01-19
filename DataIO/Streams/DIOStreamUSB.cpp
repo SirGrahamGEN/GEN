@@ -66,7 +66,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMUSB::DIOSTREAMUSB()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -79,7 +79,7 @@ DIOSTREAMUSB::DIOSTREAMUSB() : DIOSTREAM()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMUSB::~DIOSTREAMUSB()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -93,7 +93,7 @@ DIOSTREAMUSB::~DIOSTREAMUSB()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMCONFIG* DIOSTREAMUSB::GetConfig()
-* @brief      GetConfig
+* @brief      Get config
 * @ingroup    DATAIO
 *
 * @return     DIOSTREAMCONFIG* :
@@ -108,7 +108,7 @@ DIOSTREAMCONFIG* DIOSTREAMUSB::GetConfig()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMUSB::SetConfig(DIOSTREAMCONFIG* config)
-* @brief      SetConfig
+* @brief      Set config
 * @ingroup    DATAIO
 *
 * @param[in]  config :
@@ -129,7 +129,7 @@ bool DIOSTREAMUSB::SetConfig(DIOSTREAMCONFIG* config)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMSTATUS DIOSTREAMUSB::GetStatus()
-* @brief      GetStatus
+* @brief      Get status
 * @ingroup    DATAIO
 *
 * @return     DIOSTREAMSTATUS :
@@ -174,7 +174,7 @@ bool DIOSTREAMUSB::Close()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMUSB::CleanBuffers()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean buffers
 * @note       INTERNAL
 * @ingroup    DATAIO
 *
@@ -190,7 +190,7 @@ bool DIOSTREAMUSB::CleanBuffers()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSTREAMUSB::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

@@ -66,7 +66,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_LAYOUT::UI_LAYOUT(UI_SKINCANVAS* ui_skin)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    USERINTERFACE
 *
 * @param[in]  ui_skin : 
@@ -83,7 +83,7 @@ UI_LAYOUT::UI_LAYOUT(UI_SKIN* ui_skin)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_LAYOUT::~UI_LAYOUT()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
 *
@@ -104,7 +104,7 @@ UI_LAYOUT::~UI_LAYOUT()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* UI_LAYOUT::GetNameID()
-* @brief      GetNameID
+* @brief      Get name ID
 * @ingroup    USERINTERFACE
 *
 * @return     XSTRING* : 
@@ -119,7 +119,7 @@ XSTRING* UI_LAYOUT::GetNameID()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_SKIN* UI_LAYOUT::GetSkin()
-* @brief      GetSkin
+* @brief      Get skin
 * @ingroup    USERINTERFACE
 *
 * @return     UI_SKIN* : 
@@ -134,7 +134,7 @@ UI_SKIN* UI_LAYOUT::GetSkin()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_LAYOUT::SetSkin(UI_SKIN* ui_skin)
-* @brief      SetSkin
+* @brief      Set skin
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  ui_skin : 
@@ -149,7 +149,7 @@ void UI_LAYOUT::SetSkin(UI_SKIN* ui_skin)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_BACKGROUND* UI_LAYOUT::GetBackground()
-* @brief      GetBackground
+* @brief      Get background
 * @ingroup    USERINTERFACE
 * 
 * @return     UI_BACKGROUND* : 
@@ -164,7 +164,7 @@ UI_BACKGROUND* UI_LAYOUT::GetBackground()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_LAYOUT::Elements_Add(UI_ELEMENT* element)
-* @brief      Elements_Add
+* @brief      Elements add
 * @ingroup    USERINTERFACE
 *
 * @param[in]  element : 
@@ -185,7 +185,7 @@ bool UI_LAYOUT::Elements_Add(UI_ELEMENT* element)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XVECTOR<UI_ELEMENT*>* UI_LAYOUT::Elements_Get()
-* @brief      Elements_Get
+* @brief      Elements get
 * @ingroup    USERINTERFACE
 *
 * @return     XVECTOR<UI_ELEMENT*>* : 
@@ -200,7 +200,7 @@ XVECTOR<UI_ELEMENT*>* UI_LAYOUT::Elements_Get()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_ELEMENT* UI_LAYOUT::Elements_Get(XCHAR* nameelement, UI_ELEMENT_TYPE type)
-* @brief      Elements_Get
+* @brief      Elements get
 * @ingroup    USERINTERFACE
 *
 * @param[in]  nameelement : 
@@ -242,7 +242,7 @@ UI_ELEMENT* UI_LAYOUT::Elements_Get(XCHAR* nameelement, UI_ELEMENT_TYPE type)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_LAYOUT::Elements_DeleteAll()
-* @brief      Elements_DeleteAll
+* @brief      Elements delete all
 * @ingroup    USERINTERFACE
 *
 * @return     bool : true if is succesful. 
@@ -262,7 +262,7 @@ bool UI_LAYOUT::Elements_DeleteAll()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_LAYOUT::Elements_SetToRedraw(bool recursive)
-* @brief      Elements_SetToRedraw
+* @brief      Elements set to redraw
 * @ingroup    USERINTERFACE
 *
 * @param[in]  recursive : 
@@ -290,7 +290,7 @@ bool UI_LAYOUT::Elements_SetToRedraw(bool recursive)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_LAYOUT::Elements_SetToRedraw(UI_ELEMENT* element, bool recursive)
-* @brief      Elements_SetToRedraw
+* @brief      Elements set to redraw
 * @ingroup    USERINTERFACE
 *
 * @param[in]  element : 
@@ -349,7 +349,7 @@ bool UI_LAYOUT::Update()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_ELEMENT* UI_LAYOUT::Elements_Get(UI_ELEMENT* element, XCHAR* nameelement, UI_ELEMENT_TYPE type)
-* @brief      Elements_Get
+* @brief      Elements get
 * @ingroup    USERINTERFACE
 *
 * @param[in]  element : 
@@ -392,7 +392,7 @@ UI_ELEMENT* UI_LAYOUT::Elements_Get(UI_ELEMENT* element, XCHAR* nameelement, UI_
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_LAYOUT::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
 *

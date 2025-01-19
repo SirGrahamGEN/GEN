@@ -45,9 +45,9 @@
 
 enum  DIOI2CAIRQUALITYCCS811_ERRORS
 {
-  DIOI2CAIRQUALITYCCS811_ERROR_WRITE_REG_INVALID      = 0 , // The CCS811 received an I²C write request addressed to this station but with invalid register address ID
-  DIOI2CAIRQUALITYCCS811_ERROR_READ_REG_INVALID           , // The CCS811 received an I²C read request to a mailbox ID that is invalid
-  DIOI2CAIRQUALITYCCS811_ERROR_MEASMODE_INVALID           , // The CCS811 received an I²C request to write an unsupported mode to MEAS_MODE
+  DIOI2CAIRQUALITYCCS811_ERROR_WRITE_REG_INVALID      = 0 , // The CCS811 received an IC write request addressed to this station but with invalid register address ID
+  DIOI2CAIRQUALITYCCS811_ERROR_READ_REG_INVALID           , // The CCS811 received an IC read request to a mailbox ID that is invalid
+  DIOI2CAIRQUALITYCCS811_ERROR_MEASMODE_INVALID           , // The CCS811 received an IC request to write an unsupported mode to MEAS_MODE
   DIOI2CAIRQUALITYCCS811_ERROR_MAX_RESISTANCE             , // The sensor resistance measurement has reached or exceeded the maximum range
   DIOI2CAIRQUALITYCCS811_ERROR_HEATER_FAULT               , // The Heater current in the CCS811 is not in range
   DIOI2CAIRQUALITYCCS811_ERROR_HEATER_SUPPLY              , // The Heater voltage is not being applied correctly

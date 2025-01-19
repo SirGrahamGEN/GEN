@@ -68,7 +68,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XLINUXEEPROMMEMORYMANAGER::XLINUXEEPROMMEMORYMANAGER()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_LINUX
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -81,7 +81,7 @@ XLINUXEEPROMMEMORYMANAGER::XLINUXEEPROMMEMORYMANAGER()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XLINUXEEPROMMEMORYMANAGER::~XLINUXEEPROMMEMORYMANAGER()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
 *
@@ -271,7 +271,7 @@ bool XLINUXEEPROMMEMORYMANAGER::Write(XDWORD offset, XBYTE* data, XDWORD size)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XLINUXEEPROMMEMORYMANAGER::EraseAll()
-* @brief      EraseAll
+* @brief      Erase all
 * @ingroup    PLATFORM_LINUX
 *
 * @return     bool : true if is succesful.

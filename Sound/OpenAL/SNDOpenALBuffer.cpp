@@ -68,7 +68,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         SNDOPENALBUFFER::SNDOPENALBUFFER()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    SOUND
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -81,7 +81,7 @@ SNDOPENALBUFFER::SNDOPENALBUFFER()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         SNDOPENALBUFFER::~SNDOPENALBUFFER()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    SOUND
 * 
@@ -125,7 +125,7 @@ void SNDOPENALBUFFER::Delete()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         ALuint SNDOPENALBUFFER::GetHandle()
-* @brief      GetHandle
+* @brief      Get handle
 * @ingroup    SOUND
 * 
 * @return     ALuint : 
@@ -140,7 +140,7 @@ ALuint SNDOPENALBUFFER::GetHandle()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool SNDOPENALBUFFER::SetHandle(ALuint handle)
-* @brief      SetHandle
+* @brief      Set handle
 * @ingroup    SOUND
 * 
 * @param[in]  handle : 
@@ -159,7 +159,7 @@ bool SNDOPENALBUFFER::SetHandle(ALuint handle)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBUFFER* SNDOPENALBUFFER::GetXBuffer()
-* @brief      GetXBuffer
+* @brief      Get X buffer
 * @ingroup    SOUND
 * 
 * @return     XBUFFER* : 
@@ -174,7 +174,7 @@ XBUFFER* SNDOPENALBUFFER::GetXBuffer()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD SNDOPENALBUFFER::GenerateNote(XDWORD frequency, XDWORD duration, XDWORD samplerate)
-* @brief      GenerateNote
+* @brief      Generate note
 * @ingroup    SOUND
 * 
 * @param[in]  frequency : 
@@ -236,7 +236,7 @@ bool SNDOPENALBUFFER::Assign(XWORD channels, size_t size, XDWORD samplerate)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void SNDOPENALBUFFER::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    SOUND
 * 

@@ -83,7 +83,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XLINUXPROCESSMANAGER::XLINUXPROCESSMANAGER()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_LINUX
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -96,7 +96,7 @@ XLINUXPROCESSMANAGER::XLINUXPROCESSMANAGER(): XPROCESSMANAGER()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XLINUXPROCESSMANAGER::~XLINUXPROCESSMANAGER()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
 *
@@ -110,7 +110,7 @@ XLINUXPROCESSMANAGER::~XLINUXPROCESSMANAGER()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XLINUXPROCESSMANAGER::MakeSystemCommand(XCHAR* command)
-* @brief      MakeSystemCommand
+* @brief      Make system command
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  command : 
@@ -138,7 +138,7 @@ bool XLINUXPROCESSMANAGER::MakeSystemCommand(XCHAR* command)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XLINUXPROCESSMANAGER::MakeCommand(XCHAR* command, XSTRING& out, int* returncode)
-* @brief      MakeCommand
+* @brief      Make command
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  command :
@@ -193,7 +193,7 @@ bool XLINUXPROCESSMANAGER::MakeCommand(XCHAR* command, XBUFFER* out, int* return
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XLINUXPROCESSMANAGER::OpenURL(XCHAR* url)
-* @brief      OpenURL
+* @brief      Open URL
 * @ingroup    PLATFORM_LINUX
 * 
 * @param[in]  url : 
@@ -222,7 +222,7 @@ bool XLINUXPROCESSMANAGER::OpenURL(XCHAR* url)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XLINUXPROCESSMANAGER::Application_Execute(XCHAR* applicationpath, XCHAR* params, XBUFFER* in, XBUFFER* out, int* returncode)
-* @brief      Application_Execute
+* @brief      Application execute
 * @ingroup    PLATFORM_LINUX
 * 
 * @param[in]  applicationpath : 
@@ -472,7 +472,7 @@ bool XLINUXPROCESSMANAGER::Application_Execute(XCHAR* applicationpath, XCHAR* pa
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XLINUXPROCESSMANAGER::Application_IsRunning(XCHAR* applicationname, XDWORD* ID)
-* @brief      Is Application Running
+* @brief      Application is running
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  applicationname : application name
@@ -543,7 +543,7 @@ bool XLINUXPROCESSMANAGER::Application_IsRunning(XCHAR* applicationname, XDWORD*
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XLINUXPROCESSMANAGER::Application_GetRunningList(XVECTOR<XPROCESS*>& applist)
-* @brief      Application_GetRunningList
+* @brief      Application get running list
 * @ingroup    PLATFORM_LINUX
 * 
 * @param[in]  applist : 
@@ -612,7 +612,7 @@ bool XLINUXPROCESSMANAGER::Application_GetRunningList(XVECTOR<XPROCESS*>& applis
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XLINUXPROCESSMANAGER::Application_Terminate(XDWORD processID, XDWORD exitcode)
-* @brief      Application_Terminate
+* @brief      Application terminate
 * @ingroup    PLATFORM_LINUX
 * 
 * @param[in]  processID : 
@@ -638,7 +638,7 @@ bool XLINUXPROCESSMANAGER::Application_Terminate(XDWORD processID, XDWORD exitco
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XLINUXPROCESSMANAGER::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
 *

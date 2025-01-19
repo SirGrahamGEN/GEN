@@ -67,7 +67,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         SCRIPT_LIB::SCRIPT_LIB(XCHAR* ID)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    SCRIPT
 *
 * @param[in]  ID :
@@ -84,7 +84,7 @@ SCRIPT_LIB::SCRIPT_LIB(XCHAR* ID)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         SCRIPT_LIB::~SCRIPT_LIB()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    SCRIPT
 *
@@ -98,7 +98,7 @@ SCRIPT_LIB::~SCRIPT_LIB()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* SCRIPT_LIB::GetID()
-* @brief      GetID
+* @brief      Get ID
 * @ingroup    SCRIPT
 *
 * @return     XSTRING* :
@@ -113,7 +113,7 @@ XSTRING* SCRIPT_LIB::GetID()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool SCRIPT_LIB::AddLibraryFunctions(SCRIPT* script)
-* @brief      AddLibraryFunctions
+* @brief      Add library functions
 * @ingroup    SCRIPT
 *
 * @param[in]  script :
@@ -130,7 +130,7 @@ bool SCRIPT_LIB::AddLibraryFunctions(SCRIPT* script)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool SCRIPT_LIB::GetParamConverted(XVARIANT* variant, bool& value)
-* @brief      GetParamConverted
+* @brief      Get param converted
 * @ingroup    SCRIPT
 * 
 * @param[in]  variant : 
@@ -176,7 +176,7 @@ bool SCRIPT_LIB::GetParamConverted(XVARIANT* variant, bool& value)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool SCRIPT_LIB::GetParamConverted(XVARIANT* variant, int& value)
-* @brief      GetParamConverted
+* @brief      Get param converted
 * @ingroup    SCRIPT
 *
 * @param[in]  variant :
@@ -226,7 +226,7 @@ bool SCRIPT_LIB::GetParamConverted(XVARIANT* variant, int& value)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool SCRIPT_LIB::GetParamConverted(XVARIANT* variant, XDWORD& value)
-* @brief      GetParamConverted
+* @brief      Get param converted
 * @ingroup    SCRIPT
 *
 * @param[in]  variant :
@@ -249,7 +249,7 @@ bool SCRIPT_LIB::GetParamConverted(XVARIANT* variant, XDWORD& value)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool SCRIPT_LIB::GetParamConverted(XVARIANT* variant, float& value)
-* @brief      GetParamConverted
+* @brief      Get param converted
 * @ingroup    SCRIPT
 *
 * @param[in]  variant :
@@ -297,7 +297,7 @@ bool SCRIPT_LIB::GetParamConverted(XVARIANT* variant, float& value)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool SCRIPT_LIB::GetParamConverted(XVARIANT* variant, double& value)
-* @brief      GetParamConverted
+* @brief      Get param converted
 * @ingroup    SCRIPT
 *
 * @param[in]  variant :
@@ -345,7 +345,7 @@ bool SCRIPT_LIB::GetParamConverted(XVARIANT* variant, double& value)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool SCRIPT_LIB::GetParamConverted(XVARIANT* variant, XSTRING& value)
-* @brief      GetParamConverted
+* @brief      Get param converted
 * @ingroup    SCRIPT
 * 
 * @param[in]  variant : 
@@ -387,7 +387,7 @@ bool SCRIPT_LIB::GetParamConverted(XVARIANT* variant, XSTRING& value)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void SCRIPT_LIB::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    SCRIPT
 *

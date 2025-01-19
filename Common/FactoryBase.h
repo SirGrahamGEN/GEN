@@ -4,7 +4,7 @@
 * 
 * @class      FACTORYBASE
 * @brief      Factory Base class
-* @ingroup    PLATFORM_COMMON
+* @ingroup    COMMON
 * 
 * @copyright  GEN Group. All rights reserved.
 * 

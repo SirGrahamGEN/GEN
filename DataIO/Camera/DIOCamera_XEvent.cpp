@@ -64,7 +64,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOCAMERA_XEVENT::DIOCAMERA_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * @param[in]  subject :
@@ -81,7 +81,7 @@ DIOCAMERA_XEVENT::DIOCAMERA_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOCAMERA_XEVENT::~DIOCAMERA_XEVENT()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -95,7 +95,7 @@ DIOCAMERA_XEVENT::~DIOCAMERA_XEVENT()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOCAMERA_XEVENT::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

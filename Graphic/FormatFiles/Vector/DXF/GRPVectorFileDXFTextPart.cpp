@@ -64,7 +64,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVECTORFILEDXFTEXTPART::GRPVECTORFILEDXFTEXTPART()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    GRAPHIC
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -77,7 +77,7 @@ GRPVECTORFILEDXFTEXTPART::GRPVECTORFILEDXFTEXTPART()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVECTORFILEDXFTEXTPART::~GRPVECTORFILEDXFTEXTPART()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
 * 
@@ -91,7 +91,7 @@ GRPVECTORFILEDXFTEXTPART::~GRPVECTORFILEDXFTEXTPART()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPVECTORFILEDXFTEXTPART::CopyTo(GRPVECTORFILEDXFTEXTPART* part)
-* @brief      CopyTo
+* @brief      Copy to
 * @ingroup    GRAPHIC
 * 
 * @param[in]  part : 
@@ -117,7 +117,7 @@ bool GRPVECTORFILEDXFTEXTPART::CopyTo(GRPVECTORFILEDXFTEXTPART* part)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRPVECTORFILEDXFTEXTPART::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    GRAPHIC
 * 

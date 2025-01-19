@@ -83,7 +83,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOCOREPROTOCOL_CONNECTIONSMANAGER::DIOCOREPROTOCOL_CONNECTIONSMANAGER()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -104,7 +104,7 @@ DIOCOREPROTOCOL_CONNECTIONSMANAGER::DIOCOREPROTOCOL_CONNECTIONSMANAGER()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOCOREPROTOCOL_CONNECTIONSMANAGER::~DIOCOREPROTOCOL_CONNECTIONSMANAGER()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 * 
@@ -240,7 +240,7 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::End()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOCOREPROTOCOL_CFG* DIOCOREPROTOCOL_CONNECTIONSMANAGER::GetProtocolCFG()
-* @brief      GetProtocolCFG
+* @brief      Get protocol CFG
 * @ingroup    DATAIO
 * 
 * @return     DIOCOREPROTOCOL_CFG* : 
@@ -255,7 +255,7 @@ DIOCOREPROTOCOL_CFG* DIOCOREPROTOCOL_CONNECTIONSMANAGER::GetProtocolCFG()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XMAP<DIOSTREAMCONFIG*, DIOSTREAM*>* DIOCOREPROTOCOL_CONNECTIONSMANAGER::DIOStream_GetAll()
-* @brief      DIOStream_GetAll
+* @brief      DIO stream get all
 * @ingroup    DATAIO
 * 
 * @return     XMAP<DIOSTREAMCONFIG*, : 
@@ -270,7 +270,7 @@ XMAP<DIOSTREAMCONFIG*, DIOSTREAM*>* DIOCOREPROTOCOL_CONNECTIONSMANAGER::DIOStrea
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::DIOStream_Add(DIOSTREAMCONFIG* diostreamCFG, DIOSTREAM* diostream)
-* @brief      DIOStream_Add
+* @brief      DIO stream add
 * @ingroup    DATAIO
 * 
 * @param[in]  diostreamCFG : 
@@ -293,7 +293,7 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::DIOStream_Add(DIOSTREAMCONFIG* diostrea
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::DIOStream_Delete(DIOSTREAMCONFIG* diostreamCFG)
-* @brief      DIOStream_Delete
+* @brief      DIO stream delete
 * @ingroup    DATAIO
 * 
 * @param[in]  diostreamCFG : 
@@ -326,7 +326,7 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::DIOStream_Delete(DIOSTREAMCONFIG* diost
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::DIOStream_DeleteAll()
-* @brief      DIOStream_DeleteAll
+* @brief      DIO stream delete all
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
@@ -351,7 +351,7 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::DIOStream_DeleteAll()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOCOREPROTOCOL_CONNECTION* DIOCOREPROTOCOL_CONNECTIONSMANAGER::CreateConnection()
-* @brief      CreateConnection
+* @brief      Create connection
 * @ingroup    DATAIO
 * 
 * @return     DIOCOREPROTOCOL_CONNECTION* : 
@@ -368,7 +368,7 @@ DIOCOREPROTOCOL_CONNECTION* DIOCOREPROTOCOL_CONNECTIONSMANAGER::CreateConnection
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOCOREPROTOCOL* DIOCOREPROTOCOL_CONNECTIONSMANAGER::CreateProtocol(DIOCOREPROTOCOL_CONNECTION* connection, DIOSTREAM* diostream)
-* @brief      CreateProtocol
+* @brief      Create protocol
 * @ingroup    DATAIO
 * 
 * @param[in]  connection : 
@@ -388,7 +388,7 @@ DIOCOREPROTOCOL* DIOCOREPROTOCOL_CONNECTIONSMANAGER::CreateProtocol(DIOCOREPROTO
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Command_Do(DIOCOREPROTOCOL_CONNECTION* connection, XDWORD command_type, XBUFFER& result, XDWORD timeout)
-* @brief      Command_Do
+* @brief      Command do
 * @ingroup    DATAIO
 * 
 * @param[in]  connection : 
@@ -408,7 +408,7 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Command_Do(DIOCOREPROTOCOL_CONNECTION* 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Command_Do(DIOCOREPROTOCOL_CONNECTION* connection, XDWORD command_type, XSTRING& result, XDWORD timeout)
-* @brief      Command_Do
+* @brief      Command do
 * @ingroup    DATAIO
 * 
 * @param[in]  connection : 
@@ -428,7 +428,7 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Command_Do(DIOCOREPROTOCOL_CONNECTION* 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Command_Do(DIOCOREPROTOCOL_CONNECTION* connection, XDWORD command_type, XFILEJSON& result, XDWORD timeout)
-* @brief      Command_Do
+* @brief      Command do
 * @ingroup    DATAIO
 * 
 * @param[in]  connection : 
@@ -448,7 +448,7 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Command_Do(DIOCOREPROTOCOL_CONNECTION* 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Command_Do(DIOCOREPROTOCOL_CONNECTION* connection, XDWORD command_type, XBUFFER* params, XBUFFER& result, XDWORD timeout)
-* @brief      Command_Do
+* @brief      Command do
 * @ingroup    DATAIO
 * 
 * @param[in]  connection : 
@@ -469,7 +469,7 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Command_Do(DIOCOREPROTOCOL_CONNECTION* 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Command_Do(DIOCOREPROTOCOL_CONNECTION* connection, XDWORD command_type, XSTRING* params, XBUFFER& result, XDWORD timeout)
-* @brief      Command_Do
+* @brief      Command do
 * @ingroup    DATAIO
 * 
 * @param[in]  connection : 
@@ -490,7 +490,7 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Command_Do(DIOCOREPROTOCOL_CONNECTION* 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Command_Do(DIOCOREPROTOCOL_CONNECTION* connection, XDWORD command_type, XFILEJSON* params, XBUFFER& result, XDWORD timeout)
-* @brief      Command_Do
+* @brief      Command do
 * @ingroup    DATAIO
 * 
 * @param[in]  connection : 
@@ -511,7 +511,7 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Command_Do(DIOCOREPROTOCOL_CONNECTION* 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Command_Do(DIOCOREPROTOCOL_CONNECTION* connection, XDWORD command_type, XBUFFER* params, XSTRING& result, XDWORD timeout)
-* @brief      Command_Do
+* @brief      Command do
 * @ingroup    DATAIO
 * 
 * @param[in]  connection : 
@@ -532,7 +532,7 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Command_Do(DIOCOREPROTOCOL_CONNECTION* 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Command_Do(DIOCOREPROTOCOL_CONNECTION* connection, XDWORD command_type, XSTRING* params, XSTRING& result, XDWORD timeout)
-* @brief      Command_Do
+* @brief      Command do
 * @ingroup    DATAIO
 * 
 * @param[in]  connection : 
@@ -553,7 +553,7 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Command_Do(DIOCOREPROTOCOL_CONNECTION* 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Command_Do(DIOCOREPROTOCOL_CONNECTION* connection, XDWORD command_type, XFILEJSON* params, XSTRING& result, XDWORD timeout)
-* @brief      Command_Do
+* @brief      Command do
 * @ingroup    DATAIO
 * 
 * @param[in]  connection : 
@@ -574,7 +574,7 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Command_Do(DIOCOREPROTOCOL_CONNECTION* 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Command_Do(DIOCOREPROTOCOL_CONNECTION* connection, XDWORD command_type, XBUFFER* params, XFILEJSON& result, XDWORD timeout)
-* @brief      Command_Do
+* @brief      Command do
 * @ingroup    DATAIO
 * 
 * @param[in]  connection : 
@@ -595,7 +595,7 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Command_Do(DIOCOREPROTOCOL_CONNECTION* 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Command_Do(DIOCOREPROTOCOL_CONNECTION* connection, XDWORD command_type, XSTRING* params, XFILEJSON& result, XDWORD timeout)
-* @brief      Command_Do
+* @brief      Command do
 * @ingroup    DATAIO
 * 
 * @param[in]  connection : 
@@ -616,7 +616,7 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Command_Do(DIOCOREPROTOCOL_CONNECTION* 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Command_Do(DIOCOREPROTOCOL_CONNECTION* connection, XDWORD command_type, XFILEJSON* params, XFILEJSON& result, XDWORD timeout)
-* @brief      Command_Do
+* @brief      Command do
 * @ingroup    DATAIO
 * 
 * @param[in]  connection : 
@@ -638,7 +638,7 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Command_Do(DIOCOREPROTOCOL_CONNECTION* 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::UpdateClass_Do(DIOCOREPROTOCOL_CONNECTION* connection, XCHAR* classname, XSERIALIZABLE* classserializable, XDWORD timeout)
-* @brief      UpdateClass_Do
+* @brief      Update class do
 * @ingroup    DATAIO
 * 
 * @param[in]  connection : 
@@ -700,7 +700,7 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::UpdateClass_Do(DIOCOREPROTOCOL_CONNECTI
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::UpdateClass_DoAsk(DIOCOREPROTOCOL_CONNECTION* connection, XCHAR* classname, XSERIALIZABLE* classserializable, XDWORD timeout)
-* @brief      UpdateClass_DoAsk
+* @brief      Update class do ask
 * @ingroup    DATAIO
 * 
 * @param[in]  connection : 
@@ -756,7 +756,7 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::UpdateClass_DoAsk(DIOCOREPROTOCOL_CONNE
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::GetResult(DIOCOREPROTOCOL_CONNECTION* connection, XUUID* ID_message, XBUFFER& result, XDWORD timeout)
-* @brief      GetResult
+* @brief      Get result
 * @ingroup    DATAIO
 * 
 * @param[in]  connection : 
@@ -813,7 +813,7 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::GetResult(DIOCOREPROTOCOL_CONNECTION* c
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::GetResult(DIOCOREPROTOCOL_CONNECTION* connection, XUUID* ID_message, XSTRING& result, XDWORD timeout)
-* @brief      GetResult
+* @brief      Get result
 * @ingroup    DATAIO
 * 
 * @param[in]  connection : 
@@ -871,7 +871,7 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::GetResult(DIOCOREPROTOCOL_CONNECTION* c
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::GetResult(DIOCOREPROTOCOL_CONNECTION* connection, XUUID* ID_message, XFILEJSON& result, XDWORD timeout)
-* @brief      GetResult
+* @brief      Get result
 * @ingroup    DATAIO
 * 
 * @param[in]  connection : 
@@ -930,7 +930,7 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::GetResult(DIOCOREPROTOCOL_CONNECTION* c
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::UpdateClassSerialize(DIOCOREPROTOCOL_MESSAGE* message, XSERIALIZABLE* classcontent)
-* @brief      UpdateClassSerialize
+* @brief      Update class serialize
 * @ingroup    DATAIO
 * 
 * @param[in]  message : 
@@ -980,7 +980,7 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::UpdateClassSerialize(DIOCOREPROTOCOL_ME
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::UpdateClassDeserialize(DIOCOREPROTOCOL_MESSAGE* message, XSERIALIZABLE* classcontent)
-* @brief      UpdateClassDeserialize
+* @brief      Update class deserialize
 * @ingroup    DATAIO
 * 
 * @param[in]  message : 
@@ -1021,7 +1021,7 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::UpdateClassDeserialize(DIOCOREPROTOCOL_
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XVECTOR<DIOCOREPROTOCOL_CONNECTION*>* DIOCOREPROTOCOL_CONNECTIONSMANAGER::Connections_GetAll()
-* @brief      Connections_GetAll
+* @brief      Connections get all
 * @ingroup    DATAIO
 * 
 * @return     XVECTOR<DIOCOREPROTOCOL_CONNECTION*>* : 
@@ -1036,7 +1036,7 @@ XVECTOR<DIOCOREPROTOCOL_CONNECTION*>* DIOCOREPROTOCOL_CONNECTIONSMANAGER::Connec
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XMUTEX* DIOCOREPROTOCOL_CONNECTIONSMANAGER::Connections_GetXMutex()
-* @brief      Connections_GetXMutex
+* @brief      Connections get X mutex
 * @ingroup    DATAIO
 * 
 * @return     XMUTEX* : 
@@ -1051,7 +1051,7 @@ XMUTEX* DIOCOREPROTOCOL_CONNECTIONSMANAGER::Connections_GetXMutex()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Connections_Add(DIOSTREAM* diostream)
-* @brief      Connections_Add
+* @brief      Connections add
 * @ingroup    DATAIO
 * 
 * @param[in]  diostream : 
@@ -1095,7 +1095,7 @@ DIOCOREPROTOCOL_CONNECTION* DIOCOREPROTOCOL_CONNECTIONSMANAGER::Connections_Add(
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOCOREPROTOCOL_CONNECTION* DIOCOREPROTOCOL_CONNECTIONSMANAGER::Connections_Get(DIOSTREAM* diostream)
-* @brief      Connections_Get
+* @brief      Connections get
 * @ingroup    DATAIO
 * 
 * @param[in]  diostream : 
@@ -1144,7 +1144,7 @@ DIOCOREPROTOCOL_CONNECTION* DIOCOREPROTOCOL_CONNECTIONSMANAGER::Connections_Get(
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOCOREPROTOCOL_CONNECTION* DIOCOREPROTOCOL_CONNECTIONSMANAGER::Connections_Get(XDWORD index)
-* @brief      Connections_Get
+* @brief      Connections get
 * @ingroup    DATAIO
 * 
 * @param[in]  index : 
@@ -1180,7 +1180,7 @@ DIOCOREPROTOCOL_CONNECTION* DIOCOREPROTOCOL_CONNECTIONSMANAGER::Connections_Get(
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Connections_Delete(DIOCOREPROTOCOL_CONNECTION* connection)
-* @brief      Connections_Delete
+* @brief      Connections delete
 * @ingroup    DATAIO
 * 
 * @param[in]  connection : 
@@ -1215,7 +1215,7 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Connections_Delete(DIOCOREPROTOCOL_CONN
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Connections_DeleteAllDisconnected()
-* @brief      Connections_DeleteAllDisconnected
+* @brief      Connections delete all disconnected
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
@@ -1267,7 +1267,7 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Connections_DeleteAllDisconnected()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Connections_DeleteAll()
-* @brief      Connections_DeleAll
+* @brief      Connections delete all
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
@@ -1300,7 +1300,7 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Connections_DeleteAll()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::CreateIDMachine(XUUID& ID)
-* @brief      CreateIDMachine
+* @brief      Create ID machine
 * @ingroup    DATAIO
 * 
 * @param[in]  ID : 
@@ -1369,7 +1369,7 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::CreateIDMachine(XUUID& ID)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Connections_ReadMessages()
-* @brief      Connections_ReadMessages
+* @brief      Connections read messages
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
@@ -1529,7 +1529,7 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Connections_ReadMessages()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Received_AllCommandMessages(DIOCOREPROTOCOL_CONNECTION* connection, DIOCOREPROTOCOL_MESSAGE* message)
-* @brief      Received_AllCommandMessages
+* @brief      Received all command messages
 * @ingroup    DATAIO
 * 
 * @param[in]  connection : 
@@ -1614,7 +1614,7 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Received_AllCommandMessages(DIOCOREPROT
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Received_AdditionalCommandMessages(DIOCOREPROTOCOL_CONNECTION* connection, DIOCOREPROTOCOL_MESSAGE* message)
-* @brief      Received_AdditionalCommandMessages
+* @brief      Received additional command messages
 * @ingroup    DATAIO
 * 
 * @param[in]  connection : 
@@ -1672,7 +1672,7 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Received_AdditionalCommandMessages(DIOC
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Received_AllUpdateClassMessages(DIOCOREPROTOCOL_CONNECTION* connection, DIOCOREPROTOCOL_MESSAGE* message)
-* @brief      Received_AllUpdateClassMessages
+* @brief      Received all update class messages
 * @ingroup    DATAIO
 * 
 * @param[in]  connection : 
@@ -1761,7 +1761,7 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Received_AllUpdateClassMessages(DIOCORE
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Received_AdditionalUpdateClassMessages(DIOCOREPROTOCOL_CONNECTION* connection, DIOCOREPROTOCOL_MESSAGE* message)
-* @brief      Received_AdditionalUpdateClassMessages
+* @brief      Received additional update class messages
 * @ingroup    DATAIO
 * 
 * @param[in]  connection : 
@@ -1814,7 +1814,7 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Received_AdditionalUpdateClassMessages(
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Received_AllAskUpdateClassMessages(DIOCOREPROTOCOL_CONNECTION* connection, DIOCOREPROTOCOL_MESSAGE* message)
-* @brief      Received_AllAskUpdateClassMessages
+* @brief      Received all ask update class messages
 * @ingroup    DATAIO
 * 
 * @param[in]  connection : 
@@ -1897,7 +1897,7 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Received_AllAskUpdateClassMessages(DIOC
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Received_AdditionalAskUpdateClassMessages(DIOCOREPROTOCOL_CONNECTION* connection, DIOCOREPROTOCOL_MESSAGE* message)
-* @brief      Received_AdditionalAskUpdateClassMessages
+* @brief      Received additional ask update class messages
 * @ingroup    DATAIO
 * 
 * @param[in]  connection : 
@@ -1951,7 +1951,7 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Received_AdditionalAskUpdateClassMessag
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::GenerateResponseUpdateClass(XFILEJSON& xfileJSON, bool statusresponse)
-* @brief      GenerateResponseUpdateClass
+* @brief      Generate response update class
 * @ingroup    DATAIO
 * 
 * @param[in]  xfileJSON : 
@@ -1988,7 +1988,7 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::GenerateResponseUpdateClass(XFILEJSON& 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOCOREPROTOCOL_CONNECTIONSMANAGER::HandleEvent_CoreProtocolConnectionsManager(DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT* event)
-* @brief      Handle Event for the observer manager of this class
+* @brief      Handle event core protocol connections manager
 * @note       INTERNAL
 * @ingroup    DATAIO
 * 
@@ -2007,7 +2007,7 @@ void DIOCOREPROTOCOL_CONNECTIONSMANAGER::HandleEvent_CoreProtocolConnectionsMana
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOCOREPROTOCOL_CONNECTIONSMANAGER::HandleEvent_DIOStream(DIOSTREAM_XEVENT* event)
-* @brief      Handle Event for the observer manager of this class
+* @brief      Handle event DIO stream
 * @note       INTERNAL
 * @ingroup    DATAIO
 * 
@@ -2085,7 +2085,7 @@ void DIOCOREPROTOCOL_CONNECTIONSMANAGER::HandleEvent_DIOStream(DIOSTREAM_XEVENT*
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOCOREPROTOCOL_CONNECTIONSMANAGER::HandleEvent(XEVENT* xevent)
-* @brief      Handle Event for the observer manager of this class
+* @brief      Handle event
 * @note       INTERNAL
 * @ingroup    DATAIO
 * 
@@ -2121,7 +2121,7 @@ void DIOCOREPROTOCOL_CONNECTIONSMANAGER::HandleEvent(XEVENT* xevent)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOCOREPROTOCOL_CONNECTIONSMANAGER::ThreadConnections(void* param)
-* @brief      ThreadConnections
+* @brief      Thread connections
 * @ingroup    DATAIO
 * 
 * @param[in]  param : 
@@ -2254,7 +2254,7 @@ void DIOCOREPROTOCOL_CONNECTIONSMANAGER::ThreadConnections(void* param)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOCOREPROTOCOL_CONNECTIONSMANAGER::ThreadAutomaticOperations(void* param)
-* @brief      ThreadAutomaticOperations
+* @brief      Thread automatic operations
 * @ingroup    DATAIO
 * 
 * @param[in]  param : 
@@ -2448,7 +2448,7 @@ void DIOCOREPROTOCOL_CONNECTIONSMANAGER::ThreadAutomaticOperations(void* param)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOCOREPROTOCOL_CONNECTIONSMANAGER::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 * 

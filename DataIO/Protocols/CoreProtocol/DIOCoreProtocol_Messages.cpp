@@ -68,7 +68,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOCOREPROTOCOL_MESSAGE::DIOCOREPROTOCOL_MESSAGE()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -81,7 +81,7 @@ DIOCOREPROTOCOL_MESSAGE::DIOCOREPROTOCOL_MESSAGE()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOCOREPROTOCOL_MESSAGE::~DIOCOREPROTOCOL_MESSAGE()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 * 
@@ -95,7 +95,7 @@ DIOCOREPROTOCOL_MESSAGE::~DIOCOREPROTOCOL_MESSAGE()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOCOREPROTOCOL_MESSAGE_TYPE_ACQUISITION DIOCOREPROTOCOL_MESSAGE::GetAcquisitionType()
-* @brief      GetAcquisitionType
+* @brief      Get acquisition type
 * @ingroup    DATAIO
 * 
 * @return     DIOCOREPROTOCOL_MESSAGE_TYPE_ACQUISITION : 
@@ -110,7 +110,7 @@ DIOCOREPROTOCOL_MESSAGE_TYPE_ACQUISITION DIOCOREPROTOCOL_MESSAGE::GetAcquisition
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOCOREPROTOCOL_MESSAGE::SetAcquisitionType(DIOCOREPROTOCOL_MESSAGE_TYPE_ACQUISITION acquisitiontype)
-* @brief      SetAcquisitionType
+* @brief      Set acquisition type
 * @ingroup    DATAIO
 * 
 * @param[in]  acquisitiontype : 
@@ -125,7 +125,7 @@ void DIOCOREPROTOCOL_MESSAGE::SetAcquisitionType(DIOCOREPROTOCOL_MESSAGE_TYPE_AC
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOCOREPROTOCOL_HEADER* DIOCOREPROTOCOL_MESSAGE::GetHeader()
-* @brief      GetHeader
+* @brief      Get header
 * @ingroup    DATAIO
 * 
 * @return     DIOCOREPROTOCOL_HEADER* : 
@@ -140,7 +140,7 @@ DIOCOREPROTOCOL_HEADER* DIOCOREPROTOCOL_MESSAGE::GetHeader()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBUFFER* DIOCOREPROTOCOL_MESSAGE::GetContent()
-* @brief      GetContent
+* @brief      Get content
 * @ingroup    DATAIO
 * 
 * @return     XBUFFER* : 
@@ -155,7 +155,7 @@ XBUFFER* DIOCOREPROTOCOL_MESSAGE::GetContent()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL_MESSAGE::IsConsumed()
-* @brief      IsConsumed
+* @brief      Is consumed
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
@@ -170,7 +170,7 @@ bool DIOCOREPROTOCOL_MESSAGE::IsConsumed()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOCOREPROTOCOL_MESSAGE::SetIsConsumed(bool isconsumed)
-* @brief      SetIsConsumed
+* @brief      Set is consumed
 * @ingroup    DATAIO
 * 
 * @param[in]  isconsumed : 
@@ -185,7 +185,7 @@ void DIOCOREPROTOCOL_MESSAGE::SetIsConsumed(bool isconsumed)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD DIOCOREPROTOCOL_MESSAGE::GetSizeAllMessage()
-* @brief      GetSizeAllMessage
+* @brief      Get size all message
 * @ingroup    DATAIO
 * 
 * @return     XDWORD : 
@@ -200,7 +200,7 @@ XDWORD DIOCOREPROTOCOL_MESSAGE::GetSizeAllMessage()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOCOREPROTOCOL_MESSAGE::SetSizeAllMessage(XDWORD sizeallmessage)
-* @brief      SetSizeAllMessage
+* @brief      Set size all message
 * @ingroup    DATAIO
 * 
 * @param[in]  sizeallmessage : 
@@ -215,7 +215,7 @@ void DIOCOREPROTOCOL_MESSAGE::SetSizeAllMessage(XDWORD sizeallmessage)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOCOREPROTOCOL_MESSAGE::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 * 
@@ -236,7 +236,7 @@ void DIOCOREPROTOCOL_MESSAGE::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOCOREPROTOCOL_MESSAGES::DIOCOREPROTOCOL_MESSAGES()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -251,7 +251,7 @@ DIOCOREPROTOCOL_MESSAGES::DIOCOREPROTOCOL_MESSAGES()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOCOREPROTOCOL_MESSAGES::~DIOCOREPROTOCOL_MESSAGES()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 * 
@@ -272,7 +272,7 @@ DIOCOREPROTOCOL_MESSAGES::~DIOCOREPROTOCOL_MESSAGES()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XMAP<DIOCOREPROTOCOL_MESSAGE*, DIOCOREPROTOCOL_MESSAGE*>* DIOCOREPROTOCOL_MESSAGES::GetAll()
-* @brief      GetAll
+* @brief      Get all
 * @ingroup    DATAIO
 * 
 * @return     XMAP<DIOCOREPROTOCOL_MESSAGE*, : 
@@ -386,7 +386,7 @@ bool DIOCOREPROTOCOL_MESSAGES::Delete(XUUID* IDmessage)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL_MESSAGES::DeleteAll()
-* @brief      DeleteAll
+* @brief      Delete all
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
@@ -421,7 +421,7 @@ bool DIOCOREPROTOCOL_MESSAGES::DeleteAll()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int DIOCOREPROTOCOL_MESSAGES::FindRequest(XUUID* IDmessage)
-* @brief      FindRequest
+* @brief      Find request
 * @ingroup    DATAIO
 * 
 * @param[in]  IDmessage : 
@@ -463,7 +463,7 @@ int DIOCOREPROTOCOL_MESSAGES::FindRequest(XUUID* IDmessage)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int DIOCOREPROTOCOL_MESSAGES::FindResponse(XUUID* IDmessage)
-* @brief      FindResponse
+* @brief      Find response
 * @ingroup    DATAIO
 * 
 * @param[in]  IDmessage : 
@@ -505,7 +505,7 @@ int DIOCOREPROTOCOL_MESSAGES::FindResponse(XUUID* IDmessage)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int DIOCOREPROTOCOL_MESSAGES::FindRequest(DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param)
-* @brief      FindRequest
+* @brief      Find request
 * @ingroup    DATAIO
 * 
 * @param[in]  operation : 
@@ -548,7 +548,7 @@ int DIOCOREPROTOCOL_MESSAGES::FindRequest(DIOCOREPROTOCOL_HEADER_OPERATION opera
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int DIOCOREPROTOCOL_MESSAGES::FindResponse(DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param)
-* @brief      FindResponse
+* @brief      Find response
 * @ingroup    DATAIO
 * 
 * @param[in]  operation : 
@@ -591,7 +591,7 @@ int DIOCOREPROTOCOL_MESSAGES::FindResponse(DIOCOREPROTOCOL_HEADER_OPERATION oper
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL_MESSAGES::AddRequest(DIOCOREPROTOCOL_MESSAGE* message_request)
-* @brief      AddRequest
+* @brief      Add request
 * @ingroup    DATAIO
 * 
 * @param[in]  message_request : 
@@ -630,7 +630,7 @@ bool DIOCOREPROTOCOL_MESSAGES::AddRequest(DIOCOREPROTOCOL_MESSAGE* message_reque
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL_MESSAGES::AddResponse(DIOCOREPROTOCOL_MESSAGE* message_response)
-* @brief      AddResponse
+* @brief      Add response
 * @ingroup    DATAIO
 * 
 * @param[in]  message_response : 
@@ -674,7 +674,7 @@ bool DIOCOREPROTOCOL_MESSAGES::AddResponse(DIOCOREPROTOCOL_MESSAGE* message_resp
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL_MESSAGES::ShowDebug(bool isserver)
-* @brief      ShowDebug
+* @brief      Show debug
 * @ingroup    DATAIO
 * 
 * @param[in]  isserver : 
@@ -776,7 +776,7 @@ bool DIOCOREPROTOCOL_MESSAGES::ShowDebug(bool isserver)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOCOREPROTOCOL_MESSAGES::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 * 

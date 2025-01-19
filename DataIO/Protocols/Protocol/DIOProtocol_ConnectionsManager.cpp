@@ -83,7 +83,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOPROTOCOL_CONNECTION::DIOPROTOCOL_CONNECTION(DIOSTREAMCONFIG* diostreamcfg)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * @param[in]  diostreamcfg :
@@ -104,7 +104,7 @@ DIOPROTOCOL_CONNECTION::DIOPROTOCOL_CONNECTION(DIOSTREAMCONFIG* diostreamcfg)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOPROTOCOL_CONNECTION::~DIOPROTOCOL_CONNECTION()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -120,7 +120,7 @@ DIOPROTOCOL_CONNECTION::~DIOPROTOCOL_CONNECTION()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMCONFIG* DIOPROTOCOL_CONNECTION::GetDIOStreamConfig()
-* @brief      GetDIOStreamConfig
+* @brief      Get DIO stream config
 * @ingroup    DATAIO
 *
 * @return     DIOSTREAMCONFIG* :
@@ -135,7 +135,7 @@ DIOSTREAMCONFIG* DIOPROTOCOL_CONNECTION::GetDIOStreamConfig()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOPROTOCOL* DIOPROTOCOL_CONNECTION::GetDIOProtocol()
-* @brief      GetDIOProtocol
+* @brief      Get DIO protocol
 * @ingroup    DATAIO
 *
 * @return     DIOPROTOCOL* :
@@ -150,7 +150,7 @@ DIOPROTOCOL* DIOPROTOCOL_CONNECTION::GetDIOProtocol()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOPROTOCOL_CONNECTION::SetDIOProtocol(DIOPROTOCOL* protocol)
-* @brief      SetDIOProtocol
+* @brief      Set DIO protocol
 * @ingroup    DATAIO
 *
 * @param[in]  protocol :
@@ -204,7 +204,7 @@ bool DIOPROTOCOL_CONNECTION::Disconected()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOPROTOCOL_CONNECTION::SetInUse(bool inuse, XDWORD ID)
-* @brief      SetInUse
+* @brief      Set in use
 * @ingroup    DATAIO
 *
 * @param[in]  inuse :
@@ -232,7 +232,7 @@ bool DIOPROTOCOL_CONNECTION::SetInUse(bool inuse, XDWORD ID)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOPROTOCOL_CONNECTION::IsInUse()
-* @brief      IsInUse
+* @brief      Is in use
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -255,7 +255,7 @@ bool DIOPROTOCOL_CONNECTION::IsInUse()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOPROTOCOL_CONNECTION::IsSendEventConnected()
-* @brief      IsSendEventConnected
+* @brief      Is send event connected
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -270,7 +270,7 @@ bool DIOPROTOCOL_CONNECTION::IsSendEventConnected()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOPROTOCOL_CONNECTION::SetIsSendEventConnected(bool issendeventconnected)
-* @brief      SetIsSendEventConnected
+* @brief      Set is send event connected
 * @ingroup    DATAIO
 *
 * @param[in]  issendeventconnected :
@@ -285,7 +285,7 @@ void DIOPROTOCOL_CONNECTION::SetIsSendEventConnected(bool issendeventconnected)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOPROTOCOL_CONNECTION::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *
@@ -309,7 +309,7 @@ void DIOPROTOCOL_CONNECTION::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOPROTOCOL_CONNECTIONSMANAGER::DIOPROTOCOL_CONNECTIONSMANAGER()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -328,7 +328,7 @@ DIOPROTOCOL_CONNECTIONSMANAGER::DIOPROTOCOL_CONNECTIONSMANAGER()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOPROTOCOL_CONNECTIONSMANAGER::~DIOPROTOCOL_CONNECTIONSMANAGER()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -450,7 +450,7 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER::End()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOPROTOCOL_CONNECTIONSMANAGER::TargetURL_GetNTargets()
-* @brief      TargetURL_GetNTargets
+* @brief      Target URL get N targets
 * @ingroup    DATAIO
 *
 * @return     int :
@@ -465,7 +465,7 @@ int DIOPROTOCOL_CONNECTIONSMANAGER::TargetURL_GetNTargets()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOPROTOCOL_CONNECTIONSMANAGER::TargetURL_Add(XCHAR* URL)
-* @brief      TargetURL_Add
+* @brief      Target URL add
 * @ingroup    DATAIO
 *
 * @param[in]  URL :
@@ -491,7 +491,7 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER::TargetURL_Add(XCHAR* URL)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOPROTOCOL_CONNECTIONSMANAGER::TargetURL_Add(XSTRING& URL)
-* @brief      TargetURL_Add
+* @brief      Target URL add
 * @ingroup    DATAIO
 *
 * @param[in]  URL :
@@ -508,7 +508,7 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER::TargetURL_Add(XSTRING& URL)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOPROTOCOL_CONNECTIONSMANAGER::TargetURL_Add(DIOURL& URL)
-* @brief      TargetURL_Add
+* @brief      Target URL add
 * @ingroup    DATAIO
 *
 * @param[in]  URL :
@@ -525,7 +525,7 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER::TargetURL_Add(DIOURL& URL)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* DIOPROTOCOL_CONNECTIONSMANAGER::TargetURL_Get(int index)
-* @brief      TargetURL_Get
+* @brief      Target URL get
 * @ingroup    DATAIO
 *
 * @param[in]  index :
@@ -542,7 +542,7 @@ XSTRING* DIOPROTOCOL_CONNECTIONSMANAGER::TargetURL_Get(int index)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOPROTOCOL_CONNECTIONSMANAGER::TargetURL_Delete(int index)
-* @brief      TargetURL_Delete
+* @brief      Target URL delete
 * @ingroup    DATAIO
 *
 * @param[in]  index :
@@ -566,7 +566,7 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER::TargetURL_Delete(int index)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOPROTOCOL_CONNECTIONSMANAGER::TargetURL_DeleteAll()
-* @brief      TargetURL_DeleteAll
+* @brief      Target URL delete all
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -586,7 +586,7 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER::TargetURL_DeleteAll()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_GetNLimit()
-* @brief      ProtocolConnections_GetNLimit
+* @brief      Protocol connections get N limit
 * @ingroup    DATAIO
 *
 * @return     int :
@@ -601,7 +601,7 @@ int DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_GetNLimit()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_SetNLimit(int protocolconnectionsnlimit)
-* @brief      ProtocolConnections_SetNLimit
+* @brief      Protocol connections set N limit
 * @ingroup    DATAIO
 *
 * @param[in]  protocolconnectionsnlimit :
@@ -616,7 +616,7 @@ void DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_SetNLimit(int protocolc
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_GetNAvailable()
-* @brief      ProtocolConnections_GetNAvailable
+* @brief      Protocol connections get N available
 * @ingroup    DATAIO
 *
 * @return     int :
@@ -631,7 +631,7 @@ int DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_GetNAvailable()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOPROTOCOL_CONNECTION* DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_Get(int index)
-* @brief      ProtocolConnections_Get
+* @brief      Protocol connections get
 * @ingroup    DATAIO
 *
 * @param[in]  index :
@@ -664,7 +664,7 @@ DIOPROTOCOL_CONNECTION* DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_Get(
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOPROTOCOL_CONNECTION* DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_GetFirstConnected()
-* @brief      ProtocolConnections_GetFirstConnected
+* @brief      Protocol connections get first connected
 * @ingroup    DATAIO
 *
 * @return     DIOPROTOCOL_CONNECTION* :
@@ -708,7 +708,7 @@ DIOPROTOCOL_CONNECTION* DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_GetF
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOPROTOCOL_CONNECTION* DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_GetFirstOperative()
-* @brief      ProtocolConnections_GetFirstOperative
+* @brief      Protocol connections get first operative
 * @ingroup    DATAIO
 *
 * @return     DIOPROTOCOL_CONNECTION* :
@@ -752,7 +752,7 @@ DIOPROTOCOL_CONNECTION* DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_GetF
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOPROTOCOL_CONNECTION* DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_GetByDIOStream(DIOSTREAM* diostream)
-* @brief      ProtocolConnections_GetByDIOStream
+* @brief      Protocol connections get by DIO stream
 * @ingroup    DATAIO
 *
 * @param[in]  diostream :
@@ -796,7 +796,7 @@ DIOPROTOCOL_CONNECTION* DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_GetB
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOPROTOCOL* DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_GetProtocol(int index)
-* @brief      ProtocolConnections_GetProtocol
+* @brief      Protocol connections get protocol
 * @ingroup    DATAIO
 *
 * @param[in]  index :
@@ -836,7 +836,7 @@ DIOPROTOCOL* DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_GetProtocol(int
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_GetNConnected()
-* @brief      ProtocolConnections_GetNConnected
+* @brief      Protocol connections get N connected
 * @ingroup    DATAIO
 *
 * @return     int :
@@ -872,7 +872,7 @@ int DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_GetNConnected()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_GetNFreeToConnect()
-* @brief      ProtocolConnections_GetNFreeToConnect
+* @brief      Protocol connections get N free to connect
 * @ingroup    DATAIO
 *
 * @return     int :
@@ -908,7 +908,7 @@ int DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_GetNFreeToConnect()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_SendEventConnected()
-* @brief      ProtocolConnections_SendEventConnected
+* @brief      Protocol connections send event connected
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -951,7 +951,7 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_SendEventConnected()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_DeleteAllWaitConnections()
-* @brief      ProtocolConnections_DeleteAllWaitConnections
+* @brief      Protocol connections delete all wait connections
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -999,7 +999,7 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_DeleteAllWaitConnection
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_DeleteDisconnected()
-* @brief      ProtocolConnections_DeleteDisconnected
+* @brief      Protocol connections delete disconnected
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -1046,7 +1046,7 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_DeleteDisconnected()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_Disconnect(int index)
-* @brief      ProtocolConnections_Disconnect
+* @brief      Protocol connections disconnect
 * @ingroup    DATAIO
 *
 * @param[in]  index :
@@ -1089,7 +1089,7 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_Disconnect(int index)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_DisconnectAll()
-* @brief      ProtocolConnections_DisconnectAll
+* @brief      Protocol connections disconnect all
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -1131,7 +1131,7 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_DisconnectAll()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_Delete(int index)
-* @brief      ProtocolConnections_Delete
+* @brief      Protocol connections delete
 * @ingroup    DATAIO
 *
 * @param[in]  index :
@@ -1178,7 +1178,7 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_Delete(int index)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_DeleteAll()
-* @brief      ProtocolConnections_DeleteAll
+* @brief      Protocol connections delete all
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -1220,7 +1220,7 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_DeleteAll()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOPROTOCOL_CONNECTIONSMANAGER::WaitToAnyConnectionIsConnected(int timeout)
-* @brief      WaitToAnyConnectionIsConnected
+* @brief      Wait to any connection is connected
 * @ingroup    DATAIO
 *
 * @param[in]  timeout :
@@ -1259,7 +1259,7 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER::WaitToAnyConnectionIsConnected(int timeout)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOPROTOCOL_CONNECTIONSMANAGER::WaitToAllConnectionsCanBeDeleted(int timeout)
-* @brief      WaitToAllConnectionsCanBeDeleted
+* @brief      Wait to all connections can be deleted
 * @ingroup    DATAIO
 *
 * @param[in]  timeout :
@@ -1317,7 +1317,7 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER::WaitToAllConnectionsCanBeDeleted(int timeou
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOPROTOCOL_CONNECTIONSMANAGER::SendEvent(DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT_TYPE type, DIOPROTOCOL_CONNECTION* protocolconnection)
-* @brief      SendEvent
+* @brief      Send event
 * @ingroup    DATAIO
 *
 * @param[in]  type :
@@ -1345,7 +1345,7 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER::SendEvent(DIOPROTOCOL_CONNECTIONSMANAGER_XE
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOPROTOCOL_CONNECTIONSMANAGER::Application_GetVersion(XDWORD& version, XDWORD& subversion, XDWORD& subversionerr)
-* @brief      Application_GetVersion
+* @brief      Application get version
 * @ingroup    DATAIO
 *
 * @param[in]  version :
@@ -1364,7 +1364,7 @@ void DIOPROTOCOL_CONNECTIONSMANAGER::Application_GetVersion(XDWORD& version, XDW
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOPROTOCOL_CONNECTIONSMANAGER::Application_SetVersion(XDWORD version, XDWORD subversion, XDWORD subversionerr)
-* @brief      Application_SetVersion
+* @brief      Application set version
 * @ingroup    DATAIO
 *
 * @param[in]  version :
@@ -1383,7 +1383,7 @@ void DIOPROTOCOL_CONNECTIONSMANAGER::Application_SetVersion(XDWORD version, XDWO
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* DIOPROTOCOL_CONNECTIONSMANAGER::Application_GetName()
-* @brief      Application_GetName
+* @brief      Application get name
 * @ingroup    DATAIO
 *
 * @return     XSTRING* :
@@ -1398,7 +1398,7 @@ XSTRING* DIOPROTOCOL_CONNECTIONSMANAGER::Application_GetName()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOPROTOCOL_CONNECTIONSMANAGER::ManageProtocolConnectionsServer()
-* @brief      ManageProtocolConnectionsServer
+* @brief      Manage protocol connections server
 * @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -1465,7 +1465,7 @@ void DIOPROTOCOL_CONNECTIONSMANAGER::ManageProtocolConnectionsServer()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOPROTOCOL_CONNECTIONSMANAGER::ManageProtocolConnectionsClient()
-* @brief      ManageProtocolConnectionsClient
+* @brief      Manage protocol connections client
 * @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -1627,7 +1627,7 @@ void DIOPROTOCOL_CONNECTIONSMANAGER::ManageProtocolConnectionsClient()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOPROTOCOL_CONNECTIONSMANAGER::ThreadProtocolConnections(void* param)
-* @brief      ThreadProtocolConnections
+* @brief      Thread protocol connections
 * @ingroup    DATAIO
 *
 * @param[in]  param :
@@ -1735,7 +1735,7 @@ void DIOPROTOCOL_CONNECTIONSMANAGER::ThreadProtocolConnections(void* param)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOPROTOCOL_CONNECTIONSMANAGER::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

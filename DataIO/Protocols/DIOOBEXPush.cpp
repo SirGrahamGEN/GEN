@@ -82,7 +82,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOOBEXPUSHFILE::DIOOBEXPUSHFILE()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -95,7 +95,7 @@ DIOOBEXPUSHFILE::DIOOBEXPUSHFILE()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOOBEXPUSHFILE::~DIOOBEXPUSHFILE()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 * 
@@ -109,7 +109,7 @@ DIOOBEXPUSHFILE::~DIOOBEXPUSHFILE()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD DIOOBEXPUSHFILE::GetID()
-* @brief      GetID
+* @brief      Get ID
 * @ingroup    DATAIO
 * 
 * @return     XDWORD : 
@@ -124,7 +124,7 @@ XDWORD DIOOBEXPUSHFILE::GetID()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XPATH* DIOOBEXPUSHFILE::GetXPath()
-* @brief      GetXPath
+* @brief      Get X path
 * @ingroup    DATAIO
 * 
 * @return     XPATH* : 
@@ -139,7 +139,7 @@ XPATH* DIOOBEXPUSHFILE::GetXPath()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* DIOOBEXPUSHFILE::GetNameSend()
-* @brief      GetNameSend
+* @brief      Get name send
 * @ingroup    DATAIO
 * 
 * @return     XSTRING* : 
@@ -154,7 +154,7 @@ XSTRING* DIOOBEXPUSHFILE::GetNameSend()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOOBEXPUSHFILE::IsSend()
-* @brief      IsSend
+* @brief      Is send
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
@@ -169,7 +169,7 @@ bool DIOOBEXPUSHFILE::IsSend()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTE DIOOBEXPUSHFILE::GetSendPercent()
-* @brief      GetSendPercent
+* @brief      Get send percent
 * @ingroup    DATAIO
 * 
 * @return     XBYTE : 
@@ -184,7 +184,7 @@ XBYTE DIOOBEXPUSHFILE::GetSendPercent()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XQWORD DIOOBEXPUSHFILE::GetSendTimeElapsed()
-* @brief      GetSendTimeElapsed
+* @brief      Get send time elapsed
 * @ingroup    DATAIO
 * 
 * @return     XQWORD : 
@@ -199,7 +199,7 @@ XQWORD DIOOBEXPUSHFILE::GetSendTimeElapsed()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOOBEXPUSHERROR DIOOBEXPUSHFILE::GetError()
-* @brief      GetError
+* @brief      Get error
 * @ingroup    DATAIO
 * 
 * @return     DIOOBEXPUSHERROR : 
@@ -214,7 +214,7 @@ DIOOBEXPUSHERROR DIOOBEXPUSHFILE::GetError()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOOBEXPUSHFILE::SetID(XDWORD ID)
-* @brief      SetID
+* @brief      Set ID
 * @ingroup    DATAIO
 * 
 * @param[in]  ID : 
@@ -233,7 +233,7 @@ bool DIOOBEXPUSHFILE::SetID(XDWORD ID)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOOBEXPUSHFILE::SetIsSend(bool issend)
-* @brief      SetIsSend
+* @brief      Set is send
 * @ingroup    DATAIO
 * 
 * @param[in]  issend : 
@@ -252,7 +252,7 @@ bool DIOOBEXPUSHFILE::SetIsSend(bool issend)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOOBEXPUSHFILE::SetSendPercent(XBYTE percent)
-* @brief      SetSendPercent
+* @brief      Set send percent
 * @ingroup    DATAIO
 * 
 * @param[in]  percent : 
@@ -271,7 +271,7 @@ bool DIOOBEXPUSHFILE::SetSendPercent(XBYTE percent)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOOBEXPUSHFILE::SetSendTimeElapsed(XQWORD sendtimeelapsed)
-* @brief      SetSendTimeElapsed
+* @brief      Set send time elapsed
 * @ingroup    DATAIO
 * 
 * @param[in]  sendtimeelapsed : 
@@ -290,7 +290,7 @@ bool DIOOBEXPUSHFILE::SetSendTimeElapsed(XQWORD sendtimeelapsed)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOOBEXPUSHFILE::SetError(DIOOBEXPUSHERROR error)
-* @brief      SetError
+* @brief      Set error
 * @ingroup    DATAIO
 * 
 * @param[in]  error : 
@@ -309,7 +309,7 @@ bool DIOOBEXPUSHFILE::SetError(DIOOBEXPUSHERROR error)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOOBEXPUSHFILE::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 * 
@@ -333,7 +333,7 @@ void DIOOBEXPUSHFILE::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOOBEXPUSH::DIOOBEXPUSH(DIOSTREAM* diostream, bool inlittleendian)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 * 
 * @param[in]  diostream : 
@@ -403,7 +403,7 @@ DIOOBEXPUSH::DIOOBEXPUSH(DIOSTREAM* diostream, bool inlittleendian) : XFSMACHINE
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOOBEXPUSH::~DIOOBEXPUSH()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 * 
@@ -472,7 +472,7 @@ bool DIOOBEXPUSH::Ini(int timeout)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOOBEXPUSH::IsSending()
-* @brief      IsSending
+* @brief      Is sending
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
@@ -491,7 +491,7 @@ bool DIOOBEXPUSH::IsSending()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOOBEXPUSH::SetIsSending(bool issending)
-* @brief      SetIsSending
+* @brief      Set is sending
 * @ingroup    DATAIO
 * 
 * @param[in]  issending : 
@@ -510,7 +510,7 @@ bool DIOOBEXPUSH::SetIsSending(bool issending)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOOBEXPUSH::SendFile(XPATH& xpath,XSTRING& namesend,XDWORD ID,int timeoutask)
-* @brief      SendFile
+* @brief      Send file
 * @ingroup    DATAIO
 * 
 * @param[in]  xpath : 
@@ -533,7 +533,7 @@ bool DIOOBEXPUSH::SendFile(XPATH& xpath,XSTRING& namesend,XDWORD ID,int timeouta
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOOBEXPUSH::SendFiles(int asktimeout)
-* @brief      SendFiles
+* @brief      Send files
 * @ingroup    DATAIO
 * 
 * @param[in]  asktimeout : 
@@ -563,7 +563,7 @@ bool DIOOBEXPUSH::SendFiles(int asktimeout)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XTIMER* DIOOBEXPUSH::GetXTimer()
-* @brief      GetXTimer
+* @brief      Get X timer
 * @ingroup    DATAIO
 * 
 * @return     XTIMER* : 
@@ -578,7 +578,7 @@ XTIMER* DIOOBEXPUSH::GetXTimer()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XQWORD DIOOBEXPUSH::GetAskTimeElapsed()
-* @brief      GetAskTimeElapsed
+* @brief      Get ask time elapsed
 * @ingroup    DATAIO
 * 
 * @return     XQWORD : 
@@ -593,7 +593,7 @@ XQWORD DIOOBEXPUSH::GetAskTimeElapsed()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOOBEXPUSH::SendFileList_AddFile(XPATH& xpath,XSTRING& namesend,XDWORD ID)
-* @brief      SendFileList_AddFile
+* @brief      Send file list add file
 * @ingroup    DATAIO
 * 
 * @param[in]  xpath : 
@@ -646,7 +646,7 @@ bool DIOOBEXPUSH::SendFileList_AddFile(XPATH& xpath,XSTRING& namesend,XDWORD ID)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOOBEXPUSHFILE* DIOOBEXPUSH::SendFileList_GetFile(int index)
-* @brief      SendFileList_GetFile
+* @brief      Send file list get file
 * @ingroup    DATAIO
 * 
 * @param[in]  index : 
@@ -666,7 +666,7 @@ DIOOBEXPUSHFILE* DIOOBEXPUSH::SendFileList_GetFile(int index)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOOBEXPUSHFILE* DIOOBEXPUSH::SendFileList_GetActualFile()
-* @brief      SendFileList_GetActualFile
+* @brief      Send file list get actual file
 * @ingroup    DATAIO
 * 
 * @return     DIOOBEXPUSHFILE* : 
@@ -684,7 +684,7 @@ DIOOBEXPUSHFILE* DIOOBEXPUSH::SendFileList_GetActualFile()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOOBEXPUSH::SendFileList_DeleteAll()
-* @brief      SendFileList_DeleteAll
+* @brief      Send file list delete all
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
@@ -705,7 +705,7 @@ bool DIOOBEXPUSH::SendFileList_DeleteAll()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int DIOOBEXPUSH::SendFileList_GetIndex()
-* @brief      SendFileList_GetIndex
+* @brief      Send file list get index
 * @ingroup    DATAIO
 * 
 * @return     int : 
@@ -723,7 +723,7 @@ int DIOOBEXPUSH::SendFileList_GetIndex()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int DIOOBEXPUSH::SendFileList_GetSize()
-* @brief      SendFileList_GetSize
+* @brief      Send file list get size
 * @ingroup    DATAIO
 * 
 * @return     int : 
@@ -789,7 +789,7 @@ bool DIOOBEXPUSH::End()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOSTREAM* DIOOBEXPUSH::GetDIOStream()
-* @brief      GetDIOStream
+* @brief      Get DIO stream
 * @ingroup    DATAIO
 * 
 * @return     DIOSTREAM* : 
@@ -804,7 +804,7 @@ DIOSTREAM* DIOOBEXPUSH::GetDIOStream()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XPATH* DIOOBEXPUSH::GetFileNameSend()
-* @brief      GetFileNameSend
+* @brief      Get file name send
 * @ingroup    DATAIO
 * 
 * @return     XPATH* : 
@@ -819,7 +819,7 @@ XPATH* DIOOBEXPUSH::GetFileNameSend()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD DIOOBEXPUSH::GenerateFileID(XPATH& xpath)
-* @brief      GenerateFileID
+* @brief      Generate file ID
 * @ingroup    DATAIO
 * 
 * @param[in]  xpath : 
@@ -842,7 +842,7 @@ XDWORD DIOOBEXPUSH::GenerateFileID(XPATH& xpath)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOOBEXPUSH::CheckSending()
-* @brief      CheckSending
+* @brief      Check sending
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
@@ -1147,7 +1147,7 @@ bool DIOOBEXPUSH::CheckSending()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOOBEXPUSH::ReadAnswer(XBUFFER& xbuffer)
-* @brief      ReadAnswer
+* @brief      Read answer
 * @ingroup    DATAIO
 * 
 * @param[in]  xbuffer : 
@@ -1173,7 +1173,7 @@ bool DIOOBEXPUSH::ReadAnswer(XBUFFER& xbuffer)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOOBEXPUSH::ThreadSend(void* data)
-* @brief      ThreadSend
+* @brief      Thread send
 * @ingroup    DATAIO
 * 
 * @param[in]  data : 
@@ -1191,7 +1191,7 @@ void DIOOBEXPUSH::ThreadSend(void* data)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOOBEXPUSH::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 * 

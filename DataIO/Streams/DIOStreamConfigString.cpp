@@ -64,7 +64,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMCONFIGSTRING::DIOSTREAMCONFIGSTRING()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -77,7 +77,7 @@ DIOSTREAMCONFIGSTRING::DIOSTREAMCONFIGSTRING()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMCONFIGSTRING::~DIOSTREAMCONFIGSTRING()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -91,7 +91,7 @@ DIOSTREAMCONFIGSTRING::~DIOSTREAMCONFIGSTRING()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMCONFIGSTRING::GetToString(XSTRING* string)
-* @brief      GetToString
+* @brief      Get to string
 * @ingroup    DATAIO
 *
 * @param[in]  string :
@@ -112,7 +112,7 @@ bool DIOSTREAMCONFIGSTRING::GetToString(XSTRING* string)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMCONFIGSTRING::GetToString(XSTRING& string)
-* @brief      GetToString
+* @brief      Get to string
 * @ingroup    DATAIO
 *
 * @param[in]  string :
@@ -129,7 +129,7 @@ bool DIOSTREAMCONFIGSTRING::GetToString(XSTRING& string)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMCONFIGSTRING::SetFromString(XCHAR* string)
-* @brief      SetFromString
+* @brief      Set from string
 * @ingroup    DATAIO
 *
 * @param[in]  string :
@@ -208,7 +208,7 @@ bool DIOSTREAMCONFIGSTRING::SetFromString(XCHAR* string)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMCONFIGSTRING::SetFromString(XSTRING* string)
-* @brief      SetFromString
+* @brief      Set from string
 * @ingroup    DATAIO
 *
 * @param[in]  string :
@@ -226,7 +226,7 @@ bool DIOSTREAMCONFIGSTRING::SetFromString(XSTRING* string)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMCONFIGSTRING::SetFromString(XSTRING& string, bool addslash)
-* @brief      SetFromString
+* @brief      Set from string
 * @ingroup    DATAIO
 *
 * @param[in]  string :
@@ -244,7 +244,7 @@ bool DIOSTREAMCONFIGSTRING::SetFromString(XSTRING& string, bool addslash)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSTREAMCONFIGSTRING::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

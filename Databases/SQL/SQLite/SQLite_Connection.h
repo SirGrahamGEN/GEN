@@ -4,7 +4,7 @@
 * 
 * @class      SQLITE_CONNECTION
 * @brief      DataBase SQL SQLite Connection class
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 * 
 * @copyright  GEN Group. All rights reserved.
 * 

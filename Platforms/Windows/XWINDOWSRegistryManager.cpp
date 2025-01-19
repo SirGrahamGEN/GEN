@@ -74,7 +74,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XWINDOWSREGISTRYKEY::XWINDOWSREGISTRYKEY()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_WINDOWS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -87,7 +87,7 @@ XWINDOWSREGISTRYKEY::XWINDOWSREGISTRYKEY()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XWINDOWSREGISTRYKEY::~XWINDOWSREGISTRYKEY()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
 *
@@ -101,7 +101,7 @@ XWINDOWSREGISTRYKEY::~XWINDOWSREGISTRYKEY()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         HKEY XWINDOWSREGISTRYKEY::GetHandle()
-* @brief      GetHandleKey
+* @brief      Get handle
 * @ingroup    PLATFORM_WINDOWS
 *
 * @return     HKEY :
@@ -116,7 +116,7 @@ HKEY XWINDOWSREGISTRYKEY::GetHandle()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XWINDOWSREGISTRYKEY::SetHandle(HKEY handlekey)
-* @brief      SetHandle
+* @brief      Set handle
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  handlekey :
@@ -131,7 +131,7 @@ void XWINDOWSREGISTRYKEY::SetHandle(HKEY handlekey)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD XWINDOWSREGISTRYKEY::GetType()
-* @brief      GetType
+* @brief      Get type
 * @ingroup    PLATFORM_WINDOWS
 *
 * @return     XDWORD :
@@ -146,7 +146,7 @@ XDWORD XWINDOWSREGISTRYKEY::GetType()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XWINDOWSREGISTRYKEY::SetType(XDWORD type)
-* @brief      SetType
+* @brief      Set type
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  type :
@@ -161,7 +161,7 @@ void XWINDOWSREGISTRYKEY::SetType(XDWORD type)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSREGISTRYKEY::ReadValue(XCHAR* name, XVARIANT& data)
-* @brief      ReadValue
+* @brief      Read value
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  name :
@@ -253,7 +253,7 @@ bool XWINDOWSREGISTRYKEY::ReadValue(XCHAR* name, XVARIANT& data)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSREGISTRYKEY::ReadValue(XSTRING& name, XVARIANT& data)
-* @brief      ReadValue
+* @brief      Read value
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  name :
@@ -271,7 +271,7 @@ bool XWINDOWSREGISTRYKEY::ReadValue(XSTRING& name, XVARIANT& data)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSREGISTRYKEY::WriteValue(XCHAR* name, XDWORD type, XVARIANT& data)
-* @brief      WriteValue
+* @brief      Write value
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  name :
@@ -297,7 +297,7 @@ bool XWINDOWSREGISTRYKEY::WriteValue(XCHAR* name, XDWORD type, XVARIANT& data)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSREGISTRYKEY::WriteValue(XCHAR* name, XVARIANT& data)
-* @brief      WriteValue
+* @brief      Write value
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  name :
@@ -361,7 +361,7 @@ bool XWINDOWSREGISTRYKEY::WriteValue(XCHAR* name, XVARIANT& data)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSREGISTRYKEY::WriteValue(XSTRING& name, XVARIANT& data)
-* @brief      WriteValue
+* @brief      Write value
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  name :
@@ -381,7 +381,7 @@ bool XWINDOWSREGISTRYKEY::WriteValue(XSTRING& name, XVARIANT& data)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSREGISTRYKEY::WriteValue(XSTRING& name, XDWORD type, XVARIANT& data);
-* @brief      WriteValue
+* @brief      Write value
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  name :
@@ -400,7 +400,7 @@ bool XWINDOWSREGISTRYKEY::WriteValue(XSTRING& name, XDWORD type, XVARIANT& data)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSREGISTRYKEY::EnumValues(XVECTOR<XSTRING*>* valuelist)
-* @brief      EnumValues
+* @brief      Enum values
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  valuelist :
@@ -444,7 +444,7 @@ bool XWINDOWSREGISTRYKEY::EnumValues(XVECTOR<XSTRING*>* valuelist)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSREGISTRYKEY::DeleteValue(XCHAR* name)
-* @brief      DeleteValue
+* @brief      Delete value
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  name :
@@ -466,7 +466,7 @@ bool XWINDOWSREGISTRYKEY::DeleteValue(XCHAR* name)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSREGISTRYKEY::DeleteValue(XSTRING& name)
-* @brief      DeleteValue
+* @brief      Delete value
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  name :
@@ -497,7 +497,7 @@ void XWINDOWSREGISTRYKEY::Clear()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XWINDOWSREGISTRYKEY::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
 *
@@ -517,7 +517,7 @@ void XWINDOWSREGISTRYKEY::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XWINDOWSREGISTRYMANAGER::XWINDOWSREGISTRYMANAGER()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_WINDOWS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -530,7 +530,7 @@ XWINDOWSREGISTRYMANAGER::XWINDOWSREGISTRYMANAGER()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XWINDOWSREGISTRYMANAGER::~XWINDOWSREGISTRYMANAGER()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
 *
@@ -544,7 +544,7 @@ XWINDOWSREGISTRYMANAGER::~XWINDOWSREGISTRYMANAGER()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSREGISTRYMANAGER::CreateKey(HKEY handlekey, XCHAR* subkeystring , XWINDOWSREGISTRYKEY& registrykey)
-* @brief      CreateKey
+* @brief      Create key
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  handlekey :
@@ -608,7 +608,7 @@ bool XWINDOWSREGISTRYMANAGER::CreateKey(HKEY handlekey, XCHAR* subkeystring, XWI
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSREGISTRYMANAGER::CreateKey(HKEY handlekey, XSTRING& subkeystring , XWINDOWSREGISTRYKEY& registrykey)
-* @brief      CreateKey
+* @brief      Create key
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  handlekey :
@@ -627,7 +627,7 @@ bool XWINDOWSREGISTRYMANAGER::CreateKey(HKEY handlekey, XSTRING& subkeystring, X
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSREGISTRYMANAGER::OpenKey(HKEY handlekey, XCHAR* subkeystring, XWINDOWSREGISTRYKEY& registrykey)
-* @brief      OpenKey
+* @brief      Open key
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  handlekey :
@@ -656,7 +656,7 @@ bool XWINDOWSREGISTRYMANAGER::OpenKey(HKEY handlekey, XCHAR* subkeystring, XWIND
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSREGISTRYMANAGER::OpenKey(HKEY handlekey, XSTRING& subkeystring, XWINDOWSREGISTRYKEY& registrykey)
-* @brief      OpenKey
+* @brief      Open key
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  handlekey :
@@ -675,7 +675,7 @@ bool XWINDOWSREGISTRYMANAGER::OpenKey(HKEY handlekey, XSTRING& subkeystring, XWI
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSREGISTRYMANAGER::EnumKeys(HKEY handlekey, XSTRING& subkeystring, XVECTOR<XSTRING*> keylist)
-* @brief      EnumKeys
+* @brief      Enum keys
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  handlekey :
@@ -724,7 +724,7 @@ bool XWINDOWSREGISTRYMANAGER::EnumKeys(XWINDOWSREGISTRYKEY& registrykey, XVECTOR
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSREGISTRYMANAGER::CloseKey(XWINDOWSREGISTRYKEY& registyrkey)
-* @brief      CloseKey
+* @brief      Close key
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  registyrkey :
@@ -747,7 +747,7 @@ bool XWINDOWSREGISTRYMANAGER::CloseKey(XWINDOWSREGISTRYKEY& registrykey)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSREGISTRYMANAGER::DeleteKey(HKEY handlekey, XCHAR* subkeystring)
-* @brief      DeleteKey
+* @brief      Delete key
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  handlekey :
@@ -814,7 +814,7 @@ bool XWINDOWSREGISTRYMANAGER::DeleteKey(HKEY handlekey, XCHAR* subkeystring)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSREGISTRYMANAGER::DeleteKey(HKEY handlekey, XSTRING& subkeystring)
-* @brief      DeleteKey
+* @brief      Delete key
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  handlekey :
@@ -832,7 +832,7 @@ bool XWINDOWSREGISTRYMANAGER::DeleteKey(HKEY handlekey, XSTRING& subkeystring)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XWINDOWSREGISTRYMANAGER::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
 *

@@ -66,7 +66,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPWINDOWSCONTEXT::GRPWINDOWSCONTEXT()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_WINDOWS
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -79,7 +79,7 @@ GRPWINDOWSCONTEXT::GRPWINDOWSCONTEXT() : GRPCONTEXT()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPWINDOWSCONTEXT::~GRPWINDOWSCONTEXT()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
 * 
@@ -193,7 +193,7 @@ bool GRPWINDOWSCONTEXT::Create(void* handle)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPWINDOWSCONTEXT::IsLost()
-* @brief      IsLost
+* @brief      Is lost
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @return     bool : true if is succesful. 
@@ -237,7 +237,7 @@ bool GRPWINDOWSCONTEXT::Destroy()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRPWINDOWSCONTEXT::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
 * 

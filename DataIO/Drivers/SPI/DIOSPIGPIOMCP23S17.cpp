@@ -72,7 +72,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOSPIGPIOMCP23S17::DIOSPIGPIOMCP23S17()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -85,7 +85,7 @@ DIOSPIGPIOMCP23S17::DIOSPIGPIOMCP23S17() : DIODEVICESPI()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSPIGPIOMCP23S17::~DIOSPIGPIOMCP23S17()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -101,7 +101,7 @@ DIOSPIGPIOMCP23S17::~DIOSPIGPIOMCP23S17()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSPIGPIOMCP23S17::IniDevice()
-* @brief      IniDevice
+* @brief      Ini device
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -183,7 +183,7 @@ bool DIOSPIGPIOMCP23S17::Configure()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSPIGPIOMCP23S17::Read_Register(XBYTE reg, XBYTE addr, XBYTE& data)
-* @brief      Read_Register
+* @brief      Read register
 * @ingroup    DATAIO
 *
 * @param[in]  reg : 
@@ -212,7 +212,7 @@ bool DIOSPIGPIOMCP23S17::Read_Register(XBYTE reg, XBYTE addr, XBYTE& data)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSPIGPIOMCP23S17::Write_Register(XBYTE reg, XBYTE addr, XBYTE data)
-* @brief      Write_Register
+* @brief      Write register
 * @ingroup    DATAIO
 *
 * @param[in]  reg : 
@@ -235,7 +235,7 @@ bool DIOSPIGPIOMCP23S17::Write_Register(XBYTE reg, XBYTE addr, XBYTE data)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSPIGPIOMCP23S17::Read_Bit(XBYTE reg, XBYTE addr, XBYTE bitnum, XBYTE& data)
-* @brief      Read_Bit
+* @brief      Read bit
 * @ingroup    DATAIO
 *
 * @param[in]  reg : 
@@ -260,7 +260,7 @@ bool DIOSPIGPIOMCP23S17::Read_Bit(XBYTE reg, XBYTE addr, XBYTE bitnum, XBYTE& da
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSPIGPIOMCP23S17::Write_Bit(XBYTE reg, XBYTE addr, XBYTE bitnum, XBYTE data)
-* @brief      Write_Bit
+* @brief      Write bit
 * @ingroup    DATAIO
 *
 * @param[in]  reg : 
@@ -327,7 +327,7 @@ bool DIOSPIGPIOMCP23S17::End()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMSPI* DIOSPIGPIOMCP23S17::GetDIOStreamSPI()
-* @brief      GetDIOStreamSPI
+* @brief      Get DIO stream SPI
 * @ingroup    DATAIO
 *
 * @return     DIOSTREAMSPI* :
@@ -342,7 +342,7 @@ DIOSTREAMSPI* DIOSPIGPIOMCP23S17::GetDIOStreamSPI()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSPIGPIOMCP23S17::SetDIOStreamSPI(DIOSTREAMSPI* diostream)
-* @brief      SetDIOStreamSPI
+* @brief      Set DIO stream SPI
 * @ingroup    DATAIO
 *
 * @param[in]  diostream :
@@ -358,7 +358,7 @@ void DIOSPIGPIOMCP23S17::SetDIOStreamSPI(DIOSTREAMSPI* diostream)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XBYTE DIOSPIGPIOMCP23S17::GetControlByte(XBYTE rw_cmd, XBYTE addr)
-* @brief      GetControlByte
+* @brief      Get control byte
 * @ingroup    DATAIO
 *
 * @param[in]  rw_cmd : 
@@ -378,7 +378,7 @@ XBYTE DIOSPIGPIOMCP23S17::GetControlByte(XBYTE rw_cmd, XBYTE addr)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSPIGPIOMCP23S17::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

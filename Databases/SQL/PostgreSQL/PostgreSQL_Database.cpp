@@ -4,7 +4,7 @@
 * 
 * @class      POSTGRESQL_DATABASE
 * @brief      DataBase SQL PostgreSQL Database class
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 * 
 * @copyright  GEN Group. All rights reserved.
 * 
@@ -72,8 +72,8 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         POSTGRESQL_DATABASE::POSTGRESQL_DATABASE()
-* @brief      Constructor
-* @ingroup    DATABASES
+* @brief      Constructor of class
+* @ingroup    DATABASE
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 POSTGRESQL_DATABASE::POSTGRESQL_DATABASE(): DB_SQL_DATABASE()
@@ -90,9 +90,9 @@ POSTGRESQL_DATABASE::POSTGRESQL_DATABASE(): DB_SQL_DATABASE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         POSTGRESQL_DATABASE::~POSTGRESQL_DATABASE()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 POSTGRESQL_DATABASE::~POSTGRESQL_DATABASE()
@@ -104,8 +104,8 @@ POSTGRESQL_DATABASE::~POSTGRESQL_DATABASE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DB_SQL_DATABASE_TYPE MYSQL_DATABASE::GetType()
-* @brief      GetType
-* @ingroup    DATABASES
+* @brief      Get type
+* @ingroup    DATABASE
 *
 * @return     DB_SQL_DATABASE_TYPE :
 *
@@ -119,8 +119,8 @@ DB_SQL_DATABASE_TYPE POSTGRESQL_DATABASE::GetType()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XCHAR* POSTGRESQL_DATABASE::GetTypeName()
-* @brief      GetTypeName
-* @ingroup    DATABASES
+* @brief      Get type name
+* @ingroup    DATABASE
 *
 * @return     XCHAR* :
 *
@@ -135,7 +135,7 @@ XCHAR* POSTGRESQL_DATABASE::GetTypeName()
 *
 * @fn         bool POSTGRESQL_DATABASE::Transaction()
 * @brief      Transaction
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 *
 * @return     bool : true if is succesful.
 *
@@ -163,7 +163,7 @@ bool POSTGRESQL_DATABASE::Transaction()
 *
 * @fn         bool POSTGRESQL_DATABASE::Commit()
 * @brief      Commit
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 *
 * @return     bool : true if is succesful.
 *
@@ -191,7 +191,7 @@ bool POSTGRESQL_DATABASE::Commit()
 *
 * @fn         bool POSTGRESQL_DATABASE::Rollback(XCHAR* savepointname)
 * @brief      Rollback
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 *
 * @param[in]  savepointname :
 *
@@ -221,7 +221,7 @@ bool POSTGRESQL_DATABASE::Rollback(XCHAR* savepointname)
 *
 * @fn         bool POSTGRESQL_DATABASE::Savepoint(XCHAR* savepoint)
 * @brief      Savepoint
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 *
 * @param[in]  savepoint :
 *
@@ -256,8 +256,8 @@ bool POSTGRESQL_DATABASE::Savepoint(XCHAR* savepoint)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool POSTGRESQL_DATABASE::ReleaseSavepoint(XCHAR* savepoint)
-* @brief      ReleaseSavepoint
-* @ingroup    DATABASES
+* @brief      Release savepoint
+* @ingroup    DATABASE
 *
 * @param[in]  savepoint :
 *
@@ -293,8 +293,8 @@ bool POSTGRESQL_DATABASE::ReleaseSavepoint(XCHAR* savepoint)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DB_SQL_QUERY* POSTGRESQL_DATABASE::CreateQuery()
-* @brief      CreateQuery
-* @ingroup    DATABASES
+* @brief      Create query
+* @ingroup    DATABASE
 *
 * @return     DB_SQL_QUERY* :
 *
@@ -309,8 +309,8 @@ DB_SQL_QUERY* POSTGRESQL_DATABASE::CreateQuery()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DB_SQL_CONNECTION* POSTGRESQL_DATABASE::CreateConnection()
-* @brief      CreateConnection
-* @ingroup    DATABASES
+* @brief      Create connection
+* @ingroup    DATABASE
 *
 * @return     DB_SQL_CONNECTION* :
 *
@@ -326,8 +326,8 @@ DB_SQL_CONNECTION* POSTGRESQL_DATABASE::CreateConnection()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool POSTGRESQL_DATABASE::GetTables()
-* @brief      GetTables
-* @ingroup    DATABASES
+* @brief      Get tables
+* @ingroup    DATABASE
 *
 * @return     bool : true if is succesful.
 *
@@ -383,8 +383,8 @@ bool POSTGRESQL_DATABASE::GetTables()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DB_SQL_DATABASE_ENCODING POSTGRESQL_DATABASE::GetDatabaseEncoding()
-* @brief      GetDatabaseEncoding
-* @ingroup    DATABASES
+* @brief      Get database encoding
+* @ingroup    DATABASE
 *
 * @return     DB_SQL_DATABASE_ENCODING :
 *
@@ -402,8 +402,8 @@ DB_SQL_DATABASE_ENCODING POSTGRESQL_DATABASE::GetDatabaseEncoding()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool POSTGRESQL_DATABASE::SetDatabaseEncoding(DB_SQL_DATABASE_ENCODING encodingtouse)
-* @brief      SetDatabaseEncoding
-* @ingroup    DATABASES
+* @brief      Set database encoding
+* @ingroup    DATABASE
 *
 * @param[in]  encodingtouse :
 *
@@ -473,8 +473,8 @@ bool POSTGRESQL_DATABASE::SetDatabaseEncoding(DB_SQL_DATABASE_ENCODING encodingt
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool POSTGRESQL_DATABASE::OnConnection()
-* @brief      OnConnection
-* @ingroup    DATABASES
+* @brief      On connection
+* @ingroup    DATABASE
 *
 * @return     bool : true if is succesful.
 *
@@ -491,8 +491,8 @@ bool POSTGRESQL_DATABASE::OnConnection()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool POSTGRESQL_DATABASE::OnDisconnection()
-* @brief      OnDisconnection
-* @ingroup    DATABASES
+* @brief      On disconnection
+* @ingroup    DATABASE
 *
 * @return     bool : true if is succesful.
 *
@@ -506,8 +506,8 @@ bool POSTGRESQL_DATABASE::OnDisconnection()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool POSTGRESQL_DATABASE::IsThreadSafe()
-* @brief      IsThreadSafe
-* @ingroup    DATABASES
+* @brief      Is thread safe
+* @ingroup    DATABASE
 *
 * @return     bool : true if is succesful.
 *
@@ -521,9 +521,9 @@ bool POSTGRESQL_DATABASE::IsThreadSafe()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void POSTGRESQL_DATABASE::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void POSTGRESQL_DATABASE::Clean()

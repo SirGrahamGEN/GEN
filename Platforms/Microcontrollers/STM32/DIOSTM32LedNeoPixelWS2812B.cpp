@@ -52,8 +52,8 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTM32LEDNEOPIXELWS2812B::DIOSTM32LEDNEOPIXELWS2812B()
-* @brief      Constructor
-* @ingroup    DATAIO
+* @brief      Constructor of class
+* @ingroup    PLATFORM_STM32
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSTM32LEDNEOPIXELWS2812B::DIOSTM32LEDNEOPIXELWS2812B()
@@ -65,9 +65,9 @@ DIOSTM32LEDNEOPIXELWS2812B::DIOSTM32LEDNEOPIXELWS2812B()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTM32LEDNEOPIXELWS2812B::~DIOSTM32LEDNEOPIXELWS2812B()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
-* @ingroup    DATAIO
+* @ingroup    PLATFORM_STM32
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSTM32LEDNEOPIXELWS2812B::~DIOSTM32LEDNEOPIXELWS2812B()
@@ -81,7 +81,7 @@ DIOSTM32LEDNEOPIXELWS2812B::~DIOSTM32LEDNEOPIXELWS2812B()
 *
 * @fn         bool DIOSTM32LEDNEOPIXELWS2812B::Send()
 * @brief      Send
-* @ingroup    DATAIO
+* @ingroup    PLATFORM_STM32
 *
 * @return     bool : true if is succesful.
 *
@@ -212,9 +212,9 @@ bool DIOSTM32LEDNEOPIXELWS2812B::Send()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSTM32LEDNEOPIXELWS2812B::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
-* @ingroup    DATAIO
+* @ingroup    PLATFORM_STM32
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTM32LEDNEOPIXELWS2812B::Clean()

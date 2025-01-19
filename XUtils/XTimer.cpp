@@ -86,7 +86,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XTIMERCLOCK::XTIMERCLOCK()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -106,7 +106,7 @@ XTIMERCLOCK::XTIMERCLOCK()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XTIMERCLOCK::~XTIMERCLOCK()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -128,7 +128,7 @@ XTIMERCLOCK::~XTIMERCLOCK()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XQWORD XTIMERCLOCK::GetClockTicks()
-* @brief      GetClockTicks
+* @brief      Get clock ticks
 * @ingroup    XUTILS
 *
 * @return     XQWORD :
@@ -151,7 +151,7 @@ XQWORD XTIMERCLOCK::GetClockTicks()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XTIMERCLOCK::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    XUTILS
 *
@@ -168,7 +168,7 @@ void XTIMERCLOCK::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XTIMERCLOCK::ThreadClockFunction(void* data)
-* @brief      ThreadClockFunction
+* @brief      Thread clock function
 * @ingroup    XUTILS
 *
 * @param[in]  data :
@@ -202,7 +202,7 @@ void XTIMERCLOCK::ThreadClockFunction(void* data)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XTIMER::XTIMER()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -215,7 +215,7 @@ XTIMER::XTIMER()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XTIMER::~XTIMER()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -229,7 +229,7 @@ XTIMER::~XTIMER()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XTIMER::AddMilliSeconds(XQWORD milliseconds)
-* @brief      AddMilliSeconds
+* @brief      Add milli seconds
 * @ingroup    XUTILS
 *
 * @param[in]  milliseconds :
@@ -244,7 +244,7 @@ void XTIMER::AddMilliSeconds(XQWORD milliseconds)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XTIMER::AddSeconds(XQWORD seconds)
-* @brief      AddSeconds
+* @brief      Add seconds
 * @ingroup    XUTILS
 *
 * @param[in]  seconds :
@@ -259,7 +259,7 @@ void XTIMER::AddSeconds(XQWORD seconds)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XTIMER::SetMilliSeconds(XQWORD milliseconds)
-* @brief      SetMilliSeconds
+* @brief      Set milli seconds
 * @ingroup    XUTILS
 *
 * @param[in]  milliseconds :
@@ -290,7 +290,7 @@ void XTIMER::Reset()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XQWORD XTIMER::GetMeasureHours()
-* @brief      GetMeasureHours
+* @brief      Get measure hours
 * @ingroup    XUTILS
 *
 * @return     XQWORD :
@@ -311,7 +311,7 @@ XQWORD XTIMER::GetMeasureHours()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XQWORD XTIMER::GetMeasureMinutes()
-* @brief      GetMeasureMinutes
+* @brief      Get measure minutes
 * @ingroup    XUTILS
 *
 * @return     XQWORD :
@@ -331,7 +331,7 @@ XQWORD XTIMER::GetMeasureMinutes()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XQWORD XTIMER::GetMeasureSeconds()
-* @brief      GetMeasureSeconds
+* @brief      Get measure seconds
 * @ingroup    XUTILS
 *
 * @return     XQWORD :
@@ -350,7 +350,7 @@ XQWORD XTIMER::GetMeasureSeconds()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XQWORD XTIMER::GetMeasureMilliSeconds()
-* @brief      GetMeasureMilliSeconds
+* @brief      Get measure milli seconds
 * @ingroup    XUTILS
 *
 * @return     XQWORD :
@@ -369,7 +369,7 @@ XQWORD XTIMER::GetMeasureMilliSeconds()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XQWORD XTIMER::GetMeasureMicroSeconds()
-* @brief      GetMeasureMicroSeconds
+* @brief      Get measure micro seconds
 * @ingroup    XUTILS
 *
 * @return     XQWORD :
@@ -391,7 +391,7 @@ XQWORD XTIMER::GetMeasureMicroSeconds()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XTIMER::GetMeasureToDate(XDATETIME* xdatetime)
-* @brief      GetMeasureToDate
+* @brief      Get measure to date
 * @ingroup    XUTILS
 *
 * @param[in]  xdatetime :
@@ -415,7 +415,7 @@ bool XTIMER::GetMeasureToDate(XDATETIME* xdatetime)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XTIMER::GetMeasureString(XSTRING& measure,bool large)
-* @brief      GetMeasureString
+* @brief      Get measure string
 * @ingroup    XUTILS
 *
 * @param[in]  measure :
@@ -536,7 +536,7 @@ bool XTIMER::GetMeasureString(XSTRING& measure,bool large)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XQWORD XTIMER::GetMicroSecondsTickCounter()
-* @brief      GetMicroSecondsTickCounter
+* @brief      Get micro seconds tick counter
 * @ingroup    XUTILS
 *
 * @return     XQWORD :
@@ -551,7 +551,7 @@ XQWORD XTIMER::GetMicroSecondsTickCounter()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XTIMER::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    XUTILS
 *

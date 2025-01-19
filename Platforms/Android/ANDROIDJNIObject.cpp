@@ -68,7 +68,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         ANDROIDJNIOBJECT::ANDROIDJNIOBJECT(XSTRING classname, XSTRING constructorsignature, ...)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_ANDROID
 * 
 * @param[in]  classname : 
@@ -109,7 +109,7 @@ ANDROIDJNIOBJECT::ANDROIDJNIOBJECT(XSTRING classname, XSTRING constructorsignatu
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         ANDROIDJNIOBJECT::~ANDROIDJNIOBJECT()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_ANDROID
 * 
@@ -123,7 +123,7 @@ ANDROIDJNIOBJECT::~ANDROIDJNIOBJECT()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         ANDROIDJNIMETHOD ANDROIDJNIOBJECT::GetClassMethod(XSTRING method, XSTRING signature)
-* @brief      GetClassMethod
+* @brief      Get class method
 * @ingroup    PLATFORM_ANDROID
 * 
 * @param[in]  method : 
@@ -159,7 +159,7 @@ ANDROIDJNIMETHOD ANDROIDJNIOBJECT::GetClassMethod(XSTRING method, XSTRING signat
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         jstring ANDROIDJNIOBJECT::GetJString(const XSTRING& str)
-* @brief      GetJString
+* @brief      Get J string
 * @ingroup    PLATFORM_ANDROID
 * 
 * @param[in]  str : 
@@ -187,7 +187,7 @@ jstring ANDROIDJNIOBJECT::GetJString(const XSTRING& str)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void ANDROIDJNIOBJECT::CallMethod<void>(ANDROIDJNIMETHOD method, ...)
-* @brief      CallMethod<void>
+* @brief      Call method<void>
 * @ingroup    PLATFORM_ANDROID
 * 
 * @param[in]  method : 
@@ -212,7 +212,7 @@ void ANDROIDJNIOBJECT::CallMethod<void>(ANDROIDJNIMETHOD method, ...)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool ANDROIDJNIOBJECT::CallMethod<bool>(ANDROIDJNIMETHOD method, ...)
-* @brief      CallMethod<bool>
+* @brief      Call method<bool>
 * @ingroup    PLATFORM_ANDROID
 * 
 * @param[in]  method : 
@@ -241,7 +241,7 @@ bool ANDROIDJNIOBJECT::CallMethod<bool>(ANDROIDJNIMETHOD method, ...)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int ANDROIDJNIOBJECT::CallMethod<int>(ANDROIDJNIMETHOD method, ...)
-* @brief      CallMethod<int>
+* @brief      Call method<int>
 * @ingroup    PLATFORM_ANDROID
 * 
 * @param[in]  method : 
@@ -270,7 +270,7 @@ int ANDROIDJNIOBJECT::CallMethod<int>(ANDROIDJNIMETHOD method, ...)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         jobject ANDROIDJNIOBJECT::CallMethod<jobject>(ANDROIDJNIMETHOD method, ...)
-* @brief      CallMethod<jobject>
+* @brief      Call method<jobject>
 * @ingroup    PLATFORM_ANDROID
 * 
 * @param[in]  method : 
@@ -303,7 +303,7 @@ jobject ANDROIDJNIOBJECT::CallMethod<jobject>(ANDROIDJNIMETHOD method, ...)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         long long ANDROIDJNIOBJECT::CallMethod<long long>(ANDROIDJNIMETHOD method, ...)
-* @brief      CallMethod<long long>
+* @brief      Call method<long long>
 * @ingroup    PLATFORM_ANDROID
 * 
 * @param[in]  method : 
@@ -333,7 +333,7 @@ template<>
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING ANDROIDJNIOBJECT::CallMethod<XSTRING>(ANDROIDJNIMETHOD method, ...)
-* @brief      CallMethod<XSTRING>
+* @brief      Call method< XSTRING>
 * @ingroup    PLATFORM_ANDROID
 * 
 * @param[in]  method : 

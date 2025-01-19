@@ -70,7 +70,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XFSMACHINESTATE::XFSMACHINESTATE(int stateID, int ntransitions)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 * 
 * @param[in]  stateID : 
@@ -108,7 +108,7 @@ XFSMACHINESTATE::XFSMACHINESTATE(int stateID, int ntransitions)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFSMACHINESTATE::~XFSMACHINESTATE()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -125,7 +125,7 @@ XFSMACHINESTATE::~XFSMACHINESTATE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XFSMACHINESTATE::GetID()
-* @brief      GetID
+* @brief      Get ID
 * @ingroup    XUTILS
 *
 * @return     int :
@@ -140,7 +140,7 @@ int XFSMACHINESTATE::GetID()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFSMACHINESTATE::AddTransition(int input,int outputID)
-* @brief      AddTransition
+* @brief      Add transition
 * @ingroup    XUTILS
 *
 * @param[in]  input :
@@ -173,7 +173,7 @@ bool XFSMACHINESTATE::AddTransition(int input,int outputID)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XFSMACHINESTATE::GetOutput(int input)
-* @brief      GetOutput
+* @brief      Get output
 * @ingroup    XUTILS
 *
 * @param[in]  input :
@@ -203,7 +203,7 @@ int XFSMACHINESTATE::GetOutput(int input)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFSMACHINESTATE::DeleteTransition(int outputID)
-* @brief      DeleteTransition
+* @brief      Delete transition
 * @ingroup    XUTILS
 *
 * @param[in]  outputID :
@@ -243,7 +243,7 @@ bool XFSMACHINESTATE::DeleteTransition(int outputID)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XFSMACHINESTATE::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    XUTILS
 *
@@ -267,7 +267,7 @@ void XFSMACHINESTATE::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFSMACHINE::XFSMACHINE(int stateID)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * @param[in]  stateID :
@@ -284,7 +284,7 @@ XFSMACHINE::XFSMACHINE(int stateID)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFSMACHINE::~XFSMACHINE()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -300,7 +300,7 @@ XFSMACHINE::~XFSMACHINE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XFSMACHINE::GetEvent()
-* @brief      GetEvent
+* @brief      Get event
 * @ingroup    XUTILS
 *
 * @return     int :
@@ -315,7 +315,7 @@ int XFSMACHINE::GetEvent()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFSMACHINE::SetEvent(int event)
-* @brief      SetEvent
+* @brief      Set event
 * @ingroup    XUTILS
 *
 * @param[in]  event :
@@ -334,7 +334,7 @@ bool XFSMACHINE::SetEvent(int event)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XFSMACHINE::GetCurrentState()
-* @brief      GetCurrentState
+* @brief      Get current state
 * @ingroup    XUTILS
 *
 * @return     int :
@@ -349,7 +349,7 @@ int XFSMACHINE::GetCurrentState()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XFSMACHINE::SetCurrentState(int stateID)
-* @brief      SetCurrentState
+* @brief      Set current state
 * @ingroup    XUTILS
 *
 * @param[in]  stateID :
@@ -364,7 +364,7 @@ void XFSMACHINE::SetCurrentState(int stateID)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFSMACHINESTATE* XFSMACHINE::GetState(int stateID)
-* @brief      GetState
+* @brief      Get state
 * @ingroup    XUTILS
 *
 * @param[in]  stateID :
@@ -389,7 +389,7 @@ XFSMACHINESTATE* XFSMACHINE::GetState(int stateID)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFSMACHINE::AddState(XFSMACHINESTATE* state)
-* @brief      AddState
+* @brief      Add state
 * @ingroup    XUTILS
 *
 * @param[in]  state :
@@ -410,7 +410,7 @@ bool XFSMACHINE::AddState(XFSMACHINESTATE* state)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFSMACHINE::AddState(int state, int event, int tostate,...)
-* @brief      AddState
+* @brief      Add state
 * @ingroup    XUTILS
 *
 * @param[in]  state :
@@ -472,7 +472,7 @@ bool XFSMACHINE::AddState(int state, int event, int tostate,...)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFSMACHINE::AddSecuencialStates(int state,int maxsecuencialtransitions)
-* @brief      AddSecuencialStates
+* @brief      Add secuencial states
 * @ingroup    XUTILS
 *
 * @param[in]  state :
@@ -506,7 +506,7 @@ bool XFSMACHINE::AddSecuencialStates(int state, int maxsecuencialtransitions)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFSMACHINE::DeleteState(int stateID)
-* @brief      DeleteState
+* @brief      Delete state
 * @ingroup    XUTILS
 *
 * @param[in]  stateID :
@@ -531,7 +531,7 @@ bool XFSMACHINE::DeleteState(int stateID)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFSMACHINE::DeleteAllStates()
-* @brief      DeleteAllStates
+* @brief      Delete all states
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -551,7 +551,7 @@ bool XFSMACHINE::DeleteAllStates()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XFSMACHINE::StateTransition(int input)
-* @brief      StateTransition
+* @brief      State transition
 * @ingroup    XUTILS
 *
 * @param[in]  input :
@@ -578,7 +578,7 @@ int XFSMACHINE::StateTransition(int input)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFSMACHINE::CheckTransition(int& event)
-* @brief      CheckTransition
+* @brief      Check transition
 * @ingroup    XUTILS
 *
 * @param[in]  event :
@@ -607,7 +607,7 @@ bool XFSMACHINE::CheckTransition(int& event)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFSMACHINE::CheckTransition()
-* @brief      CheckTransition
+* @brief      Check transition
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -630,7 +630,7 @@ bool XFSMACHINE::CheckTransition()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XFSMACHINE::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    XUTILS
 *

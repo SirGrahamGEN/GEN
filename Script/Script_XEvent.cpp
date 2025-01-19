@@ -65,7 +65,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         SCRIPT_XEVENT::SCRIPT_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    SCRIPT
 *
 * @param[in]  subject :
@@ -82,7 +82,7 @@ SCRIPT_XEVENT::SCRIPT_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family): XEV
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         SCRIPT_XEVENT::~SCRIPT_XEVENT()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    SCRIPT
 *
@@ -96,7 +96,7 @@ SCRIPT_XEVENT::~SCRIPT_XEVENT()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         SCRIPT* SCRIPT_XEVENT::GetScript()
-* @brief      GetScript
+* @brief      Get script
 * @ingroup    SCRIPT
 * 
 * @return     SCRIPT* : 
@@ -111,7 +111,7 @@ SCRIPT* SCRIPT_XEVENT::GetScript()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void SCRIPT_XEVENT::SetScript(SCRIPT* script)
-* @brief      SetScript
+* @brief      Set script
 * @ingroup    SCRIPT
 * 
 * @param[in]  script : 
@@ -126,7 +126,7 @@ void SCRIPT_XEVENT::SetScript(SCRIPT* script)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* SCRIPT_XEVENT::GetNameScript()
-* @brief      GetNameScript
+* @brief      Get name script
 * @ingroup    SCRIPT
 *
 * @return     XSTRING* :
@@ -141,7 +141,7 @@ XSTRING* SCRIPT_XEVENT::GetNameScript()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         SCRIPT_G_ERRORCODE SCRIPT_XEVENT::GetError()
-* @brief      GetError
+* @brief      Get error
 * @ingroup    SCRIPT
 *
 * @return     int :
@@ -156,7 +156,7 @@ int SCRIPT_XEVENT::GetError()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void SCRIPT_XEVENT::SetError(SCRIPT_G_ERRORCODE error)
-* @brief      SetError
+* @brief      Set error
 * @ingroup    SCRIPT
 *
 * @param[in]  error :
@@ -171,7 +171,7 @@ void SCRIPT_XEVENT::SetError(int error)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* SCRIPT_XEVENT::GetErrorText()
-* @brief      GetErrorText
+* @brief      Get error text
 * @ingroup    SCRIPT
 *
 * @return     XSTRING* :
@@ -186,7 +186,7 @@ XSTRING* SCRIPT_XEVENT::GetErrorText()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int SCRIPT_XEVENT::GetNLine()
-* @brief      GetNLine
+* @brief      Get N line
 * @ingroup    SCRIPT
 *
 * @return     int :
@@ -201,7 +201,7 @@ int SCRIPT_XEVENT::GetNLine()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void SCRIPT_XEVENT::SetNLine(int nline)
-* @brief      SetNLine
+* @brief      Set N line
 * @ingroup    SCRIPT
 *
 * @param[in]  nline :
@@ -216,7 +216,7 @@ void SCRIPT_XEVENT::SetNLine(int nline)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* SCRIPT_XEVENT::GetCurrentToken()
-* @brief      GetCurrentToken
+* @brief      Get current token
 * @ingroup    SCRIPT
 *
 * @return     XSTRING* :
@@ -231,7 +231,7 @@ XSTRING* SCRIPT_XEVENT::GetCurrentToken()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void SCRIPT_XEVENT::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    SCRIPT
 *

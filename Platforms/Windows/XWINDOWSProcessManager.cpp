@@ -75,7 +75,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XWINDOWSPROCESSMANAGER::XWINDOWSPROCESSMANAGER()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_WINDOWS
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -90,7 +90,7 @@ XWINDOWSPROCESSMANAGER::XWINDOWSPROCESSMANAGER() : XPROCESSMANAGER()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XWINDOWSPROCESSMANAGER::~XWINDOWSPROCESSMANAGER()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
 *
@@ -109,7 +109,7 @@ XWINDOWSPROCESSMANAGER::~XWINDOWSPROCESSMANAGER()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSPROCESSMANAGER::MakeSystemCommand(XCHAR* command)
-* @brief      MakeSystemCommand
+* @brief      Make system command
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  command : 
@@ -126,7 +126,7 @@ bool XWINDOWSPROCESSMANAGER::MakeSystemCommand(XCHAR* command)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSPROCESSMANAGER::MakeCommand(XCHAR* command, XSTRING& out, int* returncode)
-* @brief      MakeCommand
+* @brief      Make command
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  command :
@@ -170,7 +170,7 @@ bool XWINDOWSPROCESSMANAGER::MakeCommand(XCHAR* command, XBUFFER* out, int* retu
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XWINDOWSPROCESSMANAGER::OpenURL(XCHAR* url)
-* @brief      OpenURL
+* @brief      Open URL
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @param[in]  url : 
@@ -192,7 +192,7 @@ bool XWINDOWSPROCESSMANAGER::OpenURL(XCHAR* url)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XWINDOWSPROCESSMANAGER::Application_Execute(XCHAR* applicationpath, XCHAR* params, XBUFFER* in, XBUFFER* out, int* returncode)
-* @brief      Application_Execute
+* @brief      Application execute
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @param[in]  applicationpath : 
@@ -334,7 +334,7 @@ bool XWINDOWSPROCESSMANAGER::Application_Execute(XCHAR* applicationpath, XCHAR* 
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSPROCESSMANAGER::Application_IsRunning(XCHAR* applicationname, XDWORD* ID)
-* @brief      Is Application Running
+* @brief      Application is running
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  applicationname : application name
@@ -377,7 +377,7 @@ bool XWINDOWSPROCESSMANAGER::Application_IsRunning(XCHAR* applicationname, XDWOR
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XWINDOWSPROCESSMANAGER::Application_GetRunningList(XVECTOR<XPROCESS*>& applist, bool onlywithvalidwindow)
-* @brief      Application_GetRunningList
+* @brief      Application get running list
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @param[in]  applist : 
@@ -569,7 +569,7 @@ bool XWINDOWSPROCESSMANAGER::Application_GetRunningList(XVECTOR<XPROCESS*>& appl
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XWINDOWSPROCESSMANAGER::Application_Terminate(XDWORD processID, XDWORD exitcode)
-* @brief      Application_Terminate
+* @brief      Application terminate
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  processID : 
@@ -598,7 +598,7 @@ bool XWINDOWSPROCESSMANAGER::Application_Terminate(XDWORD processID, XDWORD  exi
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XWINDOWSPROCESSMANAGER::GetWindowPropertys(HWND hwnd, XSTRING& title, GRPRECTINT& rect)
-* @brief      GetWindowPropertys
+* @brief      Get window propertys
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @param[in]  hwnd : 
@@ -645,7 +645,7 @@ bool XWINDOWSPROCESSMANAGER::GetWindowPropertys(HWND hwnd, XSTRING& title, GRPRE
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int XWINDOWSPROCESSMANAGER::GetWindowTitleHeight(HWND hwnd)
-* @brief      GetWindowTitleHeight
+* @brief      Get window title height
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @param[in]  hwnd : 
@@ -673,7 +673,7 @@ int XWINDOWSPROCESSMANAGER::GetWindowTitleHeight(HWND hwnd)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int XWINDOWSPROCESSMANAGER::GetWindowBorderWidth(HWND hwnd)
-* @brief      GetWindowBorderWidth
+* @brief      Get window border width
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @param[in]  hwnd : 
@@ -696,7 +696,7 @@ int XWINDOWSPROCESSMANAGER::GetWindowBorderWidth(HWND hwnd)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XWINDOWSPROCESSMANAGER::GetChildProcesses(XVECTOR<XPROCESS*>& applist)
-* @brief      GetChildProcesses
+* @brief      Get child processes
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @param[in]  applist : 
@@ -743,7 +743,7 @@ bool XWINDOWSPROCESSMANAGER::GetChildProcesses(XVECTOR<XPROCESS*>& applist)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         BOOL CALLBACK XWINDOWSPROCESSMANAGER::EnumWindowsProc(HWND hwnd, LPARAM lparam)
-* @brief      EnumWindowsProc
+* @brief      Enum windows proc
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @param[in]  hwnd : 
@@ -776,7 +776,7 @@ BOOL CALLBACK XWINDOWSPROCESSMANAGER::EnumWindowsProc(HWND hwnd, LPARAM lparam)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XWINDOWSPROCESSMANAGER::GetMapOfWinProcess(MAPWINPROCESS& mapofwinprocess)
-* @brief      GetMapOfWinProcess
+* @brief      Get map of win process
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @param[in]  mapofwinprocess : 
@@ -797,7 +797,7 @@ bool XWINDOWSPROCESSMANAGER::GetMapOfWinProcess(MAPWINPROCESS& mapofwinprocess)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XWINDOWSPROCESSMANAGER::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
 *

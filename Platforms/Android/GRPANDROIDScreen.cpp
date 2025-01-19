@@ -66,7 +66,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPANDROIDSCREEN::GRPANDROIDSCREEN()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_ANDROID
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -89,7 +89,7 @@ GRPANDROIDSCREEN::GRPANDROIDSCREEN(): GRPSCREEN()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPANDROIDSCREEN::~GRPANDROIDSCREEN()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_ANDROID
 *
@@ -226,7 +226,7 @@ bool GRPANDROIDSCREEN::Resize(int width, int height)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void* GRPANDROIDSCREEN::GetHandle()
-* @brief      GetHandle
+* @brief      Get handle
 * @ingroup    PLATFORM_ANDROID
 *
 * @return     void* :
@@ -241,7 +241,7 @@ void* GRPANDROIDSCREEN::GetHandle()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         ANativeWindow* GRPANDROIDSCREEN::GetAndroidHandle()
-* @brief      GetAndroidHandle
+* @brief      Get android handle
 * @ingroup    PLATFORM_ANDROID
 *
 * @return     ANativeWindow* :
@@ -256,7 +256,7 @@ ANativeWindow* GRPANDROIDSCREEN::GetAndroidHandle()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void GRPANDROIDSCREEN::SetAndroidHandle(ANativeWindow* anativehandle)
-* @brief      SetAndroidHandle
+* @brief      Set android handle
 * @ingroup    PLATFORM_ANDROID
 *
 * @param[in]  anativehandle :
@@ -271,7 +271,7 @@ void GRPANDROIDSCREEN::SetAndroidHandle(ANativeWindow* anativehandle)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void GRPANDROIDSCREEN::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_ANDROID
 *

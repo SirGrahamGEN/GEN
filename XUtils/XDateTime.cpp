@@ -74,7 +74,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDATETIME::XDATETIME()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -87,7 +87,7 @@ XDATETIME::XDATETIME()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDATETIME::~XDATETIME()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -101,7 +101,7 @@ XDATETIME::~XDATETIME()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XDATETIME::GetYear()
-* @brief      GetYear
+* @brief      Get year
 * @ingroup    XUTILS
 *
 * @return     int :
@@ -116,7 +116,7 @@ int XDATETIME::GetYear()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XDATETIME::GetMonth()
-* @brief      GetMonth
+* @brief      Get month
 * @ingroup    XUTILS
 *
 * @return     int :
@@ -131,7 +131,7 @@ int XDATETIME::GetMonth()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XDATETIME::GetDay()
-* @brief      GetDay
+* @brief      Get day
 * @ingroup    XUTILS
 *
 * @return     int :
@@ -146,7 +146,7 @@ int XDATETIME::GetDay()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XDATETIME::GetHours()
-* @brief      GetHours
+* @brief      Get hours
 * @ingroup    XUTILS
 *
 * @return     int :
@@ -161,7 +161,7 @@ int XDATETIME::GetHours()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XDATETIME::GetMinutes()
-* @brief      GetMinutes
+* @brief      Get minutes
 * @ingroup    XUTILS
 *
 * @return     int :
@@ -176,7 +176,7 @@ int XDATETIME::GetMinutes()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XDATETIME::GetSeconds()
-* @brief      GetSeconds
+* @brief      Get seconds
 * @ingroup    XUTILS
 *
 * @return     int :
@@ -191,7 +191,7 @@ int XDATETIME::GetSeconds()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XDATETIME::GetMilliSeconds()
-* @brief      GetMilliSeconds
+* @brief      Get milli seconds
 * @ingroup    XUTILS
 *
 * @return     int :
@@ -206,7 +206,7 @@ int XDATETIME::GetMilliSeconds()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XDATETIME::IsZero()
-* @brief      IsZero
+* @brief      Is zero
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -226,7 +226,7 @@ bool XDATETIME::IsZero()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XDATETIME::IsLocal()
-* @brief      IsLocal
+* @brief      Is local
 * @ingroup    XUTILS
 * 
 * @return     bool : true if is succesful. 
@@ -241,7 +241,7 @@ bool XDATETIME::IsLocal()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XDATETIME::IsLeapYear()
-* @brief      IsLeapYear
+* @brief      Is leap year
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -256,7 +256,7 @@ bool XDATETIME::IsLeapYear()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDATETIME_DAYWEEK XDATETIME::GetDayOfWeek()
-* @brief      GetDayOfWeek
+* @brief      Get day of week
 * @ingroup    XUTILS
 *
 * @return     XDATETIME_DAYWEEK :
@@ -319,7 +319,7 @@ XDATETIME_DAYWEEK XDATETIME::GetDayOfWeek()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XDATETIME::GetDaysOfYear()
-* @brief      GetDaysOfYear
+* @brief      Get days of year
 * @ingroup    XUTILS
 *
 * @return     int :
@@ -347,7 +347,7 @@ int XDATETIME::GetDaysOfYear()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         long XDATETIME::GetNDaysInJulian()
-* @brief      GetNDaysInJulian
+* @brief      Get N days in julian
 * @ingroup    XUTILS
 *
 * @return     long :
@@ -375,7 +375,7 @@ long XDATETIME::GetNDaysInJulian()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         long XDATETIME::GetNDaysInGregorian()
-* @brief      GetNDaysInGregorian
+* @brief      Get N days in gregorian
 * @ingroup    XUTILS
 *
 * @return     long :
@@ -402,7 +402,7 @@ long XDATETIME::GetNDaysInGregorian()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XDATETIME::GetDateFromNDays(long ndays, bool injulian)
-* @brief      GetDateFromNDays
+* @brief      Get date from N days
 * @ingroup    XUTILS
 *
 * @param[in]  ndays :
@@ -437,7 +437,7 @@ void XDATETIME::GetDateFromNDays(long ndays, bool injulian)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XQWORD XDATETIME::GetSeconsFromDate(bool injulian)
-* @brief      GetSeconsFromDate
+* @brief      Get secons from date
 * @ingroup    XUTILS
 *
 * @param[in]  injulian :
@@ -459,7 +459,7 @@ XQWORD XDATETIME::GetSeconsFromDate(bool injulian)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XDATETIME::SetDateFromSeconds(XQWORD allseconds, bool injulian)
-* @brief      SetDateFromSeconds
+* @brief      Set date from seconds
 * @ingroup    XUTILS
 *
 * @param[in]  allseconds :
@@ -486,7 +486,7 @@ bool XDATETIME::SetDateFromSeconds(XQWORD allseconds, bool injulian)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD XDATETIME::GetSecondsFromADay()
-* @brief      GetSecondsFromADay
+* @brief      Get seconds from A day
 * @ingroup    XUTILS
 *
 * @return     XDWORD :
@@ -507,7 +507,7 @@ XDWORD XDATETIME::GetSecondsFromADay()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void XDATETIME::SetIsLocal(bool islocal)
-* @brief      SetIsLocal
+* @brief      Set is local
 * @ingroup    XUTILS
 * 
 * @param[in]  islocal : 
@@ -522,7 +522,7 @@ void XDATETIME::SetIsLocal(bool islocal)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XDATETIME::SetYear(int year)
-* @brief      SetYear
+* @brief      Set year
 * @ingroup    XUTILS
 *
 * @param[in]  year :
@@ -537,7 +537,7 @@ void XDATETIME::SetYear(int year)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XDATETIME::SetMonth(int month)
-* @brief      SetMonth
+* @brief      Set month
 * @ingroup    XUTILS
 *
 * @param[in]  month :
@@ -552,7 +552,7 @@ void XDATETIME::SetMonth(int month)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XDATETIME::SetDay(int day)
-* @brief      SetDay
+* @brief      Set day
 * @ingroup    XUTILS
 *
 * @param[in]  day :
@@ -567,7 +567,7 @@ void XDATETIME::SetDay(int day)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XDATETIME::SetHours(int hours)
-* @brief      SetHours
+* @brief      Set hours
 * @ingroup    XUTILS
 *
 * @param[in]  hours :
@@ -582,7 +582,7 @@ void XDATETIME::SetHours(int hours)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XDATETIME::SetMinutes(int minutes)
-* @brief      SetMinutes
+* @brief      Set minutes
 * @ingroup    XUTILS
 *
 * @param[in]  minutes :
@@ -597,7 +597,7 @@ void XDATETIME::SetMinutes(int minutes)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XDATETIME::SetSeconds(int seconds)
-* @brief      SetSeconds
+* @brief      Set seconds
 * @ingroup    XUTILS
 *
 * @param[in]  seconds :
@@ -612,7 +612,7 @@ void XDATETIME::SetSeconds(int seconds)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XDATETIME::SetMilliSeconds(int milliseconds)
-* @brief      SetMilliSeconds
+* @brief      Set milli seconds
 * @ingroup    XUTILS
 *
 * @param[in]  milliseconds :
@@ -627,7 +627,7 @@ void XDATETIME::SetMilliSeconds(int milliseconds)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XDATETIME::IsValidDate()
-* @brief      IsValidDate
+* @brief      Is valid date
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -664,7 +664,7 @@ bool XDATETIME::IsValidDate()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XDATETIME::CopyFrom(XDATETIME* xtimesource)
-* @brief      CopyFrom
+* @brief      Copy from
 * @ingroup    XUTILS
 *
 * @param[in]  xtimesource :
@@ -694,7 +694,7 @@ bool XDATETIME::CopyFrom(XDATETIME* xtimesource)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XDATETIME::CopyFrom(XDATETIME& xtimesource)
-* @brief      CopyFrom
+* @brief      Copy from
 * @ingroup    XUTILS
 *
 * @param[in]  xtimesource :
@@ -711,7 +711,7 @@ bool XDATETIME::CopyFrom(XDATETIME& xtimesource)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XDATETIME::CopyTo(XDATETIME* xtimetarget)
-* @brief      CopyTo
+* @brief      Copy to
 * @ingroup    XUTILS
 *
 * @param[in]  xtimetarget :
@@ -741,7 +741,7 @@ bool XDATETIME::CopyTo(XDATETIME* xtimetarget)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XDATETIME::CopyTo(XDATETIME& xtimetarget)
-* @brief      CopyTo
+* @brief      Copy to
 * @ingroup    XUTILS
 *
 * @param[in]  xtimetarget :
@@ -758,7 +758,7 @@ bool XDATETIME::CopyTo(XDATETIME& xtimetarget)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XDATETIME::IsTheSameDay(XDATETIME* xtime)
-* @brief      IsTheSameDay
+* @brief      Is the same day
 * @ingroup    XUTILS
 *
 * @param[in]  xtime :
@@ -790,7 +790,7 @@ bool XDATETIME::IsTheSameDay(XDATETIME* xtime)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XDATETIME::IsTheSameDay(XDATETIME& xtime)
-* @brief      IsTheSameDay
+* @brief      Is the same day
 * @ingroup    XUTILS
 *
 * @param[in]  xtime :
@@ -807,7 +807,7 @@ bool XDATETIME::IsTheSameDay(XDATETIME& xtime)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XDATETIME::AddYears(int years)
-* @brief      AddYears
+* @brief      Add years
 * @ingroup    XUTILS
 *
 * @param[in]  years :
@@ -847,7 +847,7 @@ bool XDATETIME::AddYears(int years)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XDATETIME::AddMonths(int months)
-* @brief      AddMonths
+* @brief      Add months
 * @ingroup    XUTILS
 *
 * @param[in]  months :
@@ -890,7 +890,7 @@ bool XDATETIME::AddMonths(int months)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XDATETIME::AddDays(int days)
-* @brief      AddDays
+* @brief      Add days
 * @ingroup    XUTILS
 *
 * @param[in]  days :
@@ -913,7 +913,7 @@ bool XDATETIME::AddDays(int days)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XDATETIME::AddHours(XQWORD hours)
-* @brief      AddHours
+* @brief      Add hours
 * @ingroup    XUTILS
 *
 * @param[in]  hours :
@@ -934,7 +934,7 @@ bool XDATETIME::AddHours(XQWORD hours)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XDATETIME::AddMinutes(XQWORD minutes)
-* @brief      AddMinutes
+* @brief      Add minutes
 * @ingroup    XUTILS
 *
 * @param[in]  minutes :
@@ -955,7 +955,7 @@ bool XDATETIME::AddMinutes(XQWORD minutes)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XDATETIME::AddSeconds(XQWORD seconds)
-* @brief      AddSeconds
+* @brief      Add seconds
 * @ingroup    XUTILS
 *
 * @param[in]  seconds :
@@ -976,7 +976,7 @@ bool XDATETIME::AddSeconds(XQWORD seconds)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XDATETIME::SubtractYears(int years)
-* @brief      SubtractYears
+* @brief      Subtract years
 * @ingroup    XUTILS
 *
 * @param[in]  years :
@@ -1015,7 +1015,7 @@ bool XDATETIME::SubtractYears(int years)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XDATETIME::SubtractMonths(int months)
-* @brief      SubtractMonths
+* @brief      Subtract months
 * @ingroup    XUTILS
 *
 * @param[in]  months :
@@ -1073,7 +1073,7 @@ bool XDATETIME::SubtractMonths(int months)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XDATETIME::SubtractDays(int days)
-* @brief      SubtractDays
+* @brief      Subtract days
 * @ingroup    XUTILS
 *
 * @param[in]  days :
@@ -1096,7 +1096,7 @@ bool XDATETIME::SubtractDays(int days)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XDATETIME::SubtractHours(XQWORD hours)
-* @brief      SubtractHours
+* @brief      Subtract hours
 * @ingroup    XUTILS
 *
 * @param[in]  hours :
@@ -1117,7 +1117,7 @@ bool XDATETIME::SubtractHours(XQWORD hours)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XDATETIME::SubtractMinutes(XQWORD minutes)
-* @brief      SubtractMinutes
+* @brief      Subtract minutes
 * @ingroup    XUTILS
 *
 * @param[in]  minutes :
@@ -1138,7 +1138,7 @@ bool XDATETIME::SubtractMinutes(XQWORD minutes)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XDATETIME::SubtractSeconds(XQWORD seconds)
-* @brief      SubtractSeconds
+* @brief      Subtract seconds
 * @ingroup    XUTILS
 *
 * @param[in]  seconds :
@@ -1159,7 +1159,7 @@ bool XDATETIME::SubtractSeconds(XQWORD seconds)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XDATETIME::operator == (XDATETIME xtime)
-* @brief      operator ==
+* @brief      operator == 
 * @ingroup    XUTILS
 *
 * @param[in]  xtime :
@@ -1184,7 +1184,7 @@ bool XDATETIME::operator == (XDATETIME xtime)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XDATETIME::operator != (XDATETIME xtime)
-* @brief      operator !=
+* @brief      operator != 
 * @ingroup    XUTILS
 *
 * @param[in]  xtime :
@@ -1209,7 +1209,7 @@ bool XDATETIME::operator != (XDATETIME xtime)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XDATETIME::operator > (XDATETIME xtime)
-* @brief      operator >
+* @brief      operator > 
 * @ingroup    XUTILS
 *
 * @param[in]  xtime :
@@ -1242,7 +1242,7 @@ bool XDATETIME::operator >  (XDATETIME xtime)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XDATETIME::operator >= (XDATETIME xtime)
-* @brief      operator >=
+* @brief      operator >= 
 * @ingroup    XUTILS
 *
 * @param[in]  xtime :
@@ -1275,7 +1275,7 @@ bool XDATETIME::operator >= (XDATETIME xtime)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XDATETIME::operator < (XDATETIME xtime)
-* @brief      operator <
+* @brief      operator < 
 * @ingroup    XUTILS
 *
 * @param[in]  xtime :
@@ -1308,7 +1308,7 @@ bool XDATETIME::operator <  (XDATETIME xtime)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XDATETIME::operator <= (XDATETIME xtime)
-* @brief      operator <=
+* @brief      operator <= 
 * @ingroup    XUTILS
 *
 * @param[in]  xtime :
@@ -1341,7 +1341,7 @@ bool XDATETIME::operator <= (XDATETIME xtime)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XDATETIME::IsBetween(XDATETIME& start, XDATETIME& end)
-* @brief      IsBetween
+* @brief      Is between
 * @ingroup    XUTILS
 *
 * @param[in]  start :
@@ -1395,7 +1395,7 @@ bool XDATETIME::Write(bool islocal)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XDATETIME::GetFileDateTime(XPATH& xpath, void* tmzip, XDWORD* dt)
-* @brief      GetFileDateTime
+* @brief      Get file date time
 * @ingroup    XUTILS
 *
 * @param[in]  xpath :
@@ -1414,7 +1414,7 @@ bool XDATETIME::GetFileDateTime(XPATH& xpath, void* tmzip, XDWORD* dt)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XDATETIME::GetFileDateTime(XPATH& xpath)
-* @brief      GetFileDateTime
+* @brief      Get file date time
 * @ingroup    XUTILS
 *
 * @param[in]  xpath :
@@ -1431,7 +1431,7 @@ bool XDATETIME::GetFileDateTime(XPATH& xpath)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XDATETIME::GetMeridianDifference()
-* @brief      GetMeridianDifference
+* @brief      Get meridian difference
 * @ingroup    XUTILS
 *
 * @return     int :
@@ -1446,7 +1446,7 @@ int XDATETIME::GetMeridianDifference()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XDATETIME::IsDayLigthSavingTime(int* bias)
-* @brief      IsDayLigthSavingTime
+* @brief      Is day ligth saving time
 * @ingroup    XUTILS
 *
 * @param[in]  bias :
@@ -1463,7 +1463,7 @@ bool XDATETIME::IsDayLigthSavingTime(int* bias)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XDATETIME::GetDateTimeToString(XDWORD modificator, XSTRING& string)
-* @brief      GetDateTimeToString
+* @brief      Get date time to string
 * @ingroup    XUTILS
 *
 * @param[in]  modificator :
@@ -1614,7 +1614,7 @@ bool XDATETIME::GetDateTimeToString(XDWORD modificator, XSTRING& string)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XDATETIME::GetDateTimeToStringISO8601(XDWORD modificator, XSTRING& string)
-* @brief      GetDateTimeToStringISO8601
+* @brief      Get date time to string ISO8601
 * @ingroup    XUTILS
 *
 * @param[in]  modificator : 
@@ -1742,7 +1742,7 @@ bool XDATETIME::GetDateTimeToStringISO8601(XDWORD modificator, XSTRING& string)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XDATETIME::GetDateTimeFromString(XSTRING& string, XWORD modificator)
-* @brief      GetDateTimeFromString
+* @brief      Get date time from string
 * @ingroup    XUTILS
 *
 * @param[in]  string :
@@ -1910,7 +1910,7 @@ bool XDATETIME::GetDateTimeFromString(XSTRING& string, XWORD modificator)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XDATETIME::GetDateTimeFromStringISO8601(XSTRING& string, XWORD modificator)
-* @brief      GetDateTimeFromStringISO8601
+* @brief      Get date time from string ISO8601
 * @ingroup    XUTILS
 * 
 * @param[in]  string : 
@@ -2053,7 +2053,7 @@ bool XDATETIME::GetDateTimeFromStringISO8601(XSTRING& string, XWORD modificator)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XDATETIME::GetMonthString(XSTRING& string)
-* @brief      GetMonthString
+* @brief      Get month string
 * @ingroup    XUTILS
 *
 * @param[in]  string :
@@ -2095,7 +2095,7 @@ bool XDATETIME::GetMonthString(XSTRING& string)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XDATETIME::GetDayOfWeekString(XSTRING& string)
-* @brief      GetDayOfWeekString
+* @brief      Get day of week string
 * @ingroup    XUTILS
 *
 * @param[in]  string :
@@ -2127,7 +2127,7 @@ bool XDATETIME::GetDayOfWeekString(XSTRING& string)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int XDATETIME::GetDayOfYear()
-* @brief      GetDayOfYear
+* @brief      Get day of year
 * @ingroup    XUTILS
 * 
 * @return     int : 
@@ -2161,7 +2161,7 @@ int XDATETIME::GetDayOfYear()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int XDATETIME::GetWeekOfYear()
-* @brief      GetWeekOfYear
+* @brief      Get week of year
 * @ingroup    XUTILS
 * 
 * @return     int : 
@@ -2183,7 +2183,7 @@ int XDATETIME::GetWeekOfYear()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XQWORD XDATETIME::GetEPOCHFormat()
-* @brief      GetEPOCHFormat
+* @brief      Get EPOCH format
 * @ingroup    XUTILS
 *
 * @return     XQWORD : 
@@ -2210,7 +2210,7 @@ XQWORD XDATETIME::GetEPOCHFormat()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XDATETIME::SetToZero()
-* @brief      SetToZero
+* @brief      Set to zero
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -2227,7 +2227,7 @@ bool XDATETIME::SetToZero()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XDATETIME::SetDateToZero()
-* @brief      SetDateToZero
+* @brief      Set date to zero
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -2246,7 +2246,7 @@ bool XDATETIME::SetDateToZero()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XDATETIME::SetHourToZero()
-* @brief      SetHourToZero
+* @brief      Set hour to zero
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -2396,7 +2396,7 @@ int XDATETIME::Compare(XDATETIME& datetime)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XDATETIME::IsModificatorActive(XDWORD modificator, XWORD tocheck)
-* @brief      IsModificatorActive
+* @brief      Is modificator active
 * @ingroup    XUTILS
 * 
 * @param[in]  modificator : 
@@ -2419,7 +2419,7 @@ bool XDATETIME::IsModificatorActive(XDWORD modificator, XDWORD tocheck)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         long XDATETIME::GetNDaysInJulian(int day, int month, int year)
-* @brief      GetNDaysInJulian
+* @brief      Get N days in julian
 * @ingroup    XUTILS
 *
 * @param[in]  day :
@@ -2442,7 +2442,7 @@ long XDATETIME::GetNDaysInJulian(int day, int month, int year)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         long XDATETIME::GetNDaysInGregorian(int day, int month, int year)
-* @brief      GetNDaysInGregorian
+* @brief      Get N days in gregorian
 * @ingroup    XUTILS
 *
 * @param[in]  day :
@@ -2465,7 +2465,7 @@ long XDATETIME::GetNDaysInGregorian(int day, int month, int year)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XDATETIME::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    XUTILS
 *

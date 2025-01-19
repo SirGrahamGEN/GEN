@@ -73,7 +73,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         SNDOPENALFACTORY::SNDOPENALFACTORY()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    SOUND
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -86,7 +86,7 @@ SNDOPENALFACTORY::SNDOPENALFACTORY()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         SNDOPENALFACTORY::~SNDOPENALFACTORY()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    SOUND
 * 
@@ -436,7 +436,7 @@ bool SNDOPENALFACTORY::End()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool SNDOPENALFACTORY::Sound_Play(SNDITEM* item, SNDPLAYCFG* playCFG, int ntimestoplay)
-* @brief      Sound_Play
+* @brief      Sound play
 * @ingroup    SOUND
 * 
 * @param[in]  item : 
@@ -513,7 +513,7 @@ bool SNDOPENALFACTORY::Sound_Play(SNDITEM* item, SNDPLAYCFG* playCFG, int ntimes
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool SNDOPENALFACTORY::Sound_Pause(SNDITEM* item)
-* @brief      Sound_Pause
+* @brief      Sound pause
 * @ingroup    SOUND
 * 
 * @param[in]  item : 
@@ -568,7 +568,7 @@ bool SNDOPENALFACTORY::Sound_Pause(SNDITEM* item)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool SNDOPENALFACTORY::Sound_Stop(SNDITEM* item)
-* @brief      Sound_Stop
+* @brief      Sound stop
 * @ingroup    SOUND
 * 
 * @param[in]  item : 
@@ -613,7 +613,7 @@ bool SNDOPENALFACTORY::Sound_Stop(SNDITEM* item)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool SNDOPENALFACTORY::Sound_StopAll()
-* @brief      Sound_StopAll
+* @brief      Sound stop all
 * @ingroup    SOUND
 * 
 * @return     bool : true if is succesful. 
@@ -646,7 +646,7 @@ bool SNDOPENALFACTORY::Sound_StopAll()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool SNDOPENALFACTORY::Sound_WaitToEnd(SNDITEM* item, int maxtimeout, SNDFACTORY_WAITFUNCTION waitfunction)
-* @brief      Sound_WaitToEnd
+* @brief      Sound wait to end
 * @ingroup    SOUND
 * 
 * @param[in]  item : 
@@ -721,7 +721,7 @@ bool SNDOPENALFACTORY::Sound_WaitToEnd(SNDITEM* item, int maxtimeout, SNDFACTORY
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool SNDOPENALFACTORY::Sound_WaitAllToEnd(int maxtimeout, SNDFACTORY_WAITFUNCTION waitfunction)
-* @brief      Sound_WaitAllToEnd
+* @brief      Sound wait all to end
 * @ingroup    SOUND
 * 
 * @param[in]  maxtimeout : 
@@ -790,7 +790,7 @@ bool SNDOPENALFACTORY::Sound_WaitAllToEnd(int maxtimeout, SNDFACTORY_WAITFUNCTIO
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int SNDOPENALFACTORY::Sound_GetVolume(SNDITEM* item)
-* @brief      Sound_GetVolume
+* @brief      Sound get volume
 * @ingroup    SOUND
 * 
 * @param[in]  item : 
@@ -822,7 +822,7 @@ int SNDOPENALFACTORY::Sound_GetVolume(SNDITEM* item)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool SNDOPENALFACTORY::Sound_SetVolume(SNDITEM* item, int volume)
-* @brief      Sound_SetVolume
+* @brief      Sound set volume
 * @ingroup    SOUND
 * 
 * @param[in]  item : 
@@ -855,7 +855,7 @@ bool SNDOPENALFACTORY::Sound_SetVolume(SNDITEM* item, int volume)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         float SNDOPENALFACTORY::Sound_GetPitch(SNDITEM* item)
-* @brief      Sound_GetPitch
+* @brief      Sound get pitch
 * @ingroup    SOUND
 * 
 * @param[in]  item : 
@@ -887,7 +887,7 @@ float SNDOPENALFACTORY::Sound_GetPitch(SNDITEM* item)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool SNDOPENALFACTORY::Sound_SetPitch(SNDITEM* item, float pitch)
-* @brief      Sound_SetPitch
+* @brief      Sound set pitch
 * @ingroup    SOUND
 * 
 * @param[in]  item : 
@@ -921,7 +921,7 @@ bool SNDOPENALFACTORY::Sound_SetPitch(SNDITEM* item, float pitch)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool SNDOPENALFACTORY::DeleteAllItems()
-* @brief      DeleteAllItems
+* @brief      Delete all items
 * @ingroup    SOUND
 * 
 * @return     bool : true if is succesful. 
@@ -946,7 +946,7 @@ bool SNDOPENALFACTORY::DeleteAllItems()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XMUTEX* SNDOPENALFACTORY::GetPlayMutex()
-* @brief      GetPlayMutex
+* @brief      Get play mutex
 * @ingroup    SOUND
 * 
 * @return     XMUTEX* : 
@@ -961,7 +961,7 @@ XMUTEX* SNDOPENALFACTORY::GetPlayMutex()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XVECTOR<SNDOPENALPLAYITEM*>* SNDOPENALFACTORY::GetSoundPlayItems()
-* @brief      GetSoundPlayItems
+* @brief      Get sound play items
 * @ingroup    SOUND
 * 
 * @return     XVECTOR<SNDOPENALPLAYITEM*>* : 
@@ -976,7 +976,7 @@ XVECTOR<SNDOPENALPLAYITEM*>* SNDOPENALFACTORY::GetSoundPlayItems()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         SNDOPENALPLAYITEM* SNDOPENALFACTORY::GetPlayItemFromItem(SNDITEM* item)
-* @brief      GetPlayItemFromItem
+* @brief      Get play item from item
 * @ingroup    SOUND
 * 
 * @param[in]  item : 
@@ -1011,7 +1011,7 @@ SNDOPENALPLAYITEM* SNDOPENALFACTORY::GetPlayItemFromItem(SNDITEM* item)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool SNDOPENALFACTORY::GenerateBuffer(SNDOPENALPLAYITEM* playitem, SNDNOTE* soundnote)
-* @brief      GenerateBuffer
+* @brief      Generate buffer
 * @ingroup    SOUND
 * 
 * @param[in]  playitem : 
@@ -1055,7 +1055,7 @@ bool SNDOPENALFACTORY::GenerateBuffer(SNDOPENALPLAYITEM* playitem, SNDNOTE* soun
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool SNDOPENALFACTORY::GenerateBuffer(SNDOPENALPLAYITEM* playitem, SNDFILE* soundfile)
-* @brief      GenerateBuffer
+* @brief      Generate buffer
 * @ingroup    SOUND
 * 
 * @param[in]  playitem : 
@@ -1090,7 +1090,7 @@ bool SNDOPENALFACTORY::GenerateBuffer(SNDOPENALPLAYITEM* playitem, SNDFILE* soun
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void SNDOPENALFACTORY::ThreadPlay(void* param)
-* @brief      ThreadPlay
+* @brief      Thread play
 * @ingroup    SOUND
 * 
 * @param[in]  param : 
@@ -1111,7 +1111,7 @@ void SNDOPENALFACTORY::ThreadPlay(void* param)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void SNDOPENALFACTORY::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    SOUND
 * 

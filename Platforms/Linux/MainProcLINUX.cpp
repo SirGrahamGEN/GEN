@@ -204,7 +204,7 @@ bool                  Signal_RunLevel           (XCHAR& previous, XCHAR& actual)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         MAINPROCLINUX::MAINPROCLINUX()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_LINUX
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -217,7 +217,7 @@ MAINPROCLINUX::MAINPROCLINUX()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         MAINPROCLINUX::~MAINPROCLINUX()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
 *
@@ -378,7 +378,7 @@ bool MAINPROCLINUX::End()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool MAINPROCLINUX::Factorys_Ini()
-* @brief      Factorys Ini
+* @brief      Factorys ini
 * @ingroup    PLATFORM_LINUX
 *
 * @return     bool : true if is succesful.
@@ -527,7 +527,7 @@ bool MAINPROCLINUX::Factorys_Ini()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool MAINPROCLINUX::Factorys_End()
-* @brief      Factorys End
+* @brief      Factorys end
 * @ingroup    PLATFORM_LINUX
 *
 * @return     bool : true if is succesful.
@@ -641,7 +641,7 @@ bool MAINPROCLINUX::Factorys_End()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void MAINPROCLINUX::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
 * 

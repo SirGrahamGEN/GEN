@@ -68,7 +68,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOWEBPAGEHTMLCREATOR_XEVENT::DIOWEBPAGEHTMLCREATOR_XEVENT(XSUBJECT* subject, XDWORD type)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * @param[in]  subject :
@@ -84,7 +84,7 @@ DIOWEBPAGEHTMLCREATOR_XEVENT::DIOWEBPAGEHTMLCREATOR_XEVENT(XSUBJECT* subject, XD
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOWEBPAGEHTMLCREATOR_XEVENT::~DIOWEBPAGEHTMLCREATOR_XEVENT()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -98,7 +98,7 @@ DIOWEBPAGEHTMLCREATOR_XEVENT::~DIOWEBPAGEHTMLCREATOR_XEVENT()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOWEBPAGEHTMLCREATOR* DIOWEBPAGEHTMLCREATOR_XEVENT::GetPageHTMLCreator()
-* @brief      GetPageHTMLCreator
+* @brief      Get page HTML creator
 * @ingroup    DATAIO
 *
 * @return     DIOWEBPAGEHTMLCREATOR* :
@@ -113,7 +113,7 @@ DIOWEBPAGEHTMLCREATOR* DIOWEBPAGEHTMLCREATOR_XEVENT::GetPageHTMLCreator()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOWEBPAGEHTMLCREATOR_XEVENT::SetPageHTMLCreator(DIOWEBPAGEHTMLCREATOR* pageHTMLcreator)
-* @brief      SetPageHTMLCreator
+* @brief      Set page HTML creator
 * @ingroup    DATAIO
 *
 * @param[in]  pageHTMLcreator :
@@ -128,7 +128,7 @@ void DIOWEBPAGEHTMLCREATOR_XEVENT::SetPageHTMLCreator(DIOWEBPAGEHTMLCREATOR* pag
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* DIOWEBPAGEHTMLCREATOR_XEVENT::GetXTAG()
-* @brief      GetXTAG
+* @brief      Get XTAG
 * @ingroup    DATAIO
 *
 * @return     XSTRING* :
@@ -143,7 +143,7 @@ XSTRING* DIOWEBPAGEHTMLCREATOR_XEVENT::GetXTAG()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOWEBPAGEHTMLCREATOR_XEVENT::SetXTAG(XSTRING* XTAG)
-* @brief      SetXTAG
+* @brief      Set XTAG
 * @ingroup    DATAIO
 *
 * @param[in]  XTAG :
@@ -158,7 +158,7 @@ void DIOWEBPAGEHTMLCREATOR_XEVENT::SetXTAG(XSTRING* XTAG)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOWEBPAGEHTMLCREATOR_XEVENT::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

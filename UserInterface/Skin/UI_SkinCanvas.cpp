@@ -98,7 +98,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_SKINCANVAS_REBUILDAREAS::UI_SKINCANVAS_REBUILDAREAS(GRPSCREEN* screen, int viewportindex)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  screen : 
@@ -130,7 +130,7 @@ UI_SKINCANVAS_REBUILDAREAS::UI_SKINCANVAS_REBUILDAREAS(GRPSCREEN* screen, int vi
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_SKINCANVAS_REBUILDAREAS::~UI_SKINCANVAS_REBUILDAREAS()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
 *
@@ -144,7 +144,7 @@ UI_SKINCANVAS_REBUILDAREAS::~UI_SKINCANVAS_REBUILDAREAS()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKINCANVAS_REBUILDAREAS::RebuildAllAreas()
-* @brief      RebuildAllAreas
+* @brief      Rebuild all areas
 * @ingroup    USERINTERFACE
 *
 * @return     bool : true if is succesful. 
@@ -209,7 +209,7 @@ bool UI_SKINCANVAS_REBUILDAREAS::RebuildAllAreas()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKINCANVAS_REBUILDAREAS::RebuildAllAreas(UI_LAYOUT* layout)
-* @brief      RebuildAllAreas
+* @brief      Rebuild all areas
 * @ingroup    USERINTERFACE
 *
 * @param[in]  layout : 
@@ -234,7 +234,7 @@ bool UI_SKINCANVAS_REBUILDAREAS::RebuildAllAreas(UI_LAYOUT* layout)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKINCANVAS_REBUILDAREAS::RebuildAllAreas(UI_ELEMENT* element)
-* @brief      RebuildAllAreas
+* @brief      Rebuild all areas
 * @ingroup    USERINTERFACE
 *
 * @param[in]  element : 
@@ -310,7 +310,7 @@ bool UI_SKINCANVAS_REBUILDAREAS::RebuildAllAreas(UI_ELEMENT* element)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKINCANVAS_REBUILDAREAS::CreateRebuildArea(double x, double y, double width, double height, UI_ELEMENT* element)
-* @brief      CreateRebuildArea
+* @brief      Create rebuild area
 * @ingroup    USERINTERFACE
 *
 * @param[in]  x : 
@@ -331,7 +331,7 @@ bool UI_SKINCANVAS_REBUILDAREAS::CreateRebuildArea(double x, double y, double wi
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPBITMAP* UI_SKINCANVAS_REBUILDAREAS::GetBitmap(double x, double y, double width, double height)
-* @brief      GetBitmap
+* @brief      Get bitmap
 * @ingroup    USERINTERFACE
 *
 * @param[in]  x : 
@@ -353,7 +353,7 @@ GRPBITMAP* UI_SKINCANVAS_REBUILDAREAS::GetBitmap(double x, double y, double widt
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_SKINCANVAS_REBUILDAREAS::PutBitmapNoAlpha(double x, double y, GRPBITMAP* bitmap)
-* @brief      PutBitmapNoAlpha
+* @brief      Put bitmap no alpha
 * @ingroup    USERINTERFACE
 *
 * @param[in]  x : 
@@ -372,7 +372,7 @@ void UI_SKINCANVAS_REBUILDAREAS::PutBitmapNoAlpha(double x, double y, GRPBITMAP*
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRP2DREBUILDAREA* UI_SKINCANVAS_REBUILDAREAS::GetRebuildAreaByElement(UI_ELEMENT* element)
-* @brief      GetRebuildAreaByElement
+* @brief      Get rebuild area by element
 * @ingroup    USERINTERFACE
 *
 * @param[in]  element : 
@@ -402,7 +402,7 @@ GRP2DREBUILDAREA* UI_SKINCANVAS_REBUILDAREAS::GetRebuildAreaByElement(UI_ELEMENT
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_SKINCANVAS_REBUILDAREAS::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
 *
@@ -424,7 +424,7 @@ void UI_SKINCANVAS_REBUILDAREAS::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_SKINCANVAS::UI_SKINCANVAS(GRPSCREEN* screen, int viewportindex)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  screen : 
@@ -445,7 +445,7 @@ UI_SKINCANVAS::UI_SKINCANVAS(GRPSCREEN* screen,  int viewportindex) : UI_SKIN(),
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_SKINCANVAS::~UI_SKINCANVAS()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
 *
@@ -466,7 +466,7 @@ UI_SKINCANVAS::~UI_SKINCANVAS()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPSCREEN* UI_SKINCANVAS::GetScreen()
-* @brief      GetScreen
+* @brief      Get screen
 * @ingroup    USERINTERFACE
 *
 * @return     GRPSCREEN* : 
@@ -481,7 +481,7 @@ GRPSCREEN* UI_SKINCANVAS::GetScreen()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPCANVAS* UI_SKINCANVAS::GetCanvas()
-* @brief      GetCanvas
+* @brief      Get canvas
 * @ingroup    USERINTERFACE
 *
 * @return     GRPCANVAS* : 
@@ -506,7 +506,7 @@ GRPCANVAS* UI_SKINCANVAS::GetCanvas()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKINCANVAS::LoadFonts()
-* @brief      LoadFonts
+* @brief      Load fonts
 * @ingroup    USERINTERFACE
 *
 * @return     bool : true if is succesful. 
@@ -577,7 +577,7 @@ bool UI_SKINCANVAS::LoadFonts()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKINCANVAS::GetFatherSize(UI_ELEMENT* element, double& width, double& height)
-* @brief      GetFatherSize
+* @brief      Get father size
 * @ingroup    USERINTERFACE
 *
 * @param[in]  element : 
@@ -613,7 +613,7 @@ bool UI_SKINCANVAS::GetFatherSize(UI_ELEMENT* element, double& width, double& he
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         double UI_SKINCANVAS::GetPositionWithoutDefine(double position)
-* @brief      GetPositionWithoutDefine
+* @brief      Get position without define
 * @ingroup    USERINTERFACE
 *
 * @param[in]  position : 
@@ -640,7 +640,7 @@ double UI_SKINCANVAS::GetPositionWithoutDefine(double position)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKINCANVAS::SetAroundFromSubElements(UI_ELEMENT* element)
-* @brief      SetAroundFromSubElements
+* @brief      Set around from sub elements
 * @ingroup    USERINTERFACE
 *
 * @param[in]  element : 
@@ -701,7 +701,7 @@ bool UI_SKINCANVAS::SetAroundFromSubElements(UI_ELEMENT* element)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKINCANVAS::AddPositionSubElements(UI_ELEMENT* element)
-* @brief      AddPositionSubElements
+* @brief      Add position sub elements
 * @ingroup    USERINTERFACE
 *
 * @param[in]  element : 
@@ -730,7 +730,7 @@ bool UI_SKINCANVAS::AddPositionSubElements(UI_ELEMENT* element)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKINCANVAS::CalculePosition(UI_ELEMENT* element, double fatherwidth, double fatherheight, bool adjustsizemargin)
-* @brief      CalculePosition
+* @brief      Calcule position
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  element : 
@@ -823,7 +823,7 @@ bool UI_SKINCANVAS::CalculePosition(UI_ELEMENT* element, double fatherwidth, dou
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         double UI_SKINCANVAS::GetWithString(XCHAR* string, XDWORD sizefont)
-* @brief      GetWithString
+* @brief      Get with string
 * @ingroup    USERINTERFACE
 *
 * @param[in]  string : 
@@ -847,7 +847,7 @@ double UI_SKINCANVAS::GetWithString(XCHAR* string,  XDWORD sizefont)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         double UI_SKINCANVAS::GetHeightString(XCHAR* string, XDWORD sizefont)
-* @brief      GetHeightString
+* @brief      Get height string
 * @ingroup    USERINTERFACE
 *
 * @param[in]  string : 
@@ -871,7 +871,7 @@ double  UI_SKINCANVAS::GetHeightString(XCHAR* string, XDWORD sizefont)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKINCANVAS::CalculateBoundaryLine_Scroll(UI_ELEMENT* element, bool adjustsizemargin)
-* @brief      CalculateBoundaryLine_Scroll
+* @brief      Calculate boundary line scroll
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  element : 
@@ -889,7 +889,7 @@ bool UI_SKINCANVAS::CalculateBoundaryLine_Scroll(UI_ELEMENT* element, bool adjus
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKINCANVAS::CalculateBoundaryLine_Text(UI_ELEMENT* element, bool adjustsizemargin)
-* @brief      CalculateBoundaryLine_Text
+* @brief      Calculate boundary line text
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  element : 
@@ -961,7 +961,7 @@ bool UI_SKINCANVAS::CalculateBoundaryLine_Text(UI_ELEMENT* element, bool adjusts
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKINCANVAS::CalculateBoundaryLine_TextBox(UI_ELEMENT* element, bool adjustsizemargin)
-* @brief      CalculateBoundaryLine_TextBox
+* @brief      Calculate boundary line text box
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  element : 
@@ -1003,7 +1003,7 @@ bool UI_SKINCANVAS::CalculateBoundaryLine_TextBox(UI_ELEMENT* element, bool adju
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKINCANVAS::CalculateBoundaryLine_Image(UI_ELEMENT* element, bool adjustsizemargin)
-* @brief      CalculateBoundaryLine_Image
+* @brief      Calculate boundary line image
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  element : 
@@ -1045,7 +1045,7 @@ bool UI_SKINCANVAS::CalculateBoundaryLine_Image(UI_ELEMENT* element, bool adjust
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKINCANVAS::CalculateBoundaryLine_Animation(UI_ELEMENT* element, bool adjustsizemargin)
-* @brief      CalculateBoundaryLine_Animation
+* @brief      Calculate boundary line animation
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  element : 
@@ -1120,7 +1120,7 @@ bool UI_SKINCANVAS::CalculateBoundaryLine_Animation(UI_ELEMENT* element, bool ad
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKINCANVAS::CalculateBoundaryLine_Option(UI_ELEMENT* element, bool adjustsizemargin)
-* @brief      CalculateBoundaryLine_Option
+* @brief      Calculate boundary line option
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  element : 
@@ -1231,7 +1231,7 @@ bool UI_SKINCANVAS::CalculateBoundaryLine_Option(UI_ELEMENT* element, bool adjus
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKINCANVAS::CalculateBoundaryLine_MultiOption(UI_ELEMENT* element, bool adjustsizemargin)
-* @brief      CalculateBoundaryLine_MultiOption
+* @brief      Calculate boundary line multi option
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  element : 
@@ -1297,7 +1297,7 @@ bool UI_SKINCANVAS::CalculateBoundaryLine_MultiOption(UI_ELEMENT* element, bool 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKINCANVAS::CalculateBoundaryLine_Button(UI_ELEMENT* element, bool adjustsizemargin)
-* @brief      CalculateBoundaryLine_Button
+* @brief      Calculate boundary line button
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  element : 
@@ -1315,7 +1315,7 @@ bool UI_SKINCANVAS::CalculateBoundaryLine_Button(UI_ELEMENT* element, bool adjus
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKINCANVAS::CalculateBoundaryLine_CheckBox(UI_ELEMENT* element, bool adjustsizemargin)
-* @brief      CalculateBoundaryLine_CheckBox
+* @brief      Calculate boundary line check box
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  element : 
@@ -1333,7 +1333,7 @@ bool UI_SKINCANVAS::CalculateBoundaryLine_CheckBox(UI_ELEMENT* element, bool adj
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKINCANVAS::CalculateBoundaryLine_EditText(UI_ELEMENT* element, bool adjustsizemargin)
-* @brief      CalculateBoundaryLine_EditText
+* @brief      Calculate boundary line edit text
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  element : 
@@ -1392,7 +1392,7 @@ bool UI_SKINCANVAS::CalculateBoundaryLine_EditText(UI_ELEMENT* element, bool adj
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKINCANVAS::CalculateBoundaryLine_Form(UI_ELEMENT* element, bool adjustsizemargin)
-* @brief      CalculateBoundaryLine_Form
+* @brief      Calculate boundary line form
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  element : 
@@ -1460,7 +1460,7 @@ bool UI_SKINCANVAS::CalculateBoundaryLine_Form(UI_ELEMENT* element, bool adjusts
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKINCANVAS::CalculateBoundaryLine_Menu(UI_ELEMENT* element, bool adjustsizemargin)
-* @brief      CalculateBoundaryLine_Menu
+* @brief      Calculate boundary line menu
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  element : 
@@ -1478,7 +1478,7 @@ bool UI_SKINCANVAS::CalculateBoundaryLine_Menu(UI_ELEMENT* element, bool adjusts
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKINCANVAS::CalculateBoundaryLine_ListBox(UI_ELEMENT* element, bool adjustsizemargin)
-* @brief      CalculateBoundaryLine_ListBox
+* @brief      Calculate boundary line list box
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  element : 
@@ -1537,7 +1537,7 @@ bool UI_SKINCANVAS::CalculateBoundaryLine_ListBox(UI_ELEMENT* element, bool adju
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKINCANVAS::CalculateBoundaryLine_ProgressBar(UI_ELEMENT* element, bool adjustsizemargin)
-* @brief      CalculateBoundaryLine_ProgressBar
+* @brief      Calculate boundary line progress bar
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  element : 
@@ -1672,7 +1672,7 @@ bool UI_SKINCANVAS::CalculateBoundaryLine_ProgressBar(UI_ELEMENT* element, bool 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKINCANVAS::SetElementPosition(UI_ELEMENT* element, double x_position, double y_position)
-* @brief      SetElementPosition
+* @brief      Set element position
 * @ingroup    USERINTERFACE
 *
 * @param[in]  element : 
@@ -1706,7 +1706,7 @@ bool UI_SKINCANVAS::SetElementPosition(UI_ELEMENT* element, double x_position, d
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKINCANVAS::Draw_Scroll(UI_ELEMENT* element)
-* @brief      Draw_Scroll
+* @brief      Draw scroll
 * @ingroup    USERINTERFACE
 *
 * @param[in]  element : 
@@ -1723,7 +1723,7 @@ bool UI_SKINCANVAS::Draw_Scroll(UI_ELEMENT* element)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKINCANVAS::Draw_Text(UI_ELEMENT* element)
-* @brief      Draw_Text
+* @brief      Draw text
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  element : 
@@ -1767,7 +1767,7 @@ bool UI_SKINCANVAS::Draw_Text(UI_ELEMENT* element)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKINCANVAS::Draw_TextBox(UI_ELEMENT* element)
-* @brief      Draw_TextBox
+* @brief      Draw text box
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  element : 
@@ -1846,7 +1846,7 @@ bool UI_SKINCANVAS::Draw_TextBox(UI_ELEMENT* element)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKINCANVAS::Draw_Image(UI_ELEMENT* element)
-* @brief      Draw_Image
+* @brief      Draw image
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  element : 
@@ -1885,7 +1885,7 @@ bool UI_SKINCANVAS::Draw_Image(UI_ELEMENT* element)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKINCANVAS::Draw_Animation(UI_ELEMENT* element)
-* @brief      Draw_Animation
+* @brief      Draw animation
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  element : 
@@ -1953,7 +1953,7 @@ bool UI_SKINCANVAS::Draw_Animation(UI_ELEMENT* element)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKINCANVAS::Draw_Option(UI_ELEMENT* element)
-* @brief      Draw_Option
+* @brief      Draw option
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  element : 
@@ -2117,7 +2117,7 @@ bool UI_SKINCANVAS::Draw_Option(UI_ELEMENT* element)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKINCANVAS::Draw_MultiOption(UI_ELEMENT* element)
-* @brief      Draw_MultiOption
+* @brief      Draw multi option
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  element : 
@@ -2188,7 +2188,7 @@ bool UI_SKINCANVAS::Draw_MultiOption(UI_ELEMENT* element)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKINCANVAS::Draw_Button(UI_ELEMENT* element)
-* @brief      Draw_Button
+* @brief      Draw button
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  element : 
@@ -2205,7 +2205,7 @@ bool UI_SKINCANVAS::Draw_Button(UI_ELEMENT* element)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKINCANVAS::Draw_CheckBox(UI_ELEMENT* element)
-* @brief      Draw_CheckBox
+* @brief      Draw check box
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  element : 
@@ -2230,7 +2230,7 @@ bool UI_SKINCANVAS::Draw_CheckBox(UI_ELEMENT* element)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKINCANVAS::Draw_EditText(UI_ELEMENT* element)
-* @brief      Draw_EditText
+* @brief      Draw edit text
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  element : 
@@ -2331,7 +2331,7 @@ bool UI_SKINCANVAS::Draw_EditText(UI_ELEMENT* element)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKINCANVAS::Draw_Form(UI_ELEMENT* element)
-* @brief      Draw_Form
+* @brief      Draw form
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  element : 
@@ -2406,7 +2406,7 @@ bool UI_SKINCANVAS::Draw_Form(UI_ELEMENT* element)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKINCANVAS::Draw_Menu(UI_ELEMENT* element)
-* @brief      Draw_Menu
+* @brief      Draw menu
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  element : 
@@ -2423,7 +2423,7 @@ bool UI_SKINCANVAS::Draw_Menu(UI_ELEMENT* element)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKINCANVAS::Draw_ListBox(UI_ELEMENT* element)
-* @brief      Draw_ListBox
+* @brief      Draw list box
 * @ingroup    USERINTERFACE
 *
 * @param[in]  element : 
@@ -2495,7 +2495,7 @@ bool UI_SKINCANVAS::Draw_ListBox(UI_ELEMENT* element)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKINCANVAS::Draw_ProgressBar(UI_ELEMENT* element)
-* @brief      Draw_ProgressBar
+* @brief      Draw progress bar
 * @ingroup    USERINTERFACE
 *
 * @param[in]  element : 
@@ -2693,7 +2693,7 @@ bool UI_SKINCANVAS::Draw_ProgressBar(UI_ELEMENT* element)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKINCANVAS::GetFontSize(XCHAR* text, XDWORD& width, XDWORD& height)
-* @brief      GetFontSize
+* @brief      Get font size
 * @ingroup    USERINTERFACE
 *
 * @param[in]  text : 
@@ -2718,7 +2718,7 @@ bool UI_SKINCANVAS::GetFontSize(XCHAR* text, XDWORD& width, XDWORD& height)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKINCANVAS::SetFontSize(XDWORD size)
-* @brief      SetFontSize
+* @brief      Set font size
 * @ingroup    USERINTERFACE
 *
 * @param[in]  size : 
@@ -2740,7 +2740,7 @@ bool UI_SKINCANVAS::SetFontSize(XDWORD size)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKINCANVAS::DrawBackgroundColor(UI_ELEMENT* element, GRPCANVAS* canvas, double x_position, double y_position)
-* @brief      DrawBackgroundColor
+* @brief      Draw background color
 * @ingroup    USERINTERFACE
 *
 * @param[in]  element : 
@@ -2777,7 +2777,7 @@ bool UI_SKINCANVAS::DrawBackgroundColor(UI_ELEMENT* element, GRPCANVAS* canvas, 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKINCANVAS::PreDrawFunction(UI_ELEMENT* element, GRPCANVAS* canvas, XRECT& clip_rect, double& x_position, double& y_position, XDWORD edge)
-* @brief      PreDrawFunction
+* @brief      Pre draw function
 * @ingroup    USERINTERFACE
 *
 * @param[in]  element : 
@@ -2838,7 +2838,7 @@ bool UI_SKINCANVAS::PreDrawFunction(UI_ELEMENT* element, GRPCANVAS* canvas, XREC
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKINCANVAS::PostDrawFunction(UI_ELEMENT* element, GRPCANVAS* canvas, XRECT& clip_rect, double x_position, double y_position)
-* @brief      PostDrawFunction
+* @brief      Post draw function
 * @ingroup    USERINTERFACE
 *
 * @param[in]  element : 
@@ -2873,7 +2873,7 @@ bool UI_SKINCANVAS::PostDrawFunction(UI_ELEMENT* element, GRPCANVAS* canvas, XRE
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         double UI_SKINCANVAS::TextBox_SizeLine(UI_ELEMENT_TEXTBOX* element_textbox, GRPCANVAS* canvas, double x_position, double y_position, int nline, XSTRING& characterstr, XDWORD index_char, XVECTOR<UI_SKIN_TEXTBOX_PART*>& parts)
-* @brief      TextBox_SizeLine
+* @brief      Text box size line
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  element_textbox : 
@@ -2916,7 +2916,7 @@ double UI_SKINCANVAS::TextBox_SizeLine(UI_ELEMENT_TEXTBOX* element_textbox, GRPC
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKINCANVAS::TextBox_GenerateLines(UI_ELEMENT_TEXTBOX* element_textbox, GRPCANVAS* canvas, double x_position, double y_position, XVECTOR<UI_SKIN_TEXTBOX_PART*>& parts)
-* @brief      TextBox_GenerateLines
+* @brief      Text box generate lines
 * @ingroup    USERINTERFACE
 *
 * @param[in]  element_textbox : 
@@ -3220,7 +3220,7 @@ bool UI_SKINCANVAS::TextBox_GenerateLines(UI_ELEMENT_TEXTBOX* element_textbox, G
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKINCANVAS::Debug_Draw(UI_ELEMENT* element, double x_position, double y_position)
-* @brief      Debug_Draw
+* @brief      Debug draw
 * @ingroup    USERINTERFACE
 *
 * @param[in]  element : 
@@ -3256,7 +3256,7 @@ bool UI_SKINCANVAS::Debug_Draw(UI_ELEMENT* element, double x_position, double y_
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_SKINCANVAS::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
 *

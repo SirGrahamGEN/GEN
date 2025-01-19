@@ -68,7 +68,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOURL::DIOURL()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -81,7 +81,7 @@ DIOURL::DIOURL()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOURL::~DIOURL()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -95,7 +95,7 @@ DIOURL::~DIOURL()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOURL::DIOURL(XDWORD size)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * @param[in]  size :
@@ -110,7 +110,7 @@ DIOURL::DIOURL(XDWORD size) : XSTRING(size)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOURL::DIOURL(const char* url)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * @param[in]  url :
@@ -125,7 +125,7 @@ DIOURL::DIOURL(const char* url) : XSTRING(url)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOURL::DIOURL(const XCHAR* url)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * @param[in]  url :
@@ -140,7 +140,7 @@ DIOURL::DIOURL(const XCHAR* url) : XSTRING(url)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOURL::DIOURL(const XCHAR* url,XDWORD size)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * @param[in]  url :
@@ -156,7 +156,7 @@ DIOURL::DIOURL(const XCHAR* url,XDWORD size) : XSTRING(url, size)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOURL::DIOURL(DIOURL& url)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * @param[in]  url :
@@ -171,7 +171,7 @@ DIOURL::DIOURL(DIOURL& url) : XSTRING(url)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOURL::DIOURL(XSTRING& url)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * @param[in]  url :
@@ -186,7 +186,7 @@ DIOURL::DIOURL(XSTRING& url) : XSTRING(url)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOURL::DIOURL(XWORD* url)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * @param[in]  url :
@@ -201,7 +201,7 @@ DIOURL::DIOURL(XWORD* url) : XSTRING(url)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOURL::GetHTTPServer(XSTRING& server, XSTRING& login, XSTRING& password)
-* @brief      GetHTTPServer
+* @brief      Get HTTP server
 * @ingroup    DATAIO
 *
 * @param[in]  server :
@@ -255,7 +255,7 @@ bool DIOURL::GetHTTPServer(XSTRING& server, XSTRING& login, XSTRING& password)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOURL::GetHTTPResource(XSTRING& resource)
-* @brief      GetHTTPResource
+* @brief      Get HTTP resource
 * @ingroup    DATAIO
 *
 * @param[in]  resource :
@@ -293,7 +293,7 @@ bool DIOURL::GetHTTPResource(XSTRING& resource)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOURL::IsAURL()
-* @brief      IsAURL
+* @brief      Is AURL
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -325,7 +325,7 @@ bool DIOURL::IsAURL()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOURL::ResolveURL()
-* @brief      ResolveURL
+* @brief      Resolve URL
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -346,7 +346,7 @@ bool DIOURL::ResolveURL()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOURL::ResolveURL(XSTRING& IPstring)
-* @brief      ResolveURL
+* @brief      Resolve URL
 * @ingroup    DATAIO
 *
 * @param[in]  IPstring :
@@ -371,7 +371,7 @@ bool DIOURL::ResolveURL(XSTRING& IPstring)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOURL::ResolveURL(DIOIP& IP)
-* @brief      ResolveURL
+* @brief      Resolve URL
 * @ingroup    DATAIO
 *
 * @param[in]  IP :
@@ -396,7 +396,7 @@ bool DIOURL::ResolveURL(DIOIP& IP)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOURL::IsLocalAddress()
-* @brief      IsLocalAddress
+* @brief      Is local address
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -419,7 +419,7 @@ bool DIOURL::IsLocalAddress()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOURL::Slash_Add()
-* @brief      Slash_Add
+* @brief      Slash add
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -458,7 +458,7 @@ bool DIOURL::Slash_Add()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOURL::Slash_Normalize()
-* @brief      Slash_Normalize
+* @brief      Slash normalize
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -484,7 +484,7 @@ bool DIOURL::Slash_Normalize()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOURL::Slash_Delete()
-* @brief      Slash_Delete
+* @brief      Slash delete
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -509,7 +509,7 @@ bool DIOURL::Slash_Delete()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOURL::IsUnsafeChar(XCHAR character)
-* @brief      IsUnsafeChar
+* @brief      Is unsafe char
 * @ingroup    DATAIO
 *
 * @param[in]  character :
@@ -534,7 +534,7 @@ bool DIOURL::IsUnsafeChar(XCHAR character)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOURL::EncodeUnsafeChar(XCHAR character, XSTRING& encodechar)
-* @brief      EncodeUnsafeChar
+* @brief      Encode unsafe char
 * @ingroup    DATAIO
 *
 * @param[in]  character :
@@ -560,7 +560,7 @@ bool DIOURL::EncodeUnsafeChar(XCHAR character, XSTRING& encodechar)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOURL::EncodeUnsafeCharsFromString(XSTRING& string)
-* @brief      EncodeUnsafeCharsFromString
+* @brief      Encode unsafe chars from string
 * @ingroup    DATAIO
 *
 * @param[in]  string :
@@ -611,7 +611,7 @@ bool DIOURL::EncodeUnsafeCharsFromString(XSTRING& string)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOURL::EncodeUnsafeCharsFromString(const char* string)
-* @brief      EncodeUnsafeCharsFromString
+* @brief      Encode unsafe chars from string
 * @ingroup    DATAIO
 *
 * @param[in]  string :
@@ -630,7 +630,7 @@ bool DIOURL::EncodeUnsafeCharsFromString(const char* string)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOURL::EncodeUnsafeCharsFromString(const XCHAR* string)
-* @brief      EncodeUnsafeCharsFromString
+* @brief      Encode unsafe chars from string
 * @ingroup    DATAIO
 *
 * @param[in]  string :
@@ -649,7 +649,7 @@ bool DIOURL::EncodeUnsafeCharsFromString(const XCHAR* string)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOURL::EncodeUnsafeCharsFromBuffer(XBUFFER& xbuffer)
-* @brief      EncodeUnsafeCharsFromBuffer
+* @brief      Encode unsafe chars from buffer
 * @ingroup    DATAIO
 *
 * @param[in]  xbuffer :
@@ -700,7 +700,7 @@ bool DIOURL::EncodeUnsafeCharsFromBuffer(XBUFFER& xbuffer)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOURL::EncodeUnsafeChars()
-* @brief      EncodeUnsafeChars
+* @brief      Encode unsafe chars
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -722,7 +722,7 @@ bool DIOURL::EncodeUnsafeChars()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOURL::DecodeUnsafeCharsToString(XSTRING& string)
-* @brief      DecodeUnsafeCharsToString
+* @brief      Decode unsafe chars to string
 * @ingroup    DATAIO
 *
 * @param[in]  string :
@@ -781,7 +781,7 @@ bool DIOURL::DecodeUnsafeCharsToString(XSTRING& string)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOURL::DecodeUnsafeChars()
-* @brief      DecodeUnsafeChars
+* @brief      Decode unsafe chars
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -825,7 +825,7 @@ bool DIOURL::Normalize()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOURL::HaveHTTPID()
-* @brief      HaveHTTPID
+* @brief      Have HTTPID
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -843,7 +843,7 @@ bool DIOURL::HaveHTTPID()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOURL::AddHTTPID()
-* @brief      AddHTTPID
+* @brief      Add HTTPID
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -868,7 +868,7 @@ bool DIOURL::AddHTTPID()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOURL::DeleteHTTPID()
-* @brief      DeleteHTTPID
+* @brief      Delete HTTPID
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -906,7 +906,7 @@ bool DIOURL::DeleteHTTPID()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOURL::GetExtension(XSTRING& extension)
-* @brief      GetExtension
+* @brief      Get extension
 * @ingroup    DATAIO
 *
 * @param[in]  extension :
@@ -944,7 +944,7 @@ bool DIOURL::GetExtension(XSTRING& extension)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOURL::GetFileName(XSTRING& filename)
-* @brief      GetFileName
+* @brief      Get file name
 * @ingroup    DATAIO
 *
 * @param[in]  filename : 
@@ -975,7 +975,7 @@ bool DIOURL::GetFileName(XSTRING& filename)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOURL::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

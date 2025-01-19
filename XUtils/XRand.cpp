@@ -68,7 +68,7 @@ XRAND* XRAND::instance = NULL;
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XRAND::XRAND()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -81,7 +81,7 @@ XRAND::XRAND()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XRAND::~XRAND()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -95,7 +95,7 @@ XRAND::~XRAND()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XRAND::GetIsInstanced()
-* @brief      GetIsInstanced
+* @brief      Get is instanced
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful. 
@@ -110,7 +110,7 @@ bool XRAND::GetIsInstanced()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XRAND& XRAND::GetInstance()
-* @brief      Get Instance of XRAND
+* @brief      Get instance
 * @note       STATIC
 * @ingroup    XUTILS
 *
@@ -128,7 +128,7 @@ XRAND& XRAND::GetInstance()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XRAND::SetInstance(XRAND* _instance)
-* @brief      Set Instance of XRAND
+* @brief      Set instance
 * @note       STATIC
 * @ingroup    XUTILS
 *
@@ -150,7 +150,7 @@ bool XRAND::SetInstance(XRAND* _instance)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XRAND::DelInstance()
-* @brief      Delete Instance of XRAND
+* @brief      Del instance
 * @note       STATIC
 * @ingroup    XUTILS
 *
@@ -203,7 +203,7 @@ bool XRAND::Ini()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XRAND::MaxElements(int max)
-* @brief      MaxElements
+* @brief      Max elements
 * @ingroup    XUTILS
 *
 * @param[in]  max :
@@ -295,7 +295,7 @@ bool XRAND::Percent(int percent)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XRAND::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    XUTILS
 *

@@ -67,7 +67,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSERIALIZATIONMETHODJSON::XSERIALIZATIONMETHODJSON()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -80,7 +80,7 @@ XSERIALIZATIONMETHODJSON::XSERIALIZATIONMETHODJSON()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSERIALIZATIONMETHODJSON::~XSERIALIZATIONMETHODJSON()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    XUTILS
 * 
@@ -419,7 +419,7 @@ bool XSERIALIZATIONMETHODJSON::Add(XVARIANT* var, XCHAR* name)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XSERIALIZATIONMETHODJSON::AddStruct(XCHAR* name, bool open)
-* @brief      AddStruct
+* @brief      Add struct
 * @ingroup    XUTILS
 * 
 * @param[in]  name : 
@@ -460,7 +460,7 @@ bool XSERIALIZATIONMETHODJSON::AddStruct(XCHAR* name, bool open)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XSERIALIZATIONMETHODJSON::AddArray(XDWORD nelements, XCHAR* name, bool open)
-* @brief      AddArray
+* @brief      Add array
 * @ingroup    XUTILS
 * 
 * @param[in]  nelements : 
@@ -915,7 +915,7 @@ bool XSERIALIZATIONMETHODJSON::Extract(XVARIANT& var, XCHAR* name)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XSERIALIZATIONMETHODJSON::ExtractStruct(XCHAR* name)
-* @brief      ExtractStruct
+* @brief      Extract struct
 * @ingroup    XUTILS
 * 
 * @param[in]  name : 
@@ -937,7 +937,7 @@ bool XSERIALIZATIONMETHODJSON::ExtractStruct(XCHAR* name)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XSERIALIZATIONMETHODJSON::ExtractArray(XDWORD nelements, XCHAR* name)
-* @brief      ExtractArray
+* @brief      Extract array
 * @ingroup    XUTILS
 * 
 * @param[in]  nelements : 
@@ -960,7 +960,7 @@ bool XSERIALIZATIONMETHODJSON::ExtractArray(XDWORD nelements, XCHAR* name)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XFILEJSON* XSERIALIZATIONMETHODJSON::GetFileJSON()
-* @brief      GetFileJSON
+* @brief      Get file JSON
 * @ingroup    XUTILS
 * 
 * @return     XFILEJSON* : 
@@ -975,7 +975,7 @@ XFILEJSON* XSERIALIZATIONMETHODJSON::GetFileJSON()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void XSERIALIZATIONMETHODJSON::SetFileJSON(XFILEJSON* fileJSON)
-* @brief      SetFileJSON
+* @brief      Set file JSON
 * @ingroup    XUTILS
 * 
 * @param[in]  fileJSON : 
@@ -990,7 +990,7 @@ void XSERIALIZATIONMETHODJSON::SetFileJSON(XFILEJSON* fileJSON)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XFILEJSONOBJECT* XSERIALIZATIONMETHODJSON::GetActualObject()
-* @brief      GetActualObject
+* @brief      Get actual object
 * @ingroup    XUTILS
 * 
 * @return     XFILEJSONOBJECT* : 
@@ -1005,7 +1005,7 @@ XFILEJSONOBJECT* XSERIALIZATIONMETHODJSON::GetActualObject()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void XSERIALIZATIONMETHODJSON::SetActualObject(XFILEJSONOBJECT* actualobject)
-* @brief      SetActualObject
+* @brief      Set actual object
 * @ingroup    XUTILS
 * 
 * @param[in]  actualobject : 
@@ -1020,7 +1020,7 @@ void XSERIALIZATIONMETHODJSON::SetActualObject(XFILEJSONOBJECT* actualobject)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XSERIALIZATIONMETHODJSON::CheckHandleActive()
-* @brief      CheckHandleActive
+* @brief      Check handle active
 * @ingroup    XUTILS
 * 
 * @return     bool : true if is succesful. 
@@ -1045,7 +1045,7 @@ bool XSERIALIZATIONMETHODJSON::CheckHandleActive()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void XSERIALIZATIONMETHODJSON::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    XUTILS
 * 

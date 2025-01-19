@@ -76,7 +76,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         CIPHERKEYSFILEPEM_TYPECERTIFICATE::CIPHERKEYSFILEPEM_TYPECERTIFICATE()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    CIPHER
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -89,7 +89,7 @@ CIPHERKEYSFILEPEM_TYPECERTIFICATE::CIPHERKEYSFILEPEM_TYPECERTIFICATE()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         CIPHERKEYSFILEPEM_TYPECERTIFICATE::~CIPHERKEYSFILEPEM_TYPECERTIFICATE()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    CIPHER
 * 
@@ -103,7 +103,7 @@ CIPHERKEYSFILEPEM_TYPECERTIFICATE::~CIPHERKEYSFILEPEM_TYPECERTIFICATE()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void CIPHERKEYSFILEPEM_TYPECERTIFICATE::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    CIPHER
 * 
@@ -123,7 +123,7 @@ void CIPHERKEYSFILEPEM_TYPECERTIFICATE::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         CIPHERKEYSFILEPEM::CIPHERKEYSFILEPEM()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    CIPHER
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -136,7 +136,7 @@ CIPHERKEYSFILEPEM::CIPHERKEYSFILEPEM()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         CIPHERKEYSFILEPEM::~CIPHERKEYSFILEPEM()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    CIPHER
 * 
@@ -153,7 +153,7 @@ CIPHERKEYSFILEPEM::~CIPHERKEYSFILEPEM()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool CIPHERKEYSFILEPEM::Key_Add(CIPHERKEY* key)
-* @brief      Key_Add
+* @brief      Key add
 * @ingroup    CIPHER
 * 
 * @param[in]  key : 
@@ -175,7 +175,7 @@ bool CIPHERKEYSFILEPEM::Key_Add(CIPHERKEY* key)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool CIPHERKEYSFILEPEM::Key_Del(CIPHERKEY* key)
-* @brief      Key_Del
+* @brief      Key del
 * @ingroup    CIPHER
 * 
 * @param[in]  key : 
@@ -200,7 +200,7 @@ bool CIPHERKEYSFILEPEM::Key_Del(CIPHERKEY* key)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool CIPHERKEYSFILEPEM::Key_DelAll()
-* @brief      Key_DelAll
+* @brief      Key del all
 * @ingroup    CIPHER
 * 
 * @return     bool : true if is succesful. 
@@ -223,7 +223,7 @@ bool CIPHERKEYSFILEPEM::Key_DelAll()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool CIPHERKEYSFILEPEM::ReadDecodeAllFile(XPATH& xpath)
-* @brief      ReadDecodeAllFile
+* @brief      Read decode all file
 * @ingroup    CIPHER
 * 
 * @param[in]  xpath : 
@@ -372,7 +372,7 @@ bool CIPHERKEYSFILEPEM::ReadDecodeAllFile(XPATH& xpath)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool CIPHERKEYSFILEPEM::DecodeCertificates(CIPHERROOTCERTIFICATES certificates, int nlinescertificates)
-* @brief      DecodeCertificates
+* @brief      Decode certificates
 * @ingroup    CIPHER
 * 
 * @param[in]  certificates : 
@@ -501,7 +501,7 @@ bool CIPHERKEYSFILEPEM::DecodeCertificates(CIPHERROOTCERTIFICATES certificates, 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void CIPHERKEYSFILEPEM::HandleEvent_XBER(XBER_XEVENT* event)
-* @brief      Handle Event for the observer manager of this class
+* @brief      Handle event XBER
 * @note       INTERNAL
 * @ingroup    CIPHER
 * 
@@ -617,7 +617,7 @@ void CIPHERKEYSFILEPEM::HandleEvent_XBER(XBER_XEVENT* event)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void CIPHERKEYSFILEPEM::HandleEvent(XEVENT* xevent)
-* @brief      Handle Event for the observer manager of this class
+* @brief      Handle event
 * @note       INTERNAL
 * @ingroup    CIPHER
 * 
@@ -643,7 +643,7 @@ void CIPHERKEYSFILEPEM::HandleEvent(XEVENT* xevent)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void CIPHERKEYSFILEPEM::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    CIPHER
 * 

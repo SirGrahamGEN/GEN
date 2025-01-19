@@ -64,7 +64,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVECTORFILEDXFENTITYOBJMTEXT::GRPVECTORFILEDXFENTITYOBJMTEXT(XCHAR* nametype)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    GRAPHIC
 * 
 * @param[in]  nametype : 
@@ -81,7 +81,7 @@ GRPVECTORFILEDXFENTITYOBJMTEXT::GRPVECTORFILEDXFENTITYOBJMTEXT(XCHAR* nametype) 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVECTORFILEDXFENTITYOBJMTEXT::~GRPVECTORFILEDXFENTITYOBJMTEXT()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
 * 
@@ -95,7 +95,7 @@ GRPVECTORFILEDXFENTITYOBJMTEXT::~GRPVECTORFILEDXFENTITYOBJMTEXT()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPVECTORFILEDXFENTITYOBJMTEXT::ApplyData(GRPVECTORFILEDXFENTITY* entity)
-* @brief      ApplyData
+* @brief      Apply data
 * @ingroup    GRAPHIC
 * 
 * @param[in]  entity : 
@@ -115,7 +115,7 @@ bool GRPVECTORFILEDXFENTITYOBJMTEXT::ApplyData(GRPVECTORFILEDXFENTITY* entity)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRPVECTORFILEDXFENTITYOBJMTEXT::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    GRAPHIC
 * 

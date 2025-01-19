@@ -80,7 +80,7 @@ static const int SmallPrime[] = {   3,    5,    7,   11,   13,   17,   19,   23,
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XMPINTEGER::XMPINTEGER()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -93,7 +93,7 @@ XMPINTEGER::XMPINTEGER()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XMPINTEGER::~XMPINTEGER()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -108,7 +108,7 @@ XMPINTEGER::~XMPINTEGER()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XMPINTEGER::GetSign()
-* @brief      GetSign
+* @brief      Get sign
 * @ingroup    XUTILS
 *
 * @return     int :
@@ -123,7 +123,7 @@ int XMPINTEGER::GetSign()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD XMPINTEGER::GetNLimbs()
-* @brief      GetNLimbs
+* @brief      Get N limbs
 * @ingroup    XUTILS
 *
 * @return     XDWORD :
@@ -138,7 +138,7 @@ XDWORD XMPINTEGER::GetNLimbs()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XLIMB* XMPINTEGER::GetLimbs()
-* @brief      GetLimbs
+* @brief      Get limbs
 * @ingroup    XUTILS
 *
 * @return     XLIMB* :
@@ -153,7 +153,7 @@ XLIMB* XMPINTEGER::GetLimbs()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XMPINTEGER::SetSign(int sign)
-* @brief      SetSign
+* @brief      Set sign
 * @ingroup    XUTILS
 *
 * @param[in]  sign :
@@ -168,7 +168,7 @@ void XMPINTEGER::SetSign(int sign)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XMPINTEGER::SetNLimbs(XDWORD nlimbs)
-* @brief      SetNLimbs
+* @brief      Set N limbs
 * @ingroup    XUTILS
 *
 * @param[in]  nlimbs :
@@ -183,7 +183,7 @@ void XMPINTEGER::SetNLimbs(XDWORD nlimbs)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XMPINTEGER::SetLimbs(XLIMB* limbs)
-* @brief      SetLimbs
+* @brief      Set limbs
 * @ingroup    XUTILS
 *
 * @param[in]  limbs :
@@ -303,7 +303,7 @@ bool XMPINTEGER::Shrink(XDWORD nblimbs)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XMPINTEGER::CopyFrom(XMPINTEGER* xmpinteger)
-* @brief      CopyFrom
+* @brief      Copy from
 * @ingroup    XUTILS
 *
 * @param[in]  xmpinteger :
@@ -367,7 +367,7 @@ void XMPINTEGER::Swap(XMPINTEGER* xmpinteger)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XMPINTEGER::LeftSet(int z)
-* @brief      LeftSet
+* @brief      Left set
 * @ingroup    XUTILS
 *
 * @param[in]  z :
@@ -391,7 +391,7 @@ bool XMPINTEGER::LeftSet(int z)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XMPINTEGER::GetBit(XDWORD position)
-* @brief      GetBit
+* @brief      Get bit
 * @ingroup    XUTILS
 *
 * @param[in]  position :
@@ -410,7 +410,7 @@ int XMPINTEGER::GetBit(XDWORD position)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XMPINTEGER::SetBit(XDWORD position, XBYTE value)
-* @brief      SetBit
+* @brief      Set bit
 * @ingroup    XUTILS
 *
 * @param[in]  position :
@@ -443,7 +443,7 @@ bool XMPINTEGER::SetBit(XDWORD position, XBYTE value)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XMPINTEGER::GetLSB()
-* @brief      GetLSB
+* @brief      Get LSB
 * @ingroup    XUTILS
 *
 * @return     int :
@@ -470,7 +470,7 @@ int XMPINTEGER::GetLSB()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XMPINTEGER::GetMSB()
-* @brief      GetMSB
+* @brief      Get MSB
 * @ingroup    XUTILS
 *
 * @return     int :
@@ -498,7 +498,7 @@ int XMPINTEGER::GetMSB()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD XMPINTEGER::GetSize()
-* @brief      GetSize
+* @brief      Get size
 * @ingroup    XUTILS
 *
 * @return     XDWORD :
@@ -513,7 +513,7 @@ XDWORD XMPINTEGER::GetSize()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XMPINTEGER::ImportFromBinary(XBYTE* buffer, XDWORD size)
-* @brief      ImportFromBinary
+* @brief      Import from binary
 * @ingroup    XUTILS
 *
 * @param[in]  buffer :
@@ -551,7 +551,7 @@ int XMPINTEGER::ImportFromBinary(XBYTE* buffer, XDWORD size)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XMPINTEGER::ExportToBinary(XBYTE* buffer, XDWORD size)
-* @brief      ExportToBinary
+* @brief      Export to binary
 * @ingroup    XUTILS
 *
 * @param[in]  buffer :
@@ -584,7 +584,7 @@ int XMPINTEGER::ExportToBinary(XBYTE* buffer, XDWORD size)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XMPINTEGER::LeftShift(XDWORD count)
-* @brief      LeftShift
+* @brief      Left shift
 * @ingroup    XUTILS
 *
 * @param[in]  count :
@@ -644,7 +644,7 @@ bool XMPINTEGER::LeftShift(XDWORD count)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XMPINTEGER::RightShift(XDWORD count)
-* @brief      RightShift
+* @brief      Right shift
 * @ingroup    XUTILS
 *
 * @param[in]  count :
@@ -698,7 +698,7 @@ bool XMPINTEGER::RightShift(XDWORD count)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XMPINTEGER::CompareABSValues(XMPINTEGER& xmpinteger)
-* @brief      CompareABSValues
+* @brief      Compare ABS values
 * @ingroup    XUTILS
 *
 * @param[in]  xmpinteger :
@@ -739,7 +739,7 @@ int XMPINTEGER::CompareABSValues(XMPINTEGER& xmpinteger)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XMPINTEGER::CompareSignedValues(XMPINTEGER& xmpinteger)
-* @brief      CompareSignedValues
+* @brief      Compare signed values
 * @ingroup    XUTILS
 *
 * @param[in]  xmpinteger :
@@ -783,7 +783,7 @@ int XMPINTEGER::CompareSignedValues(XMPINTEGER& xmpinteger)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XMPINTEGER::CompareSignedValues(int integer)
-* @brief      CompareSignedValues
+* @brief      Compare signed values
 * @ingroup    XUTILS
 *
 * @param[in]  integer :
@@ -810,7 +810,7 @@ int XMPINTEGER::CompareSignedValues(int integer)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XMPINTEGER::AdditionABS(XMPINTEGER* xmpinteger1, XMPINTEGER* xmpinteger2)
-* @brief      AdditionABS
+* @brief      Addition ABS
 * @ingroup    XUTILS
 *
 * @param[in]  xmpinteger1 :
@@ -877,7 +877,7 @@ bool XMPINTEGER::AdditionABS(XMPINTEGER* xmpinteger1, XMPINTEGER* xmpinteger2)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XMPINTEGER::SubtractionABS(XMPINTEGER* xmpinteger1, XMPINTEGER* xmpinteger2)
-* @brief      SubtractionABS
+* @brief      Subtraction ABS
 * @ingroup    XUTILS
 *
 * @param[in]  xmpinteger1 :
@@ -922,7 +922,7 @@ bool XMPINTEGER::SubtractionABS(XMPINTEGER* xmpinteger1, XMPINTEGER* xmpinteger2
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XMPINTEGER::AdditionSigned(XMPINTEGER* xmpinteger1, XMPINTEGER* xmpinteger2)
-* @brief      AdditionSigned
+* @brief      Addition signed
 * @ingroup    XUTILS
 *
 * @param[in]  xmpinteger1 :
@@ -961,7 +961,7 @@ bool XMPINTEGER::AdditionSigned(XMPINTEGER* xmpinteger1, XMPINTEGER* xmpinteger2
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XMPINTEGER::SubtractionSigned(XMPINTEGER* xmpinteger1, XMPINTEGER* xmpinteger2)
-* @brief      SubtractionSigned
+* @brief      Subtraction signed
 * @ingroup    XUTILS
 *
 * @param[in]  xmpinteger1 :
@@ -1000,7 +1000,7 @@ bool XMPINTEGER::SubtractionSigned(XMPINTEGER* xmpinteger1, XMPINTEGER* xmpinteg
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XMPINTEGER::AdditionSigned(XMPINTEGER* xmpinteger, int integer)
-* @brief      AdditionSigned
+* @brief      Addition signed
 * @ingroup    XUTILS
 *
 * @param[in]  xmpinteger :
@@ -1027,7 +1027,7 @@ bool XMPINTEGER::AdditionSigned(XMPINTEGER* xmpinteger, int integer)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XMPINTEGER::SubtractionSigned(XMPINTEGER* xmpinteger, int integer)
-* @brief      SubtractionSigned
+* @brief      Subtraction signed
 * @ingroup    XUTILS
 *
 * @param[in]  xmpinteger :
@@ -1427,7 +1427,7 @@ bool XMPINTEGER::Module(XLIMB* r, XMPINTEGER* xmpintegerA, int integerb)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XMPINTEGER::MontgomeryIni(XLIMB*mm, XMPINTEGER* N)
-* @brief      MontgomeryIni
+* @brief      Montgomery ini
 * @ingroup    XUTILS
 *
 * @param[in]  mm :
@@ -1454,7 +1454,7 @@ void XMPINTEGER::MontgomeryIni(XLIMB* mm, XMPINTEGER* N)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XMPINTEGER::MontgomeryMultiplication(XMPINTEGER* A, XMPINTEGER* B, XMPINTEGER* N, XLIMB mm, XMPINTEGER* T)
-* @brief      MontgomeryMultiplication
+* @brief      Montgomery multiplication
 * @ingroup    XUTILS
 *
 * @param[in]  A :
@@ -1500,7 +1500,7 @@ void XMPINTEGER::MontgomeryMultiplication(XMPINTEGER* A, XMPINTEGER* B, XMPINTEG
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XMPINTEGER::MontgomeryReduction(XMPINTEGER* A, XMPINTEGER* N, XLIMB mm, XMPINTEGER* T)
-* @brief      MontgomeryReduction
+* @brief      Montgomery reduction
 * @ingroup    XUTILS
 *
 * @param[in]  A :
@@ -1527,7 +1527,7 @@ void XMPINTEGER::MontgomeryReduction(XMPINTEGER* A, XMPINTEGER* N, XLIMB mm, XMP
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XMPINTEGER::SlidingWindowExponentiation(XMPINTEGER* A, XMPINTEGER* E, XMPINTEGER* N, XMPINTEGER* _RR)
-* @brief      SlidingWindowExponentiation
+* @brief      Sliding window exponentiation
 * @ingroup    XUTILS
 *
 * @param[in]  A :
@@ -1729,7 +1729,7 @@ bool XMPINTEGER::SlidingWindowExponentiation(XMPINTEGER* A, XMPINTEGER* E, XMPIN
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XMPINTEGER::GreatestCommonDivisor(XMPINTEGER* G, XMPINTEGER* A, XMPINTEGER* B)
-* @brief      GreatestCommonDivisor
+* @brief      Greatest common divisor
 * @ingroup    XUTILS
 *
 * @param[in]  G :
@@ -1796,7 +1796,7 @@ bool XMPINTEGER::GreatestCommonDivisor(XMPINTEGER* G, XMPINTEGER* A, XMPINTEGER*
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XMPINTEGER::FillRandom(XDWORD size, XMPINTEGER_FUNCRANDOM funcrandom, void* paramrandom)
-* @brief      FillRandom
+* @brief      Fill random
 * @ingroup    XUTILS
 *
 * @param[in]  size :
@@ -1821,7 +1821,7 @@ int XMPINTEGER::FillRandom(XDWORD size, XMPINTEGER_FUNCRANDOM funcrandom, void* 
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XMPINTEGER::ModularInverse(XMPINTEGER* A, XMPINTEGER* N)
-* @brief      ModularInverse
+* @brief      Modular inverse
 * @ingroup    XUTILS
 *
 * @param[in]  A :
@@ -1941,7 +1941,7 @@ int XMPINTEGER::ModularInverse(XMPINTEGER* A, XMPINTEGER* N)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XMPINTEGER::CheckSmallFactors()
-* @brief      CheckSmallFactors
+* @brief      Check small factors
 * @ingroup    XUTILS
 *
 * @return     int :
@@ -1971,7 +1971,7 @@ int XMPINTEGER::CheckSmallFactors()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XMPINTEGER::MillerRabin(XMPINTEGER* X, XMPINTEGER_FUNCRANDOM funcrandom, void* paramrandom)
-* @brief      MillerRabin
+* @brief      Miller rabin
 * @ingroup    XUTILS
 *
 * @param[in]  X :
@@ -2065,7 +2065,7 @@ bool XMPINTEGER::MillerRabin(XMPINTEGER* X, XMPINTEGER_FUNCRANDOM funcrandom, vo
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XMPINTEGER::IsPrime(XMPINTEGER_FUNCRANDOM funcrandom, void* paramrandom)
-* @brief      IsPrime
+* @brief      Is prime
 * @ingroup    XUTILS
 *
 * @param[in]  funcrandom :
@@ -2102,7 +2102,7 @@ int XMPINTEGER::IsPrime(XMPINTEGER_FUNCRANDOM funcrandom, void* paramrandom)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XMPINTEGER::GeneratePrime(int nbits, int dhflag, XMPINTEGER_FUNCRANDOM funcrandom, void* paramrandom)
-* @brief      GeneratePrime
+* @brief      Generate prime
 * @ingroup    XUTILS
 *
 * @param[in]  nbits :
@@ -2200,7 +2200,7 @@ bool XMPINTEGER::GeneratePrime(int nbits, int dhflag, XMPINTEGER_FUNCRANDOM func
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XMPINTEGER::SetFromString(int radix, XCHAR* string)
-* @brief      SetFromString
+* @brief      Set from string
 * @ingroup    XUTILS
 *
 * @param[in]  radix :
@@ -2283,7 +2283,7 @@ bool XMPINTEGER::SetFromString(int radix, XCHAR* string)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XMPINTEGER::SetFromString(int radix, XSTRING& string)
-* @brief      SetFromString
+* @brief      Set from string
 * @ingroup    XUTILS
 *
 * @param[in]  radix :
@@ -2301,7 +2301,7 @@ bool XMPINTEGER::SetFromString(int radix, XSTRING& string)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XMPINTEGER::GetToString(int radix, XSTRING& string)
-* @brief      GetToString
+* @brief      Get to string
 * @ingroup    XUTILS
 *
 * @param[in]  radix :
@@ -2375,7 +2375,7 @@ bool XMPINTEGER::GetToString(int radix, XSTRING& string)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XMPINTEGER::SetFromXBuffer(XBUFFER& xbuffer)
-* @brief      SetFromXBuffer
+* @brief      Set from X buffer
 * @ingroup    XUTILS
 *
 * @param[in]  xbuffer :
@@ -2409,7 +2409,7 @@ bool XMPINTEGER::SetFromXBuffer(XBUFFER& xbuffer)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XMPINTEGER::GetToXBuffer(XBUFFER& xbuffer, XDWORD size)
-* @brief      GetToXBuffer
+* @brief      Get to X buffer
 * @ingroup    XUTILS
 *
 * @param[in]  xbuffer :
@@ -2466,7 +2466,7 @@ bool XMPINTEGER::End()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XMPINTEGER::SubtractionHelper(XDWORD n, XLIMB*s, XLIMB*d)
-* @brief      SubtractionHelper
+* @brief      Subtraction helper
 * @ingroup    XUTILS
 *
 * @param[in]  n :
@@ -2497,7 +2497,7 @@ void XMPINTEGER::SubtractionHelper(XDWORD n, XLIMB *s, XLIMB *d)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XMPINTEGER::MultiplicationHelper(XDWORD i, XLIMB* s, XLIMB* d, XLIMB b)
-* @brief      MultiplicationHelper
+* @brief      Multiplication helper
 * @ingroup    XUTILS
 *
 * @param[in]  i :
@@ -2561,7 +2561,7 @@ void XMPINTEGER::MultiplicationHelper(XDWORD i, XLIMB* s, XLIMB* d, XLIMB b)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XMPINTEGER::GetDigit(XDWORD* data, int radix, XCHAR character)
-* @brief      GetDigit
+* @brief      Get digit
 * @ingroup    XUTILS
 *
 * @param[in]  data :
@@ -2588,7 +2588,7 @@ bool XMPINTEGER::GetDigit(XDWORD* data, int radix, XCHAR character)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XMPINTEGER::SetToStringHelper(int radix, XSTRING& string)
-* @brief      SetToStringHelper
+* @brief      Set to string helper
 * @ingroup    XUTILS
 *
 * @param[in]  radix :
@@ -2622,7 +2622,7 @@ bool XMPINTEGER::SetToStringHelper(int radix, XSTRING& string)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XMPINTEGER::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    XUTILS
 *

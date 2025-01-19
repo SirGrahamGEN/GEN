@@ -102,7 +102,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOANDROIDSTREAMICMP::DIOANDROIDSTREAMICMP()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_ANDROID
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -151,7 +151,7 @@ DIOANDROIDSTREAMICMP::DIOANDROIDSTREAMICMP() : DIOSTREAMICMP() , XFSMACHINE(0)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOANDROIDSTREAMICMP::~DIOANDROIDSTREAMICMP()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_ANDROID
 * 
@@ -250,7 +250,7 @@ bool DIOANDROIDSTREAMICMP::Close()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int DIOANDROIDSTREAMICMP::IsReadyConnect(int socket)
-* @brief      IsReadyConnect
+* @brief      Is ready connect
 * @ingroup    PLATFORM_ANDROID
 * 
 * @param[in]  socket : 
@@ -304,7 +304,7 @@ int DIOANDROIDSTREAMICMP::IsReadyConnect(int socket)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOANDROIDSTREAMICMP::ThreadRunFunction(void* thread)
-* @brief      ThreadRunFunction
+* @brief      Thread run function
 * @ingroup    PLATFORM_ANDROID
 * 
 * @param[in]  thread : 
@@ -558,7 +558,7 @@ void DIOANDROIDSTREAMICMP::ThreadRunFunction(void* thread)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOANDROIDSTREAMICMP::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_ANDROID
 * 

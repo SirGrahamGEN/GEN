@@ -4,7 +4,7 @@
 * 
 * @class      MYSQL_VARIANT
 * @brief      DataBase SQL MySQL Variant class
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 * 
 * @copyright  GEN Group. All rights reserved.
 * 

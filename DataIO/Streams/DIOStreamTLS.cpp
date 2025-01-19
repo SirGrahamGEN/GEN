@@ -69,7 +69,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMTLS::DIOSTREAMTLS(DIOSTREAMCONFIG* config)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * @param[in]  config : 
@@ -88,7 +88,7 @@ DIOSTREAMTLS::DIOSTREAMTLS(DIOSTREAMTLSCONFIG* config)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMTLS::~DIOSTREAMTLS()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -104,7 +104,7 @@ DIOSTREAMTLS::~DIOSTREAMTLS()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMCONFIG* DIOSTREAMTLS::GetConfig()
-* @brief      GetConfig
+* @brief      Get config
 * @ingroup    DATAIO
 *
 * @return     DIOSTREAMCONFIG* :
@@ -119,7 +119,7 @@ DIOSTREAMCONFIG* DIOSTREAMTLS::GetConfig()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMTLS::SetConfig(DIOSTREAMCONFIG* config)
-* @brief      SetConfig
+* @brief      Set config
 * @ingroup    DATAIO
 *
 * @param[in]  config :
@@ -231,7 +231,7 @@ bool DIOSTREAMTLS::Close()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMSTATUS DIOSTREAMTLS::GetStatus()
-* @brief      GetStatus
+* @brief      Get status
 * @ingroup    DATAIO
 *
 * @return     DIOSTREAMSTATUS : 
@@ -248,7 +248,7 @@ DIOSTREAMSTATUS DIOSTREAMTLS::GetStatus()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMTLS::HandShake_Client_Hello()
-* @brief      HandShake_Client_Hello
+* @brief      Hand shake client hello
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful. 
@@ -287,7 +287,7 @@ bool DIOSTREAMTLS::HandShake_Client_Hello()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOSTREAMTCPIP* DIOSTREAMTLS::GetDIOStreamTCPIP()
-* @brief      GetDIOStreamTCPIP
+* @brief      Get DIO stream TCPIP
 * @ingroup    DATAIO
 * 
 * @return     DIOSTREAMTCPIP* : 
@@ -302,7 +302,7 @@ DIOSTREAMTCPIP* DIOSTREAMTLS::GetDIOStreamTCPIP()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSTREAMTLS::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

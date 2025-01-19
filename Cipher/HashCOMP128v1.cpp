@@ -147,7 +147,7 @@ const XBYTE* HASHCOMP128V1::table[5]      =   {  table0,
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         HASHCOMP128V1::HASHCOMP128V1()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    CIPHER
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -160,7 +160,7 @@ HASHCOMP128V1::HASHCOMP128V1() : HASH()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         HASHCOMP128V1::~HASHCOMP128V1()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    CIPHER
 * 
@@ -174,7 +174,7 @@ HASHCOMP128V1::~HASHCOMP128V1()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool HASHCOMP128V1::SetInput(XBYTE* rand, XBYTE* ki,XBUFFER& xbuffer)
-* @brief      SetInput
+* @brief      Set input
 * @ingroup    CIPHER
 * 
 * @param[in]  rand : 
@@ -225,7 +225,7 @@ bool HASHCOMP128V1::Do(XBYTE* input, XQWORD size)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int HASHCOMP128V1::GetDefaultSize()
-* @brief      GetDefaultSize
+* @brief      Get default size
 * @ingroup    CIPHER
 * 
 * @return     int : 
@@ -240,7 +240,7 @@ int HASHCOMP128V1::GetDefaultSize()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool HASHCOMP128V1::GetSRES(XBUFFER& SRES)
-* @brief      GetSRES
+* @brief      Get SRES
 * @ingroup    CIPHER
 * 
 * @param[in]  SRES : 
@@ -263,7 +263,7 @@ bool HASHCOMP128V1::GetSRES(XBUFFER& SRES)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool HASHCOMP128V1::GetKc(XBUFFER& Kc)
-* @brief      GetKc
+* @brief      Get kc
 * @ingroup    CIPHER
 * 
 * @param[in]  Kc : 
@@ -390,7 +390,7 @@ void HASHCOMP128V1::Make(XBYTE* input)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void HASHCOMP128V1::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    CIPHER
 * 

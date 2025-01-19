@@ -76,7 +76,7 @@ XTRANSLATION* XTRANSLATION::instance  = NULL;
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XTRANSLATION::GetIsInstanced()
-* @brief      Get Is Instanced
+* @brief      Get is instanced
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -91,7 +91,7 @@ bool XTRANSLATION::GetIsInstanced()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XTRANSLATION& XTRANSLATION::GetInstance()
-* @brief      Get Instance
+* @brief      Get instance
 * @ingroup    XUTILS
 *
 * @return     XTRANSLATION& : language instance
@@ -108,7 +108,7 @@ XTRANSLATION& XTRANSLATION::GetInstance()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XTRANSLATION::DelInstance()
-* @brief      Del Instance
+* @brief      Del instance
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -133,7 +133,7 @@ bool XTRANSLATION::DelInstance()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XTRANSLATION::Ini(XPATH& xpath)
-* @brief      Ini language class
+* @brief      Ini
 * @ingroup    XUTILS
 *
 * @param[in]  xpath : path of the language file
@@ -167,7 +167,7 @@ bool XTRANSLATION::Ini()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD XTRANSLATION::GetActual()
-* @brief      GetActual
+* @brief      Get actual
 * @ingroup    XUTILS
 *
 * @return     XDWORD :
@@ -182,7 +182,7 @@ XDWORD XTRANSLATION::GetActual()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XTRANSLATION::SetActual(XDWORD code)
-* @brief      SetActual
+* @brief      Set actual
 * @ingroup    XUTILS
 * 
 * @param[in]  code : 
@@ -209,7 +209,7 @@ bool XTRANSLATION::SetActual(XDWORD code)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XTRANSLATION::Translate_Add(XDWORD ID, XCHAR* sentence, XDWORD fixed)
-* @brief      Translate_Add
+* @brief      Translate add
 * @ingroup    XUTILS
 *
 * @param[in]  ID :
@@ -246,7 +246,7 @@ bool XTRANSLATION::Translate_Add(XDWORD ID, XCHAR* sentence, XDWORD fixed)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XCHAR* XTRANSLATION::Translate_GetSentence(XDWORD ID)
-* @brief      Translate_GetSentence
+* @brief      Translate get sentence
 * @ingroup    XUTILS
 * 
 * @param[in]  ID : 
@@ -292,7 +292,7 @@ bool XTRANSLATION::End()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XTRANSLATION::XTRANSLATION()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -305,7 +305,7 @@ XTRANSLATION::XTRANSLATION()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XTRANSLATION::~XTRANSLATION()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -321,7 +321,7 @@ XTRANSLATION::~XTRANSLATION()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XTRANSLATION::LoadLanguageAvailable()
-* @brief      LoadLanguageAvailable
+* @brief      Load language available
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -394,7 +394,7 @@ bool XTRANSLATION::LoadLanguageAvailable()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XTRANSLATION::IsLanguageAvailable(XDWORD code)
-* @brief      IsLanguageAvailable
+* @brief      Is language available
 * @ingroup    XUTILS
 *
 * @param[in]  code :
@@ -413,7 +413,7 @@ bool XTRANSLATION::IsLanguageAvailable(XDWORD code)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XTRANSLATION::AddLanguageAvailable(XDWORD code)
-* @brief      AddLanguageAvailable
+* @brief      Add language available
 * @ingroup    XUTILS
 *
 * @param[in]  code :
@@ -434,7 +434,7 @@ bool XTRANSLATION::AddLanguageAvailable(XDWORD code)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XTRANSLATION::GetIndexLanguageByCode(XDWORD code)
-* @brief      GetIndexLanguageByCode
+* @brief      Get index language by code
 * @ingroup    XUTILS
 *
 * @param[in]  code :
@@ -456,7 +456,7 @@ int XTRANSLATION::GetIndexLanguageByCode(XDWORD code)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XTRANSLATION::Translate_Load()
-* @brief      LoadTranslate
+* @brief      Translate load
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -518,7 +518,7 @@ bool XTRANSLATION::Translate_Load()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XTRANSLATION::Translate_Delete()
-* @brief      Translate_Delete
+* @brief      Translate delete
 * @ingroup    XUTILS
 * 
 * @return     bool : true if is succesful. 
@@ -542,7 +542,7 @@ bool XTRANSLATION::Translate_Delete()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XTRANSLATION::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    XUTILS
 *

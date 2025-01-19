@@ -66,7 +66,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XWINDOWSRAND::XWINDOWSRAND()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_WINDOWS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -79,7 +79,7 @@ XWINDOWSRAND::XWINDOWSRAND()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XWINDOWSRAND::~XWINDOWSRAND()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
 *

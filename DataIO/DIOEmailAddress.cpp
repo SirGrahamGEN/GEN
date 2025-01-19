@@ -67,7 +67,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOEMAILADDRESS::DIOEMAILADDRESS()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -80,7 +80,7 @@ DIOEMAILADDRESS::DIOEMAILADDRESS(): XSTRING()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOEMAILADDRESS::~DIOEMAILADDRESS()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -94,7 +94,7 @@ DIOEMAILADDRESS::~DIOEMAILADDRESS()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOEMAILADDRESS::DIOEMAILADDRESS(XDWORD size)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * @param[in]  size :
@@ -109,7 +109,7 @@ DIOEMAILADDRESS::DIOEMAILADDRESS(XDWORD size): XSTRING(size)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOEMAILADDRESS::DIOEMAILADDRESS(const char* url)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * @param[in]  url :
@@ -124,7 +124,7 @@ DIOEMAILADDRESS::DIOEMAILADDRESS(const char* url): XSTRING(url)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOEMAILADDRESS::DIOEMAILADDRESS(const XCHAR* url)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * @param[in]  url :
@@ -139,7 +139,7 @@ DIOEMAILADDRESS::DIOEMAILADDRESS(const XCHAR* url): XSTRING(url)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOEMAILADDRESS::DIOEMAILADDRESS(const XCHAR* url,XDWORD size)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * @param[in]  url :
@@ -155,7 +155,7 @@ DIOEMAILADDRESS::DIOEMAILADDRESS(const XCHAR* url,XDWORD size): XSTRING(url, siz
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOEMAILADDRESS::DIOEMAILADDRESS(DIOEMAILADDRESS& url)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * @param[in]  url :
@@ -170,7 +170,7 @@ DIOEMAILADDRESS::DIOEMAILADDRESS(DIOEMAILADDRESS& url): XSTRING(url)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOEMAILADDRESS::DIOEMAILADDRESS(XSTRING& url)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * @param[in]  url :
@@ -185,7 +185,7 @@ DIOEMAILADDRESS::DIOEMAILADDRESS(XSTRING& url): XSTRING(url)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOEMAILADDRESS::DIOEMAILADDRESS(XWORD* url)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * @param[in]  url :
@@ -200,7 +200,7 @@ DIOEMAILADDRESS::DIOEMAILADDRESS(XWORD* url): XSTRING(url)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOEMAILADDRESS::GetUser(XSTRING& user)
-* @brief      GetUser
+* @brief      Get user
 * @ingroup    DATAIO
 *
 * @param[in]  user :
@@ -224,7 +224,7 @@ bool DIOEMAILADDRESS::GetUser(XSTRING& user)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOEMAILADDRESS::GetDomain(XSTRING& domain)
-* @brief      GetDomain
+* @brief      Get domain
 * @ingroup    DATAIO
 *
 * @param[in]  domain :
@@ -248,7 +248,7 @@ bool DIOEMAILADDRESS::GetDomain(XSTRING& domain)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOEMAILADDRESS::IsValid()
-* @brief      IsValid
+* @brief      Is valid
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -280,7 +280,7 @@ bool DIOEMAILADDRESS::IsValid()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOEMAILADDRESS::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

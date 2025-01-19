@@ -4,7 +4,7 @@
 * 
 * @class      POSTGRESQL_DATABASE
 * @brief      DataBase SQL PostgreSQL Database class
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 * 
 * @copyright  GEN Group. All rights reserved.
 * 

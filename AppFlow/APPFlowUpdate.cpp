@@ -80,7 +80,7 @@ APPFLOWUPDATE* APPFLOWUPDATE::instance = NULL;
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         APPFLOWUPDATE_CFG::APPFLOWUPDATE_CFG()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    APPFLOW
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -93,7 +93,7 @@ APPFLOWUPDATE_CFG::APPFLOWUPDATE_CFG()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         APPFLOWUPDATE_CFG::APPFLOWUPDATE_CFG()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    APPFLOW
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -106,7 +106,7 @@ APPFLOWUPDATE_CFG::~APPFLOWUPDATE_CFG()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOURL* APPFLOWUPDATE_CFG::GetURL()
-* @brief      GetURL
+* @brief      Get URL
 * @ingroup    APPFLOW
 * 
 * @return     DIOURL* : 
@@ -121,7 +121,7 @@ DIOURL* APPFLOWUPDATE_CFG::GetURL()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD APPFLOWUPDATE_CFG::Get_Port()
-* @brief      GetPort
+* @brief      Get port
 * @ingroup    APPFLOW
 *
 * @return     XDWORD :
@@ -136,7 +136,7 @@ XDWORD APPFLOWUPDATE_CFG::Get_Port()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void APPFLOWUPDATE_CFG::Set_Port(XDWORD port)
-* @brief      SetPort
+* @brief      Set port
 * @ingroup    APPFLOW
 *
 * @param[in]  port :
@@ -151,7 +151,7 @@ void APPFLOWUPDATE_CFG::Set_Port(XDWORD port)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOAPPLICATIONUPDATE_VERSIONDATA* APPFLOWUPDATE_CFG::GetAppVersion()
-* @brief      GetAppVersion
+* @brief      Get app version
 * @ingroup    APPFLOW
 *
 * @return     DIOAPPLICATIONUPDATE_VERSIONDATA* :
@@ -166,7 +166,7 @@ DIOAPPLICATIONUPDATE_VERSIONDATA* APPFLOWUPDATE_CFG::GetAppVersion()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* APPFLOWUPDATE_CFG::GetAppName()
-* @brief      GetAppName
+* @brief      Get app name
 * @ingroup    APPFLOW
 *
 * @return     XSTRING* :
@@ -181,7 +181,7 @@ XSTRING* APPFLOWUPDATE_CFG::GetAppName()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XPATH* APPFLOWUPDATE_CFG::GetPathRootApp()
-* @brief      GetPathRootApp
+* @brief      Get path root app
 * @ingroup    APPFLOW
 *
 * @return     XPATH* :
@@ -196,7 +196,7 @@ XPATH* APPFLOWUPDATE_CFG::GetPathRootApp()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool APPFLOWUPDATE_CFG::GetDolog()
-* @brief      GetDolog
+* @brief      Get dolog
 * @ingroup    APPFLOW
 *
 * @return     bool : true if is succesful.
@@ -211,7 +211,7 @@ bool APPFLOWUPDATE_CFG::GetDolog()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void APPFLOWUPDATE_CFG::SetDolog(bool dolog)
-* @brief      SetDolog
+* @brief      Set dolog
 * @ingroup    APPFLOW
 *
 * @param[in]  dolog :
@@ -226,7 +226,7 @@ void APPFLOWUPDATE_CFG::SetDolog(bool dolog)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool APPFLOWUPDATE_CFG::CopyFrom(APPFLOWUPDATE_CFG* updatecfg)
-* @brief      CopyFrom
+* @brief      Copy from
 * @ingroup    APPFLOW
 *
 * @param[in]  updatecfg :
@@ -259,7 +259,7 @@ bool APPFLOWUPDATE_CFG::CopyFrom(APPFLOWUPDATE_CFG* updatecfg)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool APPFLOWUPDATE_CFG::CopyTo(APPFLOWUPDATE_CFG* updatecfg)
-* @brief      CopyTo
+* @brief      Copy to
 * @ingroup    APPFLOW
 *
 * @param[in]  updatecfg :
@@ -291,7 +291,7 @@ bool APPFLOWUPDATE_CFG::CopyTo(APPFLOWUPDATE_CFG* updatecfg)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void APPFLOWUPDATE_CFG::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    APPFLOW
 *
@@ -312,7 +312,7 @@ void APPFLOWUPDATE_CFG::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool APPFLOWUPDATE::GetIsInstanced()
-* @brief      GetIsInstanced
+* @brief      Get is instanced
 * @ingroup    APPFLOW
 *
 * @return     bool : true if is succesful. 
@@ -327,7 +327,7 @@ bool APPFLOWUPDATE::GetIsInstanced()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         APPFLOWUPDATE& APPFLOWUPDATE::GetInstance()
-* @brief      GetInstance
+* @brief      Get instance
 * @ingroup    APPFLOW
 *
 * @return     APPFLOWUPDATE& : 
@@ -344,7 +344,7 @@ APPFLOWUPDATE& APPFLOWUPDATE::GetInstance()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool APPFLOWUPDATE::DelInstance()
-* @brief      DelInstance
+* @brief      Del instance
 * @ingroup    APPFLOW
 *
 * @return     bool : true if is succesful. 
@@ -419,7 +419,7 @@ bool APPFLOWUPDATE::Ini(APPFLOWCFG* cfg, APPFLOWUPDATE_CFG* updatecfg)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool APPFLOWUPDATE::EventManager(APPFLOWUPDATE_EVENTOPERATION eventoperation, XSUBJECT* xsubject, XOBSERVER* observer)
-* @brief      EventManager
+* @brief      Event manager
 * @ingroup    APPFLOW
 * 
 * @param[in]  eventoperation : 
@@ -602,7 +602,7 @@ bool APPFLOWUPDATE::Do()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool APPFLOWUPDATE::RestorePrevious(DIOAPPLICATIONUPDATE_ERROR& error)
-* @brief      RestorePrevious
+* @brief      Restore previous
 * @ingroup    APPFLOW
 *
 * @return     bool : true if is succesful.
@@ -739,7 +739,7 @@ bool APPFLOWUPDATE::End()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOAPPLICATIONUPDATE* APPFLOWUPDATE::GetDIOAPPFlowUpdate()
-* @brief      GetDIOAPPFlowUpdate
+* @brief      Get DIOAPP flow update
 * @ingroup    APPFLOW
 *
 * @return     DIOAPPLICATIONUPDATE* :
@@ -754,7 +754,7 @@ DIOAPPLICATIONUPDATE* APPFLOWUPDATE::GetDIOAPPFlowUpdate()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool APPFLOWUPDATE::LogOfEvent()
-* @brief      LogOfEvent
+* @brief      Log of event
 * @ingroup    APPFLOW
 *
 * @return     bool : true if is succesful.
@@ -863,7 +863,7 @@ bool APPFLOWUPDATE::LogOfEvent(DIOAPPLICATIONUPDATE_XEVENT* event)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         APPFLOWUPDATE::APPFLOWUPDATE()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    APPFLOW
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -876,7 +876,7 @@ APPFLOWUPDATE::APPFLOWUPDATE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         APPFLOWUPDATE::~APPFLOWUPDATE()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    APPFLOW
 *
@@ -892,7 +892,7 @@ APPFLOWUPDATE::~APPFLOWUPDATE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool APPFLOWUPDATE::CreateTaskUpdate(bool doajust)
-* @brief      CreateTaskUpdate
+* @brief      Create task update
 * @ingroup    APPFLOW
 *
 * @param[in]  doajust :
@@ -981,7 +981,7 @@ bool APPFLOWUPDATE::CreateTaskUpdate(bool doajust)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void APPFLOWUPDATE::HandleEvent_Scheduler(XSCHEDULER_XEVENT* event)
-* @brief      Handle Event for the observer manager of this class
+* @brief      Handle event scheduler
 * @note       INTERNAL
 * @ingroup    APPFLOW
 *
@@ -1001,7 +1001,7 @@ void APPFLOWUPDATE::HandleEvent_Scheduler(XSCHEDULER_XEVENT* event)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void APPFLOWUPDATE::HandleEvent_ApplicationUpdate(DIOAPPLICATIONUPDATEXEVENT* event)
-* @brief      Handle Event for the observer manager of this class
+* @brief      Handle event application update
 * @note       INTERNAL
 * @ingroup    APPFLOW
 *
@@ -1017,7 +1017,7 @@ void APPFLOWUPDATE::HandleEvent_ApplicationUpdate(DIOAPPLICATIONUPDATE_XEVENT* e
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void APPFLOWUPDATE::HandleEvent(XEVENT* xevent)
-* @brief      Handle Event for the observer manager of this class
+* @brief      Handle event
 * @note       INTERNAL
 * @ingroup    APPFLOW
 *
@@ -1051,7 +1051,7 @@ void APPFLOWUPDATE::HandleEvent(XEVENT* xevent)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void APPFLOWUPDATE::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    APPFLOW
 *

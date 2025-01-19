@@ -73,7 +73,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIONTP::DIONTP()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -91,7 +91,7 @@ DIONTP::DIONTP()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIONTP::~DIONTP()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -123,7 +123,7 @@ DIONTP::~DIONTP()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIONTP::GetTimeResponse(XCHAR* urlntpserver, int timeout, bool hardwareuselittleendian, DIONTPRESPONSE& response)
-* @brief      GetTimeResponse
+* @brief      Get time response
 * @ingroup    DATAIO
 *
 * @param[in]  urlntpserver :
@@ -209,7 +209,7 @@ bool DIONTP::GetTimeResponse(XCHAR* urlntpserver, int timeout, bool hardwareusel
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIONTP::GetTimeResponse(DIOURL& urlntpserver, int timeout, bool hardwareuselittleendian, DIONTPRESPONSE& response)
-* @brief      GetTimeResponse
+* @brief      Get time response
 * @ingroup    DATAIO
 *
 * @param[in]  urlntpserver :
@@ -229,7 +229,7 @@ bool DIONTP::GetTimeResponse(DIOURL& urlntpserver, int timeout, bool hardwareuse
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIONTP::GetTimeSeconds(XCHAR* urlntpserver, int timeout, bool hardwareuselittleendian, XQWORD& timeseconds)
-* @brief      GetTimeSeconds
+* @brief      Get time seconds
 * @ingroup    DATAIO
 *
 * @param[in]  urlntpserver :
@@ -259,7 +259,7 @@ bool DIONTP::GetTimeSeconds(XCHAR* urlntpserver, int timeout, bool hardwareuseli
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIONTP::GetTimeSeconds(DIOURL& urlntpserver, int timeout, bool hardwareuselittleendian, XQWORD& timeseconds)
-* @brief      GetTimeSeconds
+* @brief      Get time seconds
 * @ingroup    DATAIO
 *
 * @param[in]  urlntpserver :
@@ -279,7 +279,7 @@ bool DIONTP::GetTimeSeconds(DIOURL& urlntpserver, int timeout, bool hardwareusel
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIONTP::GetTime(XCHAR* urlntpserver, int timeout, bool hardwareuselittleendian, XDATETIME& xdatetime)
-* @brief      GetTime
+* @brief      Get time
 * @ingroup    DATAIO
 *
 * @param[in]  urlntpserver :
@@ -318,7 +318,7 @@ bool DIONTP::GetTime(XCHAR* urlntpserver, int timeout, bool hardwareuselittleend
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIONTP::GetTime(DIOURL& urlntpserver, int timeout, bool hardwareuselittleendian, XDATETIME& xtime)
-* @brief      GetTime
+* @brief      Get time
 * @ingroup    DATAIO
 *
 * @param[in]  urlntpserver :
@@ -338,7 +338,7 @@ bool DIONTP::GetTime(DIOURL& urlntpserver, int timeout, bool hardwareuselittleen
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XQWORD DIONTP::ConvertTimePacket(DIOTIMEPACKET& timepacket, bool hardwareuselittleendian)
-* @brief      ConvertTimePacket
+* @brief      Convert time packet
 * @ingroup    DATAIO
 *
 * @param[in]  timepacket :
@@ -363,7 +363,7 @@ XQWORD DIONTP::ConvertTimePacket(DIOTIMEPACKET& timepacket, bool hardwareuselitt
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIONTP::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

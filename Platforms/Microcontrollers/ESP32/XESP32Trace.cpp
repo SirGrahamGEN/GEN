@@ -73,8 +73,8 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XESP32TRACE::XESP32TRACE()
-* @brief      Constructor
-* @ingroup    PLATFORM_ESP32 
+* @brief      Constructor of class
+* @ingroup    PLATFORM_ESP32
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XESP32TRACE::XESP32TRACE()
@@ -88,9 +88,9 @@ XESP32TRACE::XESP32TRACE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XESP32TRACE::~XESP32TRACE()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
-* @ingroup    PLATFORM_ESP32 
+* @ingroup    PLATFORM_ESP32
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XESP32TRACE::~XESP32TRACE()
@@ -104,8 +104,8 @@ XESP32TRACE::~XESP32TRACE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XESP32TRACE::PrintSpecial(XTRACE_TARGET* target, XBYTE level, XCHAR* string)
-* @brief      Print Special aim
-* @ingroup    PLATFORM_ESP32 
+* @brief      Print special
+* @ingroup    PLATFORM_ESP32
 *
 * @param[in]  target : target to print the debug
 * @param[in]  level : level of debug
@@ -151,9 +151,9 @@ void XESP32TRACE::PrintSpecial(XTRACE_TARGET* target, XBYTE level, XCHAR* string
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XESP32TRACE::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
-* @ingroup    PLATFORM_ESP32 
+* @ingroup    PLATFORM_ESP32
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XESP32TRACE::Clean()

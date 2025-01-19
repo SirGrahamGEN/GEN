@@ -69,7 +69,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOMACMANUFACTURED_RESULT::DIOMACMANUFACTURED_RESULT()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -82,7 +82,7 @@ DIOMACMANUFACTURED_RESULT::DIOMACMANUFACTURED_RESULT()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOMACMANUFACTURED_RESULT::~DIOMACMANUFACTURED_RESULT()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -111,7 +111,7 @@ XSTRING* DIOMACMANUFACTURED_RESULT::Get()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOMACMANUFACTURED_RESULT::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *
@@ -131,7 +131,7 @@ void DIOMACMANUFACTURED_RESULT::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSCRAPERWEBMACMANUFACTURER::DIOSCRAPERWEBMACMANUFACTURER()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -144,7 +144,7 @@ DIOSCRAPERWEBMACMANUFACTURER::DIOSCRAPERWEBMACMANUFACTURER(): DIOSCRAPERWEB()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSCRAPERWEBMACMANUFACTURER::~DIOSCRAPERWEBMACMANUFACTURER()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -158,7 +158,7 @@ DIOSCRAPERWEBMACMANUFACTURER::~DIOSCRAPERWEBMACMANUFACTURER()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSCRAPERWEBMACMANUFACTURER::ChangeURL(XCHAR* maskurl, DIOURL& url)
-* @brief      ChangeURL
+* @brief      Change URL
 * @ingroup    DATAIO
 *
 * @param[in]  maskurl :
@@ -253,7 +253,7 @@ bool DIOSCRAPERWEBMACMANUFACTURER::Get(DIOMAC& MAC, XSTRING& manufactured, int t
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOSCRAPERWEBMACMANUFACTURER::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 * 

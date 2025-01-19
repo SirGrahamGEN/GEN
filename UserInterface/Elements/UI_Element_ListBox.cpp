@@ -66,7 +66,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_ELEMENT_LISTBOX::UI_ELEMENT_LISTBOX()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    USERINTERFACE
 *
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -82,7 +82,7 @@ UI_ELEMENT_LISTBOX::UI_ELEMENT_LISTBOX()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_ELEMENT_LISTBOX::~UI_ELEMENT_LISTBOX()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
 *
@@ -96,7 +96,7 @@ UI_ELEMENT_LISTBOX::~UI_ELEMENT_LISTBOX()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_ELEMENT_MENU* UI_ELEMENT_LISTBOX::Get_UIMenu()
-* @brief      Get_UIMenu
+* @brief      Get UI menu
 * @ingroup    USERINTERFACE
 *
 * @return     UI_ELEMENT_MENU* : 
@@ -111,7 +111,7 @@ UI_ELEMENT_MENU* UI_ELEMENT_LISTBOX::Get_UIMenu()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_ELEMENT_LISTBOX::Set_UIMenu(UI_ELEMENT_MENU* element_menu)
-* @brief      Set_UIMenu
+* @brief      Set UI menu
 * @ingroup    USERINTERFACE
 *
 * @param[in]  element_menu : 
@@ -130,7 +130,7 @@ bool UI_ELEMENT_LISTBOX::Set_UIMenu(UI_ELEMENT_MENU* element_menu)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_ELEMENT_LISTBOX::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
 *

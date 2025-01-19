@@ -4,7 +4,7 @@
 * 
 * @class      VERSIONFRAMEWORK
 * @brief      Version of framework
-* @ingroup    PLATFORM_COMMON
+* @ingroup    COMMON
 * 
 * @copyright  GEN Group. All rights reserved.
 * 

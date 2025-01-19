@@ -4,8 +4,8 @@
 * 
 * @class      DIOOSPIPELINE
 * @brief      Data Input/Output Operative System Pipeline in/out class
-* @note       Can´t be construct Factory + singelton without depends of system. IT´S NOT A SINGLETON.
-* @ingroup    XUTILS
+* @note       Cant be construct Factory + singelton without depends of system. ITS NOT A SINGLETON.
+* @ingroup    DATAIO
 * 
 * @copyright  GEN Group. All rights reserved.
 * 
@@ -69,8 +69,8 @@ DIOOSPIPELINE* DIOOSPIPELINE::instance  = NULL;
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOOSPIPELINE::DIOOSPIPELINE()
-* @brief      Constructor
-* @ingroup    XUTILS
+* @brief      Constructor of class
+* @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOOSPIPELINE::DIOOSPIPELINE()
@@ -82,9 +82,9 @@ DIOOSPIPELINE::DIOOSPIPELINE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOOSPIPELINE::~DIOOSPIPELINE()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
-* @ingroup    XUTILS
+* @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOOSPIPELINE::~DIOOSPIPELINE()
@@ -98,9 +98,9 @@ DIOOSPIPELINE::~DIOOSPIPELINE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOOSPIPELINE::GetIsInstanced()
-* @brief      GetIsInstanced
+* @brief      Get is instanced
 * @note       STATIC
-* @ingroup    XUTILS
+* @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
 *
@@ -114,9 +114,9 @@ bool DIOOSPIPELINE::GetIsInstanced()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOOSPIPELINE& DIOOSPIPELINE::GetInstance()
-* @brief      GetInstance
+* @brief      Get instance
 * @note       STATIC
-* @ingroup    XUTILS
+* @ingroup    DATAIO
 *
 * @return     DIOOSPIPELINE& :
 *
@@ -132,9 +132,9 @@ DIOOSPIPELINE& DIOOSPIPELINE::GetInstance()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOOSPIPELINE::SetInstance(DIOOSPIPELINE* _instance)
-* @brief      SetInstance
+* @brief      Set instance
 * @note       STATIC
-* @ingroup    XUTILS
+* @ingroup    DATAIO
 *
 * @param[in]  _instance : new instance
 *
@@ -154,9 +154,9 @@ bool DIOOSPIPELINE::SetInstance(DIOOSPIPELINE* _instance)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOOSPIPELINE::DelInstance()
-* @brief      DelInstance
+* @brief      Del instance
 * @note       STATIC
-* @ingroup    XUTILS
+* @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
 *
@@ -179,7 +179,7 @@ bool DIOOSPIPELINE::DelInstance()
 * 
 * @fn         bool DIOOSPIPELINE::Open()
 * @brief      Open
-* @ingroup    XUTILS
+* @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
 * 
@@ -193,7 +193,7 @@ bool DIOOSPIPELINE::Open()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOOSPIPELINE::IsOpen()
-* @brief      IsOpen
+* @brief      Is open
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
@@ -209,7 +209,7 @@ bool DIOOSPIPELINE::IsOpen()
 * 
 * @fn         bool DIOOSPIPELINE::Read(XBUFFER& buffer)
 * @brief      Read
-* @ingroup    XUTILS
+* @ingroup    DATAIO
 * 
 * @param[in]  buffer : 
 * 
@@ -226,7 +226,7 @@ bool DIOOSPIPELINE::Read(XBUFFER& buffer)
 * 
 * @fn         bool DIOOSPIPELINE::Write(XBUFFER& buffer)
 * @brief      Write
-* @ingroup    XUTILS
+* @ingroup    DATAIO
 * 
 * @param[in]  buffer : 
 * 
@@ -243,7 +243,7 @@ bool DIOOSPIPELINE::Write(XBUFFER& buffer)
 * 
 * @fn         bool DIOOSPIPELINE::Close()
 * @brief      Close
-* @ingroup    XUTILS
+* @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
 * 
@@ -257,9 +257,9 @@ bool DIOOSPIPELINE::Close()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOOSPIPELINE::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
-* @ingroup    XUTILS
+* @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOOSPIPELINE::Clean()

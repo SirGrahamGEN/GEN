@@ -67,7 +67,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOWEBSERVER_RESOLVEENDPOINT::DIOWEBSERVER_RESOLVEENDPOINT()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -80,7 +80,7 @@ DIOWEBSERVER_RESOLVEENDPOINT::DIOWEBSERVER_RESOLVEENDPOINT()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOWEBSERVER_RESOLVEENDPOINT::~DIOWEBSERVER_RESOLVEENDPOINT()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 * 
@@ -109,7 +109,7 @@ bool DIOWEBSERVER_RESOLVEENDPOINT::Update()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOWEBSERVER_RESOLVEENDPOINT::CreateResponse(XSTRING* response)
-* @brief      CreateResponse
+* @brief      Create response
 * @ingroup    DATAIO
 * 
 * @param[in]  response : 
@@ -174,7 +174,7 @@ bool DIOWEBSERVER_RESOLVEENDPOINT::Deserialize()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOWEBSERVER_RESOLVEENDPOINT::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 * 

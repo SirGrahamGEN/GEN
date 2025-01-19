@@ -75,7 +75,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOWINDOWSSTREAMICMP::DIOWINDOWSSTREAMICMP()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_WINDOWS
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -124,7 +124,7 @@ DIOWINDOWSSTREAMICMP::DIOWINDOWSSTREAMICMP() : DIOSTREAMICMP(), XFSMACHINE(0)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOWINDOWSSTREAMICMP::~DIOWINDOWSSTREAMICMP()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
 * 
@@ -237,7 +237,7 @@ bool DIOWINDOWSSTREAMICMP::Close()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int DIOWINDOWSSTREAMICMP::IsReadyConnect(SOCKET socket)
-* @brief      IsReadyConnect
+* @brief      Is ready connect
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @param[in]  socket : 
@@ -291,7 +291,7 @@ int DIOWINDOWSSTREAMICMP::IsReadyConnect(SOCKET socket)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOWINDOWSSTREAMICMP::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
 * 
@@ -307,7 +307,7 @@ void DIOWINDOWSSTREAMICMP::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOWINDOWSSTREAMICMP::ThreadConnection(void* data)
-* @brief      ThreadConnection
+* @brief      Thread connection
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @param[in]  data : 

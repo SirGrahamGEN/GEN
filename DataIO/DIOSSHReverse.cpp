@@ -72,7 +72,7 @@ DIOSSHREVERSE* DIOSSHREVERSE::instance = NULL;
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOSSHREVERSE::GetIsInstanced()
-* @brief      GetIsInstanced
+* @brief      Get is instanced
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
@@ -87,7 +87,7 @@ bool DIOSSHREVERSE::GetIsInstanced()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOSSHREVERSE& DIOSSHREVERSE::GetInstance()
-* @brief      GetInstance
+* @brief      Get instance
 * @ingroup    DATAIO
 * 
 * @return     DIOSSHREVERSE& : 
@@ -104,7 +104,7 @@ DIOSSHREVERSE& DIOSSHREVERSE::GetInstance()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOSSHREVERSE::DelInstance()
-* @brief      DelInstance
+* @brief      Del instance
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
@@ -127,7 +127,7 @@ bool DIOSSHREVERSE::DelInstance()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* DIOSSHREVERSE::GetURLTarget()
-* @brief      GetURLTarget
+* @brief      Get URL target
 * @ingroup    DATAIO
 * 
 * @return     XSTRING* : 
@@ -142,7 +142,7 @@ XSTRING* DIOSSHREVERSE::GetURLTarget()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* DIOSSHREVERSE::GetLocalIP()
-* @brief      GetLocalIP
+* @brief      Get local IP
 * @ingroup    DATAIO
 * 
 * @return     XSTRING* : 
@@ -157,7 +157,7 @@ XSTRING* DIOSSHREVERSE::GetLocalIP()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* DIOSSHREVERSE::GetLogin()
-* @brief      GetLogin
+* @brief      Get login
 * @ingroup    DATAIO
 * 
 * @return     XSTRING* : 
@@ -172,7 +172,7 @@ XSTRING* DIOSSHREVERSE::GetLogin()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* DIOSSHREVERSE::GetPassword()
-* @brief      GetPassword
+* @brief      Get password
 * @ingroup    DATAIO
 * 
 * @return     XSTRING* : 
@@ -187,7 +187,7 @@ XSTRING* DIOSSHREVERSE::GetPassword()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD DIOSSHREVERSE::GetPort()
-* @brief      GetPort
+* @brief      Get port
 * @ingroup    DATAIO
 * 
 * @return     XDWORD : 
@@ -202,7 +202,7 @@ XDWORD DIOSSHREVERSE::GetPort()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOSSHREVERSE::SetPort(XDWORD port)
-* @brief      SetPort
+* @brief      Set port
 * @ingroup    DATAIO
 * 
 * @param[in]  port : 
@@ -217,7 +217,7 @@ void DIOSSHREVERSE::SetPort(XDWORD port)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOSSHREVERSE::DownloadCFG(XCHAR* URL, XSTRING& publicIP, XSTRING& localIP)
-* @brief      DownloadCFG
+* @brief      Download CFG
 * @ingroup    DATAIO
 * 
 * @param[in]  URL : 
@@ -343,7 +343,7 @@ bool DIOSSHREVERSE::DownloadCFG(XCHAR* URL, XSTRING& publicIP, XSTRING& localIP)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOSSHREVERSE::DownloadCFG(XSTRING& URL, XSTRING& publicIP, XSTRING& localIP)
-* @brief      DownloadCFG
+* @brief      Download CFG
 * @ingroup    DATAIO
 * 
 * @param[in]  URL : 
@@ -362,7 +362,7 @@ bool DIOSSHREVERSE::DownloadCFG(XSTRING& URL, XSTRING& publicIP, XSTRING& localI
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOSSHREVERSE::DownloadCFG(DIOURL& URL, XSTRING& publicIP, XSTRING& localIP)
-* @brief      DownloadCFG
+* @brief      Download CFG
 * @ingroup    DATAIO
 * 
 * @param[in]  URL : 
@@ -424,7 +424,7 @@ bool DIOSSHREVERSE::Activate()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOSSHREVERSE::DeActivate()
-* @brief      DeActivate
+* @brief      De activate
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
@@ -455,7 +455,7 @@ bool DIOSSHREVERSE::DeActivate()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOSSHREVERSE::IsRunning()
-* @brief      IsRunning
+* @brief      Is running
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
@@ -620,7 +620,7 @@ bool DIOSSHREVERSE::Exec(DIOURL&  URL, XSTRING& publicIP, XSTRING& localIP)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOSSHREVERSE::DIOSSHREVERSE()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -633,7 +633,7 @@ DIOSSHREVERSE::DIOSSHREVERSE()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOSSHREVERSE::~DIOSSHREVERSE()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 * 
@@ -647,7 +647,7 @@ DIOSSHREVERSE::~DIOSSHREVERSE()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOSSHREVERSE::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 * 

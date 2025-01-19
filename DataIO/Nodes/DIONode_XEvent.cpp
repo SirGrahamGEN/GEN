@@ -66,7 +66,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIONODE_XEVENT::DIONODE_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family)
-* @brief      DIONODE_XEVENT
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * @param[in]  subject :
@@ -83,7 +83,7 @@ DIONODE_XEVENT::DIONODE_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family): X
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIONODE_XEVENT::~DIONODE_XEVENT()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 * 
@@ -97,7 +97,7 @@ DIONODE_XEVENT::~DIONODE_XEVENT()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIONODEITEM* DIONODE_XEVENT::GetNodeItem()
-* @brief      GetNodeItem
+* @brief      Get node item
 * @ingroup    DATAIO
 * 
 * @return     DIONODEITEM* : 
@@ -112,7 +112,7 @@ DIONODEITEM* DIONODE_XEVENT::GetNodeItem()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIONODE_XEVENT::SetNodeItem(DIONODEITEM* nodeitem)
-* @brief      SetNodeItem
+* @brief      Set node item
 * @ingroup    DATAIO
 * 
 * @param[in]  nodeitem : 
@@ -127,7 +127,7 @@ void DIONODE_XEVENT::SetNodeItem(DIONODEITEM* nodeitem)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD DIONODE_XEVENT::GetIndexValue()
-* @brief      GetIndexValue
+* @brief      Get index value
 * @ingroup    DATAIO
 * 
 * @return     XDWORD : 
@@ -142,7 +142,7 @@ XDWORD DIONODE_XEVENT::GetIndexValue()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIONODE_XEVENT::SetIndexValue(XDWORD indexvalue)
-* @brief      SetIndexValue
+* @brief      Set index value
 * @ingroup    DATAIO
 * 
 * @param[in]  indexvalue : 
@@ -157,7 +157,7 @@ void DIONODE_XEVENT::SetIndexValue(XDWORD indexvalue)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIONODE_XEVENT::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

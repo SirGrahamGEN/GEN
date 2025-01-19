@@ -66,7 +66,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XINTERPOLATOR::XINTERPOLATOR(XINTERPOLATOR_TYPE type)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * @param[in]  type :
@@ -84,7 +84,7 @@ XINTERPOLATOR::XINTERPOLATOR(XINTERPOLATOR_TYPE type)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XINTERPOLATOR::~XINTERPOLATOR()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -98,7 +98,7 @@ XINTERPOLATOR::~XINTERPOLATOR()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XINTERPOLATOR_TYPE XINTERPOLATOR::GetType()
-* @brief      GetType
+* @brief      Get type
 * @ingroup    XUTILS
 *
 * @return     XINTERPOLATOR_TYPE :
@@ -113,7 +113,7 @@ XINTERPOLATOR_TYPE XINTERPOLATOR::GetType()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XINTERPOLATOR::SetType(XINTERPOLATOR_TYPE type)
-* @brief      SetType
+* @brief      Set type
 * @ingroup    XUTILS
 *
 * @param[in]  type :
@@ -128,7 +128,7 @@ void XINTERPOLATOR::SetType(XINTERPOLATOR_TYPE type)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XINTERPOLATOR_LIMITMODE XINTERPOLATOR::GetMode()
-* @brief      GetMode
+* @brief      Get mode
 * @ingroup    XUTILS
 *
 * @return     XINTERPOLATOR_LIMITMODE :
@@ -143,7 +143,7 @@ XINTERPOLATOR_LIMITMODE XINTERPOLATOR::GetMode()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XINTERPOLATOR::SetMode(XINTERPOLATOR_LIMITMODE mode)
-* @brief      SetMode
+* @brief      Set mode
 * @ingroup    XUTILS
 *
 * @param[in]  mode :
@@ -196,7 +196,7 @@ void XINTERPOLATOR::Set(XDWORD current,  XDWORD target, float speed)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD XINTERPOLATOR::GetCurrent()
-* @brief      GetCurrent
+* @brief      Get current
 * @ingroup    XUTILS
 *
 * @return     XDWORD :
@@ -211,7 +211,7 @@ XDWORD XINTERPOLATOR::GetCurrent()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XINTERPOLATOR::SetCurrent(XDWORD current)
-* @brief      SetCurrent
+* @brief      Set current
 * @ingroup    XUTILS
 *
 * @param[in]  current :
@@ -242,7 +242,7 @@ void XINTERPOLATOR::SetCurrent(XDWORD current)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD XINTERPOLATOR::GetTarget()
-* @brief      GetTarget
+* @brief      Get target
 * @ingroup    XUTILS
 *
 * @return     XDWORD :
@@ -257,7 +257,7 @@ XDWORD XINTERPOLATOR::GetTarget()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         float XINTERPOLATOR::GetSpeed()
-* @brief      GetSpeed
+* @brief      Get speed
 * @ingroup    XUTILS
 *
 * @return     float :
@@ -272,7 +272,7 @@ float XINTERPOLATOR::GetSpeed()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XINTERPOLATOR::SetSpeed(float speed)
-* @brief      SetSpeed
+* @brief      Set speed
 * @ingroup    XUTILS
 *
 * @param[in]  speed :
@@ -287,7 +287,7 @@ void XINTERPOLATOR::SetSpeed(float speed)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD XINTERPOLATOR::GetMaximun()
-* @brief      GetMaximun
+* @brief      Get maximun
 * @ingroup    XUTILS
 *
 * @return     XDWORD :
@@ -302,7 +302,7 @@ XDWORD XINTERPOLATOR::GetMaximun()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XINTERPOLATOR::SetMaximun(XDWORD max)
-* @brief      SetMaximun
+* @brief      Set maximun
 * @ingroup    XUTILS
 *
 * @param[in]  max :
@@ -317,7 +317,7 @@ void XINTERPOLATOR::SetMaximun(XDWORD max)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD XINTERPOLATOR::GetMinimun()
-* @brief      GetMinimun
+* @brief      Get minimun
 * @ingroup    XUTILS
 *
 * @return     XDWORD :
@@ -332,7 +332,7 @@ XDWORD XINTERPOLATOR::GetMinimun()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XINTERPOLATOR::SetMinimun(XDWORD min)
-* @brief      SetMinimun
+* @brief      Set minimun
 * @ingroup    XUTILS
 *
 * @param[in]  min :
@@ -347,7 +347,7 @@ void XINTERPOLATOR::SetMinimun(XDWORD min)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD XINTERPOLATOR::GetMultiplicator()
-* @brief      GetMultiplicator
+* @brief      Get multiplicator
 * @ingroup    XUTILS
 *
 * @return     XDWORD :
@@ -362,7 +362,7 @@ XDWORD XINTERPOLATOR::GetMultiplicator()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void XINTERPOLATOR::SetMultiplicator(XDWORD multiplier)
-* @brief      SetMultiplicator
+* @brief      Set multiplicator
 * @ingroup    XUTILS
 * 
 * @param[in]  multiplier : 
@@ -377,7 +377,7 @@ void XINTERPOLATOR::SetMultiplicator(XDWORD multiplier)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XINTERPOLATOR::SetFactorType(XINTERPOLATOR_FACTOR factortype)
-* @brief      SetFactorType
+* @brief      Set factor type
 * @ingroup    XUTILS
 *
 * @param[in]  factortype :
@@ -392,7 +392,7 @@ void XINTERPOLATOR::SetFactorType(XINTERPOLATOR_FACTOR factortype)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XINTERPOLATOR_FACTOR XINTERPOLATOR::GetFactorType()
-* @brief      GetFactorType
+* @brief      Get factor type
 * @ingroup    XUTILS
 *
 * @return     XINTERPOLATOR_FACTOR :
@@ -407,7 +407,7 @@ XINTERPOLATOR_FACTOR XINTERPOLATOR::GetFactorType()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XINTERPOLATOR::SetLimitFlags(XINTERPOLATOR_LIMITS limits)
-* @brief      SetLimitFlags
+* @brief      Set limit flags
 * @ingroup    XUTILS
 *
 * @param[in]  limits :
@@ -422,7 +422,7 @@ void XINTERPOLATOR::SetLimitFlags(XINTERPOLATOR_LIMITS limits)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XINTERPOLATOR_LIMITS XINTERPOLATOR::GetLimitFlags()
-* @brief      GetLimitFlags
+* @brief      Get limit flags
 * @ingroup    XUTILS
 *
 * @return     XINTERPOLATOR_LIMITS :
@@ -437,7 +437,7 @@ XINTERPOLATOR_LIMITS  XINTERPOLATOR::GetLimitFlags()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XINTERPOLATOR::CopyFrom (XINTERPOLATOR& interpolator)
-* @brief      CopyFrom
+* @brief      Copy from 
 * @ingroup    XUTILS
 *
 * @param[in]  interpolator :
@@ -468,7 +468,7 @@ bool XINTERPOLATOR::CopyFrom(XINTERPOLATOR& interpolator)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XINTERPOLATOR::CopyFrom(XINTERPOLATOR* interpolator)
-* @brief      CopyFrom
+* @brief      Copy from
 * @ingroup    XUTILS
 *
 * @param[in]  interpolator :
@@ -487,7 +487,7 @@ bool XINTERPOLATOR::CopyFrom(XINTERPOLATOR* interpolator)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XINTERPOLATOR::CopyTo(XINTERPOLATOR& interpolator)
-* @brief      CopyTo
+* @brief      Copy to
 * @ingroup    XUTILS
 *
 * @param[in]  interpolator :
@@ -518,7 +518,7 @@ bool XINTERPOLATOR::CopyTo(XINTERPOLATOR& interpolator)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XINTERPOLATOR::CopyTo(XINTERPOLATOR* interpolator)
-* @brief      CopyTo
+* @brief      Copy to
 * @ingroup    XUTILS
 *
 * @param[in]  interpolator :
@@ -537,7 +537,7 @@ bool XINTERPOLATOR::CopyTo(XINTERPOLATOR* interpolator)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         const XINTERPOLATOR XINTERPOLATOR::operator = (XINTERPOLATOR& interpolator)
-* @brief      operator =
+* @brief      operator = 
 * @ingroup    XUTILS
 *
 * @param[in]  interpolator :
@@ -555,7 +555,7 @@ const XINTERPOLATOR XINTERPOLATOR::operator = (XINTERPOLATOR& interpolator)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XINTERPOLATOR::SetTarget(XDWORD target)
-* @brief      SetTarget
+* @brief      Set target
 * @ingroup    XUTILS
 *
 * @param[in]  target :
@@ -662,7 +662,7 @@ bool XINTERPOLATOR::Interpolate(XQWORD delta)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XINTERPOLATOR::InterpolateLinear(XQWORD delta)
-* @brief      InterpolateLinear
+* @brief      Interpolate linear
 * @ingroup    XUTILS
 * 
 * @param[in]  delta : 
@@ -726,7 +726,7 @@ bool XINTERPOLATOR::InterpolateLinear(XQWORD delta)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XINTERPOLATOR::InterpolateRelative(XQWORD delta)
-* @brief      InterpolateRelative
+* @brief      Interpolate relative
 * @ingroup    XUTILS
 *
 * @param[in]  delta :
@@ -791,7 +791,7 @@ bool XINTERPOLATOR::InterpolateRelative(XQWORD delta)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XINTERPOLATOR::DeSerialize(XBUFFER* xbuffer) const
-* @brief      DeSerialize
+* @brief      De serialize
 * @ingroup    XUTILS
 *
 * @param[in]  xbuffer :
@@ -866,7 +866,7 @@ bool XINTERPOLATOR::Serialize(XBUFFER* buffer)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XINTERPOLATOR::SetMask(XDWORD mask)
-* @brief      SetMask
+* @brief      Set mask
 * @ingroup    XUTILS
 *
 * @param[in]  mask :
@@ -885,7 +885,7 @@ bool XINTERPOLATOR::SetMask(XDWORD mask)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD XINTERPOLATOR::GetMask()
-* @brief      GetMask
+* @brief      Get mask
 * @ingroup    XUTILS
 *
 * @return     XDWORD :
@@ -900,7 +900,7 @@ XDWORD XINTERPOLATOR::GetMask()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         float XINTERPOLATOR::GetCarry()
-* @brief      GetCarry
+* @brief      Get carry
 * @ingroup    XUTILS
 *
 * @return     float :
@@ -915,7 +915,7 @@ float XINTERPOLATOR::GetCarry()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XINTERPOLATOR::SetCarry(float carry)
-* @brief      SetCarry
+* @brief      Set carry
 * @ingroup    XUTILS
 *
 * @param[in]  carry :
@@ -930,7 +930,7 @@ void XINTERPOLATOR::SetCarry(float carry)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XINTERPOLATOR::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    XUTILS
 *

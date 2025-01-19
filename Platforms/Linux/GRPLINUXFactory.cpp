@@ -82,7 +82,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPSCREEN* GRPLINUXFACTORY::CreateScreen()
-* @brief      CreateScreen
+* @brief      Create screen
 * @ingroup    PLATFORM_LINUX
 *
 * @return     GRPSCREEN* :
@@ -105,7 +105,7 @@ GRPSCREEN* GRPLINUXFACTORY::CreateScreen()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPLINUXFACTORY::DeleteScreen(GRPSCREEN* screen)
-* @brief      DeleteScreen
+* @brief      Delete screen
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  screen :
@@ -129,7 +129,7 @@ bool GRPLINUXFACTORY::DeleteScreen(GRPSCREEN* screen)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPCONTEXT* GRPLINUXFACTORY::CreateContext()
-* @brief      CreateContext
+* @brief      Create context
 * @ingroup    PLATFORM_LINUX
 *
 * @return     GRPCONTEXT* :
@@ -146,7 +146,7 @@ GRPCONTEXT* GRPLINUXFACTORY::CreateContext()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPLINUXFACTORY::DeleteContext(GRPCONTEXT* context)
-* @brief      Delete Context
+* @brief      Delete context
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  context :

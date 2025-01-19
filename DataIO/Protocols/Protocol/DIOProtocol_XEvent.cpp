@@ -66,7 +66,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOPROTOCOL_XEVENT::DIOPROTOCOL_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * @param[in]  subject :
@@ -83,7 +83,7 @@ DIOPROTOCOL_XEVENT::DIOPROTOCOL_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD fa
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOPROTOCOL_XEVENT::~DIOPROTOCOL_XEVENT()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -97,7 +97,7 @@ DIOPROTOCOL_XEVENT::~DIOPROTOCOL_XEVENT()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOPROTOCOL* DIOPROTOCOL_XEVENT::GetProtocol()
-* @brief      GetProtocol
+* @brief      Get protocol
 * @ingroup    DATAIO
 *
 * @return     DIOPROTOCOL* :
@@ -112,7 +112,7 @@ DIOPROTOCOL* DIOPROTOCOL_XEVENT::GetProtocol()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOPROTOCOL_XEVENT::SetProtocol(DIOPROTOCOL* protocol)
-* @brief      SetProtocol
+* @brief      Set protocol
 * @ingroup    DATAIO
 *
 * @param[in]  protocol :
@@ -132,7 +132,7 @@ bool DIOPROTOCOL_XEVENT::SetProtocol(DIOPROTOCOL* protocol)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOPROTOCOL_DIRECTION DIOPROTOCOL_XEVENT::GetDirection()
-* @brief      GetDirection
+* @brief      Get direction
 * @ingroup    DATAIO
 *
 * @return     DIOPROTOCOL_DIRECTION :
@@ -147,7 +147,7 @@ DIOPROTOCOL_DIRECTION  DIOPROTOCOL_XEVENT::GetDirection()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOPROTOCOL_XEVENT::SetDirection(DIOPROTOCOL_DIRECTION direction)
-* @brief      SetDirection
+* @brief      Set direction
 * @ingroup    DATAIO
 *
 * @param[in]  direction :
@@ -162,7 +162,7 @@ void DIOPROTOCOL_XEVENT::SetDirection(DIOPROTOCOL_DIRECTION direction)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD DIOPROTOCOL_XEVENT::GetType()
-* @brief      GetType
+* @brief      Get type
 * @ingroup    DATAIO
 *
 * @return     XDWORD :
@@ -177,7 +177,7 @@ XDWORD DIOPROTOCOL_XEVENT::GetType()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOPROTOCOL_XEVENT::SetType(XDWORD type)
-* @brief      SetType
+* @brief      Set type
 * @ingroup    DATAIO
 *
 * @param[in]  type :
@@ -192,7 +192,7 @@ void DIOPROTOCOL_XEVENT::SetType(XDWORD type)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOPROTOCOL_XEVENT::GetResult()
-* @brief      GetResult
+* @brief      Get result
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -207,7 +207,7 @@ bool DIOPROTOCOL_XEVENT::GetResult()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOPROTOCOL_XEVENT::SetResult(bool result)
-* @brief      SetResult
+* @brief      Set result
 * @ingroup    DATAIO
 *
 * @param[in]  result :
@@ -222,7 +222,7 @@ void DIOPROTOCOL_XEVENT::SetResult(bool result)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOPROTOCOL_FILESTATUS DIOPROTOCOL_XEVENT::GetFileStatus()
-* @brief      GetFileStatus
+* @brief      Get file status
 * @ingroup    DATAIO
 *
 * @return     DIOPROTOCOL_FILESTATUS :
@@ -237,7 +237,7 @@ DIOPROTOCOL_FILESTATUS DIOPROTOCOL_XEVENT::GetFileStatus()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOPROTOCOL_XEVENT::SetFileStatus(DIOPROTOCOL_FILESTATUS filestatus)
-* @brief      SetFileStatus
+* @brief      Set file status
 * @ingroup    DATAIO
 *
 * @param[in]  filestatus :
@@ -252,7 +252,7 @@ void DIOPROTOCOL_XEVENT::SetFileStatus(DIOPROTOCOL_FILESTATUS filestatus)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOPROTOCOL_XEVENT::FileIsSend()
-* @brief      FileIsSend
+* @brief      File is send
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -267,7 +267,7 @@ bool DIOPROTOCOL_XEVENT::FileIsSend()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOPROTOCOL_XEVENT::SetFileIsSend(bool fileissend)
-* @brief      SetFileIsSend
+* @brief      Set file is send
 * @ingroup    DATAIO
 *
 * @param[in]  fileissend :
@@ -282,7 +282,7 @@ void DIOPROTOCOL_XEVENT::SetFileIsSend(bool fileissend)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XPATH* DIOPROTOCOL_XEVENT::GetFileSource()
-* @brief      GetFileSource
+* @brief      Get file source
 * @ingroup    DATAIO
 *
 * @return     XPATH* :
@@ -297,7 +297,7 @@ XPATH* DIOPROTOCOL_XEVENT::GetFileSource()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOPROTOCOL_XEVENT::SetFileSource(XCHAR* filesource)
-* @brief      SetFileSource
+* @brief      Set file source
 * @ingroup    DATAIO
 *
 * @param[in]  filesource :
@@ -316,7 +316,7 @@ bool DIOPROTOCOL_XEVENT::SetFileSource(XCHAR* filesource)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XPATH* DIOPROTOCOL_XEVENT::GetFileTarget()
-* @brief      GetFileTarget
+* @brief      Get file target
 * @ingroup    DATAIO
 *
 * @return     XPATH* :
@@ -331,7 +331,7 @@ XPATH* DIOPROTOCOL_XEVENT::GetFileTarget()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOPROTOCOL_XEVENT::SetFileTarget(XCHAR* filetarget)
-* @brief      SetFileTarget
+* @brief      Set file target
 * @ingroup    DATAIO
 *
 * @param[in]  filetarget :
@@ -350,7 +350,7 @@ bool DIOPROTOCOL_XEVENT::SetFileTarget(XCHAR* filetarget)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOPROTOCOL_XEVENT::GetFilePercent()
-* @brief      GetFilePercent
+* @brief      Get file percent
 * @ingroup    DATAIO
 *
 * @return     int :
@@ -365,7 +365,7 @@ int DIOPROTOCOL_XEVENT::GetFilePercent()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOPROTOCOL_XEVENT::SetFilePercent(int filepercent)
-* @brief      SetFilePercent
+* @brief      Set file percent
 * @ingroup    DATAIO
 *
 * @param[in]  filepercent :
@@ -380,7 +380,7 @@ void DIOPROTOCOL_XEVENT::SetFilePercent(int filepercent)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void* DIOPROTOCOL_XEVENT::GetParam1()
-* @brief      GetParam1
+* @brief      Get param1
 * @ingroup    DATAIO
 *
 * @return     void* :
@@ -395,7 +395,7 @@ void* DIOPROTOCOL_XEVENT::GetParam1()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOPROTOCOL_XEVENT::SetParam1(void* param1)
-* @brief      SetParam1
+* @brief      Set param1
 * @ingroup    DATAIO
 *
 * @param[in]  param1 :
@@ -410,7 +410,7 @@ void DIOPROTOCOL_XEVENT::SetParam1(void* param1)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD DIOPROTOCOL_XEVENT::GetParam2()
-* @brief      GetParam2
+* @brief      Get param2
 * @ingroup    DATAIO
 *
 * @return     XDWORD :
@@ -425,7 +425,7 @@ XDWORD DIOPROTOCOL_XEVENT::GetParam2()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOPROTOCOL_XEVENT::SetParam2(XDWORD param2)
-* @brief      SetParam2
+* @brief      Set param2
 * @ingroup    DATAIO
 *
 * @param[in]  param2 :
@@ -440,7 +440,7 @@ void DIOPROTOCOL_XEVENT::SetParam2(XDWORD param2)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOALERT* DIOPROTOCOL_XEVENT::GetAlert()
-* @brief      GetAlert
+* @brief      Get alert
 * @ingroup    DATAIO
 *
 * @return     DIOALERT* :
@@ -455,7 +455,7 @@ DIOALERT* DIOPROTOCOL_XEVENT::GetAlert()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOPROTOCOL_XEVENT::SetAlert(DIOALERT* alert)
-* @brief      SetAlert
+* @brief      Set alert
 * @ingroup    DATAIO
 *
 * @param[in]  alert :
@@ -470,7 +470,7 @@ void DIOPROTOCOL_XEVENT::SetAlert(DIOALERT* alert)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOPROTOCOL_XEVENT::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

@@ -72,7 +72,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOSPIOLEDDISPLAYSSD1306::DIOSPIOLEDDISPLAYSSD1306(XDWORD width, XDWORD height)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 * 
 * @param[in]  width: 
@@ -93,7 +93,7 @@ DIOSPIOLEDDISPLAYSSD1306::DIOSPIOLEDDISPLAYSSD1306(XDWORD width, XDWORD height)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSPIOLEDDISPLAYSSD1306::~DIOSPIOLEDDISPLAYSSD1306()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -109,7 +109,7 @@ DIOSPIOLEDDISPLAYSSD1306::~DIOSPIOLEDDISPLAYSSD1306()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSPIOLEDDISPLAYSSD1306::IniDevice()
-* @brief      IniDevice
+* @brief      Ini device
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -233,7 +233,7 @@ bool DIOSPIOLEDDISPLAYSSD1306::Update(XBYTE* buffer)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSPIOLEDDISPLAYSSD1306::PutPixel(XWORD x, XWORD y, bool color)
-* @brief      PutPixel
+* @brief      Put pixel
 * @ingroup    DATAIO
 *
 * @param[in]  x :
@@ -401,7 +401,7 @@ bool DIOSPIOLEDDISPLAYSSD1306::Activate(bool active)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSPIOLEDDISPLAYSSD1306::SetContrast(XBYTE contrast)
-* @brief      SetContrast
+* @brief      Set contrast
 * @ingroup    DATAIO
 *
 * @param[in]  contrast :
@@ -417,7 +417,7 @@ void DIOSPIOLEDDISPLAYSSD1306::SetContrast(XBYTE contrast)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XBYTE DIOSPIOLEDDISPLAYSSD1306::GetX()
-* @brief      GetX
+* @brief      Get x
 * @ingroup    DATAIO
 *
 * @return     XBYTE :
@@ -432,7 +432,7 @@ XBYTE DIOSPIOLEDDISPLAYSSD1306::GetX()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XBYTE DIOSPIOLEDDISPLAYSSD1306::GetY()
-* @brief      GetY
+* @brief      Get y
 * @ingroup    DATAIO
 *
 * @return     XBYTE :
@@ -447,7 +447,7 @@ XBYTE DIOSPIOLEDDISPLAYSSD1306::GetY()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSPIOLEDDISPLAYSSD1306::SetX(XBYTE x)
-* @brief      SetX
+* @brief      Set x
 * @ingroup    DATAIO
 *
 * @param[in]  x :
@@ -468,7 +468,7 @@ bool DIOSPIOLEDDISPLAYSSD1306::SetX(XBYTE x)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSPIOLEDDISPLAYSSD1306::SetY(XBYTE y)
-* @brief      SetY
+* @brief      Set y
 * @ingroup    DATAIO
 *
 * @param[in]  y :
@@ -489,7 +489,7 @@ bool DIOSPIOLEDDISPLAYSSD1306::SetY(XBYTE y)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSPIOLEDDISPLAYSSD1306::SetXY(XBYTE x, XBYTE y)
-* @brief      SetXY
+* @brief      Set XY
 * @ingroup    DATAIO
 *
 * @param[in]  x :
@@ -510,7 +510,7 @@ bool DIOSPIOLEDDISPLAYSSD1306::SetXY(XBYTE x, XBYTE y)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSPIOLEDDISPLAYSSD1306::SendCommand(XBYTE command)
-* @brief      SendCommand
+* @brief      Send command
 * @ingroup    DATAIO
 *
 * @param[in]  command :
@@ -529,7 +529,7 @@ bool DIOSPIOLEDDISPLAYSSD1306::SendCommand(XBYTE command)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSPIOLEDDISPLAYSSD1306::SendData(XBYTE* data, int size)
-* @brief      SendData
+* @brief      Send data
 * @ingroup    DATAIO
 *
 * @param[in]  data :
@@ -570,7 +570,7 @@ bool DIOSPIOLEDDISPLAYSSD1306::Send(XBYTE* data, int size)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSPIOLEDDISPLAYSSD1306::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

@@ -69,7 +69,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         INPCURSOR::INPCURSOR()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    INPUT
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -84,7 +84,7 @@ INPCURSOR::INPCURSOR(): INPCURSORMOTIONPOINT()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         INPCURSOR::~INPCURSOR()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    INPUT
 *
@@ -103,7 +103,7 @@ INPCURSOR::~INPCURSOR()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         INPCURSOR_ID INPCURSOR::GetID()
-* @brief      Get ID cursor
+* @brief      Get ID
 * @ingroup    INPUT
 *
 * @return     INPCURSOR_ID : cursor ID
@@ -118,7 +118,7 @@ INPCURSOR_ID INPCURSOR::GetID()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void INPCURSOR::SetID(INPCURSOR_ID ID)
-* @brief      Set ID cursor
+* @brief      Set ID
 * @ingroup    INPUT
 *
 * @param[in]  ID : new ID of cursor
@@ -133,7 +133,7 @@ void INPCURSOR::SetID(INPCURSOR_ID ID)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XTIMER* INPCURSOR::GetTimer()
-* @brief      Get Timer of cursor
+* @brief      Get timer
 * @ingroup    INPUT
 *
 * @return     XTIMER* : Timer of cursor
@@ -148,7 +148,7 @@ XTIMER* INPCURSOR::GetTimer()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool INPCURSOR::HavePreSelect()
-* @brief      Have Pre-Select
+* @brief      Have pre select
 * @ingroup    INPUT
 *
 * @return     bool : true if is succesful.
@@ -163,7 +163,7 @@ bool INPCURSOR::HavePreSelect()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool INPCURSOR::SetHavePreSelect(bool havepreselect)
-* @brief      Set Have Pre-Select
+* @brief      Set have pre select
 * @ingroup    INPUT
 *
 * @param[in]  havepreselect : true active have pre-select
@@ -182,7 +182,7 @@ bool INPCURSOR::SetHavePreSelect(bool havepreselect)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool INPCURSOR::IsChanged()
-* @brief      Is Changed cursor
+* @brief      Is changed
 * @ingroup    INPUT
 *
 * @return     bool : true if is succesful.
@@ -197,7 +197,7 @@ bool INPCURSOR::IsChanged()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool INPCURSOR::SetIsChanged(bool ischanged)
-* @brief      Set Is Changed cursor
+* @brief      Set is changed
 * @ingroup    INPUT
 *
 * @param[in]  ischanged : true is changed
@@ -216,7 +216,7 @@ bool INPCURSOR::SetIsChanged(bool ischanged)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool INPCURSOR::IsPositionInRect(int x, int y, int width,int height)
-* @brief      Is Position In Rect
+* @brief      Is position in rect
 * @ingroup    INPUT
 *
 * @param[in]  x : x position of rect
@@ -239,7 +239,7 @@ bool INPCURSOR::IsPositionInRect(int x, int y, int width,int height)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         INPCURSORMOTION* INPCURSOR::GetMotion()
-* @brief      Get Motion instance
+* @brief      Get motion
 * @ingroup    INPUT
 *
 * @return     INPCURSORMOTION* : Motion instance
@@ -254,7 +254,7 @@ INPCURSORMOTION* INPCURSOR::GetMotion()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool INPCURSOR::AddPointToMotion(bool ispressed)
-* @brief      Add Point To Motion
+* @brief      Add point to motion
 * @ingroup    INPUT
 *
 * @param[in]  ispressed : is pressed
@@ -292,7 +292,7 @@ bool INPCURSOR::AddPointToMotion(bool ispressed)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void INPCURSOR::Set(float x , float y, float z)
-* @brief      Set cursor
+* @brief      Set
 * @ingroup    INPUT
 *
 * @param[in]  x : new x position
@@ -319,7 +319,7 @@ void INPCURSOR::Set(float x , float y, float z)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void INPCURSOR::SetX(float x)
-* @brief      Set X cursor position
+* @brief      Set x
 * @ingroup    INPUT
 *
 * @param[in]  x : new x position
@@ -338,7 +338,7 @@ void INPCURSOR::SetX(float x)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void INPCURSOR::SetY(float y)
-* @brief      Set Y cursor position
+* @brief      Set y
 * @ingroup    INPUT
 *
 * @param[in]  y : new y position
@@ -357,7 +357,7 @@ void INPCURSOR::SetY(float y)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void INPCURSOR::SetZ(float z)
-* @brief      Set Z cursor position
+* @brief      Set z
 * @ingroup    INPUT
 *
 * @param[in]  z : new z position
@@ -373,7 +373,7 @@ void INPCURSOR::SetZ(float z)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void INPCURSOR::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    INPUT
 * 

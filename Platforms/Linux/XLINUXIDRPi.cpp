@@ -73,7 +73,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XLINUXIDRPI::XLINUXIDRPI()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_LINUX
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -88,7 +88,7 @@ XLINUXIDRPI::XLINUXIDRPI()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XLINUXIDRPI::~XLINUXIDRPI()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
 *
@@ -102,7 +102,7 @@ XLINUXIDRPI::~XLINUXIDRPI()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         RPI_MODEL XLINUXIDRPI::GetModel()
-* @brief      GetModel
+* @brief      Get model
 * @ingroup    PLATFORM_LINUX
 * 
 * @return     RPI_MODEL : 
@@ -117,7 +117,7 @@ RPI_MODEL XLINUXIDRPI::GetModel()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int XLINUXIDRPI::GetRAMMegabytes()
-* @brief      GetRAMMegabytes
+* @brief      Get RAM megabytes
 * @ingroup    PLATFORM_LINUX
 * 
 * @return     int : 
@@ -132,7 +132,7 @@ int XLINUXIDRPI::GetRAMMegabytes()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         float XLINUXIDRPI::GetRevision()
-* @brief      GetRevision
+* @brief      Get revision
 * @ingroup    PLATFORM_LINUX
 * 
 * @return     float : 
@@ -147,7 +147,7 @@ float XLINUXIDRPI::GetRevision()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XLINUXIDRPI::DetectBoard(RPI_MODEL& model, int& megabytes, float& revision)
-* @brief      DetectBoard
+* @brief      Detect board
 * @ingroup    PLATFORM_LINUX
 * 
 * @param[in]  model : 
@@ -246,7 +246,7 @@ bool XLINUXIDRPI::DetectBoard(RPI_MODEL& model, int& megabytes, float& revision)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XLINUXIDRPI::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
 *

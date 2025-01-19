@@ -66,7 +66,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVECTORFILEDXFENTITYOBJARC::GRPVECTORFILEDXFENTITYOBJARC(XCHAR* nametype)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    GRAPHIC
 * 
 * @param[in]  nametype : 
@@ -83,7 +83,7 @@ GRPVECTORFILEDXFENTITYOBJARC::GRPVECTORFILEDXFENTITYOBJARC(XCHAR* nametype) : GR
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVECTORFILEDXFENTITYOBJARC::~GRPVECTORFILEDXFENTITYOBJARC()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
 * 
@@ -97,7 +97,7 @@ GRPVECTORFILEDXFENTITYOBJARC::~GRPVECTORFILEDXFENTITYOBJARC()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVECTORFILEDXFENTITYDEFPOINT* GRPVECTORFILEDXFENTITYOBJARC::GetCenter()
-* @brief      GetCenter
+* @brief      Get center
 * @ingroup    GRAPHIC
 * 
 * @return     GRPVECTORFILEDXFENTITYDEFPOINT* : 
@@ -112,7 +112,7 @@ GRPVECTORFILEDXFENTITYDEFPOINT* GRPVECTORFILEDXFENTITYOBJARC::GetCenter()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPVECTORFILEDXFENTITYOBJARC::SetCenter(GRPVECTORFILEDXFENTITYDEFPOINT* center)
-* @brief      SetCenter
+* @brief      Set center
 * @ingroup    GRAPHIC
 * 
 * @param[in]  center : 
@@ -136,7 +136,7 @@ bool GRPVECTORFILEDXFENTITYOBJARC::SetCenter(GRPVECTORFILEDXFENTITYDEFPOINT* cen
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         double GRPVECTORFILEDXFENTITYOBJARC::GetIniAngle()
-* @brief      GetIniAngle
+* @brief      Get ini angle
 * @ingroup    GRAPHIC
 * 
 * @return     double : 
@@ -151,7 +151,7 @@ double GRPVECTORFILEDXFENTITYOBJARC::GetIniAngle()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRPVECTORFILEDXFENTITYOBJARC::SetIniAngle(double angle)
-* @brief      SetIniAngle
+* @brief      Set ini angle
 * @ingroup    GRAPHIC
 * 
 * @param[in]  angle : 
@@ -166,7 +166,7 @@ void GRPVECTORFILEDXFENTITYOBJARC::SetIniAngle(double angle)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         double GRPVECTORFILEDXFENTITYOBJARC::GetEndAngle()
-* @brief      GetEndAngle
+* @brief      Get end angle
 * @ingroup    GRAPHIC
 * 
 * @return     double : 
@@ -181,7 +181,7 @@ double GRPVECTORFILEDXFENTITYOBJARC::GetEndAngle()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRPVECTORFILEDXFENTITYOBJARC::SetEndAngle(double angle)
-* @brief      SetEndAngle
+* @brief      Set end angle
 * @ingroup    GRAPHIC
 * 
 * @param[in]  angle : 
@@ -196,7 +196,7 @@ void GRPVECTORFILEDXFENTITYOBJARC::SetEndAngle(double angle)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         double GRPVECTORFILEDXFENTITYOBJARC::GetRadius()
-* @brief      GetRadius
+* @brief      Get radius
 * @ingroup    GRAPHIC
 * 
 * @return     double : 
@@ -211,7 +211,7 @@ double GRPVECTORFILEDXFENTITYOBJARC::GetRadius()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRPVECTORFILEDXFENTITYOBJARC::SetRadius(double radius)
-* @brief      SetRadius
+* @brief      Set radius
 * @ingroup    GRAPHIC
 * 
 * @param[in]  radius : 
@@ -226,7 +226,7 @@ void GRPVECTORFILEDXFENTITYOBJARC::SetRadius(double radius)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         double GRPVECTORFILEDXFENTITYOBJARC::GetThickness()
-* @brief      GetThickness
+* @brief      Get thickness
 * @ingroup    GRAPHIC
 * 
 * @return     double : 
@@ -241,7 +241,7 @@ double GRPVECTORFILEDXFENTITYOBJARC::GetThickness()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRPVECTORFILEDXFENTITYOBJARC::SetThickness(double thickness)
-* @brief      SetThickness
+* @brief      Set thickness
 * @ingroup    GRAPHIC
 * 
 * @param[in]  thickness : 
@@ -256,7 +256,7 @@ void GRPVECTORFILEDXFENTITYOBJARC::SetThickness(double thickness)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVECTORFILEDXFENTITYDEFPOINT* GRPVECTORFILEDXFENTITYOBJARC::GetDirExtrusion()
-* @brief      GetDirExtrusion
+* @brief      Get dir extrusion
 * @ingroup    GRAPHIC
 * 
 * @return     GRPVECTORFILEDXFENTITYDEFPOINT* : 
@@ -271,7 +271,7 @@ GRPVECTORFILEDXFENTITYDEFPOINT* GRPVECTORFILEDXFENTITYOBJARC::GetDirExtrusion()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPVECTORFILEDXFENTITYOBJARC::SetDirExtrusion(GRPVECTORFILEDXFENTITYDEFPOINT* dirextrusion)
-* @brief      SetDirExtrusion
+* @brief      Set dir extrusion
 * @ingroup    GRAPHIC
 * 
 * @param[in]  dirextrusion : 
@@ -295,7 +295,7 @@ bool GRPVECTORFILEDXFENTITYOBJARC::SetDirExtrusion(GRPVECTORFILEDXFENTITYDEFPOIN
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPVECTORFILEDXFENTITYOBJARC::ApplyData(GRPVECTORFILEDXFENTITY* entity)
-* @brief      ApplyData
+* @brief      Apply data
 * @ingroup    GRAPHIC
 * 
 * @param[in]  entity : 
@@ -376,7 +376,7 @@ bool GRPVECTORFILEDXFENTITYOBJARC::ApplyData(GRPVECTORFILEDXFENTITY* entity)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRPVECTORFILEDXFENTITYOBJARC::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    GRAPHIC
 * 

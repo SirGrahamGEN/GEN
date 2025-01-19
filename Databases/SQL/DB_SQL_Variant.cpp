@@ -4,7 +4,7 @@
 * 
 * @class      DB_SQL_VARIANT
 * @brief      DataBase SQL Variant class
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 * 
 * @copyright  GEN Group. All rights reserved.
 * 
@@ -70,8 +70,8 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DB_SQL_VARIANT::DB_SQL_VARIANT()
-* @brief      Constructor
-* @ingroup    DATABASES
+* @brief      Constructor of class
+* @ingroup    DATABASE
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DB_SQL_VARIANT::DB_SQL_VARIANT(): XVARIANT()
@@ -83,8 +83,8 @@ DB_SQL_VARIANT::DB_SQL_VARIANT(): XVARIANT()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DB_SQL_VARIANT::DB_SQL_VARIANT(const DB_SQL_VARIANT& variant)
-* @brief      Constructor
-* @ingroup    DATABASES
+* @brief      Constructor of class
+* @ingroup    DATABASE
 *
 * @param[in]  const :
 *
@@ -100,9 +100,9 @@ DB_SQL_VARIANT::DB_SQL_VARIANT(const DB_SQL_VARIANT& variant): XVARIANT()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DB_SQL_VARIANT::~DB_SQL_VARIANT()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DB_SQL_VARIANT::~DB_SQL_VARIANT()
@@ -116,8 +116,8 @@ DB_SQL_VARIANT::~DB_SQL_VARIANT()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DB_SQL_VARIANT_FLAGS* DB_SQL_VARIANT::GetFlags()
-* @brief      GetFlags
-* @ingroup    DATABASES
+* @brief      Get flags
+* @ingroup    DATABASE
 *
 * @return     DB_SQL_VARIANT_FLAGS* :
 *
@@ -131,8 +131,8 @@ DB_SQL_VARIANT_FLAGS* DB_SQL_VARIANT::GetFlags()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DB_SQL_VARIANT::SetFlags(DB_SQL_VARIANT_FLAGS flags)
-* @brief      SetFlags
-* @ingroup    DATABASES
+* @brief      Set flags
+* @ingroup    DATABASE
 *
 * @param[in]  flags :
 *
@@ -146,9 +146,9 @@ void DB_SQL_VARIANT::SetFlags(DB_SQL_VARIANT_FLAGS flags)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DB_SQL_VARIANT::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DB_SQL_VARIANT::Clean()
@@ -167,8 +167,8 @@ void DB_SQL_VARIANT::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DB_SQL_ROW::DB_SQL_ROW()
-* @brief      Constructor
-* @ingroup    DATABASES
+* @brief      Constructor of class
+* @ingroup    DATABASE
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DB_SQL_ROW::DB_SQL_ROW()
@@ -180,9 +180,9 @@ DB_SQL_ROW::DB_SQL_ROW()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DB_SQL_ROW::~DB_SQL_ROW()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DB_SQL_ROW::~DB_SQL_ROW()
@@ -195,7 +195,7 @@ DB_SQL_ROW::~DB_SQL_ROW()
 *
 * @fn         DB_SQL_VARIANT DB_SQL_ROW::Get(int index)
 * @brief      Get
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 *
 * @param[in]  index :
 *
@@ -220,7 +220,7 @@ DB_SQL_VARIANT DB_SQL_ROW::Get(int index)
 *
 * @fn         bool DB_SQL_ROW::Add(DB_SQL_VARIANT* variant)
 * @brief      Add
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 *
 * @param[in]  variant :
 *
@@ -237,7 +237,7 @@ bool DB_SQL_ROW::Add(DB_SQL_VARIANT* variant)
 *
 * @fn         void DB_SQL_ROW::Clear()
 * @brief      Clear
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DB_SQL_ROW::Clear()

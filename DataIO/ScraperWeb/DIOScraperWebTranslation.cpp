@@ -69,7 +69,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOTRANSLATION_RESULT::DIOTRANSLATION_RESULT()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -82,7 +82,7 @@ DIOTRANSLATION_RESULT::DIOTRANSLATION_RESULT()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOTRANSLATION_RESULT::~DIOTRANSLATION_RESULT()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -96,7 +96,7 @@ DIOTRANSLATION_RESULT::~DIOTRANSLATION_RESULT()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XLANGUAGE_CODE DIOTRANSLATION_RESULT::GetLanguageTextCode()
-* @brief      GetLanguageTextCode
+* @brief      Get language text code
 * @ingroup    DATAIO
 *
 * @return     XLANGUAGE_CODE :
@@ -111,7 +111,7 @@ XLANGUAGE_CODE DIOTRANSLATION_RESULT::GetLanguageTextCode()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOTRANSLATION_RESULT::SetLanguageTextCode(XLANGUAGE_CODE code)
-* @brief      SetLanguageTextCode
+* @brief      Set language text code
 * @ingroup    DATAIO
 *
 * @param[in]  code :
@@ -130,7 +130,7 @@ bool DIOTRANSLATION_RESULT::SetLanguageTextCode(XLANGUAGE_CODE code)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XLANGUAGE_CODE DIOTRANSLATION_RESULT::GetLanguageTranslationCode()
-* @brief      GetLanguageTranslationCode
+* @brief      Get language translation code
 * @ingroup    DATAIO
 *
 * @return     XLANGUAGE_CODE :
@@ -145,7 +145,7 @@ XLANGUAGE_CODE DIOTRANSLATION_RESULT::GetLanguageTranslationCode()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOTRANSLATION_RESULT::SetLanguageTranslationCode(XLANGUAGE_CODE code)
-* @brief      SetLanguageTranslationCode
+* @brief      Set language translation code
 * @ingroup    DATAIO
 *
 * @param[in]  code :
@@ -164,7 +164,7 @@ bool DIOTRANSLATION_RESULT::SetLanguageTranslationCode(XLANGUAGE_CODE code)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* DIOTRANSLATION_RESULT::GetTranslation()
-* @brief      GetTranslation
+* @brief      Get translation
 * @ingroup    DATAIO
 *
 * @return     XSTRING* :
@@ -179,7 +179,7 @@ XSTRING* DIOTRANSLATION_RESULT::GetTranslation()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOTRANSLATION_RESULT::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *
@@ -200,7 +200,7 @@ void DIOTRANSLATION_RESULT::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSCRAPERWEBTRANSLATION::DIOSCRAPERWEBTRANSLATION()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -213,7 +213,7 @@ DIOSCRAPERWEBTRANSLATION::DIOSCRAPERWEBTRANSLATION() : DIOSCRAPERWEB()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSCRAPERWEBTRANSLATION::~DIOSCRAPERWEBTRANSLATION()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -227,7 +227,7 @@ DIOSCRAPERWEBTRANSLATION::~DIOSCRAPERWEBTRANSLATION()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSCRAPERWEBTRANSLATION::ChangeURL(XCHAR* maskurl, DIOURL& url)
-* @brief      ChangeURL
+* @brief      Change URL
 * @ingroup    DATAIO
 *
 * @param[in]  maskurl :
@@ -366,7 +366,7 @@ bool DIOSCRAPERWEBTRANSLATION::Get(XSTRING& text, XLANGUAGE_CODE languagetextcod
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSCRAPERWEBTRANSLATION::GoogleLanguageCode(XLANGUAGE_CODE languagecode, XSTRING& googlecode)
-* @brief      GoogleLanguageCode
+* @brief      Google language code
 * @ingroup    DATAIO
 *
 * @param[in]  languagecode :
@@ -499,7 +499,7 @@ bool DIOSCRAPERWEBTRANSLATION::GoogleLanguageCode(XLANGUAGE_CODE languagecode, X
       case XLANGUAGE_ISO_639_3_CODE_NDO     :                             break;  //   Ndonga
       case XLANGUAGE_ISO_639_3_CODE_NEP     :                             break;  //   Nepali
       case XLANGUAGE_ISO_639_3_CODE_NNO     :                             break;  //   Norwegian Nynorsk
-      case XLANGUAGE_ISO_639_3_CODE_NOB     :                             break;  //   Bokmål Norwegian
+      case XLANGUAGE_ISO_639_3_CODE_NOB     :                             break;  //   Bokm_l Norwegian
       case XLANGUAGE_ISO_639_3_CODE_NOR     : googlecode = __L("no");     break;  //   Norwegian
       case XLANGUAGE_ISO_639_3_CODE_NYA     :                             break;  //   Chichewa
       case XLANGUAGE_ISO_639_3_CODE_OCI     :                             break;  //   Occitan (post 1500)
@@ -557,7 +557,7 @@ bool DIOSCRAPERWEBTRANSLATION::GoogleLanguageCode(XLANGUAGE_CODE languagecode, X
       case XLANGUAGE_ISO_639_3_CODE_UZB     :                             break;  //   Uzbek
       case XLANGUAGE_ISO_639_3_CODE_VEN     :                             break;  //   Venda
       case XLANGUAGE_ISO_639_3_CODE_VIE     : googlecode = __L("vi");     break;  //   Vietnamese
-      case XLANGUAGE_ISO_639_3_CODE_VOL     :                             break;  //   Volapük
+      case XLANGUAGE_ISO_639_3_CODE_VOL     :                             break;  //   Volap k
       case XLANGUAGE_ISO_639_3_CODE_WEL     : googlecode = __L("cy");     break;  //   Welsh
       case XLANGUAGE_ISO_639_3_CODE_WLN     :                             break;  //   Walloon
       case XLANGUAGE_ISO_639_3_CODE_WOL     :                             break;  //   Wolof
@@ -575,7 +575,7 @@ bool DIOSCRAPERWEBTRANSLATION::GoogleLanguageCode(XLANGUAGE_CODE languagecode, X
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSCRAPERWEBTRANSLATION::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

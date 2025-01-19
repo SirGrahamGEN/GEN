@@ -64,7 +64,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         INPANDROIDDEVICEKEYBOARD::INPANDROIDDEVICEKEYBOARD()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_ANDROID
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -83,7 +83,7 @@ INPANDROIDDEVICEKEYBOARD::INPANDROIDDEVICEKEYBOARD(): INPDEVICE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         INPANDROIDDEVICEKEYBOARD::~INPANDROIDDEVICEKEYBOARD()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_ANDROID
 *
@@ -119,7 +119,7 @@ bool INPANDROIDDEVICEKEYBOARD::Update()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool INPANDROIDDEVICEKEYBOARD::SetScreen(void* screenpointer)
-* @brief      SetScreen
+* @brief      Set screen
 * @ingroup    PLATFORM_ANDROID
 *
 * @param[in]  screenpointer :
@@ -136,7 +136,7 @@ bool INPANDROIDDEVICEKEYBOARD::SetScreen(void* screenpointer)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void INPANDROIDDEVICEKEYBOARD::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_ANDROID
 *
@@ -150,7 +150,7 @@ void INPANDROIDDEVICEKEYBOARD::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool INPANDROIDDEVICEKEYBOARD::CreateAllButtons()
-* @brief      CreateAllButtons
+* @brief      Create all buttons
 * @ingroup    PLATFORM_ANDROID
 *
 * @return     bool : true if is succesful.

@@ -67,7 +67,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPBITMAPFILEPNG::GRPBITMAPFILEPNG()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    GRAPHIC
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -80,7 +80,7 @@ GRPBITMAPFILEPNG::GRPBITMAPFILEPNG(): GRPBITMAPFILEBASE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPBITMAPFILEPNG::~GRPBITMAPFILEPNG()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
 *
@@ -94,7 +94,7 @@ GRPBITMAPFILEPNG::~GRPBITMAPFILEPNG()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPBITMAP* GRPBITMAPFILEPNG::CreateBitmapFromFile(XPATH& xpath, GRPPROPERTYMODE forcemode)
-* @brief      CreateBitmapFromFile
+* @brief      Create bitmap from file
 * @ingroup    GRAPHIC
 *
 * @param[in]  xpath :
@@ -221,7 +221,7 @@ GRPBITMAP* GRPBITMAPFILEPNG::CreateBitmapFromFile(XPATH& xpath, GRPPROPERTYMODE 
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPBITMAP* GRPBITMAPFILEPNG::CreateBitmapFromBuffer(XBYTE* buffer, XDWORD size, GRPPROPERTYMODE forcemode)
-* @brief      CreateBitmapFromBuffer
+* @brief      Create bitmap from buffer
 * @ingroup    GRAPHIC
 *
 * @param[in]  buffer :
@@ -353,7 +353,7 @@ GRPBITMAP* GRPBITMAPFILEPNG::CreateBitmapFromBuffer(XBYTE* buffer, XDWORD size, 
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPBITMAPFILEPNG::CreateFileFromBitmap(XPATH& xpath, GRPBITMAP* bitmap, int quality)
-* @brief      CreateFileFromBitmap
+* @brief      Create file from bitmap
 * @ingroup    GRAPHIC
 *
 * @param[in]  xpath :
@@ -463,7 +463,7 @@ bool GRPBITMAPFILEPNG::CreateFileFromBitmap(XPATH& xpath, GRPBITMAP* bitmap, int
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XBYTE* GRPBITMAPFILEPNG::BufferData_Get()
-* @brief      BufferData_Get
+* @brief      Buffer data get
 * @ingroup    GRAPHIC
 *
 * @return     XBYTE* :
@@ -478,7 +478,7 @@ XBYTE* GRPBITMAPFILEPNG::BufferData_Get()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD GRPBITMAPFILEPNG::BufferData_GetIndex()
-* @brief      BufferData_GetIndex
+* @brief      Buffer data get index
 * @ingroup    GRAPHIC
 *
 * @return     XDWORD :
@@ -493,7 +493,7 @@ XDWORD GRPBITMAPFILEPNG::BufferData_GetIndex()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void GRPBITMAPFILEPNG::BufferData_SetIndex(XDWORD index)
-* @brief      BufferData_SetIndex
+* @brief      Buffer data set index
 * @ingroup    GRAPHIC
 *
 * @param[in]  index :
@@ -508,7 +508,7 @@ void GRPBITMAPFILEPNG::BufferData_SetIndex(XDWORD index)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD GRPBITMAPFILEPNG::BufferData_GetSize()
-* @brief      BufferData_GetSize
+* @brief      Buffer data get size
 * @ingroup    GRAPHIC
 *
 * @return     XDWORD :
@@ -523,7 +523,7 @@ XDWORD GRPBITMAPFILEPNG::BufferData_GetSize()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void GRPBITMAPFILEPNG::ReadFileData(png_structp png, png_bytep data, png_size_t length)
-* @brief      ReadData
+* @brief      Read file data
 * @ingroup    GRAPHIC
 *
 * @param[in]  png : struct png
@@ -543,7 +543,7 @@ void GRPBITMAPFILEPNG::ReadFileData(png_structp png, png_bytep data, png_size_t 
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void GRPBITMAPFILEPNG::ReadBufferData(png_structp png, png_bytep data, png_size_t length)
-* @brief      ReadBufferData
+* @brief      Read buffer data
 * @ingroup    GRAPHIC
 *
 * @param[in]  png :
@@ -570,7 +570,7 @@ void GRPBITMAPFILEPNG::ReadBufferData(png_structp png, png_bytep data, png_size_
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void GRPBITMAPFILEPNG::WriteFileData(png_structp png, png_bytep data, png_size_t length)
-* @brief      WriteData
+* @brief      Write file data
 * @ingroup    GRAPHIC
 *
 * @param[in]  png : png struct
@@ -590,7 +590,7 @@ void GRPBITMAPFILEPNG::WriteFileData(png_structp png, png_bytep data, png_size_t
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void GRPBITMAPFILEPNG::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    GRAPHIC
 *

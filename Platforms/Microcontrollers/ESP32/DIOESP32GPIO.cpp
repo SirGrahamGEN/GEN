@@ -4,7 +4,7 @@
 *
 * @class      DIOESP32GPIO
 * @brief      Data Input/Output ESP32 General Port Input/Ouput (GPIO)
-* @ingroup    PLATFORM_ESP32    PLATFORM_ESP32
+* @ingroup    PLATFORM_ESP32
 *
 * @copyright  GEN Group. All rights reserved.
 *
@@ -49,8 +49,8 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOESP32GPIO::DIOESP32GPIO()
-* @brief      Constructor
-* @ingroup    PLATFORM_ESP32    PLATFORM_ESP32
+* @brief      Constructor of class
+* @ingroup    PLATFORM_ESP32
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOESP32GPIO::DIOESP32GPIO(): DIOGPIO()
@@ -63,9 +63,9 @@ DIOESP32GPIO::DIOESP32GPIO(): DIOGPIO()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOESP32GPIO::~DIOESP32GPIO()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
-* @ingroup    PLATFORM_ESP32    PLATFORM_ESP32
+* @ingroup    PLATFORM_ESP32
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOESP32GPIO::~DIOESP32GPIO()
@@ -79,7 +79,7 @@ DIOESP32GPIO::~DIOESP32GPIO()
 *
 * @fn         bool DIOESP32GPIO::Ini()
 * @brief      Ini
-* @ingroup    PLATFORM_ESP32    PLATFORM_ESP32
+* @ingroup    PLATFORM_ESP32
 *
 * @return     bool : true if is succesful.
 *
@@ -94,7 +94,7 @@ bool DIOESP32GPIO::Ini()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOESP32GPIO::SetMode(DIOGPIO_ENTRY* entry, XWORD mode)
-* @brief      SetMode
+* @brief      Set mode
 * @ingroup    PLATFORM_ESP32
 *
 * @param[in]  entry : 
@@ -167,7 +167,7 @@ bool DIOESP32GPIO::SetMode(DIOGPIO_ENTRY* entry, XWORD mode)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOESP32GPIO::GetValue(DIOGPIO_ENTRY* entry)
-* @brief      GetValue
+* @brief      Get value
 * @ingroup    PLATFORM_ESP32
 *
 * @param[in]  entry : 
@@ -207,7 +207,7 @@ bool DIOESP32GPIO::GetValue(DIOGPIO_ENTRY* entry)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOESP32GPIO::SetValue(DIOGPIO_ENTRY* entry, bool value)
-* @brief      SetValue
+* @brief      Set value
 * @ingroup    PLATFORM_ESP32
 *
 * @param[in]  entry : 
@@ -249,7 +249,7 @@ bool DIOESP32GPIO::SetValue(DIOGPIO_ENTRY* entry, bool value)
 *
 * @fn         bool DIOESP32GPIO::End()
 * @brief      End
-* @ingroup    PLATFORM_ESP32    PLATFORM_ESP32
+* @ingroup    PLATFORM_ESP32
 *
 * @return     bool : true if is succesful.
 *
@@ -264,9 +264,9 @@ bool DIOESP32GPIO::End()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOESP32GPIO::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
-* @ingroup    PLATFORM_ESP32    PLATFORM_ESP32
+* @ingroup    PLATFORM_ESP32
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOESP32GPIO::Clean()

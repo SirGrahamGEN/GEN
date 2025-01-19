@@ -68,7 +68,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMBLUETOOTH::DIOSTREAMBLUETOOTH()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -81,7 +81,7 @@ DIOSTREAMBLUETOOTH::DIOSTREAMBLUETOOTH() : DIOSTREAM()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMBLUETOOTH::~DIOSTREAMBLUETOOTH()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -95,7 +95,7 @@ DIOSTREAMBLUETOOTH::~DIOSTREAMBLUETOOTH()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMCONFIG* DIOSTREAMBLUETOOTH::GetConfig()
-* @brief      GetConfig
+* @brief      Get config
 * @ingroup    DATAIO
 *
 * @return     DIOSTREAMCONFIG* : 
@@ -110,7 +110,7 @@ DIOSTREAMCONFIG* DIOSTREAMBLUETOOTH::GetConfig()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMBLUETOOTH::SetConfig(DIOSTREAMCONFIG* config)
-* @brief      SetConfig
+* @brief      Set config
 * @ingroup    DATAIO
 *
 * @param[in]  config : 
@@ -131,7 +131,7 @@ bool DIOSTREAMBLUETOOTH::SetConfig(DIOSTREAMCONFIG* config)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMBLUETOOTH::IsRefusedConnection()
-* @brief      IsRefusedConnection
+* @brief      Is refused connection
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful. 
@@ -146,7 +146,7 @@ bool DIOSTREAMBLUETOOTH::IsRefusedConnection()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMBLUETOOTH::SetIsRefusedConnection(bool isrefused)
-* @brief      SetIsRefusedConnection
+* @brief      Set is refused connection
 * @ingroup    DATAIO
 *
 * @param[in]  isrefused : 
@@ -165,7 +165,7 @@ bool DIOSTREAMBLUETOOTH::SetIsRefusedConnection(bool isrefused)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSTREAMBLUETOOTH::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

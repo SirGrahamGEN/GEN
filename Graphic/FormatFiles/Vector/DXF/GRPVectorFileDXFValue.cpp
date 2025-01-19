@@ -64,7 +64,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVECTORFILEDXFVALUE::GRPVECTORFILEDXFVALUE()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    GRAPHIC
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -77,7 +77,7 @@ GRPVECTORFILEDXFVALUE::GRPVECTORFILEDXFVALUE()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVECTORFILEDXFVALUE::~GRPVECTORFILEDXFVALUE()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
 * 
@@ -91,7 +91,7 @@ GRPVECTORFILEDXFVALUE::~GRPVECTORFILEDXFVALUE()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int GRPVECTORFILEDXFVALUE::GetType()
-* @brief      GetType
+* @brief      Get type
 * @ingroup    GRAPHIC
 * 
 * @return     int : 
@@ -106,7 +106,7 @@ int GRPVECTORFILEDXFVALUE::GetType()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRPVECTORFILEDXFVALUE::SetType(int type)
-* @brief      SetType
+* @brief      Set type
 * @ingroup    GRAPHIC
 * 
 * @param[in]  type : 
@@ -121,7 +121,7 @@ void GRPVECTORFILEDXFVALUE::SetType(int type)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* GRPVECTORFILEDXFVALUE::GetName()
-* @brief      GetName
+* @brief      Get name
 * @ingroup    GRAPHIC
 * 
 * @return     XSTRING* : 
@@ -136,7 +136,7 @@ XSTRING* GRPVECTORFILEDXFVALUE::GetName()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XVARIANT* GRPVECTORFILEDXFVALUE::GetData()
-* @brief      GetData
+* @brief      Get data
 * @ingroup    GRAPHIC
 * 
 * @return     XVARIANT* : 
@@ -151,7 +151,7 @@ XVARIANT* GRPVECTORFILEDXFVALUE::GetData()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* GRPVECTORFILEDXFVALUE::GetRemark()
-* @brief      GetRemark
+* @brief      Get remark
 * @ingroup    GRAPHIC
 * 
 * @return     XSTRING* : 
@@ -166,7 +166,7 @@ XSTRING* GRPVECTORFILEDXFVALUE::GetRemark()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRPVECTORFILEDXFVALUE::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    GRAPHIC
 * 

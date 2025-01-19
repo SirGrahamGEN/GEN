@@ -75,7 +75,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMUDPLOCALENUMSERVERS::DIOSTREAMUDPLOCALENUMSERVERS()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -94,7 +94,7 @@ DIOSTREAMUDPLOCALENUMSERVERS::DIOSTREAMUDPLOCALENUMSERVERS(): DIOSTREAMENUMSERVE
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMUDPLOCALENUMSERVERS::~DIOSTREAMUDPLOCALENUMSERVERS()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -139,7 +139,7 @@ bool DIOSTREAMUDPLOCALENUMSERVERS::Search()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMUDPLOCALENUMSERVERS::StopSearch(bool waitend)
-* @brief      StopSearch
+* @brief      Stop search
 * @ingroup    DATAIO
 *
 * @param[in]  waitend :
@@ -165,7 +165,7 @@ bool DIOSTREAMUDPLOCALENUMSERVERS::StopSearch(bool waitend)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMUDPLOCALENUMSERVERS::IsDeviceAvailable(XCHAR* resource)
-* @brief      IsDeviceAvailable
+* @brief      Is device available
 * @ingroup    DATAIO
 *
 * @param[in]  resource :
@@ -198,7 +198,7 @@ bool DIOSTREAMUDPLOCALENUMSERVERS::IsDeviceAvailable(XCHAR* resource)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMUDPCONFIG* DIOSTREAMUDPLOCALENUMSERVERS::GetDIOStreamUDPCFG()
-* @brief      GetDIOStreamUDPCFG
+* @brief      Get DIO stream UDPCFG
 * @ingroup    DATAIO
 *
 * @return     DIOSTREAMUDPCONFIG* :
@@ -213,7 +213,7 @@ DIOSTREAMUDPCONFIG* DIOSTREAMUDPLOCALENUMSERVERS::GetDIOStreamUDPCFG()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMUDP* DIOSTREAMUDPLOCALENUMSERVERS::GetDIOStreamUDP()
-* @brief      GetDIOStreamUDP
+* @brief      Get DIO stream UDP
 * @ingroup    DATAIO
 *
 * @return     DIOSTREAMUDP* :
@@ -228,7 +228,7 @@ DIOSTREAMUDP* DIOSTREAMUDPLOCALENUMSERVERS::GetDIOStreamUDP()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMUDPLOCALENUMSERVERS::SendSignal()
-* @brief      SendSignal
+* @brief      Send signal
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -273,7 +273,7 @@ bool DIOSTREAMUDPLOCALENUMSERVERS::SendSignal()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOSTREAMUDPLOCALENUMSERVERS::GetPort()
-* @brief      GetPort
+* @brief      Get port
 * @ingroup    DATAIO
 *
 * @return     int :
@@ -288,7 +288,7 @@ int DIOSTREAMUDPLOCALENUMSERVERS::GetPort()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMUDPLOCALENUMSERVERS::SetPort(int port)
-* @brief      SetPort
+* @brief      Set port
 * @ingroup    DATAIO
 *
 * @param[in]  port :
@@ -307,7 +307,7 @@ bool DIOSTREAMUDPLOCALENUMSERVERS::SetPort(int port)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSTREAMUDPLOCALENUMSERVERS::ThreadDiscoveryLocalServer(void* data)
-* @brief      ThreadDiscoveryLocalServer
+* @brief      Thread discovery local server
 * @ingroup    DATAIO
 *
 * @param[in]  data :
@@ -402,7 +402,7 @@ void DIOSTREAMUDPLOCALENUMSERVERS::ThreadDiscoveryLocalServer(void* data)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSTREAMUDPLOCALENUMSERVERS::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

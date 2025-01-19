@@ -80,7 +80,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XLINUXDATETIME::XLINUXDATETIME()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_LINUX
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -101,7 +101,7 @@ XLINUXDATETIME::XLINUXDATETIME()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XLINUXDATETIME::~XLINUXDATETIME()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
 *
@@ -140,7 +140,7 @@ bool XLINUXDATETIME::Read(bool islocal)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XLINUXDATETIME::Write()
-* @brief      Write data time
+* @brief      Write
 * @ingroup    PLATFORM_LINUX
 *
 * @return     bool : true if is succesful.
@@ -162,7 +162,7 @@ bool XLINUXDATETIME::Write(bool islocal)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XLINUXDATETIME::GetFileDateTime(XPATH& xpath, void* tmzip, XDWORD* dt)
-* @brief      GetFileDateTime
+* @brief      Get file date time
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  xpath : 
@@ -224,7 +224,7 @@ bool XLINUXDATETIME::GetFileDateTime(XPATH& xpath, void* tmzip, XDWORD* dt)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XLINUXDATETIME::GetFileDateTime(XPATH& xpath)
-* @brief      GetFileDateTime
+* @brief      Get file date time
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  xpath : 
@@ -271,7 +271,7 @@ bool XLINUXDATETIME::GetFileDateTime(XPATH& xpath)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XLINUXDATETIME::GetMeridianDifference()
-* @brief      GetMeridianDifference
+* @brief      Get meridian difference
 * @ingroup    PLATFORM_LINUX
 *
 * @return     int : 
@@ -291,7 +291,7 @@ int XLINUXDATETIME::GetMeridianDifference()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XLINUXDATETIME::IsDayLigthSavingTime(int* bias)
-* @brief      Is Day Ligth Saving Time
+* @brief      Is day ligth saving time
 * @ingroup    PLATFORM_LINUX
 *
 * @param[out] bias : difference hour
@@ -323,7 +323,7 @@ bool XLINUXDATETIME::IsDayLigthSavingTime(int* bias)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void XLINUXDATETIME::GetActualDateTime(XLINUXDATETIME* timed, bool islocal)
-* @brief      GetActualDateTime
+* @brief      Get actual date time
 * @ingroup    PLATFORM_LINUX
 * 
 * @param[in]  timed : 
@@ -365,7 +365,7 @@ void XLINUXDATETIME::GetActualDateTime(XLINUXDATETIME* timed, bool islocal)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void XLINUXDATETIME::SetActualDateTime(XLINUXDATETIME* timed, bool islocal)
-* @brief      SetActualDateTime
+* @brief      Set actual date time
 * @ingroup    PLATFORM_LINUX
 * 
 * @param[in]  timed : 

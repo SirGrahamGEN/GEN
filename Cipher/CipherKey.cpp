@@ -71,7 +71,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         CIPHERKEY::CIPHERKEY()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    CIPHER
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -84,7 +84,7 @@ CIPHERKEY::CIPHERKEY()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         CIPHERKEY::~CIPHERKEY()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    CIPHER
 * 
@@ -98,7 +98,7 @@ CIPHERKEY::~CIPHERKEY()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         CIPHERKEYTYPE CIPHERKEY::GetType()
-* @brief      GetType
+* @brief      Get type
 * @ingroup    CIPHER
 * 
 * @return     CIPHERKEYTYPE : 
@@ -113,7 +113,7 @@ CIPHERKEYTYPE CIPHERKEY::GetType()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void CIPHERKEY::SetType(CIPHERKEYTYPE type)
-* @brief      SetType
+* @brief      Set type
 * @ingroup    CIPHER
 * 
 * @param[in]  type : 
@@ -128,7 +128,7 @@ void CIPHERKEY::SetType(CIPHERKEYTYPE type)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int CIPHERKEY::GetSizeInBytes()
-* @brief      GetSizeInBytes
+* @brief      Get size in bytes
 * @ingroup    CIPHER
 * 
 * @return     int : 
@@ -143,7 +143,7 @@ int CIPHERKEY::GetSizeInBytes()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int CIPHERKEY::GetSizeInBits()
-* @brief      GetSizeInBits
+* @brief      Get size in bits
 * @ingroup    CIPHER
 * 
 * @return     int : 
@@ -158,7 +158,7 @@ int CIPHERKEY::GetSizeInBits()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool CIPHERKEY::CopyFrom(CIPHERKEY* key)
-* @brief      CopyFrom
+* @brief      Copy from
 * @ingroup    CIPHER
 * 
 * @param[in]  key : 
@@ -178,7 +178,7 @@ bool CIPHERKEY::CopyFrom(CIPHERKEY* key)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void CIPHERKEY::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    CIPHER
 * 
@@ -198,7 +198,7 @@ void CIPHERKEY::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         CIPHERKEYSYMMETRICAL::CIPHERKEYSYMMETRICAL() : CIPHERKEY()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    CIPHER
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -215,7 +215,7 @@ CIPHERKEYSYMMETRICAL::CIPHERKEYSYMMETRICAL() : CIPHERKEY()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         CIPHERKEYSYMMETRICAL::~CIPHERKEYSYMMETRICAL()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    CIPHER
 * 
@@ -308,7 +308,7 @@ bool CIPHERKEYSYMMETRICAL::Set(XBUFFER& key)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int CIPHERKEYSYMMETRICAL::GetSizeInBytes()
-* @brief      GetSizeInBytes
+* @brief      Get size in bytes
 * @ingroup    CIPHER
 * 
 * @return     int : 
@@ -323,7 +323,7 @@ int CIPHERKEYSYMMETRICAL::GetSizeInBytes()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool CIPHERKEYSYMMETRICAL::CopyFrom(CIPHERKEYSYMMETRICAL* key)
-* @brief      CopyFrom
+* @brief      Copy from
 * @ingroup    CIPHER
 * 
 * @param[in]  key : 
@@ -347,7 +347,7 @@ bool CIPHERKEYSYMMETRICAL::CopyFrom(CIPHERKEYSYMMETRICAL* key)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void CIPHERKEYSYMMETRICAL::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    CIPHER
 * 

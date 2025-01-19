@@ -4,7 +4,7 @@
 * 
 * @class      GRPVIDEOFILEAVI
 * @brief      Graphic Video File AVI class
-* @ingroup    VIDEO
+* @ingroup    GRAPHIC
 * 
 * @copyright  GEN Group. All rights reserved.
 * 
@@ -72,8 +72,8 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPVIDEOFILEAVI::GRPVIDEOFILEAVI()
-* @brief      Constructor
-* @ingroup    VIDEO
+* @brief      Constructor of class
+* @ingroup    GRAPHIC
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 GRPVIDEOFILEAVI::GRPVIDEOFILEAVI()
@@ -87,9 +87,9 @@ GRPVIDEOFILEAVI::GRPVIDEOFILEAVI()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPVIDEOFILEAVI::~GRPVIDEOFILEAVI()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
-* @ingroup    VIDEO
+* @ingroup    GRAPHIC
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 GRPVIDEOFILEAVI::~GRPVIDEOFILEAVI()
@@ -110,7 +110,7 @@ GRPVIDEOFILEAVI::~GRPVIDEOFILEAVI()
 * 
 * @fn         bool GRPVIDEOFILEAVI::Open(XCHAR* path)
 * @brief      Open
-* @ingroup    VIDEO
+* @ingroup    GRAPHIC
 *
 * @param[in]  path : 
 * 
@@ -180,7 +180,7 @@ bool GRPVIDEOFILEAVI::Open(XCHAR* path)
 * 
 * @fn         bool GRPVIDEOFILEAVI::Create(XCHAR* path, GRPVIDEOFILE_PROPERTYS& propertys)
 * @brief      Create
-* @ingroup    VIDEO
+* @ingroup    GRAPHIC
 *
 * @param[in]  path : 
 * @param[in]  propertys : 
@@ -342,8 +342,8 @@ bool GRPVIDEOFILEAVI::Create(XCHAR* path, GRPVIDEOFILE_PROPERTYS& propertys)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTE* GRPVIDEOFILEAVI::GetDataFrame(XDWORD index_frame, XDWORD& sizeframe)
-* @brief      GetDataFrame
-* @ingroup    VIDEO
+* @brief      Get data frame
+* @ingroup    GRAPHIC
 *
 * @param[in]  index_frame : 
 * @param[in]  sizeframe : 
@@ -393,8 +393,8 @@ XBYTE* GRPVIDEOFILEAVI::GetDataFrame(XDWORD index_frame, XDWORD& sizeframe)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPVIDEOFILEAVI::AddFrame(XBYTE* dataframe, XDWORD dataframesize)
-* @brief      AddFrame  
-* @ingroup    VIDEO
+* @brief      Add frame
+* @ingroup    GRAPHIC
 *
 * @param[in]  dataframe : 
 * @param[in]  dataframesize : 
@@ -450,7 +450,7 @@ bool GRPVIDEOFILEAVI::AddFrame(XBYTE* dataframe, XDWORD dataframesize)
 * 
 * @fn         bool GRPVIDEOFILEAVI::Close()
 * @brief      Close
-* @ingroup    VIDEO
+* @ingroup    GRAPHIC
 *
 * @return     bool : true if is succesful. 
 * 
@@ -486,8 +486,8 @@ bool GRPVIDEOFILEAVI::Close()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPVIDEOFILEAVI::CreateAndWriteJUNK(XFILERIFF_LIST_NODE* father_node, XDWORD datasize)
-* @brief      CreateAndWriteJUNK
-* @ingroup    VIDEO
+* @brief      Create and write JUNK
+* @ingroup    GRAPHIC
 *
 * @param[in]  father_node : 
 * @param[in]  datasize : 
@@ -521,8 +521,8 @@ bool GRPVIDEOFILEAVI::CreateAndWriteJUNK(XFILERIFF_LIST_NODE* father_node, XDWOR
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPVIDEOFILEAVI::CreateIndexofFrames()
-* @brief      CreateIndexofFrames
-* @ingroup    VIDEO
+* @brief      Create indexof frames
+* @ingroup    GRAPHIC
 *
 * @return     bool : true if is succesful. 
 * 
@@ -557,9 +557,9 @@ bool GRPVIDEOFILEAVI::CreateIndexofFrames()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void GRPVIDEOFILEAVI::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
-* @ingroup    VIDEO
+* @ingroup    GRAPHIC
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPVIDEOFILEAVI::Clean()

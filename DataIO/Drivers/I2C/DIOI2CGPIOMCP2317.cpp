@@ -72,7 +72,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOI2CGPIOMCP2317::DIOI2CGPIOMCP2317()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -85,7 +85,7 @@ DIOI2CGPIOMCP2317::DIOI2CGPIOMCP2317() :  DIODEVICEI2C()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOI2CGPIOMCP2317::~DIOI2CGPIOMCP2317()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -122,7 +122,7 @@ bool DIOI2CGPIOMCP2317::Configure(XBYTE port_A, XBYTE port_B)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOI2CGPIOMCP2317::ReadInputs(DIOI2CGPIOMCP2317PORT port, XBYTE& value)
-* @brief      ReadInputs
+* @brief      Read inputs
 * @ingroup    DATAIO
 *
 * @param[in]  port :
@@ -151,7 +151,7 @@ bool DIOI2CGPIOMCP2317::ReadInputs(DIOI2CGPIOMCP2317PORT port, XBYTE& value)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOI2CGPIOMCP2317::WriteOutputs(DIOI2CGPIOMCP2317PORT port, XBYTE value)
-* @brief      WriteOutputs
+* @brief      Write outputs
 * @ingroup    DATAIO
 *
 * @param[in]  port :
@@ -171,7 +171,7 @@ bool DIOI2CGPIOMCP2317::WriteOutputs(DIOI2CGPIOMCP2317PORT port, XBYTE value)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOI2CGPIOMCP2317::SendCommand(XBYTE cmd, XBYTE value)
-* @brief      SendCommand
+* @brief      Send command
 * @ingroup    DATAIO
 *
 * @param[in]  cmd :
@@ -218,7 +218,7 @@ bool DIOI2CGPIOMCP2317::End()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOI2CGPIOMCP2317::IniDevice()
-* @brief      IniDevice
+* @brief      Ini device
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -244,7 +244,7 @@ bool DIOI2CGPIOMCP2317::IniDevice()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOI2CGPIOMCP2317::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

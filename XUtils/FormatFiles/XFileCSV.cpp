@@ -73,7 +73,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILECSV_RECORD::XFILECSV_RECORD()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -86,7 +86,7 @@ XFILECSV_RECORD::XFILECSV_RECORD()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILECSV_RECORD::~XFILECSV_RECORD()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -102,7 +102,7 @@ XFILECSV_RECORD::~XFILECSV_RECORD()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XFILECSV_RECORD::GetNElements()
-* @brief      GetNElements
+* @brief      Get N elements
 * @ingroup    XUTILS
 *
 * @return     int :
@@ -117,7 +117,7 @@ int XFILECSV_RECORD::GetNElements()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILECSV_RECORD::GetElement(int index, XSTRING& element)
-* @brief      GetElement
+* @brief      Get element
 * @ingroup    XUTILS
 *
 * @param[in]  index :
@@ -142,7 +142,7 @@ bool XFILECSV_RECORD::GetElement(int index, XSTRING& element)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XCHAR* XFILECSV_RECORD::GetElement(int index)
-* @brief      GetElement
+* @brief      Get element
 * @ingroup    XUTILS
 *
 * @param[in]  index :
@@ -164,7 +164,7 @@ XCHAR* XFILECSV_RECORD::GetElement(int index)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILECSV_RECORD::AddElement(XSTRING& element)
-* @brief      AddElement
+* @brief      Add element
 * @ingroup    XUTILS
 *
 * @param[in]  element :
@@ -190,7 +190,7 @@ bool XFILECSV_RECORD::AddElement(XSTRING& element)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILECSV_RECORD::AddElement(XCHAR* element)
-* @brief      AddElement
+* @brief      Add element
 * @ingroup    XUTILS
 *
 * @param[in]  element :
@@ -252,7 +252,7 @@ bool XFILECSV_RECORD::Copy(XFILECSV_RECORD* header)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILECSV_RECORD::DeleteElement(int index)
-* @brief      DeleteElement
+* @brief      Delete element
 * @ingroup    XUTILS
 *
 * @param[in]  index :
@@ -276,7 +276,7 @@ bool XFILECSV_RECORD::DeleteElement(int index)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILECSV_RECORD::DeleteAllElements()
-* @brief      DeleteAllElements
+* @brief      Delete all elements
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -297,7 +297,7 @@ bool XFILECSV_RECORD::DeleteAllElements()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XFILECSV_RECORD::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    XUTILS
 *
@@ -317,7 +317,7 @@ void XFILECSV_RECORD::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILECSV::XFILECSV()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -330,7 +330,7 @@ XFILECSV::XFILECSV(): XFILETXT()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILECSV::XFILECSV(XPATH& xpath)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * @param[in]  xpath :
@@ -347,7 +347,7 @@ XFILECSV::XFILECSV(XPATH& xpath) : XFILETXT()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILECSV::XFILECSV(XFILE* file)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * @param[in]  file :
@@ -364,7 +364,7 @@ XFILECSV::XFILECSV(XFILE* file) : XFILETXT()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILECSV::~XFILECSV()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -426,7 +426,7 @@ bool XFILECSV::Close()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XCHAR XFILECSV::GetSeparator()
-* @brief      GetSeparator
+* @brief      Get separator
 * @ingroup    XUTILS
 *
 * @return     XCHAR :
@@ -441,7 +441,7 @@ XCHAR XFILECSV::GetSeparator()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILECSV::SetSeparator(XCHAR separator)
-* @brief      SetSeparator
+* @brief      Set separator
 * @ingroup    XUTILS
 *
 * @param[in]  separator :
@@ -462,7 +462,7 @@ bool XFILECSV::SetSeparator(XCHAR separator)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILECSV::HaveHeader()
-* @brief      HaveHeader
+* @brief      Have header
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -479,7 +479,7 @@ bool XFILECSV::HaveHeader()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILECSV_RECORD* XFILECSV::GetHeader()
-* @brief      GetHeader
+* @brief      Get header
 * @ingroup    XUTILS
 *
 * @return     XFILECSV_RECORD* :
@@ -494,7 +494,7 @@ XFILECSV_RECORD* XFILECSV::GetHeader()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILECSV::SetHeader(XFILECSV_RECORD* header)
-* @brief      SetHeader
+* @brief      Set header
 * @ingroup    XUTILS
 *
 * @param[in]  header :
@@ -513,7 +513,7 @@ bool XFILECSV::SetHeader(XFILECSV_RECORD* header)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XFILECSV::GetNRecords()
-* @brief      GetNRecords
+* @brief      Get N records
 * @ingroup    XUTILS
 *
 * @return     int :
@@ -528,7 +528,7 @@ int XFILECSV::GetNRecords()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILECSV_RECORD* XFILECSV::ReadRecord(XDWORD nrecord)
-* @brief      ReadRecord
+* @brief      Read record
 * @ingroup    XUTILS
 *
 * @param[in]  nrecord :
@@ -551,7 +551,7 @@ XFILECSV_RECORD* XFILECSV::ReadRecord(XDWORD nrecord)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILECSV::WriteRecord(XDWORD nrecord,XFILECSV_RECORD* record)
-* @brief      WriteRecord
+* @brief      Write record
 * @ingroup    XUTILS
 *
 * @param[in]  nrecord :
@@ -579,7 +579,7 @@ bool XFILECSV::WriteRecord(XDWORD nrecord,XFILECSV_RECORD* record)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILECSV::AddRecord(XFILECSV_RECORD* record)
-* @brief      AddRecord
+* @brief      Add record
 * @ingroup    XUTILS
 *
 * @param[in]  record :
@@ -600,7 +600,7 @@ bool XFILECSV::AddRecord(XFILECSV_RECORD* record)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILECSV::DeleteRecord(XDWORD nrecord)
-* @brief      DeleteRecord
+* @brief      Delete record
 * @ingroup    XUTILS
 *
 * @param[in]  nrecord :
@@ -624,7 +624,7 @@ bool XFILECSV::DeleteRecord(XDWORD nrecord)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILECSV::DeleteAllRecords()
-* @brief      DeleteAllRecords
+* @brief      Delete all records
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -740,7 +740,7 @@ bool XFILECSV::Serialization(bool read, bool haveheader)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILECSV::CreateRecordOfLine(XSTRING& line,XFILECSV_RECORD* record)
-* @brief      CreateRecordOfLine
+* @brief      Create record of line
 * @ingroup    XUTILS
 *
 * @param[in]  line :
@@ -791,7 +791,7 @@ bool XFILECSV::CreateRecordOfLine(XSTRING& line, XFILECSV_RECORD* record)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILECSV::CreateLineOfRecord(XFILECSV_RECORD* record,XSTRING& line)
-* @brief      CreateLineOfRecord
+* @brief      Create line of record
 * @ingroup    XUTILS
 *
 * @param[in]  record :
@@ -823,7 +823,7 @@ bool XFILECSV::CreateLineOfRecord(XFILECSV_RECORD* record,XSTRING& line)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XFILECSV::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    XUTILS
 *

@@ -67,7 +67,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         SCRIPT_LIB_PATH::SCRIPT_LIB_PATH()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    SCRIPT
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -80,7 +80,7 @@ SCRIPT_LIB_PATH::SCRIPT_LIB_PATH() : SCRIPT_LIB(SCRIPT_LIB_NAME_PATH)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         SCRIPT_LIB_PATH::~SCRIPT_LIB_PATH()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    SCRIPT
 *
@@ -94,7 +94,7 @@ SCRIPT_LIB_PATH::~SCRIPT_LIB_PATH()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool SCRIPT_LIB_PATH::AddLibraryFunctions(SCRIPT* script)
-* @brief      AddLibraryFunctions
+* @brief      Add library functions
 * @ingroup    SCRIPT
 *
 * @param[in]  script :
@@ -118,7 +118,7 @@ bool SCRIPT_LIB_PATH::AddLibraryFunctions(SCRIPT* script)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void SCRIPT_LIB_PATH::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    SCRIPT
 *

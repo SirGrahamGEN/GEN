@@ -66,7 +66,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMTCPIP::DIOSTREAMTCPIP()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -79,7 +79,7 @@ DIOSTREAMTCPIP::DIOSTREAMTCPIP(): DIOSTREAM()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMTCPIP::~DIOSTREAMTCPIP()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -93,7 +93,7 @@ DIOSTREAMTCPIP::~DIOSTREAMTCPIP()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMCONFIG* DIOSTREAMTCPIP::GetConfig()
-* @brief      GetConfig
+* @brief      Get config
 * @ingroup    DATAIO
 *
 * @return     DIOSTREAMCONFIG* :
@@ -108,7 +108,7 @@ DIOSTREAMCONFIG* DIOSTREAMTCPIP::GetConfig()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMTCPIP::SetConfig(DIOSTREAMCONFIG* config)
-* @brief      SetConfig
+* @brief      Set config
 * @ingroup    DATAIO
 *
 * @param[in]  config :
@@ -128,7 +128,7 @@ bool DIOSTREAMTCPIP::SetConfig(DIOSTREAMCONFIG* config)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOIP* DIOSTREAMTCPIP::GetClientIP()
-* @brief      GetClientIP
+* @brief      Get client IP
 * @ingroup    DATAIO
 *
 * @return     DIOIP* :
@@ -143,7 +143,7 @@ DIOIP* DIOSTREAMTCPIP::GetClientIP()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMENUMSERVERS* DIOSTREAMTCPIP::GetEnumServers()
-* @brief      GetEnumServers
+* @brief      Get enum servers
 * @ingroup    DATAIO
 *
 * @return     DIOSTREAMENUMSERVERS* :
@@ -158,7 +158,7 @@ DIOSTREAMENUMSERVERS* DIOSTREAMTCPIP::GetEnumServers()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMTCPIP::SetEnumServers(DIOSTREAMENUMSERVERS* enumservers)
-* @brief      SetEnumServers
+* @brief      Set enum servers
 * @ingroup    DATAIO
 *
 * @param[in]  enumservers :
@@ -177,7 +177,7 @@ bool DIOSTREAMTCPIP::SetEnumServers(DIOSTREAMENUMSERVERS* enumservers)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSTREAMTCPIP::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

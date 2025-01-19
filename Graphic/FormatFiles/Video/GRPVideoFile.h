@@ -4,7 +4,7 @@
 * 
 * @class      GRPVIDEOFILE
 * @brief      Graphic Video File class
-* @ingroup    VIDEO
+* @ingroup    GRAPHIC
 * 
 * @copyright  GEN Group. All rights reserved.
 * 

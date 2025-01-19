@@ -81,7 +81,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOWEBCLIENT_HEADER::DIOWEBCLIENT_HEADER()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -94,7 +94,7 @@ DIOWEBCLIENT_HEADER::DIOWEBCLIENT_HEADER()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOWEBCLIENT_HEADER::~DIOWEBCLIENT_HEADER()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -110,7 +110,7 @@ DIOWEBCLIENT_HEADER::~DIOWEBCLIENT_HEADER()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWEBCLIENT_HEADER::GetMethod(XSTRING& method)
-* @brief      GetMethod
+* @brief      Get method
 * @ingroup    DATAIO
 *
 * @param[in]  method :
@@ -129,7 +129,7 @@ bool DIOWEBCLIENT_HEADER::GetMethod(XSTRING& method)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWEBCLIENT_HEADER::GetResource(XSTRING& resource)
-* @brief      GetResource
+* @brief      Get resource
 * @ingroup    DATAIO
 *
 * @param[in]  resource :
@@ -148,7 +148,7 @@ bool DIOWEBCLIENT_HEADER::GetResource(XSTRING& resource)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOWEBCLIENT_HEADER::GetVersion()
-* @brief      GetVersion
+* @brief      Get version
 * @ingroup    DATAIO
 *
 * @return     int :
@@ -167,7 +167,7 @@ int DIOWEBCLIENT_HEADER::GetVersion()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOWEBCLIENT_HEADER::GetSubVersion()
-* @brief      GetSubVersion
+* @brief      Get sub version
 * @ingroup    DATAIO
 *
 * @return     int :
@@ -186,7 +186,7 @@ int DIOWEBCLIENT_HEADER::GetSubVersion()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOWEBCLIENT_HEADER::GetResultServer()
-* @brief      GetResultServer
+* @brief      Get result server
 * @ingroup    DATAIO
 *
 * @return     int :
@@ -205,7 +205,7 @@ int DIOWEBCLIENT_HEADER::GetResultServer()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XQWORD DIOWEBCLIENT_HEADER::GetContentLength()
-* @brief      GetContentLength
+* @brief      Get content length
 * @ingroup    DATAIO
 *
 * @return     XQWORD :
@@ -243,7 +243,7 @@ XQWORD DIOWEBCLIENT_HEADER::GetContentLength()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWEBCLIENT_HEADER::GetETag(XSTRING& etag)
-* @brief      GetETag
+* @brief      Get E tag
 * @ingroup    DATAIO
 *
 * @param[in]  etag :
@@ -282,7 +282,7 @@ bool DIOWEBCLIENT_HEADER::GetETag(XSTRING& etag)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOWEBCLIENT_HEADER::GetWWWAuthenticate(XSTRING& authenticate)
-* @brief      GetWWWAuthenticate
+* @brief      Get WWW authenticate
 * @ingroup    DATAIO
 * 
 * @param[in]  authenticate : 
@@ -304,7 +304,7 @@ bool DIOWEBCLIENT_HEADER::GetWWWAuthenticate(XSTRING& authenticate)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOWEBCLIENT_HEADER::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *
@@ -324,7 +324,7 @@ void DIOWEBCLIENT_HEADER::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOWEBCLIENT::DIOWEBCLIENT(XDWORD maxsizebuffer)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * @param[in]  maxsizebuffer :
@@ -353,7 +353,7 @@ DIOWEBCLIENT::DIOWEBCLIENT(XDWORD maxsizebuffer)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOWEBCLIENT::~DIOWEBCLIENT()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -392,7 +392,7 @@ DIOWEBCLIENT::~DIOWEBCLIENT()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOWEBCLIENT::Get_Port()
-* @brief      Get_Port
+* @brief      Get port
 * @ingroup    DATAIO
 *
 * @return     int :
@@ -407,7 +407,7 @@ int DIOWEBCLIENT::Get_Port()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOWEBCLIENT::Set_Port(int port)
-* @brief      Set_Port
+* @brief      Set port
 * @ingroup    DATAIO
 *
 * @param[in]  port :
@@ -422,7 +422,7 @@ void DIOWEBCLIENT::Set_Port(int port)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOURL* DIOWEBCLIENT::GetProxyURL()
-* @brief      GetProxyURL
+* @brief      Get proxy URL
 * @ingroup    DATAIO
 *
 * @return     DIOURL* :
@@ -437,7 +437,7 @@ DIOURL* DIOWEBCLIENT::GetProxyURL()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOWEBCLIENT::GetProxyPort()
-* @brief      GetProxyPort
+* @brief      Get proxy port
 * @ingroup    DATAIO
 *
 * @return     int :
@@ -452,7 +452,7 @@ int DIOWEBCLIENT::GetProxyPort()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOWEBCLIENT::SetProxyPort(int port)
-* @brief      SetProxyPort
+* @brief      Set proxy port
 * @ingroup    DATAIO
 *
 * @param[in]  port :
@@ -467,7 +467,7 @@ void DIOWEBCLIENT::SetProxyPort(int port)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOWEBCLIENT_AUTHENTICATION_METHOD DIOWEBCLIENT::GetAuthenticationMethod()
-* @brief      GetAuthenticationMethod
+* @brief      Get authentication method
 * @ingroup    DATAIO
 *
 * @return     DIOWEBCLIENT_AUTHENTICATION_METHOD : 
@@ -482,7 +482,7 @@ DIOWEBCLIENT_AUTHENTICATION_METHOD DIOWEBCLIENT::GetAuthenticationMethod()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOWEBCLIENT::SetAuthenticationMethod(DIOWEBCLIENT_AUTHENTICATION_METHOD authenticationmethod)
-* @brief      SetAuthenticationMethod
+* @brief      Set authentication method
 * @ingroup    DATAIO
 *
 * @param[in]  authenticationmethod : 
@@ -497,7 +497,7 @@ void DIOWEBCLIENT::SetAuthenticationMethod(DIOWEBCLIENT_AUTHENTICATION_METHOD au
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* DIOWEBCLIENT::GetLogin()
-* @brief      GetLogin
+* @brief      Get login
 * @ingroup    DATAIO
 *
 * @return     XSTRING* : 
@@ -512,7 +512,7 @@ XSTRING*  DIOWEBCLIENT::GetLogin()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* DIOWEBCLIENT::GetPassword()
-* @brief      GetPassword
+* @brief      Get password
 * @ingroup    DATAIO
 *
 * @return     XSTRING* : 
@@ -527,7 +527,7 @@ XSTRING*  DIOWEBCLIENT::GetPassword()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMTCPIPCONFIG* DIOWEBCLIENT::GetStreamCFG()
-* @brief      GetStreamCFG
+* @brief      Get stream CFG
 * @ingroup    DATAIO
 *
 * @return     DIOSTREAMTCPIPCONFIG* :
@@ -542,7 +542,7 @@ DIOSTREAMTCPIPCONFIG* DIOWEBCLIENT::GetStreamCFG()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOWEBCLIENT_HEADER* DIOWEBCLIENT::GetHeader()
-* @brief      GetHeader
+* @brief      Get header
 * @ingroup    DATAIO
 *
 * @return     DIOWEBCLIENT_HEADER* :
@@ -557,7 +557,7 @@ DIOWEBCLIENT_HEADER* DIOWEBCLIENT::GetHeader()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWEBCLIENT::IsActiveDoStopHTTPError()
-* @brief      IsActiveDoNotStopHTTPError
+* @brief      Is active do stop HTTP error
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful. 
@@ -572,7 +572,7 @@ bool DIOWEBCLIENT::IsActiveDoStopHTTPError()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOWEBCLIENT::DoStopHTTPError(bool activate)
-* @brief      DoStopHTTPError
+* @brief      Do stop HTTP error
 * @ingroup    DATAIO
 * 
 * @param[in]  activate : 
@@ -932,7 +932,7 @@ bool DIOWEBCLIENT::Post(XCHAR* url, XPATH& pathfile, XBUFFER* postdata, XCHAR* a
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWEBCLIENT::MakeOperation(DIOWEBHEADER_METHOD method, DIOURL& url, XBUFFER* postdata, XCHAR* addhead, int timeout, XSTRING* localIP, bool istobuffer, void* to)
-* @brief      MakeOperation
+* @brief      Make operation
 * @ingroup    DATAIO
 *
 * @param[in]  method :
@@ -1379,7 +1379,7 @@ bool DIOWEBCLIENT::MakeOperation(DIOWEBHEADER_METHOD method, DIOURL& url, XBUFFE
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWEBCLIENT::GetSubStringWWWWAuthenticate(XSTRING& www_authenticate, XCHAR* field, XSTRING& value, bool betweenquotation)
-* @brief      GetSubStringWWWWAuthenticate
+* @brief      Get sub string WWWW authenticate
 * @ingroup    DATAIO
 *
 * @param[in]  www_authenticate : 
@@ -1431,7 +1431,7 @@ bool DIOWEBCLIENT::GetSubStringWWWWAuthenticate(XSTRING& www_authenticate, XCHAR
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOWEBCLIENT::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

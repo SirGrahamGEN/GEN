@@ -53,7 +53,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTM32DIR::XSTM32DIR()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_STM32
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -77,7 +77,7 @@ XSTM32DIR::XSTM32DIR(): XDIR()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTM32DIR::~XSTM32DIR()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_STM32
 *
@@ -201,7 +201,7 @@ bool XSTM32DIR::Make(XCHAR* path, bool recursive)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTM32DIR::ChangeTo(XCHAR* path)
-* @brief      ChangeTo
+* @brief      Change to
 * @ingroup    PLATFORM_STM32
 *
 * @param[in]  path :
@@ -299,7 +299,7 @@ bool XSTM32DIR::Delete(XCHAR* path, bool all)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTM32DIR::GetActual(XPATH& xpath)
-* @brief      GetActual
+* @brief      Get actual
 * @ingroup    PLATFORM_STM32
 *
 * @param[in]  xpath :
@@ -328,7 +328,7 @@ bool XSTM32DIR::GetActual(XPATH& xpath)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTM32DIR::FirstSearch(XCHAR* xpath, XCHAR* patternsearch, XDIRELEMENT* searchelement)
-* @brief      FirstSearch
+* @brief      First search
 * @ingroup    PLATFORM_STM32
 *
 * @param[in]  xpath :
@@ -399,7 +399,7 @@ bool XSTM32DIR::FirstSearch(XCHAR* xpath, XCHAR* patternsearch, XDIRELEMENT* sea
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTM32DIR::NextSearch(XDIRELEMENT* searchelement)
-* @brief      NextSearch
+* @brief      Next search
 * @ingroup    PLATFORM_STM32
 *
 * @param[in]  searchelement :
@@ -444,7 +444,7 @@ bool XSTM32DIR::NextSearch(XDIRELEMENT* searchelement)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XSTM32DIR::ReconvertSearchData(XDIRELEMENT* searchelement, FILINFO* fileinfo)
-* @brief      ReconvertSearchData
+* @brief      Reconvert search data
 * @ingroup    PLATFORM_STM32
 * 
 * @param[in]  searchelement : 
@@ -494,7 +494,7 @@ bool XSTM32DIR::ReconvertSearchData(XDIRELEMENT* searchelement, FILINFO* fileinf
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XSTM32DIR::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_STM32
 *

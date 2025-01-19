@@ -71,7 +71,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOWINDOWSSTREAMUARTLOCALENUMDEVICES::DIOWINDOWSSTREAMUARTLOCALENUMDEVICES()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_WINDOWS
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -84,7 +84,7 @@ DIOWINDOWSSTREAMUARTLOCALENUMDEVICES::DIOWINDOWSSTREAMUARTLOCALENUMDEVICES() : D
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOWINDOWSSTREAMUARTLOCALENUMDEVICES::~DIOWINDOWSSTREAMUARTLOCALENUMDEVICES()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
 * 

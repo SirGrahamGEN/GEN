@@ -85,7 +85,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOANDROIDSTREAMWIFIREMOTEENUMDEVICES::DIOANDROIDSTREAMWIFIREMOTEENUMDEVICES()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_ANDROID
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -114,7 +114,7 @@ DIOANDROIDSTREAMWIFIREMOTEENUMDEVICES::DIOANDROIDSTREAMWIFIREMOTEENUMDEVICES() :
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOANDROIDSTREAMWIFIREMOTEENUMDEVICES::~DIOANDROIDSTREAMWIFIREMOTEENUMDEVICES()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_ANDROID
 * 
@@ -161,7 +161,7 @@ bool DIOANDROIDSTREAMWIFIREMOTEENUMDEVICES::Search()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOANDROIDSTREAMWIFIREMOTEENUMDEVICES::StopSearch(bool waitend)
-* @brief      StopSearch
+* @brief      Stop search
 * @ingroup    PLATFORM_ANDROID
 * 
 * @param[in]  waitend : 
@@ -195,7 +195,7 @@ bool DIOANDROIDSTREAMWIFIREMOTEENUMDEVICES::StopSearch(bool waitend)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOANDROIDSTREAMWIFIREMOTEENUMDEVICES::IsSearching()
-* @brief      IsSearching
+* @brief      Is searching
 * @ingroup    PLATFORM_ANDROID
 * 
 * @return     bool : true if is succesful. 
@@ -215,7 +215,7 @@ bool DIOANDROIDSTREAMWIFIREMOTEENUMDEVICES::IsSearching()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOANDROIDSTREAMWIFIREMOTEENUMDEVICES::ThreadEnumDevices(void* param)
-* @brief      ThreadEnumDevices
+* @brief      Thread enum devices
 * @ingroup    PLATFORM_ANDROID
 * 
 * @param[in]  param : 
@@ -300,7 +300,7 @@ void DIOANDROIDSTREAMWIFIREMOTEENUMDEVICES::ThreadEnumDevices(void* param)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOANDROIDSTREAMWIFIREMOTEENUMDEVICES::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_ANDROID
 * 

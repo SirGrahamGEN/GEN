@@ -66,7 +66,7 @@ XMEMORY_CONTROL XMemory_Control;
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XMEMORY_CONTROL::XMEMORY_CONTROL()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -98,7 +98,7 @@ XMEMORY_CONTROL::XMEMORY_CONTROL()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XMEMORY_CONTROL::~XMEMORY_CONTROL()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    XUTILS
 * 
@@ -133,7 +133,7 @@ XMEMORY_CONTROL::~XMEMORY_CONTROL()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XMEMORY_CONTROL::IsActive()
-* @brief      IsActive
+* @brief      Is active
 * @ingroup    XUTILS
 * 
 * @return     bool : true if is succesful. 
@@ -246,7 +246,7 @@ void XMEMORY_CONTROL::Free(void* ptr)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XMEMORY_CONTROL::FreeAll()
-* @brief      FreeAll
+* @brief      Free all
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -269,7 +269,7 @@ bool XMEMORY_CONTROL::FreeAll()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD XMEMORY_CONTROL::GetMemoryUsed()
-* @brief      GetMemoryUsed
+* @brief      Get memory used
 * @ingroup    XUTILS
 *
 * @return     XDWORD :
@@ -284,7 +284,7 @@ XDWORD XMEMORY_CONTROL::GetUsed()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD XMEMORY_CONTROL::GetMemoryNAssigns()
-* @brief      GetMemoryNAssigns
+* @brief      Get memory N assigns
 * @ingroup    XUTILS
 *
 * @return     XDWORD :
@@ -299,7 +299,7 @@ XDWORD XMEMORY_CONTROL::GetNAssigns()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XMEMORY_CONTROL::DisplayAll(bool displaydata)
-* @brief      DisplayAll
+* @brief      Display all
 * @ingroup    XUTILS
 *
 * @param[in]  displaydata :
@@ -415,7 +415,7 @@ bool XMEMORY_CONTROL::Lock()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XMEMORY_CONTROL::UnLock()
-* @brief      UnLock
+* @brief      Un lock
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -440,7 +440,7 @@ bool XMEMORY_CONTROL::UnLock()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD XMEMORY_CONTROL::CRC32ForByte(XDWORD ini)
-* @brief      CRC32ForByte
+* @brief      CRC32 for byte
 * @ingroup    XUTILS
 *
 * @param[in]  ini :
@@ -496,7 +496,7 @@ XDWORD XMEMORY_CONTROL::CRC32(XBYTE* data, XWORD size)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XMEMORY_CONTROL::RegisterAssign(void* ptr, size_t size, char* pathfile, int line)
-* @brief      RegisterAssign
+* @brief      Register assign
 * @ingroup    XUTILS
 *
 * @param[in]  ptr :
@@ -543,7 +543,7 @@ bool XMEMORY_CONTROL::RegisterAssign(void* ptr, XDWORD size, char* pathfile, int
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XMEMORY_CONTROL::DeRegisterAssign(void* ptr, XDWORD& size)
-* @brief      DeRegisterAssign
+* @brief      De register assign
 * @ingroup    XUTILS
 *
 * @param[in]  ptr :
@@ -575,7 +575,7 @@ bool XMEMORY_CONTROL::DeRegisterAssign(void* ptr, XDWORD& size)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XMEMORY_CONTROL::ResizeAssignList(XDWORD newnregisterelements)
-* @brief      ResizeAssignList
+* @brief      Resize assign list
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -604,7 +604,7 @@ bool XMEMORY_CONTROL::ResizeAssignList()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XMEMORY_CONTROL::SearchIndex(void* ptr, XDWORD& index)
-* @brief      SearchIndex
+* @brief      Search index
 * @ingroup    XUTILS
 *
 * @param[in]  ptr :
@@ -673,7 +673,7 @@ bool XMEMORY_CONTROL::SearchAssignIndex(bool free, void* ptr, XDWORD& index)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XMEMORY_CONTROL::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    XUTILS
 *

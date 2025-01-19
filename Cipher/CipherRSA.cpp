@@ -79,7 +79,7 @@ CIPHERRSA* CIPHERRSA::instance = NULL;
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         CIPHERRSA_CONTEXT::CIPHERRSA_CONTEXT()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    CIPHER
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -94,7 +94,7 @@ CIPHERRSA_CONTEXT::CIPHERRSA_CONTEXT()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         CIPHERRSA_CONTEXT::~CIPHERRSA_CONTEXT()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    CIPHER
 * 
@@ -163,7 +163,7 @@ void CIPHERRSA_CONTEXT::End()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void CIPHERRSA_CONTEXT::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    CIPHER
 * 
@@ -185,7 +185,7 @@ void CIPHERRSA_CONTEXT::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         CIPHERRSA::CIPHERRSA()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    CIPHER
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -204,7 +204,7 @@ CIPHERRSA::CIPHERRSA() : CIPHER()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         CIPHERRSA::~CIPHERRSA()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    CIPHER
 * 
@@ -220,7 +220,7 @@ CIPHERRSA::~CIPHERRSA()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool CIPHERRSA::SetKey(CIPHERKEY* key, bool integritycheck)
-* @brief      SetKey
+* @brief      Set key
 * @ingroup    CIPHER
 * 
 * @param[in]  key : 
@@ -507,7 +507,7 @@ bool CIPHERRSA::Sign(XBUFFER& input, CIPHERKEYTYPE keytouse, HASH* hash, CIPHERR
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         CIPHERRSA* CIPHERRSA::GetInstance()
-* @brief      GetInstance
+* @brief      Get instance
 * @ingroup    CIPHER
 * 
 * @return     CIPHERRSA* : 
@@ -522,7 +522,7 @@ CIPHERRSA* CIPHERRSA::GetInstance()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XRAND* CIPHERRSA::GetXRand()
-* @brief      GetXRand
+* @brief      Get X rand
 * @ingroup    CIPHER
 * 
 * @return     XRAND* : 
@@ -537,7 +537,7 @@ XRAND* CIPHERRSA::GetXRand()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool CIPHERRSA::GenerateKeys(XDWORD nbits, int exponent, CIPHERKEYPUBLICRSA& publickey, CIPHERKEYPRIVATERSA& privatekey, XMPINTEGER_FUNCRANDOM funcrandom, void* paramrandom)
-* @brief      GenerateKeys
+* @brief      Generate keys
 * @ingroup    CIPHER
 * 
 * @param[in]  nbits : 
@@ -625,7 +625,7 @@ bool CIPHERRSA::GenerateKeys(XDWORD nbits, int exponent, CIPHERKEYPUBLICRSA& pub
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool CIPHERRSA::CheckContextPublicKey()
-* @brief      CheckContextPublicKey
+* @brief      Check context public key
 * @ingroup    CIPHER
 * 
 * @return     bool : true if is succesful. 
@@ -645,7 +645,7 @@ bool CIPHERRSA::CheckContextPublicKey()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool CIPHERRSA::CheckContextPrivateKey()
-* @brief      CheckContextPrivateKey
+* @brief      Check context private key
 * @ingroup    CIPHER
 * 
 * @return     bool : true if is succesful. 
@@ -726,7 +726,7 @@ bool CIPHERRSA::CheckContextPrivateKey()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool CIPHERRSA::Cipher_PKCS1_V15(XBYTE* buffer, XDWORD size, XBUFFER& output, CIPHERKEYTYPE keytypetouse, CIPHERRSAPKCS1VERSION pkcs1version, XMPINTEGER_FUNCRANDOM funcrandom, void* paramrandom)
-* @brief      Cipher_PKCS1_V15
+* @brief      Cipher PKCS1V15
 * @ingroup    CIPHER
 * 
 * @param[in]  buffer : 
@@ -802,7 +802,7 @@ bool CIPHERRSA::Cipher_PKCS1_V15(XBYTE* buffer, XDWORD size, XBUFFER& output, CI
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool CIPHERRSA::Uncipher_PKCS1_V15(XBYTE* buffer, XDWORD size, XBUFFER& output, CIPHERKEYTYPE keytypetouse, CIPHERRSAPKCS1VERSION pkcs1version, XMPINTEGER_FUNCRANDOM funcrandom, void* paramrandom)
-* @brief      Uncipher_PKCS1_V15
+* @brief      Uncipher PKCS1V15
 * @ingroup    CIPHER
 * 
 * @param[in]  buffer : 
@@ -873,7 +873,7 @@ bool CIPHERRSA::Uncipher_PKCS1_V15(XBYTE* buffer, XDWORD size, XBUFFER& output, 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool CIPHERRSA::DoRSAPublicOperation(XBUFFER& input, XBUFFER& output)
-* @brief      DoRSAPublicOperation
+* @brief      Do RSA public operation
 * @ingroup    CIPHER
 * 
 * @param[in]  input : 
@@ -906,7 +906,7 @@ bool CIPHERRSA::DoRSAPublicOperation(XBUFFER& input, XBUFFER& output)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool CIPHERRSA::DoRSAPrivateOperation(XBUFFER& input, XBUFFER& output, XMPINTEGER_FUNCRANDOM funcrandom, void* paramrandom)
-* @brief      DoRSAPrivateOperation
+* @brief      Do RSA private operation
 * @ingroup    CIPHER
 * 
 * @param[in]  input : 
@@ -991,7 +991,7 @@ bool CIPHERRSA::DoRSAPrivateOperation(XBUFFER& input, XBUFFER& output, XMPINTEGE
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool CIPHERRSA::PrepareBlinding(XMPINTEGER* Vi, XMPINTEGER* Vf, XMPINTEGER_FUNCRANDOM funcrandom, void* paramrandom)
-* @brief      PrepareBlinding
+* @brief      Prepare blinding
 * @ingroup    CIPHER
 * 
 * @param[in]  Vi : 
@@ -1046,7 +1046,7 @@ bool CIPHERRSA::PrepareBlinding(XMPINTEGER* Vi, XMPINTEGER* Vf, XMPINTEGER_FUNCR
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int CIPHERRSA::GetKeySizeInBytes(CIPHERKEYTYPE keytouse)
-* @brief      GetKeySizeInBytes
+* @brief      Get key size in bytes
 * @ingroup    CIPHER
 * 
 * @param[in]  keytouse : 
@@ -1070,7 +1070,7 @@ int CIPHERRSA::GetKeySizeInBytes(CIPHERKEYTYPE keytouse)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool CIPHERRSA::GenerateRandom(XBYTE* buffer, XDWORD size, void* param)
-* @brief      GenerateRandom
+* @brief      Generate random
 * @ingroup    CIPHER
 * 
 * @param[in]  buffer : 
@@ -1102,7 +1102,7 @@ bool CIPHERRSA::GenerateRandom(XBYTE* buffer, XDWORD size, void* param)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void CIPHERRSA::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    CIPHER
 * 

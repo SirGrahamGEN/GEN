@@ -72,7 +72,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XWINDOWSACCESSCONTROLLISTS::XWINDOWSACCESSCONTROLLISTS()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_WINDOWS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -85,7 +85,7 @@ XWINDOWSACCESSCONTROLLISTS::XWINDOWSACCESSCONTROLLISTS()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XWINDOWSACCESSCONTROLLISTS::~XWINDOWSACCESSCONTROLLISTS()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
 *
@@ -99,7 +99,7 @@ XWINDOWSACCESSCONTROLLISTS::~XWINDOWSACCESSCONTROLLISTS()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSACCESSCONTROLLISTS::SetFileOnlyPermissionForAdmin(XCHAR* filename)
-* @brief      SetFilePermissionAdmin
+* @brief      Set file only permission for admin
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  filename :
@@ -180,7 +180,7 @@ bool XWINDOWSACCESSCONTROLLISTS::SetFileOnlyPermissionForAdmin(XCHAR* filename)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSACCESSCONTROLLISTS::SetFileOnlyPermissionForSystemUser(XCHAR* filename)
-* @brief      SetFileOnlyPermissionForSystemUser
+* @brief      Set file only permission for system user
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  filename :
@@ -244,7 +244,7 @@ bool XWINDOWSACCESSCONTROLLISTS::SetFileOnlyPermissionForSystemUser(XCHAR* filen
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSACCESSCONTROLLISTS::SetFilePermissionForEveryone(XCHAR* filename)
-* @brief      SetFilePermissionForEveryone
+* @brief      Set file permission for everyone
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  filename :
@@ -302,7 +302,7 @@ bool XWINDOWSACCESSCONTROLLISTS::SetFilePermissionForEveryone(XCHAR* filename)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XWINDOWSACCESSCONTROLLISTS::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
 *

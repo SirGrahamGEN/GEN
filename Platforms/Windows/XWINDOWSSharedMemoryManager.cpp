@@ -73,7 +73,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XWINDOWSSHAREDMEMORYMANAGER::XWINDOWSSHAREDMEMORYMANAGER()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_WINDOWS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -86,7 +86,7 @@ XWINDOWSSHAREDMEMORYMANAGER::XWINDOWSSHAREDMEMORYMANAGER()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XWINDOWSSHAREDMEMORYMANAGER::~XWINDOWSSHAREDMEMORYMANAGER()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
 *
@@ -265,7 +265,7 @@ bool XWINDOWSSHAREDMEMORYMANAGER::Close()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XWINDOWSSHAREDMEMORYMANAGER::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
 *

@@ -74,7 +74,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOWINDOWSPING::DIOWINDOWSPING() 
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_WINDOWS
 *  
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -87,7 +87,7 @@ DIOWINDOWSPING::DIOWINDOWSPING() : DIOPING()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOWINDOWSPING::~DIOWINDOWSPING()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
 * 
@@ -267,7 +267,7 @@ bool DIOWINDOWSPING::Do(XDWORD nretries, XDWORD timebetweenchecks, bool exitfirs
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOWINDOWSPING::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
 * 

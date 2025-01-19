@@ -64,7 +64,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         CIPHERKEYPRIVATERSA::CIPHERKEYPRIVATERSA()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    CIPHER
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -83,7 +83,7 @@ CIPHERKEYPRIVATERSA::CIPHERKEYPRIVATERSA() : CIPHERKEY()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         CIPHERKEYPRIVATERSA::~CIPHERKEYPRIVATERSA()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    CIPHER
 * 
@@ -147,7 +147,7 @@ bool CIPHERKEYPRIVATERSA::Set(XMPINTEGER& prime1factor, XMPINTEGER& prime2factor
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int CIPHERKEYPRIVATERSA::GetSizeInBytes()
-* @brief      GetSizeInBytes
+* @brief      Get size in bytes
 * @ingroup    CIPHER
 * 
 * @return     int : 
@@ -162,7 +162,7 @@ int CIPHERKEYPRIVATERSA::GetSizeInBytes()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool CIPHERKEYPRIVATERSA::CopyFrom(CIPHERKEYPRIVATERSA* key)
-* @brief      CopyFrom
+* @brief      Copy from
 * @ingroup    CIPHER
 * 
 * @param[in]  key : 
@@ -257,7 +257,7 @@ bool CIPHERKEYPRIVATERSA::Check(CIPHERKEYPUBLICRSA& publickey)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void CIPHERKEYPRIVATERSA::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    CIPHER
 * 

@@ -75,7 +75,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILECFGVALUE::XFILECFGVALUE()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -88,7 +88,7 @@ XFILECFGVALUE::XFILECFGVALUE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILECFGVALUE::~XFILECFGVALUE()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -102,7 +102,7 @@ XFILECFGVALUE::~XFILECFGVALUE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILECFG_VALUETYPE XFILECFGVALUE::GetType()
-* @brief      Get Type
+* @brief      Get type
 * @ingroup    XUTILS
 *
 * @return     XFILECFG_VALUETYPE : Type of value
@@ -117,7 +117,7 @@ XFILECFG_VALUETYPE XFILECFGVALUE::GetType()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILECFGVALUE::SetType(XFILECFG_VALUETYPE type)
-* @brief      Set Type
+* @brief      Set type
 * @ingroup    XUTILS
 *
 * @param[in]  type : new type of value
@@ -135,7 +135,7 @@ bool XFILECFGVALUE::SetType(XFILECFG_VALUETYPE type)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* XFILECFGVALUE::GetGroup()
-* @brief      Get Group
+* @brief      Get group
 * @ingroup    XUTILS
 *
 * @return     XSTRING* : group of value
@@ -165,7 +165,7 @@ XSTRING* XFILECFGVALUE::GetID()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void* XFILECFGVALUE::GetValue()
-* @brief      Get Value
+* @brief      Get value
 * @ingroup    XUTILS
 *
 * @return     void* : data of value
@@ -180,7 +180,7 @@ void* XFILECFGVALUE::GetValue()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILECFGVALUE::SetValue(void* value)
-* @brief      Set Value
+* @brief      Set value
 * @ingroup    XUTILS
 *
 * @param[in]  value : new data of value
@@ -198,7 +198,7 @@ bool XFILECFGVALUE::SetValue(void* value)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* XFILECFGVALUE::GetIDBasic()
-* @brief      GetIDBasic
+* @brief      Get ID basic
 * @ingroup    XUTILS
 * 
 * @return     XSTRING* : 
@@ -213,7 +213,7 @@ XSTRING* XFILECFGVALUE::GetIDBasic()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* XFILECFGVALUE::GetMask()
-* @brief      GetMask
+* @brief      Get mask
 * @ingroup    XUTILS
 * 
 * @return     XSTRING* : 
@@ -228,7 +228,7 @@ XSTRING* XFILECFGVALUE::GetMask()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD XFILECFGVALUE::GetMinSecuences()
-* @brief      GetMinSecuences
+* @brief      Get min secuences
 * @ingroup    XUTILS
 * 
 * @return     XDWORD : 
@@ -243,7 +243,7 @@ XDWORD XFILECFGVALUE::GetMinSecuences()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void XFILECFGVALUE::SetMinSecuences(XDWORD minsecuences)
-* @brief      SetMinSecuences
+* @brief      Set min secuences
 * @ingroup    XUTILS
 * 
 * @param[in]  minsecuences : 
@@ -258,7 +258,7 @@ void XFILECFGVALUE::SetMinSecuences(XDWORD minsecuences)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD XFILECFGVALUE::GetMaxSecuences()
-* @brief      GetMaxSecuences
+* @brief      Get max secuences
 * @ingroup    XUTILS
 * 
 * @return     XDWORD : 
@@ -273,7 +273,7 @@ XDWORD XFILECFGVALUE::GetMaxSecuences()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void XFILECFGVALUE::SetMaxSecuences(XDWORD maxsecuences)
-* @brief      SetMaxSecuences
+* @brief      Set max secuences
 * @ingroup    XUTILS
 * 
 * @param[in]  maxsecuences : 
@@ -288,7 +288,7 @@ void XFILECFGVALUE::SetMaxSecuences(XDWORD maxsecuences)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int XFILECFGVALUE::GetIndexSecuence()
-* @brief      GetIndexSecuence
+* @brief      Get index secuence
 * @ingroup    XUTILS
 * 
 * @return     int : 
@@ -303,7 +303,7 @@ int XFILECFGVALUE::GetIndexSecuence()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void XFILECFGVALUE::SetIndexSecuence(int index)
-* @brief      SetIndexSecuence
+* @brief      Set index secuence
 * @ingroup    XUTILS
 * 
 * @param[in]  index : 
@@ -318,7 +318,7 @@ void XFILECFGVALUE::SetIndexSecuence(int index)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD XFILECFGVALUE::GetNSecuences()
-* @brief      GetNSecuences
+* @brief      Get N secuences
 * @ingroup    XUTILS
 * 
 * @return     XDWORD : 
@@ -333,7 +333,7 @@ XDWORD XFILECFGVALUE::GetNSecuences()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void XFILECFGVALUE::SetNSecuences(XDWORD nsecuences)
-* @brief      SetNSecuences
+* @brief      Set N secuences
 * @ingroup    XUTILS
 * 
 * @param[in]  nsecuences : 
@@ -348,7 +348,7 @@ void XFILECFGVALUE::SetNSecuences(XDWORD nsecuences)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* XFILECFGVALUE::GetRemarkText()
-* @brief      GetRemarkText
+* @brief      Get remark text
 * @ingroup    XUTILS
 * 
 * @return     XSTRING* : 
@@ -363,7 +363,7 @@ XSTRING* XFILECFGVALUE::GetRemarkText()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD XFILECFGVALUE::GetRemarkXPos()
-* @brief      GetRemarkXPos
+* @brief      Get remark X pos
 * @ingroup    XUTILS
 * 
 * @return     XDWORD : 
@@ -378,7 +378,7 @@ XDWORD XFILECFGVALUE::GetRemarkXPos()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void XFILECFGVALUE::SetRemarkXPos(XDWORD remark_xpos)
-* @brief      SetRemarkXPos
+* @brief      Set remark X pos
 * @ingroup    XUTILS
 * 
 * @param[in]  remark_xpos : 
@@ -393,7 +393,7 @@ void XFILECFGVALUE::SetRemarkXPos(XDWORD remark_xpos)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void* XFILECFGVALUE::GetValuesVector()
-* @brief      GetValuesVector
+* @brief      Get values vector
 * @ingroup    XUTILS
 * 
 * @return     void* : 
@@ -408,7 +408,7 @@ void* XFILECFGVALUE::GetValuesVector()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void XFILECFGVALUE::SetValuesVector(void* valuesvector)
-* @brief      SetValuesVector
+* @brief      Set values vector
 * @ingroup    XUTILS
 * 
 * @param[in]  valuesvector : 
@@ -423,7 +423,7 @@ void XFILECFGVALUE::SetValuesVector(void* valuesvector)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XFILECFG_MODEREMOTEMIX XFILECFGVALUE::GetModeRemoteMix()
-* @brief      GetModeRemoteMix
+* @brief      Get mode remote mix
 * @ingroup    XUTILS
 * 
 * @return     XFILECFG_MODEREMOTEMIX : 
@@ -438,7 +438,7 @@ XFILECFG_MODEREMOTEMIX XFILECFGVALUE::GetModeRemoteMix()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void XFILECFGVALUE::SetModeRemoteMix(XFILECFG_MODEREMOTEMIX moderemotemix)
-* @brief      SetModeRemoteMix
+* @brief      Set mode remote mix
 * @ingroup    XUTILS
 * 
 * @param[in]  moderemotemix : 
@@ -453,7 +453,7 @@ void XFILECFGVALUE::SetModeRemoteMix(XFILECFG_MODEREMOTEMIX moderemotemix)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XFILECFGVALUE::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    XUTILS
 *
@@ -488,7 +488,7 @@ void XFILECFGVALUE::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILECFG::XFILECFG(XCHAR* namefile)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * @param[in]  namefile : name file of config
@@ -520,7 +520,7 @@ XFILECFG::XFILECFG(XCHAR* namefile)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XFILECFG::~XFILECFG()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    XUTILS
 * 
@@ -539,7 +539,7 @@ XFILECFG::~XFILECFG()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XFILECFG::DoVariableMapping()
-* @brief      DoVariableMapping
+* @brief      Do variable mapping
 * @ingroup    XUTILS
 * 
 * @return     bool : true if is succesful. 
@@ -554,7 +554,7 @@ bool XFILECFG::DoVariableMapping()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XFILECFG::DoDefault()
-* @brief      DoDefault
+* @brief      Do default
 * @ingroup    XUTILS
 * 
 * @return     bool : true if is succesful. 
@@ -570,7 +570,7 @@ bool XFILECFG::DoDefault()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XFILECFG::LoadReadjustment()
-* @brief      LoadReadjustment
+* @brief      Load readjustment
 * @ingroup    XUTILS
 * 
 * @return     bool : true if is succesful. 
@@ -585,7 +585,7 @@ bool XFILECFG::LoadReadjustment()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILECFG::Load()
-* @brief      Load xfile config
+* @brief      Load
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -602,7 +602,7 @@ bool XFILECFG::Load()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILECFG::Load(XPATH& xpath)
-* @brief      Load xfile config
+* @brief      Load
 * @ingroup    XUTILS
 *
 * @param[in]  xpath : path to file config
@@ -693,7 +693,7 @@ bool XFILECFG::Load(XPATH& xpath)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILECFG::Save()
-* @brief      Save xfile config
+* @brief      Save
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -709,7 +709,7 @@ bool XFILECFG::Save()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILECFG::Save(XPATH& xpath)
-* @brief      Save file config
+* @brief      Save
 * @ingroup    XUTILS
 *
 * @param[in]  xpath : path to file config
@@ -812,7 +812,7 @@ bool XFILECFG::End()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XPATH* XFILECFG::GetPathFile()
-* @brief      GetPathFile
+* @brief      Get path file
 * @ingroup    XUTILS
 * 
 * @return     XPATH* : 
@@ -827,7 +827,7 @@ XPATH* XFILECFG::GetPathFile()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XFILECFGVALUE* XFILECFG::AddValue(XFILECFG_VALUETYPE type, XCHAR* group, XCHAR* ID, void* value, XCHAR* remark_text, XDWORD remark_xpos)
-* @brief      AddValue
+* @brief      Add value
 * @ingroup    XUTILS
 * 
 * @param[in]  type : 
@@ -865,7 +865,7 @@ XFILECFGVALUE* XFILECFG::AddValue(XFILECFG_VALUETYPE type, XCHAR* group, XCHAR* 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XVECTOR<XFILECFGVALUE*>* XFILECFG::GetValues()
-* @brief      GetValues
+* @brief      Get values
 * @ingroup    XUTILS
 * 
 * @return     XVECTOR<XFILECFGVALUE*>* : 
@@ -880,7 +880,7 @@ XVECTOR<XFILECFGVALUE*>* XFILECFG::GetValues()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XFILEINI* XFILECFG::GetFileINI()
-* @brief      GetFileINI
+* @brief      Get file INI
 * @ingroup    XUTILS
 * 
 * @return     XFILEINI* : 
@@ -895,7 +895,7 @@ XFILEINI* XFILECFG::GetFileINI()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XVARIANT* XFILECFG::GetValue(XCHAR* group, XCHAR* ID)
-* @brief      GetValue
+* @brief      Get value
 * @ingroup    XUTILS
 * 
 * @param[in]  group : 
@@ -953,7 +953,7 @@ XVARIANT* XFILECFG::GetValue(XCHAR* group, XCHAR* ID)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XVARIANT* XFILECFG::GetValue(XFILECFGVALUE* cfgvalue)
-* @brief      GetValue
+* @brief      Get value
 * @ingroup    XUTILS
 * 
 * @param[in]  cfgvalue : 
@@ -999,7 +999,7 @@ XVARIANT* XFILECFG::GetValue(XFILECFGVALUE* CFGvalue)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XFILECFGVALUE* XFILECFG::GetCFGValue(XCHAR* group, XCHAR* ID)
-* @brief      GetCFGValue
+* @brief      Get CFG value
 * @ingroup    XUTILS
 * 
 * @param[in]  group : 
@@ -1035,7 +1035,7 @@ XFILECFGVALUE* XFILECFG::GetCFGValue(XCHAR* group, XCHAR* ID)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XFILECFG::SetValue(XFILECFGVALUE* CFGvalue, XVARIANT* value)
-* @brief      SetValue
+* @brief      Set value
 * @ingroup    XUTILS
 * 
 * @param[in]  CFGvalue : 
@@ -1078,7 +1078,7 @@ bool XFILECFG::SetValue(XFILECFGVALUE* CFGvalue, XVARIANT* value)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILECFG::DeleteAllValues()
-* @brief      Delete All Values
+* @brief      Delete all values
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -1098,7 +1098,7 @@ bool XFILECFG::DeleteAllValues()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XFILECFG::AddRemark(XCHAR* group, XCHAR* text, XDWORD xpos, XDWORD relativeypos)
-* @brief      AddRemark
+* @brief      Add remark
 * @ingroup    XUTILS
 *
 * @param[in]  group : 
@@ -1133,7 +1133,7 @@ bool XFILECFG::AddRemark(XCHAR* group, XCHAR* text, XDWORD xpos, XDWORD relative
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XFILECFG::AddRemark(XCHAR* group, XCHAR* ID, XCHAR* text, XDWORD xpos, XDWORD relativeypos)
-* @brief      AddRemark
+* @brief      Add remark
 * @ingroup    XUTILS
 *
 * @param[in]  group : 
@@ -1169,7 +1169,7 @@ bool XFILECFG::AddRemark(XCHAR* group, XCHAR* ID, XCHAR* text, XDWORD xpos, XDWO
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XVECTOR<XFILEINIREMARK*>* XFILECFG::GetRemarks()
-* @brief      GetRemarks
+* @brief      Get remarks
 * @ingroup    XUTILS
 * 
 * @return     XVECTOR<XFILEINIREMARK*>* : 
@@ -1184,7 +1184,7 @@ XVECTOR<XFILEINIREMARK*>* XFILECFG::GetRemarks()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XFILECFG::DelCFGValue(XCHAR* group, XCHAR* ID)
-* @brief      DelCFGValue
+* @brief      Del CFG value
 * @ingroup    XUTILS
 * 
 * @param[in]  group : 
@@ -1209,7 +1209,7 @@ bool XFILECFG::DelCFGValue(XCHAR* group, XCHAR* ID)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XFILECFG::DeleteAllRemarks()
-* @brief      DeleteAllRemarks
+* @brief      Delete all remarks
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful. 
@@ -1229,7 +1229,7 @@ bool XFILECFG::DeleteAllRemarks()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILECFG::IniFile(XPATH& xpath)
-* @brief      Ini File
+* @brief      Ini file
 * @note       INTERNAL
 * @ingroup    XUTILS
 *
@@ -1262,7 +1262,7 @@ bool XFILECFG::IniFile(XPATH& xpath)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILECFG::EndFile()
-* @brief      End File
+* @brief      End file
 * @note       INTERNAL
 * @ingroup    XUTILS
 *
@@ -1280,7 +1280,7 @@ bool XFILECFG::EndFile()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XFILECFG::AjustRemarks()
-* @brief      AjustRemarks
+* @brief      Ajust remarks
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful. 
@@ -1332,7 +1332,7 @@ bool XFILECFG::AjustRemarks()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int XFILECFG::GetCountKeys(XCHAR* group, XCHAR* IDbase, XCHAR* mask, int maxcount)
-* @brief      GetCountKeys
+* @brief      Get count keys
 * @ingroup    XUTILS
 * 
 * @param[in]  group : 
@@ -1374,7 +1374,7 @@ int XFILECFG::GetCountKeys(XCHAR* group, XCHAR* IDbasic, XCHAR* mask, int maxcou
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XFILECFG::GenerateKeySecuence(XCHAR* IDbase, XCHAR* mask, int index, XSTRING& key)
-* @brief      GenerateKeySecuence
+* @brief      Generate key secuence
 * @ingroup    XUTILS
 * 
 * @param[in]  IDbase : 
@@ -1407,7 +1407,7 @@ bool XFILECFG::GenerateKeySecuence(XCHAR* IDbase, XCHAR* mask, int index, XSTRIN
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XFILECFG::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    XUTILS
 *

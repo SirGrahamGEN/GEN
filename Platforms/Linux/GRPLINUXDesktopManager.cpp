@@ -75,7 +75,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPLINUXDESKTOPMONITORS::GRPLINUXDESKTOPMONITORS()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_LINUX
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -90,7 +90,7 @@ GRPLINUXDESKTOPMONITORS::GRPLINUXDESKTOPMONITORS() : GRPDESKTOPMONITORS()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPLINUXDESKTOPMONITORS::~GRPLINUXDESKTOPMONITORS()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
 * 
@@ -107,7 +107,7 @@ GRPLINUXDESKTOPMONITORS::~GRPLINUXDESKTOPMONITORS()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPLINUXDESKTOPMONITORS::MonitorEnum()
-* @brief      MonitorEnum
+* @brief      Monitor enum
 * @ingroup    PLATFORM_LINUX
 * 
 * @return     bool : true if is succesful. 
@@ -237,7 +237,7 @@ bool GRPLINUXDESKTOPMONITORS::MonitorEnum()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRPLINUXDESKTOPMONITORS::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
 * 
@@ -257,7 +257,7 @@ void GRPLINUXDESKTOPMONITORS::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPLINUXDESKTOPMANAGER::GRPLINUXDESKTOPMANAGER()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_LINUX
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -270,7 +270,7 @@ GRPLINUXDESKTOPMANAGER::GRPLINUXDESKTOPMANAGER()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPLINUXDESKTOPMANAGER::~GRPLINUXDESKTOPMANAGER()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
 * 
@@ -284,7 +284,7 @@ GRPLINUXDESKTOPMANAGER::~GRPLINUXDESKTOPMANAGER()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPLINUXDESKTOPMONITORS* GRPLINUXDESKTOPMANAGER::GetDesktopMonitors()
-* @brief      GetDesktopMonitors
+* @brief      Get desktop monitors
 * @ingroup    PLATFORM_LINUX
 * 
 * @return     XDESKTOPMONITORS* : 
@@ -299,7 +299,7 @@ GRPDESKTOPMONITORS* GRPLINUXDESKTOPMANAGER::GetDesktopMonitors()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRPLINUXDESKTOPMANAGER::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
 * 

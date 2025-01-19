@@ -70,7 +70,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         SNDANDROIDFACTORY::SNDANDROIDFACTORY()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_ANDROID
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -83,7 +83,7 @@ SNDANDROIDFACTORY::SNDANDROIDFACTORY()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         SNDANDROIDFACTORY::~SNDANDROIDFACTORY()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_ANDROID
 * 
@@ -97,7 +97,7 @@ SNDANDROIDFACTORY::~SNDANDROIDFACTORY()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void SNDANDROIDFACTORY::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_ANDROID
 * 

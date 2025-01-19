@@ -64,7 +64,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XANDROIDRAND::XANDROIDRAND()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_ANDROID
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -77,7 +77,7 @@ XANDROIDRAND::XANDROIDRAND()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XANDROIDRAND::~XANDROIDRAND()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_ANDROID
 *

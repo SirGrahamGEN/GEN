@@ -76,7 +76,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_SKIN_TEXTBOX_PART::UI_SKIN_TEXTBOX_PART()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    USERINTERFACE
 *
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -89,7 +89,7 @@ UI_SKIN_TEXTBOX_PART::UI_SKIN_TEXTBOX_PART()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_SKIN_TEXTBOX_PART::~UI_SKIN_TEXTBOX_PART()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
 *
@@ -103,7 +103,7 @@ UI_SKIN_TEXTBOX_PART::~UI_SKIN_TEXTBOX_PART()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD UI_SKIN_TEXTBOX_PART::GetLineNumber()
-* @brief      GetLineNumber
+* @brief      Get line number
 * @ingroup    USERINTERFACE
 *
 * @return     XDWORD : 
@@ -118,7 +118,7 @@ XDWORD UI_SKIN_TEXTBOX_PART::GetLineNumber()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_SKIN_TEXTBOX_PART::SetLineNumber(XDWORD linenumber)
-* @brief      SetLineNumber
+* @brief      Set line number
 * @ingroup    USERINTERFACE
 *
 * @param[in]  linenumber : 
@@ -133,7 +133,7 @@ void UI_SKIN_TEXTBOX_PART::SetLineNumber(XDWORD linenumber)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD UI_SKIN_TEXTBOX_PART::GetXPos()
-* @brief      GetXPos
+* @brief      Get X pos
 * @ingroup    USERINTERFACE
 *
 * @return     XDWORD : 
@@ -148,7 +148,7 @@ XDWORD UI_SKIN_TEXTBOX_PART::GetXPos()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_SKIN_TEXTBOX_PART::SetXPos(XDWORD xpos)
-* @brief      SetXPos
+* @brief      Set X pos
 * @ingroup    USERINTERFACE
 *
 * @param[in]  xpos : 
@@ -163,7 +163,7 @@ void UI_SKIN_TEXTBOX_PART::SetXPos(XDWORD xpos)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD UI_SKIN_TEXTBOX_PART::GetYPos()
-* @brief      GetYPos
+* @brief      Get Y pos
 * @ingroup    USERINTERFACE
 *
 * @return     XDWORD : 
@@ -178,7 +178,7 @@ XDWORD UI_SKIN_TEXTBOX_PART::GetYPos()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_SKIN_TEXTBOX_PART::SetYPos(XDWORD ypos)
-* @brief      SetYPos
+* @brief      Set Y pos
 * @ingroup    USERINTERFACE
 *
 * @param[in]  ypos : 
@@ -193,7 +193,7 @@ void UI_SKIN_TEXTBOX_PART::SetYPos(XDWORD ypos)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_COLOR* UI_SKIN_TEXTBOX_PART::GetColor()
-* @brief      GetColor
+* @brief      Get color
 * @ingroup    USERINTERFACE
 *
 * @return     UI_COLOR* : 
@@ -208,7 +208,7 @@ UI_COLOR* UI_SKIN_TEXTBOX_PART::GetColor()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD UI_SKIN_TEXTBOX_PART::GetWidth()
-* @brief      GetWidth
+* @brief      Get width
 * @ingroup    USERINTERFACE
 *
 * @return     XDWORD : 
@@ -223,7 +223,7 @@ XDWORD UI_SKIN_TEXTBOX_PART::GetWidth()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_SKIN_TEXTBOX_PART::SetWidth(XDWORD width)
-* @brief      SetWidth
+* @brief      Set width
 * @ingroup    USERINTERFACE
 *
 * @param[in]  width : 
@@ -238,7 +238,7 @@ void UI_SKIN_TEXTBOX_PART::SetWidth(XDWORD width)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD UI_SKIN_TEXTBOX_PART::GetHeight()
-* @brief      GetHeight
+* @brief      Get height
 * @ingroup    USERINTERFACE
 *
 * @return     XDWORD : 
@@ -253,7 +253,7 @@ XDWORD UI_SKIN_TEXTBOX_PART::GetHeight()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_SKIN_TEXTBOX_PART::SetHeight(XDWORD height)
-* @brief      SetHeight
+* @brief      Set height
 * @ingroup    USERINTERFACE
 *
 * @param[in]  height : 
@@ -268,7 +268,7 @@ void UI_SKIN_TEXTBOX_PART::SetHeight(XDWORD height)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* UI_SKIN_TEXTBOX_PART::GetText()
-* @brief      GetText
+* @brief      Get text
 * @ingroup    USERINTERFACE
 *
 * @return     XSTRING* : 
@@ -283,7 +283,7 @@ XSTRING* UI_SKIN_TEXTBOX_PART::GetText()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_SKIN_TEXTBOX_PART::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
 *
@@ -309,7 +309,7 @@ void UI_SKIN_TEXTBOX_PART::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_SKIN::UI_SKIN()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    USERINTERFACE
 *
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -324,7 +324,7 @@ UI_SKIN::UI_SKIN()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_SKIN::~UI_SKIN()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
 *
@@ -338,7 +338,7 @@ UI_SKIN::~UI_SKIN()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* UI_SKIN::GetName()
-* @brief      GetName
+* @brief      Get name
 * @ingroup    USERINTERFACE
 *
 * @return     XSTRING* : 
@@ -353,7 +353,7 @@ XSTRING* UI_SKIN::GetName()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_SKIN_TYPE UI_SKIN::GetType(XCHAR* name)
-* @brief      GetType
+* @brief      Get type
 * @ingroup    USERINTERFACE
 *
 * @param[in]  name : 
@@ -380,7 +380,7 @@ UI_SKIN_TYPE UI_SKIN::GetType(XCHAR* name)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_SKIN_DRAWMODE UI_SKIN::GetDrawMode()
-* @brief      GetDrawMode
+* @brief      Get draw mode
 * @ingroup    USERINTERFACE
 *
 * @return     UI_SKIN_DRAWMODE : 
@@ -395,7 +395,7 @@ UI_SKIN_DRAWMODE UI_SKIN::GetDrawMode()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKIN::SetDrawMode(UI_SKIN_DRAWMODE drawmode)
-* @brief      SetDrawMode
+* @brief      Set draw mode
 * @ingroup    USERINTERFACE
 *
 * @param[in]  drawmode : 
@@ -414,7 +414,7 @@ bool UI_SKIN::SetDrawMode(UI_SKIN_DRAWMODE drawmode)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* UI_SKIN::GetRasterFont()
-* @brief      GetRasterFont
+* @brief      Get raster font
 * @ingroup    USERINTERFACE
 *
 * @return     XSTRING* : 
@@ -429,7 +429,7 @@ XSTRING* UI_SKIN::GetRasterFont()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* UI_SKIN::GetVectorFont()
-* @brief      GetVectorFont
+* @brief      Get vector font
 * @ingroup    USERINTERFACE
 *
 * @return     XSTRING* : 
@@ -444,7 +444,7 @@ XSTRING* UI_SKIN::GetVectorFont()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKIN::LoadFonts()
-* @brief      LoadFonts
+* @brief      Load fonts
 * @ingroup    USERINTERFACE
 *
 * @return     bool : true if is succesful. 
@@ -459,7 +459,7 @@ bool UI_SKIN::LoadFonts()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         double UI_SKIN::GetWithString(XCHAR* string, XDWORD sizefont)
-* @brief      GetWithString
+* @brief      Get with string
 * @ingroup    USERINTERFACE
 *
 * @param[in]  string : 
@@ -477,7 +477,7 @@ double UI_SKIN::GetWithString(XCHAR* string, XDWORD sizefont)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         double UI_SKIN::GetWithString(XSTRING& string, XDWORD sizefont)
-* @brief      GetWithString
+* @brief      Get with string
 * @ingroup    USERINTERFACE
 *
 * @param[in]  string : 
@@ -495,7 +495,7 @@ double UI_SKIN::GetWithString(XSTRING& string, XDWORD sizefont)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         double UI_SKIN::GetHeightString(XCHAR* string, XDWORD sizefont)
-* @brief      GetHeightString
+* @brief      Get height string
 * @ingroup    USERINTERFACE
 *
 * @param[in]  string : 
@@ -513,7 +513,7 @@ double UI_SKIN::GetHeightString(XCHAR* string, XDWORD sizefont)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         double UI_SKIN::GetHeightString(XSTRING& string, XDWORD sizefont)
-* @brief      GetHeightString
+* @brief      Get height string
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  string : 
@@ -531,7 +531,7 @@ double UI_SKIN::GetHeightString(XSTRING& string, XDWORD sizefont)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKIN::CalculateBoundaryLine(UI_ELEMENT* element, bool adjustsizemargin)
-* @brief      CalculateBoundaryLine
+* @brief      Calculate boundary line
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  element : 
@@ -570,7 +570,7 @@ bool UI_SKIN::CalculateBoundaryLine(UI_ELEMENT* element, bool adjustsizemargin)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKIN::CalculateBoundaryLine_Scroll(UI_ELEMENT* element, bool adjustsizemargin)
-* @brief      CalculateBoundaryLine_Scroll
+* @brief      Calculate boundary line scroll
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  element : 
@@ -588,7 +588,7 @@ bool UI_SKIN::CalculateBoundaryLine_Scroll(UI_ELEMENT* element, bool adjustsizem
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKIN::CalculateBoundaryLine_Text(UI_ELEMENT* element, bool adjustsizemargin)
-* @brief      CalculateBoundaryLine_Text
+* @brief      Calculate boundary line text
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  element : 
@@ -606,7 +606,7 @@ bool UI_SKIN::CalculateBoundaryLine_Text(UI_ELEMENT* element, bool adjustsizemar
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKIN::CalculateBoundaryLine_TextBox(UI_ELEMENT* element, bool adjustsizemargin)
-* @brief      CalculateBoundaryLine_TextBox
+* @brief      Calculate boundary line text box
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  element : 
@@ -624,7 +624,7 @@ bool UI_SKIN::CalculateBoundaryLine_TextBox(UI_ELEMENT* element, bool adjustsize
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKIN::CalculateBoundaryLine_Image(UI_ELEMENT* element, bool adjustsizemargin)
-* @brief      CalculateBoundaryLine_Image
+* @brief      Calculate boundary line image
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  element : 
@@ -642,7 +642,7 @@ bool UI_SKIN::CalculateBoundaryLine_Image(UI_ELEMENT* element, bool adjustsizema
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKIN::CalculateBoundaryLine_Animation(UI_ELEMENT* element, bool adjustsizemargin)
-* @brief      CalculateBoundaryLine_Animation
+* @brief      Calculate boundary line animation
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  element : 
@@ -660,7 +660,7 @@ bool UI_SKIN::CalculateBoundaryLine_Animation(UI_ELEMENT* element, bool adjustsi
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKIN::CalculateBoundaryLine_Option(UI_ELEMENT* element, bool adjustsizemargin)
-* @brief      CalculateBoundaryLine_Option
+* @brief      Calculate boundary line option
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  element : 
@@ -678,7 +678,7 @@ bool UI_SKIN::CalculateBoundaryLine_Option(UI_ELEMENT* element, bool adjustsizem
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKIN::CalculateBoundaryLine_MultiOption(UI_ELEMENT* element, bool adjustsizemargin)
-* @brief      CalculateBoundaryLine_MultiOption
+* @brief      Calculate boundary line multi option
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  element : 
@@ -696,7 +696,7 @@ bool UI_SKIN::CalculateBoundaryLine_MultiOption(UI_ELEMENT* element, bool adjust
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKIN::CalculateBoundaryLine_Button(UI_ELEMENT* element, bool adjustsizemargin)
-* @brief      CalculateBoundaryLine_Button
+* @brief      Calculate boundary line button
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  element : 
@@ -714,7 +714,7 @@ bool UI_SKIN::CalculateBoundaryLine_Button(UI_ELEMENT* element, bool adjustsizem
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKIN::CalculateBoundaryLine_CheckBox(UI_ELEMENT* element, bool adjustsizemargin)
-* @brief      CalculateBoundaryLine_CheckBox
+* @brief      Calculate boundary line check box
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  element : 
@@ -732,7 +732,7 @@ bool UI_SKIN::CalculateBoundaryLine_CheckBox(UI_ELEMENT* element, bool adjustsiz
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKIN::CalculateBoundaryLine_EditText(UI_ELEMENT* element, bool adjustsizemargin)
-* @brief      CalculateBoundaryLine_EditText
+* @brief      Calculate boundary line edit text
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  element : 
@@ -750,7 +750,7 @@ bool UI_SKIN::CalculateBoundaryLine_EditText(UI_ELEMENT* element, bool adjustsiz
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKIN::CalculateBoundaryLine_Form(UI_ELEMENT* element, bool adjustsizemargin)
-* @brief      CalculateBoundaryLine_Form
+* @brief      Calculate boundary line form
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  element : 
@@ -768,7 +768,7 @@ bool UI_SKIN::CalculateBoundaryLine_Form(UI_ELEMENT* element, bool adjustsizemar
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKIN::CalculateBoundaryLine_Menu(UI_ELEMENT* element, bool adjustsizemargin)
-* @brief      CalculateBoundaryLine_Menu
+* @brief      Calculate boundary line menu
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  element : 
@@ -786,7 +786,7 @@ bool UI_SKIN::CalculateBoundaryLine_Menu(UI_ELEMENT* element, bool adjustsizemar
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKIN::CalculateBoundaryLine_ListBox(UI_ELEMENT* element, bool adjustsizemargin)
-* @brief      CalculateBoundaryLine_ListBox
+* @brief      Calculate boundary line list box
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  element : 
@@ -804,7 +804,7 @@ bool UI_SKIN::CalculateBoundaryLine_ListBox(UI_ELEMENT* element, bool adjustsize
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKIN::CalculateBoundaryLine_ProgressBar(UI_ELEMENT* element, bool adjustsizemargin)
-* @brief      CalculateBoundaryLine_ProgressBar
+* @brief      Calculate boundary line progress bar
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  element : 
@@ -822,7 +822,7 @@ bool UI_SKIN::CalculateBoundaryLine_ProgressBar(UI_ELEMENT* element, bool adjust
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKIN::CalculeBoundaryLine_AllElements(UI_ELEMENT* element, bool recursive)
-* @brief      CalculeBoundaryLine_AllElements
+* @brief      Calcule boundary line all elements
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  element : 
@@ -848,7 +848,7 @@ bool UI_SKIN::CalculeBoundaryLine_AllElements(UI_ELEMENT* element, bool recursiv
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKIN::GetAddPositionScrollSteps(UI_ELEMENT* element, double& x_positionwithscroll, double& y_positionwithscroll)
-* @brief      GetAddPositionScrollSteps
+* @brief      Get add position scroll steps
 * @ingroup    USERINTERFACE
 *
 * @param[in]  element : 
@@ -878,7 +878,7 @@ bool UI_SKIN::GetAddPositionScrollSteps(UI_ELEMENT* element, double& x_positionw
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKIN::SetElementPosition(UI_ELEMENT* element, double x_position, double y_position)
-* @brief      SetElementPosition
+* @brief      Set element position
 * @ingroup    USERINTERFACE
 *
 * @param[in]  element : 
@@ -897,7 +897,7 @@ bool UI_SKIN::SetElementPosition(UI_ELEMENT* element, double x_position, double 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKIN::Elements_SetToRedraw(UI_ELEMENT* element, bool recursive)
-* @brief      Elements_SetToRedraw
+* @brief      Elements set to redraw
 * @ingroup    USERINTERFACE
 *
 * @param[in]  element : 
@@ -988,7 +988,7 @@ bool UI_SKIN::Draw(UI_ELEMENT* element)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKIN::Draw_Scroll(UI_ELEMENT* element)
-* @brief      Draw_Scroll
+* @brief      Draw scroll
 * @ingroup    USERINTERFACE
 *
 * @param[in]  element : 
@@ -1005,7 +1005,7 @@ bool UI_SKIN::Draw_Scroll(UI_ELEMENT* element)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKIN::Draw_Text(UI_ELEMENT* element)
-* @brief      Draw_Text
+* @brief      Draw text
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  element : 
@@ -1022,7 +1022,7 @@ bool UI_SKIN::Draw_Text(UI_ELEMENT* element)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKIN::Draw_TextBox(UI_ELEMENT* element)
-* @brief      Draw_TextBox
+* @brief      Draw text box
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  element : 
@@ -1039,7 +1039,7 @@ bool UI_SKIN::Draw_TextBox(UI_ELEMENT* element)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKIN::Draw_Image(UI_ELEMENT* element)
-* @brief      Draw_Image
+* @brief      Draw image
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  element : 
@@ -1056,7 +1056,7 @@ bool UI_SKIN::Draw_Image(UI_ELEMENT* element)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKIN::Draw_Animation(UI_ELEMENT* element)
-* @brief      Draw_Animation
+* @brief      Draw animation
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  element : 
@@ -1073,7 +1073,7 @@ bool UI_SKIN::Draw_Animation(UI_ELEMENT* element)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKIN::Draw_Option(UI_ELEMENT* element)
-* @brief      Draw_Option
+* @brief      Draw option
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  element : 
@@ -1090,7 +1090,7 @@ bool UI_SKIN::Draw_Option(UI_ELEMENT* element)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKIN::Draw_MultiOption(UI_ELEMENT* element)
-* @brief      Draw_MultiOption
+* @brief      Draw multi option
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  element : 
@@ -1107,7 +1107,7 @@ bool UI_SKIN::Draw_MultiOption(UI_ELEMENT* element)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKIN::Draw_Button(UI_ELEMENT* element)
-* @brief      Draw_Button
+* @brief      Draw button
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  element : 
@@ -1124,7 +1124,7 @@ bool UI_SKIN::Draw_Button(UI_ELEMENT* element)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKIN::Draw_CheckBox(UI_ELEMENT* element)
-* @brief      Draw_CheckBox
+* @brief      Draw check box
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  element : 
@@ -1141,7 +1141,7 @@ bool UI_SKIN::Draw_CheckBox(UI_ELEMENT* element)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKIN::Draw_EditText(UI_ELEMENT* element)
-* @brief      Draw_EditText
+* @brief      Draw edit text
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  element : 
@@ -1158,7 +1158,7 @@ bool UI_SKIN::Draw_EditText(UI_ELEMENT* element)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKIN::Draw_Form(UI_ELEMENT* element)
-* @brief      Draw_Form
+* @brief      Draw form
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  element : 
@@ -1175,7 +1175,7 @@ bool UI_SKIN::Draw_Form(UI_ELEMENT* element)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKIN::Draw_Menu(UI_ELEMENT* element)
-* @brief      Draw_Menu
+* @brief      Draw menu
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  element : 
@@ -1192,7 +1192,7 @@ bool UI_SKIN::Draw_Menu(UI_ELEMENT* element)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKIN::Draw_ListBox(UI_ELEMENT* element)
-* @brief      Draw_ListBox
+* @brief      Draw list box
 * @ingroup    USERINTERFACE
 *
 * @param[in]  element : 
@@ -1209,7 +1209,7 @@ bool UI_SKIN::Draw_ListBox(UI_ELEMENT* element)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKIN::Draw_ProgressBar(UI_ELEMENT* element)
-* @brief      Draw_ProgressBar
+* @brief      Draw progress bar
 * @ingroup    USERINTERFACE
 *
 * @param[in]  element : 
@@ -1226,7 +1226,7 @@ bool UI_SKIN::Draw_ProgressBar(UI_ELEMENT* element)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_SKIN::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
 *

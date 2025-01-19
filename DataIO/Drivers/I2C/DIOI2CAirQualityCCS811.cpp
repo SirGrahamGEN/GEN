@@ -76,7 +76,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOI2CAIRQUALITYCCS811::DIOI2CAIRQUALITYCCS811() : DIODEVICEI2C()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 *
@@ -90,7 +90,7 @@ DIOI2CAIRQUALITYCCS811::DIOI2CAIRQUALITYCCS811() : DIODEVICEI2C()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOI2CAIRQUALITYCCS811::~DIOI2CAIRQUALITYCCS811()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -106,7 +106,7 @@ DIOI2CAIRQUALITYCCS811::~DIOI2CAIRQUALITYCCS811()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOI2CAIRQUALITYCCS811::GetHW_ID(XBYTE& ID)
-* @brief      GetHW_ID
+* @brief      Get HWID
 * @ingroup    DATAIO
 *
 * @param[in]  ID :
@@ -127,7 +127,7 @@ bool DIOI2CAIRQUALITYCCS811::GetHW_ID(XBYTE& ID)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOI2CAIRQUALITYCCS811::GetHW_Version(XBYTE& hwversion)
-* @brief      GetHW_Version
+* @brief      Get HW version
 * @ingroup    DATAIO
 *
 * @param[in]  hwversion :
@@ -148,7 +148,7 @@ bool DIOI2CAIRQUALITYCCS811::GetHW_Version(XBYTE& hwversion)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOI2CAIRQUALITYCCS811::GetBoot_Version(XWORD& bootversion)
-* @brief      GetBoot_Version
+* @brief      Get boot version
 * @ingroup    DATAIO
 *
 * @param[in]  bootversion :
@@ -177,7 +177,7 @@ bool DIOI2CAIRQUALITYCCS811::GetBoot_Version(XWORD& bootversion)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOI2CAIRQUALITYCCS811::GetApp_Version(XWORD& appversion)
-* @brief      GetApp_Version
+* @brief      Get app version
 * @ingroup    DATAIO
 *
 * @param[in]  appversion :
@@ -206,7 +206,7 @@ bool DIOI2CAIRQUALITYCCS811::GetApp_Version(XWORD& appversion)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOI2CAIRQUALITYCCS811::ResetDevice()
-* @brief      ResetDevice
+* @brief      Reset device
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -230,7 +230,7 @@ bool DIOI2CAIRQUALITYCCS811::ResetDevice()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XBYTE DIOI2CAIRQUALITYCCS811::GetStatus()
-* @brief      GetStatus
+* @brief      Get status
 * @ingroup    DATAIO
 *
 * @return     XBYTE :
@@ -250,7 +250,7 @@ XBYTE DIOI2CAIRQUALITYCCS811::GetStatus(XBYTE& sensorstatus)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOI2CAIRQUALITYCCS811::IsAppValid()
-* @brief      IsAppValid
+* @brief      Is app valid
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -269,7 +269,7 @@ bool DIOI2CAIRQUALITYCCS811::IsAppValid()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOI2CAIRQUALITYCCS811::IsDataAvailable()
-* @brief      IsDataAvailable
+* @brief      Is data available
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
@@ -288,7 +288,7 @@ bool DIOI2CAIRQUALITYCCS811::IsDataAvailable()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOI2CAIRQUALITYCCS811::HaveStatusError()
-* @brief      HaveStatusError
+* @brief      Have status error
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -307,7 +307,7 @@ bool DIOI2CAIRQUALITYCCS811::HaveStatusError()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XBYTE DIOI2CAIRQUALITYCCS811::GetStatusErrorCode()
-* @brief      GetStatusErrorCode
+* @brief      Get status error code
 * @ingroup    DATAIO
 *
 * @return     XBYTE :
@@ -327,7 +327,7 @@ XBYTE DIOI2CAIRQUALITYCCS811::GetStatusErrorCode()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XWORD DIOI2CAIRQUALITYCCS811::GetBaseline()
-* @brief      GetBaseline
+* @brief      Get baseline
 * @ingroup    DATAIO
 *
 * @return     XWORD :
@@ -349,7 +349,7 @@ XWORD DIOI2CAIRQUALITYCCS811::GetBaseline()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOI2CAIRQUALITYCCS811::SetBaseline(XWORD baseline)
-* @brief      SetBaseline
+* @brief      Set baseline
 * @ingroup    DATAIO
 *
 * @param[in]  baseline :
@@ -371,7 +371,7 @@ bool DIOI2CAIRQUALITYCCS811::SetBaseline(XWORD baseline)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOI2CAIRQUALITYCCS811::SetDriveMode(XBYTE mode)
-* @brief      SetDriveMode
+* @brief      Set drive mode
 * @ingroup    DATAIO
 *
 * @param[in]  mode : Mode 0 = Idle
@@ -404,7 +404,7 @@ bool DIOI2CAIRQUALITYCCS811::SetDriveMode(XBYTE mode)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOI2CAIRQUALITYCCS811::SetEnvironmentalData(float relativehumidity, float temperature)
-* @brief      SetEnvironmentalData
+* @brief      Set environmental data
 * @ingroup    DATAIO
 *
 * @param[in]  relativehumidity :
@@ -458,7 +458,7 @@ bool DIOI2CAIRQUALITYCCS811::SetEnvironmentalData(float relativehumidity, float 
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         float DIOI2CAIRQUALITYCCS811::GetReferenceResistance()
-* @brief      GetReferenceResistance
+* @brief      Get reference resistance
 * @ingroup    DATAIO
 *
 * @return     float :
@@ -473,7 +473,7 @@ float DIOI2CAIRQUALITYCCS811::GetReferenceResistance()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOI2CAIRQUALITYCCS811::SetReferenceResistance(float referenceresistance)
-* @brief      SetReferenceResistance
+* @brief      Set reference resistance
 * @ingroup    DATAIO
 *
 * @param[in]  referenceresistance :
@@ -488,7 +488,7 @@ void DIOI2CAIRQUALITYCCS811::SetReferenceResistance(float referenceresistance)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOI2CAIRQUALITYCCS811::ReadNTC(float& temperature, float& resistance)
-* @brief      ReadNTC
+* @brief      Read NTC
 * @ingroup    DATAIO
 *
 * @param[out] temperature :
@@ -522,7 +522,7 @@ bool DIOI2CAIRQUALITYCCS811::ReadNTC(float& temperature, float& resistance)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOI2CAIRQUALITYCCS811::ReadData(XWORD& TVOC, XWORD& CO2)
-* @brief      ReadData
+* @brief      Read data
 * @ingroup    DATAIO
 * 
 * @param[in]  TVOC : 
@@ -558,7 +558,7 @@ bool DIOI2CAIRQUALITYCCS811::ReadData(XWORD& TVOC, XWORD& CO2)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOI2CAIRQUALITYCCS811::SetInterrupt(bool activated)
-* @brief      SetInterrupt
+* @brief      Set interrupt
 * @ingroup    DATAIO
 * 
 * @param[in]  activated : 
@@ -608,7 +608,7 @@ bool DIOI2CAIRQUALITYCCS811::End()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOI2CAIRQUALITYCCS811::IniDevice()
-* @brief      IniDevice
+* @brief      Ini device
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -643,7 +643,7 @@ bool DIOI2CAIRQUALITYCCS811::IniDevice()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOI2CAIRQUALITYCCS811::ReadRegister(XBYTE offset, XBYTE& data)
-* @brief      ReadRegister
+* @brief      Read register
 * @ingroup    DATAIO
 * 
 * @param[in]  offset : 
@@ -661,7 +661,7 @@ bool DIOI2CAIRQUALITYCCS811::ReadRegister(XBYTE offset, XBYTE& data)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOI2CAIRQUALITYCCS811::ReadRegister(XBYTE offset, XBYTE* data, XDWORD sizedata)
-* @brief      ReadMultiRegister
+* @brief      Read register
 * @ingroup    DATAIO
 *
 * @param[in]  offset :
@@ -692,7 +692,7 @@ bool DIOI2CAIRQUALITYCCS811::ReadRegister(XBYTE offset, XBYTE* data, XDWORD size
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOI2CAIRQUALITYCCS811::WriteRegister(XBYTE offset, XBYTE data)
-* @brief      WriteRegister
+* @brief      Write register
 * @ingroup    DATAIO
 *
 * @param[in]  offset :
@@ -710,7 +710,7 @@ bool DIOI2CAIRQUALITYCCS811::WriteRegister(XBYTE offset, XBYTE data)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOI2CAIRQUALITYCCS811::WriteRegister(XBYTE offset, XBYTE* data, XDWORD sizedata)
-* @brief      WriteMultiRegister
+* @brief      Write register
 * @ingroup    DATAIO
 *
 * @param[in]  offset :
@@ -740,7 +740,7 @@ bool DIOI2CAIRQUALITYCCS811::WriteRegister(XBYTE offset, XBYTE* data, XDWORD siz
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOI2CAIRQUALITYCCS811::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

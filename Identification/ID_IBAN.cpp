@@ -67,7 +67,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         ID_IBAN::ID_IBAN()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    IDENTIFICATION
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -80,7 +80,7 @@ ID_IBAN::ID_IBAN()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         ID_IBAN::~ID_IBAN()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    IDENTIFICATION
 *
@@ -191,7 +191,7 @@ bool ID_IBAN::Set(XCHAR* IBAN)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* ID_IBAN::GetCountry()
-* @brief      GetCountry
+* @brief      Get country
 * @ingroup    IDENTIFICATION
 *
 * @return     XSTRING* :
@@ -206,7 +206,7 @@ XSTRING* ID_IBAN::GetCountry()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool ID_IBAN::IsValidSizeCountry(XCHAR* countrystr, int size)
-* @brief      IsValidSizeCountry
+* @brief      Is valid size country
 * @ingroup    IDENTIFICATION
 *
 * @param[in]  countrystr :
@@ -373,7 +373,7 @@ int ID_IBAN::Mod97(XSTRING& IBANstr)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int ID_IBAN::Spain_CalculeControlDigit(XSTRING& IBANstr)
-* @brief      Spain_CalculeControlDigit
+* @brief      Spain calcule control digit
 * @ingroup    IDENTIFICATION
 *
 * @param[in]  IBANstr :
@@ -450,7 +450,7 @@ int ID_IBAN::Spain_CalculeControlDigit(XSTRING& IBANstr)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool ID_IBAN::Spain_ValidateControlDigit(XSTRING& IBANstr)
-* @brief      Spain_ValidateControlDigit
+* @brief      Spain validate control digit
 * @ingroup    IDENTIFICATION
 *
 * @param[in]  IBANstr :
@@ -487,7 +487,7 @@ bool ID_IBAN::Spain_ValidateControlDigit(XSTRING& IBANstr)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void ID_IBAN::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    IDENTIFICATION
 *

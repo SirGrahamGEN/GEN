@@ -66,7 +66,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_ELEMENT_CHECKBOX::UI_ELEMENT_CHECKBOX()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    USERINTERFACE
 *
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -82,7 +82,7 @@ UI_ELEMENT_CHECKBOX::UI_ELEMENT_CHECKBOX()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_ELEMENT_CHECKBOX::~UI_ELEMENT_CHECKBOX()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
 *
@@ -96,7 +96,7 @@ UI_ELEMENT_CHECKBOX::~UI_ELEMENT_CHECKBOX()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_ELEMENT_CHECKBOX::GetStatus()
-* @brief      GetStatus
+* @brief      Get status
 * @ingroup    USERINTERFACE
 *
 * @return     bool : true if is succesful. 
@@ -111,7 +111,7 @@ bool  UI_ELEMENT_CHECKBOX::GetStatus()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_ELEMENT_CHECKBOX::SetStatus(bool status)
-* @brief      SetStatus
+* @brief      Set status
 * @ingroup    USERINTERFACE
 *
 * @param[in]  status : 
@@ -132,7 +132,7 @@ bool  UI_ELEMENT_CHECKBOX::SetStatus(bool status)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_ELEMENT_CHECKBOX::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
 *

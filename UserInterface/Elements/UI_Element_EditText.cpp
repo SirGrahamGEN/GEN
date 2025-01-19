@@ -67,7 +67,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_ELEMENT_EDITTEXT::UI_ELEMENT_EDITTEXT()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    USERINTERFACE
 *
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -86,7 +86,7 @@ UI_ELEMENT_EDITTEXT::UI_ELEMENT_EDITTEXT()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_ELEMENT_EDITTEXT::~UI_ELEMENT_EDITTEXT()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
 *
@@ -106,7 +106,7 @@ UI_ELEMENT_EDITTEXT::~UI_ELEMENT_EDITTEXT()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_ELEMENT_EDITTEXT::Cursor_IsVisible()
-* @brief      Cursor_IsVisible
+* @brief      Cursor is visible
 * @ingroup    USERINTERFACE
 *
 * @return     bool : true if is succesful. 
@@ -121,7 +121,7 @@ bool UI_ELEMENT_EDITTEXT::Cursor_IsVisible()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_ELEMENT_EDITTEXT::Cursor_SetVisible(bool on)
-* @brief      Cursor_SetVisible
+* @brief      Cursor set visible
 * @ingroup    USERINTERFACE
 *
 * @param[in]  on : 
@@ -140,7 +140,7 @@ bool UI_ELEMENT_EDITTEXT::Cursor_SetVisible(bool on)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XTIMER* UI_ELEMENT_EDITTEXT::Cursor_GetXTimerBlink()
-* @brief      Cursor_GetXTimerBlink
+* @brief      Cursor get X timer blink
 * @ingroup    USERINTERFACE
 *
 * @return     XTIMER* : 
@@ -155,7 +155,7 @@ XTIMER* UI_ELEMENT_EDITTEXT::Cursor_GetXTimerBlink()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD UI_ELEMENT_EDITTEXT::Cursor_GetTimeBlink()
-* @brief      Cursor_GetTimeBlink
+* @brief      Cursor get time blink
 * @ingroup    USERINTERFACE
 *
 * @return     XDWORD : 
@@ -170,7 +170,7 @@ XDWORD UI_ELEMENT_EDITTEXT::Cursor_GetTimeBlink()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_ELEMENT_EDITTEXT::Cursor_SetTimeBlink(XDWORD timeblink)
-* @brief      Cursor_SetTimeBlink
+* @brief      Cursor set time blink
 * @ingroup    USERINTERFACE
 *
 * @param[in]  timeblink : 
@@ -185,7 +185,7 @@ void UI_ELEMENT_EDITTEXT::Cursor_SetTimeBlink(XDWORD timeblink)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_ELEMENT_EDITTEXT::Cursor_GetStateBlink()
-* @brief      Cursor_GetStateBlink
+* @brief      Cursor get state blink
 * @ingroup    USERINTERFACE
 *
 * @return     bool : true if is succesful. 
@@ -200,7 +200,7 @@ bool UI_ELEMENT_EDITTEXT::Cursor_GetStateBlink()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_ELEMENT_EDITTEXT::Cursor_ChangeStateBlink()
-* @brief      Cursor_ChangeStateBlink
+* @brief      Cursor change state blink
 * @ingroup    USERINTERFACE
 *
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -213,7 +213,7 @@ void  UI_ELEMENT_EDITTEXT::Cursor_ChangeStateBlink()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_ELEMENT_EDITTEXT::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
 *

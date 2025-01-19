@@ -4,7 +4,7 @@
 * 
 * @class      DB_SQL_CONNECTION
 * @brief      DataBase SQL connection class
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 * 
 * @copyright  GEN Group. All rights reserved.
 * 

@@ -71,7 +71,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         INPDEVICE* INPWINDOWSFACTORY::CreateDevice(XCHAR* devicename, void* param)
-* @brief      reateDevice
+* @brief      Create device
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  type : device type of the input device
@@ -119,7 +119,7 @@ INPDEVICE* INPWINDOWSFACTORY::CreateDevice(INPDEVICE_TYPE type, void* param)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool INPWINDOWSFACTORY::DeleteDevice(INPDEVICE* device)
-* @brief      Delete Device
+* @brief      Delete device
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  device : device to delete
@@ -141,7 +141,7 @@ bool INPWINDOWSFACTORY::DeleteDevice(INPDEVICE* device)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         INPSIMULATE* INPWINDOWSFACTORY::CreateSimulator()
-* @brief      CreateSimulator
+* @brief      Create simulator
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @return     INPSIMULATE* : 
@@ -158,7 +158,7 @@ INPSIMULATE* INPWINDOWSFACTORY::CreateSimulator()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool INPWINDOWSFACTORY::DeleteSimulator(INPSIMULATE* inputsimulated)
-* @brief      DeleteSimulator
+* @brief      Delete simulator
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @param[in]  inputsimulated : 
@@ -186,7 +186,7 @@ bool INPWINDOWSFACTORY::DeleteSimulator(INPSIMULATE* inputsimulated)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         INPCAPTURE* INPWINDOWSFACTORY::CreateCapture()
-* @brief      CreateCapture
+* @brief      Create capture
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @return     INPCAPTURE* : 
@@ -203,7 +203,7 @@ INPCAPTURE* INPWINDOWSFACTORY::CreateCapture()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool INPWINDOWSFACTORY::DeleteCapture(INPCAPTURE* inputcapture)
-* @brief      DeleteCapture
+* @brief      Delete capture
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @param[in]  inputcapture : 

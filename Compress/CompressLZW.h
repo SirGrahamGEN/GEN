@@ -43,7 +43,7 @@
 #define   LZW_MAX_TABLE_SIZE    4096
 #define   LZW_MAX_HASHSIZE      0x1000FF // (4096 << 8) + 0xFF
 
-#define   LZW_MAX_OVERCMP       1024       // Añadido por si la compresion es deficiente.
+#define   LZW_MAX_OVERCMP       1024       // A?adido por si la compresion es deficiente.
 
 typedef struct tagLZW_STRING
 {

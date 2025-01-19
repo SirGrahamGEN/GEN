@@ -92,7 +92,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOPROTOCOL_ANSWER::DIOPROTOCOL_ANSWER(XDWORD type, XDWORD ID, XBUFFER& xbuffer)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * @param[in]  type :
@@ -114,7 +114,7 @@ DIOPROTOCOL_ANSWER::DIOPROTOCOL_ANSWER(XDWORD type, XDWORD ID, XBUFFER& xbuffer)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOPROTOCOL_ANSWER::~DIOPROTOCOL_ANSWER()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 * 
@@ -128,7 +128,7 @@ DIOPROTOCOL_ANSWER::~DIOPROTOCOL_ANSWER()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD DIOPROTOCOL_ANSWER::GetType()
-* @brief      GetType
+* @brief      Get type
 * @ingroup    DATAIO
 *
 * @return     XDWORD :
@@ -143,7 +143,7 @@ XDWORD DIOPROTOCOL_ANSWER::GetType()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD DIOPROTOCOL_ANSWER::GetID()
-* @brief      GetID
+* @brief      Get ID
 * @ingroup    DATAIO
 * 
 * @return     XDWORD : 
@@ -158,7 +158,7 @@ XDWORD DIOPROTOCOL_ANSWER::GetID()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XBUFFER& DIOPROTOCOL_ANSWER::GetBuffer()
-* @brief      GetBuffer
+* @brief      Get buffer
 * @ingroup    DATAIO
 *
 * @return     XBUFFER& :
@@ -173,7 +173,7 @@ XBUFFER& DIOPROTOCOL_ANSWER::GetBuffer()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOPROTOCOL_ANSWER::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *
@@ -195,7 +195,7 @@ void DIOPROTOCOL_ANSWER::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOPROTOCOL_COMMAND::DIOPROTOCOL_COMMAND(XDWORD type, XCHAR* inmask, XCHAR* outmask, DIOPROTOCOL_RECEIVEDFUNC receivedfunc, XCHAR* description)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * @param[in]  type :
@@ -221,7 +221,7 @@ DIOPROTOCOL_COMMAND::DIOPROTOCOL_COMMAND(XDWORD type, XCHAR* inmask, XCHAR* outm
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOPROTOCOL_COMMAND::~DIOPROTOCOL_COMMAND()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 * 
@@ -235,7 +235,7 @@ DIOPROTOCOL_COMMAND::~DIOPROTOCOL_COMMAND()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD DIOPROTOCOL_COMMAND::GetType()
-* @brief      GetType
+* @brief      Get type
 * @ingroup    DATAIO
 *
 * @return     XDWORD :
@@ -250,7 +250,7 @@ XDWORD DIOPROTOCOL_COMMAND::GetType()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XCHAR* DIOPROTOCOL_COMMAND::GetINMask()
-* @brief      GetINMask
+* @brief      Get IN mask
 * @ingroup    DATAIO
 *
 * @return     XCHAR* :
@@ -265,7 +265,7 @@ XCHAR* DIOPROTOCOL_COMMAND::GetINMask()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XCHAR* DIOPROTOCOL_COMMAND::GetOUTMask()
-* @brief      GetOUTMask
+* @brief      Get OUT mask
 * @ingroup    DATAIO
 *
 * @return     XCHAR* :
@@ -280,7 +280,7 @@ XCHAR* DIOPROTOCOL_COMMAND::GetOUTMask()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOPROTOCOL_RECEIVEDFUNC DIOPROTOCOL_COMMAND::GetReceivedFunc()
-* @brief      GetReceivedFunc
+* @brief      Get received func
 * @ingroup    DATAIO
 *
 * @return     DIOPROTOCOL_RECEIVEDFUNC :
@@ -295,7 +295,7 @@ DIOPROTOCOL_RECEIVEDFUNC DIOPROTOCOL_COMMAND::GetReceivedFunc()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XCHAR* DIOPROTOCOL_COMMAND::GetDescription()
-* @brief      GetDescription
+* @brief      Get description
 * @ingroup    DATAIO
 *
 * @return     XCHAR* :
@@ -310,7 +310,7 @@ XCHAR* DIOPROTOCOL_COMMAND::GetDescription()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* DIOPROTOCOL_COMMAND::GetSINMask()
-* @brief      GetSINMask
+* @brief      Get SIN mask
 * @ingroup    DATAIO
 *
 * @return     XSTRING* :
@@ -325,7 +325,7 @@ XSTRING* DIOPROTOCOL_COMMAND::GetSINMask()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* DIOPROTOCOL_COMMAND::GetSOUTMask()
-* @brief      GetSOUTMask
+* @brief      Get SOUT mask
 * @ingroup    DATAIO
 *
 * @return     XSTRING* :
@@ -340,7 +340,7 @@ XSTRING* DIOPROTOCOL_COMMAND::GetSOUTMask()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* DIOPROTOCOL_COMMAND::GetSDescription()
-* @brief      GetSDescription
+* @brief      Get S description
 * @ingroup    DATAIO
 *
 * @return     XSTRING* :
@@ -355,7 +355,7 @@ XSTRING* DIOPROTOCOL_COMMAND::GetSDescription()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOPROTOCOL_COMMAND::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *
@@ -382,7 +382,7 @@ void DIOPROTOCOL_COMMAND::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOPROTOCOL_FILE::DIOPROTOCOL_FILE()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -397,7 +397,7 @@ DIOPROTOCOL_FILE::DIOPROTOCOL_FILE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOPROTOCOL_FILE::~DIOPROTOCOL_FILE()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -413,7 +413,7 @@ DIOPROTOCOL_FILE::~DIOPROTOCOL_FILE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOPROTOCOL_FILE::IsActive()
-* @brief      IsActive
+* @brief      Is active
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -428,7 +428,7 @@ bool DIOPROTOCOL_FILE::IsActive()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOPROTOCOL_FILE::SetActive(bool isactive)
-* @brief      SetActive
+* @brief      Set active
 * @ingroup    DATAIO
 *
 * @param[in]  isactive :
@@ -443,7 +443,7 @@ void DIOPROTOCOL_FILE::SetActive(bool isactive)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOPROTOCOL_DIRECTION DIOPROTOCOL_FILE::GetDirection()
-* @brief      GetDirection
+* @brief      Get direction
 * @ingroup    DATAIO
 *
 * @return     DIOPROTOCOL_DIRECTION :
@@ -458,7 +458,7 @@ DIOPROTOCOL_DIRECTION DIOPROTOCOL_FILE::GetDirection()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOPROTOCOL_FILE::SetDirection(DIOPROTOCOL_DIRECTION direction)
-* @brief      SetDirection
+* @brief      Set direction
 * @ingroup    DATAIO
 *
 * @param[in]  direction :
@@ -473,7 +473,7 @@ void DIOPROTOCOL_FILE::SetDirection(DIOPROTOCOL_DIRECTION direction)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XPATH* DIOPROTOCOL_FILE::GetSourceName()
-* @brief      GetSourceName
+* @brief      Get source name
 * @ingroup    DATAIO
 *
 * @return     XPATH* :
@@ -488,7 +488,7 @@ XPATH* DIOPROTOCOL_FILE::GetSourceName()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOPROTOCOL_FILE::SetSourceName(XCHAR* sourcename)
-* @brief      SetSourceName
+* @brief      Set source name
 * @ingroup    DATAIO
 *
 * @param[in]  sourcename :
@@ -507,7 +507,7 @@ bool DIOPROTOCOL_FILE::SetSourceName(XCHAR* sourcename)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOPROTOCOL_FILE::SetSourceName(XSTRING& sourcename)
-* @brief      SetSourceName
+* @brief      Set source name
 * @ingroup    DATAIO
 *
 * @param[in]  sourcename :
@@ -524,7 +524,7 @@ bool DIOPROTOCOL_FILE::SetSourceName(XSTRING& sourcename)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XPATH* DIOPROTOCOL_FILE::GetTargetName()
-* @brief      GetTargetName
+* @brief      Get target name
 * @ingroup    DATAIO
 *
 * @return     XPATH* :
@@ -539,7 +539,7 @@ XPATH* DIOPROTOCOL_FILE::GetTargetName()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOPROTOCOL_FILE::SetTargetName(XCHAR* targetname)
-* @brief      SetTargetName
+* @brief      Set target name
 * @ingroup    DATAIO
 *
 * @param[in]  targetname :
@@ -558,7 +558,7 @@ bool DIOPROTOCOL_FILE::SetTargetName(XCHAR* targetname)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOPROTOCOL_FILE::SetTargetName(XSTRING& targetname)
-* @brief      SetTargetName
+* @brief      Set target name
 * @ingroup    DATAIO
 *
 * @param[in]  targetname :
@@ -575,7 +575,7 @@ bool DIOPROTOCOL_FILE::SetTargetName(XSTRING& targetname)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD DIOPROTOCOL_FILE::GetSize()
-* @brief      GetSize
+* @brief      Get size
 * @ingroup    DATAIO
 *
 * @return     XDWORD :
@@ -590,7 +590,7 @@ XQWORD DIOPROTOCOL_FILE::GetSize()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOPROTOCOL_FILE::SetSize(XDWORD size)
-* @brief      SetSize
+* @brief      Set size
 * @ingroup    DATAIO
 *
 * @param[in]  size :
@@ -605,7 +605,7 @@ void DIOPROTOCOL_FILE::SetSize(XQWORD size)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD DIOPROTOCOL_FILE::GetCRC32()
-* @brief      GetCRC32
+* @brief      Get CRC32
 * @ingroup    DATAIO
 *
 * @return     XDWORD :
@@ -620,7 +620,7 @@ XDWORD DIOPROTOCOL_FILE::GetCRC32()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOPROTOCOL_FILE::SetCRC32(XDWORD crc32)
-* @brief      SetCRC32
+* @brief      Set CRC32
 * @ingroup    DATAIO
 *
 * @param[in]  crc32 :
@@ -635,7 +635,7 @@ void DIOPROTOCOL_FILE::SetCRC32(XDWORD crc32)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOPROTOCOL_FILE::GetSizeBlock()
-* @brief      GetSizeBlock
+* @brief      Get size block
 * @ingroup    DATAIO
 *
 * @return     int :
@@ -650,7 +650,7 @@ int DIOPROTOCOL_FILE::GetSizeBlock()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOPROTOCOL_FILE::SetSizeBlock(XDWORD sizeblock)
-* @brief      SetSizeBlock
+* @brief      Set size block
 * @ingroup    DATAIO
 *
 * @param[in]  sizeblock :
@@ -665,7 +665,7 @@ void DIOPROTOCOL_FILE::SetSizeBlock(XDWORD sizeblock)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOPROTOCOL_FILE::GetPosition()
-* @brief      GetPosition
+* @brief      Get position
 * @ingroup    DATAIO
 *
 * @return     int :
@@ -680,7 +680,7 @@ XQWORD DIOPROTOCOL_FILE::GetPosition()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOPROTOCOL_FILE::SetPosition(int position)
-* @brief      SetPosition
+* @brief      Set position
 * @ingroup    DATAIO
 *
 * @param[in]  position :
@@ -695,7 +695,7 @@ void DIOPROTOCOL_FILE::SetPosition(XQWORD position)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XBYTE DIOPROTOCOL_FILE::GetPercent()
-* @brief      GetPercent
+* @brief      Get percent
 * @ingroup    DATAIO
 *
 * @return     XBYTE :
@@ -710,7 +710,7 @@ XBYTE DIOPROTOCOL_FILE::GetPercent()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOPROTOCOL_FILE::SetPercent(XBYTE percent)
-* @brief      SetPercent
+* @brief      Set percent
 * @ingroup    DATAIO
 *
 * @param[in]  percent :
@@ -725,7 +725,7 @@ void DIOPROTOCOL_FILE::SetPercent(XBYTE percent)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOPROTOCOL_FILE::ReadBlock(XBYTE* buffer)
-* @brief      ReadBlock
+* @brief      Read block
 * @ingroup    DATAIO
 *
 * @param[in]  buffer :
@@ -765,7 +765,7 @@ bool DIOPROTOCOL_FILE::ReadBlock(XBYTE* buffer)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOPROTOCOL_FILE::WriteBlock(XBYTE* buffer)
-* @brief      WriteBlock
+* @brief      Write block
 * @ingroup    DATAIO
 * 
 * @param[in]  buffer : 
@@ -851,7 +851,7 @@ void DIOPROTOCOL_FILE::Reset()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOPROTOCOL_FILE::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *
@@ -880,7 +880,7 @@ void DIOPROTOCOL_FILE::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOPROTOCOL::DIOPROTOCOL(DIOSTREAM* diostream)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * @param[in]  diostream :
@@ -962,7 +962,7 @@ DIOPROTOCOL::DIOPROTOCOL(DIOSTREAM* diostream)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOPROTOCOL::~DIOPROTOCOL()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -1016,7 +1016,7 @@ DIOPROTOCOL::~DIOPROTOCOL()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* DIOPROTOCOL::GetDescription()
-* @brief      GetDescription
+* @brief      Get description
 * @ingroup    DATAIO
 * 
 * @return     XSTRING* : 
@@ -1087,7 +1087,7 @@ bool DIOPROTOCOL::Reset()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOPROTOCOL::IsConnected()
-* @brief      IsConnected
+* @brief      Is connected
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
@@ -1105,7 +1105,7 @@ bool DIOPROTOCOL::IsConnected()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOPROTOCOL::IsConnecting()
-* @brief      IsConnecting
+* @brief      Is connecting
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
@@ -1123,7 +1123,7 @@ bool DIOPROTOCOL::IsConnecting()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOPROTOCOL::IsDisconnected()
-* @brief      IsDisconnected
+* @brief      Is disconnected
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
@@ -1141,7 +1141,7 @@ bool DIOPROTOCOL::IsDisconnected()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOPROTOCOL::IsInitialized()
-* @brief      IsInitialized
+* @brief      Is initialized
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
@@ -1156,7 +1156,7 @@ bool DIOPROTOCOL::IsInitialized()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOPROTOCOL::SetIsInitialized(bool isinitialized)
-* @brief      SetIsInitialized
+* @brief      Set is initialized
 * @ingroup    DATAIO
 * 
 * @param[in]  isinitialized : 
@@ -1171,7 +1171,7 @@ void DIOPROTOCOL::SetIsInitialized(bool isinitialized)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOPROTOCOL::IsServerInitialized()
-* @brief      IsServerInitialized
+* @brief      Is server initialized
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
@@ -1186,7 +1186,7 @@ bool DIOPROTOCOL::IsServerInitialized()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOPROTOCOL::IsOperational()
-* @brief      IsOperational
+* @brief      Is operational
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
@@ -1204,7 +1204,7 @@ bool DIOPROTOCOL::IsOperational()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD DIOPROTOCOL::GetMaskID()
-* @brief      GetMaskID
+* @brief      Get mask ID
 * @ingroup    DATAIO
 *
 * @return     XDWORD :
@@ -1219,7 +1219,7 @@ XDWORD DIOPROTOCOL::GetMaskID()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOPROTOCOL::SetMaskID(XDWORD maskID)
-* @brief      SetMaskID
+* @brief      Set mask ID
 * @ingroup    DATAIO
 *
 * @param[in]  maskID :
@@ -1237,7 +1237,7 @@ bool DIOPROTOCOL::SetMaskID(XDWORD maskID)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void* DIOPROTOCOL::GetConnectionsManager()
-* @brief      GetConnectionsManager
+* @brief      Get connections manager
 * @ingroup    DATAIO
 *
 * @return     void* :
@@ -1252,7 +1252,7 @@ void* DIOPROTOCOL::GetConnectionsManager()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOPROTOCOL::SetConnectionsManager(void* connectionsmanager)
-* @brief      SetConnectionsManager
+* @brief      Set connections manager
 * @ingroup    DATAIO
 *
 * @param[in]  connectionsmanager :
@@ -1267,7 +1267,7 @@ void DIOPROTOCOL::SetConnectionsManager(void* connectionsmanager)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void* DIOPROTOCOL::GetConnection()
-* @brief      GetConnection
+* @brief      Get connection
 * @ingroup    DATAIO
 *
 * @return     void* :
@@ -1282,7 +1282,7 @@ void* DIOPROTOCOL::GetConnection()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOPROTOCOL::SetConnection(void* connection)
-* @brief      SetConnection
+* @brief      Set connection
 * @ingroup    DATAIO
 *
 * @param[in]  connection :
@@ -1297,7 +1297,7 @@ void DIOPROTOCOL::SetConnection(void* connection)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void* DIOPROTOCOL::GetApplicationData()
-* @brief      GetApplicationData
+* @brief      Get application data
 * @ingroup    DATAIO
 *
 * @return     void* :
@@ -1312,7 +1312,7 @@ void* DIOPROTOCOL::GetApplicationData()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOPROTOCOL::SetApplicationData(void* applicationdata)
-* @brief      SetApplicationData
+* @brief      Set application data
 * @ingroup    DATAIO
 *
 * @param[in]  applicationdata :
@@ -1327,7 +1327,7 @@ void DIOPROTOCOL::SetApplicationData(void* applicationdata)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOPROTOCOL::IsOwnApplicationData()
-* @brief      IsOwnApplicationData
+* @brief      Is own application data
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -1342,7 +1342,7 @@ bool DIOPROTOCOL::IsOwnApplicationData()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOPROTOCOL::SetIsOwnApplicationData(bool isownapplicationdata)
-* @brief      SetIsOwnApplicationData
+* @brief      Set is own application data
 * @ingroup    DATAIO
 *
 * @param[in]  isownapplicationdata :
@@ -1357,7 +1357,7 @@ void DIOPROTOCOL::SetIsOwnApplicationData(bool isownapplicationdata)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAM* DIOPROTOCOL::GetDIOStream()
-* @brief      GetDIOStream
+* @brief      Get DIO stream
 * @ingroup    DATAIO
 *
 * @return     DIOSTREAM* :
@@ -1372,7 +1372,7 @@ DIOSTREAM* DIOPROTOCOL::GetDIOStream()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDATETIME* DIOPROTOCOL::GetDateTime()
-* @brief      GetDateTime
+* @brief      Get date time
 * @ingroup    DATAIO
 *
 * @return     XDATETIME* :
@@ -1387,7 +1387,7 @@ XDATETIME* DIOPROTOCOL::GetDateTime()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOPROTOCOL::AddCommand(XDWORD type,XCHAR* inmask,XCHAR* outmask,DIOPROTOCOL_RECEIVEDFUNC receivedfunc,XCHAR* description)
-* @brief      AddCommand
+* @brief      Add command
 * @ingroup    DATAIO
 *
 * @param[in]  type :
@@ -1413,7 +1413,7 @@ bool DIOPROTOCOL::AddCommand(XDWORD type, XCHAR* inmask, XCHAR* outmask, DIOPROT
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOPROTOCOL_COMMAND* DIOPROTOCOL::GetCommand(XDWORD type)
-* @brief      GetCommand
+* @brief      Get command
 * @ingroup    DATAIO
 *
 * @param[in]  type :
@@ -1439,7 +1439,7 @@ DIOPROTOCOL_COMMAND* DIOPROTOCOL::GetCommand(XDWORD type)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOPROTOCOL_ANSWER* DIOPROTOCOL::AddAnswer(XDWORD type, XDWORD ID, XBUFFER& xbuffer)
-* @brief      AddAnswer
+* @brief      Add answer
 * @ingroup    DATAIO
 *
 * @param[in]  type :
@@ -1465,7 +1465,7 @@ DIOPROTOCOL_ANSWER* DIOPROTOCOL::AddAnswer(XDWORD type, XDWORD ID, XBUFFER& xbuf
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOPROTOCOL_ANSWER* DIOPROTOCOL::GetAnswer(XDWORD type, XDWORD ID)
-* @brief      GetAnswer
+* @brief      Get answer
 * @ingroup    DATAIO
 *
 * @param[in]  type :
@@ -1498,7 +1498,7 @@ DIOPROTOCOL_ANSWER* DIOPROTOCOL::GetAnswer(XDWORD type, XDWORD ID)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOPROTOCOL::DeleteAnswer(XDWORD type, XDWORD ID)
-* @brief      DeleteAnswer
+* @brief      Delete answer
 * @ingroup    DATAIO
 *
 * @param[in]  type :
@@ -1535,7 +1535,7 @@ bool DIOPROTOCOL::DeleteAnswer(XDWORD type, XDWORD ID)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOPROTOCOL::DeleteAllAnswers()
-* @brief      DeleteAllAnswers
+* @brief      Delete all answers
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -1564,7 +1564,7 @@ bool DIOPROTOCOL::DeleteAllAnswers()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOPROTOCOL_ANSWER* DIOPROTOCOL::AddAsk(XDWORD type, XDWORD ID, XBUFFER& xbuffer)
-* @brief      AddAsk
+* @brief      Add ask
 * @ingroup    DATAIO
 *
 * @param[in]  type :
@@ -1590,7 +1590,7 @@ DIOPROTOCOL_ANSWER* DIOPROTOCOL::AddAsk(XDWORD type, XDWORD ID, XBUFFER& xbuffer
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOPROTOCOL_ANSWER* DIOPROTOCOL::GetAsk(XDWORD index)
-* @brief      GetAsk
+* @brief      Get ask
 * @ingroup    DATAIO
 *
 * @param[in]  index :
@@ -1613,7 +1613,7 @@ DIOPROTOCOL_ANSWER* DIOPROTOCOL::GetAsk(XDWORD index)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOPROTOCOL::DeleteAsk(XDWORD index)
-* @brief      DeleteAsk
+* @brief      Delete ask
 * @ingroup    DATAIO
 *
 * @param[in]  index :
@@ -1641,7 +1641,7 @@ bool DIOPROTOCOL::DeleteAsk(XDWORD index)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOPROTOCOL::DeleteAllAsks()
-* @brief      DeleteAllAsks
+* @brief      Delete all asks
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -1670,7 +1670,7 @@ bool DIOPROTOCOL::DeleteAllAsks()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOPROTOCOL::ReadCommand(XDWORD& type, XDWORD& ID, XBUFFER& xbuffer)
-* @brief      ReadCommand
+* @brief      Read command
 * @ingroup    DATAIO
 *
 * @param[in]  type :
@@ -1818,7 +1818,7 @@ DIOPROTOCOL_RESULT DIOPROTOCOL::Received()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOPROTOCOL_RESULT DIOPROTOCOL::ReceivedHandle(XDWORD type, XDWORD ID, XBUFFER& xbuffer)
-* @brief      ReceivedHandle
+* @brief      Received handle
 * @ingroup    DATAIO
 *
 * @param[in]  type :
@@ -1870,7 +1870,7 @@ DIOPROTOCOL_RESULT DIOPROTOCOL::ReceivedHandle(XDWORD type, XDWORD ID, XBUFFER& 
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOPROTOCOL::SendCommand(XDWORD type, XDWORD& ID, XBUFFER& xbuffer)
-* @brief      SendCommand
+* @brief      Send command
 * @ingroup    DATAIO
 *
 * @param[in]  type :
@@ -2052,7 +2052,7 @@ bool DIOPROTOCOL::Command(XDWORD type, XBUFFER& xbuffer, int timeout)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOPROTOCOL::SendEvent(DIOPROTOCOL_XEVENT_TYPE type, DIOPROTOCOL* protocol)
-* @brief      SendEvent
+* @brief      Send event
 * @ingroup    DATAIO
 *
 * @param[in]  type :
@@ -2075,7 +2075,7 @@ bool DIOPROTOCOL::SendEvent(DIOPROTOCOL_XEVENT_TYPE type, DIOPROTOCOL* protocol)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOPROTOCOL::SendEventCommand(DIOPROTOCOL* protocol, DIOPROTOCOL_DIRECTION direction, XDWORD type, bool result, void* param1, XDWORD param2)
-* @brief      SendEventCommand
+* @brief      Send event command
 * @ingroup    DATAIO
 *
 * @param[in]  protocol :
@@ -2109,7 +2109,7 @@ bool DIOPROTOCOL::SendEventCommand(DIOPROTOCOL* protocol, DIOPROTOCOL_DIRECTION 
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOPROTOCOL::SendEventFileBlock(DIOPROTOCOL_FILESTATUS filestatus, bool fileissend, XPATH* filesource, XPATH* filetarget, int filepercent, void* param)
-* @brief      SendEventFileBlock
+* @brief      Send event file block
 * @ingroup    DATAIO
 *
 * @param[in]  filestatus :
@@ -2143,7 +2143,7 @@ bool DIOPROTOCOL::SendEventFileBlock(DIOPROTOCOL_FILESTATUS filestatus, bool fil
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOPROTOCOL::GetProtocolVersion(XDWORD& version, XDWORD& subversion, XDWORD& subversionerr)
-* @brief      GetProtocolVersion
+* @brief      Get protocol version
 * @ingroup    DATAIO
 *
 * @param[in]  version :
@@ -2162,7 +2162,7 @@ void DIOPROTOCOL::GetProtocolVersion(XDWORD& version, XDWORD& subversion, XDWORD
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOPROTOCOL::SetProtocolVersion(XDWORD version, XDWORD subversion, XDWORD subversionerr)
-* @brief      SetProtocolVersion
+* @brief      Set protocol version
 * @ingroup    DATAIO
 *
 * @param[in]  version :
@@ -2181,7 +2181,7 @@ void DIOPROTOCOL::SetProtocolVersion(XDWORD version, XDWORD subversion, XDWORD s
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOPROTOCOL::Application_GetVersion(XDWORD& version, XDWORD& subversion, XDWORD& subversionerr)
-* @brief      Application_GetVersion
+* @brief      Application get version
 * @ingroup    DATAIO
 *
 * @param[in]  version :
@@ -2200,7 +2200,7 @@ void DIOPROTOCOL::Application_GetVersion(XDWORD& version, XDWORD& subversion, XD
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOPROTOCOL::Application_SetVersion(XDWORD version, XDWORD subversion, XDWORD subversionerr)
-* @brief      Application_SetVersion
+* @brief      Application set version
 * @ingroup    DATAIO
 *
 * @param[in]  version :
@@ -2219,7 +2219,7 @@ void DIOPROTOCOL::Application_SetVersion(XDWORD version, XDWORD subversion, XDWO
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* DIOPROTOCOL::Application_GetName()
-* @brief      Application_GetName
+* @brief      Application get name
 * @ingroup    DATAIO
 *
 * @return     XSTRING* :
@@ -2234,7 +2234,7 @@ XSTRING* DIOPROTOCOL::Application_GetName()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOPROTOCOL::SetFileProgress(DIOPROTOCOL_DIRECTION direction, XPATH& sourcename, XPATH& targetname, XDWORD CRC32)
-* @brief      SetFileProgress
+* @brief      Set file progress
 * @ingroup    DATAIO
 *
 * @param[in]  direction :
@@ -2272,7 +2272,7 @@ bool DIOPROTOCOL::SetFileProgress(DIOPROTOCOL_DIRECTION direction, XPATH& source
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOPROTOCOL_FILE* DIOPROTOCOL::GetFileProgress()
-* @brief      GetFileProgress
+* @brief      Get file progress
 * @ingroup    DATAIO
 *
 * @return     DIOPROTOCOL_FILE* :
@@ -2287,7 +2287,7 @@ DIOPROTOCOL_FILE* DIOPROTOCOL::GetFileProgress()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XPATH* DIOPROTOCOL::GetPathSearch()
-* @brief      GetPathSearch
+* @brief      Get path search
 * @ingroup    DATAIO
 *
 * @return     XPATH* :
@@ -2302,7 +2302,7 @@ XPATH* DIOPROTOCOL::GetPathSearch()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDIRELEMENT* DIOPROTOCOL::GetSearchElement()
-* @brief      GetSearchElement
+* @brief      Get search element
 * @ingroup    DATAIO
 *
 * @return     XDIRELEMENT* :
@@ -2317,7 +2317,7 @@ XDIRELEMENT* DIOPROTOCOL::GetSearchElement()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDIR* DIOPROTOCOL::GetXDir()
-* @brief      GetXDir
+* @brief      Get X dir
 * @ingroup    DATAIO
 *
 * @return     XDIR* :
@@ -2332,7 +2332,7 @@ XDIR* DIOPROTOCOL::GetXDir()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOPROTOCOL::CMD_GetProtocolVersion(XWORD& version, XWORD& subversion, XWORD& subversionerr)
-* @brief      CMD_GetProtocolVersion
+* @brief      CMD get protocol version
 * @ingroup    DATAIO
 *
 * @param[in]  version :
@@ -2368,7 +2368,7 @@ bool DIOPROTOCOL::CMD_GetProtocolVersion(XWORD& version, XWORD& subversion, XWOR
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOPROTOCOL::RCV_GetProtocolVersion(DIOPROTOCOL* protocol, DIOPROTOCOL_COMMAND* cmd, XBUFFER& xbuffer, XDWORD rID, XDWORD& param)
-* @brief      RCV_GetProtocolVersion
+* @brief      RCV get protocol version
 * @ingroup    DATAIO
 *
 * @param[in]  protocol :
@@ -2391,7 +2391,7 @@ int DIOPROTOCOL::RCV_GetProtocolVersion(DIOPROTOCOL* protocol, DIOPROTOCOL_COMMA
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOPROTOCOL::CMD_Application_GetVersion(XWORD& version, XWORD& subversion, XWORD& subversionerr)
-* @brief      CMD_Application_GetVersion
+* @brief      CMD application get version
 * @ingroup    DATAIO
 *
 * @param[in]  version :
@@ -2427,7 +2427,7 @@ bool DIOPROTOCOL::CMD_Application_GetVersion(XWORD& version, XWORD& subversion, 
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOPROTOCOL::RCV_Application_GetVersion(DIOPROTOCOL* protocol, DIOPROTOCOL_COMMAND* cmd, XBUFFER& xbuffer, XDWORD rID, XDWORD& param)
-* @brief      RCV_Application_GetVersion
+* @brief      RCV application get version
 * @ingroup    DATAIO
 *
 * @param[in]  protocol :
@@ -2450,7 +2450,7 @@ int DIOPROTOCOL::RCV_Application_GetVersion(DIOPROTOCOL* protocol, DIOPROTOCOL_C
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOPROTOCOL::CMD_Application_GetName(XSTRING& applicationname)
-* @brief      CMD_Application_GetName
+* @brief      CMD application get name
 * @ingroup    DATAIO
 *
 * @param[in]  applicationname :
@@ -2481,7 +2481,7 @@ bool DIOPROTOCOL::CMD_Application_GetName(XSTRING& applicationname)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOPROTOCOL::RCV_Application_GetName(DIOPROTOCOL* protocol, DIOPROTOCOL_COMMAND* cmd, XBUFFER& xbuffer, XDWORD rID, XDWORD& param)
-* @brief      RCV_Application_GetName
+* @brief      RCV application get name
 * @ingroup    DATAIO
 *
 * @param[in]  protocol :
@@ -2503,7 +2503,7 @@ int DIOPROTOCOL::RCV_Application_GetName(DIOPROTOCOL* protocol, DIOPROTOCOL_COMM
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOPROTOCOL::CMD_Ping(XDWORD& milliseconds, int timeout)
-* @brief      CMD_Ping
+* @brief      CMD ping
 * @ingroup    DATAIO
 *
 * @param[in]  milliseconds :
@@ -2540,7 +2540,7 @@ bool DIOPROTOCOL::CMD_Ping(XDWORD& milliseconds, int timeout)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOPROTOCOL::RCV_Ping(DIOPROTOCOL* protocol, DIOPROTOCOL_COMMAND* cmd, XBUFFER& xbuffer, XDWORD rID, XDWORD& param)
-* @brief      RCV_Ping
+* @brief      RCV ping
 * @ingroup    DATAIO
 *
 * @param[in]  protocol :
@@ -2565,7 +2565,7 @@ int DIOPROTOCOL::RCV_Ping(DIOPROTOCOL* protocol, DIOPROTOCOL_COMMAND* cmd, XBUFF
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOPROTOCOL::CMD_SendIsInitServerProtocol(bool isinit)
-* @brief      CMD_SendIsInitServerProtocol
+* @brief      CMD send is init server protocol
 * @ingroup    DATAIO
 *
 * @param[in]  isinit :
@@ -2597,7 +2597,7 @@ bool DIOPROTOCOL::CMD_SendIsInitServerProtocol(bool isinit)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOPROTOCOL::RCV_SendIsInitServerProtocol(DIOPROTOCOL* protocol, DIOPROTOCOL_COMMAND* cmd, XBUFFER& xbuffer, XDWORD rID, XDWORD& param)
-* @brief      RCV_SendIsInitServerProtocol
+* @brief      RCV send is init server protocol
 * @ingroup    DATAIO
 *
 * @param[in]  protocol :
@@ -2631,7 +2631,7 @@ int DIOPROTOCOL::RCV_SendIsInitServerProtocol(DIOPROTOCOL* protocol, DIOPROTOCOL
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOPROTOCOL::CMD_GetDateTime(XSTRING& datestring)
-* @brief      CMD_GetDateTime
+* @brief      CMD get date time
 * @ingroup    DATAIO
 *
 * @param[in]  datestring :
@@ -2663,7 +2663,7 @@ bool DIOPROTOCOL::CMD_GetDateTime(XSTRING& datestring)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOPROTOCOL::RCV_GetDateTime(DIOPROTOCOL* protocol, DIOPROTOCOL_COMMAND* cmd, XBUFFER& xbuffer, XDWORD rID, XDWORD& param)
-* @brief      RCV_GetDateTime
+* @brief      RCV get date time
 * @ingroup    DATAIO
 *
 * @param[in]  protocol :
@@ -2690,7 +2690,7 @@ int DIOPROTOCOL::RCV_GetDateTime(DIOPROTOCOL* protocol, DIOPROTOCOL_COMMAND* cmd
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOPROTOCOL::CMD_SetDateTime(XCHAR* datestring)
-* @brief      CMD_SetDateTime
+* @brief      CMD set date time
 * @ingroup    DATAIO
 *
 * @param[in]  datestring :
@@ -2727,7 +2727,7 @@ bool DIOPROTOCOL::CMD_SetDateTime(XCHAR* datestring)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOPROTOCOL::RCV_SetDateTime(DIOPROTOCOL* protocol, DIOPROTOCOL_COMMAND* cmd, XBUFFER& xbuffer, XDWORD rID, XDWORD& param)
-* @brief      RCV_SetDateTime
+* @brief      RCV set date time
 * @ingroup    DATAIO
 *
 * @param[in]  protocol :
@@ -2760,7 +2760,7 @@ int DIOPROTOCOL::RCV_SetDateTime(DIOPROTOCOL* protocol, DIOPROTOCOL_COMMAND* cmd
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOPROTOCOL::CMD_File(DIOPROTOCOL_DIRECTION direction, XCHAR* sourcename, XCHAR* targetname, int timeout, void* param)
-* @brief      CMD_File
+* @brief      CMD file
 * @ingroup    DATAIO
 *
 * @param[in]  direction :
@@ -2843,7 +2843,7 @@ bool DIOPROTOCOL::CMD_File(DIOPROTOCOL_DIRECTION direction, XCHAR* sourcename, X
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOPROTOCOL::CMD_DeleteFile(XCHAR* namefile, bool overwrite)
-* @brief      CMD_DeleteFile
+* @brief      CMD delete file
 * @ingroup    DATAIO
 *
 * @param[in]  namefile :
@@ -2882,7 +2882,7 @@ bool DIOPROTOCOL::CMD_DeleteFile(XCHAR* namefile, bool overwrite)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOPROTOCOL::RCV_DeleteFile(DIOPROTOCOL* protocol, DIOPROTOCOL_COMMAND* cmd, XBUFFER& xbuffer, XDWORD rID, XDWORD& param)
-* @brief      RCV_DeleteFile
+* @brief      RCV delete file
 * @ingroup    DATAIO
 *
 * @param[in]  protocol :
@@ -2918,7 +2918,7 @@ int DIOPROTOCOL::RCV_DeleteFile(DIOPROTOCOL* protocol, DIOPROTOCOL_COMMAND* cmd,
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOPROTOCOL::CMD_MakeDir(XCHAR* namedir)
-* @brief      CMD_MakeDir
+* @brief      CMD make dir
 * @ingroup    DATAIO
 *
 * @param[in]  namedir :
@@ -2956,7 +2956,7 @@ bool DIOPROTOCOL::CMD_MakeDir(XCHAR* namedir)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOPROTOCOL::RCV_MakeDir(DIOPROTOCOL* protocol, DIOPROTOCOL_COMMAND* cmd, XBUFFER& xbuffer, XDWORD rID, XDWORD& param)
-* @brief      RCV_MakeDir
+* @brief      RCV make dir
 * @ingroup    DATAIO
 *
 * @param[in]  protocol :
@@ -2985,7 +2985,7 @@ int DIOPROTOCOL::RCV_MakeDir(DIOPROTOCOL* protocol, DIOPROTOCOL_COMMAND* cmd, XB
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOPROTOCOL::CMD_DeleteDir(XCHAR* namedir, bool all)
-* @brief      CMD_DeleteDir
+* @brief      CMD delete dir
 * @ingroup    DATAIO
 *
 * @param[in]  namedir :
@@ -3024,7 +3024,7 @@ bool DIOPROTOCOL::CMD_DeleteDir(XCHAR* namedir, bool all)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOPROTOCOL::RCV_DeleteDir(DIOPROTOCOL* protocol, DIOPROTOCOL_COMMAND* cmd, XBUFFER& xbuffer, XDWORD rID, XDWORD& param)
-* @brief      RCV_DeleteDir
+* @brief      RCV delete dir
 * @ingroup    DATAIO
 *
 * @param[in]  protocol :
@@ -3054,7 +3054,7 @@ int DIOPROTOCOL::RCV_DeleteDir(DIOPROTOCOL* protocol, DIOPROTOCOL_COMMAND* cmd, 
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOPROTOCOL::CMD_GetDirElement(XCHAR* pathsearch, XCHAR* mask, XPATH& namefile, XBYTE& type, int& sizefile, XDWORD& CRC32)
-* @brief      CMD_GetDirElement
+* @brief      CMD get dir element
 * @ingroup    DATAIO
 *
 * @param[in]  pathsearch :
@@ -3105,7 +3105,7 @@ bool DIOPROTOCOL::CMD_GetDirElement(XCHAR* pathsearch, XCHAR* mask, XPATH& namef
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOPROTOCOL::RCV_GetDirElement(DIOPROTOCOL* protocol, DIOPROTOCOL_COMMAND* cmd, XBUFFER& xbuffer, XDWORD rID, XDWORD& param)
-* @brief      RCV_GetDirElement
+* @brief      RCV get dir element
 * @ingroup    DATAIO
 *
 * @param[in]  protocol :
@@ -3167,7 +3167,7 @@ int DIOPROTOCOL::RCV_GetDirElement(DIOPROTOCOL* protocol, DIOPROTOCOL_COMMAND* c
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOPROTOCOL::DeleteAllCommands()
-* @brief      DeleteAllCommands
+* @brief      Delete all commands
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -3187,7 +3187,7 @@ bool DIOPROTOCOL::DeleteAllCommands()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD DIOPROTOCOL::CRC32OfFile(XPATH& xpath)
-* @brief      CRC32OfFile
+* @brief      CRC32 of file
 * @ingroup    DATAIO
 *
 * @param[in]  xpath :
@@ -3226,7 +3226,7 @@ XDWORD DIOPROTOCOL::CRC32OfFile(XPATH& xpath)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOPROTOCOL::CMD_InitFileBlock(DIOPROTOCOL_FILE* fp)
-* @brief      CMD_InitFileBlock
+* @brief      CMD init file block
 * @ingroup    DATAIO
 *
 * @param[in]  fp :
@@ -3267,7 +3267,7 @@ bool DIOPROTOCOL::CMD_InitFileBlock(DIOPROTOCOL_FILE* fp)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOPROTOCOL::RCV_InitFileBlock(DIOPROTOCOL* protocol, DIOPROTOCOL_COMMAND* cmd, XBUFFER& xbuffer, XDWORD rID, XDWORD& param)
-* @brief      RCV_InitFileBlock
+* @brief      RCV init file block
 * @ingroup    DATAIO
 *
 * @param[in]  protocol :
@@ -3306,7 +3306,7 @@ int DIOPROTOCOL::RCV_InitFileBlock(DIOPROTOCOL* protocol, DIOPROTOCOL_COMMAND* c
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOPROTOCOL::CMD_GetFileBlock(DIOPROTOCOL_FILE* fp)
-* @brief      CMD_GetFileBlock
+* @brief      CMD get file block
 * @ingroup    DATAIO
 *
 * @param[in]  fp :
@@ -3376,7 +3376,7 @@ bool DIOPROTOCOL::CMD_GetFileBlock(DIOPROTOCOL_FILE* fp)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOPROTOCOL::RCV_GetFileBlock(DIOPROTOCOL* protocol, DIOPROTOCOL_COMMAND* cmd, XBUFFER& xbuffer, XDWORD rID, XDWORD& param)
-* @brief      RCV_GetFileBlock
+* @brief      RCV get file block
 * @ingroup    DATAIO
 *
 * @param[in]  protocol :
@@ -3443,7 +3443,7 @@ int DIOPROTOCOL::RCV_GetFileBlock(DIOPROTOCOL* protocol, DIOPROTOCOL_COMMAND* cm
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOPROTOCOL::CMD_SendFileBlock(DIOPROTOCOL_FILE* fp)
-* @brief      CMD_SendFileBlock
+* @brief      CMD send file block
 * @ingroup    DATAIO
 *
 * @param[in]  fp :
@@ -3513,7 +3513,7 @@ bool DIOPROTOCOL::CMD_SendFileBlock(DIOPROTOCOL_FILE* fp)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOPROTOCOL::RCV_SendFileBlock(DIOPROTOCOL* protocol, DIOPROTOCOL_COMMAND* cmd, XBUFFER& xbuffer, XDWORD rID, XDWORD& param)
-* @brief      RCV_SendFileBlock
+* @brief      RCV send file block
 * @ingroup    DATAIO
 *
 * @param[in]  protocol :
@@ -3590,7 +3590,7 @@ int DIOPROTOCOL::RCV_SendFileBlock(DIOPROTOCOL* protocol, DIOPROTOCOL_COMMAND* c
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOPROTOCOL::CMD_SendAlert(DIOALERT* alert)
-* @brief      CMD_SendAlert
+* @brief      CMD send alert
 * @ingroup    DATAIO
 *
 * @param[in]  alert :
@@ -3640,7 +3640,7 @@ bool DIOPROTOCOL::CMD_SendAlert(DIOALERT* alert)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOPROTOCOL::RCV_SendAlert(DIOPROTOCOL* protocol, DIOPROTOCOL_COMMAND* cmd, XBUFFER& xbuffer, XDWORD rID, XDWORD& param)
-* @brief      RCV_SendAlert
+* @brief      RCV send alert
 * @ingroup    DATAIO
 *
 * @param[in]  protocol :
@@ -3732,7 +3732,7 @@ int DIOPROTOCOL::RCV_SendAlert(DIOPROTOCOL* protocol, DIOPROTOCOL_COMMAND* cmd, 
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOPROTOCOL::ThreadReceived(void* param)
-* @brief      ThreadReceived
+* @brief      Thread received
 * @ingroup    DATAIO
 *
 * @param[in]  param :
@@ -3761,7 +3761,7 @@ void DIOPROTOCOL::ThreadReceived(void* param)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOPROTOCOL::ThreadAsks(void* param)
-* @brief      ThreadAsks
+* @brief      Thread asks
 * @ingroup    DATAIO
 *
 * @param[in]  param :
@@ -3801,7 +3801,7 @@ void DIOPROTOCOL::ThreadAsks(void* param)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOPROTOCOL::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

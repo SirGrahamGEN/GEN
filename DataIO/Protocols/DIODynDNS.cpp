@@ -68,7 +68,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIODYNDNS::DIODYNDNS()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -83,7 +83,7 @@ DIODYNDNS::DIODYNDNS()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIODYNDNS::~DIODYNDNS()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -99,7 +99,7 @@ DIODYNDNS::~DIODYNDNS()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* DIODYNDNS::GetLogin()
-* @brief      GetLogin
+* @brief      Get login
 * @ingroup    DATAIO
 *
 * @return     XSTRING* :
@@ -114,7 +114,7 @@ XSTRING* DIODYNDNS::GetLogin()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* DIODYNDNS::GetPassword()
-* @brief      GetPassword
+* @brief      Get password
 * @ingroup    DATAIO
 *
 * @return     XSTRING* :
@@ -129,7 +129,7 @@ XSTRING* DIODYNDNS::GetPassword()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIODYNDNS::GetPublicIP(DIOIP& publicIP, int timeout, XSTRING* IPlocal)
-* @brief      GetPublicIP
+* @brief      Get public IP
 * @ingroup    DATAIO
 *
 * @param[in]  publicIP :
@@ -193,7 +193,7 @@ bool DIODYNDNS::GetPublicIP(DIOIP& publicIP, int timeout, XSTRING* IPlocal)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIODYNDNS::IsChangedPublicIP(DIOURL& url, bool& ischanged, DIOIP* newpublicip, int timeout, XSTRING* IPlocal)
-* @brief      IsChangedPublicIP
+* @brief      Is changed public IP
 * @ingroup    DATAIO
 *
 * @param[in]  url :
@@ -282,7 +282,7 @@ DIODYNDNS_STATUSCODE DIODYNDNS::Update(DIOURL& url, DIOIP& newpublicip, int time
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIODYNDNS_STATUSCODE DIODYNDNS::GetError(XSTRING& result)
-* @brief      GetError
+* @brief      Get error
 * @ingroup    DATAIO
 *
 * @param[in]  result :
@@ -341,7 +341,7 @@ DIODYNDNS_STATUSCODE DIODYNDNS::GetError(XSTRING& result)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIODYNDNS::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

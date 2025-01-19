@@ -66,7 +66,7 @@ XSLEEP* XSLEEP::instance = NULL;
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSLEEP::XSLEEP()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -79,7 +79,7 @@ XSLEEP::XSLEEP()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSLEEP::~XSLEEP()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -93,7 +93,7 @@ XSLEEP::~XSLEEP()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSLEEP::GetIsInstanced()
-* @brief      Get if Is Instanced
+* @brief      Get is instanced
 * @note       STATIC
 * @ingroup    XUTILS
 *
@@ -109,7 +109,7 @@ bool XSLEEP::GetIsInstanced()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSLEEP& XSLEEP::GetInstance()
-* @brief      Get Instance of XSLEEP
+* @brief      Get instance
 * @note       STATIC
 * @ingroup    XUTILS
 *
@@ -127,7 +127,7 @@ XSLEEP& XSLEEP::GetInstance()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSLEEP::SetInstance(XSLEEP* _instance)
-* @brief      Set Instance of XSLEEP
+* @brief      Set instance
 * @note       STATIC
 * @ingroup    XUTILS
 *
@@ -149,7 +149,7 @@ bool XSLEEP::SetInstance(XSLEEP* _instance)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSLEEP::DelInstance()
-* @brief      Delete Instance of XSLEEP
+* @brief      Del instance
 * @note       STATIC
 * @ingroup    XUTILS
 *
@@ -189,7 +189,7 @@ void XSLEEP::Seconds(int seconds)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XSLEEP::MilliSeconds(int milliseconds)
-* @brief      MilliSeconds
+* @brief      Milli seconds
 * @ingroup    XUTILS
 *
 * @param[in]  milliseconds :
@@ -204,7 +204,7 @@ void XSLEEP::MilliSeconds(int milliseconds)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XSLEEP::MicroSeconds(int microseconds)
-* @brief      MicroSeconds
+* @brief      Micro seconds
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -221,7 +221,7 @@ void XSLEEP::MicroSeconds(int microseconds)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XSLEEP::NanoSeconds(int nanoseconds)
-* @brief      NanoSeconds
+* @brief      Nano seconds
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -237,7 +237,7 @@ void XSLEEP::NanoSeconds(int nanoseconds)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XSLEEP::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    XUTILS
 *

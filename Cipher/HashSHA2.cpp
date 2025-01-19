@@ -232,7 +232,7 @@ XDWORD HASHSHA2::Sha256_k[64] =   { 0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5db
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         HASHSHA2::HASHSHA2(HASHSHA2TYPE type)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    CIPHER
 * 
 * @param[in]  type : 
@@ -258,7 +258,7 @@ HASHSHA2::HASHSHA2(HASHSHA2TYPE type) : HASH()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         HASHSHA2::~HASHSHA2()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    CIPHER
 * 
@@ -317,7 +317,7 @@ bool HASHSHA2::Do(XBYTE* input, XQWORD size)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int HASHSHA2::GetDefaultSize()
-* @brief      GetDefaultSize
+* @brief      Get default size
 * @ingroup    CIPHER
 * 
 * @return     int : 
@@ -340,7 +340,7 @@ int HASHSHA2::GetDefaultSize()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void HASHSHA2::Sha2_256_Transf(HASHSHA2_256_CTX* ctx, XBYTE* input, XDWORD blocknb)
-* @brief      Sha2_256_Transf
+* @brief      Sha2256 transf
 * @ingroup    CIPHER
 * 
 * @param[in]  ctx : 
@@ -403,7 +403,7 @@ void HASHSHA2::Sha2_256_Transf(HASHSHA2_256_CTX* ctx, XBYTE* input, XDWORD block
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void HASHSHA2::Sha2_256(XBYTE* input, XDWORD size, XBYTE* digest)
-* @brief      Sha2_256
+* @brief      Sha2256
 * @ingroup    CIPHER
 * 
 * @param[in]  input : 
@@ -424,7 +424,7 @@ void HASHSHA2::Sha2_256(XBYTE* input, XDWORD size, XBYTE* digest)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void HASHSHA2::Sha2_256_Ini(HASHSHA2_256_CTX* ctx)
-* @brief      Sha2_256_Ini
+* @brief      Sha2256 ini
 * @ingroup    CIPHER
 * 
 * @param[in]  ctx : 
@@ -447,7 +447,7 @@ void HASHSHA2::Sha2_256_Ini(HASHSHA2_256_CTX* ctx)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void HASHSHA2::Sha2_256_Update(HASHSHA2_256_CTX* ctx, XBYTE* input, XDWORD size)
-* @brief      Sha2_256_Update
+* @brief      Sha2256 update
 * @ingroup    CIPHER
 * 
 * @param[in]  ctx : 
@@ -492,7 +492,7 @@ void HASHSHA2::Sha2_256_Update(HASHSHA2_256_CTX* ctx, XBYTE* input, XDWORD size)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void HASHSHA2::Sha2_256_End(HASHSHA2_256_CTX* ctx, XBYTE* digest)
-* @brief      Sha2_256_End
+* @brief      Sha2256 end
 * @ingroup    CIPHER
 * 
 * @param[in]  ctx : 
@@ -528,7 +528,7 @@ void HASHSHA2::Sha2_256_End(HASHSHA2_256_CTX* ctx, XBYTE* digest)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void HASHSHA2::Sha2_512_Transf(HASHSHA2_512_CTX* ctx, XBYTE* input, XDWORD blocknb)
-* @brief      Sha2_512_Transf
+* @brief      Sha2512 transf
 * @ingroup    CIPHER
 * 
 * @param[in]  ctx : 
@@ -591,7 +591,7 @@ void HASHSHA2::Sha2_512_Transf(HASHSHA2_512_CTX* ctx, XBYTE* input, XDWORD block
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void HASHSHA2::Sha2_512(XBYTE* input, XDWORD size, XBYTE* digest)
-* @brief      Sha2_512
+* @brief      Sha2512
 * @ingroup    CIPHER
 * 
 * @param[in]  input : 
@@ -612,7 +612,7 @@ void HASHSHA2::Sha2_512(XBYTE* input, XDWORD size, XBYTE* digest)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void HASHSHA2::Sha2_512_Ini(HASHSHA2_512_CTX* ctx)
-* @brief      Sha2_512_Ini
+* @brief      Sha2512 ini
 * @ingroup    CIPHER
 * 
 * @param[in]  ctx : 
@@ -635,7 +635,7 @@ void HASHSHA2::Sha2_512_Ini(HASHSHA2_512_CTX* ctx)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void HASHSHA2::Sha2_512_Update(HASHSHA2_512_CTX* ctx, XBYTE* input, XDWORD size)
-* @brief      Sha2_512_Update
+* @brief      Sha2512 update
 * @ingroup    CIPHER
 * 
 * @param[in]  ctx : 
@@ -680,7 +680,7 @@ void HASHSHA2::Sha2_512_Update(HASHSHA2_512_CTX* ctx, XBYTE* input, XDWORD size)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void HASHSHA2::Sha2_512_End(HASHSHA2_512_CTX* ctx, XBYTE* digest)
-* @brief      Sha2_512_End
+* @brief      Sha2512 end
 * @ingroup    CIPHER
 * 
 * @param[in]  ctx : 
@@ -716,7 +716,7 @@ void HASHSHA2::Sha2_512_End(HASHSHA2_512_CTX* ctx, XBYTE* digest)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void HASHSHA2::Sha2_384(XBYTE* input, XDWORD size, XBYTE* digest)
-* @brief      Sha2_384
+* @brief      Sha2384
 * @ingroup    CIPHER
 * 
 * @param[in]  input : 
@@ -737,7 +737,7 @@ void HASHSHA2::Sha2_384(XBYTE* input, XDWORD size, XBYTE* digest)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void HASHSHA2::Sha2_384_Ini(HASHSHA2_384_CTX* ctx)
-* @brief      Sha2_384_Ini
+* @brief      Sha2384 ini
 * @ingroup    CIPHER
 * 
 * @param[in]  ctx : 
@@ -760,7 +760,7 @@ void HASHSHA2::Sha2_384_Ini(HASHSHA2_384_CTX* ctx)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void HASHSHA2::Sha2_384_Update(HASHSHA2_384_CTX* ctx, XBYTE* input, XDWORD len)
-* @brief      Sha2_384_Update
+* @brief      Sha2384 update
 * @ingroup    CIPHER
 * 
 * @param[in]  ctx : 
@@ -805,7 +805,7 @@ void HASHSHA2::Sha2_384_Update(HASHSHA2_384_CTX* ctx, XBYTE* input, XDWORD len)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void HASHSHA2::Sha2_384_End(HASHSHA2_384_CTX* ctx, XBYTE* digest)
-* @brief      Sha2_384_End
+* @brief      Sha2384 end
 * @ingroup    CIPHER
 * 
 * @param[in]  ctx : 
@@ -841,7 +841,7 @@ void HASHSHA2::Sha2_384_End(HASHSHA2_384_CTX* ctx, XBYTE* digest)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void HASHSHA2::Sha2_224(XBYTE* input, XDWORD len, XBYTE* digest)
-* @brief      Sha2_224
+* @brief      Sha2224
 * @ingroup    CIPHER
 * 
 * @param[in]  input : 
@@ -862,7 +862,7 @@ void HASHSHA2::Sha2_224(XBYTE* input, XDWORD len, XBYTE* digest)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void HASHSHA2::Sha2_224_Ini(HASHSHA2_224_CTX* ctx)
-* @brief      Sha2_224_Ini
+* @brief      Sha2224 ini
 * @ingroup    CIPHER
 * 
 * @param[in]  ctx : 
@@ -885,7 +885,7 @@ void HASHSHA2::Sha2_224_Ini(HASHSHA2_224_CTX* ctx)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void HASHSHA2::Sha2_224_Update(HASHSHA2_224_CTX* ctx, XBYTE* input, XDWORD len)
-* @brief      Sha2_224_Update
+* @brief      Sha2224 update
 * @ingroup    CIPHER
 * 
 * @param[in]  ctx : 
@@ -932,7 +932,7 @@ void HASHSHA2::Sha2_224_Update(HASHSHA2_224_CTX* ctx, XBYTE* input, XDWORD len)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void HASHSHA2::Sha2_224_End(HASHSHA2_224_CTX* ctx, XBYTE* digest)
-* @brief      Sha2_224_End
+* @brief      Sha2224 end
 * @ingroup    CIPHER
 * 
 * @param[in]  ctx : 
@@ -968,7 +968,7 @@ void HASHSHA2::Sha2_224_End(HASHSHA2_224_CTX* ctx, XBYTE* digest)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void HASHSHA2::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    CIPHER
 * 

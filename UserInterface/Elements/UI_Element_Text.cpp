@@ -64,7 +64,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_ELEMENT_TEXT::UI_ELEMENT_TEXT()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    USERINTERFACE
 *
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -80,7 +80,7 @@ UI_ELEMENT_TEXT::UI_ELEMENT_TEXT()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_ELEMENT_TEXT::~UI_ELEMENT_TEXT()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
 *
@@ -94,7 +94,7 @@ UI_ELEMENT_TEXT::~UI_ELEMENT_TEXT()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD UI_ELEMENT_TEXT::GetSizeFont()
-* @brief      GetSizeFont
+* @brief      Get size font
 * @ingroup    USERINTERFACE
 *
 * @return     XDWORD : 
@@ -109,7 +109,7 @@ XDWORD UI_ELEMENT_TEXT::GetSizeFont()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_ELEMENT_TEXT::SetSizeFont(XDWORD sizefont)
-* @brief      SetSizeFont
+* @brief      Set size font
 * @ingroup    USERINTERFACE
 *
 * @param[in]  sizefont : 
@@ -124,7 +124,7 @@ void UI_ELEMENT_TEXT::SetSizeFont(XDWORD sizefont)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* UI_ELEMENT_TEXT::GetText()
-* @brief      GetText
+* @brief      Get text
 * @ingroup    USERINTERFACE
 *
 * @return     XSTRING* : 
@@ -139,7 +139,7 @@ XSTRING* UI_ELEMENT_TEXT::GetText()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* UI_ELEMENT_TEXT::GetMaskText()
-* @brief      GetMaskText
+* @brief      Get mask text
 * @ingroup    USERINTERFACE
 *
 * @return     XSTRING* : 
@@ -154,7 +154,7 @@ XSTRING* UI_ELEMENT_TEXT::GetMaskText()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD UI_ELEMENT_TEXT::GetMaxSizeText()
-* @brief      GetMaxSizeText
+* @brief      Get max size text
 * @ingroup    USERINTERFACE
 *
 * @return     XDWORD : 
@@ -169,7 +169,7 @@ XDWORD UI_ELEMENT_TEXT::GetMaxSizeText()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_ELEMENT_TEXT::SetMaxSizeText(XDWORD maxsizetext)
-* @brief      SetMaxSizeText
+* @brief      Set max size text
 * @ingroup    USERINTERFACE
 *
 * @param[in]  maxsizetext : 
@@ -184,7 +184,7 @@ void UI_ELEMENT_TEXT::SetMaxSizeText(XDWORD maxsizetext)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_ELEMENT_TEXT::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
 *

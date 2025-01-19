@@ -45,7 +45,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTM32DATETIME::XSTM32DATETIME()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_STM32
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -59,7 +59,7 @@ XSTM32DATETIME::XSTM32DATETIME()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTM32DATETIME::~XSTM32DATETIME()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_STM32
 *
@@ -110,7 +110,7 @@ bool XSTM32DATETIME::Write()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XSTM32DATETIME::GetMeridianDifference()
-* @brief      GetMeridianDifference
+* @brief      Get meridian difference
 * @ingroup    PLATFORM_STM32
 *
 * @return     int :
@@ -126,7 +126,7 @@ int XSTM32DATETIME::GetMeridianDifference()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTM32DATETIME::IsDayLigthSavingTime(int* bias)
-* @brief      IsDayLigthSavingTime
+* @brief      Is day ligth saving time
 * @ingroup    PLATFORM_STM32
 *
 * @param[in]  bias :

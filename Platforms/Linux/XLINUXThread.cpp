@@ -75,7 +75,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XLINUXMUTEX::XLINUXMUTEX()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_LINUX
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -93,7 +93,7 @@ XLINUXMUTEX::XLINUXMUTEX()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XLINUXMUTEX::~XLINUXMUTEX()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
 *
@@ -134,7 +134,7 @@ bool XLINUXMUTEX::Lock()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XLINUXMUTEX::UnLock()
-* @brief      UnLock
+* @brief      Un lock
 * @ingroup    PLATFORM_LINUX
 *
 * @return     bool : true if is succesful.
@@ -154,7 +154,7 @@ bool XLINUXMUTEX::UnLock()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XLINUXMUTEX::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
 *
@@ -174,7 +174,7 @@ void XLINUXMUTEX::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XLINUXTHREAD::XLINUXTHREAD(XTHREADGROUPID groupID, XCHAR* ID, XTHREADFUNCTION function, void* param)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_LINUX
 * 
 * @param[in]  groupID : 
@@ -192,7 +192,7 @@ XLINUXTHREAD::XLINUXTHREAD(XTHREADGROUPID groupID, XCHAR* ID, XTHREADFUNCTION fu
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XLINUXTHREAD::~XLINUXTHREAD()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
 *
@@ -394,7 +394,7 @@ void* XLINUXTHREAD::Callback(void* thread)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XLINUXTHREAD::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
 *

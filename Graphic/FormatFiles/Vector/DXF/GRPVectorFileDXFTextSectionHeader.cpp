@@ -335,7 +335,7 @@ GRPVECTORFILEDXFTEXTSECTIONHEADERDEFVARIABLE GRPVECTORFILEDXFTEXTSECTIONHEADER::
   { __L("$XCLIPFRAME")              , 1, { { 290, __L("")  } } ,  __L("Controls the visibility of xref clipping boundaries: 0 = Clipping boundary is not visible 1 = Clipping boundary is visible") },
   { __L("$XEDIT")                   , 1, { { 290, __L("")  } } ,  __L("Controls whether the current drawing can be edited in-place when being referenced by another drawing: 0 = Can't use in-place reference editing, 1 = Can use in-place reference editing") },
 
-  // The following header variables existed before AutoCAD® Release 11 but now have independent settings for each active viewport. OPEN honors these variables when read from DXF™ files. If a VPORT symbol table with *ACTIVE entries is present (as is true for any DXF file produced by Release 11 or later),
+  // The following header variables existed before AutoCAD Release 11 but now have independent settings for each active viewport. OPEN honors these variables when read from DXF files. If a VPORT symbol table with *ACTIVE entries is present (as is true for any DXF file produced by Release 11 or later),
   // the values in the VPORT table entries override the values of these header variables.
    
   { __L("$FASTZOOM")                , 1, { {  70, __L("")  } } ,  __L("Fast zoom enabled if nonzero") },
@@ -363,7 +363,7 @@ GRPVECTORFILEDXFTEXTSECTIONHEADERDEFVARIABLE GRPVECTORFILEDXFTEXTSECTIONHEADER::
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVECTORFILEDXFTEXTSECTIONHEADER::GRPVECTORFILEDXFTEXTSECTIONHEADER()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    GRAPHIC
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -378,7 +378,7 @@ GRPVECTORFILEDXFTEXTSECTIONHEADER::GRPVECTORFILEDXFTEXTSECTIONHEADER()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVECTORFILEDXFTEXTSECTIONHEADER::~GRPVECTORFILEDXFTEXTSECTIONHEADER()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
 * 
@@ -394,7 +394,7 @@ GRPVECTORFILEDXFTEXTSECTIONHEADER::~GRPVECTORFILEDXFTEXTSECTIONHEADER()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPVECTORFILEDXFTEXTSECTIONHEADER::IsKnownVariable(XSTRING& namevar)
-* @brief      IsKnownVariable
+* @brief      Is known variable
 * @ingroup    GRAPHIC
 * 
 * @param[in]  namevar : 
@@ -423,7 +423,7 @@ bool GRPVECTORFILEDXFTEXTSECTIONHEADER::IsKnownVariable(XSTRING& namevar)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPVECTORFILEDXFTEXTSECTIONHEADER::AddVariable(XCHAR* namevar, XVARIANT* variant)
-* @brief      AddVariable
+* @brief      Add variable
 * @ingroup    GRAPHIC
 * 
 * @param[in]  namevar : 
@@ -459,7 +459,7 @@ bool GRPVECTORFILEDXFTEXTSECTIONHEADER::AddVariable(XCHAR* namevar, XVARIANT* va
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XMAP<XSTRING*, XVARIANT*>* GRPVECTORFILEDXFTEXTSECTIONHEADER::GetVariables()
-* @brief      GetVariables
+* @brief      Get variables
 * @ingroup    GRAPHIC
 * 
 * @return     XMAP<XSTRING*, : 
@@ -474,7 +474,7 @@ XMAP<XSTRING*, XVARIANT*>* GRPVECTORFILEDXFTEXTSECTIONHEADER::GetVariables()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XVARIANT* GRPVECTORFILEDXFTEXTSECTIONHEADER::GetVariable(XCHAR* namevar)
-* @brief      GetVariable
+* @brief      Get variable
 * @ingroup    GRAPHIC
 * 
 * @param[in]  namevar : 
@@ -508,7 +508,7 @@ XVARIANT* GRPVECTORFILEDXFTEXTSECTIONHEADER::GetVariable(XCHAR* namevar)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPVECTORFILEDXFTEXTSECTIONHEADER::DeleteVariable(XCHAR* namevar)
-* @brief      DeleteVariable
+* @brief      Delete variable
 * @ingroup    GRAPHIC
 * 
 * @param[in]  namevar : 
@@ -542,7 +542,7 @@ bool GRPVECTORFILEDXFTEXTSECTIONHEADER::DeleteVariable(XCHAR* namevar)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPVECTORFILEDXFTEXTSECTIONHEADER::DeleteAllVariables(bool withcontens)
-* @brief      DeleteAllVariables
+* @brief      Delete all variables
 * @ingroup    GRAPHIC
 * 
 * @param[in]  withcontens : 
@@ -573,7 +573,7 @@ bool GRPVECTORFILEDXFTEXTSECTIONHEADER::DeleteAllVariables(bool withcontens)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XCHAR* GRPVECTORFILEDXFTEXTSECTIONHEADER::GetVariableRemark(XSTRING& namevar)
-* @brief      GetVariableRemark
+* @brief      Get variable remark
 * @ingroup    GRAPHIC
 * 
 * @param[in]  namevar : 
@@ -602,7 +602,7 @@ XCHAR* GRPVECTORFILEDXFTEXTSECTIONHEADER::GetVariableRemark(XSTRING& namevar)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPVECTORFILEDXFTEXTSECTIONHEADER::ParserVariable(XFILETXT* file, GRPVECTORFILEDXFTEXTPART* part, XCHAR* namevar, ...)
-* @brief      ParserVariable
+* @brief      Parser variable
 * @ingroup    GRAPHIC
 * 
 * @param[in]  file : 
@@ -682,7 +682,7 @@ bool GRPVECTORFILEDXFTEXTSECTIONHEADER::ParserVariable(XFILETXT* file, GRPVECTOR
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVECTORFILERESULT GRPVECTORFILEDXFTEXTSECTIONHEADER::ParserTextSection(XFILETXT* fileTXT)
-* @brief      ParserTextSection
+* @brief      Parser text section
 * @ingroup    GRAPHIC
 * 
 * @param[in]  fileTXT : 
@@ -816,7 +816,7 @@ GRPVECTORFILERESULT GRPVECTORFILEDXFTEXTSECTIONHEADER::ParserTextSection(XFILETX
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPVECTORFILEDXFTEXTSECTIONHEADER::ShowTraceAllVariables()
-* @brief      ShowTraceAllVariables
+* @brief      Show trace all variables
 * @ingroup    GRAPHIC
 * 
 * @return     bool : true if is succesful. 
@@ -848,7 +848,7 @@ bool GRPVECTORFILEDXFTEXTSECTIONHEADER::ShowTraceAllVariables()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRPVECTORFILEDXFTEXTSECTIONHEADER::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    GRAPHIC
 * 

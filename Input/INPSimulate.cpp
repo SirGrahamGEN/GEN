@@ -283,7 +283,7 @@ INPUTSIMULATE_KDB_PC  inputsimulare_KDB_PC_Spanish[]		= { { 0xDC  , __L("\xBA")	
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         INPSIMULATE::INPSIMULATE()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    INPUT
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -296,7 +296,7 @@ INPSIMULATE::INPSIMULATE()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         INPSIMULATE::~INPSIMULATE()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    INPUT
 * 
@@ -310,7 +310,7 @@ INPSIMULATE::~INPSIMULATE()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool INPSIMULATE::Key_Press(XBYTE code)
-* @brief      Key_Press
+* @brief      Key press
 * @ingroup    INPUT
 * 
 * @param[in]  code : 
@@ -327,7 +327,7 @@ bool INPSIMULATE::Key_Press(XBYTE code)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool INPSIMULATE::Key_UnPress(XBYTE code)
-* @brief      Key_UnPress
+* @brief      Key un press
 * @ingroup    INPUT
 * 
 * @param[in]  code : 
@@ -344,7 +344,7 @@ bool INPSIMULATE::Key_UnPress(XBYTE code)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool INPSIMULATE::Key_Click(XBYTE code, int pressuretime)
-* @brief      Key_Click
+* @brief      Key click
 * @ingroup    INPUT
 * 
 * @param[in]  code : 
@@ -362,7 +362,7 @@ bool INPSIMULATE::Key_Click(XBYTE code, int pressuretime)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool INPSIMULATE::Key_PressByLiteral(XCHAR* literal)
-* @brief      Key_PressByLiteral
+* @brief      Key press by literal
 * @ingroup    INPUT
 * 
 * @param[in]  literal : 
@@ -379,7 +379,7 @@ bool INPSIMULATE::Key_PressByLiteral(XCHAR* literal)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool INPSIMULATE::Key_UnPressByLiteral(XCHAR* literal)
-* @brief      Key_UnPressByLiteral
+* @brief      Key un press by literal
 * @ingroup    INPUT
 * 
 * @param[in]  literal : 
@@ -396,7 +396,7 @@ bool INPSIMULATE::Key_UnPressByLiteral(XCHAR* literal)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool INPSIMULATE::Key_ClickByLiteral(XCHAR* literal, int pressuretime)
-* @brief      Key_ClickByLiteral
+* @brief      Key click by literal
 * @ingroup    INPUT
 * 
 * @param[in]  literal : 
@@ -414,7 +414,7 @@ bool INPSIMULATE::Key_ClickByLiteral(XCHAR* literal, int pressuretime)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool INPSIMULATE::Key_ClickByText(XCHAR* text, int pressuretimeinterval)
-* @brief      Key_ClickByText
+* @brief      Key click by text
 * @ingroup    INPUT
 * 
 * @param[in]  text : 
@@ -432,7 +432,7 @@ bool INPSIMULATE::Key_ClickByText(XCHAR* text, int pressuretimeinterval)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool INPSIMULATE::Mouse_SetPos(int x, int y)
-* @brief      Mouse_SetPos
+* @brief      Mouse set pos
 * @ingroup    INPUT
 * 
 * @param[in]  x : 
@@ -450,7 +450,7 @@ bool INPSIMULATE::Mouse_SetPos(int x, int y)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void INPSIMULATE::Mouse_Click(int x, int y)
-* @brief      Mouse_Click
+* @brief      Mouse click
 * @ingroup    INPUT
 * 
 * @param[in]  x : 
@@ -466,7 +466,7 @@ bool INPSIMULATE::Mouse_Click(int x, int y)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTE INPSIMULATE::GetKDBCodeByLiteral(XCHAR* literal, ALTERNATIVE_KEY& altkey)
-* @brief      GetKDBCodeByLiteral
+* @brief      Get KDB code by literal
 * @ingroup    INPUT
 * 
 * @param[in]  literal : 
@@ -511,7 +511,7 @@ XBYTE INPSIMULATE::GetKDBCodeByLiteral(XCHAR* literal, ALTERNATIVE_KEY& altkey)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void INPSIMULATE::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    INPUT
 * 

@@ -66,7 +66,7 @@ XFACTORY* XFACTORY::instance = NULL;
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFACTORY::XFACTORY()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -79,7 +79,7 @@ XFACTORY::XFACTORY()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFACTORY::~XFACTORY()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -93,7 +93,7 @@ XFACTORY::~XFACTORY()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFACTORY::GetIsInstanced()
-* @brief      Get if Is Instanced
+* @brief      Get is instanced
 * @note       STATIC
 * @ingroup    XUTILS
 *
@@ -109,7 +109,7 @@ bool XFACTORY::GetIsInstanced()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFACTORY& XFACTORY::GetInstance()
-* @brief      Get Instance of XFACTORY
+* @brief      Get instance
 * @note       STATIC
 * @ingroup    XUTILS
 *
@@ -130,7 +130,7 @@ XFACTORY& XFACTORY::GetInstance()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFACTORY::SetInstance(XFACTORY* _instance)
-* @brief      SetInstance
+* @brief      Set instance
 * @ingroup    XUTILS
 *
 * @param[in]  _instance : 
@@ -153,7 +153,7 @@ bool XFACTORY::SetInstance(XFACTORY* _instance)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFACTORY::DelInstance()
-* @brief      Delete Instance of XFACTORY
+* @brief      Del instance
 * @note       STATIC
 * @ingroup    XUTILS
 *
@@ -174,7 +174,7 @@ bool XFACTORY::DelInstance()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XTIMER* XFACTORY::CreateTimer()
-* @brief      Create Timer
+* @brief      Create timer
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -190,7 +190,7 @@ XTIMER* XFACTORY::CreateTimer()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFACTORY::DeleteTimer(XTIMER* timer)
-* @brief      Delete Timer
+* @brief      Delete timer
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -208,7 +208,7 @@ bool XFACTORY::DeleteTimer(XTIMER* timer)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDATETIME* XFACTORY::CreateDateTime()
-* @brief      Create DateTime
+* @brief      Create date time
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -224,7 +224,7 @@ XDATETIME* XFACTORY::CreateDateTime()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFACTORY::DeleteDateTime(XDATETIME* datetime)
-* @brief      Delete DateTime
+* @brief      Delete date time
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -242,7 +242,7 @@ bool XFACTORY::DeleteDateTime(XDATETIME* datetime)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XRAND* XFACTORY::CreateRand()
-* @brief      Create Rand
+* @brief      Create rand
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -258,7 +258,7 @@ XRAND* XFACTORY::CreateRand()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFACTORY::DeleteRand(XRAND* rand)
-* @brief      Delete Rand
+* @brief      Delete rand
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -276,7 +276,7 @@ bool XFACTORY::DeleteRand(XRAND* rand)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILE* XFACTORY::Create_File()
-* @brief      Create File
+* @brief      Create file
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -292,7 +292,7 @@ XFILE* XFACTORY::Create_File()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFACTORY::Delete_File(XFILE* file)
-* @brief      Delete_File
+* @brief      Delete file
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -310,7 +310,7 @@ bool XFACTORY::Delete_File(XFILE* file)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDIR* XFACTORY::Create_Dir()
-* @brief      Create_Dir
+* @brief      Create dir
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -326,7 +326,7 @@ XDIR* XFACTORY::Create_Dir()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFACTORY::Delete_Dir(XDIR* dir)
-* @brief      Delete_Dir
+* @brief      Delete dir
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -345,7 +345,7 @@ bool XFACTORY::Delete_Dir(XDIR* dir)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XCONSOLE* XFACTORY::CreateConsole()
-* @brief      Create Console
+* @brief      Create console
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -361,7 +361,7 @@ XCONSOLE* XFACTORY::CreateConsole()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFACTORY::DeleteConsole(XCONSOLE* xconsole)
-* @brief      DeleteConsole
+* @brief      Delete console
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -380,7 +380,7 @@ bool XFACTORY::DeleteConsole(XCONSOLE* xconsole)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XMUTEX* XFACTORY::Create_Mutex()
-* @brief      Create Mutex
+* @brief      Create mutex
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -396,7 +396,7 @@ XMUTEX* XFACTORY::Create_Mutex()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XFACTORY::Delete_Mutex(XMUTEX* mutex)
-* @brief      Delete_Mutex
+* @brief      Delete mutex
 * @ingroup    XUTILS
 * 
 * @param[in]  mutex : 
@@ -413,7 +413,7 @@ bool XFACTORY::Delete_Mutex(XMUTEX* mutex)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XTHREAD* XFACTORY::CreateThread(XTHREADGROUPID groupID, XCHAR* ID,XTHREADFUNCTION function, void* param)
-* @brief      CreateThread
+* @brief      Create thread
 * @ingroup    XUTILS
 *
 * @param[in]  groupID : 
@@ -433,7 +433,7 @@ XTHREAD* XFACTORY::CreateThread(XTHREADGROUPID groupID, XCHAR* ID,XTHREADFUNCTIO
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFACTORY::DeleteThread(XTHREADGROUPID groupID, XTHREAD* xthread)
-* @brief      Delete Thread
+* @brief      Delete thread
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -452,7 +452,7 @@ bool XFACTORY::DeleteThread(XTHREADGROUPID groupID, XTHREAD* xthread)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XFACTORY::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    XUTILS
 *

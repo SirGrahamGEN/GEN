@@ -66,7 +66,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XANDROIDFILE::XANDROIDFILE()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_ANDROID
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -79,7 +79,7 @@ XANDROIDFILE::XANDROIDFILE(): XLINUXFILE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XANDROIDFILE::~XANDROIDFILE()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_ANDROID
 *

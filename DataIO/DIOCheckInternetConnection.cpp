@@ -69,7 +69,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOCHECKINTERNETCONNECTION::DIOCHECKINTERNETCONNECTION(int timeconnectionchecks)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * @param[in]  timeconnectionchecks :
@@ -122,7 +122,7 @@ DIOCHECKINTERNETCONNECTION::DIOCHECKINTERNETCONNECTION(int timeconnectionchecks)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOCHECKINTERNETCONNECTION::~DIOCHECKINTERNETCONNECTION()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -154,7 +154,7 @@ DIOCHECKINTERNETCONNECTION::~DIOCHECKINTERNETCONNECTION()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOCHECKTCPIPCONNECTIONS* DIOCHECKINTERNETCONNECTION::GetCheckConnections()
-* @brief      GetCheckConnections
+* @brief      Get check connections
 * @ingroup    DATAIO
 *
 * @return     DIOCHECKTCPIPCONNECTIONS* :
@@ -232,7 +232,7 @@ bool DIOCHECKINTERNETCONNECTION::Check()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOCHECKINTERNETCONNECTION::AddConnectionCut(DIOCHECKTCPIPCONNECTION_CUT& connectioncut)
-* @brief      AddConnectionCut
+* @brief      Add connection cut
 * @ingroup    DATAIO
 *
 * @param[in]  connectioncut :
@@ -258,7 +258,7 @@ bool DIOCHECKINTERNETCONNECTION::AddConnectionCut(DIOCHECKTCPIPCONNECTION_CUT& c
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOCHECKINTERNETCONNECTION::DeleteAllConnectionCuts()
-* @brief      DeleteAllConnectionCuts
+* @brief      Delete all connection cuts
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -284,7 +284,7 @@ bool DIOCHECKINTERNETCONNECTION::DeleteAllConnectionCuts()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XVECTOR<DIOCHECKTCPIPCONNECTION_CUT*>* DIOCHECKINTERNETCONNECTION::GetConnectionCuts()
-* @brief      GetConnectionCuts
+* @brief      Get connection cuts
 * @ingroup    DATAIO
 *
 * @return     XVECTOR<DIOCHECKTCPIPCONNECTION_CUT*>* :
@@ -299,7 +299,7 @@ XVECTOR<DIOCHECKTCPIPCONNECTION_CUT*>*   DIOCHECKINTERNETCONNECTION::GetConnecti
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOCHECKTCPIPCONNECTION_CUT* DIOCHECKINTERNETCONNECTION::GetLastConnectionsCut()
-* @brief      GetLastConnectionsCut
+* @brief      Get last connections cut
 * @ingroup    DATAIO
 *
 * @return     DIOCHECKTCPIPCONNECTION_CUT* :
@@ -314,7 +314,7 @@ DIOCHECKTCPIPCONNECTION_CUT* DIOCHECKINTERNETCONNECTION::GetLastConnectionsCut()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOCHECKINTERNETCONNECTION::IsChangeConnectionStatus()
-* @brief      IsChangeConnectionStatus
+* @brief      Is change connection status
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -329,7 +329,7 @@ bool DIOCHECKINTERNETCONNECTION::IsChangeConnectionStatus()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOCHECKINTERNETCONNECTION::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

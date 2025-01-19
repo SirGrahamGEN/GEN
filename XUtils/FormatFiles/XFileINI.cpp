@@ -72,7 +72,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILEINIKEY::XFILEINIKEY()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -85,7 +85,7 @@ XFILEINIKEY::XFILEINIKEY()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILEINIKEY::~XFILEINIKEY()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -99,7 +99,7 @@ XFILEINIKEY::~XFILEINIKEY()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* XFILEINIKEY::GetKey()
-* @brief      GetKey
+* @brief      Get key
 * @ingroup    XUTILS
 *
 * @return     XSTRING* :
@@ -114,7 +114,7 @@ XSTRING* XFILEINIKEY::GetKey()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEINIKEY::SetKey(XSTRING& key)
-* @brief      SetKey
+* @brief      Set key
 * @ingroup    XUTILS
 *
 * @param[in]  key :
@@ -133,7 +133,7 @@ bool XFILEINIKEY::SetKey(XSTRING& key)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* XFILEINIKEY::GetValue()
-* @brief      GetValue
+* @brief      Get value
 * @ingroup    XUTILS
 *
 * @return     XSTRING* :
@@ -148,7 +148,7 @@ XSTRING* XFILEINIKEY::GetValue()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEINIKEY::SetValue(XSTRING& value)
-* @brief      SetValue
+* @brief      Set value
 * @ingroup    XUTILS
 *
 * @param[in]  value :
@@ -167,7 +167,7 @@ bool XFILEINIKEY::SetValue(XSTRING& value)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XFILEINIKEY::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    XUTILS
 *
@@ -187,7 +187,7 @@ void XFILEINIKEY::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILEINISECTION::XFILEINISECTION()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -200,7 +200,7 @@ XFILEINISECTION::XFILEINISECTION()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILEINISECTION::~XFILEINISECTION()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -214,7 +214,7 @@ XFILEINISECTION::~XFILEINISECTION()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* XFILEINISECTION::GetName()
-* @brief      GetName
+* @brief      Get name
 * @ingroup    XUTILS
 *
 * @return     XSTRING* :
@@ -229,7 +229,7 @@ XSTRING* XFILEINISECTION::GetName()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEINISECTION::SetName(XSTRING& section)
-* @brief      SetName
+* @brief      Set name
 * @ingroup    XUTILS
 *
 * @param[in]  section :
@@ -248,7 +248,7 @@ bool XFILEINISECTION::SetName(XSTRING& section)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILEINIKEY* XFILEINISECTION::FindKey(XSTRING& key)
-* @brief      FindKey
+* @brief      Find key
 * @ingroup    XUTILS
 *
 * @param[in]  key :
@@ -279,7 +279,7 @@ XFILEINIKEY* XFILEINISECTION::FindKey(XSTRING& key)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEINISECTION::GetKey(XSTRING& key,XSTRING& value)
-* @brief      GetKey
+* @brief      Get key
 * @ingroup    XUTILS
 *
 * @param[in]  key :
@@ -303,7 +303,7 @@ bool XFILEINISECTION::GetKey(XSTRING& key,XSTRING& value)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEINISECTION::SetKey(XSTRING& key,XSTRING& value)
-* @brief      SetKey
+* @brief      Set key
 * @ingroup    XUTILS
 *
 * @param[in]  key :
@@ -337,7 +337,7 @@ bool XFILEINISECTION::SetKey(XSTRING& key,XSTRING& value)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEINISECTION::DeleteKey(XSTRING& key)
-* @brief      DeleteKey
+* @brief      Delete key
 * @ingroup    XUTILS
 *
 * @param[in]  key :
@@ -360,7 +360,7 @@ bool XFILEINISECTION::DeleteKey(XSTRING& key)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEINISECTION::GetNextKey(XSTRING& key,XSTRING& value)
-* @brief      GetNextKey
+* @brief      Get next key
 * @ingroup    XUTILS
 *
 * @param[in]  key :
@@ -388,7 +388,7 @@ bool XFILEINISECTION::GetNextKey(XSTRING& key,XSTRING& value)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEINISECTION::ResetSelectionKey()
-* @brief      ResetSelectionKey
+* @brief      Reset selection key
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -405,7 +405,7 @@ bool XFILEINISECTION::ResetSelectionKey()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XFILEINISECTION::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    XUTILS
 *
@@ -432,7 +432,7 @@ void XFILEINISECTION::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XFILEINIREMARK::XFILEINIREMARK()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -445,7 +445,7 @@ XFILEINIREMARK::XFILEINIREMARK()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XFILEINIREMARK::~XFILEINIREMARK()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -459,7 +459,7 @@ XFILEINIREMARK::~XFILEINIREMARK()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XFILEINI_TYPEREMARK XFILEINIREMARK::GetType()
-* @brief      GetType
+* @brief      Get type
 * @ingroup    XUTILS
 *
 * @return     XFILEINI_TYPEREMARK : 
@@ -474,7 +474,7 @@ XFILEINI_TYPEREMARK XFILEINIREMARK::GetType()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void XFILEINIREMARK::SetType(XFILEINI_TYPEREMARK type)
-* @brief      SetType
+* @brief      Set type
 * @ingroup    XUTILS
 *
 * @param[in]  type : 
@@ -489,7 +489,7 @@ void XFILEINIREMARK::SetType(XFILEINI_TYPEREMARK type)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD XFILEINIREMARK::GetXPos()
-* @brief      GetXPos
+* @brief      Get X pos
 * @ingroup    XUTILS
 *
 * @return     XDWORD : 
@@ -504,7 +504,7 @@ XDWORD XFILEINIREMARK::GetXPos()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void XFILEINIREMARK::SetXPos(XDWORD xpos)
-* @brief      SetXPos
+* @brief      Set X pos
 * @ingroup    XUTILS
 *
 * @param[in]  xpos : 
@@ -519,7 +519,7 @@ void XFILEINIREMARK::SetXPos(XDWORD xpos)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int XFILEINIREMARK::GetRelativeYPos()
-* @brief      GetRelativeYPos
+* @brief      Get relative Y pos
 * @ingroup    XUTILS
 *
 * @return     int : 
@@ -534,7 +534,7 @@ int XFILEINIREMARK::GetRelativeYPos()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void XFILEINIREMARK::SetRelativeYPos(int relativeypos)
-* @brief      SetRelativeYPos
+* @brief      Set relative Y pos
 * @ingroup    XUTILS
 *
 * @param[in]  relativeypos : 
@@ -549,7 +549,7 @@ void XFILEINIREMARK::SetRelativeYPos(int relativeypos)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* XFILEINIREMARK::GetRelativeSection()
-* @brief      GetRelativeSection
+* @brief      Get relative section
 * @ingroup    XUTILS
 *
 * @return     XSTRING* : 
@@ -564,7 +564,7 @@ XSTRING* XFILEINIREMARK::GetRelativeSection()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* XFILEINIREMARK::GetRelativeKey()
-* @brief      GetRelativeKey
+* @brief      Get relative key
 * @ingroup    XUTILS
 *
 * @return     XSTRING* : 
@@ -579,7 +579,7 @@ XSTRING* XFILEINIREMARK::GetRelativeKey()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* XFILEINIREMARK::GetTextRemark()
-* @brief      GetTextRemark
+* @brief      Get text remark
 * @ingroup    XUTILS
 * 
 * @return     XSTRING* : 
@@ -618,7 +618,7 @@ bool XFILEINIREMARK::Compare(XFILEINIREMARK* remake)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XFILEINIREMARK::CopyTo(XFILEINIREMARK* remake)
-* @brief      CopyTo
+* @brief      Copy to
 * @ingroup    XUTILS
 *
 * @param[in]  remake : 
@@ -644,7 +644,7 @@ bool XFILEINIREMARK::CopyTo(XFILEINIREMARK* remake)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XFILEINIREMARK::CopyFrom(XFILEINIREMARK* remake)
-* @brief      CopyFrom
+* @brief      Copy from
 * @ingroup    XUTILS
 *
 * @param[in]  remake : 
@@ -670,7 +670,7 @@ bool XFILEINIREMARK::CopyFrom(XFILEINIREMARK* remake)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void XFILEINIREMARK::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    XUTILS
 *
@@ -698,7 +698,7 @@ void XFILEINIREMARK::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILEINI::XFILEINI()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -711,7 +711,7 @@ XFILEINI::XFILEINI(): XFILETXT()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILEINI::XFILEINI(XPATH& xpath)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * @param[in]  xpath :
@@ -728,7 +728,7 @@ XFILEINI::XFILEINI(XPATH& xpath): XFILETXT()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILEINI::XFILEINI(XFILE* file)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * @param[in]  file :
@@ -745,7 +745,7 @@ XFILEINI::XFILEINI(XFILE* file): XFILETXT()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILEINI::~XFILEINI()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -809,7 +809,7 @@ bool XFILEINI::Close()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XFILEINISECTION* XFILEINI::GetSection(XSTRING& section)
-* @brief      GetSection
+* @brief      Get section
 * @ingroup    XUTILS
 *
 * @param[in]  section : 
@@ -843,7 +843,7 @@ XFILEINISECTION* XFILEINI::GetSection(XSTRING& section)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XFILEINISECTION* XFILEINI::GetSection(XCHAR* section)
-* @brief      GetSection
+* @brief      Get section
 * @ingroup    XUTILS
 *
 * @param[in]  section : 
@@ -862,7 +862,7 @@ XFILEINISECTION* XFILEINI::GetSection(XCHAR* section)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEINI::SelectSection(XSTRING& section)
-* @brief      SelectSection
+* @brief      Select section
 * @ingroup    XUTILS
 *
 * @param[in]  section :
@@ -899,7 +899,7 @@ bool XFILEINI::SelectSection(XSTRING& section)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEINI::SelectSection(XCHAR* section)
-* @brief      SelectSection
+* @brief      Select section
 * @ingroup    XUTILS
 *
 * @param[in]  section :
@@ -918,7 +918,7 @@ bool XFILEINI::SelectSection(XCHAR* section)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEINI::CreateSection(XSTRING& section)
-* @brief      CreateSection
+* @brief      Create section
 * @ingroup    XUTILS
 *
 * @param[in]  section :
@@ -947,7 +947,7 @@ bool XFILEINI::CreateSection(XSTRING& section)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEINI::CreateSection(XCHAR* section)
-* @brief      CreateSection
+* @brief      Create section
 * @ingroup    XUTILS
 *
 * @param[in]  section :
@@ -966,7 +966,7 @@ bool XFILEINI::CreateSection(XCHAR* section)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEINI::DeleteSection(XSTRING& section)
-* @brief      DeleteSection
+* @brief      Delete section
 * @ingroup    XUTILS
 *
 * @param[in]  section :
@@ -1006,7 +1006,7 @@ bool XFILEINI::DeleteSection(XSTRING& section)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEINI::DeleteSection(XCHAR* section)
-* @brief      DeleteSection
+* @brief      Delete section
 * @ingroup    XUTILS
 *
 * @param[in]  section :
@@ -1025,7 +1025,7 @@ bool XFILEINI::DeleteSection(XCHAR* section)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XFILEINIKEY* XFILEINI::GetKey(XSTRING& section,XSTRING& key)
-* @brief      GetKey
+* @brief      Get key
 * @ingroup    XUTILS
 *
 * @param[in]  section : 
@@ -1049,7 +1049,7 @@ XFILEINIKEY* XFILEINI::GetKey(XSTRING& section,XSTRING& key)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEINI::DeleteKey(XSTRING& section,XSTRING& key)
-* @brief      DeleteKey
+* @brief      Delete key
 * @ingroup    XUTILS
 *
 * @param[in]  section :
@@ -1072,7 +1072,7 @@ bool XFILEINI::DeleteKey(XSTRING& section,XSTRING& key)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEINI::DeleteKey(XCHAR* section,XSTRING& key)
-* @brief      DeleteKey
+* @brief      Delete key
 * @ingroup    XUTILS
 *
 * @param[in]  section :
@@ -1092,7 +1092,7 @@ bool XFILEINI::DeleteKey(XCHAR* section,XSTRING& key)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEINI::DeleteKey(XSTRING& section,XCHAR* key)
-* @brief      DeleteKey
+* @brief      Delete key
 * @ingroup    XUTILS
 *
 * @param[in]  section :
@@ -1114,7 +1114,7 @@ bool XFILEINI::DeleteKey(XSTRING& section,XCHAR* key)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEINI::DeleteKey(XCHAR* section,XCHAR* key)
-* @brief      DeleteKey
+* @brief      Delete key
 * @ingroup    XUTILS
 *
 * @param[in]  section :
@@ -1135,7 +1135,7 @@ bool XFILEINI::DeleteKey(XCHAR* section,XCHAR* key)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEINI::ReadValue(XSTRING& section,XSTRING& key,XSTRING& value)
-* @brief      ReadValue
+* @brief      Read value
 * @ingroup    XUTILS
 *
 * @param[in]  section :
@@ -1166,7 +1166,7 @@ bool XFILEINI::ReadValue(XSTRING& section,XSTRING& key,XSTRING& value)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEINI::ReadValue(XCHAR* section,XSTRING& key,XSTRING& value)
-* @brief      ReadValue
+* @brief      Read value
 * @ingroup    XUTILS
 *
 * @param[in]  section :
@@ -1187,7 +1187,7 @@ bool XFILEINI::ReadValue(XCHAR* section,XSTRING& key,XSTRING& value)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEINI::ReadValue(XSTRING& section,XCHAR* key,XSTRING& value)
-* @brief      ReadValue
+* @brief      Read value
 * @ingroup    XUTILS
 *
 * @param[in]  section :
@@ -1208,7 +1208,7 @@ bool XFILEINI::ReadValue(XSTRING& section,XCHAR* key,XSTRING& value)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEINI::ReadValue(XCHAR* section,XCHAR* key,XSTRING& value)
-* @brief      ReadValue
+* @brief      Read value
 * @ingroup    XUTILS
 *
 * @param[in]  section :
@@ -1230,7 +1230,7 @@ bool XFILEINI::ReadValue(XCHAR* section,XCHAR* key,XSTRING& value)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEINI::ReadValue(XSTRING& key,XSTRING& value)
-* @brief      ReadValue
+* @brief      Read value
 * @ingroup    XUTILS
 *
 * @param[in]  key :
@@ -1258,7 +1258,7 @@ bool XFILEINI::ReadValue(XSTRING& key,XSTRING& value)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEINI::ReadValue(XCHAR* key,XSTRING& value)
-* @brief      ReadValue
+* @brief      Read value
 * @ingroup    XUTILS
 *
 * @param[in]  key :
@@ -1278,7 +1278,7 @@ bool XFILEINI::ReadValue(XCHAR* key,XSTRING& value)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEINI::WriteValue(XSTRING& section,XSTRING& key,XSTRING& value)
-* @brief      WriteValue
+* @brief      Write value
 * @ingroup    XUTILS
 *
 * @param[in]  section :
@@ -1306,7 +1306,7 @@ bool XFILEINI::WriteValue(XSTRING& section,XSTRING& key,XSTRING& value)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEINI::WriteValue(XCHAR* section,XSTRING& key,XSTRING& value)
-* @brief      WriteValue
+* @brief      Write value
 * @ingroup    XUTILS
 *
 * @param[in]  section :
@@ -1327,7 +1327,7 @@ bool XFILEINI::WriteValue(XCHAR* section,XSTRING& key,XSTRING& value)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEINI::WriteValue(XSTRING& section,XCHAR* key,XSTRING& value)
-* @brief      WriteValue
+* @brief      Write value
 * @ingroup    XUTILS
 *
 * @param[in]  section :
@@ -1348,7 +1348,7 @@ bool XFILEINI::WriteValue(XSTRING& section,XCHAR* key,XSTRING& value)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEINI::WriteValue(XCHAR* section,XCHAR* key,XSTRING& value)
-* @brief      WriteValue
+* @brief      Write value
 * @ingroup    XUTILS
 *
 * @param[in]  section :
@@ -1370,7 +1370,7 @@ bool XFILEINI::WriteValue(XCHAR* section,XCHAR* key,XSTRING& value)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEINI::WriteValue(XSTRING& key,XSTRING& value)
-* @brief      WriteValue
+* @brief      Write value
 * @ingroup    XUTILS
 *
 * @param[in]  key :
@@ -1396,7 +1396,7 @@ bool XFILEINI::WriteValue(XSTRING& key,XSTRING& value)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEINI::WriteValue(XCHAR* key,XSTRING& value)
-* @brief      WriteValue
+* @brief      Write value
 * @ingroup    XUTILS
 *
 * @param[in]  key :
@@ -1416,7 +1416,7 @@ bool XFILEINI::WriteValue(XCHAR* key,XSTRING& value)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEINI::GetNextKey(XSTRING& key,XSTRING& value)
-* @brief      GetNextKey
+* @brief      Get next key
 * @ingroup    XUTILS
 *
 * @param[in]  key :
@@ -1441,7 +1441,7 @@ bool XFILEINI::GetNextKey(XSTRING& key,XSTRING& value)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEINI::ReadKeyMap(XSTRING& section,XFILEINIKEYMAP* keymap,int nkeymap)
-* @brief      ReadKeyMap
+* @brief      Read key map
 * @ingroup    XUTILS
 *
 * @param[in]  section :
@@ -1470,7 +1470,7 @@ bool XFILEINI::ReadKeyMap(XSTRING& section,XFILEINIKEYMAP* keymap,int nkeymap)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEINI::ReadKeyMap(XCHAR* section,XFILEINIKEYMAP* keymap,int nkeymap)
-* @brief      ReadKeyMap
+* @brief      Read key map
 * @ingroup    XUTILS
 *
 * @param[in]  section :
@@ -1491,7 +1491,7 @@ bool XFILEINI::ReadKeyMap(XCHAR* section,XFILEINIKEYMAP* keymap,int nkeymap)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEINI::ConvertFromLines()
-* @brief      ConvertFromLines
+* @brief      Convert from lines
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -1627,7 +1627,7 @@ bool XFILEINI::ConvertFromLines()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEINI::ConvertToLines()
-* @brief      ConvertToLines
+* @brief      Convert to lines
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -1821,7 +1821,7 @@ bool XFILEINI::Serialization(bool read)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEINI::DeleteAllSections()
-* @brief      DeleteAllSections
+* @brief      Delete all sections
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -1843,7 +1843,7 @@ bool XFILEINI::DeleteAllSections()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XVECTOR<XFILEINIREMARK*>* XFILEINI::GetRemarks()
-* @brief      GetRemarks
+* @brief      Get remarks
 * @ingroup    XUTILS
 *
 * @return     XVECTOR<XFILEINIREMARK*>* : 
@@ -1858,7 +1858,7 @@ XVECTOR<XFILEINIREMARK*>* XFILEINI::GetRemarks()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XFILEINI::DeleteAllRemarks()
-* @brief      DeleteAllRemarks
+* @brief      Delete all remarks
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful. 
@@ -1878,7 +1878,7 @@ bool XFILEINI::DeleteAllRemarks()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XFILEINI::Line_IsSection(XSTRING& line, XSTRING& section)
-* @brief      Line_IsSection
+* @brief      Line is section
 * @ingroup    XUTILS
 *
 * @param[in]  line : 
@@ -1907,7 +1907,7 @@ bool XFILEINI::Line_IsSection(XSTRING& line, XSTRING& section)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XFILEINI::Line_IsKey(XSTRING& line, XSTRING& key, XSTRING& value)
-* @brief      Line_IsKey
+* @brief      Line is key
 * @ingroup    XUTILS
 *
 * @param[in]  line : 
@@ -1949,7 +1949,7 @@ bool XFILEINI::Line_IsKey(XSTRING& line, XSTRING& key, XSTRING& value)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XFILEINI::Line_GetRemark(XSTRING& line, XFILEINIREMARK& remark)
-* @brief      Line_GetRemark
+* @brief      Line get remark
 * @ingroup    XUTILS
 *
 * @param[in]  line : 
@@ -1990,7 +1990,7 @@ bool XFILEINI::Line_GetRemark(XSTRING& line, XFILEINIREMARK& remark)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XFILEINI::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    XUTILS
 *

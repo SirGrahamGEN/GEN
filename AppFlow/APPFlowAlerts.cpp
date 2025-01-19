@@ -78,7 +78,7 @@ APPFLOWALERTS* APPFLOWALERTS::instance = NULL;
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool APPFLOWALERTS::GetIsInstanced()
-* @brief      GetIsInstanced
+* @brief      Get is instanced
 * @ingroup    APPFLOW
 * 
 * @return     bool : true if is succesful. 
@@ -93,7 +93,7 @@ bool APPFLOWALERTS::GetIsInstanced()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         APPFLOWALERTS& APPFLOWALERTS::GetInstance()
-* @brief      GetInstance
+* @brief      Get instance
 * @ingroup    APPFLOW
 * 
 * @return     APPFLOWALERTS& : 
@@ -110,7 +110,7 @@ APPFLOWALERTS& APPFLOWALERTS::GetInstance()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool APPFLOWALERTS::DelInstance()
-* @brief      DelInstance
+* @brief      Del instance
 * @ingroup    APPFLOW
 * 
 * @return     bool : true if is succesful. 
@@ -409,7 +409,7 @@ bool APPFLOWALERTS::End()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         APPFLOWALERTS::APPFLOWALERTS()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    APPFLOW
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -422,7 +422,7 @@ APPFLOWALERTS::APPFLOWALERTS()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         APPFLOWALERTS::~APPFLOWALERTS()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    APPFLOW
 *
@@ -438,7 +438,7 @@ APPFLOWALERTS::~APPFLOWALERTS()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void APPFLOWALERTS::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    APPFLOW
 *

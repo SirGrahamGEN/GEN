@@ -67,7 +67,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_PROPERTY_SCROLLEABLE_STATUS::UI_PROPERTY_SCROLLEABLE_STATUS()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    USERINTERFACE
 *
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -80,7 +80,7 @@ UI_PROPERTY_SCROLLEABLE_STATUS::UI_PROPERTY_SCROLLEABLE_STATUS()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_PROPERTY_SCROLLEABLE_STATUS::~UI_PROPERTY_SCROLLEABLE_STATUS()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
 *
@@ -94,7 +94,7 @@ UI_PROPERTY_SCROLLEABLE_STATUS::~UI_PROPERTY_SCROLLEABLE_STATUS()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_PROPERTY_SCROLLEABLE_STATUS::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
 *
@@ -117,7 +117,7 @@ void UI_PROPERTY_SCROLLEABLE_STATUS::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_PROPERTY_SCROLLEABLE::UI_PROPERTY_SCROLLEABLE()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    USERINTERFACE
 *
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -133,7 +133,7 @@ UI_PROPERTY_SCROLLEABLE::UI_PROPERTY_SCROLLEABLE()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_PROPERTY_SCROLLEABLE::~UI_PROPERTY_SCROLLEABLE()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
 *
@@ -147,7 +147,7 @@ UI_PROPERTY_SCROLLEABLE::~UI_PROPERTY_SCROLLEABLE()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_PROPERTY_SCROLLEABLE::Scroll_GetActive(UI_PROPERTY_SCROLLEABLE_TYPE type)
-* @brief      Scroll_GetActive
+* @brief      Scroll get active
 * @ingroup    USERINTERFACE
 *
 * @param[in]  type : 
@@ -177,7 +177,7 @@ bool UI_PROPERTY_SCROLLEABLE::Scroll_GetActive(UI_PROPERTY_SCROLLEABLE_TYPE type
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_PROPERTY_SCROLLEABLE::Scroll_SetActivate(UI_PROPERTY_SCROLLEABLE_TYPE type, bool on)
-* @brief      Scroll_SetActivate
+* @brief      Scroll set activate
 * @ingroup    USERINTERFACE
 *
 * @param[in]  type : 
@@ -208,7 +208,7 @@ bool UI_PROPERTY_SCROLLEABLE::Scroll_SetActivate(UI_PROPERTY_SCROLLEABLE_TYPE ty
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_PROPERTY_SCROLLEABLE::Scroll_GetVisible(UI_PROPERTY_SCROLLEABLE_TYPE type)
-* @brief      Scroll_GetVisible
+* @brief      Scroll get visible
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  type : 
@@ -238,7 +238,7 @@ bool UI_PROPERTY_SCROLLEABLE::Scroll_GetVisible(UI_PROPERTY_SCROLLEABLE_TYPE typ
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_PROPERTY_SCROLLEABLE::Scroll_SetVisible(UI_PROPERTY_SCROLLEABLE_TYPE type, bool on)
-* @brief      Scroll_SetVisible
+* @brief      Scroll set visible
 * @ingroup    USERINTERFACE
 *
 * @param[in]  type : 
@@ -272,7 +272,7 @@ bool UI_PROPERTY_SCROLLEABLE::Scroll_SetVisible(UI_PROPERTY_SCROLLEABLE_TYPE typ
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         double UI_PROPERTY_SCROLLEABLE::Scroll_GetLimit(UI_PROPERTY_SCROLLEABLE_TYPE type)
-* @brief      Scroll_GetLimit
+* @brief      Scroll get limit
 * @ingroup    USERINTERFACE
 *
 * @param[in]  type : 
@@ -301,7 +301,7 @@ double UI_PROPERTY_SCROLLEABLE::Scroll_GetLimit(UI_PROPERTY_SCROLLEABLE_TYPE typ
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_PROPERTY_SCROLLEABLE::Scroll_SetLimit(UI_PROPERTY_SCROLLEABLE_TYPE type, double limit)
-* @brief      Scroll_SetLimit
+* @brief      Scroll set limit
 * @ingroup    USERINTERFACE
 *
 * @param[in]  type : 
@@ -325,7 +325,7 @@ void UI_PROPERTY_SCROLLEABLE::Scroll_SetLimit(UI_PROPERTY_SCROLLEABLE_TYPE type,
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         double UI_PROPERTY_SCROLLEABLE::Scroll_GetDisplacement(UI_PROPERTY_SCROLLEABLE_TYPE type)
-* @brief      Scroll_GetDisplacement
+* @brief      Scroll get displacement
 * @ingroup    USERINTERFACE
 *
 * @param[in]  type : 
@@ -354,7 +354,7 @@ double UI_PROPERTY_SCROLLEABLE::Scroll_GetDisplacement(UI_PROPERTY_SCROLLEABLE_T
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         double UI_PROPERTY_SCROLLEABLE::Scroll_GetStep(UI_PROPERTY_SCROLLEABLE_TYPE type)
-* @brief      Scroll_GetStep
+* @brief      Scroll get step
 * @ingroup    USERINTERFACE
 *
 * @param[in]  type : 
@@ -383,7 +383,7 @@ double UI_PROPERTY_SCROLLEABLE::Scroll_GetStep(UI_PROPERTY_SCROLLEABLE_TYPE type
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_PROPERTY_SCROLLEABLE::Scroll_SetStep(UI_PROPERTY_SCROLLEABLE_TYPE type, double step)
-* @brief      Scroll_SetStep
+* @brief      Scroll set step
 * @ingroup    USERINTERFACE
 *
 * @param[in]  type : 
@@ -446,7 +446,7 @@ void UI_PROPERTY_SCROLLEABLE::Scroll_SetStep(UI_PROPERTY_SCROLLEABLE_TYPE type, 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_PROPERTY_SCROLLEABLE::Scroll_ResetStep(UI_PROPERTY_SCROLLEABLE_TYPE type)
-* @brief      Scroll_ResetStep
+* @brief      Scroll reset step
 * @ingroup    USERINTERFACE
 *
 * @param[in]  type : 
@@ -477,7 +477,7 @@ void UI_PROPERTY_SCROLLEABLE::Scroll_ResetStep(UI_PROPERTY_SCROLLEABLE_TYPE type
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_PROPERTY_SCROLLEABLE::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
 *

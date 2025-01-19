@@ -73,7 +73,7 @@ SNDFACTORY* SNDFACTORY::instance = NULL;
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         SNDFACTORY::SNDFACTORY()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    SOUND
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -96,7 +96,7 @@ SNDFACTORY::SNDFACTORY()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         SNDFACTORY::~SNDFACTORY()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    SOUND
 * 
@@ -118,7 +118,7 @@ SNDFACTORY::~SNDFACTORY()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool SNDFACTORY::GetIsInstanced()
-* @brief      GetIsInstanced
+* @brief      Get is instanced
 * @ingroup    SOUND
 * 
 * @return     bool : true if is succesful. 
@@ -133,7 +133,7 @@ bool SNDFACTORY::GetIsInstanced()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         SNDFACTORY& SNDFACTORY::GetInstance()
-* @brief      GetInstance
+* @brief      Get instance
 * @ingroup    SOUND
 * 
 * @return     SNDFACTORY& : 
@@ -150,7 +150,7 @@ SNDFACTORY& SNDFACTORY::GetInstance()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool SNDFACTORY::SetInstance(SNDFACTORY* _instance)
-* @brief      SetInstance
+* @brief      Set instance
 * @ingroup    SOUND
 * 
 * @param[in]  _instance : 
@@ -171,7 +171,7 @@ bool SNDFACTORY::SetInstance(SNDFACTORY* _instance)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool SNDFACTORY::DelInstance()
-* @brief      DelInstance
+* @brief      Del instance
 * @ingroup    SOUND
 * 
 * @return     bool : true if is succesful. 
@@ -238,7 +238,7 @@ bool SNDFACTORY::End()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool SNDFACTORY::IsSoundActive()
-* @brief      IsSoundActive
+* @brief      Is sound active
 * @ingroup    SOUND
 * 
 * @return     bool : true if is succesful. 
@@ -253,7 +253,7 @@ bool SNDFACTORY::IsSoundActive()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool SNDFACTORY::Sound_Play(SNDITEM* item, SNDPLAYCFG* playCFG, int ntimestoplay)
-* @brief      Sound_Play
+* @brief      Sound play
 * @ingroup    SOUND
 * 
 * @param[in]  item : 
@@ -297,7 +297,7 @@ bool SNDFACTORY::Sound_Play(SNDITEM* item, SNDPLAYCFG* playCFG, int ntimestoplay
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool SNDFACTORY::Sound_Pause(SNDITEM* item)
-* @brief      Sound_Pause
+* @brief      Sound pause
 * @ingroup    SOUND
 * 
 * @param[in]  item : 
@@ -314,7 +314,7 @@ bool SNDFACTORY::Sound_Pause(SNDITEM* item)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool SNDFACTORY::Sound_Stop(SNDITEM* item)
-* @brief      Sound_Stop
+* @brief      Sound stop
 * @ingroup    SOUND
 * 
 * @param[in]  item : 
@@ -331,7 +331,7 @@ bool SNDFACTORY::Sound_Stop(SNDITEM* item)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool SNDFACTORY::Sound_StopAll()
-* @brief      Sound_StopAll
+* @brief      Sound stop all
 * @ingroup    SOUND
 * 
 * @return     bool : true if is succesful. 
@@ -346,7 +346,7 @@ bool SNDFACTORY::Sound_StopAll()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool SNDFACTORY::Sound_WaitToEnd(SNDITEM* item, int maxtimeout, SNDFACTORY_WAITFUNCTION waitfunction)
-* @brief      Sound_WaitToEnd
+* @brief      Sound wait to end
 * @ingroup    SOUND
 * 
 * @param[in]  item : 
@@ -365,7 +365,7 @@ bool SNDFACTORY::Sound_WaitToEnd(SNDITEM* item, int maxtimeout, SNDFACTORY_WAITF
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool SNDFACTORY::Sound_WaitAllToEnd(int maxtimeout, SNDFACTORY_WAITFUNCTION waitfunction)
-* @brief      Sound_WaitAllToEnd
+* @brief      Sound wait all to end
 * @ingroup    SOUND
 * 
 * @param[in]  maxtimeout : 
@@ -383,7 +383,7 @@ bool SNDFACTORY::Sound_WaitAllToEnd(int maxtimeout, SNDFACTORY_WAITFUNCTION wait
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int SNDFACTORY::Sound_GetVolume(SNDITEM* item)
-* @brief      Sound_GetVolume
+* @brief      Sound get volume
 * @ingroup    SOUND
 * 
 * @param[in]  item : 
@@ -400,7 +400,7 @@ int SNDFACTORY::Sound_GetVolume(SNDITEM* item)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool SNDFACTORY::Sound_SetVolume(SNDITEM* item, int volume)
-* @brief      Sound_SetVolume
+* @brief      Sound set volume
 * @ingroup    SOUND
 * 
 * @param[in]  item : 
@@ -418,7 +418,7 @@ bool SNDFACTORY::Sound_SetVolume(SNDITEM* item, int volume)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         float SNDFACTORY::Sound_GetPitch(SNDITEM* item)
-* @brief      Sound_GetPitch
+* @brief      Sound get pitch
 * @ingroup    SOUND
 * 
 * @param[in]  item : 
@@ -435,7 +435,7 @@ float SNDFACTORY::Sound_GetPitch(SNDITEM* item)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool SNDFACTORY::Sound_SetPitch(SNDITEM* item, float pitch)
-* @brief      Sound_SetPitch
+* @brief      Sound set pitch
 * @ingroup    SOUND
 * 
 * @param[in]  item : 
@@ -453,7 +453,7 @@ bool SNDFACTORY::Sound_SetPitch(SNDITEM* item, float pitch)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool SNDFACTORY::DeleteAllItems()
-* @brief      DeleteAllItems
+* @brief      Delete all items
 * @ingroup    SOUND
 * 
 * @return     bool : true if is succesful. 
@@ -476,7 +476,7 @@ bool SNDFACTORY::DeleteAllItems()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int SNDFACTORY::MasterVolume_Get()
-* @brief      MasterVolume_Get
+* @brief      Master volume get
 * @ingroup    SOUND
 * 
 * @return     int : 
@@ -491,7 +491,7 @@ int SNDFACTORY::MasterVolume_Get()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool SNDFACTORY::MasterVolume_Set(int volume)
-* @brief      MasterVolume_Set
+* @brief      Master volume set
 * @ingroup    SOUND
 * 
 * @param[in]  volume : 
@@ -510,7 +510,7 @@ bool SNDFACTORY::MasterVolume_Set(int volume)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         SNDITEM* SNDFACTORY::CreateItem(XCHAR* path)
-* @brief      CreateItem
+* @brief      Create item
 * @ingroup    SOUND
 * 
 * @param[in]  path : 
@@ -570,7 +570,7 @@ SNDITEM* SNDFACTORY::CreateItem(XCHAR* path)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         SNDITEM* SNDFACTORY::CreateItem(XPATH& xpath)
-* @brief      CreateItem
+* @brief      Create item
 * @ingroup    SOUND
 * 
 * @param[in]  xpath : 
@@ -587,7 +587,7 @@ SNDITEM* SNDFACTORY::CreateItem(XPATH& xpath)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         SNDITEM* SNDFACTORY::CreateItem(XDWORD frecuency, XDWORD duration)
-* @brief      CreateItem
+* @brief      Create item
 * @ingroup    SOUND
 * 
 * @param[in]  frecuency : 
@@ -640,7 +640,7 @@ SNDITEM* SNDFACTORY::CreateItem(XDWORD frecuency, XDWORD duration)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XVECTOR<SNDITEM*>* SNDFACTORY::GetItems()
-* @brief      GetItems
+* @brief      Get items
 * @ingroup    SOUND
 * 
 * @return     XVECTOR<SNDITEM*>* : 
@@ -655,7 +655,7 @@ XVECTOR<SNDITEM*>* SNDFACTORY::GetItems()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool SNDFACTORY::Sound_IsAnyActive()
-* @brief      Sound_IsAnyActive
+* @brief      Sound is any active
 * @ingroup    SOUND
 * 
 * @return     bool : true if is succesful. 
@@ -690,7 +690,7 @@ bool SNDFACTORY::Sound_IsAnyActive()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool SNDFACTORY::Sound_IsAnyPlaying()
-* @brief      Sound_IsAnyPlaying
+* @brief      Sound is any playing
 * @ingroup    SOUND
 * 
 * @return     bool : true if is succesful. 
@@ -722,7 +722,7 @@ bool SNDFACTORY::Sound_IsAnyPlaying()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void SNDFACTORY::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    SOUND
 * 

@@ -64,7 +64,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMBLUETOOTHLEREMOTEENUMDEVICES_XEVENT::DIOSTREAMBLUETOOTHLEREMOTEENUMDEVICES_XEVENT(XSUBJECT* subject, XDWORD family, XDWORD type)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * @param[in]  subject : 
@@ -81,7 +81,7 @@ DIOSTREAMBLUETOOTHLEREMOTEENUMDEVICES_XEVENT::DIOSTREAMBLUETOOTHLEREMOTEENUMDEVI
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMBLUETOOTHLEREMOTEENUMDEVICES_XEVENT::~DIOSTREAMBLUETOOTHLEREMOTEENUMDEVICES_XEVENT()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -95,7 +95,7 @@ DIOSTREAMBLUETOOTHLEREMOTEENUMDEVICES_XEVENT::~DIOSTREAMBLUETOOTHLEREMOTEENUMDEV
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMDEVICEBLUETOOTHLE* DIOSTREAMBLUETOOTHLEREMOTEENUMDEVICES_XEVENT::GetDeviceSearch()
-* @brief      GetDeviceSearch
+* @brief      Get device search
 * @ingroup    DATAIO
 *
 * @return     DIOSTREAMDEVICEBLUETOOTHLE* : 
@@ -110,7 +110,7 @@ DIOSTREAMDEVICEBLUETOOTHLE* DIOSTREAMBLUETOOTHLEREMOTEENUMDEVICES_XEVENT::GetDev
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSTREAMBLUETOOTHLEREMOTEENUMDEVICES_XEVENT::SetDeviceSearch(DIOSTREAMDEVICEBLUETOOTHLE* devicesearch)
-* @brief      SetDeviceSearch
+* @brief      Set device search
 * @ingroup    DATAIO
 *
 * @param[in]  devicesearch : 
@@ -125,7 +125,7 @@ void DIOSTREAMBLUETOOTHLEREMOTEENUMDEVICES_XEVENT::SetDeviceSearch(DIOSTREAMDEVI
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSTREAMBLUETOOTHLEREMOTEENUMDEVICES_XEVENT::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

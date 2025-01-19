@@ -80,7 +80,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOMODBUSELECTRICMETERXEVENT::DIOMODBUSELECTRICMETERXEVENT(XSUBJECT* subject,XDWORD type) : XEVENT(subject,type)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 * 
 * @param[in]  subject : 
@@ -96,7 +96,7 @@ DIOMODBUSELECTRICMETERXEVENT::DIOMODBUSELECTRICMETERXEVENT(XSUBJECT* subject,XDW
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOMODBUSELECTRICMETERXEVENT::~DIOMODBUSELECTRICMETERXEVENT()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 * 
@@ -110,7 +110,7 @@ DIOMODBUSELECTRICMETERXEVENT::~DIOMODBUSELECTRICMETERXEVENT()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOMODBUSELECTRICMETERXEVENT::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 * 
@@ -130,7 +130,7 @@ void DIOMODBUSELECTRICMETERXEVENT::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOMODBUSELECTRICMETER::DIOMODBUSELECTRICMETER(DIOSTREAM* diostream, DIOMODBUS_CLIENTMODE mode)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 * 
 * @param[in]  diostream : 
@@ -155,7 +155,7 @@ DIOMODBUSELECTRICMETER::DIOMODBUSELECTRICMETER(DIOSTREAM* diostream, DIOMODBUS_C
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOMODBUSELECTRICMETER::~DIOMODBUSELECTRICMETER()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 * 
@@ -178,7 +178,7 @@ DIOMODBUSELECTRICMETER::~DIOMODBUSELECTRICMETER()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOMODBUS_CLIENT* DIOMODBUSELECTRICMETER::GetModBusProtocol()
-* @brief      GetModBusProtocol
+* @brief      Get mod bus protocol
 * @ingroup    DATAIO
 * 
 * @return     DIOMODBUS_CLIENT* : 
@@ -224,7 +224,7 @@ bool DIOMODBUSELECTRICMETER::Connect(XBYTE unit, bool inlittleendian, int timeou
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOMODBUSELECTRICMETER::CMD_C_CI_NU_2_ReadAllValues(int TM, XDATETIME* timestart, XDATETIME* timeend, XVECTOR<DIO_C_CI_NU_2_RESULT*>* results, int timeout)
-* @brief      CMD C CI NU 2  read all values
+* @brief      CMDCCINU2 read all values
 * @ingroup    DATAIO
 * 
 * @param[in]  TM : 
@@ -307,7 +307,7 @@ bool DIOMODBUSELECTRICMETER::CMD_C_CI_NU_2_ReadAllValues(int TM, XDATETIME* time
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOMODBUSELECTRICMETER::CMD_C_CI_NU_2_DeleteResults(XVECTOR<DIO_C_CI_NU_2_RESULT*>* results)
-* @brief      CMD_C_CI_NU_2_DeleteResults
+* @brief      CMDCCINU2 delete results
 * @ingroup    DATAIO
 * 
 * @param[in]  results : 
@@ -331,7 +331,7 @@ bool DIOMODBUSELECTRICMETER::CMD_C_CI_NU_2_DeleteResults(XVECTOR<DIO_C_CI_NU_2_R
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOMODBUSELECTRICMETER::CMD_C_TR_AA_ReadValues(DIO_C_TR_AA_RESULT* result, int timeout)
-* @brief      CMD_C_TR_AA_ReadValues
+* @brief      CMDCTRAA read values
 * @ingroup    DATAIO
 * 
 * @param[in]  result : 
@@ -392,7 +392,7 @@ bool DIOMODBUSELECTRICMETER::CMD_C_TR_AA_ReadValues(DIO_C_TR_AA_RESULT* result, 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOMODBUSELECTRICMETER::CancelOperations()
-* @brief      CancelOperations
+* @brief      Cancel operations
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
@@ -423,7 +423,7 @@ void DIOMODBUSELECTRICMETER::Disconnect()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOMODBUSELECTRICMETER::ReadRegister(int registerID, int nwords, int divisor, int timeout, float& result)
-* @brief      ReadRegister
+* @brief      Read register
 * @ingroup    DATAIO
 * 
 * @param[in]  registerID : 
@@ -467,7 +467,7 @@ bool DIOMODBUSELECTRICMETER::ReadRegister(int registerID, int nwords, int diviso
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOMODBUSELECTRICMETER::ReadRegister(int registerID, int nwords, int timeout, int& result)
-* @brief      ReadRegister
+* @brief      Read register
 * @ingroup    DATAIO
 * 
 * @param[in]  registerID : 
@@ -507,7 +507,7 @@ bool DIOMODBUSELECTRICMETER::ReadRegister(int registerID, int nwords, int timeou
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOMODBUSELECTRICMETER::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 * 

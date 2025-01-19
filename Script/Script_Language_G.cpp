@@ -84,7 +84,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         SCRIPT_LNG_G_COMMAND::SCRIPT_LNG_G_COMMAND()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    SCRIPT
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -98,7 +98,7 @@ SCRIPT_LNG_G_COMMAND::SCRIPT_LNG_G_COMMAND()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         SCRIPT_LNG_G_COMMAND::~SCRIPT_LNG_G_COMMAND()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    SCRIPT
 * 
@@ -112,7 +112,7 @@ SCRIPT_LNG_G_COMMAND::~SCRIPT_LNG_G_COMMAND()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* SCRIPT_LNG_G_COMMAND::GetCommand()
-* @brief      GetCommand
+* @brief      Get command
 * @ingroup    SCRIPT
 * 
 * @return     XSTRING* : 
@@ -127,7 +127,7 @@ XSTRING* SCRIPT_LNG_G_COMMAND::GetCommand()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         SCRIPT_LNG_G_TOKENIREPS SCRIPT_LNG_G_COMMAND::GetToken()
-* @brief      GetToken
+* @brief      Get token
 * @ingroup    SCRIPT
 * 
 * @return     SCRIPT_LNG_G_TOKENIREPS : 
@@ -183,7 +183,7 @@ bool SCRIPT_LNG_G_COMMAND::Set(XSTRING& command,SCRIPT_LNG_G_TOKENIREPS token)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void SCRIPT_LNG_G_COMMAND::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    SCRIPT
 * 
@@ -205,7 +205,7 @@ void SCRIPT_LNG_G_COMMAND::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         SCRIPT_LNG_G_VAR::SCRIPT_LNG_G_VAR()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    SCRIPT
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -218,7 +218,7 @@ SCRIPT_LNG_G_VAR::SCRIPT_LNG_G_VAR()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         SCRIPT_LNG_G_VAR::~SCRIPT_LNG_G_VAR()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    SCRIPT
 * 
@@ -234,7 +234,7 @@ SCRIPT_LNG_G_VAR::~SCRIPT_LNG_G_VAR()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* SCRIPT_LNG_G_VAR::GetName()
-* @brief      GetName
+* @brief      Get name
 * @ingroup    SCRIPT
 * 
 * @return     XSTRING* : 
@@ -249,7 +249,7 @@ XSTRING* SCRIPT_LNG_G_VAR::GetName()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         SCRIPT_LNG_G_TOKENIREPS SCRIPT_LNG_G_VAR::GetType()
-* @brief      GetType
+* @brief      Get type
 * @ingroup    SCRIPT
 * 
 * @return     SCRIPT_LNG_G_TOKENIREPS : 
@@ -264,7 +264,7 @@ SCRIPT_LNG_G_TOKENIREPS SCRIPT_LNG_G_VAR::GetType()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int SCRIPT_LNG_G_VAR::GetValueInteger()
-* @brief      GetValueInteger
+* @brief      Get value integer
 * @ingroup    SCRIPT
 * 
 * @return     int : 
@@ -280,7 +280,7 @@ int SCRIPT_LNG_G_VAR::GetValueInteger()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XCHAR SCRIPT_LNG_G_VAR::GetValueCharacter()
-* @brief      GetValueCharacter
+* @brief      Get value character
 * @ingroup    SCRIPT
 * 
 * @return     XCHAR : 
@@ -295,7 +295,7 @@ XCHAR SCRIPT_LNG_G_VAR::GetValueCharacter()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD SCRIPT_LNG_G_VAR::GetValueUInteger()
-* @brief      GetValueUInteger
+* @brief      Get value U integer
 * @ingroup    SCRIPT
 * 
 * @return     XDWORD : 
@@ -310,7 +310,7 @@ XDWORD SCRIPT_LNG_G_VAR::GetValueUInteger()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* SCRIPT_LNG_G_VAR::GetValueString()
-* @brief      GetValueString
+* @brief      Get value string
 * @ingroup    SCRIPT
 * 
 * @return     XSTRING* : 
@@ -325,7 +325,7 @@ XSTRING* SCRIPT_LNG_G_VAR::GetValueString()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool SCRIPT_LNG_G_VAR::HaveReservedSize()
-* @brief      HaveReservedSize
+* @brief      Have reserved size
 * @ingroup    SCRIPT
 * 
 * @return     bool : true if is succesful. 
@@ -340,7 +340,7 @@ bool SCRIPT_LNG_G_VAR::HaveReservedSize()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool SCRIPT_LNG_G_VAR::IsArg()
-* @brief      IsArg
+* @brief      Is arg
 * @ingroup    SCRIPT
 * 
 * @return     bool : true if is succesful. 
@@ -355,7 +355,7 @@ bool SCRIPT_LNG_G_VAR::IsArg()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool SCRIPT_LNG_G_VAR::IsReturnValue()
-* @brief      IsReturnValue
+* @brief      Is return value
 * @ingroup    SCRIPT
 * 
 * @return     bool : true if is succesful. 
@@ -394,7 +394,7 @@ bool SCRIPT_LNG_G_VAR::Set(SCRIPT_LNG_G_VAR* var)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool SCRIPT_LNG_G_VAR::SetName(XCHAR* name)
-* @brief      SetName
+* @brief      Set name
 * @ingroup    SCRIPT
 * 
 * @param[in]  name : 
@@ -413,7 +413,7 @@ bool SCRIPT_LNG_G_VAR::SetName(XCHAR* name)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool SCRIPT_LNG_G_VAR::SetType(SCRIPT_LNG_G_TOKENIREPS type)
-* @brief      SetType
+* @brief      Set type
 * @ingroup    SCRIPT
 * 
 * @param[in]  type : 
@@ -432,7 +432,7 @@ bool SCRIPT_LNG_G_VAR::SetType(SCRIPT_LNG_G_TOKENIREPS type)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool SCRIPT_LNG_G_VAR::SetValueInteger(int value)
-* @brief      SetValueInteger
+* @brief      Set value integer
 * @ingroup    SCRIPT
 * 
 * @param[in]  value : 
@@ -451,7 +451,7 @@ bool SCRIPT_LNG_G_VAR::SetValueInteger(int value)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool SCRIPT_LNG_G_VAR::SetValueCharacter(XCHAR value)
-* @brief      SetValueCharacter
+* @brief      Set value character
 * @ingroup    SCRIPT
 * 
 * @param[in]  value : 
@@ -470,7 +470,7 @@ bool SCRIPT_LNG_G_VAR::SetValueCharacter(XCHAR value)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool SCRIPT_LNG_G_VAR::SetValueUInteger(XDWORD value)
-* @brief      SetValueUInteger
+* @brief      Set value U integer
 * @ingroup    SCRIPT
 * 
 * @param[in]  value : 
@@ -489,7 +489,7 @@ bool SCRIPT_LNG_G_VAR::SetValueUInteger(XDWORD value)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool SCRIPT_LNG_G_VAR::SetValueString(XSTRING* value)
-* @brief      SetValueString
+* @brief      Set value string
 * @ingroup    SCRIPT
 * 
 * @param[in]  value : 
@@ -508,7 +508,7 @@ bool SCRIPT_LNG_G_VAR::SetValueString(XSTRING* value)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool SCRIPT_LNG_G_VAR::SetValueString()
-* @brief      SetValueString
+* @brief      Set value string
 * @ingroup    SCRIPT
 * 
 * @return     bool : true if is succesful. 
@@ -525,7 +525,7 @@ bool SCRIPT_LNG_G_VAR::SetValueString()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool SCRIPT_LNG_G_VAR::SetHaveReservedSize(bool havereservedsize)
-* @brief      SetHaveReservedSize
+* @brief      Set have reserved size
 * @ingroup    SCRIPT
 * 
 * @param[in]  havereservedsize : 
@@ -544,7 +544,7 @@ bool SCRIPT_LNG_G_VAR::SetHaveReservedSize(bool havereservedsize)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool SCRIPT_LNG_G_VAR::SetIsArg(bool isarg)
-* @brief      SetIsArg
+* @brief      Set is arg
 * @ingroup    SCRIPT
 * 
 * @param[in]  isarg : 
@@ -563,7 +563,7 @@ bool SCRIPT_LNG_G_VAR::SetIsArg(bool isarg)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool SCRIPT_LNG_G_VAR::SetIsReturnValue(bool isreturnvalue)
-* @brief      SetIsReturnValue
+* @brief      Set is return value
 * @ingroup    SCRIPT
 * 
 * @param[in]  isreturnvalue : 
@@ -582,7 +582,7 @@ bool SCRIPT_LNG_G_VAR::SetIsReturnValue(bool isreturnvalue)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool SCRIPT_LNG_G_VAR::ConvertToXVariant(XVARIANT& variant)
-* @brief      ConvertToXVariant
+* @brief      Convert to X variant
 * @ingroup    SCRIPT
 *
 * @param[in]  variant :
@@ -615,7 +615,7 @@ bool SCRIPT_LNG_G_VAR::ConvertToXVariant(XVARIANT& variant)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool SCRIPT_LNG_G_VAR::ConvertFromXVariant(XVARIANT& variant)
-* @brief      ConvertFromXVariant
+* @brief      Convert from X variant
 * @ingroup    SCRIPT
 *
 * @param[in]  variant :
@@ -703,7 +703,7 @@ bool SCRIPT_LNG_G_VAR::Clear()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void SCRIPT_LNG_G_VAR::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    SCRIPT
 *
@@ -731,7 +731,7 @@ void SCRIPT_LNG_G_VAR::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         SCRIPT_LNG_G_FUNCTIONTYPE::SCRIPT_LNG_G_FUNCTIONTYPE()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    SCRIPT
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -744,7 +744,7 @@ SCRIPT_LNG_G_FUNCTIONTYPE::SCRIPT_LNG_G_FUNCTIONTYPE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         SCRIPT_LNG_G_FUNCTIONTYPE::~SCRIPT_LNG_G_FUNCTIONTYPE()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    SCRIPT
 *
@@ -758,7 +758,7 @@ SCRIPT_LNG_G_FUNCTIONTYPE::~SCRIPT_LNG_G_FUNCTIONTYPE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* SCRIPT_LNG_G_FUNCTIONTYPE::GetName()
-* @brief      GetName
+* @brief      Get name
 * @ingroup    SCRIPT
 *
 * @return     XSTRING* :
@@ -773,7 +773,7 @@ XSTRING* SCRIPT_LNG_G_FUNCTIONTYPE::GetName()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         SCRIPT_LNG_G_TOKENIREPS SCRIPT_LNG_G_FUNCTIONTYPE::GetReturnType()
-* @brief      GetReturnType
+* @brief      Get return type
 * @ingroup    SCRIPT
 *
 * @return     SCRIPT_LNG_G_TOKENIREPS :
@@ -788,7 +788,7 @@ SCRIPT_LNG_G_TOKENIREPS SCRIPT_LNG_G_FUNCTIONTYPE::GetReturnType()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XCHAR* SCRIPT_LNG_G_FUNCTIONTYPE::GetLocation()
-* @brief      GetLocation
+* @brief      Get location
 * @ingroup    SCRIPT
 *
 * @return     XCHAR* :
@@ -803,7 +803,7 @@ XCHAR* SCRIPT_LNG_G_FUNCTIONTYPE::GetLocation()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool SCRIPT_LNG_G_FUNCTIONTYPE::SetName(XCHAR* name)
-* @brief      SetName
+* @brief      Set name
 * @ingroup    SCRIPT
 *
 * @param[in]  name :
@@ -822,7 +822,7 @@ bool SCRIPT_LNG_G_FUNCTIONTYPE::SetName(XCHAR* name)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool SCRIPT_LNG_G_FUNCTIONTYPE::SetName(XSTRING& name)
-* @brief      SetName
+* @brief      Set name
 * @ingroup    SCRIPT
 *
 * @param[in]  name :
@@ -839,7 +839,7 @@ bool SCRIPT_LNG_G_FUNCTIONTYPE::SetName(XSTRING& name)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool SCRIPT_LNG_G_FUNCTIONTYPE::SetReturnType(SCRIPT_LNG_G_TOKENIREPS returntype)
-* @brief      SetReturnType
+* @brief      Set return type
 * @ingroup    SCRIPT
 *
 * @param[in]  returntype :
@@ -858,7 +858,7 @@ bool SCRIPT_LNG_G_FUNCTIONTYPE::SetReturnType(SCRIPT_LNG_G_TOKENIREPS returntype
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool SCRIPT_LNG_G_FUNCTIONTYPE::SetLocation(XCHAR* location)
-* @brief      SetLocation
+* @brief      Set location
 * @ingroup    SCRIPT
 *
 * @param[in]  location :
@@ -877,7 +877,7 @@ bool SCRIPT_LNG_G_FUNCTIONTYPE::SetLocation(XCHAR* location)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void SCRIPT_LNG_G_FUNCTIONTYPE::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    SCRIPT
 *
@@ -901,7 +901,7 @@ void SCRIPT_LNG_G_FUNCTIONTYPE::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         SCRIPT_LNG_G::SCRIPT_LNG_G()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    SCRIPT
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -936,7 +936,7 @@ SCRIPT_LNG_G::SCRIPT_LNG_G()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         SCRIPT_LNG_G::~SCRIPT_LNG_G()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    SCRIPT
 *
@@ -1034,7 +1034,7 @@ int SCRIPT_LNG_G::Run(int* returnval)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool SCRIPT_LNG_G::AddCommand(XCHAR* command,SCRIPT_LNG_G_TOKENIREPS token)
-* @brief      AddCommand
+* @brief      Add command
 * @ingroup    SCRIPT
 *
 * @param[in]  command :
@@ -1059,7 +1059,7 @@ bool SCRIPT_LNG_G::AddCommand(XCHAR* command,SCRIPT_LNG_G_TOKENIREPS token)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool SCRIPT_LNG_G::DeleteCommands()
-* @brief      DeleteCommands
+* @brief      Delete commands
 * @ingroup    SCRIPT
 *
 * @return     bool : true if is succesful.
@@ -1079,7 +1079,7 @@ bool SCRIPT_LNG_G::DeleteCommands()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int SCRIPT_LNG_G::GetFuncParams(SCRIPT_LNG_G_VAR* params)
-* @brief      GetFuncParams
+* @brief      Get func params
 * @ingroup    SCRIPT
 *
 * @param[in]  params :
@@ -1130,7 +1130,7 @@ int SCRIPT_LNG_G::GetFuncParams(SCRIPT_LNG_G_VAR* params)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void SCRIPT_LNG_G::NotFuncParams()
-* @brief      NotFuncParams
+* @brief      Not func params
 * @ingroup    SCRIPT
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -1155,7 +1155,7 @@ void SCRIPT_LNG_G::NotFuncParams()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int SCRIPT_LNG_G::GetReturnValueScript()
-* @brief      GetReturnValueScript
+* @brief      Get return value script
 * @ingroup    SCRIPT
 *
 * @return     int :
@@ -1170,7 +1170,7 @@ int SCRIPT_LNG_G::GetReturnValueScript()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int SCRIPT_LNG_G::SetReturnValueScript(int returnvaluescript)
-* @brief      SetReturnValueScript
+* @brief      Set return value script
 * @ingroup    SCRIPT
 *
 * @param[in]  returnvaluescript :
@@ -1189,7 +1189,7 @@ int SCRIPT_LNG_G::SetReturnValueScript(int returnvaluescript)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool SCRIPT_LNG_G::HaveError(SCRIPT_LNG_G_ERRORCODE errorcode)
-* @brief      HaveError
+* @brief      Have error
 * @ingroup    SCRIPT
 *
 * @param[in]  errorcode :
@@ -1261,7 +1261,7 @@ bool SCRIPT_LNG_G::HaveError(int errorcode)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool SCRIPT_LNG_G::DeleteVarsExec()
-* @brief      DeleteVarsExec
+* @brief      Delete vars exec
 * @ingroup    SCRIPT
 *
 * @return     bool : true if is succesful.
@@ -1304,7 +1304,7 @@ bool SCRIPT_LNG_G::DeleteVarsExec()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool SCRIPT_LNG_G::IsSpace(XCHAR character)
-* @brief      IsSpace
+* @brief      Is space
 * @ingroup    SCRIPT
 *
 * @param[in]  character :
@@ -1324,7 +1324,7 @@ bool SCRIPT_LNG_G::IsSpace(XCHAR character)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool SCRIPT_LNG_G::IsDigit(XCHAR character)
-* @brief      IsDigit
+* @brief      Is digit
 * @ingroup    SCRIPT
 *
 * @param[in]  character :
@@ -1343,7 +1343,7 @@ bool SCRIPT_LNG_G::IsDigit(XCHAR character)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool SCRIPT_LNG_G::IsAlpha(XCHAR character)
-* @brief      IsAlpha
+* @brief      Is alpha
 * @ingroup    SCRIPT
 *
 * @param[in]  character :
@@ -1363,7 +1363,7 @@ bool SCRIPT_LNG_G::IsAlpha(XCHAR character)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool SCRIPT_LNG_G::IsDelimiter(XCHAR c)
-* @brief      IsDelimiter
+* @brief      Is delimiter
 * @ingroup    SCRIPT
 *
 * @param[in]  c :
@@ -1386,7 +1386,7 @@ bool SCRIPT_LNG_G::IsDelimiter(XCHAR c)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         SCRIPT_LNG_G_TOKENIREPS SCRIPT_LNG_G::LookUpToken(XCHAR* s)
-* @brief      LookUpToken
+* @brief      Look up token
 * @ingroup    SCRIPT
 *
 * @param[in]  s :
@@ -1412,7 +1412,7 @@ SCRIPT_LNG_G_TOKENIREPS SCRIPT_LNG_G::LookUpToken(XCHAR* s)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void SCRIPT_LNG_G::PutBackToken()
-* @brief      PutBackToken
+* @brief      Put back token
 * @ingroup    SCRIPT
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -1432,7 +1432,7 @@ void SCRIPT_LNG_G::PutBackToken()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void SCRIPT_LNG_G::EvalExp(SCRIPT_LNG_G_VAR& value)
-* @brief      EvalExp
+* @brief      Eval exp
 * @ingroup    SCRIPT
 *
 * @param[in]  value :
@@ -1482,7 +1482,7 @@ void SCRIPT_LNG_G::EvalExp(SCRIPT_LNG_G_VAR& value)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void SCRIPT_LNG_G::EvalExp0(SCRIPT_LNG_G_VAR& value)
-* @brief      EvalExp0
+* @brief      Eval exp0
 * @ingroup    SCRIPT
 *
 * @param[in]  value :
@@ -1559,7 +1559,7 @@ void SCRIPT_LNG_G::EvalExp0(SCRIPT_LNG_G_VAR& value)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void SCRIPT_LNG_G::EvalExp1(SCRIPT_LNG_G_VAR& value)
-* @brief      EvalExp1
+* @brief      Eval exp1
 * @ingroup    SCRIPT
 *
 * @param[in]  value :
@@ -1629,7 +1629,7 @@ void SCRIPT_LNG_G::EvalExp1(SCRIPT_LNG_G_VAR& value)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void SCRIPT_LNG_G::EvalExp2(SCRIPT_LNG_G_VAR& value)
-* @brief      EvalExp2
+* @brief      Eval exp2
 * @ingroup    SCRIPT
 *
 * @param[in]  value :
@@ -1689,7 +1689,7 @@ void SCRIPT_LNG_G::EvalExp2(SCRIPT_LNG_G_VAR& value)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void SCRIPT_LNG_G::EvalExp3(SCRIPT_LNG_G_VAR& value)
-* @brief      EvalExp3
+* @brief      Eval exp3
 * @ingroup    SCRIPT
 *
 * @param[in]  value :
@@ -1743,7 +1743,7 @@ void SCRIPT_LNG_G::EvalExp3(SCRIPT_LNG_G_VAR& value)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void SCRIPT_LNG_G::EvalExp4(SCRIPT_LNG_G_VAR& value)
-* @brief      EvalExp4
+* @brief      Eval exp4
 * @ingroup    SCRIPT
 *
 * @param[in]  value :
@@ -1788,7 +1788,7 @@ void SCRIPT_LNG_G::EvalExp4(SCRIPT_LNG_G_VAR& value)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void SCRIPT_LNG_G::EvalExp5(SCRIPT_LNG_G_VAR& value)
-* @brief      EvalExp5
+* @brief      Eval exp5
 * @ingroup    SCRIPT
 *
 * @param[in]  value :
@@ -1996,7 +1996,7 @@ void SCRIPT_LNG_G::Atom(SCRIPT_LNG_G_VAR& value)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         SCRIPT_LNG_G_VAR* SCRIPT_LNG_G::IsVariable(XCHAR* variablename)
-* @brief      IsVariable
+* @brief      Is variable
 * @ingroup    SCRIPT
 *
 * @param[in]  variablename :
@@ -2035,7 +2035,7 @@ SCRIPT_LNG_G_VAR* SCRIPT_LNG_G::IsVariable(XCHAR* variablename)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void SCRIPT_LNG_G::AssignVariable(XCHAR* variablename, SCRIPT_LNG_G_VAR& value)
-* @brief      AssignVariable
+* @brief      Assign variable
 * @ingroup    SCRIPT
 *
 * @param[in]  variablename :
@@ -2150,7 +2150,7 @@ void SCRIPT_LNG_G::AssignVariable(XCHAR* variablename, SCRIPT_LNG_G_VAR& value)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         SCRIPT_LNG_G_VAR* SCRIPT_LNG_G::FindVariable(XCHAR* variablename)
-* @brief      FindVariable
+* @brief      Find variable
 * @ingroup    SCRIPT
 *
 * @param[in]  variablename :
@@ -2190,7 +2190,7 @@ SCRIPT_LNG_G_VAR* SCRIPT_LNG_G::FindVariable(XCHAR* variablename)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         SCRIPT_LNG_G_TOKENIREPS SCRIPT_LNG_G::FindVariableType(XCHAR* variablename)
-* @brief      FindVariableType
+* @brief      Find variable type
 * @ingroup    SCRIPT
 *
 * @param[in]  variablename :
@@ -2228,7 +2228,7 @@ SCRIPT_LNG_G_TOKENIREPS SCRIPT_LNG_G::FindVariableType(XCHAR* variablename)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XCHAR* SCRIPT_LNG_G::FindFunction(XCHAR* name)
-* @brief      FindFunction
+* @brief      Find function
 * @ingroup    SCRIPT
 *
 * @param[in]  name :
@@ -2257,7 +2257,7 @@ XCHAR* SCRIPT_LNG_G::FindFunction(XCHAR* name)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         SCRIPT_LNG_G_FUNCTIONTYPE* SCRIPT_LNG_G::GetFunction(XCHAR* name)
-* @brief      GetFunction
+* @brief      Get function
 * @ingroup    SCRIPT
 *
 * @param[in]  name :
@@ -2286,7 +2286,7 @@ SCRIPT_LNG_G_FUNCTIONTYPE* SCRIPT_LNG_G::GetFunction(XCHAR* name)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void SCRIPT_LNG_G::FindEndofBlock()
-* @brief      FindEndofBlock
+* @brief      Find endof block
 * @ingroup    SCRIPT
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -2327,7 +2327,7 @@ void SCRIPT_LNG_G::FindEndofBlock()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void SCRIPT_LNG_G::DeclareGlobalVariable()
-* @brief      DeclareGlobalVariable
+* @brief      Declare global variable
 * @ingroup    SCRIPT
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -2386,7 +2386,7 @@ void SCRIPT_LNG_G::DeclareGlobalVariable()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void SCRIPT_LNG_G::DeclareLocalVariable()
-* @brief      DeclareLocalVariable
+* @brief      Declare local variable
 * @ingroup    SCRIPT
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -2454,7 +2454,7 @@ void SCRIPT_LNG_G::DeclareLocalVariable()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         SCRIPT_LNG_G_TOKENTYPES SCRIPT_LNG_G::GetToken()
-* @brief      GetToken
+* @brief      Get token
 * @ingroup    SCRIPT
 * 
 * @return     SCRIPT_LNG_G_TOKENTYPES : 
@@ -2806,7 +2806,7 @@ SCRIPT_LNG_G_TOKENTYPES SCRIPT_LNG_G::GetToken()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void SCRIPT_LNG_G::PreScan()
-* @brief      PreScan
+* @brief      Pre scan
 * @ingroup    SCRIPT
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -2937,7 +2937,7 @@ void SCRIPT_LNG_G::PreScan()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void SCRIPT_LNG_G::GetArgs()
-* @brief      GetArgs
+* @brief      Get args
 * @ingroup    SCRIPT
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -2993,7 +2993,7 @@ void SCRIPT_LNG_G::GetArgs()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void SCRIPT_LNG_G::GetParams()
-* @brief      GetParams
+* @brief      Get params
 * @ingroup    SCRIPT
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -3049,7 +3049,7 @@ void SCRIPT_LNG_G::GetParams()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void SCRIPT_LNG_G::FunctionReturn()
-* @brief      FunctionReturn
+* @brief      Function return
 * @ingroup    SCRIPT
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -3087,7 +3087,7 @@ void SCRIPT_LNG_G::FunctionReturn()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void SCRIPT_LNG_G::Exec_IF()
-* @brief      Exec_IF
+* @brief      Exec IF
 * @ingroup    SCRIPT
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -3138,7 +3138,7 @@ void SCRIPT_LNG_G::Exec_IF()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void SCRIPT_LNG_G::Exec_SWITCH()
-* @brief      Exec_SWITCH
+* @brief      Exec SWITCH
 * @ingroup    SCRIPT
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -3220,7 +3220,7 @@ void SCRIPT_LNG_G::Exec_SWITCH()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void SCRIPT_LNG_G::Exec_WHILE()
-* @brief      Exec_WHILE
+* @brief      Exec WHILE
 * @ingroup    SCRIPT
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -3275,7 +3275,7 @@ void SCRIPT_LNG_G::Exec_WHILE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void SCRIPT_LNG_G::Exec_DO()
-* @brief      Exec_DO
+* @brief      Exec DO
 * @ingroup    SCRIPT
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -3344,7 +3344,7 @@ void SCRIPT_LNG_G::Exec_DO()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void SCRIPT_LNG_G::Exec_FOR()
-* @brief      Exec_FOR
+* @brief      Exec FOR
 * @ingroup    SCRIPT
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -3605,7 +3605,7 @@ void SCRIPT_LNG_G::Call()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void SCRIPT_LNG_G::ThreadFunction(void* data)
-* @brief      ThreadFunction
+* @brief      Thread function
 * @ingroup    SCRIPT
 *
 * @param[in]  data :
@@ -3629,7 +3629,7 @@ void SCRIPT_LNG_G::ThreadFunction(void* data)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void SCRIPT_LNG_G::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    SCRIPT
 *

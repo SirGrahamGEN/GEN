@@ -89,7 +89,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOANDROIDSTREAMI2C::DIOANDROIDSTREAMI2C()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_ANDROID
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -104,7 +104,7 @@ DIOANDROIDSTREAMI2C::DIOANDROIDSTREAMI2C() : DIOSTREAMI2C()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOANDROIDSTREAMI2C::~DIOANDROIDSTREAMI2C()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_ANDROID
 * 
@@ -159,7 +159,7 @@ bool DIOANDROIDSTREAMI2C::Open()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOANDROIDSTREAMI2C::WaitToFilledReadingBuffer(int filledto, int timeout)
-* @brief      WaitToFilledReadingBuffer
+* @brief      Wait to filled reading buffer
 * @ingroup    PLATFORM_ANDROID
 * 
 * @param[in]  filledto : 
@@ -206,7 +206,7 @@ bool DIOANDROIDSTREAMI2C::Close()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOANDROIDSTREAMI2C::ThreadConnection(void* data)
-* @brief      ThreadConnection
+* @brief      Thread connection
 * @ingroup    PLATFORM_ANDROID
 * 
 * @param[in]  data : 
@@ -315,7 +315,7 @@ void DIOANDROIDSTREAMI2C::ThreadConnection(void* data)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOANDROIDSTREAMI2C::I2C_Read(XWORD address, XBYTE* buffer, XWORD size)
-* @brief      I2C_Read
+* @brief      I2C read
 * @ingroup    PLATFORM_ANDROID
 * 
 * @param[in]  address : 
@@ -357,7 +357,7 @@ bool DIOANDROIDSTREAMI2C::I2C_Read(XWORD address, XBYTE* buffer, XWORD size)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOANDROIDSTREAMI2C::I2C_Write(XWORD address, XBYTE* buffer, XWORD size)
-* @brief      I2C_Write
+* @brief      I2C write
 * @ingroup    PLATFORM_ANDROID
 * 
 * @param[in]  address : 
@@ -399,7 +399,7 @@ bool DIOANDROIDSTREAMI2C::I2C_Write(XWORD address, XBYTE* buffer, XWORD size)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOANDROIDSTREAMI2C::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_ANDROID
 * 

@@ -71,7 +71,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         INPWINDOWSDEVICEMOUSE::INPWINDOWSDEVICEMOUSE()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_WINDOWS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -96,7 +96,7 @@ INPWINDOWSDEVICEMOUSE::INPWINDOWSDEVICEMOUSE(): INPDEVICE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         INPWINDOWSDEVICEMOUSE::~INPWINDOWSDEVICEMOUSE()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
 *
@@ -219,7 +219,7 @@ bool INPWINDOWSDEVICEMOUSE::Update()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void INPWINDOWSDEVICEMOUSE::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
 *
@@ -233,7 +233,7 @@ void INPWINDOWSDEVICEMOUSE::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool INPWINDOWSDEVICEMOUSE::GetWindowPosition(int& screenx,int& screeny,int& screenw,int& screenh)
-* @brief      Get Window Position
+* @brief      Get window position
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
 *
@@ -266,7 +266,7 @@ bool INPWINDOWSDEVICEMOUSE::GetWindowPosition(int& screenx,int& screeny,int& scr
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool INPWINDOWSDEVICEMOUSE::CreateAllButtons()
-* @brief      Create All Buttons
+* @brief      Create all buttons
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
 *
@@ -286,7 +286,7 @@ bool INPWINDOWSDEVICEMOUSE::CreateAllButtons()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool INPWINDOWSDEVICEMOUSE::CreateAllCursors()
-* @brief      Create All Cursors
+* @brief      Create all cursors
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
 *

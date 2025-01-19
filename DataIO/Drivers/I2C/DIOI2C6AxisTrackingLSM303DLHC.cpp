@@ -77,7 +77,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOI2CLSM303DLHCVECTOR::DIOI2CLSM303DLHCVECTOR()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -90,7 +90,7 @@ DIOI2CLSM303DLHCVECTOR::DIOI2CLSM303DLHCVECTOR()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOI2CLSM303DLHCVECTOR::~DIOI2CLSM303DLHCVECTOR()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -160,7 +160,7 @@ void DIOI2CLSM303DLHCVECTOR::Normalize(DIOI2CLSM303DLHCVECTOR& a)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOI2CLSM303DLHCVECTOR::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *
@@ -184,7 +184,7 @@ void DIOI2CLSM303DLHCVECTOR::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOI2CLSM303DLHC::DIOI2CLSM303DLHC() : DIODEVICEI2C()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -197,7 +197,7 @@ DIOI2CLSM303DLHC::DIOI2CLSM303DLHC() : DIODEVICEI2C()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOI2CLSM303DLHC::~DIOI2CLSM303DLHC()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -230,7 +230,7 @@ bool DIOI2CLSM303DLHC::End()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOI2CLSM303DLHC::IniDevice()
-* @brief      IniDevice
+* @brief      Ini device
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -255,7 +255,7 @@ bool DIOI2CLSM303DLHC::IniDevice()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOI2CLSM303DLHC::ReadRegister(XBYTE reg, XBYTE& value)
-* @brief      ReadRegister
+* @brief      Read register
 * @ingroup    DATAIO
 *
 * @param[in]  reg :
@@ -286,7 +286,7 @@ bool DIOI2CLSM303DLHC::ReadRegister(XBYTE reg, XBYTE& value)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOI2CLSM303DLHC::ReadRegister(XBYTE reg, XWORD& value)
-* @brief      ReadRegister
+* @brief      Read register
 * @ingroup    DATAIO
 *
 * @param[in]  reg :
@@ -317,7 +317,7 @@ bool DIOI2CLSM303DLHC::ReadRegister(XBYTE reg, XWORD& value)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOI2CLSM303DLHC::WriteRegister(XBYTE reg, XBYTE value)
-* @brief      WriteRegister
+* @brief      Write register
 * @ingroup    DATAIO
 *
 * @param[in]  reg :
@@ -346,7 +346,7 @@ bool DIOI2CLSM303DLHC::WriteRegister(XBYTE reg, XBYTE value)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOI2CLSM303DLHC::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *
@@ -366,7 +366,7 @@ void DIOI2CLSM303DLHC::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOI2C3DCOMPASSLSM303DLHC::DIOI2C3DCOMPASSLSM303DLHC()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -379,7 +379,7 @@ DIOI2C3DCOMPASSLSM303DLHC::DIOI2C3DCOMPASSLSM303DLHC()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOI2C3DCOMPASSLSM303DLHC::~DIOI2C3DCOMPASSLSM303DLHC()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -459,7 +459,7 @@ bool DIOI2C3DACCELEROMETERLSM303DLHC::Read(XWORD& a_x, XWORD& a_y, XWORD& a_z)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOI2C3DACCELEROMETERLSM303DLHC::DIOI2C3DACCELEROMETERLSM303DLHC()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -472,7 +472,7 @@ DIOI2C3DACCELEROMETERLSM303DLHC::DIOI2C3DACCELEROMETERLSM303DLHC()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOI2C3DACCELEROMETERLSM303DLHC::~DIOI2C3DACCELEROMETERLSM303DLHC()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -551,7 +551,7 @@ bool DIOI2C3DCOMPASSLSM303DLHC::Read(XWORD& c_x, XWORD& c_y, XWORD& c_z)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOI2C6AXISTRACKINGLSM303DLHC::DIOI2C6AXISTRACKINGLSM303DLHC()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -567,7 +567,7 @@ DIOI2C6AXISTRACKINGLSM303DLHC::DIOI2C6AXISTRACKINGLSM303DLHC()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOI2C6AXISTRACKINGLSM303DLHC::~DIOI2C6AXISTRACKINGLSM303DLHC()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -645,7 +645,7 @@ bool DIOI2C6AXISTRACKINGLSM303DLHC::Ini(int port,  int remotedeviceaddressaccele
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOI2C6AXISTRACKINGLSM303DLHC::SetOffset(float x, float y, float z)
-* @brief      SetOffset
+* @brief      Set offset
 * @ingroup    DATAIO
 *
 * @param[in]  x :
@@ -664,7 +664,7 @@ void DIOI2C6AXISTRACKINGLSM303DLHC::SetOffset(float x, float y, float z)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOI2C6AXISTRACKINGLSM303DLHC::SetScale(float x, float y, float z)
-* @brief      SetScale
+* @brief      Set scale
 * @ingroup    DATAIO
 *
 * @param[in]  x :
@@ -844,7 +844,7 @@ bool DIOI2C6AXISTRACKINGLSM303DLHC::End()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOI2C6AXISTRACKINGLSM303DLHC::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

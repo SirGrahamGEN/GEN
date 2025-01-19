@@ -66,7 +66,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         ANDROIDNATIVEACTIVITY_EVENTLOOP::ANDROIDNATIVEACTIVITY_EVENTLOOP(android_app* application)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_ANDROID
 * 
 * @param[in]  application : 
@@ -87,7 +87,7 @@ ANDROIDNATIVEACTIVITY_EVENTLOOP::ANDROIDNATIVEACTIVITY_EVENTLOOP(android_app* ap
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         ANDROIDNATIVEACTIVITY_EVENTLOOP::~ANDROIDNATIVEACTIVITY_EVENTLOOP()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_ANDROID
 * 
@@ -190,7 +190,7 @@ void ANDROIDNATIVEACTIVITY_EVENTLOOP::Deactivate()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int32_t ANDROIDNATIVEACTIVITY_EVENTLOOP::ProcessInputEvent(AInputEvent* event, android_app* application)
-* @brief      ProcessInputEvent
+* @brief      Process input event
 * @ingroup    PLATFORM_ANDROID
 * 
 * @param[in]  event : 
@@ -224,7 +224,7 @@ int32_t ANDROIDNATIVEACTIVITY_EVENTLOOP::ProcessInputEvent(AInputEvent* event, a
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void ANDROIDNATIVEACTIVITY_EVENTLOOP::ProcessApplicationEvent(int32_t command, android_app* application)
-* @brief      ProcessApplicationEvent
+* @brief      Process application event
 * @ingroup    PLATFORM_ANDROID
 * 
 * @param[in]  command : 
@@ -286,7 +286,7 @@ void ANDROIDNATIVEACTIVITY_EVENTLOOP::ProcessApplicationEvent(int32_t command, a
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void ANDROIDNATIVEACTIVITY_EVENTLOOP::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_ANDROID
 * 
@@ -305,7 +305,7 @@ void ANDROIDNATIVEACTIVITY_EVENTLOOP::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int32_t ANDROIDNATIVEACTIVITY_EVENTLOOP::CallbackInput(android_app* application, AInputEvent* event)
-* @brief      CallbackInput
+* @brief      Callback input
 * @ingroup    PLATFORM_ANDROID
 * 
 * @param[in]  application : 
@@ -325,7 +325,7 @@ int32_t ANDROIDNATIVEACTIVITY_EVENTLOOP::CallbackInput(android_app* application,
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void ANDROIDNATIVEACTIVITY_EVENTLOOP::CallbackEvent(android_app* application, int32_t command)
-* @brief      CallbackEvent
+* @brief      Callback event
 * @ingroup    PLATFORM_ANDROID
 * 
 * @param[in]  application : 

@@ -4,7 +4,7 @@
 * 
 * @class      DIOLOCATIONADDRESS
 * @brief      Data Input/Output Location Address class  (container)
-* @ingroup    LOCATION
+* @ingroup    DATAIO
 * 
 * @copyright  GEN Group. All rights reserved.
 * 

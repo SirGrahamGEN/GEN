@@ -61,7 +61,7 @@ DIOSTM32STREAMSPI*        DIOSTM32STREAMSPI::handles[DIOSTM32STREAMSPI_MAXHANDLE
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTM32STREAMSPIPORT::DIOSTM32STREAMSPIPORT()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_STM32
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -75,7 +75,7 @@ DIOSTM32STREAMSPIPORT::DIOSTM32STREAMSPIPORT()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTM32STREAMSPIPORT::~DIOSTM32STREAMSPIPORT()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_STM32
 *
@@ -90,7 +90,7 @@ DIOSTM32STREAMSPIPORT::~DIOSTM32STREAMSPIPORT()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD DIOSTM32STREAMSPIPORT::GetCounterRef()
-* @brief      GetCounterRef
+* @brief      Get counter ref
 * @ingroup    PLATFORM_STM32
 *
 * @return     XDWORD :
@@ -106,7 +106,7 @@ XDWORD DIOSTM32STREAMSPIPORT::GetCounterRef()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSTM32STREAMSPIPORT::SetCounterRef(XDWORD counterref)
-* @brief      SetCounterRef
+* @brief      Set counter ref
 * @ingroup    PLATFORM_STM32
 *
 * @param[in]  counterref :
@@ -122,7 +122,7 @@ void DIOSTM32STREAMSPIPORT::SetCounterRef(XDWORD counterref)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         SPI_HandleTypeDef* DIOSTM32STREAMSPIPORT::GetHandleSPI()
-* @brief      GetHandleSPI
+* @brief      Get handle SPI
 * @ingroup    PLATFORM_STM32
 *
 * @return     SPI_HandleTypeDef* :
@@ -138,7 +138,7 @@ SPI_HandleTypeDef* DIOSTM32STREAMSPIPORT::GetHandleSPI()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSTM32STREAMSPIPORT::SetHandleSPI(SPI_HandleTypeDef* hspi)
-* @brief      SetHandleSPI
+* @brief      Set handle SPI
 * @ingroup    PLATFORM_STM32
 *
 * @param[in]  hspi :
@@ -154,7 +154,7 @@ void DIOSTM32STREAMSPIPORT::SetHandleSPI(SPI_HandleTypeDef* hspi)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSTM32STREAMSPIPORT::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_STM32
 *
@@ -177,7 +177,7 @@ void DIOSTM32STREAMSPIPORT::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTM32STREAMSPI::DIOSTM32STREAMSPI()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_STM32
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -213,7 +213,7 @@ DIOSTM32STREAMSPI::DIOSTM32STREAMSPI() : DIOSTREAMSPI()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTM32STREAMSPI::~DIOSTM32STREAMSPI()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_STM32
 *
@@ -232,7 +232,7 @@ DIOSTM32STREAMSPI::~DIOSTM32STREAMSPI()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMSTATUS DIOSTM32STREAMSPI::GetStatus()
-* @brief      GetStatus
+* @brief      Get status
 * @ingroup    PLATFORM_STM32
 *
 * @return     DIOSTREAMSTATUS :
@@ -343,7 +343,7 @@ bool DIOSTM32STREAMSPI::Open()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTM32STREAMSPI::WaitToFilledReadingBuffer(int filledto, int timeout)
-* @brief      WaitToFilledReadingBuffer
+* @brief      Wait to filled reading buffer
 * @ingroup    PLATFORM_STM32
 *
 * @param[in]  filledto :
@@ -373,7 +373,7 @@ bool DIOSTM32STREAMSPI::WaitToFilledReadingBuffer(int filledto, int timeout)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD DIOSTM32STREAMSPI::ReadDirect(XBYTE* buffer, XDWORD size)
-* @brief      ReadDirect
+* @brief      Read direct
 * @ingroup    PLATFORM_STM32
 *
 * @param[in]  buffer :
@@ -406,7 +406,7 @@ XDWORD DIOSTM32STREAMSPI::ReadDirect(XBYTE* buffer, XDWORD size)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD DIOSTM32STREAMSPI::WriteDirect(XBYTE* buffer, XDWORD size)
-* @brief      WriteDirect
+* @brief      Write direct
 * @ingroup    PLATFORM_STM32
 *
 * @param[in]  buffer :
@@ -530,7 +530,7 @@ bool DIOSTM32STREAMSPI::Close()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTM32STREAMSPI::CleanBuffers()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean buffers
 * @note       INTERNAL
 * @ingroup    PLATFORM_STM32
 *
@@ -615,7 +615,7 @@ void HAL_SPI_ErrorCallback(SPI_HandleTypeDef *hspi)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSTM32STREAMSPI::ThreadConnection(void* param)
-* @brief      ThreadConnection
+* @brief      Thread connection
 * @ingroup    PLATFORM_STM32
 *
 * @param[in]  param :
@@ -707,7 +707,7 @@ void DIOSTM32STREAMSPI::ThreadConnection(void* param)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSTM32STREAMSPI::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_STM32
 *

@@ -4,7 +4,7 @@
 * 
 * @class      DB_SQL_FACTORY
 * @brief      DataBase SQL Connector Factory class
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 * 
 * @copyright  GEN Group. All rights reserved.
 * 

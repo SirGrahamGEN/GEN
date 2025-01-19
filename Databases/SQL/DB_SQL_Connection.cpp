@@ -4,7 +4,7 @@
 * 
 * @class      DB_SQL_CONNECTION
 * @brief      DataBase SQL connection class
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 * 
 * @copyright  GEN Group. All rights reserved.
 * 
@@ -71,8 +71,8 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DB_SQL_CONNECTION::DB_SQL_CONNECTION(DB_SQL_DATABASE* database)
-* @brief      Constructor
-* @ingroup    DATABASES
+* @brief      Constructor of class
+* @ingroup    DATABASE
 *
 * @param[in]  DB_SQL_DATABASE* :
 *
@@ -92,9 +92,9 @@ DB_SQL_CONNECTION::DB_SQL_CONNECTION(DB_SQL_DATABASE* database)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DB_SQL_CONNECTION::~DB_SQL_CONNECTION()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DB_SQL_CONNECTION::~DB_SQL_CONNECTION()
@@ -111,8 +111,8 @@ DB_SQL_CONNECTION::~DB_SQL_CONNECTION()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DB_SQL_CONNECTION::SetOption(XCHAR* key, XCHAR* value)
-* @brief      SetOption
-* @ingroup    DATABASES
+* @brief      Set option
+* @ingroup    DATABASE
 *
 * @param[in]  key :
 * @param[in]  value :
@@ -144,8 +144,8 @@ bool DB_SQL_CONNECTION::SetOption(XCHAR* key, XCHAR* value)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DB_SQL_CONNECTION::FindOption(XCHAR* key, DB_SQL_STRING* result)
-* @brief      FindOption
-* @ingroup    DATABASES
+* @brief      Find option
+* @ingroup    DATABASE
 *
 * @param[in]  key :
 * @param[in]  result :
@@ -172,8 +172,8 @@ bool DB_SQL_CONNECTION::FindOption(XCHAR* key, DB_SQL_STRING* result)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DB_SQL_CONNECTION::DB_SQL_CONNECTION()
-* @brief      Constructor
-* @ingroup    DATABASES
+* @brief      Constructor of class
+* @ingroup    DATABASE
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DB_SQL_CONNECTION::DB_SQL_CONNECTION()
@@ -185,9 +185,9 @@ DB_SQL_CONNECTION::DB_SQL_CONNECTION()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DB_SQL_CONNECTION::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DB_SQL_CONNECTION::Clean()

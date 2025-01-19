@@ -64,7 +64,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         CIPHERKEYCERTIFICATE::CIPHERKEYCERTIFICATE()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    CIPHER
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -79,7 +79,7 @@ CIPHERKEYCERTIFICATE::CIPHERKEYCERTIFICATE() : CIPHERKEY()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         CIPHERKEYCERTIFICATE::~CIPHERKEYCERTIFICATE()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    CIPHER
 * 
@@ -93,7 +93,7 @@ CIPHERKEYCERTIFICATE::~CIPHERKEYCERTIFICATE()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XWORD CIPHERKEYCERTIFICATE::GetVersion()
-* @brief      GetVersion
+* @brief      Get version
 * @ingroup    CIPHER
 * 
 * @return     XWORD : 
@@ -108,7 +108,7 @@ XWORD CIPHERKEYCERTIFICATE::GetVersion()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void CIPHERKEYCERTIFICATE::SetVersion(XWORD version)
-* @brief      SetVersion
+* @brief      Set version
 * @ingroup    CIPHER
 * 
 * @param[in]  version : 
@@ -123,7 +123,7 @@ void CIPHERKEYCERTIFICATE::SetVersion(XWORD version)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBUFFER* CIPHERKEYCERTIFICATE::GetSerial()
-* @brief      GetSerial
+* @brief      Get serial
 * @ingroup    CIPHER
 * 
 * @return     XBUFFER* : 
@@ -138,7 +138,7 @@ XBUFFER* CIPHERKEYCERTIFICATE::GetSerial()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         CIPHERKEYSFILEPEM_ALGORITHM_TYPE CIPHERKEYCERTIFICATE::GetAlgorithmType()
-* @brief      GetAlgorithmType
+* @brief      Get algorithm type
 * @ingroup    CIPHER
 * 
 * @return     CIPHERKEYSFILEPEM_ALGORITHM_TYPE : 
@@ -153,7 +153,7 @@ CIPHERKEYSFILEPEM_ALGORITHM_TYPE CIPHERKEYCERTIFICATE::GetAlgorithmType()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool CIPHERKEYCERTIFICATE::SetAlgorithmType(XCHAR* OID)
-* @brief      SetAlgorithmType
+* @brief      Set algorithm type
 * @ingroup    CIPHER
 * 
 * @param[in]  OID : 
@@ -181,7 +181,7 @@ bool CIPHERKEYCERTIFICATE::SetAlgorithmType(XCHAR* OID)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* CIPHERKEYCERTIFICATE::GetCountryName()
-* @brief      GetCountryName
+* @brief      Get country name
 * @ingroup    CIPHER
 * 
 * @return     XSTRING* : 
@@ -196,7 +196,7 @@ XSTRING* CIPHERKEYCERTIFICATE::GetCountryName()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* CIPHERKEYCERTIFICATE::GetOrganizationName()
-* @brief      GetOrganizationName
+* @brief      Get organization name
 * @ingroup    CIPHER
 * 
 * @return     XSTRING* : 
@@ -211,7 +211,7 @@ XSTRING* CIPHERKEYCERTIFICATE::GetOrganizationName()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* CIPHERKEYCERTIFICATE::GetOrganizationalUnitName()
-* @brief      GetOrganizationalUnitName
+* @brief      Get organizational unit name
 * @ingroup    CIPHER
 * 
 * @return     XSTRING* : 
@@ -226,7 +226,7 @@ XSTRING* CIPHERKEYCERTIFICATE::GetOrganizationalUnitName()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* CIPHERKEYCERTIFICATE::GetCommonName()
-* @brief      GetCommonName
+* @brief      Get common name
 * @ingroup    CIPHER
 * 
 * @return     XSTRING* : 
@@ -241,7 +241,7 @@ XSTRING* CIPHERKEYCERTIFICATE::GetCommonName()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDATETIME* CIPHERKEYCERTIFICATE::GetDateNotBefore()
-* @brief      GetDateNotBefore
+* @brief      Get date not before
 * @ingroup    CIPHER
 * 
 * @return     XDATETIME* : 
@@ -256,7 +256,7 @@ XDATETIME* CIPHERKEYCERTIFICATE::GetDateNotBefore()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDATETIME* CIPHERKEYCERTIFICATE::GetDateNotAfter()
-* @brief      GetDateNotAfter
+* @brief      Get date not after
 * @ingroup    CIPHER
 * 
 * @return     XDATETIME* : 
@@ -271,7 +271,7 @@ XDATETIME* CIPHERKEYCERTIFICATE::GetDateNotAfter()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool CIPHERKEYCERTIFICATE::ConvertDateTime(XCHAR* datestr, XDATETIME* datetime)
-* @brief      ConvertDateTime
+* @brief      Convert date time
 * @ingroup    CIPHER
 * 
 * @param[in]  datestr : 
@@ -340,7 +340,7 @@ bool CIPHERKEYCERTIFICATE::ConvertDateTime(XCHAR* datestr, XDATETIME* datetime)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void CIPHERKEYCERTIFICATE::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    CIPHER
 * 

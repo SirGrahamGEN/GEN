@@ -47,7 +47,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTM32_FATSD_SPI::XSTM32_FATSD_SPI()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_STM32
 *
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -61,7 +61,7 @@ XSTM32_FATSD_SPI::XSTM32_FATSD_SPI()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTM32_FATSD_SPI::~XSTM32_FATSD_SPI()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_STM32
 *
@@ -108,7 +108,7 @@ bool XSTM32_FATSD_SPI::Ini(SPI_HandleTypeDef* handleSPI, XDWORD GPIOentryID_CS, 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD XSTM32_FATSD_SPI::GetGPIOEntryID_CS()
-* @brief      GetGPIOEntryID_CS
+* @brief      Get GPIO entry IDCS
 * @ingroup    PLATFORM_STM32
 *
 * @return     XDWORD : 
@@ -124,7 +124,7 @@ XDWORD XSTM32_FATSD_SPI::GetGPIOEntryID_CS()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void XSTM32_FATSD_SPI::SetGPIOEntryID_CS(XDWORD GPIOentryID)
-* @brief      SetGPIOEntryID_CS
+* @brief      Set GPIO entry IDCS
 * @ingroup    PLATFORM_STM32
 *
 * @param[in]  GPIOentryID : 
@@ -140,7 +140,7 @@ void XSTM32_FATSD_SPI::SetGPIOEntryID_CS(XDWORD GPIOentryID)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD XSTM32_FATSD_SPI::GetGPIOEntryID_Switch()
-* @brief      GetGPIOEntryID_Switch
+* @brief      Get GPIO entry ID switch
 * @ingroup    PLATFORM_STM32
 *
 * @return     XDWORD : 
@@ -157,7 +157,7 @@ XDWORD XSTM32_FATSD_SPI::GetGPIOEntryID_Switch()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void XSTM32_FATSD_SPI::SetGPIOEntryID_Switch(XDWORD GPIOentryID)
-* @brief      SetGPIOEntryID_Switch
+* @brief      Set GPIO entry ID switch
 * @ingroup    PLATFORM_STM32
 *
 * @param[in]  GPIOentryID : 
@@ -173,7 +173,7 @@ void XSTM32_FATSD_SPI::SetGPIOEntryID_Switch(XDWORD GPIOentryID)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         SPI_HandleTypeDef* XSTM32_FATSD_SPI::GetHandleSPI()
-* @brief      GetHandleSPI
+* @brief      Get handle SPI
 * @ingroup    PLATFORM_STM32
 *
 * @return     SPI_HandleTypeDef* : 
@@ -190,7 +190,7 @@ SPI_HandleTypeDef* XSTM32_FATSD_SPI::GetHandleSPI()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void XSTM32_FATSD_SPI::SetHandleSPI(SPI_HandleTypeDef* handleSPI)
-* @brief      SetHandleSPI
+* @brief      Set handle SPI
 * @ingroup    PLATFORM_STM32
 *
 * @param[in]  handleSPI : 
@@ -206,7 +206,7 @@ void XSTM32_FATSD_SPI::SetHandleSPI(SPI_HandleTypeDef* handleSPI)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XSTM32_FATSD_SPI::Disk_IsInserted()
-* @brief      Disk_IsInserted
+* @brief      Disk is inserted
 * @ingroup    PLATFORM_STM32
 *
 * @return     bool : true if is succesful. 
@@ -224,7 +224,7 @@ bool XSTM32_FATSD_SPI::Disk_IsInserted()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DSTATUS XSTM32_FATSD_SPI::Disk_Initialize(XBYTE drive)
-* @brief      Disk_Initialize
+* @brief      Disk initialize
 * @ingroup    PLATFORM_STM32
 *
 * @param[in]  drive : 
@@ -330,7 +330,7 @@ DSTATUS XSTM32_FATSD_SPI::Disk_Initialize(XBYTE drive)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DSTATUS XSTM32_FATSD_SPI::Disk_Status(XBYTE drive)
-* @brief      Disk_Status
+* @brief      Disk status
 * @ingroup    PLATFORM_STM32
 *
 * @param[in]  drive : 
@@ -350,7 +350,7 @@ DSTATUS XSTM32_FATSD_SPI::Disk_Status(XBYTE drive)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DRESULT XSTM32_FATSD_SPI::Disk_Read(XBYTE pdrive, XBYTE* buffer, XDWORD sector, XDWORD count)
-* @brief      Disk_Read
+* @brief      Disk read
 * @ingroup    PLATFORM_STM32
 *
 * @param[in]  pdrive : 
@@ -401,7 +401,7 @@ DRESULT XSTM32_FATSD_SPI::Disk_Read(XBYTE pdrive, XBYTE* buffer, XDWORD sector, 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DRESULT XSTM32_FATSD_SPI::Disk_Write(XBYTE pdrive, const XBYTE* buffer, XDWORD sector, XDWORD count)
-* @brief      Disk_Write
+* @brief      Disk write
 * @ingroup    PLATFORM_STM32
 *
 * @param[in]  pdrive : 
@@ -463,7 +463,7 @@ DRESULT XSTM32_FATSD_SPI::Disk_Write(XBYTE pdrive, const XBYTE* buffer, XDWORD s
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DRESULT XSTM32_FATSD_SPI::Disk_IOTCL(XBYTE drive, XBYTE ctrl, void* buffer)
-* @brief      Disk_IOTCL
+* @brief      Disk IOTCL
 * @ingroup    PLATFORM_STM32
 *
 * @param[in]  drive : 
@@ -593,7 +593,7 @@ bool XSTM32_FATSD_SPI::End()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void XSTM32_FATSD_SPI::CS_Select()
-* @brief      CS_Select
+* @brief      CS select
 * @ingroup    PLATFORM_STM32
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -609,7 +609,7 @@ void XSTM32_FATSD_SPI::CS_Select()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void XSTM32_FATSD_SPI::CS_Deselect()
-* @brief      CS_Deselect
+* @brief      CS deselect
 * @ingroup    PLATFORM_STM32
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -626,7 +626,7 @@ void XSTM32_FATSD_SPI::CS_Deselect()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTE XSTM32_FATSD_SPI::SPI_ReadByte()
-* @brief      SPI_ReadByte
+* @brief      SPI read byte
 * @ingroup    PLATFORM_STM32
 *
 * @return     XBYTE : 
@@ -652,7 +652,7 @@ XBYTE XSTM32_FATSD_SPI::SPI_ReadByte()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void XSTM32_FATSD_SPI::SPI_WriteByte(XBYTE data)
-* @brief      SPI_WriteByte
+* @brief      SPI write byte
 * @ingroup    PLATFORM_STM32
 *
 * @param[in]  data : 
@@ -673,7 +673,7 @@ bool XSTM32_FATSD_SPI::SPI_WriteByte(XBYTE data)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void XSTM32_FATSD_SPI::SPI_ReadBytePtr(XBYTE* buffer)
-* @brief      SPI_ReadBytePtr
+* @brief      SPI read byte ptr
 * @ingroup    PLATFORM_STM32
 *
 * @param[in]  buffer : 
@@ -690,7 +690,7 @@ void XSTM32_FATSD_SPI::SPI_ReadBytePtr(XBYTE* buffer)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTE XSTM32_FATSD_SPI::SD_ReadyWait()
-* @brief      SD_ReadyWait
+* @brief      SD ready wait
 * @ingroup    PLATFORM_STM32
 *
 * @return     XBYTE : 
@@ -718,7 +718,7 @@ XBYTE XSTM32_FATSD_SPI::SD_ReadyWait()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void XSTM32_FATSD_SPI::SD_PowerOn()
-* @brief      SD_PowerOn
+* @brief      SD power on
 * @ingroup    PLATFORM_STM32
 *
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -769,7 +769,7 @@ void XSTM32_FATSD_SPI::SD_PowerOn()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void XSTM32_FATSD_SPI::SD_PowerOff()
-* @brief      SD_PowerOff
+* @brief      SD power off
 * @ingroup    PLATFORM_STM32
 *
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -783,7 +783,7 @@ void XSTM32_FATSD_SPI::SD_PowerOff()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XSTM32_FATSD_SPI::SD_CheckPower()
-* @brief      SD_CheckPower
+* @brief      SD check power
 * @ingroup    PLATFORM_STM32
 *
 * @return     bool : true if is succesful. 
@@ -800,7 +800,7 @@ bool XSTM32_FATSD_SPI::SD_CheckPower()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XSTM32_FATSD_SPI::SD_ReadDataBlock(XBYTE* buffer, XDWORD btr)
-* @brief      SD_ReadDataBlock
+* @brief      SD read data block
 * @ingroup    PLATFORM_STM32
 *
 * @param[in]  buffer : 
@@ -840,7 +840,7 @@ bool XSTM32_FATSD_SPI::SD_ReadDataBlock(XBYTE* buffer, XDWORD btr)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XSTM32_FATSD_SPI::SD_WriteDataBlock(const XBYTE* buffer, XBYTE token)
-* @brief      SD_WriteDataBlock
+* @brief      SD write data block
 * @ingroup    PLATFORM_STM32
 *
 * @param[in]  buffer : 
@@ -895,7 +895,7 @@ bool XSTM32_FATSD_SPI::SD_WriteDataBlock(const XBYTE* buffer, XBYTE token)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTE XSTM32_FATSD_SPI::SD_SendCmd(XBYTE cmd, XDWORD arg)
-* @brief      SD_SendCmd
+* @brief      SD send cmd
 * @ingroup    PLATFORM_STM32
 *
 * @param[in]  cmd : 
@@ -943,7 +943,7 @@ XBYTE XSTM32_FATSD_SPI::SD_SendCmd(XBYTE cmd, XDWORD arg)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void XSTM32_FATSD_SPI::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_STM32
 *

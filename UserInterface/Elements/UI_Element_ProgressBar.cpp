@@ -69,7 +69,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_ELEMENT_PROGRESSBAR::UI_ELEMENT_PROGRESSBAR()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    USERINTERFACE
 *
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -87,7 +87,7 @@ UI_ELEMENT_PROGRESSBAR::UI_ELEMENT_PROGRESSBAR()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_ELEMENT_PROGRESSBAR::~UI_ELEMENT_PROGRESSBAR()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
 *
@@ -107,7 +107,7 @@ UI_ELEMENT_PROGRESSBAR::~UI_ELEMENT_PROGRESSBAR()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         float UI_ELEMENT_PROGRESSBAR::GetLevel()
-* @brief      GetLevel
+* @brief      Get level
 * @ingroup    USERINTERFACE
 *
 * @return     float : 
@@ -122,7 +122,7 @@ float UI_ELEMENT_PROGRESSBAR::GetLevel()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_ELEMENT_PROGRESSBAR::SetLevel(float level)
-* @brief      SetLevel
+* @brief      Set level
 * @ingroup    USERINTERFACE
 *
 * @param[in]  level : 
@@ -140,7 +140,7 @@ void UI_ELEMENT_PROGRESSBAR::SetLevel(float level)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_COLOR* UI_ELEMENT_PROGRESSBAR::GetLineColor()
-* @brief      GetLineColor
+* @brief      Get line color
 * @ingroup    USERINTERFACE
 *
 * @return     UI_COLOR* : 
@@ -155,7 +155,7 @@ UI_COLOR* UI_ELEMENT_PROGRESSBAR::GetLineColor()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_ELEMENT* UI_ELEMENT_PROGRESSBAR::GetProgressRect()
-* @brief      GetProgressRect
+* @brief      Get progress rect
 * @ingroup    USERINTERFACE
 *
 * @return     UI_ELEMENT* : 
@@ -170,7 +170,7 @@ UI_ELEMENT* UI_ELEMENT_PROGRESSBAR::GetProgressRect()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_ELEMENT_PROGRESSBAR::SetProgressRect(UI_ELEMENT* progressrect)
-* @brief      SetProgressRect
+* @brief      Set progress rect
 * @ingroup    USERINTERFACE
 *
 * @param[in]  progressrect : 
@@ -185,7 +185,7 @@ void UI_ELEMENT_PROGRESSBAR::SetProgressRect(UI_ELEMENT* progressrect)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_ELEMENT_PROGRESSBAR::ContinuousCycle_Is()
-* @brief      ContinuousCycle_Is
+* @brief      Continuous cycle is
 * @ingroup    USERINTERFACE
 *
 * @return     bool : true if is succesful. 
@@ -200,7 +200,7 @@ bool UI_ELEMENT_PROGRESSBAR::ContinuousCycle_Is()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_ELEMENT_PROGRESSBAR::ContinuousCycle_Set(bool active, XDWORD sizesegment, XDWORD stepsegment, XDWORD timestep)
-* @brief      ContinuousCycle_Set
+* @brief      Continuous cycle set
 * @ingroup    USERINTERFACE
 *
 * @param[in]  active : 
@@ -221,7 +221,7 @@ void UI_ELEMENT_PROGRESSBAR::ContinuousCycle_Set(bool active, XDWORD sizesegment
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD UI_ELEMENT_PROGRESSBAR::ContinuousCycle_GetSizeSegment()
-* @brief      ContinuousCycle_GetSizeSegment
+* @brief      Continuous cycle get size segment
 * @ingroup    USERINTERFACE
 *
 * @return     XDWORD : 
@@ -236,7 +236,7 @@ XDWORD UI_ELEMENT_PROGRESSBAR::ContinuousCycle_GetSizeSegment()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD UI_ELEMENT_PROGRESSBAR::ContinuousCycle_GetStepSegment()
-* @brief      ContinuousCycle_GetStepSegment
+* @brief      Continuous cycle get step segment
 * @ingroup    USERINTERFACE
 *
 * @return     XDWORD : 
@@ -251,7 +251,7 @@ XDWORD UI_ELEMENT_PROGRESSBAR::ContinuousCycle_GetStepSegment()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD UI_ELEMENT_PROGRESSBAR::ContinuousCycle_GetNSteps()
-* @brief      ContinuousCycle_GetNSteps
+* @brief      Continuous cycle get N steps
 * @ingroup    USERINTERFACE
 *
 * @return     XDWORD : 
@@ -266,7 +266,7 @@ XDWORD UI_ELEMENT_PROGRESSBAR::ContinuousCycle_GetNSteps()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_ELEMENT_PROGRESSBAR::ContinuousCycle_SetNSteps(XDWORD nsteps)
-* @brief      ContinuousCycle_SetNSteps
+* @brief      Continuous cycle set N steps
 * @ingroup    USERINTERFACE
 *
 * @param[in]  nsteps : 
@@ -281,7 +281,7 @@ void UI_ELEMENT_PROGRESSBAR::ContinuousCycle_SetNSteps(XDWORD nsteps)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XTIMER* UI_ELEMENT_PROGRESSBAR::ContinuousCycle_GetXTimer()
-* @brief      ContinuousCycle_GetXTimer
+* @brief      Continuous cycle get X timer
 * @ingroup    USERINTERFACE
 *
 * @return     XTIMER* : 
@@ -296,7 +296,7 @@ XTIMER* UI_ELEMENT_PROGRESSBAR::ContinuousCycle_GetXTimer()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD UI_ELEMENT_PROGRESSBAR::ContinuousCycle_GetTimeStep()
-* @brief      ContinuousCycle_GetTimeStep
+* @brief      Continuous cycle get time step
 * @ingroup    USERINTERFACE
 *
 * @return     XDWORD : 
@@ -311,7 +311,7 @@ XDWORD UI_ELEMENT_PROGRESSBAR::ContinuousCycle_GetTimeStep()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_ELEMENT_PROGRESSBAR::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
 *

@@ -64,7 +64,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOCOREPROTOCOL_XEVENT::DIOCOREPROTOCOL_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * @param[in]  subject :
@@ -81,7 +81,7 @@ DIOCOREPROTOCOL_XEVENT::DIOCOREPROTOCOL_XEVENT(XSUBJECT* subject, XDWORD type, X
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOCOREPROTOCOL_XEVENT::~DIOCOREPROTOCOL_XEVENT()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -95,7 +95,7 @@ DIOCOREPROTOCOL_XEVENT::~DIOCOREPROTOCOL_XEVENT()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOPROTOCOL* DIOCOREPROTOCOL_XEVENT::GetProtocol()
-* @brief      GetProtocol
+* @brief      Get protocol
 * @ingroup    DATAIO
 *
 * @return     DIOPROTOCOL* :
@@ -110,7 +110,7 @@ DIOCOREPROTOCOL* DIOCOREPROTOCOL_XEVENT::GetProtocol()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOCOREPROTOCOL_XEVENT::SetProtocol(DIOPROTOCOL* protocol)
-* @brief      SetProtocol
+* @brief      Set protocol
 * @ingroup    DATAIO
 *
 * @param[in]  protocol :
@@ -130,7 +130,7 @@ bool DIOCOREPROTOCOL_XEVENT::SetProtocol(DIOCOREPROTOCOL* protocol)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOCOREPROTOCOL_XEVENT::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

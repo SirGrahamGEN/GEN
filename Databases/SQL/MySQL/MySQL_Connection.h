@@ -4,7 +4,7 @@
 * 
 * @class      MYSQL_CONNECTION
 * @brief      DataBase SQL MySQL Connection class
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 * 
 * @copyright  GEN Group. All rights reserved.
 * 

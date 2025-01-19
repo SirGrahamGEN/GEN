@@ -70,7 +70,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOGEOLOCATIONIP_RESULT::DIOGEOLOCATIONIP_RESULT()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -83,7 +83,7 @@ DIOGEOLOCATIONIP_RESULT::DIOGEOLOCATIONIP_RESULT(): DIOSCRAPERWEBCACHE_RESULT()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOGEOLOCATIONIP_RESULT::~DIOGEOLOCATIONIP_RESULT()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -97,7 +97,7 @@ DIOGEOLOCATIONIP_RESULT::~DIOGEOLOCATIONIP_RESULT()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XCHAR* DIOGEOLOCATIONIP_RESULT::GetCountry()
-* @brief      GetCountry
+* @brief      Get country
 * @ingroup    DATAIO
 *
 * @return     XCHAR* :
@@ -112,7 +112,7 @@ XCHAR* DIOGEOLOCATIONIP_RESULT::GetCountry()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XCHAR* DIOGEOLOCATIONIP_RESULT::GetState()
-* @brief      GetState
+* @brief      Get state
 * @ingroup    DATAIO
 *
 * @return     XCHAR* :
@@ -127,7 +127,7 @@ XCHAR* DIOGEOLOCATIONIP_RESULT::GetState()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XCHAR* DIOGEOLOCATIONIP_RESULT::GetCity()
-* @brief      GetCity
+* @brief      Get city
 * @ingroup    DATAIO
 *
 * @return     XCHAR* :
@@ -142,7 +142,7 @@ XCHAR* DIOGEOLOCATIONIP_RESULT::GetCity()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XCHAR* DIOGEOLOCATIONIP_RESULT::GetISP()
-* @brief      GetISP
+* @brief      Get ISP
 * @ingroup    DATAIO
 *
 * @return     XCHAR* :
@@ -157,7 +157,7 @@ XCHAR* DIOGEOLOCATIONIP_RESULT::GetISP()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XCHAR* DIOGEOLOCATIONIP_RESULT::GetOrganization()
-* @brief      GetOrganization
+* @brief      Get organization
 * @ingroup    DATAIO
 *
 * @return     XCHAR* :
@@ -172,7 +172,7 @@ XCHAR* DIOGEOLOCATIONIP_RESULT::GetOrganization()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         float DIOGEOLOCATIONIP_RESULT::GetLatitude()
-* @brief      GetLatitude
+* @brief      Get latitude
 * @ingroup    DATAIO
 *
 * @return     float :
@@ -187,7 +187,7 @@ float DIOGEOLOCATIONIP_RESULT::GetLatitude()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         float DIOGEOLOCATIONIP_RESULT::GetLongitude()
-* @brief      GetLongitude
+* @brief      Get longitude
 * @ingroup    DATAIO
 *
 * @return     float :
@@ -202,7 +202,7 @@ float DIOGEOLOCATIONIP_RESULT::GetLongitude()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOGEOLOCATIONIP_RESULT::IsEmpty()
-* @brief      IsEmpty
+* @brief      Is empty
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -219,7 +219,7 @@ bool DIOGEOLOCATIONIP_RESULT::IsEmpty()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOGEOLOCATIONIP_RESULT::CopyFrom(DIOSCRAPERWEBCACHE_RESULT* result)
-* @brief      CopyFrom
+* @brief      Copy from
 * @ingroup    DATAIO
 *
 * @param[in]  result :
@@ -251,7 +251,7 @@ bool DIOGEOLOCATIONIP_RESULT::CopyFrom(DIOSCRAPERWEBCACHE_RESULT* result)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOGEOLOCATIONIP_RESULT::CopyTo(DIOSCRAPERWEBCACHE_RESULT* result)
-* @brief      CopyTo
+* @brief      Copy to
 * @ingroup    DATAIO
 *
 * @param[in]  result :
@@ -362,7 +362,7 @@ bool DIOGEOLOCATIONIP_RESULT::Set(float latitude, float longitude)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOGEOLOCATIONIP_RESULT::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *
@@ -383,7 +383,7 @@ void DIOGEOLOCATIONIP_RESULT::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSCRAPERWEBGEOLOCATIONIP::DIOSCRAPERWEBGEOLOCATIONIP(DIOWEBCLIENT* webclient)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * @param[in]  webclient :
@@ -398,7 +398,7 @@ DIOSCRAPERWEBGEOLOCATIONIP::DIOSCRAPERWEBGEOLOCATIONIP(DIOWEBCLIENT* webclient):
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSCRAPERWEBGEOLOCATIONIP::~DIOSCRAPERWEBGEOLOCATIONIP()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -412,7 +412,7 @@ DIOSCRAPERWEBGEOLOCATIONIP::~DIOSCRAPERWEBGEOLOCATIONIP()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSCRAPERWEBGEOLOCATIONIP::ChangeURL(XCHAR* maskurl, DIOURL& url)
-* @brief      ChangeURL
+* @brief      Change URL
 * @ingroup    DATAIO
 *
 * @param[in]  maskurl :
@@ -576,7 +576,7 @@ bool DIOSCRAPERWEBGEOLOCATIONIP::Get(DIOIP& IP, DIOGEOLOCATIONIP_RESULT& geoloca
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSCRAPERWEBGEOLOCATIONIP::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

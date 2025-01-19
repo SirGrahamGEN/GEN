@@ -4,7 +4,7 @@
 *
 * @class      DIOSTM32GPIO
 * @brief      Data Input/Output STM32 General Port Input/Ouput (GPIO)
-* @ingroup    PLATFORM_STM32    PLATFORM_STM32
+* @ingroup    PLATFORM_STM32
 *
 * @copyright  GEN Group. All rights reserved.
 *
@@ -49,8 +49,8 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTM32GPIO::DIOSTM32GPIO()
-* @brief      Constructor
-* @ingroup    PLATFORM_STM32    PLATFORM_STM32
+* @brief      Constructor of class
+* @ingroup    PLATFORM_STM32
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSTM32GPIO::DIOSTM32GPIO(): DIOGPIO()
@@ -63,9 +63,9 @@ DIOSTM32GPIO::DIOSTM32GPIO(): DIOGPIO()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTM32GPIO::~DIOSTM32GPIO()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
-* @ingroup    PLATFORM_STM32    PLATFORM_STM32
+* @ingroup    PLATFORM_STM32
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSTM32GPIO::~DIOSTM32GPIO()
@@ -79,7 +79,7 @@ DIOSTM32GPIO::~DIOSTM32GPIO()
 *
 * @fn         bool DIOSTM32GPIO::Ini()
 * @brief      Ini
-* @ingroup    PLATFORM_STM32    PLATFORM_STM32
+* @ingroup    PLATFORM_STM32
 *
 * @return     bool : true if is succesful.
 *
@@ -94,7 +94,7 @@ bool DIOSTM32GPIO::Ini()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOSTM32GPIO::SetMode(DIOGPIO_ENTRY* entry, XWORD mode)
-* @brief      SetMode
+* @brief      Set mode
 * @ingroup    PLATFORM_STM32
 *
 * @param[in]  entry : 
@@ -167,7 +167,7 @@ bool DIOSTM32GPIO::SetMode(DIOGPIO_ENTRY* entry, XWORD mode)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOSTM32GPIO::GetValue(DIOGPIO_ENTRY* entry)
-* @brief      GetValue
+* @brief      Get value
 * @ingroup    PLATFORM_STM32
 *
 * @param[in]  entry : 
@@ -207,7 +207,7 @@ bool DIOSTM32GPIO::GetValue(DIOGPIO_ENTRY* entry)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOSTM32GPIO::SetValue(DIOGPIO_ENTRY* entry, bool value)
-* @brief      SetValue
+* @brief      Set value
 * @ingroup    PLATFORM_STM32
 *
 * @param[in]  entry : 
@@ -249,7 +249,7 @@ bool DIOSTM32GPIO::SetValue(DIOGPIO_ENTRY* entry, bool value)
 *
 * @fn         bool DIOSTM32GPIO::End()
 * @brief      End
-* @ingroup    PLATFORM_STM32    PLATFORM_STM32
+* @ingroup    PLATFORM_STM32
 *
 * @return     bool : true if is succesful.
 *
@@ -264,9 +264,9 @@ bool DIOSTM32GPIO::End()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSTM32GPIO::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
-* @ingroup    PLATFORM_STM32    PLATFORM_STM32
+* @ingroup    PLATFORM_STM32
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTM32GPIO::Clean()

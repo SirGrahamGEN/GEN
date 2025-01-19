@@ -74,7 +74,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPLINUXSCREENX11::GRPLINUXSCREENX11()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_LINUX
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -120,7 +120,7 @@ GRPLINUXSCREENX11::GRPLINUXSCREENX11(): GRPSCREEN()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPLINUXSCREENX11::~GRPLINUXSCREENX11()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
 *
@@ -220,7 +220,7 @@ bool GRPLINUXSCREENX11::Update(GRPCANVAS* canvas)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPLINUXSCREENX11::UpdateTransparent(GRPCANVAS* canvas)
-* @brief      UpdateTransparent
+* @brief      Update transparent
 * @ingroup    PLATFORM_LINUX
 * 
 * @param[in]  canvas : 
@@ -297,7 +297,7 @@ bool GRPLINUXSCREENX11::Show(bool active)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPLINUXSCREENX11::ShowCursor(bool active)
-* @brief      ShowCursor
+* @brief      Show cursor
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  active :
@@ -337,7 +337,7 @@ bool GRPLINUXSCREENX11::ShowCursor(bool active)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void* GRPLINUXSCREENX11::GetHandle()
-* @brief      GetHandle
+* @brief      Get handle
 * @ingroup    PLATFORM_LINUX
 *
 * @return     void* :
@@ -353,7 +353,7 @@ void* GRPLINUXSCREENX11::GetHandle()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPLINUXSCREENX11::IsDesktop()
-* @brief      IsDesktop
+* @brief      Is desktop
 * @ingroup    PLATFORM_LINUX
 * 
 * @return     bool : true if is succesful. 
@@ -368,7 +368,7 @@ bool  GRPLINUXSCREENX11::IsDesktop()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void GRPLINUXSCREENX11::SetIsDesktop(bool isdesktop)
-* @brief      Set Is Desktop
+* @brief      Set is desktop
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  isdesktop : set is run in desktop
@@ -383,7 +383,7 @@ void GRPLINUXSCREENX11::SetIsDesktop(bool isdesktop)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPLINUXSCREENX11::HasFocus()
-* @brief      HasFocus
+* @brief      Has focus
 * @ingroup    PLATFORM_LINUX
 *
 * @return     bool : true if is succesful.
@@ -405,7 +405,7 @@ bool GRPLINUXSCREENX11::HasFocus()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         Display* GRPLINUXSCREENX11::GetDisplay()
-* @brief      Get Display
+* @brief      Get display
 * @ingroup    PLATFORM_LINUX
 *
 * @return     Display* :
@@ -420,7 +420,7 @@ Display* GRPLINUXSCREENX11::GetDisplay()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         Window* GRPLINUXSCREENX11::GetWindow()
-* @brief      GetWindow
+* @brief      Get window
 * @ingroup    PLATFORM_LINUX
 *
 * @return     Window* :
@@ -435,7 +435,7 @@ Window* GRPLINUXSCREENX11::GetWindow()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         Window* GRPLINUXSCREENX11::GetWindowRoot()
-* @brief      GetWindowRoot
+* @brief      Get window root
 * @ingroup    PLATFORM_LINUX
 * 
 * @return     Window* : 
@@ -450,7 +450,7 @@ Window* GRPLINUXSCREENX11::GetWindowRoot()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XVisualInfo* GRPLINUXSCREENX11::GetVisualInfo()
-* @brief      GetVisualInfo
+* @brief      Get visual info
 * @ingroup    PLATFORM_LINUX
 * 
 * @return     XVisualInfo* : 
@@ -465,7 +465,7 @@ XVisualInfo* GRPLINUXSCREENX11::GetVisualInfo()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPLINUXSCREENX11::Create_Window(bool show)
-* @brief      Create_Window
+* @brief      Create window
 * @ingroup    PLATFORM_LINUX
 * 
 * @param[in]  show : 
@@ -739,7 +739,7 @@ bool GRPLINUXSCREENX11::Create_Window(bool show)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPLINUXSCREENX11::ChangeScreenResolution(int width, int height)
-* @brief      ChangeScreenResolution
+* @brief      Change screen resolution
 * @ingroup    PLATFORM_LINUX
 * 
 * @param[in]  width : 
@@ -786,7 +786,7 @@ bool GRPLINUXSCREENX11::ChangeScreenResolution(int width, int height)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XImage* GRPLINUXSCREENX11::CreateXImageFromBuffer(Display* display, int screen, XBYTE* buffer, int width, int height)
-* @brief      CreateXImageFromBuffer
+* @brief      Create X image from buffer
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  display :
@@ -890,7 +890,7 @@ XImage* GRPLINUXSCREENX11::CreateXImageFromBuffer(Display* display, int screen, 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int GRPLINUXSCREENX11::GetTaskBarHeight()
-* @brief      GetTaskBarHeight
+* @brief      Get task bar height
 * @ingroup    PLATFORM_LINUX
 * 
 * @return     int : 
@@ -937,7 +937,7 @@ int GRPLINUXSCREENX11::GetTaskBarHeight()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPLINUXSCREENX11::ShowDebugNetSupportedPropertys()
-* @brief      ShowDebugNetSupportedPropertys
+* @brief      Show debug net supported propertys
 * @ingroup    PLATFORM_LINUX
 * 
 * @return     bool : true if is succesful. 
@@ -998,7 +998,7 @@ bool GRPLINUXSCREENX11::ShowDebugNetSupportedPropertys()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int GRPLINUXSCREENX11::GetByteOrder()
-* @brief      GetByteOrder
+* @brief      Get byte order
 * @ingroup    PLATFORM_LINUX
 * 
 * @return     int : 
@@ -1028,7 +1028,7 @@ int GRPLINUXSCREENX11::GetByteOrder()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int GRPLINUXSCREENX11::ErrorHandler(Display* display, XErrorEvent* errorevent)
-* @brief      ErrorHandler
+* @brief      Error handler
 * @ingroup    PLATFORM_LINUX
 * 
 * @param[in]  display : 
@@ -1049,7 +1049,7 @@ int GRPLINUXSCREENX11::ErrorHandler(Display* display, XErrorEvent* errorevent)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void GRPLINUXSCREENX11::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
 *

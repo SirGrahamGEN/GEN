@@ -4,7 +4,7 @@
 *
 * @class      XSTM32EEPROMMEMORYMANAGER
 * @brief      eXtended utils STM32 Flash Memory class
-* @ingroup    PLATFORM_STM32    PLATFORM_STM32
+* @ingroup    PLATFORM_STM32
 *
 * @copyright  GEN Group. All rights reserved.
 *
@@ -48,7 +48,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTM32EEPROMMEMORYMANAGER::XSTM32EEPROMMEMORYMANAGER()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_STM32
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -62,7 +62,7 @@ XSTM32EEPROMMEMORYMANAGER::XSTM32EEPROMMEMORYMANAGER()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTM32EEPROMMEMORYMANAGER::~XSTM32EEPROMMEMORYMANAGER()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_STM32
 *
@@ -171,7 +171,7 @@ bool XSTM32EEPROMMEMORYMANAGER::Write(XDWORD offset, XBYTE* data, XDWORD size)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTM32EEPROMMEMORYMANAGER::EraseAll()
-* @brief      EraseAll
+* @brief      Erase all
 * @ingroup    PLATFORM_STM32
 *
 * @return     bool : true if is succesful.

@@ -71,7 +71,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPBITMAPFILEBMPCOLORPALETE::GRPBITMAPFILEBMPCOLORPALETE()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    GRAPHIC
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -84,7 +84,7 @@ GRPBITMAPFILEBMPCOLORPALETE::GRPBITMAPFILEBMPCOLORPALETE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPBITMAPFILEBMPCOLORPALETE::GRPBITMAPFILEBMPCOLORPALETE(XBYTE red, XBYTE green, XBYTE blue, XBYTE alpha)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    GRAPHIC
 *
 * @param[in]  red : initial red component
@@ -107,7 +107,7 @@ GRPBITMAPFILEBMPCOLORPALETE::GRPBITMAPFILEBMPCOLORPALETE(XBYTE red, XBYTE green,
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPBITMAPFILEBMPCOLORPALETE::~GRPBITMAPFILEBMPCOLORPALETE()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
 *
@@ -121,7 +121,7 @@ GRPBITMAPFILEBMPCOLORPALETE::~GRPBITMAPFILEBMPCOLORPALETE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void GRPBITMAPFILEBMPCOLORPALETE::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    GRAPHIC
 *
@@ -144,7 +144,7 @@ void GRPBITMAPFILEBMPCOLORPALETE::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPBITMAPFILEBMPHEADER::GRPBITMAPFILEBMPHEADER()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    GRAPHIC
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -157,7 +157,7 @@ GRPBITMAPFILEBMPHEADER::GRPBITMAPFILEBMPHEADER()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPBITMAPFILEBMPHEADER::~GRPBITMAPFILEBMPHEADER()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
 *
@@ -342,7 +342,7 @@ bool GRPBITMAPFILEBMPHEADER::Load(XBYTE* buffer, XDWORD size, XDWORD& indexbuffe
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPBITMAPFILEBMPHEADERINFO* GRPBITMAPFILEBMPHEADER::GetHeaderInfo()
-* @brief      Get Header Info
+* @brief      Get header info
 * @ingroup    GRAPHIC
 *
 * @return     GRPBITMAPFILEBMPHEADERINFO* : header info class
@@ -357,7 +357,7 @@ GRPBITMAPFILEBMPHEADERINFO* GRPBITMAPFILEBMPHEADER::GetHeaderInfo()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int GRPBITMAPFILEBMPHEADER::GetWidth()
-* @brief      Get Width
+* @brief      Get width
 * @ingroup    GRAPHIC
 *
 * @return     int : width of bmp
@@ -372,7 +372,7 @@ int GRPBITMAPFILEBMPHEADER::GetWidth()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int GRPBITMAPFILEBMPHEADER::GetHeight()
-* @brief      Get Height
+* @brief      Get height
 * @ingroup    GRAPHIC
 *
 * @return     int : height of bmp
@@ -387,7 +387,7 @@ int GRPBITMAPFILEBMPHEADER::GetHeight()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int GRPBITMAPFILEBMPHEADER::GetBitsPerPixel()
-* @brief      Get Bits Per Pixel
+* @brief      Get bits per pixel
 * @ingroup    GRAPHIC
 *
 * @return     int : bits por pixel
@@ -402,7 +402,7 @@ int GRPBITMAPFILEBMPHEADER::GetBitsPerPixel()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int GRPBITMAPFILEBMPHEADER::GetOffsetData()
-* @brief      Get Offset Data
+* @brief      Get offset data
 * @ingroup    GRAPHIC
 *
 * @return     int : offset data
@@ -417,7 +417,7 @@ int GRPBITMAPFILEBMPHEADER::GetOffsetData()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPPROPERTYMODE GRPBITMAPFILEBMPHEADER::GetMode()
-* @brief      Get Mode
+* @brief      Get mode
 * @ingroup    GRAPHIC
 *
 * @return     GRPPROPERTYMODE : propertys mode
@@ -432,7 +432,7 @@ GRPPROPERTYMODE GRPBITMAPFILEBMPHEADER::GetMode()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPBITMAPFILEBMPHEADER::GetColorPalette(XBYTE index, GRP2DCOLOR_RGBA8& color)
-* @brief      Get Color Palette
+* @brief      Get color palette
 * @ingroup    GRAPHIC
 *
 * @param[in]  index : index into palette
@@ -458,7 +458,7 @@ bool GRPBITMAPFILEBMPHEADER::GetColorPalette(XBYTE index, GRP2DCOLOR_RGBA8& colo
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPBITMAPFILEBMPHEADER::DeleteAllPalette()
-* @brief      Delete All Palette
+* @brief      Delete all palette
 * @ingroup    GRAPHIC
 *
 * @return     bool : true if is succesful.
@@ -479,7 +479,7 @@ bool GRPBITMAPFILEBMPHEADER::DeleteAllPalette()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void GRPBITMAPFILEBMPHEADER::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    GRAPHIC
 *
@@ -500,7 +500,7 @@ void GRPBITMAPFILEBMPHEADER::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPBITMAPFILEBMP::GRPBITMAPFILEBMP()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    GRAPHIC
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -513,7 +513,7 @@ GRPBITMAPFILEBMP::GRPBITMAPFILEBMP(): GRPBITMAPFILEBASE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPBITMAPFILEBMP::~GRPBITMAPFILEBMP()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
 *
@@ -527,7 +527,7 @@ GRPBITMAPFILEBMP::~GRPBITMAPFILEBMP()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPBITMAP* GRPBITMAPFILEBMP::CreateBitmapFromFile(XPATH& xpath, GRPPROPERTYMODE forcemode)
-* @brief      CreateBitmapFromFile
+* @brief      Create bitmap from file
 * @ingroup    GRAPHIC
 *
 * @param[in]  xpath :
@@ -655,7 +655,7 @@ GRPBITMAP* GRPBITMAPFILEBMP::CreateBitmapFromFile(XPATH& xpath, GRPPROPERTYMODE 
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPBITMAP* GRPBITMAPFILEBMP::CreateBitmapFromBuffer(XBYTE* buffer, XDWORD size, GRPPROPERTYMODE forcemode)
-* @brief      CreateBitmapFromBuffer
+* @brief      Create bitmap from buffer
 * @ingroup    GRAPHIC
 *
 * @param[in]  buffer :
@@ -780,7 +780,7 @@ GRPBITMAP* GRPBITMAPFILEBMP::CreateBitmapFromBuffer(XBYTE* buffer, XDWORD size, 
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPBITMAPFILEBMP::CreateFileFromBitmap(XPATH& xpath, GRPBITMAP* bitmap, int quality)
-* @brief      CreateFileFromBitmap
+* @brief      Create file from bitmap
 * @ingroup    GRAPHIC
 *
 * @param[in]  xpath :
@@ -865,7 +865,7 @@ bool GRPBITMAPFILEBMP::CreateFileFromBitmap(XPATH& xpath, GRPBITMAP* bitmap, int
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPBITMAPFILEBMP::ReadHeaderFile(GRPBITMAPFILEBMPHEADER* header)
-* @brief      ReadHeader
+* @brief      Read header file
 * @ingroup    GRAPHIC
 *
 * @param[in]  header :
@@ -887,7 +887,7 @@ bool GRPBITMAPFILEBMP::ReadHeaderFile(GRPBITMAPFILEBMPHEADER* header)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPBITMAPFILEBMP::ReadHeaderBuffer(XBYTE* buffer, XDWORD size, GRPBITMAPFILEBMPHEADER* header)
-* @brief      ReadHeaderBuffer
+* @brief      Read header buffer
 * @ingroup    GRAPHIC
 *
 * @param[in]  buffer :
@@ -908,7 +908,7 @@ bool GRPBITMAPFILEBMP::ReadHeaderBuffer(XBYTE* buffer, XDWORD size, GRPBITMAPFIL
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void GRPBITMAPFILEBMP::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    GRAPHIC
 *

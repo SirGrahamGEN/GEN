@@ -70,7 +70,7 @@ XTHREADLISTNONPREEMPTIVE* XTHREADLISTNONPREEMPTIVE::instance = NULL;
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XTHREADLISTNONPREEMPTIVE& XTHREADLISTNONPREEMPTIVE::GetInstance()
-* @brief      GetInstance
+* @brief      Get instance
 * @ingroup    XUTILS
 * 
 * @return     XTHREADLISTNONPREEMPTIVE& : 
@@ -87,7 +87,7 @@ XTHREADLISTNONPREEMPTIVE& XTHREADLISTNONPREEMPTIVE::GetInstance()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XTHREADLISTNONPREEMPTIVE::DelInstance()
-* @brief      DelInstance
+* @brief      Del instance
 * @ingroup    XUTILS
 * 
 * @return     bool : true if is succesful. 
@@ -110,7 +110,7 @@ bool XTHREADLISTNONPREEMPTIVE::DelInstance()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XTHREADLISTNONPREEMPTIVE::AddThread(XTHREAD* thread)
-* @brief      AddThread
+* @brief      Add thread
 * @ingroup    XUTILS
 * 
 * @param[in]  thread : 
@@ -128,7 +128,7 @@ bool XTHREADLISTNONPREEMPTIVE::AddThread(XTHREAD* thread)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XTHREADLISTNONPREEMPTIVE::DeleteThread(XTHREAD* thread)
-* @brief      DeleteThread
+* @brief      Delete thread
 * @ingroup    XUTILS
 * 
 * @param[in]  thread : 
@@ -146,7 +146,7 @@ bool XTHREADLISTNONPREEMPTIVE::DeleteThread(XTHREAD* thread)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XTHREADLISTNONPREEMPTIVE::DeleteAll()
-* @brief      DeleteAll
+* @brief      Delete all
 * @ingroup    XUTILS
 * 
 * @return     bool : true if is succesful. 
@@ -164,7 +164,7 @@ bool XTHREADLISTNONPREEMPTIVE::DeleteAll()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XTHREADLISTNONPREEMPTIVE::ExecuteFunctions()
-* @brief      ExecuteFunctions
+* @brief      Execute functions
 * @ingroup    XUTILS
 * 
 * @return     bool : true if is succesful. 
@@ -205,7 +205,7 @@ bool XTHREADLISTNONPREEMPTIVE::ExecuteFunctions()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XTHREADLISTNONPREEMPTIVE::XTHREADLISTNONPREEMPTIVE()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -218,7 +218,7 @@ XTHREADLISTNONPREEMPTIVE::XTHREADLISTNONPREEMPTIVE()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XTHREADLISTNONPREEMPTIVE::~XTHREADLISTNONPREEMPTIVE()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    XUTILS
 * 
@@ -234,7 +234,7 @@ XTHREADLISTNONPREEMPTIVE::~XTHREADLISTNONPREEMPTIVE()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void XTHREADLISTNONPREEMPTIVE::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    XUTILS
 * 

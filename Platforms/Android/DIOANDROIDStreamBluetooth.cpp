@@ -76,7 +76,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOANDROIDSTREAMBLUETOOTH::DIOANDROIDSTREAMBLUETOOTH( )
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_ANDROID
 * 
 * @param[in]    : 
@@ -125,7 +125,7 @@ DIOANDROIDSTREAMBLUETOOTH::DIOANDROIDSTREAMBLUETOOTH( ) : DIOSTREAMBLUETOOTH() ,
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOANDROIDSTREAMBLUETOOTH::~DIOANDROIDSTREAMBLUETOOTH()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_ANDROID
 * 
@@ -232,7 +232,7 @@ bool DIOANDROIDSTREAMBLUETOOTH::Close()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int DIOANDROIDSTREAMBLUETOOTH::IsReadyConnect(int socket)
-* @brief      IsReadyConnect
+* @brief      Is ready connect
 * @ingroup    PLATFORM_ANDROID
 * 
 * @param[in]  socket : 
@@ -279,7 +279,7 @@ int DIOANDROIDSTREAMBLUETOOTH::IsReadyConnect(int socket)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         sdp_session_t* DIOANDROIDSTREAMBLUETOOTH::SDP_RegisterService(char* service_name,char* service_dsc,char* service_prov,int rfcomm_channel)
-* @brief      SDP_RegisterService
+* @brief      SDP register service
 * @ingroup    PLATFORM_ANDROID
 * 
 * @param[in]  service_name : 
@@ -364,7 +364,7 @@ sdp_session_t* DIOANDROIDSTREAMBLUETOOTH::SDP_RegisterService(char* service_name
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOANDROIDSTREAMBLUETOOTH::ManagementOfPIN(bool active, XSTRING &localMACstring, XSTRING &remoteMACstring, XSTRING& PIN)
-* @brief      ManagementOfPIN
+* @brief      Management of PIN
 * @ingroup    PLATFORM_ANDROID
 * 
 * @param[in]  active : 
@@ -476,7 +476,7 @@ bool DIOANDROIDSTREAMBLUETOOTH::ManagementOfPIN(bool active, XSTRING &localMACst
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOANDROIDSTREAMBLUETOOTH::ThreadRunFunction(void* param)
-* @brief      ThreadRunFunction
+* @brief      Thread run function
 * @ingroup    PLATFORM_ANDROID
 * 
 * @param[in]  param : 
@@ -762,7 +762,7 @@ void DIOANDROIDSTREAMBLUETOOTH::ThreadRunFunction(void* param)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOANDROIDSTREAMBLUETOOTH::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_ANDROID
 * 

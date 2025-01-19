@@ -73,7 +73,7 @@ const XBYTE CIPHERCURVE25519::basepoint[CIPHERCURVE25519_MAXKEY] = { 9 };
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         CIPHERCURVE25519::CIPHERCURVE25519()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    CIPHER
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -86,7 +86,7 @@ CIPHERCURVE25519::CIPHERCURVE25519()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         CIPHERCURVE25519::~CIPHERCURVE25519()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    CIPHER
 * 
@@ -100,7 +100,7 @@ CIPHERCURVE25519::~CIPHERCURVE25519()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool CIPHERCURVE25519::GenerateRandomPrivateKey()
-* @brief      GenerateRandomPrivateKey
+* @brief      Generate random private key
 * @ingroup    CIPHER
 * 
 * @return     bool : true if is succesful. 
@@ -130,7 +130,7 @@ bool CIPHERCURVE25519::GenerateRandomPrivateKey()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool CIPHERCURVE25519::CreatePublicKey()
-* @brief      CreatePublicKey
+* @brief      Create public key
 * @ingroup    CIPHER
 * 
 * @return     bool : true if is succesful. 
@@ -147,7 +147,7 @@ bool CIPHERCURVE25519::CreatePublicKey()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool CIPHERCURVE25519::CreateSharedKey(XBYTE publickey[CIPHERCURVE25519_MAXKEY])
-* @brief      CreateSharedKey
+* @brief      Create shared key
 * @ingroup    CIPHER
 * 
 * @param[in]  publickey : 
@@ -166,7 +166,7 @@ bool CIPHERCURVE25519::CreateSharedKey(XBYTE publickey[CIPHERCURVE25519_MAXKEY])
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTE* CIPHERCURVE25519::GetKey(CIPHERCURVE25519_TYPEKEY typekey)
-* @brief      GetKey
+* @brief      Get key
 * @ingroup    CIPHER
 * 
 * @param[in]  typekey : 
@@ -185,7 +185,7 @@ XBYTE* CIPHERCURVE25519::GetKey(CIPHERCURVE25519_TYPEKEY typekey)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool CIPHERCURVE25519::IsKeyCreated(CIPHERCURVE25519_TYPEKEY typekey)
-* @brief      IsKeyCreated
+* @brief      Is key created
 * @ingroup    CIPHER
 * 
 * @param[in]  typekey : 
@@ -207,7 +207,7 @@ bool CIPHERCURVE25519::IsKeyCreated(CIPHERCURVE25519_TYPEKEY typekey)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void CIPHERCURVE25519::CleanAllKeys()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean all keys
 * @note       INTERNAL
 * @ingroup    CIPHER
 * 
@@ -224,11 +224,11 @@ void CIPHERCURVE25519::CleanAllKeys()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void CIPHERCURVE25519::fsum(XQWORDSIG* output, const XQWORDSIG* in)
-* @brief      fsum    Sum two numbers: output += in
+* @brief      fsum
 *                     Field element representation:
 *
 *                     Field elements are written as an array of signed, 64-bit limbs, least significant first. 
-*                     The value of the field element is: x[0] + 2^26·x[1] + x^51·x[2] + 2^102·x[3] + ...
+*                     The value of the field element is: x[0] + 2^26_x[1] + x^51_x[2] + 2^102_x[3] + ...
 *                     i.e. the limbs are 26, 25, 26, 25, ... bits wide.
 * @ingroup    CIPHER
 * 
@@ -251,7 +251,7 @@ void CIPHERCURVE25519::fsum(XQWORDSIG* output, const XQWORDSIG* in)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void CIPHERCURVE25519::fdifference(XQWORDSIG* output, const XQWORDSIG* in)
-* @brief      fdifference Find the difference of two numbers: output = in - output (note the order of the arguments!)
+* @brief      fdifference
 * @ingroup    CIPHER
 * 
 * @param[in]  output : 
@@ -272,7 +272,7 @@ void CIPHERCURVE25519::fdifference(XQWORDSIG* output, const XQWORDSIG* in)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void CIPHERCURVE25519::fscalar_product(XQWORDSIG* output, const XQWORDSIG* in, const XQWORDSIG scalar)
-* @brief      fscalar_product  Multiply a number by a scalar: output = in * scalar
+* @brief      fscalarproduct
 * @ingroup    CIPHER
 * 
 * @param[in]  output : 
@@ -294,7 +294,7 @@ void CIPHERCURVE25519::fscalar_product(XQWORDSIG* output, const XQWORDSIG* in, c
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void CIPHERCURVE25519::fproduct(XQWORDSIG* output, const XQWORDSIG* in2, const XQWORDSIG* in)
-* @brief      fproduct  Multiply two numbers: output = in2 * in output must be distinct to both inputs. 
+* @brief      fproduct
 *                       The inputs are reduced coefficient form, the output is not.
 * @ingroup    CIPHER
 * 
@@ -411,7 +411,7 @@ void CIPHERCURVE25519::fproduct(XQWORDSIG* output, const XQWORDSIG* in2, const X
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void CIPHERCURVE25519::freduce_degree(XQWORDSIG* output)
-* @brief      freduce_degree Reduce a long form to a short form by taking the input mod 2^255 - 19.
+* @brief      freducedegree
 * @ingroup    CIPHER
 * 
 * @param[in]  output : 
@@ -453,7 +453,7 @@ void CIPHERCURVE25519::freduce_degree(XQWORDSIG* output)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XQWORDSIG CIPHERCURVE25519::div_by_2_26(const XQWORDSIG v)
-* @brief      div_by_2_26 return v / 2^26, using only shifts and adds. 
+* @brief      divby226
 * @ingroup    CIPHER
 * 
 * @param[in]  v : 
@@ -474,7 +474,7 @@ XQWORDSIG CIPHERCURVE25519::div_by_2_26(const XQWORDSIG v)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XQWORDSIG CIPHERCURVE25519::div_by_2_25(const XQWORDSIG v)
-* @brief      div_by_2_25 return v / (2^25), using only shifts and adds.
+* @brief      divby225
 * @ingroup    CIPHER
 * 
 * @param[in]  v : 
@@ -495,7 +495,7 @@ XQWORDSIG CIPHERCURVE25519::div_by_2_25(const XQWORDSIG v)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORDSIG CIPHERCURVE25519::div_s32_by_2_25(const XDWORDSIG v)
-* @brief      div_s32_by_2_25
+* @brief      divs32by225
 * @ingroup    CIPHER
 * 
 * @param[in]  v : 
@@ -514,7 +514,7 @@ XDWORDSIG CIPHERCURVE25519::div_s32_by_2_25(const XDWORDSIG v)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void CIPHERCURVE25519::freduce_coefficients(XQWORDSIG* output)
-* @brief      freduce_coefficients  Reduce all coefficients of the short form input so that |x| < 2^26.
+* @brief      freducecoefficients
                                     On entry: |output[i]| < 2^62
 * @ingroup    CIPHER
 * 
@@ -569,7 +569,7 @@ void CIPHERCURVE25519::freduce_coefficients(XQWORDSIG* output)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void CIPHERCURVE25519::fmul(XQWORDSIG*output, const XQWORDSIG* in, const XQWORDSIG* in2)
-* @brief      fmul    A helpful wrapper around fproduct: output = in * in2.
+* @brief      fmul
                       output must be distinct to both inputs. The output is reduced degree and reduced coefficient.
 * @ingroup    CIPHER
 * 
@@ -593,7 +593,7 @@ void CIPHERCURVE25519::fmul(XQWORDSIG* output, const XQWORDSIG* in, const XQWORD
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void CIPHERCURVE25519::fsquare_inner(XQWORDSIG* output, const XQWORDSIG* in)
-* @brief      fsquare_inner
+* @brief      fsquareinner
 * @ingroup    CIPHER
 * 
 * @param[in]  output : 
@@ -685,7 +685,7 @@ void CIPHERCURVE25519::fsquare(XQWORDSIG* output, const XQWORDSIG* in)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void CIPHERCURVE25519::fexpand(XQWORDSIG* output, const XBYTE* input)
-* @brief      fexpand Take a little-endian, 32-byte number and expand it into polynomial form
+* @brief      fexpand
 * @ingroup    CIPHER
 * 
 * @param[in]  output : 
@@ -710,7 +710,7 @@ void CIPHERCURVE25519::fexpand(XQWORDSIG* output, const XBYTE* input)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void CIPHERCURVE25519::fcontract(XBYTE* output, XQWORDSIG* input)
-* @brief      fcontract   Take a fully reduced polynomial form number and contract it into a little-endian, 32-byte array
+* @brief      fcontract
 * @ingroup    CIPHER
 * 
 * @param[in]  output : 
@@ -798,7 +798,7 @@ void CIPHERCURVE25519::fcontract(XBYTE* output, XQWORDSIG* input)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void CIPHERCURVE25519::fmonty(XQWORDSIG* x2, XQWORDSIG* z2, XQWORDSIG* x3, XQWORDSIG* z3, XQWORDSIG* x, XQWORDSIG* z, XQWORDSIG* xprime, XQWORDSIG* zprime, const XQWORDSIG* qmqp)
-* @brief      fmonty  Input: Q, Q', Q-Q'  Output: 2Q, Q+Q'
+* @brief      fmonty
 * @ingroup    CIPHER
 * 
 * @param[in]  x2 : x2 z3: long form output 2Q 
@@ -869,7 +869,7 @@ void CIPHERCURVE25519::fmonty(XQWORDSIG* x2, XQWORDSIG* z2, XQWORDSIG* x3, XQWOR
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void CIPHERCURVE25519::swap_conditional(XQWORDSIG a[19], XQWORDSIG b[19], XQWORDSIG iswap)
-* @brief      swap_conditional  Conditionally swap two reduced-form XQWORDSIG arrays if 'iswap' is 1, but leave
+* @brief      swapconditional
 *                               them unchanged if 'iswap' is 0.  Runs in data-invariant time to avoid side-channel 
 *                               attacks.
 *
@@ -902,7 +902,7 @@ void CIPHERCURVE25519::swap_conditional(XQWORDSIG a[19], XQWORDSIG b[19], XQWORD
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void CIPHERCURVE25519::cmult(XQWORDSIG* resultx, XQWORDSIG* resultz, const XBYTE* n, const XQWORDSIG* q)
-* @brief      cmult         Calculates nQ where Q is the x-coordinate of a point on the curve
+* @brief      cmult
 *                           resultx/resultz: the x coordinate of the resulting curve point (short form)
 *                           n: a little endian, 32-byte number
 *                           q: a point of the curve (short form)
@@ -976,7 +976,7 @@ void CIPHERCURVE25519::cmult(XQWORDSIG* resultx, XQWORDSIG* resultz, const XBYTE
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void CIPHERCURVE25519::crecip(XQWORDSIG* out, const XQWORDSIG* z)
-* @brief      crecip    Shamelessly copied from djb's code
+* @brief      crecip
 * @ingroup    CIPHER
 * 
 * @param[in]  out : 
@@ -1114,7 +1114,7 @@ void CIPHERCURVE25519::curve25519(XBYTE* mypublic, const XBYTE* secret, const XB
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void CIPHERCURVE25519::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    CIPHER
 * 

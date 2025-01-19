@@ -66,7 +66,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVECTORFILEDXFENTITYOBJELLIPSE::GRPVECTORFILEDXFENTITYOBJELLIPSE(XCHAR* nametype)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    GRAPHIC
 * 
 * @param[in]  nametype : 
@@ -83,7 +83,7 @@ GRPVECTORFILEDXFENTITYOBJELLIPSE::GRPVECTORFILEDXFENTITYOBJELLIPSE(XCHAR* namety
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVECTORFILEDXFENTITYOBJELLIPSE::~GRPVECTORFILEDXFENTITYOBJELLIPSE()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
 * 
@@ -97,7 +97,7 @@ GRPVECTORFILEDXFENTITYOBJELLIPSE::~GRPVECTORFILEDXFENTITYOBJELLIPSE()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVECTORFILEDXFENTITYDEFPOINT* GRPVECTORFILEDXFENTITYOBJELLIPSE::GetCenter()
-* @brief      GetCenter
+* @brief      Get center
 * @ingroup    GRAPHIC
 * 
 * @return     GRPVECTORFILEDXFENTITYDEFPOINT* : 
@@ -112,7 +112,7 @@ GRPVECTORFILEDXFENTITYDEFPOINT* GRPVECTORFILEDXFENTITYOBJELLIPSE::GetCenter()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPVECTORFILEDXFENTITYOBJELLIPSE::SetCenter(GRPVECTORFILEDXFENTITYDEFPOINT* center)
-* @brief      SetCenter
+* @brief      Set center
 * @ingroup    GRAPHIC
 * 
 * @param[in]  center : 
@@ -136,7 +136,7 @@ bool GRPVECTORFILEDXFENTITYOBJELLIPSE::SetCenter(GRPVECTORFILEDXFENTITYDEFPOINT*
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVECTORFILEDXFENTITYDEFPOINT* GRPVECTORFILEDXFENTITYOBJELLIPSE::GetMajorAxis()
-* @brief      GetMajorAxis
+* @brief      Get major axis
 * @ingroup    GRAPHIC
 * 
 * @return     GRPVECTORFILEDXFENTITYDEFPOINT* : 
@@ -151,7 +151,7 @@ GRPVECTORFILEDXFENTITYDEFPOINT* GRPVECTORFILEDXFENTITYOBJELLIPSE::GetMajorAxis()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPVECTORFILEDXFENTITYOBJELLIPSE::SetMajorAxis(GRPVECTORFILEDXFENTITYDEFPOINT* majoraxis)
-* @brief      SetMajorAxis
+* @brief      Set major axis
 * @ingroup    GRAPHIC
 * 
 * @param[in]  majoraxis : 
@@ -175,7 +175,7 @@ bool GRPVECTORFILEDXFENTITYOBJELLIPSE::SetMajorAxis(GRPVECTORFILEDXFENTITYDEFPOI
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         double GRPVECTORFILEDXFENTITYOBJELLIPSE::GetIniParameter()
-* @brief      GetIniParameter
+* @brief      Get ini parameter
 * @ingroup    GRAPHIC
 * 
 * @return     double : 
@@ -190,7 +190,7 @@ double GRPVECTORFILEDXFENTITYOBJELLIPSE::GetIniParameter()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRPVECTORFILEDXFENTITYOBJELLIPSE::SetIniParameter(double iniparameter)
-* @brief      SetIniParameter
+* @brief      Set ini parameter
 * @ingroup    GRAPHIC
 * 
 * @param[in]  iniparameter : 
@@ -205,7 +205,7 @@ void GRPVECTORFILEDXFENTITYOBJELLIPSE::SetIniParameter(double iniparameter)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         double GRPVECTORFILEDXFENTITYOBJELLIPSE::GetEndParameter()
-* @brief      GetEndParameter
+* @brief      Get end parameter
 * @ingroup    GRAPHIC
 * 
 * @return     double : 
@@ -220,7 +220,7 @@ double GRPVECTORFILEDXFENTITYOBJELLIPSE::GetEndParameter()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRPVECTORFILEDXFENTITYOBJELLIPSE::SetEndParameter(double endparameter)
-* @brief      SetEndParameter
+* @brief      Set end parameter
 * @ingroup    GRAPHIC
 * 
 * @param[in]  endparameter : 
@@ -235,7 +235,7 @@ void GRPVECTORFILEDXFENTITYOBJELLIPSE::SetEndParameter(double endparameter)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         double GRPVECTORFILEDXFENTITYOBJELLIPSE::GetRadius()
-* @brief      GetRadius
+* @brief      Get radius
 * @ingroup    GRAPHIC
 * 
 * @return     double : 
@@ -250,7 +250,7 @@ double GRPVECTORFILEDXFENTITYOBJELLIPSE::GetRadius()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRPVECTORFILEDXFENTITYOBJELLIPSE::SetRadius(double radius)
-* @brief      SetRadius
+* @brief      Set radius
 * @ingroup    GRAPHIC
 * 
 * @param[in]  radius : 
@@ -265,7 +265,7 @@ void GRPVECTORFILEDXFENTITYOBJELLIPSE::SetRadius(double radius)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         double GRPVECTORFILEDXFENTITYOBJELLIPSE::GetThickness()
-* @brief      GetThickness
+* @brief      Get thickness
 * @ingroup    GRAPHIC
 * 
 * @return     double : 
@@ -280,7 +280,7 @@ double GRPVECTORFILEDXFENTITYOBJELLIPSE::GetThickness()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRPVECTORFILEDXFENTITYOBJELLIPSE::SetThickness(double thickness)
-* @brief      SetThickness
+* @brief      Set thickness
 * @ingroup    GRAPHIC
 * 
 * @param[in]  thickness : 
@@ -295,7 +295,7 @@ void GRPVECTORFILEDXFENTITYOBJELLIPSE::SetThickness(double thickness)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVECTORFILEDXFENTITYDEFPOINT* GRPVECTORFILEDXFENTITYOBJELLIPSE::GetDirExtrusion()
-* @brief      GetDirExtrusion
+* @brief      Get dir extrusion
 * @ingroup    GRAPHIC
 * 
 * @return     GRPVECTORFILEDXFENTITYDEFPOINT* : 
@@ -310,7 +310,7 @@ GRPVECTORFILEDXFENTITYDEFPOINT* GRPVECTORFILEDXFENTITYOBJELLIPSE::GetDirExtrusio
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPVECTORFILEDXFENTITYOBJELLIPSE::SetDirExtrusion(GRPVECTORFILEDXFENTITYDEFPOINT* dirextrusion)
-* @brief      SetDirExtrusion
+* @brief      Set dir extrusion
 * @ingroup    GRAPHIC
 * 
 * @param[in]  dirextrusion : 
@@ -334,7 +334,7 @@ bool GRPVECTORFILEDXFENTITYOBJELLIPSE::SetDirExtrusion(GRPVECTORFILEDXFENTITYDEF
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPVECTORFILEDXFENTITYOBJELLIPSE::ApplyData(GRPVECTORFILEDXFENTITY* entity)
-* @brief      ApplyData
+* @brief      Apply data
 * @ingroup    GRAPHIC
 * 
 * @param[in]  entity : 
@@ -433,7 +433,7 @@ bool GRPVECTORFILEDXFENTITYOBJELLIPSE::ApplyData(GRPVECTORFILEDXFENTITY* entity)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRPVECTORFILEDXFENTITYOBJELLIPSE::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    GRAPHIC
 * 

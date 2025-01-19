@@ -64,7 +64,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVECTORFILEDXFENTITYDEFSTRINGVALUE::GRPVECTORFILEDXFENTITYDEFSTRINGVALUE()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    GRAPHIC
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -77,7 +77,7 @@ GRPVECTORFILEDXFENTITYDEFSTRINGVALUE::GRPVECTORFILEDXFENTITYDEFSTRINGVALUE()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVECTORFILEDXFENTITYDEFSTRINGVALUE::GRPVECTORFILEDXFENTITYDEFSTRINGVALUE(int value, XCHAR* string)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    GRAPHIC
 * 
 * @param[in]  value : 
@@ -93,7 +93,7 @@ GRPVECTORFILEDXFENTITYDEFSTRINGVALUE::GRPVECTORFILEDXFENTITYDEFSTRINGVALUE(int v
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVECTORFILEDXFENTITYDEFSTRINGVALUE::GRPVECTORFILEDXFENTITYDEFSTRINGVALUE(GRPVECTORFILEDXFENTITYDEFSTRINGVALUE* stringvalue)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    GRAPHIC
 * 
 * @param[in]  stringvalue : 
@@ -110,7 +110,7 @@ GRPVECTORFILEDXFENTITYDEFSTRINGVALUE::GRPVECTORFILEDXFENTITYDEFSTRINGVALUE(GRPVE
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVECTORFILEDXFENTITYDEFSTRINGVALUE::~GRPVECTORFILEDXFENTITYDEFSTRINGVALUE()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
 * 
@@ -124,7 +124,7 @@ GRPVECTORFILEDXFENTITYDEFSTRINGVALUE::~GRPVECTORFILEDXFENTITYDEFSTRINGVALUE()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRPVECTORFILEDXFENTITYDEFSTRINGVALUE::operator = (GRPVECTORFILEDXFENTITYDEFSTRINGVALUE* point)
-* @brief      operator =
+* @brief      operator = 
 * @ingroup    GRAPHIC
 * 
 * @param[in]  point : 
@@ -139,7 +139,7 @@ void GRPVECTORFILEDXFENTITYDEFSTRINGVALUE::operator =  (GRPVECTORFILEDXFENTITYDE
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRPVECTORFILEDXFENTITYDEFSTRINGVALUE::operator = (GRPVECTORFILEDXFENTITYDEFSTRINGVALUE point)
-* @brief      operator =
+* @brief      operator = 
 * @ingroup    GRAPHIC
 * 
 * @param[in]  point : 
@@ -154,7 +154,7 @@ void GRPVECTORFILEDXFENTITYDEFSTRINGVALUE::operator =  (GRPVECTORFILEDXFENTITYDE
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int GRPVECTORFILEDXFENTITYDEFSTRINGVALUE::GetValue()
-* @brief      GetValue
+* @brief      Get value
 * @ingroup    GRAPHIC
 * 
 * @return     int : 
@@ -169,7 +169,7 @@ int GRPVECTORFILEDXFENTITYDEFSTRINGVALUE::GetValue()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRPVECTORFILEDXFENTITYDEFSTRINGVALUE::SetValue(int value)
-* @brief      SetValue
+* @brief      Set value
 * @ingroup    GRAPHIC
 * 
 * @param[in]  value : 
@@ -184,7 +184,7 @@ void GRPVECTORFILEDXFENTITYDEFSTRINGVALUE::SetValue(int value)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* GRPVECTORFILEDXFENTITYDEFSTRINGVALUE::GetString()
-* @brief      GetString
+* @brief      Get string
 * @ingroup    GRAPHIC
 * 
 * @return     XSTRING* : 
@@ -199,7 +199,7 @@ XSTRING* GRPVECTORFILEDXFENTITYDEFSTRINGVALUE::GetString()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPVECTORFILEDXFENTITYDEFSTRINGVALUE::CopyTo(GRPVECTORFILEDXFENTITYDEFSTRINGVALUE* stringvalue)
-* @brief      CopyTo
+* @brief      Copy to
 * @ingroup    GRAPHIC
 * 
 * @param[in]  stringvalue : 
@@ -224,7 +224,7 @@ bool GRPVECTORFILEDXFENTITYDEFSTRINGVALUE::CopyTo(GRPVECTORFILEDXFENTITYDEFSTRIN
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPVECTORFILEDXFENTITYDEFSTRINGVALUE::CopyFrom(GRPVECTORFILEDXFENTITYDEFSTRINGVALUE* stringvalue)
-* @brief      CopyFrom
+* @brief      Copy from
 * @ingroup    GRAPHIC
 * 
 * @param[in]  stringvalue : 
@@ -249,7 +249,7 @@ bool GRPVECTORFILEDXFENTITYDEFSTRINGVALUE::CopyFrom(GRPVECTORFILEDXFENTITYDEFSTR
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRPVECTORFILEDXFENTITYDEFSTRINGVALUE::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    GRAPHIC
 * 
@@ -270,7 +270,7 @@ void GRPVECTORFILEDXFENTITYDEFSTRINGVALUE::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVECTORFILEDXFENTITYDEFSTRINGLIST::GRPVECTORFILEDXFENTITYDEFSTRINGLIST()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    GRAPHIC
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -283,7 +283,7 @@ GRPVECTORFILEDXFENTITYDEFSTRINGLIST::GRPVECTORFILEDXFENTITYDEFSTRINGLIST()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVECTORFILEDXFENTITYDEFSTRINGLIST::~GRPVECTORFILEDXFENTITYDEFSTRINGLIST()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
 * 
@@ -297,7 +297,7 @@ GRPVECTORFILEDXFENTITYDEFSTRINGLIST::~GRPVECTORFILEDXFENTITYDEFSTRINGLIST()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRPVECTORFILEDXFENTITYDEFSTRINGLIST::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    GRAPHIC
 * 

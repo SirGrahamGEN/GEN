@@ -73,7 +73,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         APPFLOWCHECKRESOURCESHARDWARE::APPFLOWCHECKRESOURCESHARDWARE()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    APPFLOW
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -90,7 +90,7 @@ APPFLOWCHECKRESOURCESHARDWARE::APPFLOWCHECKRESOURCESHARDWARE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         APPFLOWCHECKRESOURCESHARDWARE::~APPFLOWCHECKRESOURCESHARDWARE()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    APPFLOW
 *
@@ -197,7 +197,7 @@ bool APPFLOWCHECKRESOURCESHARDWARE::Ini(APPFLOWCFG* cfg)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD APPFLOWCHECKRESOURCESHARDWARE::GetCPUTotalMemory()
-* @brief      GetCPUTotalMemory
+* @brief      Get CPU total memory
 * @ingroup    APPFLOW
 * 
 * @return     XDWORD : 
@@ -212,7 +212,7 @@ XDWORD APPFLOWCHECKRESOURCESHARDWARE::GetCPUTotalMemory()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD APPFLOWCHECKRESOURCESHARDWARE::GetCPUFreeMemory()
-* @brief      GetCPUFreeMemory
+* @brief      Get CPU free memory
 * @ingroup    APPFLOW
 * 
 * @return     XDWORD : 
@@ -227,7 +227,7 @@ XDWORD APPFLOWCHECKRESOURCESHARDWARE::GetCPUFreeMemory()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int APPFLOWCHECKRESOURCESHARDWARE::GetCPUFreePercentMemory()
-* @brief      GetCPUFreePercentMemory
+* @brief      Get CPU free percent memory
 * @ingroup    APPFLOW
 * 
 * @return     int : 
@@ -242,7 +242,7 @@ int APPFLOWCHECKRESOURCESHARDWARE::GetCPUFreePercentMemory()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int APPFLOWCHECKRESOURCESHARDWARE::GetCPUTotalCPUUsageAverange()
-* @brief      GetCPUTotalCPUUsageAverange
+* @brief      Get CPU total CPU usage averange
 * @ingroup    APPFLOW
 * 
 * @return     int : 
@@ -259,7 +259,7 @@ int APPFLOWCHECKRESOURCESHARDWARE::GetCPUTotalCPUUsageAverange()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int APPFLOWCHECKRESOURCESHARDWARE::GetCPUTotalCPUUsageMax()
-* @brief      GetCPUTotalCPUUsageMax
+* @brief      Get CPU total CPU usage max
 * @ingroup    APPFLOW
 * 
 * @return     int : 
@@ -274,7 +274,7 @@ int APPFLOWCHECKRESOURCESHARDWARE::GetCPUTotalCPUUsageMax()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int APPFLOWCHECKRESOURCESHARDWARE::GetCPUAppCPUUsageAverange()
-* @brief      GetCPUAppCPUUsageAverange
+* @brief      Get CPU app CPU usage averange
 * @ingroup    APPFLOW
 * 
 * @return     int : 
@@ -291,7 +291,7 @@ int APPFLOWCHECKRESOURCESHARDWARE::GetCPUAppCPUUsageAverange()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int APPFLOWCHECKRESOURCESHARDWARE::GetCPUAppCPUUsageMax()
-* @brief      GetCPUAppCPUUsageMax
+* @brief      Get CPU app CPU usage max
 * @ingroup    APPFLOW
 * 
 * @return     int : 
@@ -329,7 +329,7 @@ bool APPFLOWCHECKRESOURCESHARDWARE::End()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool APPFLOWCHECKRESOURCESHARDWARE::CheckMemoryStatus()
-* @brief      CheckMemoryStatus
+* @brief      Check memory status
 * @ingroup    APPFLOW
 *
 * @return     bool : true if is succesful.
@@ -365,7 +365,7 @@ bool APPFLOWCHECKRESOURCESHARDWARE::CheckMemoryStatus()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool APPFLOWCHECKRESOURCESHARDWARE::CheckTotalCPUUsageStatus()
-* @brief      CheckTotalCPUUsageStatus
+* @brief      Check total CPU usage status
 * @ingroup    APPFLOW
 *
 * @return     bool : true if is succesful. 
@@ -408,7 +408,7 @@ bool APPFLOWCHECKRESOURCESHARDWARE::CheckTotalCPUUsageStatus()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool APPFLOWCHECKRESOURCESHARDWARE::CheckAppCPUUsageStatus()
-* @brief      CheckAppCPUUsageStatus
+* @brief      Check app CPU usage status
 * @ingroup    APPFLOW
 * 
 * @return     bool : true if is succesful. 
@@ -456,7 +456,7 @@ bool APPFLOWCHECKRESOURCESHARDWARE::CheckAppCPUUsageStatus()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void APPFLOWCHECKRESOURCESHARDWARE::HandleEvent_Scheduler(XSCHEDULER_XEVENT* event)
-* @brief      Handle Event for the observer manager of this class
+* @brief      Handle event scheduler
 * @note       INTERNAL
 * @ingroup    APPFLOW
 *
@@ -483,7 +483,7 @@ void APPFLOWCHECKRESOURCESHARDWARE::HandleEvent_Scheduler(XSCHEDULER_XEVENT* eve
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void APPFLOWCHECKRESOURCESHARDWARE::HandleEvent(XEVENT* xevent)
-* @brief      Handle Event for the observer manager of this class
+* @brief      Handle event
 * @note       INTERNAL
 * @ingroup    APPFLOW
 *
@@ -512,7 +512,7 @@ void APPFLOWCHECKRESOURCESHARDWARE::HandleEvent(XEVENT* xevent)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void APPFLOWCHECKRESOURCESHARDWARE::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    APPFLOW
 *

@@ -79,7 +79,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XLINUXTIMER::XLINUXTIMER()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_LINUX
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -92,7 +92,7 @@ XLINUXTIMER::XLINUXTIMER()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XLINUXTIMER::~XLINUXTIMER()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
 *
@@ -106,7 +106,7 @@ XLINUXTIMER::~XLINUXTIMER()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XQWORD XLINUXTIMER::GetMicroSecondsTickCounter()
-* @brief      Get MicroSeconds Tick Counter
+* @brief      Get micro seconds tick counter
 * @ingroup    PLATFORM_LINUX
 *
 * @return     XQWORD : micro seconds

@@ -67,7 +67,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOCAMERA::DIOCAMERA()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -80,7 +80,7 @@ DIOCAMERA::DIOCAMERA()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOCAMERA::~DIOCAMERA()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 * 
@@ -136,7 +136,7 @@ bool DIOCAMERA::End()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOCAMERA::HandleEvent_Scheduler(XSCHEDULER_XEVENT* event)
-* @brief      Handle Event for the observer manager of this class
+* @brief      Handle event scheduler
 * @note       INTERNAL
 * @ingroup    DATAIO
 * 
@@ -157,7 +157,7 @@ void DIOCAMERA::HandleEvent_Scheduler(XSCHEDULER_XEVENT* event)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOCAMERA::HandleEvent(XEVENT* xevent)
-* @brief      Handle Event for the observer manager of this class
+* @brief      Handle event
 * @note       INTERNAL
 * @ingroup    DATAIO
 * 
@@ -183,7 +183,7 @@ void DIOCAMERA::HandleEvent(XEVENT* xevent)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOCAMERA::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 * 

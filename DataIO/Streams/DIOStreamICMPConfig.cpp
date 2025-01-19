@@ -66,7 +66,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMICMPCONFIG::DIOSTREAMICMPCONFIG()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -83,7 +83,7 @@ DIOSTREAMICMPCONFIG::DIOSTREAMICMPCONFIG()  : DIOSTREAMCONFIG()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMICMPCONFIG::~DIOSTREAMICMPCONFIG()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -99,7 +99,7 @@ DIOSTREAMICMPCONFIG::~DIOSTREAMICMPCONFIG()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOIP* DIOSTREAMICMPCONFIG ::GetLocalIP()
-* @brief      GetLocalIP
+* @brief      Get local IP
 * @ingroup    DATAIO
 *
 * @return     DIOIP* :
@@ -114,7 +114,7 @@ DIOIP* DIOSTREAMICMPCONFIG ::GetLocalIP()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOURL* DIOSTREAMICMPCONFIG ::GetRemoteURL()
-* @brief      GetRemoteURL
+* @brief      Get remote URL
 * @ingroup    DATAIO
 *
 * @return     DIOURL* :
@@ -129,7 +129,7 @@ DIOURL* DIOSTREAMICMPCONFIG ::GetRemoteURL()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* DIOSTREAMICMPCONFIG::GetResolvedRemoteURL()
-* @brief      GetResolvedRemoteURL
+* @brief      Get resolved remote URL
 * @ingroup    DATAIO
 * 
 * @return     XSTRING* : 
@@ -144,7 +144,7 @@ XSTRING* DIOSTREAMICMPCONFIG::GetResolvedRemoteURL()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSTREAMICMPCONFIG ::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

@@ -69,7 +69,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         INPWINDOWSSIMULATE::INPWINDOWSSIMULATE()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_WINDOWS
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -82,7 +82,7 @@ INPWINDOWSSIMULATE::INPWINDOWSSIMULATE()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         INPWINDOWSSIMULATE::~INPWINDOWSSIMULATE()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
 * 
@@ -96,7 +96,7 @@ INPWINDOWSSIMULATE::~INPWINDOWSSIMULATE()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool INPWINDOWSSIMULATE::Key_Press(XBYTE code)
-* @brief      Key_Press
+* @brief      Key press
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @param[in]  code : 
@@ -115,7 +115,7 @@ bool INPWINDOWSSIMULATE::Key_Press(XBYTE code)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool INPWINDOWSSIMULATE::Key_UnPress(XBYTE code)
-* @brief      Key_UnPress
+* @brief      Key un press
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @param[in]  code : 
@@ -134,7 +134,7 @@ bool INPWINDOWSSIMULATE::Key_UnPress(XBYTE code)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool INPWINDOWSSIMULATE::Key_Click(XBYTE code, int pressuretime)
-* @brief      Key_Click
+* @brief      Key click
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @param[in]  code : 
@@ -158,7 +158,7 @@ bool INPWINDOWSSIMULATE::Key_Click(XBYTE code, int pressuretime)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool INPWINDOWSSIMULATE::Key_PressByLiteral(XCHAR* literal)
-* @brief      Key_PressByLiteral
+* @brief      Key press by literal
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @param[in]  literal : 
@@ -191,7 +191,7 @@ bool INPWINDOWSSIMULATE::Key_PressByLiteral(XCHAR* literal)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool INPWINDOWSSIMULATE::Key_UnPressByLiteral(XCHAR* literal)
-* @brief      Key_UnPressByLiteral
+* @brief      Key un press by literal
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @param[in]  literal : 
@@ -225,7 +225,7 @@ bool INPWINDOWSSIMULATE::Key_UnPressByLiteral(XCHAR* literal)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool INPWINDOWSSIMULATE::Key_ClickByLiteral(XCHAR* literal, int pressuretime)
-* @brief      Key_ClickByLiteral
+* @brief      Key click by literal
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @param[in]  literal : 
@@ -267,7 +267,7 @@ bool INPWINDOWSSIMULATE::Key_ClickByLiteral(XCHAR* literal, int pressuretime)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool INPWINDOWSSIMULATE::Key_ClickByText(XCHAR* text, int pressuretimeinterval)
-* @brief      Key_ClickByText
+* @brief      Key click by text
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @param[in]  text : 
@@ -419,11 +419,11 @@ bool INPWINDOWSSIMULATE::Key_ClickByText(XCHAR* text, int pressuretimeinterval)
           case __C('\\')  : 
           case __C('"')   :       
 
-          case 0xBF       : // __C('¿')   : 
-          case 0xA1       : // __C('¡')   : 
-          case 0xF1       : // __C('ñ')   : 
-          case 0xD1       : //__C('Ñ')    :    
-          case 0xB7       : //__C('·')    :
+          case 0xBF       : // __C('')   : 
+          case 0xA1       : // __C('')   : 
+          case 0xF1       : // __C('?')   : 
+          case 0xD1       : //__C('_')    :    
+          case 0xB7       : //__C('')    :
                             Key_ClickByLiteral(literal.Get(), pressuretimeinterval);                            
                             break;                           
         }
@@ -436,7 +436,7 @@ bool INPWINDOWSSIMULATE::Key_ClickByText(XCHAR* text, int pressuretimeinterval)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool INPWINDOWSSIMULATE::Mouse_SetPos(int x, int y)
-* @brief      SetPositionCursor
+* @brief      Mouse set pos
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @param[in]  x : 
@@ -456,7 +456,7 @@ bool INPWINDOWSSIMULATE::Mouse_SetPos(int x, int y)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool INPWINDOWSSIMULATE::Mouse_Click(int x, int y)
-* @brief      Mouse_Click
+* @brief      Mouse click
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @param[in]  x : 
@@ -479,7 +479,7 @@ bool INPWINDOWSSIMULATE::Mouse_Click(int x, int y)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool INPWINDOWSSIMULATE::IsCapsLockActive()
-* @brief      IsCapsLockActive
+* @brief      Is caps lock active
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @return     bool : true if is succesful. 
@@ -498,7 +498,7 @@ bool INPWINDOWSSIMULATE::IsCapsLockActive()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool INPWINDOWSSIMULATE::IsNumLockActive()
-* @brief      IsNumLockActive
+* @brief      Is num lock active
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @return     bool : true if is succesful. 
@@ -517,7 +517,7 @@ bool INPWINDOWSSIMULATE::IsNumLockActive()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool INPWINDOWSSIMULATE::IsScrollLockActive()
-* @brief      IsScrollLockActive
+* @brief      Is scroll lock active
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @return     bool : true if is succesful. 
@@ -537,7 +537,7 @@ bool INPWINDOWSSIMULATE::IsScrollLockActive()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void INPWINDOWSSIMULATE::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
 * 

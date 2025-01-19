@@ -73,7 +73,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOI2CTEMHUMSENSORAM2315::DIOI2CTEMHUMSENSORAM2315()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -86,7 +86,7 @@ DIOI2CTEMHUMSENSORAM2315::DIOI2CTEMHUMSENSORAM2315(): DIODEVICEI2C()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOI2CTEMHUMSENSORAM2315::~DIOI2CTEMHUMSENSORAM2315()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -169,7 +169,7 @@ bool DIOI2CTEMHUMSENSORAM2315::End()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOI2CTEMHUMSENSORAM2315::IniDevice()
-* @brief      IniDevice
+* @brief      Ini device
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -194,7 +194,7 @@ bool DIOI2CTEMHUMSENSORAM2315::IniDevice()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOI2CTEMHUMSENSORAM2315::CalculeCRC(XBYTE* buffer, XWORD& CRC)
-* @brief      CalculeCRC
+* @brief      Calcule CRC
 * @ingroup    DATAIO
 *
 * @param[in]  buffer :
@@ -232,7 +232,7 @@ bool DIOI2CTEMHUMSENSORAM2315::CalculeCRC(XBYTE* buffer, XWORD& CRC)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOI2CTEMHUMSENSORAM2315::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

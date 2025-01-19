@@ -564,7 +564,7 @@ const XBYTE bmi270_config_file[]                                                
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOI2C6AXISTRACKINGBMI270::DIOI2C6AXISTRACKINGBMI270()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -577,7 +577,7 @@ DIOI2C6AXISTRACKINGBMI270::DIOI2C6AXISTRACKINGBMI270() : DIODEVICEI2C()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOI2C6AXISTRACKINGBMI270::~DIOI2C6AXISTRACKINGBMI270()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 * 
@@ -593,7 +593,7 @@ DIOI2C6AXISTRACKINGBMI270::~DIOI2C6AXISTRACKINGBMI270()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD DIOI2C6AXISTRACKINGBMI270::GetGPIOInterruptEntryID()
-* @brief      GetGPIOInterruptEntryID
+* @brief      Get GPIO interrupt entry ID
 * @ingroup    DATAIO
 *
 * @return     XDWORD : 
@@ -608,7 +608,7 @@ XDWORD DIOI2C6AXISTRACKINGBMI270::GetGPIOInterruptEntryID()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOI2C6AXISTRACKINGBMI270::SetGPIOInterruptEntryID(XDWORD GPIOentryID)
-* @brief      SetGPIOInterruptEntryID
+* @brief      Set GPIO interrupt entry ID
 * @ingroup    DATAIO
 *
 * @param[in]  GPIOentryID : 
@@ -627,7 +627,7 @@ bool DIOI2C6AXISTRACKINGBMI270::SetGPIOInterruptEntryID(XDWORD GPIOentryID)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOI2C6AXISTRACKINGBMI270::IsNecessaryUpdate()
-* @brief      IsNecessaryUpdate
+* @brief      Is necessary update
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful. 
@@ -642,7 +642,7 @@ bool DIOI2C6AXISTRACKINGBMI270::IsNecessaryUpdate()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOI2C6AXISTRACKINGBMI270::SetIsNecessaryUpdate(bool isnecessaryupdate)
-* @brief      SetIsNecessaryUpdate
+* @brief      Set is necessary update
 * @ingroup    DATAIO
 *
 * @param[in]  isnecessaryupdate : 
@@ -744,7 +744,7 @@ XBYTE DIOI2C6AXISTRACKINGBMI270::Update()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOI2C6AXISTRACKINGBMI270::GetSetAnyMove()
-* @brief      GetSetAnyMove
+* @brief      Get set any move
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
@@ -766,7 +766,7 @@ bool DIOI2C6AXISTRACKINGBMI270::GetSetAnyMove()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOI2C6AXISTRACKINGBMI270::GetSignificantMotion()
-* @brief      GetSignificantMotion
+* @brief      Get significant motion
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
@@ -790,7 +790,7 @@ bool DIOI2C6AXISTRACKINGBMI270::GetSignificantMotion()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOI2C6AXISTRACKINGBMI270::GetStep_AddOne()
-* @brief      GetStep_AddOne
+* @brief      Get step add one
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
@@ -813,7 +813,7 @@ bool DIOI2C6AXISTRACKINGBMI270::GetStep_AddOne()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOI2C6AXISTRACKINGBMI270::GetTap_AddOne()
-* @brief      GetTap_AddOne
+* @brief      Get tap add one
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
@@ -837,7 +837,7 @@ bool DIOI2C6AXISTRACKINGBMI270::GetTap_AddOne()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOI2C6AXISTRACKINGBMI270::GetHighGMotion()
-* @brief      GetHighGMotion
+* @brief      Get high G motion
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
@@ -860,7 +860,7 @@ bool DIOI2C6AXISTRACKINGBMI270::GetHighGMotion()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOI2C6AXISTRACKINGBMI270::GetLowGMotion()
-* @brief      GetLowGMotion
+* @brief      Get low G motion
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
@@ -883,7 +883,7 @@ bool DIOI2C6AXISTRACKINGBMI270::GetLowGMotion()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOI2C6AXISTRACKINGBMI270::GetNotMove()
-* @brief      GetNotMove
+* @brief      Get not move
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
@@ -922,7 +922,7 @@ bool DIOI2C6AXISTRACKINGBMI270::End()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOI2C6AXISTRACKINGBMI270::IniDevice()
-* @brief      IniDevice
+* @brief      Ini device
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -1022,7 +1022,7 @@ bool DIOI2C6AXISTRACKINGBMI270::Inicializate()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOI2C6AXISTRACKINGBMI270::ReadRegister(XBYTE offset, XBYTE* data, XDWORD sizedata)
-* @brief      ReadRegister
+* @brief      Read register
 * @ingroup    DATAIO
 * 
 * @param[in]  offset : 
@@ -1062,7 +1062,7 @@ bool DIOI2C6AXISTRACKINGBMI270::ReadRegister(XBYTE offset, XBYTE* data, XDWORD s
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOI2C6AXISTRACKINGBMI270::WriteRegister(XBYTE offset, XBYTE* data, XDWORD sizedata)
-* @brief      WriteRegister
+* @brief      Write register
 * @ingroup    DATAIO
 * 
 * @param[in]  offset : 
@@ -1092,7 +1092,7 @@ bool DIOI2C6AXISTRACKINGBMI270::WriteRegister(XBYTE offset, XBYTE* data, XDWORD 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         BMI2_INTF_RETURN_TYPE DIOI2C6AXISTRACKINGBMI270::bmi2_i2c_read(XBYTE reg_addr, XBYTE* reg_data, XDWORD len, void* intf_ptr)
-* @brief      bmi2_i2c_read
+* @brief      bmi2i2cread
 * @ingroup    DATAIO
 *
 * @param[in]  reg_addr : 
@@ -1112,7 +1112,7 @@ BMI2_INTF_RETURN_TYPE DIOI2C6AXISTRACKINGBMI270::bmi2_i2c_read(XBYTE reg_addr, X
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         BMI2_INTF_RETURN_TYPE DIOI2C6AXISTRACKINGBMI270::bmi2_i2c_write(XBYTE reg_addr, const XBYTE* reg_data, XDWORD len, void* intf_ptr)
-* @brief      bmi2_i2c_write
+* @brief      bmi2i2cwrite
 * @ingroup    DATAIO
 *
 * @param[in]  reg_addr : 
@@ -1132,7 +1132,7 @@ BMI2_INTF_RETURN_TYPE DIOI2C6AXISTRACKINGBMI270::bmi2_i2c_write(XBYTE reg_addr, 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::SetFeatureConfig(struct bmi2_dev*bmi2_dev)
-* @brief      SetFeatureConfig
+* @brief      Set feature config
 *             This internal API is used to set configurations for any-motion.
 *
 * @ingroup    DATAIO
@@ -1283,7 +1283,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::SetFeatureConfig(struct bmi2_dev *bmi2_dev)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOI2C6AXISTRACKINGBMI270::bmi2_delay_us(XDWORD period, void*intf_ptr)
-* @brief      bmi2_delay_us: Delay function map to COINES platform
+* @brief      bmi2delayus
 * @ingroup    DATAIO
 *
 * @param[in]  period : 
@@ -1304,7 +1304,7 @@ void DIOI2C6AXISTRACKINGBMI270::bmi2_delay_us(XDWORD period, void *intf_ptr)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_interface_init(struct bmi2_dev*bmi, XBYTE intf)
-* @brief      bmi2_interface_init: select the interface between SPI and I2C. Also to initialize coines platform
+* @brief      bmi2interfaceinit
 * @ingroup    DATAIO
 *
 * @param[in]  bmi2_dev*bmi : 
@@ -1359,7 +1359,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_interface_init(struct bmi2_dev *bmi, XB
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOI2C6AXISTRACKINGBMI270::bmi2_error_codes_print_result(XBYTESIG rslt)
-* @brief      bmi2_error_codes_print_result: Prints the execution status of the APIs.
+* @brief      bmi2errorcodesprintresult
 * @ingroup    DATAIO
 *
 * @param[in]  rslt : 
@@ -1411,7 +1411,7 @@ void DIOI2C6AXISTRACKINGBMI270::bmi2_error_codes_print_result(XBYTESIG rslt)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_sec_init(struct bmi2_dev*dev)
-* @brief      bmi2_sec_init: is the entry point for bmi2 sensor. It selects between I2C/SPI interface, based on user selection. It reads and validates the chip-id of the sensor.
+* @brief      bmi2secinit
 * @ingroup    DATAIO
 *
 * @param[in]  bmi2_dev*dev : 
@@ -1479,7 +1479,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_sec_init(struct bmi2_dev *dev)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_regs(XBYTE reg_addr, XBYTE*data, XWORD len, struct bmi2_dev*dev)
-* @brief      bmi2_get_regs: reads the data from the given register address of bmi2 sensor.
+* @brief      bmi2getregs
 * @note       For most of the registers auto address increment applies, with the exception of a few special registers, which trap the address. 
               For e.g., Register address - 0x26, 0x5E.
 * @ingroup    DATAIO
@@ -1557,7 +1557,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_regs(XBYTE reg_addr, XBYTE *data, X
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_set_regs(XBYTE reg_addr, const XBYTE*data, XWORD len, struct bmi2_dev*dev)
-* @brief      bmi2_set_regs: writes data to the given register address of bmi2 sensor.
+* @brief      bmi2setregs
 * @ingroup    DATAIO
 *
 * @param[in]  reg_addr : 
@@ -1629,7 +1629,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_set_regs(XBYTE reg_addr, const XBYTE *d
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_soft_reset(struct bmi2_dev*dev)
-* @brief      bmi2_soft_reset: resets bmi2 sensor. All registers are overwritten with their default values.
+* @brief      bmi2softreset
 * @ingroup    DATAIO
 * 
 * @param[in]  bmi2_dev*dev : 
@@ -1688,7 +1688,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_soft_reset(struct bmi2_dev *dev)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_config_file_version(XBYTE*config_major, XBYTE*config_minor, struct bmi2_dev*dev)
-* @brief      bmi2_get_config_file_version: used to get the config file major and minor version information.
+* @brief      bmi2getconfigfileversion
 * @ingroup    DATAIO
 *
 * @param[in]  XBYTE*config_major : 
@@ -1722,7 +1722,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_config_file_version(XBYTE *config_m
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_set_adv_power_save(XBYTE enable, struct bmi2_dev*dev)
-* @brief      bmi2_set_adv_power_save: enables/disables the advance power save mode in the sensor.
+* @brief      bmi2setadvpowersave
 * @ingroup    DATAIO
 *
 * @param[in]  enable : 
@@ -1769,7 +1769,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_set_adv_power_save(XBYTE enable, struct
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_adv_power_save(XBYTE*aps_status, struct bmi2_dev*dev)
-* @brief      bmi2_get_adv_power_save: gets the status of advance power save mode in the sensor.
+* @brief      bmi2getadvpowersave
 * @ingroup    DATAIO
 *
 * @param[in]  XBYTE*aps_status : 
@@ -1809,7 +1809,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_adv_power_save(XBYTE *aps_status, s
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_write_config_file(struct bmi2_dev*dev)
-* @brief      bmi2_write_config_file: loads the configuration file into the bmi2 sensor.
+* @brief      bmi2writeconfigfile
 * @ingroup    DATAIO
 *
 * @param[in]  bmi2_dev*dev : 
@@ -1866,7 +1866,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_write_config_file(struct bmi2_dev *dev)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_set_int_pin_config(const struct bmi2_int_pin_config*int_cfg, struct bmi2_dev*dev)
-* @brief      bmi2_set_int_pin_config: 1) input output configuration of the selected interrupt pin:INT1 or INT2.
+* @brief      bmi2setintpinconfig
 *                                      2)The interrupt mode: permanently latched or non-latched.
 * @ingroup    DATAIO
 *
@@ -1967,7 +1967,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_set_int_pin_config(const struct bmi2_in
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_int_pin_config(struct bmi2_int_pin_config*int_cfg, struct bmi2_dev*dev)
-* @brief      bmi2_get_int_pin_config:  gets:
+* @brief      bmi2getintpinconfig
 *                                       1) The input output configuration of the selected interrupt pin: INT1 or INT2.
 *                                       2) The interrupt mode: permanently latched or non-latched.
 * @ingroup    DATAIO
@@ -2048,7 +2048,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_int_pin_config(struct bmi2_int_pin_
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_int_status(XWORD*int_status, struct bmi2_dev*dev)
-* @brief      bmi2_get_int_status: gets the interrupt status of both feature and data
+* @brief      bmi2getintstatus
 * @ingroup    DATAIO
 *
 * @param[in]  XWORD*int_status : 
@@ -2088,7 +2088,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_int_status(XWORD *int_status, struc
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_sensor_enable(const XBYTE*sens_list, XBYTE n_sens, struct bmi2_dev*dev)
-* @brief      bmi2_sensor_enable: selects the sensors/features to be enabled.
+* @brief      bmi2sensorenable
 * @ingroup    DATAIO
 *
 * @param[in]  XBYTE*sens_list : 
@@ -2130,7 +2130,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_sensor_enable(const XBYTE *sens_list, X
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_sensor_disable(const XBYTE*sens_list, XBYTE n_sens, struct bmi2_dev*dev)
-* @brief      bmi2_sensor_disable: selects the sensors/features to be disabled.
+* @brief      bmi2sensordisable
 * @ingroup    DATAIO
 *
 * @param[in]  XBYTE*sens_list : 
@@ -2172,7 +2172,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_sensor_disable(const XBYTE *sens_list, 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_set_sensor_config(struct bmi2_sens_config*sens_cfg, XBYTE n_sens, struct bmi2_dev*dev)
-* @brief      bmi2_set_sensor_config: sets the sensor/feature configuration.
+* @brief      bmi2setsensorconfig
 * @ingroup    DATAIO
 *
 * @param[in]  bmi2_sens_config*sens_cfg : 
@@ -2270,7 +2270,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_set_sensor_config(struct bmi2_sens_conf
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_sensor_config(struct bmi2_sens_config*sens_cfg, XBYTE n_sens, struct bmi2_dev*dev)
-* @brief      bmi2_get_sensor_config: gets the sensor/feature configuration.
+* @brief      bmi2getsensorconfig
 * @ingroup    DATAIO
 *
 * @param[in]  bmi2_sens_config*sens_cfg : 
@@ -2371,7 +2371,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_sensor_config(struct bmi2_sens_conf
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_sensor_data(struct bmi2_sensor_data*sensor_data, XBYTE n_sens, struct bmi2_dev*dev)
-* @brief      bmi2_get_sensor_data: gets the sensor/feature data for accelerometer, gyroscope,
+* @brief      bmi2getsensordata
 *                                   auxiliary sensor, step counter, high-g, gyroscope user-gain update,
 *                                   orientation, gyroscope cross sensitivity and error status for NVM and VFRM.
 * @ingroup    DATAIO
@@ -2480,7 +2480,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_sensor_data(struct bmi2_sensor_data
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_set_fifo_config(XWORD config, XBYTE enable, struct bmi2_dev*dev)
-* @brief      bmi2_set_fifo_config: sets the FIFO configuration in the sensor.
+* @brief      bmi2setfifoconfig
 * @ingroup    DATAIO
 *
 * @param[in]  config : 
@@ -2559,7 +2559,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_set_fifo_config(XWORD config, XBYTE ena
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_fifo_config(XWORD*fifo_config, struct bmi2_dev*dev)
-* @brief      bmi2_get_fifo_config: reads the FIFO configuration from the sensor.
+* @brief      bmi2getfifoconfig
 * @ingroup    DATAIO
 *
 * @param[in]  XWORD*fifo_config : 
@@ -2600,7 +2600,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_fifo_config(XWORD *fifo_config, str
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_read_fifo_data(struct bmi2_fifo_frame*fifo, struct bmi2_dev*dev)
-* @brief      bmi2_read_fifo_data: reads the FIFO data.
+* @brief      bmi2readfifodata
 * @ingroup    DATAIO
 *
 * @param[in]  bmi2_fifo_frame*fifo : 
@@ -2662,7 +2662,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_read_fifo_data(struct bmi2_fifo_frame *
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_extract_accel(struct bmi2_sens_axes_data* accel_data, XWORD* accel_length, struct bmi2_fifo_frame* fifo, const struct bmi2_dev* dev)
-* @brief      bmi2_extract_accel: parses and extracts the accelerometer frames from FIFO data
+* @brief      bmi2extractaccel
 *                                 read by the "bmi2_read_fifo_data" API and stores it in the "accel_data"
 *                                 structure instance.
 * @ingroup    DATAIO
@@ -2741,7 +2741,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_extract_accel(struct bmi2_sens_axes_dat
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_extract_gyro(struct bmi2_sens_axes_data*gyro_data, XWORD*gyro_length, struct bmi2_fifo_frame*fifo, const struct bmi2_dev*dev)
-* @brief      bmi2_extract_gyro:  parses and extracts the gyroscope frames from FIFO data
+* @brief      bmi2extractgyro
 *                                 read by the "bmi2_read_fifo_data" API and stores it in the "gyro_data"
 *                                 structure instance.
 * @ingroup    DATAIO
@@ -2818,7 +2818,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_extract_gyro(struct bmi2_sens_axes_data
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_extract_aux(struct bmi2_aux_fifo_data*aux, XWORD*aux_length, struct bmi2_fifo_frame*fifo, const struct bmi2_dev*dev)
-* @brief      bmi2_extract_aux:  parses and extracts the auxiliary frames from FIFO data
+* @brief      bmi2extractaux
 *                                read by the "bmi2_read_fifo_data" API and stores it in "aux_data" buffer.
 * @ingroup    DATAIO
 *
@@ -2897,7 +2897,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_extract_aux(struct bmi2_aux_fifo_data *
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_set_command_register(XBYTE command, struct bmi2_dev*dev)
-* @brief      bmi2_set_command_register: writes the available sensor specific commands to the sensor.
+* @brief      bmi2setcommandregister
 * @ingroup    DATAIO
 * 
 * @param[in]  command : 
@@ -2926,7 +2926,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_set_command_register(XBYTE command, str
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_set_fifo_self_wake_up(XBYTE fifo_self_wake_up, struct bmi2_dev*dev)
-* @brief      bmi2_set_fifo_self_wake_up: sets the FIFO self wake up functionality in the sensor.
+* @brief      bmi2setfifoselfwakeup
 * @ingroup    DATAIO
 * 
 * @param[in]  fifo_self_wake_up : 
@@ -2963,7 +2963,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_set_fifo_self_wake_up(XBYTE fifo_self_w
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_fifo_self_wake_up(XBYTE*fifo_self_wake_up, struct bmi2_dev*dev)
-* @brief      bmi2_get_fifo_self_wake_up: gets the status of FIFO self wake up functionality from
+* @brief      bmi2getfifoselfwakeup
 * @ingroup    DATAIO
 * 
 * @param[in]  XBYTE*fifo_self_wake_up : 
@@ -3003,7 +3003,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_fifo_self_wake_up(XBYTE *fifo_self_
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_set_fifo_wm(XWORD fifo_wm, struct bmi2_dev*dev)
-* @brief      bmi2_set_fifo_wm: sets the FIFO water-mark level in the sensor.
+* @brief      bmi2setfifowm
 * @ingroup    DATAIO
 * 
 * @param[in]  fifo_wm : 
@@ -3041,7 +3041,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_set_fifo_wm(XWORD fifo_wm, struct bmi2_
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_fifo_wm(XWORD*fifo_wm, struct bmi2_dev*dev)
-* @brief      bmi2_get_fifo_wm: reads the FIFO water mark level set in the sensor.
+* @brief      bmi2getfifowm
 * @ingroup    DATAIO
 * 
 * @param[in]  XWORD*fifo_wm : 
@@ -3081,7 +3081,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_fifo_wm(XWORD *fifo_wm, struct bmi2
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_set_fifo_filter_data(XBYTE sens_sel, XBYTE fifo_filter_data, struct bmi2_dev*dev)
-* @brief      bmi2_set_fifo_filter_data: sets either filtered or un-filtered FIFO accelerometer or gyroscope data.
+* @brief      bmi2setfifofilterdata
 * @ingroup    DATAIO
 * 
 * @param[in]  sens_sel : 
@@ -3156,7 +3156,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_set_fifo_filter_data(XBYTE sens_sel, XB
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_fifo_filter_data(XBYTE sens_sel, XBYTE*fifo_filter_data, struct bmi2_dev*dev)
-* @brief      bmi2_get_fifo_filter_data: gets the FIFO accelerometer or gyroscope filter data.
+* @brief      bmi2getfifofilterdata
 * @ingroup    DATAIO
 * 
 * @param[in]  sens_sel : 
@@ -3217,7 +3217,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_fifo_filter_data(XBYTE sens_sel, XB
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_set_fifo_down_sample(XBYTE sens_sel, XBYTE fifo_down_samp, struct bmi2_dev*dev)
-* @brief      bmi2_set_fifo_down_sample: sets the down-sampling rates for accelerometer or gyroscope FIFO data.
+* @brief      bmi2setfifodownsample
 * @ingroup    DATAIO
 * 
 * @param[in]  sens_sel : 
@@ -3276,7 +3276,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_set_fifo_down_sample(XBYTE sens_sel, XB
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_fifo_down_sample(XBYTE sens_sel, XBYTE*fifo_down_samp, struct bmi2_dev*dev)
-* @brief      bmi2_get_fifo_down_sample: reads the down sampling rates which is configured for
+* @brief      bmi2getfifodownsample
 *                                        accelerometer or gyroscope FIFO data.
 * @ingroup    DATAIO
 * 
@@ -3338,7 +3338,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_fifo_down_sample(XBYTE sens_sel, XB
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_fifo_length(XWORD*fifo_length, struct bmi2_dev*dev)
-* @brief      bmi2_get_fifo_length: gets the length of FIFO data available in the sensor in bytes.
+* @brief      bmi2getfifolength
 * @ingroup    DATAIO
 * 
 * @param[in]  XWORD*fifo_length : 
@@ -3388,7 +3388,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_fifo_length(XWORD *fifo_length, str
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_read_aux_man_mode(XBYTE reg_addr, XBYTE*aux_data, XWORD len, struct bmi2_dev*dev)
-* @brief      bmi2_read_aux_man_mode: reads the user-defined bytes of data from the given register
+* @brief      bmi2readauxmanmode
 *                                     address of auxiliary sensor in manual mode.
 * @note       Change of BMI2_AUX_RD_ADDR is only allowed if AUX is not busy.
 * @ingroup    DATAIO
@@ -3465,7 +3465,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_read_aux_man_mode(XBYTE reg_addr, XBYTE
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_write_aux_man_mode(XBYTE reg_addr, const XBYTE*aux_data, XWORD len, struct bmi2_dev*dev)
-* @brief      bmi2_write_aux_man_mode: writes the user-defined bytes of data and the address of
+* @brief      bmi2writeauxmanmode
 *                                     auxiliary sensor where data is to be written in manual mode.
 * @note       Change of BMI2_AUX_WR_ADDR is only allowed if AUX is not busy. 
 * @ingroup    DATAIO
@@ -3540,7 +3540,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_write_aux_man_mode(XBYTE reg_addr, cons
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_write_aux_interleaved(XBYTE reg_addr, const XBYTE*aux_data, XWORD len, struct bmi2_dev*dev)
-* @brief      bmi2_write_aux_interleaved: writes the user-defined bytes of data and the address of
+* @brief      bmi2writeauxinterleaved
 *                                         auxiliary sensor where data is to be written, from an interleaved input, in manual mode.
 * @note       Change of BMI2_AUX_WR_ADDR is only allowed if AUX is not busy.
 * @ingroup    DATAIO
@@ -3623,7 +3623,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_write_aux_interleaved(XBYTE reg_addr, c
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_status(XBYTE*status, struct bmi2_dev*dev)
-* @brief      bmi2_get_status gets the data ready status of accelerometer, gyroscope,
+* @brief      bmi2getstatus
 *                             auxiliary, command decoder and busy status of auxiliary.
 * @ingroup    DATAIO
 * 
@@ -3656,7 +3656,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_status(XBYTE *status, struct bmi2_d
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_set_ois_interface(XBYTE enable, struct bmi2_dev*dev)
-* @brief      bmi2_set_ois_interface: enables/disables OIS interface.
+* @brief      bmi2setoisinterface
 * @ingroup    DATAIO
 * 
 * @param[in]  enable : 
@@ -13388,7 +13388,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::get_nvm_error_status(struct bmi2_nvm_err_sta
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::get_user_gain_upd_status(XBYTE*status, struct bmi2_dev*dev)
-* @brief      get_user_gain_upd_status: used to get enable status of gyroscope user gain
+* @brief      getusergainupdstatus
 * @ingroup    DATAIO
 * 
 * @param[in]  XBYTE*status : 
@@ -13460,7 +13460,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::get_user_gain_upd_status(XBYTE *status, stru
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::get_step_activity_output(XBYTE*step_act, struct bmi2_dev*dev)
-* @brief      get_step_activity_output: gets the output values of step activity.
+* @brief      getstepactivityoutput
 * @ingroup    DATAIO
 * 
 * @param[in]  XBYTE*step_act : 
@@ -13513,7 +13513,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::get_step_activity_output(XBYTE *step_act, st
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::get_vfrm_error_status(struct bmi2_vfrm_err_status*vfrm_err_stat, struct bmi2_dev*dev)
-* @brief      get_vfrm_error_status: gets the error status related to virtual frames.
+* @brief      getvfrmerrorstatus
 * @ingroup    DATAIO
 * 
 * @param[in]  bmi2_vfrm_err_status*vfrm_err_stat : 
@@ -13575,7 +13575,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::get_vfrm_error_status(struct bmi2_vfrm_err_s
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::enable_gyro_gain(XBYTE enable, struct bmi2_dev*dev)
-* @brief      enable_gyro_gain: enables/disables compensation of the gain defined in the GAIN register.
+* @brief      enablegyrogain
 * @ingroup    DATAIO
 * 
 * @param[in]  enable : 
@@ -13638,7 +13638,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::enable_gyro_gain(XBYTE enable, struct bmi2_d
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOI2C6AXISTRACKINGBMI270::Handler_Interrupt(void* param)
-* @brief      Handler_Interrupt
+* @brief      Handler interrupt
 * @ingroup    DATAIO
 *
 * @param[in]  param : 
@@ -13655,9 +13655,9 @@ void DIOI2C6AXISTRACKINGBMI270::Handler_Interrupt(void* param)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOI2C6AXISTRACKINGBMI270::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
-* @ingroup    
+* @ingroup    DATAIO
 *
 * ---------------------------------------------------------------------------------------------------------------------*/
 void DIOI2C6AXISTRACKINGBMI270::Clean()

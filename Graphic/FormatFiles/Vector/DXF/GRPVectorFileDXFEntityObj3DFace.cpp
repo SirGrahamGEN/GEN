@@ -65,7 +65,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVECTORFILEDXFENTITYOBJ3DFACE::GRPVECTORFILEDXFENTITYOBJ3DFACE(XCHAR* nametype)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    GRAPHIC
 * 
 * @param[in]  nametype : 
@@ -82,7 +82,7 @@ GRPVECTORFILEDXFENTITYOBJ3DFACE::GRPVECTORFILEDXFENTITYOBJ3DFACE(XCHAR* nametype
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVECTORFILEDXFENTITYOBJ3DFACE::~GRPVECTORFILEDXFENTITYOBJ3DFACE()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
 * 
@@ -96,7 +96,7 @@ GRPVECTORFILEDXFENTITYOBJ3DFACE::~GRPVECTORFILEDXFENTITYOBJ3DFACE()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPVECTORFILEDXFENTITYOBJ3DFACE::ApplyData(GRPVECTORFILEDXFENTITY* entity)
-* @brief      ApplyData
+* @brief      Apply data
 * @ingroup    GRAPHIC
 * 
 * @param[in]  entity : 
@@ -115,7 +115,7 @@ bool GRPVECTORFILEDXFENTITYOBJ3DFACE::ApplyData(GRPVECTORFILEDXFENTITY* entity)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRPVECTORFILEDXFENTITYOBJ3DFACE::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    GRAPHIC
 * 

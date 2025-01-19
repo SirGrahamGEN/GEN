@@ -66,7 +66,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMENUMBLUETOOTHDEVICES::DIOSTREAMENUMBLUETOOTHDEVICES()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -79,7 +79,7 @@ DIOSTREAMENUMBLUETOOTHDEVICES::DIOSTREAMENUMBLUETOOTHDEVICES()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMENUMBLUETOOTHDEVICES::~DIOSTREAMENUMBLUETOOTHDEVICES()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -93,7 +93,7 @@ DIOSTREAMENUMBLUETOOTHDEVICES::~DIOSTREAMENUMBLUETOOTHDEVICES()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOMAC* DIOSTREAMENUMBLUETOOTHDEVICES::GetDeviceSelect()
-* @brief      GetDeviceSelect
+* @brief      Get device select
 * @ingroup    DATAIO
 *
 * @return     DIOMAC* : 
@@ -108,7 +108,7 @@ DIOMAC* DIOSTREAMENUMBLUETOOTHDEVICES::GetDeviceSelect()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMENUMBLUETOOTHDEVICES::SetDeviceSelect(XBYTE* MAC)
-* @brief      SetDeviceSelect
+* @brief      Set device select
 * @ingroup    DATAIO
 *
 * @param[in]  MAC : 
@@ -125,7 +125,7 @@ bool DIOSTREAMENUMBLUETOOTHDEVICES::SetDeviceSelect(XBYTE* MAC)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMENUMBLUETOOTHDEVICES::SetDeviceSelect(XCHAR* MAC)
-* @brief      SetDeviceSelect
+* @brief      Set device select
 * @ingroup    DATAIO
 *
 * @param[in]  MAC : 
@@ -146,7 +146,7 @@ bool DIOSTREAMENUMBLUETOOTHDEVICES::SetDeviceSelect(XCHAR* MAC)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMENUMBLUETOOTHDEVICES::SetDeviceSelect(XSTRING& MAC)
-* @brief      SetDeviceSelect
+* @brief      Set device select
 * @ingroup    DATAIO
 *
 * @param[in]  MAC : 
@@ -163,7 +163,7 @@ bool DIOSTREAMENUMBLUETOOTHDEVICES::SetDeviceSelect(XSTRING& MAC)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMDEVICEBLUETOOTH* DIOSTREAMENUMBLUETOOTHDEVICES::GetDeviceByMAC(XCHAR* MAC)
-* @brief      GetDeviceByMAC
+* @brief      Get device by MAC
 * @ingroup    DATAIO
 *
 * @param[in]  MAC : 
@@ -204,7 +204,7 @@ DIOSTREAMDEVICEBLUETOOTH* DIOSTREAMENUMBLUETOOTHDEVICES::GetDeviceByMAC(XCHAR* M
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMDEVICEBLUETOOTH* DIOSTREAMENUMBLUETOOTHDEVICES::GetDeviceByMAC(DIOMAC* MAC)
-* @brief      GetDeviceByMAC
+* @brief      Get device by MAC
 * @ingroup    DATAIO
 *
 * @param[in]  MAC : 
@@ -238,7 +238,7 @@ DIOSTREAMDEVICEBLUETOOTH* DIOSTREAMENUMBLUETOOTHDEVICES::GetDeviceByMAC(DIOMAC* 
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSTREAMENUMBLUETOOTHDEVICES::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

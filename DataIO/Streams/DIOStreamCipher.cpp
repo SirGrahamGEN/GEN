@@ -73,7 +73,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMCIPHER::DIOSTREAMCIPHER(DIOSTREAMCONFIG* config, CIPHER* cipher)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * @param[in]  config :
@@ -110,7 +110,7 @@ DIOSTREAMCIPHER::DIOSTREAMCIPHER(DIOSTREAMCONFIG* config, CIPHER* cipher): DIOST
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMCIPHER::~DIOSTREAMCIPHER()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -137,7 +137,7 @@ DIOSTREAMCIPHER::~DIOSTREAMCIPHER()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMCONFIG* DIOSTREAMCIPHER::GetConfig()
-* @brief      GetConfig
+* @brief      Get config
 * @ingroup    DATAIO
 *
 * @return     DIOSTREAMCONFIG* :
@@ -152,7 +152,7 @@ DIOSTREAMCONFIG* DIOSTREAMCIPHER::GetConfig()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMCIPHER::SetConfig(DIOSTREAMCONFIG* config)
-* @brief      SetConfig
+* @brief      Set config
 * @ingroup    DATAIO
 *
 * @param[in]  config :
@@ -170,7 +170,7 @@ bool DIOSTREAMCIPHER::SetConfig(DIOSTREAMCONFIG* config)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMSTATUS DIOSTREAMCIPHER::GetStatus()
-* @brief      GetStatus
+* @brief      Get status
 * @ingroup    DATAIO
 *
 * @return     DIOSTREAMSTATUS :
@@ -286,7 +286,7 @@ XDWORD DIOSTREAMCIPHER::Write(XBYTE* buffer, XDWORD size)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAM* DIOSTREAMCIPHER::GetDIOStreamBase()
-* @brief      GetDIOStreamBase
+* @brief      Get DIO stream base
 * @ingroup    DATAIO
 *
 * @return     DIOSTREAM* :
@@ -301,7 +301,7 @@ DIOSTREAM* DIOSTREAMCIPHER::GetDIOStreamBase()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         CIPHER* DIOSTREAMCIPHER::GetCipher()
-* @brief      GetCipher
+* @brief      Get cipher
 * @ingroup    DATAIO
 *
 * @return     CIPHER* :
@@ -316,7 +316,7 @@ CIPHER* DIOSTREAMCIPHER::GetCipher()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSTREAMCIPHER::ThreadRunFunction(void* param)
-* @brief      ThreadRunFunction
+* @brief      Thread run function
 * @ingroup    DATAIO
 *
 * @param[in]  param :
@@ -411,7 +411,7 @@ void DIOSTREAMCIPHER::ThreadRunFunction(void* param)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSTREAMCIPHER::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

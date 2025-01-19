@@ -4,7 +4,7 @@
 * 
 * @class      DB_SQL_RESULT
 * @brief      DataBase SQL Result class
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 * 
 * @copyright  GEN Group. All rights reserved.
 * 

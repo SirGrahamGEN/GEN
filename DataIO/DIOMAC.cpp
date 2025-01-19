@@ -67,7 +67,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOMAC::DIOMAC()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -80,7 +80,7 @@ DIOMAC::DIOMAC()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOMAC::~DIOMAC()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 * 
@@ -95,7 +95,7 @@ DIOMAC::~DIOMAC()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOMAC::IsZero()
-* @brief      IsZero
+* @brief      Is zero
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
@@ -130,7 +130,7 @@ XBYTE* DIOMAC::Get()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD DIOMAC::GetManufactured()
-* @brief      GetManufactured
+* @brief      Get manufactured
 * @ingroup    DATAIO
 * 
 * @return     XDWORD : 
@@ -151,7 +151,7 @@ XDWORD DIOMAC::GetManufactured()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOMAC::GetXString(XSTRING& MACstring, XCHAR separator)
-* @brief      GetXString
+* @brief      Get X string
 * @ingroup    DATAIO
 * 
 * @param[in]  MACstring : 
@@ -182,7 +182,7 @@ bool DIOMAC::GetXString(XSTRING& MACstring, XCHAR separator)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XQWORD DIOMAC::GetLongNumber()
-* @brief      GetLongNumber
+* @brief      Get long number
 * @ingroup    DATAIO
 * 
 * @return     XQWORD : 
@@ -285,7 +285,7 @@ bool DIOMAC::Set(char* MAC)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOMAC::IsEqual(DIOMAC* MAC)
-* @brief      IsEqual
+* @brief      Is equal
 * @ingroup    DATAIO
 * 
 * @param[in]  MAC : 
@@ -309,7 +309,7 @@ bool DIOMAC::IsEqual(DIOMAC* MAC)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOMAC::IsEqual(DIOMAC& MAC)
-* @brief      IsEqual
+* @brief      Is equal
 * @ingroup    DATAIO
 * 
 * @param[in]  MAC : 
@@ -326,7 +326,7 @@ bool DIOMAC::IsEqual(DIOMAC& MAC)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOMAC::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 * 

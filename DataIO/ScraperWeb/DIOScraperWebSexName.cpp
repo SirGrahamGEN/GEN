@@ -69,7 +69,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSEXNAME_RESULT::DIOSEXNAME_RESULT()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -82,7 +82,7 @@ DIOSEXNAME_RESULT::DIOSEXNAME_RESULT()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSEXNAME_RESULT::~DIOSEXNAME_RESULT()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -130,7 +130,7 @@ bool DIOSEXNAME_RESULT::Set(DIOSCRAPERWEBSEXNAMETYPE sex)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* DIOSEXNAME_RESULT::GetNameClear()
-* @brief      GetNameClear
+* @brief      Get name clear
 * @ingroup    DATAIO
 *
 * @return     XSTRING* :
@@ -145,7 +145,7 @@ XSTRING* DIOSEXNAME_RESULT::GetNameClear()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSEXNAME_RESULT::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *
@@ -165,7 +165,7 @@ void DIOSEXNAME_RESULT::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSCRAPERWEBSEXNAME::DIOSCRAPERWEBSEXNAME()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -178,7 +178,7 @@ DIOSCRAPERWEBSEXNAME::DIOSCRAPERWEBSEXNAME(): DIOSCRAPERWEB()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSCRAPERWEBSEXNAME::~DIOSCRAPERWEBSEXNAME()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -192,7 +192,7 @@ DIOSCRAPERWEBSEXNAME::~DIOSCRAPERWEBSEXNAME()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSCRAPERWEBSEXNAME::ChangeURL(XCHAR* maskurl, DIOURL& url)
-* @brief      ChangeURL
+* @brief      Change URL
 * @ingroup    DATAIO
 *
 * @param[in]  maskurl :
@@ -318,7 +318,7 @@ bool DIOSCRAPERWEBSEXNAME::Get(XSTRING& name, DIOSCRAPERWEBSEXNAMETYPE& sexnamet
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSCRAPERWEBSEXNAME::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

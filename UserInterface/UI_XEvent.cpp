@@ -64,7 +64,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         UI_XEVENT::UI_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    USERINTERFACE
 *
 * @param[in]  subject :
@@ -81,7 +81,7 @@ UI_XEVENT::UI_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family) : XEVENT(sub
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         UI_XEVENT::~UI_XEVENT()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
 *
@@ -95,7 +95,7 @@ UI_XEVENT::~UI_XEVENT()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD UI_XEVENT::GetXPos()
-* @brief      GetXPos
+* @brief      Get X pos
 * @ingroup    USERINTERFACE
 *
 * @return     XDWORD : 
@@ -110,7 +110,7 @@ XDWORD UI_XEVENT::GetXPos()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_XEVENT::SetXPos(XDWORD xpos)
-* @brief      SetXPos
+* @brief      Set X pos
 * @ingroup    USERINTERFACE
 *
 * @param[in]  xpos : 
@@ -125,7 +125,7 @@ void UI_XEVENT::SetXPos(XDWORD xpos)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD UI_XEVENT::GetYPos()
-* @brief      GetYPos
+* @brief      Get Y pos
 * @ingroup    USERINTERFACE
 *
 * @return     XDWORD : 
@@ -140,7 +140,7 @@ XDWORD UI_XEVENT::GetYPos()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_XEVENT::SetYPos(XDWORD ypos)
-* @brief      SetYPos
+* @brief      Set Y pos
 * @ingroup    USERINTERFACE
 *
 * @param[in]  ypos : 
@@ -155,7 +155,7 @@ void UI_XEVENT::SetYPos(XDWORD ypos)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_ELEMENT* UI_XEVENT::GetElement()
-* @brief      GetElement
+* @brief      Get element
 * @ingroup    USERINTERFACE
 *
 * @return     UI_ELEMENT* : 
@@ -170,7 +170,7 @@ UI_ELEMENT* UI_XEVENT::GetElement()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         INPCURSORMOTION* UI_XEVENT::GetCursorMotion()
-* @brief      GetCursorMotion
+* @brief      Get cursor motion
 * @ingroup    USERINTERFACE
 *
 * @return     INPCURSORMOTION* : 
@@ -185,7 +185,7 @@ INPCURSORMOTION* UI_XEVENT::GetCursorMotion()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_XEVENT::SetCursorMotion(INPCURSORMOTION* cursormotion)
-* @brief      SetCursorMotion
+* @brief      Set cursor motion
 * @ingroup    USERINTERFACE
 *
 * @param[in]  cursormotion : 
@@ -200,7 +200,7 @@ void UI_XEVENT::SetCursorMotion(INPCURSORMOTION* cursormotion)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_XEVENT::SetElement(UI_ELEMENT* element)
-* @brief      SetElement
+* @brief      Set element
 * @ingroup    USERINTERFACE
 *
 * @param[in]  element : 
@@ -221,7 +221,7 @@ bool UI_XEVENT::SetElement(UI_ELEMENT* element)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_SKIN* UI_XEVENT::GetSkin()
-* @brief      GetSkin
+* @brief      Get skin
 * @ingroup    USERINTERFACE
 *
 * @return     UI_SKIN* : 
@@ -236,7 +236,7 @@ UI_SKIN* UI_XEVENT::GetSkin()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_XEVENT::SetSkin(UI_SKIN* skin)
-* @brief      SetSkin
+* @brief      Set skin
 * @ingroup    USERINTERFACE
 *
 * @param[in]  skin : 
@@ -255,7 +255,7 @@ bool UI_XEVENT::SetSkin(UI_SKIN* skin)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* UI_XEVENT::GetMaskTextValue()
-* @brief      GetMaskTextValue
+* @brief      Get mask text value
 * @ingroup    USERINTERFACE
 *
 * @return     XSTRING* : 
@@ -270,7 +270,7 @@ XSTRING* UI_XEVENT::GetMaskTextValue()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* UI_XEVENT::GetMaskTextResolved()
-* @brief      GetMaskTextResolved
+* @brief      Get mask text resolved
 * @ingroup    USERINTERFACE
 * 
 * @return     XSTRING* : 
@@ -285,7 +285,7 @@ XSTRING* UI_XEVENT::GetMaskTextResolved()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void UI_XEVENT::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
 *

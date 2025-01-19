@@ -64,7 +64,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         INPLINUXDEVICEID::INPLINUXDEVICEID()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_LINUX
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -77,7 +77,7 @@ INPLINUXDEVICEID::INPLINUXDEVICEID()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         INPLINUXDEVICEID::~INPLINUXDEVICEID()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
 *
@@ -91,7 +91,7 @@ INPLINUXDEVICEID::~INPLINUXDEVICEID()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         INPDEVICE_TYPE INPLINUXDEVICEID::GetType()
-* @brief      GetType
+* @brief      Get type
 * @ingroup    PLATFORM_LINUX
 *
 * @return     INPDEVICE_TYPE : 
@@ -106,7 +106,7 @@ INPDEVICE_TYPE INPLINUXDEVICEID::GetType()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void INPLINUXDEVICEID::SetType(INPDEVICE_TYPE type)
-* @brief      SetType
+* @brief      Set type
 * @ingroup    PLATFORM_LINUX
 * 
 * @param[in]  type : 
@@ -121,7 +121,7 @@ void INPLINUXDEVICEID::SetType(INPDEVICE_TYPE type)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* INPLINUXDEVICEID::GetName()
-* @brief      Get Name
+* @brief      Get name
 * @ingroup    PLATFORM_LINUX
 *
 * @return     XSTRING* : name of device ID
@@ -136,7 +136,7 @@ XSTRING* INPLINUXDEVICEID::GetName()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int INPLINUXDEVICEID::GetEventIndex()
-* @brief      GetEventIndex
+* @brief      Get event index
 * @ingroup    PLATFORM_LINUX
 * 
 * @return     int : 
@@ -151,7 +151,7 @@ int INPLINUXDEVICEID::GetEventIndex()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void INPLINUXDEVICEID::SetEventIndex(int eventindex)
-* @brief      SetEventIndex
+* @brief      Set event index
 * @ingroup    PLATFORM_LINUX
 * 
 * @param[in]  eventindex : 
@@ -166,7 +166,7 @@ void INPLINUXDEVICEID::SetEventIndex(int eventindex)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int INPLINUXDEVICEID::GetFileDescriptor()
-* @brief      GetFileDescriptor
+* @brief      Get file descriptor
 * @ingroup    PLATFORM_LINUX
 *
 * @return     int : file descriptor
@@ -181,7 +181,7 @@ int INPLINUXDEVICEID::GetFileDescriptor()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void INPLINUXDEVICEID::SetFileDescriptor(int filedescriptor)
-* @brief      SetFileDescriptor
+* @brief      Set file descriptor
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  filedescriptor : new file descriptor
@@ -196,7 +196,7 @@ void INPLINUXDEVICEID::SetFileDescriptor(int filedescriptor)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void INPLINUXDEVICEID::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
 *

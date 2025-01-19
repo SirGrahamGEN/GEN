@@ -74,7 +74,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOSTREAMI2C::DIOSTREAMI2C()
-* @brief      DIOSTREAMI2C
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -111,7 +111,7 @@ DIOSTREAMI2C::DIOSTREAMI2C() : DIOSTREAM() , XFSMACHINE(0)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOSTREAMI2C::~DIOSTREAMI2C()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -127,7 +127,7 @@ DIOSTREAMI2C::~DIOSTREAMI2C()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOSTREAMCONFIG* DIOSTREAMI2C::GetConfig()
-* @brief      GetConfig
+* @brief      Get config
 * @ingroup    DATAIO
 *
 * @return     DIOSTREAMCONFIG* : 
@@ -142,7 +142,7 @@ DIOSTREAMCONFIG* DIOSTREAMI2C::GetConfig()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOSTREAMI2C::SetConfig(DIOSTREAMCONFIG* config)
-* @brief      SetConfig
+* @brief      Set config
 * @ingroup    DATAIO
 *
 * @param[in]  config : 
@@ -184,7 +184,7 @@ bool DIOSTREAMI2C::Open()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD DIOSTREAMI2C::ReadDirect(XBYTE* buffer, XDWORD size)
-* @brief      ReadDirect
+* @brief      Read direct
 * @ingroup    DATAIO
 *
 * @param[in]  buffer : 
@@ -202,7 +202,7 @@ XDWORD DIOSTREAMI2C::ReadDirect(XBYTE* buffer, XDWORD size)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD DIOSTREAMI2C::WriteDirect(XBYTE* buffer, XDWORD size)
-* @brief      WriteDirect
+* @brief      Write direct
 * @ingroup    DATAIO
 *
 * @param[in]  buffer : 
@@ -239,7 +239,7 @@ bool DIOSTREAMI2C::Close()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOSTREAMI2C::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

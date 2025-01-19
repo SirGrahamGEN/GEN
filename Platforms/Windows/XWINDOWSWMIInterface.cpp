@@ -73,7 +73,7 @@ using namespace std;
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XWINDOWSWMIINTERFACE_RESULT::XWINDOWSWMIINTERFACE_RESULT()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_WINDOWS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -88,7 +88,7 @@ XWINDOWSWMIINTERFACE_RESULT::XWINDOWSWMIINTERFACE_RESULT()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XWINDOWSWMIINTERFACE_RESULT::~XWINDOWSWMIINTERFACE_RESULT()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
 *
@@ -104,7 +104,7 @@ XWINDOWSWMIINTERFACE_RESULT::~XWINDOWSWMIINTERFACE_RESULT()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XVECTOR<XSTRING*>* XWINDOWSWMIINTERFACE_RESULT::GetResultsString()
-* @brief      GetResultsString
+* @brief      Get results string
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @return     XVECTOR<XSTRING*>* : 
@@ -119,7 +119,7 @@ XVECTOR<XSTRING*>* XWINDOWSWMIINTERFACE_RESULT::GetResultsString()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XVECTOR<XVARIANT*>* XWINDOWSWMIINTERFACE_RESULT::GetResultsVariant()
-* @brief      GetResultsVariant
+* @brief      Get results variant
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @return     XVECTOR<XVARIANT*>* : 
@@ -134,7 +134,7 @@ XVECTOR<XVARIANT*>* XWINDOWSWMIINTERFACE_RESULT::GetResultsVariant()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void XWINDOWSWMIINTERFACE_RESULT::DeleteAllResults()
-* @brief      DeleteAllResults
+* @brief      Delete all results
 * @ingroup    PLATFORM_WINDOWS
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -152,7 +152,7 @@ void XWINDOWSWMIINTERFACE_RESULT::DeleteAllResults()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         WMIQUERYERROR XWINDOWSWMIINTERFACE_RESULT::GetError()
-* @brief      GetError
+* @brief      Get error
 * @ingroup    PLATFORM_WINDOWS
 *
 * @return     XWINDOWSWMIINTERFACE_ERROR  :
@@ -167,7 +167,7 @@ XWINDOWSWMIINTERFACE_ERROR XWINDOWSWMIINTERFACE_RESULT::GetError()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XWINDOWSWMIINTERFACE_RESULT::SetError(XWINDOWSWMIINTERFACE_ERROR error)
-* @brief      SetError
+* @brief      Set error
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  error :
@@ -182,7 +182,7 @@ void XWINDOWSWMIINTERFACE_RESULT::SetError(XWINDOWSWMIINTERFACE_ERROR error)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING XWINDOWSWMIINTERFACE_RESULT::GetErrorDescription()
-* @brief      GetErrorDescription
+* @brief      Get error description
 * @ingroup    PLATFORM_WINDOWS
 *
 * @return     XSTRING* :
@@ -197,7 +197,7 @@ XSTRING* XWINDOWSWMIINTERFACE_RESULT::GetErrorDescription()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XWINDOWSWMIINTERFACE_RESULT::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
 *
@@ -217,7 +217,7 @@ void XWINDOWSWMIINTERFACE_RESULT::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XWINDOWSWMIINTERFACE::XWINDOWSWMIINTERFACE()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_WINDOWS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -230,7 +230,7 @@ XWINDOWSWMIINTERFACE::XWINDOWSWMIINTERFACE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XWINDOWSWMIINTERFACE::~XWINDOWSWMIINTERFACE()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
 *
@@ -290,7 +290,7 @@ bool XWINDOWSWMIINTERFACE::Ini()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XWINDOWSWMIINTERFACE_RESULT* XWINDOWSWMIINTERFACE::DoQuery(XCHAR* query, XCHAR* propertynameofresultobject, bool allowemptyitems)
-* @brief      DoQuery
+* @brief      Do query
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  query :
@@ -565,7 +565,7 @@ XWINDOWSWMIINTERFACE_RESULT* XWINDOWSWMIINTERFACE::DoQuery(XCHAR* query, XCHAR* 
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSWMIINTERFACE::DoQuery(XCHAR* _class, XCHAR* namedata, XSTRING& answer)
-* @brief      DoQuery
+* @brief      Do query
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  _class :
@@ -608,7 +608,7 @@ bool XWINDOWSWMIINTERFACE::DoQuery(XCHAR* _class, XCHAR* namedata,  XSTRING& ans
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSWMIINTERFACE::DoQuery(XCHAR* _class, XCHAR* namedata, XVECTOR<XSTRING*>* answers)
-* @brief      DoQuery
+* @brief      Do query
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  _class :
@@ -658,7 +658,7 @@ bool XWINDOWSWMIINTERFACE::DoQuery(XCHAR* _class, XCHAR* namedata,  XVECTOR<XSTR
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XWINDOWSWMIINTERFACE::DoQuery(XCHAR* _class, XCHAR* namedata, XVARIANT& answer)
-* @brief      DoQuery
+* @brief      Do query
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @param[in]  _class : 
@@ -701,7 +701,7 @@ bool XWINDOWSWMIINTERFACE::DoQuery(XCHAR* _class, XCHAR* namedata,  XVARIANT& an
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XWINDOWSWMIINTERFACE::DoQuery(XCHAR* _class, XCHAR* namedata, XVECTOR<XVARIANT*>* answers)
-* @brief      DoQuery
+* @brief      Do query
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @param[in]  _class : 
@@ -751,7 +751,7 @@ bool XWINDOWSWMIINTERFACE::DoQuery(XCHAR* _class, XCHAR* namedata,  XVECTOR<XVAR
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSWMIINTERFACE::NetWorkInterfaceEnable(int ID, bool enabled)
-* @brief      NetWorkInterfaceEnable
+* @brief      Net work interface enable
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  ID :
@@ -843,7 +843,7 @@ bool XWINDOWSWMIINTERFACE::NetWorkInterfaceEnable(int ID, bool enable)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XWINDOWSWMIINTERFACE::NetWorkInterfaceSetMetric(int ID, int metric)
-* @brief      NetWorkInterfaceSetMetric
+* @brief      Net work interface set metric
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  ID : 
@@ -966,7 +966,7 @@ bool XWINDOWSWMIINTERFACE::NetWorkInterfaceSetMetric(int ID, int metric)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XWINDOWSWMIINTERFACE::NetWorkInterfaceSetMetric(int metric)
-* @brief      NetWorkInterfaceSetMetric
+* @brief      Net work interface set metric
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @param[in]  metric : 
@@ -1259,7 +1259,7 @@ bool XWINDOWSWMIINTERFACE::End()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XWINDOWSWMIINTERFACE::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
 *

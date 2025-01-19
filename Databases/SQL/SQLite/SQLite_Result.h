@@ -4,7 +4,7 @@
 * 
 * @class      SQLITE_RESULT
 * @brief      DataBase SQL SQLite Result class
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 * 
 * @copyright  GEN Group. All rights reserved.
 * 

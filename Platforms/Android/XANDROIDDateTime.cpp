@@ -64,7 +64,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XANDROIDDATETIME::XANDROIDDATETIME()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_ANDROID
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -77,7 +77,7 @@ XANDROIDDATETIME::XANDROIDDATETIME()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XANDROIDDATETIME::~XANDROIDDATETIME()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_ANDROID
 *

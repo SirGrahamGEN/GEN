@@ -73,7 +73,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XLINUXCONSOLE::XLINUXCONSOLE()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_LINUX
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -86,7 +86,7 @@ XLINUXCONSOLE::XLINUXCONSOLE(): XCONSOLE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XLINUXCONSOLE::~XLINUXCONSOLE()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
 *
@@ -100,7 +100,7 @@ XLINUXCONSOLE::~XLINUXCONSOLE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XLINUXCONSOLE::GetSizeText(int& columns, int& rows)
-* @brief      GetSizeText
+* @brief      Get size text
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  columns :
@@ -179,7 +179,7 @@ bool XLINUXCONSOLE::Hide()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XLINUXCONSOLE::IsHide()
-* @brief      IsHide
+* @brief      Is hide
 * @ingroup    PLATFORM_LINUX
 *
 * @return     bool : true if is succesful.
@@ -261,7 +261,7 @@ bool XLINUXCONSOLE::Clear(bool fill)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XLINUXCONSOLE::KBHit(void)
-* @brief      KBHit
+* @brief      KB hit
 * @ingroup    PLATFORM_LINUX
 *
 * @return     bool : true if is succesful.
@@ -320,7 +320,7 @@ bool XLINUXCONSOLE::KBHit(void)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int XLINUXCONSOLE::GetChar()
-* @brief      GetChar
+* @brief      Get char
 * @ingroup    PLATFORM_LINUX
 * 
 * @return     int : 
@@ -357,7 +357,7 @@ int XLINUXCONSOLE::GetChar()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XLINUXCONSOLE::RawModeEnable()
-* @brief      RawModeEnable
+* @brief      Raw mode enable
 * @ingroup    PLATFORM_LINUX
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -378,7 +378,7 @@ void XLINUXCONSOLE::RawModeEnable()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XLINUXCONSOLE::RawModeDisable()
-* @brief      RawModeDisable
+* @brief      Raw mode disable
 * @ingroup    PLATFORM_LINUX
 *
 * --------------------------------------------------------------------------------------------------------------------*/

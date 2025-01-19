@@ -64,7 +64,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPPROPERTIES::GRPPROPERTIES()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    GRAPHIC
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -79,7 +79,7 @@ GRPPROPERTIES::GRPPROPERTIES()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPPROPERTIES::~GRPPROPERTIES()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
 *
@@ -93,7 +93,7 @@ GRPPROPERTIES::~GRPPROPERTIES()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPPROPERTYMODE GRPPROPERTIES::GetMode()
-* @brief      Get Mode
+* @brief      Get mode
 * @ingroup    GRAPHIC
 *
 * @return     GRPPROPERTYMODE : Property mode
@@ -108,7 +108,7 @@ GRPPROPERTYMODE GRPPROPERTIES::GetMode()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void GRPPROPERTIES::SetMode(GRPPROPERTYMODE mode)
-* @brief      Set Mode
+* @brief      Set mode
 * @ingroup    GRAPHIC
 *
 * @param[in]  mode : new mode of property
@@ -123,7 +123,7 @@ void GRPPROPERTIES::SetMode(GRPPROPERTYMODE mode)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int GRPPROPERTIES::GetPositionX()
-* @brief      GetPositionX
+* @brief      Get position x
 * @ingroup    GRAPHIC
 *
 * @return     int :
@@ -138,7 +138,7 @@ int GRPPROPERTIES::GetPositionX()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int GRPPROPERTIES::GetPositionY()
-* @brief      GetPositionY
+* @brief      Get position y
 * @ingroup    GRAPHIC
 *
 * @return     int :
@@ -153,7 +153,7 @@ int GRPPROPERTIES::GetPositionY()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void GRPPROPERTIES::SetPosition(int x, int y)
-* @brief      Set Position
+* @brief      Set position
 * @ingroup    GRAPHIC
 *
 * @param[in]  x : new x position
@@ -170,7 +170,7 @@ void GRPPROPERTIES::SetPosition(int x, int y)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD GRPPROPERTIES::GetWidth()
-* @brief      Get Width
+* @brief      Get width
 * @ingroup    GRAPHIC
 *
 * @return     XDWORD : Width of propertys
@@ -185,7 +185,7 @@ XDWORD GRPPROPERTIES::GetWidth()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void GRPPROPERTIES::SetWidth(XDWORD width)
-* @brief      Set Width
+* @brief      Set width
 * @ingroup    GRAPHIC
 *
 * @param[in]  width : new width
@@ -200,7 +200,7 @@ void GRPPROPERTIES::SetWidth(XDWORD width)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD GRPPROPERTIES::GetHeight()
-* @brief      Get Height
+* @brief      Get height
 * @ingroup    GRAPHIC
 *
 * @return     XDWORD : height of properties
@@ -215,7 +215,7 @@ XDWORD GRPPROPERTIES::GetHeight()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void GRPPROPERTIES::SetHeight(XDWORD height)
-* @brief      Set Height
+* @brief      Set height
 * @ingroup    GRAPHIC
 *
 * @param[in]  height : new height
@@ -230,7 +230,7 @@ void GRPPROPERTIES::SetHeight(XDWORD height)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void GRPPROPERTIES::SetSize(XDWORD width, XDWORD height)
-* @brief      SetSize
+* @brief      Set size
 * @ingroup    GRAPHIC
 *
 * @param[in]  width :
@@ -247,7 +247,7 @@ void GRPPROPERTIES::SetSize(XDWORD width, XDWORD height)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD GRPPROPERTIES::GetMaxWidth()
-* @brief      Get Width
+* @brief      Get max width
 * @ingroup    GRAPHIC
 *
 * @return     XDWORD : Max Width of propertys
@@ -262,7 +262,7 @@ XDWORD GRPPROPERTIES::GetMaxWidth()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void GRPPROPERTIES::SetMaxWidth(XDWORD width)
-* @brief      Set Width
+* @brief      Set max width
 * @ingroup    GRAPHIC
 *
 * @param[in]  width : new width
@@ -277,7 +277,7 @@ void GRPPROPERTIES::SetMaxWidth(XDWORD maxwidth)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD GRPPROPERTIES::GetMaxHeight()
-* @brief      Get Height
+* @brief      Get max height
 * @ingroup    GRAPHIC
 *
 * @return     XDWORD : Max height of properties
@@ -292,7 +292,7 @@ XDWORD GRPPROPERTIES::GetMaxHeight()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void GRPPROPERTIES::SetMaxHeight(XDWORD maxheight)
-* @brief      Set Height
+* @brief      Set max height
 * @ingroup    GRAPHIC
 *
 * @param[in]  maxheight : new max height
@@ -307,7 +307,7 @@ void GRPPROPERTIES::SetMaxHeight(XDWORD maxheight)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void GRPPROPERTIES::SetMaxSize(XDWORD maxwidth, XDWORD maxheight)
-* @brief      SetSize
+* @brief      Set max size
 * @ingroup    GRAPHIC
 *
 * @param[in]  maxwidth :
@@ -324,7 +324,7 @@ void GRPPROPERTIES::SetMaxSize(XDWORD maxwidth, XDWORD maxheight)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPRECTINT* GRPPROPERTIES::GetWorkRegion()
-* @brief      GetWorkRegion
+* @brief      Get work region
 * @ingroup    GRAPHIC
 * 
 * @return     GRPRECTINT* : 
@@ -354,7 +354,7 @@ float GRPPROPERTIES::GetDPI()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void GRPPROPERTIES::SetDPI(float DPI)
-* @brief      Set DPIs
+* @brief      Set DPI
 * @ingroup    GRAPHIC
 *
 * @param[in]  DPI :
@@ -369,7 +369,7 @@ void GRPPROPERTIES::SetDPI(float DPI)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD GRPPROPERTIES::GetStride()
-* @brief      Get Stride
+* @brief      Get stride
 * @ingroup    GRAPHIC
 *
 * @return     XDWORD :
@@ -384,7 +384,7 @@ XDWORD GRPPROPERTIES::GetStride()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void GRPPROPERTIES::SetStride(XDWORD stride)
-* @brief      Set Stride
+* @brief      Set stride
 * @ingroup    GRAPHIC
 *
 * @param[in]  stride : new stride
@@ -399,7 +399,7 @@ void GRPPROPERTIES::SetStride(XDWORD stride)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPPROPERTIES::IsBufferInverse()
-* @brief      Is Buffer Inverse
+* @brief      Is buffer inverse
 * @ingroup    GRAPHIC
 *
 * @return     bool : true if is succesful.
@@ -414,7 +414,7 @@ bool GRPPROPERTIES::IsBufferInverse()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void GRPPROPERTIES::SetIsBufferInverse(bool isbufferinverse)
-* @brief      Set Is Buffer Inverse
+* @brief      Set is buffer inverse
 * @ingroup    GRAPHIC
 *
 * @param[in]  isbufferinverse : true is buffer inverse
@@ -429,7 +429,7 @@ void GRPPROPERTIES::SetIsBufferInverse(bool isbufferinverse)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XBYTE GRPPROPERTIES::GetBitsperPixel()
-* @brief      Get Bits per Pixel
+* @brief      Get bitsper pixel
 * @ingroup    GRAPHIC
 *
 * @return     XBYTE : number of bits per pixel
@@ -465,7 +465,7 @@ XBYTE GRPPROPERTIES::GetBitsperPixel()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XBYTE GRPPROPERTIES::GetBytesperPixel()
-* @brief      Get Bytes per Pixel
+* @brief      Get bytesper pixel
 * @ingroup    GRAPHIC
 *
 * @return     XBYTE : bytes per pixel
@@ -480,7 +480,7 @@ XBYTE GRPPROPERTIES::GetBytesperPixel()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void GRPPROPERTIES::CopyPropertysFrom(GRPPROPERTIES* properties)
-* @brief      Copy Propertys From
+* @brief      Copy propertys from
 * @ingroup    GRAPHIC
 *
 * @param[in]  properties : new properties to assing
@@ -504,7 +504,7 @@ void GRPPROPERTIES::CopyPropertysFrom(GRPPROPERTIES* properties)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void GRPPROPERTIES::CopyPropertysTo(GRPPROPERTIES* properties)
-* @brief      Copy Propertys To
+* @brief      Copy propertys to
 * @ingroup    GRAPHIC
 *
 * @param[out] properties : Actual properties
@@ -528,7 +528,7 @@ void GRPPROPERTIES::CopyPropertysTo(GRPPROPERTIES* properties)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int GRPPROPERTIES::IsEqualSizeTo(GRPPROPERTIES* properties)
-* @brief      IsEqualSizeTo
+* @brief      Is equal size to
 * @ingroup    GRAPHIC
 * 
 * @param[in]  properties : 
@@ -577,7 +577,7 @@ void GRPPROPERTIES::Default()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void GRPPROPERTIES::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    GRAPHIC
 *

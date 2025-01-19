@@ -68,7 +68,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XESP32SYSTEM::XESP32SYSTEM()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_ESP32
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -81,7 +81,7 @@ XESP32SYSTEM::XESP32SYSTEM() : XSYSTEM()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XESP32SYSTEM::~XESP32SYSTEM()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_ESP32
 *
@@ -95,7 +95,7 @@ XESP32SYSTEM::~XESP32SYSTEM()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSYSTEM_HARDWARETYPE XESP32SYSTEM::GetTypeHardware(int* revision)
-* @brief      GetTypeHardware
+* @brief      Get type hardware
 * @ingroup    PLATFORM_ESP32
 *
 * @param[in]  revision :
@@ -112,7 +112,7 @@ XSYSTEM_HARDWARETYPE XESP32SYSTEM::GetTypeHardware(int* revision)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSYSTEM_PLATFORM XESP32SYSTEM::GetPlatform(XSTRING* namestring)
-* @brief      GetPlatform
+* @brief      Get platform
 * @ingroup    PLATFORM_ESP32
 *
 * @param[in]  namestring : 
@@ -137,7 +137,7 @@ XSYSTEM_PLATFORM XESP32SYSTEM::GetPlatform(XSTRING* namestring)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XESP32SYSTEM::GetMemoryInfo(XDWORD& total,XDWORD& free)
-* @brief      GetMemoryInfo
+* @brief      Get memory info
 * @ingroup    PLATFORM_ESP32
 *
 * @param[in]  total :
@@ -158,7 +158,7 @@ bool XESP32SYSTEM::GetMemoryInfo(XDWORD& total,XDWORD& free)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XESP32SYSTEM::ShutDown(XSYSTEM_CHANGESTATUSTYPE type)
-* @brief      ShutDown
+* @brief      Shut down
 * @ingroup    PLATFORM_ESP32
 *
 * @param[in]  type :
@@ -183,7 +183,7 @@ bool XESP32SYSTEM::ShutDown(XSYSTEM_CHANGESTATUSTYPE type)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XESP32SYSTEM::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_ESP32
 *

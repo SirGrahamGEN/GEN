@@ -64,7 +64,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XESP32TIMER::XESP32TIMER()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_ESP32
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -77,7 +77,7 @@ XESP32TIMER::XESP32TIMER()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XESP32TIMER::~XESP32TIMER()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_ESP32
 *
@@ -91,7 +91,7 @@ XESP32TIMER::~XESP32TIMER()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XQWORD XESP32TIMER::GetMicroSecondsTickCounter()
-* @brief      GetMicroSecondsTickCounter
+* @brief      Get micro seconds tick counter
 * @ingroup    PLATFORM_ESP32
 *
 * @return     XQWORD :

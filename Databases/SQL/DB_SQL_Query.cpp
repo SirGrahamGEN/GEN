@@ -4,7 +4,7 @@
 * 
 * @class      DB_SQL_QUERY
 * @brief      DataBase SQL Query Abstract class
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 * 
 * @copyright  GEN Group. All rights reserved.
 * 
@@ -72,8 +72,8 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DB_SQL_QUERY::DB_SQL_QUERY(DB_SQL_DATABASE* database)
-* @brief      Constructor
-* @ingroup    DATABASES
+* @brief      Constructor of class
+* @ingroup    DATABASE
 *
 * @param[in]  DB_SQL_DATABASE* :
 *
@@ -89,9 +89,9 @@ DB_SQL_QUERY::DB_SQL_QUERY(DB_SQL_DATABASE* database)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DB_SQL_QUERY::~DB_SQL_QUERY()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DB_SQL_QUERY::~DB_SQL_QUERY()
@@ -103,8 +103,8 @@ DB_SQL_QUERY::~DB_SQL_QUERY()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DB_SQL_QUERY::ClearCursor()
-* @brief      ClearCursor
-* @ingroup    DATABASES
+* @brief      Clear cursor
+* @ingroup    DATABASE
 *
 * @return     bool : true if is succesful.
 *
@@ -118,8 +118,8 @@ bool DB_SQL_QUERY::ClearCursor()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DB_SQL_QUERY::IsWellConstructedQuery()
-* @brief      IsWellConstructedQuery
-* @ingroup    DATABASES
+* @brief      Is well constructed query
+* @ingroup    DATABASE
 *
 * @return     bool : true if is succesful.
 *
@@ -133,8 +133,8 @@ bool DB_SQL_QUERY::IsWellConstructedQuery()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DB_SQL_RESULT* DB_SQL_QUERY::GetResult()
-* @brief      GetResult
-* @ingroup    DATABASES
+* @brief      Get result
+* @ingroup    DATABASE
 *
 * @return     DB_SQL_RESULT* :
 *
@@ -148,8 +148,8 @@ DB_SQL_RESULT* DB_SQL_QUERY::GetResult()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DB_SQL_STRING* DB_SQL_QUERY::GetValue()
-* @brief      GetValue
-* @ingroup    DATABASES
+* @brief      Get value
+* @ingroup    DATABASE
 *
 * @return     DB_SQL_STRING* :
 *
@@ -164,7 +164,7 @@ DB_SQL_STRING* DB_SQL_QUERY::GetValue()
 *
 * @fn         bool DB_SQL_QUERY::Set(XCHAR* query)
 * @brief      Set
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 *
 * @param[in]  query :
 *
@@ -185,8 +185,8 @@ bool DB_SQL_QUERY::Set(XCHAR* query)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DB_SQL_QUERY::UnbindAll()
-* @brief      UnbindAll
-* @ingroup    DATABASES
+* @brief      Unbind all
+* @ingroup    DATABASE
 *
 * @return     bool : true if is succesful.
 *
@@ -201,7 +201,7 @@ bool DB_SQL_QUERY::UnbindAll()
 *
 * @fn         bool DB_SQL_QUERY::Bind(XDWORD ID, DB_SQL_VARIANT* variant)
 * @brief      Bind
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 *
 * @param[in]  ID :
 * @param[in]  variant :
@@ -219,7 +219,7 @@ bool DB_SQL_QUERY::Bind(XDWORD ID, DB_SQL_VARIANT* variant)
 *
 * @fn         bool DB_SQL_QUERY::Bind(XDWORD ID, int integer)
 * @brief      Bind
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 *
 * @param[in]  ID :
 * @param[in]  integer :
@@ -242,7 +242,7 @@ bool DB_SQL_QUERY::Bind(XDWORD ID, int integer)
 *
 * @fn         bool DB_SQL_QUERY::Bind(XDWORD ID, XCHAR* string)
 * @brief      Bind
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 *
 * @param[in]  ID :
 * @param[in]  string :
@@ -265,7 +265,7 @@ bool DB_SQL_QUERY::Bind(XDWORD ID, XCHAR* string)
 *
 * @fn         bool DB_SQL_QUERY::Bind(XDWORD ID, float decimal)
 * @brief      Bind
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 *
 * @param[in]  ID :
 * @param[in]  decimal :
@@ -288,7 +288,7 @@ bool DB_SQL_QUERY::Bind(XDWORD ID, float decimal)
 *
 * @fn         bool DB_SQL_QUERY::Bind(XDWORD ID, char* string)
 * @brief      Bind
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 *
 * @param[in]  ID :
 * @param[in]  string :
@@ -311,7 +311,7 @@ bool DB_SQL_QUERY::Bind(XDWORD ID, char* string)
 *
 * @fn         bool DB_SQL_QUERY::Bind(XDWORD id, XDATETIME& datetime)
 * @brief      Bind
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 *
 * @param[in]  id :
 * @param[in]  datetime :
@@ -333,8 +333,8 @@ bool DB_SQL_QUERY::Bind(XDWORD id, XDATETIME& datetime)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DB_SQL_QUERY::ClearBuffers()
-* @brief      ClearBuffers
-* @ingroup    DATABASES
+* @brief      Clear buffers
+* @ingroup    DATABASE
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DB_SQL_QUERY::ClearBuffers()
@@ -352,8 +352,8 @@ void DB_SQL_QUERY::ClearBuffers()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DB_SQL_QUERY::UseCursor(XCHAR* cursorname)
-* @brief      UseCursor
-* @ingroup    DATABASES
+* @brief      Use cursor
+* @ingroup    DATABASE
 *
 * @param[in]  cursorname :
 *
@@ -373,9 +373,9 @@ bool DB_SQL_QUERY::UseCursor(XCHAR* cursorname)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DB_SQL_QUERY::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DB_SQL_QUERY::Clean()

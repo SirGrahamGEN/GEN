@@ -80,7 +80,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XLINUXFILE::XLINUXFILE()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_LINUX
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -93,7 +93,7 @@ XLINUXFILE::XLINUXFILE(): XFILE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XLINUXFILE::~XLINUXFILE()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
 *
@@ -109,7 +109,7 @@ XLINUXFILE::~XLINUXFILE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XLINUXFILE::Exist(XCHAR* xpath)
-* @brief      Check if Exist file
+* @brief      Exist
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  xpath : path to file
@@ -129,7 +129,7 @@ bool XLINUXFILE::Exist(XCHAR* xpath)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XLINUXFILE::Open(XCHAR* xpath, bool isreadonly)
-* @brief      Open file
+* @brief      Open
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  xpath : path to file
@@ -147,7 +147,7 @@ bool XLINUXFILE::Open(XCHAR* xpath, bool isreadonly)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XLINUXFILE::Create(XCHAR* xpath)
-* @brief      Create file
+* @brief      Create
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  xpath : path to file
@@ -164,7 +164,7 @@ bool XLINUXFILE::Create(XCHAR* xpath)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XLINUXFILE::SetSize(XDWORD size)
-* @brief      Set Size of File
+* @brief      Set size
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  size : new size
@@ -188,7 +188,7 @@ bool XLINUXFILE::SetSize(XQWORD size)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XLINUXFILE::GetPosition(XDWORD& position)
-* @brief      Get Position in file
+* @brief      Get position
 * @ingroup    PLATFORM_LINUX
 *
 * @param[out] position : position of the file
@@ -211,7 +211,7 @@ bool XLINUXFILE::GetPosition(XQWORD& position)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XLINUXFILE::SetPosition(XDWORD position)
-* @brief      Set Position of file
+* @brief      Set position
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  position : new position of file
@@ -239,7 +239,7 @@ bool XLINUXFILE::SetPosition(XQWORD position)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XLINUXFILE::Read(XBYTE* buffer, XDWORD size, CIPHER* cipher)
-* @brief      Read buffer of file
+* @brief      Read
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  buffer : buffer where to read
@@ -268,7 +268,7 @@ bool XLINUXFILE::Read(XBYTE* buffer, XDWORD size, CIPHER* cipher)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XLINUXFILE::Read(XBYTE* buffer, XDWORD* size, CIPHER* cipher)
-* @brief      Read buffer of file
+* @brief      Read
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  buffer : buffer where to read
@@ -308,7 +308,7 @@ bool XLINUXFILE::Read(XBYTE* buffer, XDWORD* size, CIPHER* cipher)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XLINUXFILE::Write(XBYTE* buffer, XDWORD size, CIPHER* cipher)
-* @brief      Write buffer to file
+* @brief      Write
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  buffer : buffer where to read
@@ -427,7 +427,7 @@ bool XLINUXFILE::Erase(XCHAR* xpath,bool overwrite)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XLINUXFILE::Rename(XCHAR* xpathold, XCHAR* xpathnew)
-* @brief      Rename file
+* @brief      Rename
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  xpathold : xpath origin
@@ -466,7 +466,7 @@ bool XLINUXFILE::Rename(XCHAR* xpathold, XCHAR* xpathnew)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         FILE* XLINUXFILE::CreateStructHandle()
-* @brief      CreateStructHandle
+* @brief      Create struct handle
 * @ingroup    PLATFORM_LINUX
 *
 * @return     FILE* : 
@@ -481,7 +481,7 @@ FILE* XLINUXFILE::CreateStructHandle()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XLINUXFILE::DeleteStructHandle()
-* @brief      DeleteStructHandle
+* @brief      Delete struct handle
 * @ingroup    PLATFORM_LINUX
 *
 * @return     bool : true if is succesful. 
@@ -496,7 +496,7 @@ bool XLINUXFILE::DeleteStructHandle()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XLINUXFILE::ChangeAttributes(XCHAR* attributes)
-* @brief      ChangeAttributes
+* @brief      Change attributes
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  attributes : new atributes
@@ -526,7 +526,7 @@ void XLINUXFILE::ChangeAttributes(XCHAR* attributes)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XLINUXFILE::ActualizeSize()
-* @brief      Actualize Size
+* @brief      Actualize size
 * @ingroup    PLATFORM_LINUX
 *
 * @return     bool : true if is succesful.
@@ -552,7 +552,7 @@ bool XLINUXFILE::ActualizeSize()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XLINUXFILE::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
 *
@@ -566,7 +566,7 @@ void XLINUXFILE::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XLINUXFILE::ExtendedOpen(XCHAR* xpath, XCHAR* mode)
-* @brief      Extended Open
+* @brief      Extended open
 * @note       INTERN
 * @ingroup    PLATFORM_LINUX
 *

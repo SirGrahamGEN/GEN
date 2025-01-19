@@ -66,7 +66,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVECTORFILEDXFENTITYOBJCIRCLE::GRPVECTORFILEDXFENTITYOBJCIRCLE(XCHAR* nametype)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    GRAPHIC
 * 
 * @param[in]  nametype : 
@@ -83,7 +83,7 @@ GRPVECTORFILEDXFENTITYOBJCIRCLE::GRPVECTORFILEDXFENTITYOBJCIRCLE(XCHAR* nametype
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVECTORFILEDXFENTITYOBJCIRCLE::~GRPVECTORFILEDXFENTITYOBJCIRCLE()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
 * 
@@ -97,7 +97,7 @@ GRPVECTORFILEDXFENTITYOBJCIRCLE::~GRPVECTORFILEDXFENTITYOBJCIRCLE()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVECTORFILEDXFENTITYDEFPOINT* GRPVECTORFILEDXFENTITYOBJCIRCLE::GetCenter()
-* @brief      GetCenter
+* @brief      Get center
 * @ingroup    GRAPHIC
 * 
 * @return     GRPVECTORFILEDXFENTITYDEFPOINT* : 
@@ -112,7 +112,7 @@ GRPVECTORFILEDXFENTITYDEFPOINT* GRPVECTORFILEDXFENTITYOBJCIRCLE::GetCenter()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPVECTORFILEDXFENTITYOBJCIRCLE::SetCenter(GRPVECTORFILEDXFENTITYDEFPOINT* center)
-* @brief      SetCenter
+* @brief      Set center
 * @ingroup    GRAPHIC
 * 
 * @param[in]  center : 
@@ -136,7 +136,7 @@ bool GRPVECTORFILEDXFENTITYOBJCIRCLE::SetCenter(GRPVECTORFILEDXFENTITYDEFPOINT* 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         double GRPVECTORFILEDXFENTITYOBJCIRCLE::GetRadius()
-* @brief      GetRadius
+* @brief      Get radius
 * @ingroup    GRAPHIC
 * 
 * @return     double : 
@@ -151,7 +151,7 @@ double GRPVECTORFILEDXFENTITYOBJCIRCLE::GetRadius()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRPVECTORFILEDXFENTITYOBJCIRCLE::SetRadius(double radius)
-* @brief      SetRadius
+* @brief      Set radius
 * @ingroup    GRAPHIC
 * 
 * @param[in]  radius : 
@@ -166,7 +166,7 @@ void GRPVECTORFILEDXFENTITYOBJCIRCLE::SetRadius(double radius)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         double GRPVECTORFILEDXFENTITYOBJCIRCLE::GetThickness()
-* @brief      GetThickness
+* @brief      Get thickness
 * @ingroup    GRAPHIC
 * 
 * @return     double : 
@@ -181,7 +181,7 @@ double GRPVECTORFILEDXFENTITYOBJCIRCLE::GetThickness()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRPVECTORFILEDXFENTITYOBJCIRCLE::SetThickness(double thickness)
-* @brief      SetThickness
+* @brief      Set thickness
 * @ingroup    GRAPHIC
 * 
 * @param[in]  thickness : 
@@ -196,7 +196,7 @@ void GRPVECTORFILEDXFENTITYOBJCIRCLE::SetThickness(double thickness)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVECTORFILEDXFENTITYDEFPOINT* GRPVECTORFILEDXFENTITYOBJCIRCLE::GetDirExtrusion()
-* @brief      GetDirExtrusion
+* @brief      Get dir extrusion
 * @ingroup    GRAPHIC
 * 
 * @return     GRPVECTORFILEDXFENTITYDEFPOINT* : 
@@ -211,7 +211,7 @@ GRPVECTORFILEDXFENTITYDEFPOINT* GRPVECTORFILEDXFENTITYOBJCIRCLE::GetDirExtrusion
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPVECTORFILEDXFENTITYOBJCIRCLE::SetDirExtrusion(GRPVECTORFILEDXFENTITYDEFPOINT* dirextrusion)
-* @brief      SetDirExtrusion
+* @brief      Set dir extrusion
 * @ingroup    GRAPHIC
 * 
 * @param[in]  dirextrusion : 
@@ -235,7 +235,7 @@ bool GRPVECTORFILEDXFENTITYOBJCIRCLE::SetDirExtrusion(GRPVECTORFILEDXFENTITYDEFP
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPVECTORFILEDXFENTITYOBJCIRCLE::ApplyData(GRPVECTORFILEDXFENTITY* entity)
-* @brief      ApplyData
+* @brief      Apply data
 * @ingroup    GRAPHIC
 * 
 * @param[in]  entity : 
@@ -304,7 +304,7 @@ bool GRPVECTORFILEDXFENTITYOBJCIRCLE::ApplyData(GRPVECTORFILEDXFENTITY* entity)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRPVECTORFILEDXFENTITYOBJCIRCLE::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    GRAPHIC
 * 

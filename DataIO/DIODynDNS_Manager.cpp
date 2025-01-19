@@ -66,7 +66,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIODYNDNS_MANAGER::DIODYNDNS_MANAGER()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -79,7 +79,7 @@ DIODYNDNS_MANAGER::DIODYNDNS_MANAGER()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIODYNDNS_MANAGER::~DIODYNDNS_MANAGER()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -95,7 +95,7 @@ DIODYNDNS_MANAGER::~DIODYNDNS_MANAGER()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* DIODYNDNS_MANAGER::GetLogin()
-* @brief      GetLogin
+* @brief      Get login
 * @ingroup    DATAIO
 *
 * @return     XSTRING* :
@@ -110,7 +110,7 @@ XSTRING* DIODYNDNS_MANAGER::GetLogin()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* DIODYNDNS_MANAGER::GetPassword()
-* @brief      GetPassword
+* @brief      Get password
 * @ingroup    DATAIO
 *
 * @return     XSTRING* :
@@ -125,7 +125,7 @@ XSTRING* DIODYNDNS_MANAGER::GetPassword()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIODYNDNS_MANAGER::AddDNS(XSTRING& DNS)
-* @brief      AddDNS
+* @brief      Add DNS
 * @ingroup    DATAIO
 *
 * @param[in]  DNS :
@@ -151,7 +151,7 @@ bool DIODYNDNS_MANAGER::AddDNS(XSTRING& DNS)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIODYNDNS_MANAGER::DeleteAllDNS()
-* @brief      DeleteAllDNS
+* @brief      Delete all DNS
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -171,7 +171,7 @@ bool DIODYNDNS_MANAGER::DeleteAllDNS()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD DIODYNDNS_MANAGER::GetNDNS()
-* @brief      GetNDNS
+* @brief      Get NDNS
 * @ingroup    DATAIO
 *
 * @return     XDWORD :
@@ -186,7 +186,7 @@ XDWORD DIODYNDNS_MANAGER::GetNDNS()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIODYNDNS_MANAGER::AssingAll()
-* @brief      AssingAll
+* @brief      Assing all
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -274,7 +274,7 @@ bool DIODYNDNS_MANAGER::AssingAll()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIODYNDNS_MANAGER::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

@@ -64,7 +64,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMCONFIG::DIOSTREAMCONFIG()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -77,7 +77,7 @@ DIOSTREAMCONFIG::DIOSTREAMCONFIG()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMCONFIG::~DIOSTREAMCONFIG()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -91,7 +91,7 @@ DIOSTREAMCONFIG::~DIOSTREAMCONFIG()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMTYPE DIOSTREAMCONFIG::GetType()
-* @brief      GetType
+* @brief      Get type
 * @ingroup    DATAIO
 *
 * @return     DIOSTREAMTYPE :
@@ -106,7 +106,7 @@ DIOSTREAMTYPE DIOSTREAMCONFIG::GetType()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSTREAMCONFIG::SetType(DIOSTREAMTYPE type)
-* @brief      SetType
+* @brief      Set type
 * @ingroup    DATAIO
 *
 * @param[in]  type :
@@ -121,7 +121,7 @@ void DIOSTREAMCONFIG::SetType(DIOSTREAMTYPE type)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMMODE DIOSTREAMCONFIG::GetMode()
-* @brief      GetMode
+* @brief      Get mode
 * @ingroup    DATAIO
 *
 * @return     DIOSTREAMMODE :
@@ -136,7 +136,7 @@ DIOSTREAMMODE DIOSTREAMCONFIG::GetMode()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSTREAMCONFIG::SetMode(DIOSTREAMMODE mode)
-* @brief      SetMode
+* @brief      Set mode
 * @ingroup    DATAIO
 *
 * @param[in]  mode :
@@ -151,7 +151,7 @@ void DIOSTREAMCONFIG::SetMode(DIOSTREAMMODE mode)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMCONFIG::IsServer()
-* @brief      IsServer
+* @brief      Is server
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -168,7 +168,7 @@ bool DIOSTREAMCONFIG::IsServer()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD DIOSTREAMCONFIG::GetSizeBufferSO()
-* @brief      GetSizeBufferSO
+* @brief      Get size buffer SO
 * @ingroup    DATAIO
 *
 * @return     XDWORD :
@@ -183,7 +183,7 @@ XDWORD DIOSTREAMCONFIG::GetSizeBufferSO()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSTREAMCONFIG::SetSizeBufferSO(XDWORD sizebufferSO)
-* @brief      SetSizeBufferSO
+* @brief      Set size buffer SO
 * @ingroup    DATAIO
 *
 * @param[in]  sizebufferSO :
@@ -198,7 +198,7 @@ void DIOSTREAMCONFIG::SetSizeBufferSO(XDWORD sizebufferSO)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XTHREADPRIORITY DIOSTREAMCONFIG::GetThreadPriority()
-* @brief      GetThreadPriority
+* @brief      Get thread priority
 * @ingroup    DATAIO
 *
 * @return     XTHREADPRIORITY :
@@ -213,7 +213,7 @@ XTHREADPRIORITY DIOSTREAMCONFIG::GetThreadPriority()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSTREAMCONFIG::SetThreadPriority(XTHREADPRIORITY threadpriority)
-* @brief      SetThreadPriority
+* @brief      Set thread priority
 * @ingroup    DATAIO
 *
 * @param[in]  threadpriority :
@@ -228,7 +228,7 @@ void DIOSTREAMCONFIG::SetThreadPriority(XTHREADPRIORITY threadpriority)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD DIOSTREAMCONFIG::GetThreadWaitYield()
-* @brief      GetThreadWaitYield
+* @brief      Get thread wait yield
 * @ingroup    DATAIO
 *
 * @return     XDWORD :
@@ -243,7 +243,7 @@ XDWORD DIOSTREAMCONFIG::GetThreadWaitYield()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSTREAMCONFIG::SetThreadWaitYield(XDWORD threadwaityield)
-* @brief      SetThreadWaitYield
+* @brief      Set thread wait yield
 * @ingroup    DATAIO
 *
 * @param[in]  threadwaityield :
@@ -258,7 +258,7 @@ void DIOSTREAMCONFIG::SetThreadWaitYield(XDWORD threadwaityield)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSTREAMCONFIG::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

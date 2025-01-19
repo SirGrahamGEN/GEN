@@ -70,7 +70,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIONATIVEMSGBROWSEREXTENSION::DIONATIVEMSGBROWSEREXTENSION()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -83,7 +83,7 @@ DIONATIVEMSGBROWSEREXTENSION::DIONATIVEMSGBROWSEREXTENSION()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIONATIVEMSGBROWSEREXTENSION::~DIONATIVEMSGBROWSEREXTENSION()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -97,7 +97,7 @@ DIONATIVEMSGBROWSEREXTENSION::~DIONATIVEMSGBROWSEREXTENSION()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIONATIVEMSGBROWSEREXTENSION::IsOpen()
-* @brief      IsOpen
+* @brief      Is open
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
@@ -205,7 +205,7 @@ bool DIONATIVEMSGBROWSEREXTENSION::Write(XFILEJSON& json)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIONATIVEMSGBROWSEREXTENSION::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

@@ -4,7 +4,7 @@
 * 
 * @class      SQLITE_QUERY
 * @brief      DataBase SQL SQLite Query class
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 * 
 * @copyright  GEN Group. All rights reserved.
 * 

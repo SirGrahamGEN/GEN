@@ -71,7 +71,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIODEVICESPI::DIODEVICESPI()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -86,7 +86,7 @@ DIODEVICESPI::DIODEVICESPI()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIODEVICESPI::~DIODEVICESPI()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -155,7 +155,7 @@ bool DIODEVICESPI::Ini(int port, int chipselect, int timeout)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOSTREAMSPICONFIG* DIODEVICESPI::CreateConfig(XCHAR* localdevicename)
-* @brief      CreateConfig
+* @brief      Create config
 * @ingroup    DATAIO
 *
 * @param[in]  localdevicename : 
@@ -183,7 +183,7 @@ DIOSTREAMSPICONFIG* DIODEVICESPI::CreateConfig(XCHAR* localdevicename)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOSTREAMSPICONFIG* DIODEVICESPI::CreateConfig(int port, int chipselect)
-* @brief      CreateConfig
+* @brief      Create config
 * @ingroup    DATAIO
 *
 * @param[in]  port : 
@@ -214,7 +214,7 @@ DIOSTREAMSPICONFIG* DIODEVICESPI::CreateConfig(int port, int chipselect)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIODEVICESPI::IniDevice()
-* @brief      IniDevice
+* @brief      Ini device
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful. 
@@ -271,7 +271,7 @@ bool DIODEVICESPI::End()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIODEVICESPI::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

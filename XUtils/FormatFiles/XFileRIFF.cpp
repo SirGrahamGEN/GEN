@@ -71,7 +71,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XFILERIFF_LIST::XFILERIFF_LIST()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -84,7 +84,7 @@ XFILERIFF_LIST::XFILERIFF_LIST()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XFILERIFF_LIST::~XFILERIFF_LIST()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -98,7 +98,7 @@ XFILERIFF_LIST::~XFILERIFF_LIST()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD XFILERIFF_LIST::GetType()
-* @brief      GetType
+* @brief      Get type
 * @ingroup    XUTILS
 *
 * @return     XDWORD : 
@@ -113,7 +113,7 @@ XDWORD XFILERIFF_LIST::GetType()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void XFILERIFF_LIST::SetType(XDWORD type)
-* @brief      SetType
+* @brief      Set type
 * @ingroup    XUTILS
 *
 * @param[in]  type : 
@@ -139,7 +139,7 @@ void XFILERIFF_LIST::SetType(XDWORD type)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XFILERIFF_LIST::IsTypeList()
-* @brief      IsTypeList
+* @brief      Is type list
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful. 
@@ -156,7 +156,7 @@ bool XFILERIFF_LIST::IsTypeList()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD XFILERIFF_LIST::GetSize()
-* @brief      GetSize
+* @brief      Get size
 * @ingroup    XUTILS
 *
 * @return     XDWORD : 
@@ -171,7 +171,7 @@ XDWORD XFILERIFF_LIST::GetSize()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void XFILERIFF_LIST::SetSize(XDWORD size)
-* @brief      SetSize
+* @brief      Set size
 * @ingroup    XUTILS
 *
 * @param[in]  size : 
@@ -186,7 +186,7 @@ void XFILERIFF_LIST::SetSize(XDWORD size)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD XFILERIFF_LIST::GetTypeList()
-* @brief      GetTypeList
+* @brief      Get type list
 * @ingroup    XUTILS
 * 
 * @return     XDWORD : 
@@ -201,7 +201,7 @@ XDWORD XFILERIFF_LIST::GetTypeList()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void XFILERIFF_LIST::SetTypeList(XDWORD typelist)
-* @brief      SetTypeList
+* @brief      Set type list
 * @ingroup    XUTILS
 *
 * @param[in]  typelist : 
@@ -226,7 +226,7 @@ void XFILERIFF_LIST::SetTypeList(XDWORD typelist)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XQWORD XFILERIFF_LIST::GetPositionFileData()
-* @brief      GetPositionFileData
+* @brief      Get position file data
 * @ingroup    XUTILS
 *
 * @return     XQWORD : 
@@ -241,7 +241,7 @@ XQWORD XFILERIFF_LIST::GetPositionFileData()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void XFILERIFF_LIST::SetPositionFileData(XQWORD positionfiledata)
-* @brief      SetPositionFileData
+* @brief      Set position file data
 * @ingroup    XUTILS
 *
 * @param[in]  positionfiledata : 
@@ -256,7 +256,7 @@ void XFILERIFF_LIST::SetPositionFileData(XQWORD positionfiledata)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void XFILERIFF_LIST::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    XUTILS
 *
@@ -286,7 +286,7 @@ void XFILERIFF_LIST::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XFILERIFF::XFILERIFF()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -301,7 +301,7 @@ XFILERIFF::XFILERIFF()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XFILERIFF::~XFILERIFF()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -367,7 +367,7 @@ bool XFILERIFF::Create(XCHAR* xpath)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XFILERIFF::ReadAllLists()
-* @brief      ReadAllLists
+* @brief      Read all lists
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful. 
@@ -429,7 +429,7 @@ bool XFILERIFF::ReadAllLists()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XQWORD XFILERIFF::ReadNodeLists(XFILERIFF_LIST_NODE* node)
-* @brief      ReadNodeLists
+* @brief      Read node lists
 * @ingroup    XUTILS
 *
 * @param[in]  node : 
@@ -523,7 +523,7 @@ XQWORD XFILERIFF::ReadNodeLists(XFILERIFF_LIST_NODE* node)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD XFILERIFF::GetTypeFromString(XCHAR* string)
-* @brief      GetTypeFromString
+* @brief      Get type from string
 * @ingroup    XUTILS
 *
 * @param[in]  string : 
@@ -552,7 +552,7 @@ XDWORD XFILERIFF::GetTypeFromString(XCHAR* string)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XFILERIFF_LIST* XFILERIFF::GetList(XDWORD type, XDWORD fathertypelist)
-* @brief      GetList
+* @brief      Get list
 * @ingroup    XUTILS
 *
 * @param[in]  type : 
@@ -570,7 +570,7 @@ XFILERIFF_LIST* XFILERIFF::GetList(XDWORD type, XDWORD fathertypelist)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XFILERIFF_LIST* XFILERIFF::GetList(XCHAR* typestr, XCHAR* fathertypeliststr)
-* @brief      GetList
+* @brief      Get list
 * @ingroup    XUTILS
 *
 * @param[in]  typestr : 
@@ -596,7 +596,7 @@ XFILERIFF_LIST* XFILERIFF::GetList(XCHAR* typestr, XCHAR* fathertypeliststr)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XFILERIFF_LIST* XFILERIFF::GetChunk(XDWORD type, XDWORD fathertypelist)
-* @brief      GetChunk
+* @brief      Get chunk
 * @ingroup    XUTILS
 *
 * @param[in]  type : 
@@ -615,7 +615,7 @@ XFILERIFF_LIST* XFILERIFF::GetChunk(XDWORD type, XDWORD fathertypelist)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XFILERIFF_LIST* XFILERIFF::GetChunk(XCHAR* typestr, XCHAR* fathertypeliststr)
-* @brief      GetChunk
+* @brief      Get chunk
 * @ingroup    XUTILS
 * 
 * @param[in]  typestr : 
@@ -641,7 +641,7 @@ XFILERIFF_LIST* XFILERIFF::GetChunk(XCHAR* typestr, XCHAR* fathertypeliststr)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XFILERIFF::GetChunkData(XFILERIFF_LIST* chunkinfo, XBYTE* data, XDWORD& datasize)
-* @brief      GetChunkData
+* @brief      Get chunk data
 * @ingroup    XUTILS
 *
 * @param[in]  chunkinfo : 
@@ -670,7 +670,7 @@ bool XFILERIFF::GetChunkData(XFILERIFF_LIST* chunkinfo, XBYTE* data, XDWORD& dat
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XFILERIFF::GetChunkData(XFILERIFF_LIST* chunkinfo, XBUFFER& data)
-* @brief      GetChunkData
+* @brief      Get chunk data
 * @ingroup    XUTILS
 *
 * @param[in]  chunkinfo : 
@@ -696,7 +696,7 @@ bool XFILERIFF::GetChunkData(XFILERIFF_LIST* chunkinfo, XBUFFER& data)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XFILERIFF_LIST_NODE* XFILERIFF::GetListNode(XDWORD type, XDWORD fathertypelist)
-* @brief      GetListNode
+* @brief      Get list node
 * @ingroup    XUTILS
 *
 * @param[in]  type : 
@@ -714,7 +714,7 @@ XFILERIFF_LIST_NODE* XFILERIFF::GetListNode(XDWORD type, XDWORD fathertypelist)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XFILERIFF_LIST_NODE* XFILERIFF::GetListNode(XCHAR* typestr, XCHAR* fathertypeliststr)
-* @brief      GetListNode
+* @brief      Get list node
 * @ingroup    XUTILS
 *
 * @param[in]  typestr : 
@@ -740,7 +740,7 @@ XFILERIFF_LIST_NODE* XFILERIFF::GetListNode(XCHAR* typestr, XCHAR* fathertypelis
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XFILERIFF_LIST_NODE* XFILERIFF::GetChunkNode(XDWORD type, XDWORD fathertypelist)
-* @brief      GetChunkNode
+* @brief      Get chunk node
 * @ingroup    XUTILS
 *
 * @param[in]  type : 
@@ -758,7 +758,7 @@ XFILERIFF_LIST_NODE* XFILERIFF::GetListNode(XCHAR* typestr, XCHAR* fathertypelis
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XFILERIFF_LIST_NODE* XFILERIFF::GetChunkNode(XCHAR* typestr, XCHAR* fathertypeliststr)
-* @brief      GetChunkNode
+* @brief      Get chunk node
 * @ingroup    XUTILS
 *
 * @param[in]  typestr : 
@@ -784,7 +784,7 @@ XFILERIFF_LIST_NODE* XFILERIFF::GetChunkNode(XCHAR* typestr, XCHAR* fathertypeli
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XFILERIFF_LIST_NODE* XFILERIFF::CreateListNode(XDWORD type, XDWORD typelist)
-* @brief      CreateListNode
+* @brief      Create list node
 * @ingroup    XUTILS
 *
 * @param[in]  type : 
@@ -816,7 +816,7 @@ XFILERIFF_LIST_NODE* XFILERIFF::CreateListNode(XDWORD type, XDWORD typelist)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XFILERIFF_LIST_NODE* XFILERIFF::CreateListNode(XCHAR* typestr, XCHAR* typeliststr)
-* @brief      CreateListNode
+* @brief      Create list node
 * @ingroup    XUTILS
 *
 * @param[in]  typestr : 
@@ -842,7 +842,7 @@ XFILERIFF_LIST_NODE* XFILERIFF::CreateListNode(XCHAR* typestr, XCHAR* typelistst
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XFILERIFF_LIST_NODE* XFILERIFF::CreateChunkNode(XDWORD type, XDWORD datasize)
-* @brief      CreateChunkNode
+* @brief      Create chunk node
 * @ingroup    XUTILS
 * 
 * @param[in]  type : 
@@ -874,7 +874,7 @@ XFILERIFF_LIST_NODE* XFILERIFF::CreateChunkNode(XDWORD type, XDWORD datasize)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XFILERIFF_LIST_NODE* XFILERIFF::CreateChunkNode(XCHAR* typestr, XDWORD datasize)
-* @brief      CreateChunkNode
+* @brief      Create chunk node
 * @ingroup    XUTILS
 * 
 * @param[in]  typestr : 
@@ -898,7 +898,7 @@ XFILERIFF_LIST_NODE* XFILERIFF::CreateChunkNode(XCHAR* typestr, XDWORD datasize)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XFILERIFF::UpdateFilePosition(XFILERIFF_LIST_NODE* node)
-* @brief      UpdateFilePosition
+* @brief      Update file position
 * @ingroup    XUTILS
 *
 * @param[in]  node : 
@@ -921,7 +921,7 @@ bool XFILERIFF::UpdateFilePosition(XFILERIFF_LIST_NODE* node)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XFILERIFF::WriteListToFile(XFILERIFF_LIST* list, XBYTE* data, XDWORD datasize)
-* @brief      WriteListToFile
+* @brief      Write list to file
 * @ingroup    XUTILS
 *
 * @param[in]  list : 
@@ -968,7 +968,7 @@ bool XFILERIFF::WriteListToFile(XFILERIFF_LIST* list, XBYTE* data, XDWORD datasi
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XFILERIFF_XTREE* XFILERIFF::GetXTreeList()
-* @brief      GetXTreeList
+* @brief      Get X tree list
 * @ingroup    XUTILS
 *
 * @return     XFILERIFF_XTREE* : 
@@ -983,7 +983,7 @@ XFILERIFF_XTREE* XFILERIFF::GetXTreeList()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XFILE* XFILERIFF::GetFileBase()
-* @brief      GetFileBase
+* @brief      Get file base
 * @ingroup    XUTILS
 *
 * @return     XFILE* : 
@@ -1015,7 +1015,7 @@ bool XFILERIFF::Close()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD XFILERIFF::AdjustSizeOfLists(XFILERIFF_LIST_NODE* node)
-* @brief      AdjustSizeOfLists
+* @brief      Adjust size of lists
 * @ingroup    XUTILS
 *
 * @param[in]  node : 
@@ -1064,7 +1064,7 @@ XDWORD XFILERIFF::AdjustSizeOfLists(XFILERIFF_LIST_NODE* node)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XFILERIFF::ConvertDWORDtoString(XDWORD data, XSTRING& string);
-* @brief      ConvertDWORDtoString
+* @brief      Convert DWOR dto string
 * @ingroup    XUTILS
 *
 * @param[in]  data : 
@@ -1093,7 +1093,7 @@ bool XFILERIFF::ConvertDWORDtoString(XDWORD data, XSTRING& string)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XFILERIFF_LIST* XFILERIFF::GetList(bool search_chunk, XFILERIFF_LIST_NODE* listnode, XDWORD type, XDWORD fathertypelist)
-* @brief      GetList
+* @brief      Get list
 * @ingroup    XUTILS
 *
 * @param[in]  search_chunk : 
@@ -1178,7 +1178,7 @@ XFILERIFF_LIST* XFILERIFF::GetList(bool search_chunk, XFILERIFF_LIST_NODE* listn
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XFILERIFF_LIST_NODE* XFILERIFF::GetListNode(bool search_chunk, XFILERIFF_LIST_NODE* listnode, XDWORD type, XDWORD fathertypelist)
-* @brief      GetListNode
+* @brief      Get list node
 * @ingroup    XUTILS
 *
 * @param[in]  search_chunk : 
@@ -1263,7 +1263,7 @@ XFILERIFF_LIST_NODE* XFILERIFF::GetListNode(bool search_chunk, XFILERIFF_LIST_NO
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void XFILERIFF::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    XUTILS
 *

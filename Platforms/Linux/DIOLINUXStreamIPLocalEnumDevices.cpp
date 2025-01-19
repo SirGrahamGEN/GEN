@@ -78,7 +78,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOLINUXSTREAMIPLOCALENUMDEVICES::DIOLINUXSTREAMIPLOCALENUMDEVICES()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_LINUX
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -91,7 +91,7 @@ DIOLINUXSTREAMIPLOCALENUMDEVICES::DIOLINUXSTREAMIPLOCALENUMDEVICES() : DIOSTREAM
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOLINUXSTREAMIPLOCALENUMDEVICES::~DIOLINUXSTREAMIPLOCALENUMDEVICES()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
 * 

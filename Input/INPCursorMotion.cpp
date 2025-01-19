@@ -74,7 +74,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         INPCURSORMOTIONPOINT::INPCURSORMOTIONPOINT()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    INPUT
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -87,7 +87,7 @@ INPCURSORMOTIONPOINT::INPCURSORMOTIONPOINT()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         INPCURSORMOTIONPOINT::~INPCURSORMOTIONPOINT()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    INPUT
 *
@@ -101,7 +101,7 @@ INPCURSORMOTIONPOINT::~INPCURSORMOTIONPOINT()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         float INPCURSORMOTIONPOINT::GetX()
-* @brief      Get X
+* @brief      Get x
 * @ingroup    INPUT
 *
 * @return     float : X position
@@ -116,7 +116,7 @@ float INPCURSORMOTIONPOINT::GetX()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         float INPCURSORMOTIONPOINT::GetY()
-* @brief      Get Y
+* @brief      Get y
 * @ingroup    INPUT
 *
 * @return     float : Y position
@@ -131,7 +131,7 @@ float INPCURSORMOTIONPOINT::GetY()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         float INPCURSORMOTIONPOINT::GetZ()
-* @brief      Get Z
+* @brief      Get z
 * @ingroup    INPUT
 *
 * @return     float : Z position
@@ -146,7 +146,7 @@ float INPCURSORMOTIONPOINT::GetZ()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void INPCURSORMOTIONPOINT::Set(float x, float y, float z)
-* @brief      Set X Y Z positon
+* @brief      Set
 * @ingroup    INPUT
 *
 * @param[in]  x : new x position
@@ -165,7 +165,7 @@ void INPCURSORMOTIONPOINT::Set(float x, float y, float z)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void INPCURSORMOTIONPOINT::SetX(float x)
-* @brief      Set X position
+* @brief      Set x
 * @ingroup    INPUT
 *
 * @param[in]  x : new x position
@@ -180,7 +180,7 @@ void INPCURSORMOTIONPOINT::SetX(float x)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void INPCURSORMOTIONPOINT::SetY(float y)
-* @brief      Set Y position
+* @brief      Set y
 * @ingroup    INPUT
 *
 * @param[in]  y : new y position
@@ -195,7 +195,7 @@ void INPCURSORMOTIONPOINT::SetY(float y)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void INPCURSORMOTIONPOINT::SetZ(float z)
-* @brief      Set Z position
+* @brief      Set z
 * @ingroup    INPUT
 *
 * @param[in]  z : new z position
@@ -210,7 +210,7 @@ void INPCURSORMOTIONPOINT::SetZ(float z)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void INPCURSORMOTIONPOINT::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    INPUT
 *
@@ -232,7 +232,7 @@ void INPCURSORMOTIONPOINT::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         INPCURSORMOTION::INPCURSORMOTION()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    INPUT
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -245,7 +245,7 @@ INPCURSORMOTION::INPCURSORMOTION()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         INPCURSORMOTION::~INPCURSORMOTION()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    INPUT
 *
@@ -261,7 +261,7 @@ INPCURSORMOTION::~INPCURSORMOTION()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XVECTOR<INPCURSORMOTIONPOINT*>* INPCURSORMOTION::Get()
-* @brief      Get Motion Poins
+* @brief      Get
 * @ingroup    INPUT
 *
 * @return     XVECTOR<INPCURSORMOTIONPOINT*>* : vector with points
@@ -276,7 +276,7 @@ XVECTOR<INPCURSORMOTIONPOINT*>* INPCURSORMOTION::Get()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int INPCURSORMOTION::GetNPoints()
-* @brief      Get Number of Points
+* @brief      Get N points
 * @ingroup    INPUT
 *
 * @return     int : Number of Points
@@ -291,7 +291,7 @@ int INPCURSORMOTION::GetNPoints()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         INPCURSORMOTIONPOINT* INPCURSORMOTION::GetFirstPoint()
-* @brief      Get First Point of vector of point
+* @brief      Get first point
 * @ingroup    INPUT
 *
 * @return     INPCURSORMOTIONPOINT* : first point
@@ -310,7 +310,7 @@ INPCURSORMOTIONPOINT* INPCURSORMOTION::GetFirstPoint()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         INPCURSORMOTIONPOINT* INPCURSORMOTION::GetLastPoint()
-* @brief      Get Last Point of vector of point
+* @brief      Get last point
 * @ingroup    INPUT
 *
 * @return     INPCURSORMOTIONPOINT* : last point
@@ -329,7 +329,7 @@ INPCURSORMOTIONPOINT* INPCURSORMOTION::GetLastPoint()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool INPCURSORMOTION::AddPoint(float x, float y, float z)
-* @brief      Add Point to vector
+* @brief      Add point
 * @ingroup    INPUT
 *
 * @param[in]  x : new x point
@@ -355,7 +355,7 @@ bool INPCURSORMOTION::AddPoint(float x, float y, float z)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool INPCURSORMOTION::DeleteAllPoints()
-* @brief      Delete All Points
+* @brief      Delete all points
 * @ingroup    INPUT
 *
 * @return     bool : true if is succesful.
@@ -375,7 +375,7 @@ bool INPCURSORMOTION::DeleteAllPoints()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool INPCURSORMOTION::AddFromLine(INPCURSORMOTION_REDUCEDMODE reducedmode, int reducedfactor, int x1, int y1, int x2, int y2)
-* @brief      Add Points From Line
+* @brief      Add from line
 * @ingroup    INPUT
 *
 * @param[in]  reducedmode : reduced mode
@@ -483,7 +483,7 @@ bool INPCURSORMOTION::AddFromLine(INPCURSORMOTION_REDUCEDMODE reducedmode, int r
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool INPCURSORMOTION::AddFromCircle(INPCURSORMOTION_REDUCEDMODE reducedmode,int reducedfactor,int xc, int yc, int radio)
-* @brief      Add Points From Circle
+* @brief      Add from circle
 * @ingroup    INPUT
 *
 * @param[in]  reducedmode : reduced mode
@@ -538,7 +538,7 @@ bool INPCURSORMOTION::AddFromCircle(INPCURSORMOTION_REDUCEDMODE reducedmode,int 
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool INPCURSORMOTION::AddFromElipse(INPCURSORMOTION_REDUCEDMODE reducedmode,int reducedfactor, int x, int y, int rx, int ry)
-* @brief      AddFromElipse
+* @brief      Add from elipse
 * @ingroup    INPUT
 *
 * @param[in]  reducedmode : reduced mode
@@ -675,7 +675,7 @@ bool INPCURSORMOTION::AddFromElipse(INPCURSORMOTION_REDUCEDMODE reducedmode,int 
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         float INPCURSORMOTION::GetAngle()
-* @brief      Get Angle of motion
+* @brief      Get angle
 * @ingroup    INPUT
 *
 * @return     float : angle of motion
@@ -703,7 +703,7 @@ float INPCURSORMOTION::GetAngle()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int INPCURSORMOTION::GetModule()
-* @brief      Get Module of motion
+* @brief      Get module
 * @ingroup    INPUT
 *
 * @return     int : module of motion
@@ -730,7 +730,7 @@ int INPCURSORMOTION::GetModule()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool INPCURSORMOTION::IsInRect(int x, int y, int width, int height)
-* @brief      Is Motion In Rect
+* @brief      Is in rect
 * @ingroup    INPUT
 *
 * @param[in]  x : x position of rect
@@ -766,7 +766,7 @@ bool INPCURSORMOTION::IsInRect(int x, int y, int width, int height)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool INPCURSORMOTION::IsInCurse()
-* @brief      Motion Is in curse
+* @brief      Is in curse
 * @ingroup    INPUT
 *
 * @return     bool : true if is succesful.
@@ -781,7 +781,7 @@ bool INPCURSORMOTION::IsInCurse()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool INPCURSORMOTION::SetIsInCurse(bool isincurse)
-* @brief      Set motion in curse
+* @brief      Set is in curse
 * @ingroup    INPUT
 *
 * @param[in]  isincurse :
@@ -800,7 +800,7 @@ bool INPCURSORMOTION::SetIsInCurse(bool isincurse)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool INPCURSORMOTION::IsReadyToTest(int npoints_min)
-* @brief      IsReadyToTest
+* @brief      Is ready to test
 * @ingroup    INPUT
 *
 * @param[in]  npoints_min : 
@@ -825,7 +825,7 @@ bool INPCURSORMOTION::IsReadyToTest(XDWORD npoints_min)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool INPCURSORMOTION::InvertYAxis(XDWORD screen_height)
-* @brief      InvertYAxis
+* @brief      Invert Y axis
 * @ingroup    INPUT
 *
 * @param[in]  screen_height : 
@@ -852,7 +852,7 @@ bool INPCURSORMOTION::InvertYAxis(XDWORD screen_height)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         INPCURSORMOTION_DIR INPCURSORMOTION::GetDirectionByAngle(bool indetail)
-* @brief      GetDirectionByAngle
+* @brief      Get direction by angle
 * @ingroup    INPUT
 * 
 * @param[in]  indetail : 
@@ -892,7 +892,7 @@ INPCURSORMOTION_DIR INPCURSORMOTION::GetDirectionByAngle(bool indetail)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         INPCURSORMOTION_DIR INPCURSORMOTION::GetDirectionByDifferential(int& differential)
-* @brief      GetDirectionByDifferential
+* @brief      Get direction by differential
 * @ingroup    INPUT
 *
 * @param[in]  differential : 
@@ -950,7 +950,7 @@ INPCURSORMOTION_DIR INPCURSORMOTION::GetDirectionByDifferential(XDWORD* differen
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XQWORD INPCURSORMOTION::GetTimeElapsed()
-* @brief      Get Time Elapsed
+* @brief      Get time elapsed
 * @ingroup    INPUT
 *
 * @return     XQWORD : time elapsed
@@ -965,7 +965,7 @@ XQWORD INPCURSORMOTION::GetTimeElapsed()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool INPCURSORMOTION::SetTimeElapsed(XQWORD timeelapsed)
-* @brief      Set Time Elapsed
+* @brief      Set time elapsed
 * @ingroup    INPUT
 *
 * @param[in]  timeelapsed : new time elapsed
@@ -984,7 +984,7 @@ bool INPCURSORMOTION::SetTimeElapsed(XQWORD timeelapsed)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool INPCURSORMOTION::Reset()
-* @brief      Reset Motion
+* @brief      Reset
 * @ingroup    INPUT
 *
 * @return     bool : true if is succesful.
@@ -1004,7 +1004,7 @@ bool INPCURSORMOTION::Reset()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int INPCURSORMOTION::CalculateReducedModeSteps(INPCURSORMOTION_REDUCEDMODE mode,int factor,int npixels)
-* @brief      Calculate Reduced Mode Steps
+* @brief      Calculate reduced mode steps
 * @ingroup    INPUT
 *
 * @param[in]  mode : mode of reduction
@@ -1033,7 +1033,7 @@ int INPCURSORMOTION::CalculateReducedModeSteps(INPCURSORMOTION_REDUCEDMODE mode,
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int INPCURSORMOTION::Round(double a)
-* @brief      Round value
+* @brief      Round
 * @ingroup    INPUT
 *
 * @param[in]  a : value to round
@@ -1050,7 +1050,7 @@ int INPCURSORMOTION::Round(double a)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void INPCURSORMOTION::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    INPUT
 *

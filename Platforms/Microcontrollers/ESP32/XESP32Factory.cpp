@@ -99,7 +99,7 @@ DELETEFUNC(XESP32FACTORY  , XMUTEX          , XESP32MUTEX            , Delete_Mu
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XTHREAD* XESP32FACTORY::CreateThread(XTHREADGROUPID groupID, XCHAR* ID,XTHREADFUNCTION function,void* data)
-* @brief      CreateThread
+* @brief      Create thread
 * @ingroup    PLATFORM_ESP32
 *
 * @param[in]  groupID :
@@ -120,7 +120,7 @@ XTHREAD* XESP32FACTORY::CreateThread(XTHREADGROUPID groupID, XCHAR* ID,XTHREADFU
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XESP32FACTORY::DeleteThread(XTHREADGROUPID groupID, XTHREAD* xthread)
-* @brief      DeleteThread
+* @brief      Delete thread
 * @ingroup    PLATFORM_ESP32
 *
 * @param[in]  groupID :

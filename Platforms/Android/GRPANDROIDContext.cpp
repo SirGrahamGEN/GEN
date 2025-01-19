@@ -69,7 +69,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPANDROIDCONTEXT::GRPANDROIDCONTEXT()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_ANDROID
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -82,7 +82,7 @@ GRPANDROIDCONTEXT::GRPANDROIDCONTEXT() : GRPCONTEXT()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPANDROIDCONTEXT::~GRPANDROIDCONTEXT()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_ANDROID
 * 
@@ -252,7 +252,7 @@ bool GRPANDROIDCONTEXT::Destroy()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPANDROIDCONTEXT::IsLost()
-* @brief      IsLost
+* @brief      Is lost
 * @ingroup    PLATFORM_ANDROID
 * 
 * @return     bool : true if is succesful. 

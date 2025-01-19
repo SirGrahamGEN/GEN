@@ -67,7 +67,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         HASHCKS16::HASHCKS16()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    CIPHER
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -89,7 +89,7 @@ HASHCKS16::HASHCKS16() : HASH()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         HASHCKS16::~HASHCKS16()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    CIPHER
 * 
@@ -143,7 +143,7 @@ bool HASHCKS16::Do(XBYTE* input, XQWORD size)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool HASHCKS16::ResetResult()
-* @brief      ResetResult
+* @brief      Reset result
 * @ingroup    CIPHER
 * 
 * @return     bool : true if is succesful. 
@@ -165,7 +165,7 @@ bool HASHCKS16::ResetResult()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int HASHCKS16::GetDefaultSize()
-* @brief      GetDefaultSize
+* @brief      Get default size
 * @ingroup    CIPHER
 * 
 * @return     int : 
@@ -180,7 +180,7 @@ int HASHCKS16::GetDefaultSize()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBUFFER* HASHCKS16::GetResult()
-* @brief      GetResult
+* @brief      Get result
 * @ingroup    CIPHER
 * 
 * @return     XBUFFER* : 
@@ -197,7 +197,7 @@ XBUFFER* HASHCKS16::GetResult()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTE* HASHCKS16::GetResult(XDWORD& resultsize)
-* @brief      GetResult
+* @brief      Get result
 * @ingroup    CIPHER
 * 
 * @param[in]  resultsize : 
@@ -218,7 +218,7 @@ XBYTE* HASHCKS16::GetResult(XDWORD& resultsize)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XWORD HASHCKS16::GetResultCKS16()
-* @brief      GetResultCKS16
+* @brief      Get result CKS16
 * @ingroup    CIPHER
 * 
 * @return     XWORD : 
@@ -285,7 +285,7 @@ XWORD HASHCKS16::Update(XWORD CKS16, XWORD c)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void HASHCKS16::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    CIPHER
 * 

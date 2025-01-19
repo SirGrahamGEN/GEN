@@ -80,7 +80,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOCOREPROTOCOL_CONNECTION::DIOCOREPROTOCOL_CONNECTION()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -108,7 +108,7 @@ DIOCOREPROTOCOL_CONNECTION::DIOCOREPROTOCOL_CONNECTION() : XFSMACHINE(0)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOCOREPROTOCOL_CONNECTION::~DIOCOREPROTOCOL_CONNECTION()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 * 
@@ -145,7 +145,7 @@ DIOCOREPROTOCOL_CONNECTION::~DIOCOREPROTOCOL_CONNECTION()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL_CONNECTION::InitFSMachine()
-* @brief      InitFSMachine
+* @brief      Init FS machine
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
@@ -200,7 +200,7 @@ bool DIOCOREPROTOCOL_CONNECTION::InitFSMachine()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL_CONNECTION::IsServer()
-* @brief      IsServer
+* @brief      Is server
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
@@ -225,7 +225,7 @@ bool DIOCOREPROTOCOL_CONNECTION::IsServer()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XUUID* DIOCOREPROTOCOL_CONNECTION::GetIDConnection()
-* @brief      GetIDConnection
+* @brief      Get ID connection
 * @ingroup    DATAIO
 * 
 * @return     XUUID* : 
@@ -240,7 +240,7 @@ XUUID* DIOCOREPROTOCOL_CONNECTION::GetIDConnection()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOCOREPROTOCOL* DIOCOREPROTOCOL_CONNECTION::GetCoreProtocol()
-* @brief      GetCoreProtocol
+* @brief      Get core protocol
 * @ingroup    DATAIO
 * 
 * @return     DIOCOREPROTOCOL* : 
@@ -255,7 +255,7 @@ DIOCOREPROTOCOL* DIOCOREPROTOCOL_CONNECTION::GetCoreProtocol()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL_CONNECTION::SetCoreProtocol(DIOCOREPROTOCOL* protocol)
-* @brief      SetCoreProtocol
+* @brief      Set core protocol
 * @ingroup    DATAIO
 * 
 * @param[in]  protocol : 
@@ -274,7 +274,7 @@ bool DIOCOREPROTOCOL_CONNECTION::SetCoreProtocol(DIOCOREPROTOCOL* protocol)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBUFFER* DIOCOREPROTOCOL_CONNECTION::GetAuthenticationChallenge()
-* @brief      GetAuthenticationChallenge
+* @brief      Get authentication challenge
 * @ingroup    DATAIO
 * 
 * @return     XBUFFER* : 
@@ -289,7 +289,7 @@ XBUFFER* DIOCOREPROTOCOL_CONNECTION::GetAuthenticationChallenge()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBUFFER* DIOCOREPROTOCOL_CONNECTION::GetAuthenticationResponse()
-* @brief      GetAuthenticationResponse
+* @brief      Get authentication response
 * @ingroup    DATAIO
 * 
 * @return     XBUFFER* : 
@@ -304,7 +304,7 @@ XBUFFER* DIOCOREPROTOCOL_CONNECTION::GetAuthenticationResponse()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         CIPHERKEYSYMMETRICAL* DIOCOREPROTOCOL_CONNECTION::GetCipherKey()
-* @brief      GetCipherKey
+* @brief      Get cipher key
 * @ingroup    DATAIO
 * 
 * @return     CIPHERKEYSYMMETRICAL* : 
@@ -319,7 +319,7 @@ CIPHERKEYSYMMETRICAL* DIOCOREPROTOCOL_CONNECTION::GetCipherKey()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOCOREPROTOCOL_CONNECTION_STATUS DIOCOREPROTOCOL_CONNECTION::Status_Get()
-* @brief      Status_Get
+* @brief      Status get
 * @ingroup    DATAIO
 * 
 * @return     DIOCOREPROTOCOL_CONNECTION_STATUS : 
@@ -334,7 +334,7 @@ DIOCOREPROTOCOL_CONNECTION_STATUS DIOCOREPROTOCOL_CONNECTION::Status_Get()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOCOREPROTOCOL_CONNECTION::Status_Set(DIOCOREPROTOCOL_CONNECTION_STATUS status)
-* @brief      Status_Set
+* @brief      Status set
 * @ingroup    DATAIO
 * 
 * @param[in]  status : 
@@ -364,7 +364,7 @@ void DIOCOREPROTOCOL_CONNECTION::Status_Set(DIOCOREPROTOCOL_CONNECTION_STATUS st
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL_CONNECTION::Status_GetString(DIOCOREPROTOCOL_CONNECTION_STATUS status, XSTRING& statusstring)
-* @brief      Status_GetString
+* @brief      Status get string
 * @ingroup    DATAIO
 * 
 * @param[in]  status : 
@@ -401,7 +401,7 @@ bool DIOCOREPROTOCOL_CONNECTION::Status_GetString(DIOCOREPROTOCOL_CONNECTION_STA
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL_CONNECTION::Status_GetString(XSTRING& statusstring)
-* @brief      Status_GetString
+* @brief      Status get string
 * @ingroup    DATAIO
 * 
 * @param[in]  statusstring : 
@@ -418,7 +418,7 @@ bool DIOCOREPROTOCOL_CONNECTION::Status_GetString(XSTRING& statusstring)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XTIMER* DIOCOREPROTOCOL_CONNECTION::GetXTimerStatus()
-* @brief      GetXTimerStatus
+* @brief      Get X timer status
 * @ingroup    DATAIO
 * 
 * @return     XTIMER* : 
@@ -433,7 +433,7 @@ XTIMER* DIOCOREPROTOCOL_CONNECTION::GetXTimerStatus()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XTIMER* DIOCOREPROTOCOL_CONNECTION::GetXTimerWithoutConnexion()
-* @brief      GetXTimerWithoutConnexion
+* @brief      Get X timer without connexion
 * @ingroup    DATAIO
 * 
 * @return     XTIMER* : 
@@ -448,7 +448,7 @@ XTIMER* DIOCOREPROTOCOL_CONNECTION::GetXTimerWithoutConnexion()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOCOREPROTOCOL_MESSAGES* DIOCOREPROTOCOL_CONNECTION::Messages_GetAll()
-* @brief      Messages_GetAll
+* @brief      Messages get all
 * @ingroup    DATAIO
 * 
 * @return     DIOCOREPROTOCOL_MESSAGES* : 
@@ -463,7 +463,7 @@ DIOCOREPROTOCOL_MESSAGES* DIOCOREPROTOCOL_CONNECTION::Messages_GetAll()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL_CONNECTION::DoCommand(XUUID* ID_message, XDWORD command_type)
-* @brief      DoCommand
+* @brief      Do command
 * @ingroup    DATAIO
 * 
 * @param[in]  ID_message : 
@@ -515,7 +515,7 @@ bool DIOCOREPROTOCOL_CONNECTION::DoCommand(XUUID* ID_message, XDWORD command_typ
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL_CONNECTION::DoCommand(XUUID* ID_message, XDWORD command_type, XBUFFER* params)
-* @brief      DoCommand
+* @brief      Do command
 * @ingroup    DATAIO
 * 
 * @param[in]  ID_message : 
@@ -568,7 +568,7 @@ bool DIOCOREPROTOCOL_CONNECTION::DoCommand(XUUID* ID_message, XDWORD command_typ
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL_CONNECTION::DoCommand(XUUID* ID_message, XDWORD command_type, XSTRING* params)
-* @brief      DoCommand
+* @brief      Do command
 * @ingroup    DATAIO
 * 
 * @param[in]  ID_message : 
@@ -621,7 +621,7 @@ bool DIOCOREPROTOCOL_CONNECTION::DoCommand(XUUID* ID_message, XDWORD command_typ
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL_CONNECTION::DoCommand(XUUID* ID_message, XDWORD command_type, XFILEJSON* params)
-* @brief      DoCommand
+* @brief      Do command
 * @ingroup    DATAIO
 * 
 * @param[in]  ID_message :  
@@ -674,7 +674,7 @@ bool DIOCOREPROTOCOL_CONNECTION::DoCommand(XUUID* ID_message, XDWORD command_typ
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL_CONNECTION::DoUpdateClass(XUUID* ID_message, XCHAR* classname, XFILEJSON* classcontent)
-* @brief      DoUpdateClass
+* @brief      Do update class
 * @ingroup    DATAIO
 * 
 * @param[in]  ID_message : 
@@ -702,7 +702,7 @@ bool DIOCOREPROTOCOL_CONNECTION::DoUpdateClass(XUUID* ID_message, XCHAR* classna
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL_CONNECTION::DoAskUpdateClass(XUUID* ID_message, XCHAR* classname, XSTRING* classcontent)
-* @brief      DoAskUpdateClass
+* @brief      Do ask update class
 * @ingroup    DATAIO
 * 
 * @param[in]  ID_message :  
@@ -1052,7 +1052,7 @@ bool DIOCOREPROTOCOL_CONNECTION::Update()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD DIOCOREPROTOCOL_CONNECTION::GetHeartBetsCounter()
-* @brief      GetHeartBetsCounter
+* @brief      Get heart bets counter
 * @ingroup    DATAIO
 * 
 * @return     XDWORD : 
@@ -1067,7 +1067,7 @@ XDWORD DIOCOREPROTOCOL_CONNECTION::GetHeartBetsCounter()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOCOREPROTOCOL_CONNECTION::SetHeartBetsCounter(XDWORD heartbetscounter)
-* @brief      SetHeartBetsCounter
+* @brief      Set heart bets counter
 * @ingroup    DATAIO
 * 
 * @param[in]  heartbetscounter : 
@@ -1082,7 +1082,7 @@ void DIOCOREPROTOCOL_CONNECTION::SetHeartBetsCounter(XDWORD heartbetscounter)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOCOREPROTOCOL_REGISTERDATA* DIOCOREPROTOCOL_CONNECTION::GetRegisterData()
-* @brief      GetRegisterData
+* @brief      Get register data
 * @ingroup    DATAIO
 * 
 * @return     DIOCOREPROTOCOL_REGISTERDATA* : 
@@ -1097,7 +1097,7 @@ DIOCOREPROTOCOL_REGISTERDATA* DIOCOREPROTOCOL_CONNECTION::GetRegisterData()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOCOREPROTOCOL_CONNECTION::SetRegisterData(DIOCOREPROTOCOL_REGISTERDATA* registerdata)
-* @brief      SetRegisterData
+* @brief      Set register data
 * @ingroup    DATAIO
 * 
 * @param[in]  registerdata : 
@@ -1112,7 +1112,7 @@ void DIOCOREPROTOCOL_CONNECTION::SetRegisterData(DIOCOREPROTOCOL_REGISTERDATA* r
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL_CONNECTION::CreateIDConnection(XUUID& ID)
-* @brief      CreateIDConnection
+* @brief      Create ID connection
 * @ingroup    DATAIO
 * 
 * @param[in]  ID : 
@@ -1190,7 +1190,7 @@ bool DIOCOREPROTOCOL_CONNECTION::CreateIDConnection(XUUID& ID)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL_CONNECTION::SendMsg(XUUID* ID_message, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param)
-* @brief      SendMsg
+* @brief      Send msg
 * @ingroup    DATAIO
 * 
 * @param[in]  ID_message : 
@@ -1277,7 +1277,7 @@ bool DIOCOREPROTOCOL_CONNECTION::SendMsg(XUUID* ID_message, DIOCOREPROTOCOL_HEAD
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL_CONNECTION::SendMsg(XUUID* ID_message, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XBUFFER* content)
-* @brief      SendMsg
+* @brief      Send msg
 * @ingroup    DATAIO
 * 
 * @param[in]  ID_message : 
@@ -1365,7 +1365,7 @@ bool DIOCOREPROTOCOL_CONNECTION::SendMsg(XUUID* ID_message, DIOCOREPROTOCOL_HEAD
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL_CONNECTION::SendMsg(XUUID* ID_message, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XSTRING* content)
-* @brief      SendMsg
+* @brief      Send msg
 * @ingroup    DATAIO
 * 
 * @param[in]  ID_message : 
@@ -1453,7 +1453,7 @@ bool DIOCOREPROTOCOL_CONNECTION::SendMsg(XUUID* ID_message, DIOCOREPROTOCOL_HEAD
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL_CONNECTION::SendMsg(XUUID* ID_message, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XFILEJSON* content)
-* @brief      SendMsg
+* @brief      Send msg
 * @ingroup    DATAIO
 * 
 * @param[in]  ID_message : 
@@ -1549,7 +1549,7 @@ bool DIOCOREPROTOCOL_CONNECTION::SendMsg(XUUID* ID_message, DIOCOREPROTOCOL_HEAD
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL_CONNECTION::GetMsg(bool isrequest, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, DIOCOREPROTOCOL_HEADER& header, XBUFFER& content, XDWORD timeoutresponse)
-* @brief      GetMsg
+* @brief      Get msg
 * @ingroup    DATAIO
 * 
 * @param[in]  isrequest : 
@@ -1624,7 +1624,7 @@ bool DIOCOREPROTOCOL_CONNECTION::GetMsg(bool isrequest, DIOCOREPROTOCOL_HEADER_O
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL_CONNECTION::GetMsg(bool isrequest, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, DIOCOREPROTOCOL_HEADER& header, XSTRING& content, XDWORD timeoutresponse)
-* @brief      GetMsg
+* @brief      Get msg
 * @ingroup    DATAIO
 * 
 * @param[in]  isrequest : 
@@ -1700,7 +1700,7 @@ bool DIOCOREPROTOCOL_CONNECTION::GetMsg(bool isrequest, DIOCOREPROTOCOL_HEADER_O
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL_CONNECTION::GetMsg(bool isrequest, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, DIOCOREPROTOCOL_HEADER& header, XFILEJSON& content, XDWORD timeoutresponse)
-* @brief      GetMsg
+* @brief      Get msg
 * @ingroup    DATAIO
 * 
 * @param[in]  isrequest : 
@@ -1777,7 +1777,7 @@ bool DIOCOREPROTOCOL_CONNECTION::GetMsg(bool isrequest, DIOCOREPROTOCOL_HEADER_O
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOCOREPROTOCOL_CONNECTION::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 * 

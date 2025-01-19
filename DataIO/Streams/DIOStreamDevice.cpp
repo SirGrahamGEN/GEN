@@ -66,7 +66,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMDEVICE::DIOSTREAMDEVICE()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -79,7 +79,7 @@ DIOSTREAMDEVICE::DIOSTREAMDEVICE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMDEVICE::~DIOSTREAMDEVICE()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -93,7 +93,7 @@ DIOSTREAMDEVICE::~DIOSTREAMDEVICE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOSTREAMDEVICE::GetIndex()
-* @brief      GetIndex
+* @brief      Get index
 * @ingroup    DATAIO
 *
 * @return     int :
@@ -108,7 +108,7 @@ int DIOSTREAMDEVICE::GetIndex()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMDEVICE::SetIndex(int index)
-* @brief      SetIndex
+* @brief      Set index
 * @ingroup    DATAIO
 *
 * @param[in]  index :
@@ -127,7 +127,7 @@ bool DIOSTREAMDEVICE::SetIndex(int index)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMDEVICE_TYPE DIOSTREAMDEVICE::GetType()
-* @brief      GetType
+* @brief      Get type
 * @ingroup    DATAIO
 *
 * @return     DIOSTREAMDEVICE_TYPE :
@@ -142,7 +142,7 @@ DIOSTREAMDEVICE_TYPE DIOSTREAMDEVICE::GetType()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSTREAMDEVICE::SetType(DIOSTREAMDEVICE_TYPE type)
-* @brief      SetType
+* @brief      Set type
 * @ingroup    DATAIO
 *
 * @param[in]  type :
@@ -157,7 +157,7 @@ void DIOSTREAMDEVICE::SetType(DIOSTREAMDEVICE_TYPE type)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* DIOSTREAMDEVICE::GetName()
-* @brief      GetName
+* @brief      Get name
 * @ingroup    DATAIO
 *
 * @return     XSTRING* :
@@ -172,7 +172,7 @@ XSTRING* DIOSTREAMDEVICE::GetName()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* DIOSTREAMDEVICE::GetDescription()
-* @brief      GetDescription
+* @brief      Get description
 * @ingroup    DATAIO
 *
 * @return     XSTRING* :
@@ -187,7 +187,7 @@ XSTRING* DIOSTREAMDEVICE::GetDescription()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* DIOSTREAMDEVICE::GetResource()
-* @brief      GetResource
+* @brief      Get resource
 * @ingroup    DATAIO
 *
 * @return     XSTRING* :
@@ -202,7 +202,7 @@ XSTRING* DIOSTREAMDEVICE::GetResource()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMDEVICE::CopyFrom(DIOSTREAMDEVICE& device)
-* @brief      CopyFrom
+* @brief      Copy from
 * @ingroup    DATAIO
 *
 * @param[in]  device :
@@ -219,7 +219,7 @@ bool DIOSTREAMDEVICE::CopyFrom(DIOSTREAMDEVICE& device)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMDEVICE::CopyTo(DIOSTREAMDEVICE& device)
-* @brief      CopyTo
+* @brief      Copy to
 * @ingroup    DATAIO
 *
 * @param[in]  device :
@@ -241,7 +241,7 @@ bool DIOSTREAMDEVICE::CopyTo(DIOSTREAMDEVICE& device)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMDEVICE::DebugPrintInfo()
-* @brief      DebugPrintInfo
+* @brief      Debug print info
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -268,7 +268,7 @@ bool DIOSTREAMDEVICE::DebugPrintInfo()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSTREAMDEVICE::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

@@ -67,7 +67,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XERRORMSG::XERRORMSG()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -80,7 +80,7 @@ XERRORMSG::XERRORMSG()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XERRORMSG::XERRORMSG(int code, XCHAR* title, XCHAR* msg)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * @param[in]  code :
@@ -99,7 +99,7 @@ XERRORMSG::XERRORMSG(int code, XCHAR* title, XCHAR* msg)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XERRORMSG::~XERRORMSG()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -180,7 +180,7 @@ bool XERRORMSG::Set(int code, int level, int image, int sound, XCHAR* title, XCH
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XERRORMSG::GetCode()
-* @brief      GetCode
+* @brief      Get code
 * @ingroup    XUTILS
 *
 * @return     int :
@@ -195,7 +195,7 @@ int XERRORMSG::GetCode()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XERRORMSG::SetCode(int code)
-* @brief      SetCode
+* @brief      Set code
 * @ingroup    XUTILS
 *
 * @param[in]  code :
@@ -214,7 +214,7 @@ bool XERRORMSG::SetCode(int code)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XERRORMSG::GetLevel()
-* @brief      GetLevel
+* @brief      Get level
 * @ingroup    XUTILS
 *
 * @return     int :
@@ -229,7 +229,7 @@ int XERRORMSG::GetLevel()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XERRORMSG::SetLevel(int level)
-* @brief      SetLevel
+* @brief      Set level
 * @ingroup    XUTILS
 *
 * @param[in]  level :
@@ -248,7 +248,7 @@ bool XERRORMSG::SetLevel(int level)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XERRORMSG::GetImage()
-* @brief      GetImage
+* @brief      Get image
 * @ingroup    XUTILS
 *
 * @return     int :
@@ -263,7 +263,7 @@ int XERRORMSG::GetImage()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XERRORMSG::SetImage(int image)
-* @brief      SetImage
+* @brief      Set image
 * @ingroup    XUTILS
 *
 * @param[in]  image :
@@ -282,7 +282,7 @@ bool XERRORMSG::SetImage(int image)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XERRORMSG::GetSound()
-* @brief      GetSound
+* @brief      Get sound
 * @ingroup    XUTILS
 *
 * @return     int :
@@ -297,7 +297,7 @@ int XERRORMSG::GetSound()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XERRORMSG::SetSound(int sound)
-* @brief      SetSound
+* @brief      Set sound
 * @ingroup    XUTILS
 *
 * @param[in]  sound :
@@ -316,7 +316,7 @@ bool XERRORMSG::SetSound(int sound)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* XERRORMSG::GetTitle()
-* @brief      GetTitle
+* @brief      Get title
 * @ingroup    XUTILS
 *
 * @return     XSTRING* :
@@ -331,7 +331,7 @@ XSTRING* XERRORMSG::GetTitle()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XERRORMSG::SetTitle(XCHAR* title)
-* @brief      SetTitle
+* @brief      Set title
 * @ingroup    XUTILS
 *
 * @param[in]  title :
@@ -352,7 +352,7 @@ bool XERRORMSG::SetTitle(XCHAR* title)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XERRORMSG::SetTitle(XSTRING& title)
-* @brief      SetTitle
+* @brief      Set title
 * @ingroup    XUTILS
 *
 * @param[in]  title :
@@ -369,7 +369,7 @@ bool XERRORMSG::SetTitle(XSTRING& title)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* XERRORMSG::GetMsg()
-* @brief      GetMsg
+* @brief      Get msg
 * @ingroup    XUTILS
 *
 * @return     XSTRING* :
@@ -384,7 +384,7 @@ XSTRING* XERRORMSG::GetMsg()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XERRORMSG::SetMsg(XCHAR* msg)
-* @brief      SetMsg
+* @brief      Set msg
 * @ingroup    XUTILS
 *
 * @param[in]  msg :
@@ -405,7 +405,7 @@ bool XERRORMSG::SetMsg(XCHAR* msg)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XERRORMSG::SetMsg(XSTRING& msg)
-* @brief      SetMsg
+* @brief      Set msg
 * @ingroup    XUTILS
 *
 * @param[in]  msg :
@@ -422,7 +422,7 @@ bool XERRORMSG::SetMsg(XSTRING& msg)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XERRORMSG::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    XUTILS
 *
@@ -452,7 +452,7 @@ bool XERRORMSG::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XERRORSMSG::XERRORSMSG()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -465,7 +465,7 @@ XERRORSMSG::XERRORSMSG()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XERRORSMSG::XERRORSMSG(XCHAR* titleapp, XCHAR* version)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * @param[in]  titleapp :
@@ -484,7 +484,7 @@ XERRORSMSG::XERRORSMSG(XCHAR* titleapp, XCHAR* version)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XERRORSMSG::~XERRORSMSG()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -500,7 +500,7 @@ XERRORSMSG::~XERRORSMSG()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* XERRORSMSG::GetTitleApplication()
-* @brief      GetTitleApplication
+* @brief      Get title application
 * @ingroup    XUTILS
 *
 * @return     XSTRING* :
@@ -515,7 +515,7 @@ XSTRING* XERRORSMSG::GetTitleApplication()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* XERRORSMSG::GetVersion()
-* @brief      GetVersion
+* @brief      Get version
 * @ingroup    XUTILS
 *
 * @return     XSTRING* :
@@ -530,7 +530,7 @@ XSTRING* XERRORSMSG::GetVersion()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XERRORSMSG::SetTitleApplication(XCHAR* titleapp)
-* @brief      SetTitleApplication
+* @brief      Set title application
 * @ingroup    XUTILS
 *
 * @param[in]  titleapp :
@@ -551,7 +551,7 @@ bool XERRORSMSG::SetTitleApplication(XCHAR* titleapp)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XERRORSMSG::SetTitleApplication(XSTRING& titleapp)
-* @brief      SetTitleApplication
+* @brief      Set title application
 * @ingroup    XUTILS
 *
 * @param[in]  titleapp :
@@ -568,7 +568,7 @@ bool XERRORSMSG::SetTitleApplication(XSTRING& titleapp)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XERRORSMSG::SetVersion(XCHAR* version)
-* @brief      SetVersion
+* @brief      Set version
 * @ingroup    XUTILS
 *
 * @param[in]  version :
@@ -589,7 +589,7 @@ bool XERRORSMSG::SetVersion(XCHAR* version)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XERRORSMSG::SetVersion(XSTRING& version)
-* @brief      SetVersion
+* @brief      Set version
 * @ingroup    XUTILS
 *
 * @param[in]  version :
@@ -606,7 +606,7 @@ bool XERRORSMSG::SetVersion(XSTRING& version)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XERRORMSG* XERRORSMSG::FindMsg(int code)
-* @brief      FindMsg
+* @brief      Find msg
 * @ingroup    XUTILS
 *
 * @param[in]  code :
@@ -632,7 +632,7 @@ XERRORMSG* XERRORSMSG::FindMsg(int code)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XERRORSMSG::AddMsg(int code, int level, int image, int sound, XCHAR* title, XCHAR* msg)
-* @brief      AddMsg
+* @brief      Add msg
 * @ingroup    XUTILS
 *
 * @param[in]  code :
@@ -667,7 +667,7 @@ bool XERRORSMSG::AddMsg(int code, int level, int image, int sound, XCHAR* title,
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XERRORSMSG::EraseMsg(int code)
-* @brief      EraseMsg
+* @brief      Erase msg
 * @ingroup    XUTILS
 *
 * @param[in]  code :
@@ -703,7 +703,7 @@ bool XERRORSMSG::EraseMsg(int code)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XERRORSMSG::EraseAllMsg()
-* @brief      EraseAllMsg
+* @brief      Erase all msg
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -724,7 +724,7 @@ bool XERRORSMSG::EraseAllMsg()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XERRORMSG_RETURN XERRORSMSG::ShowMsg(int code,bool statusline,XBYTE returns,XCHAR* addstr,bool sound)
-* @brief      ShowMsg
+* @brief      Show msg
 * @ingroup    XUTILS
 *
 * @param[in]  code :
@@ -745,7 +745,7 @@ XERRORMSG_RETURN XERRORSMSG::ShowMsg(int code,bool statusline,XBYTE returns,XCHA
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XERRORSMSG::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    XUTILS
 *

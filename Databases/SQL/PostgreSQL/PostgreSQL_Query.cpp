@@ -4,7 +4,7 @@
 * 
 * @class      POSTGRESQL_QUERY
 * @brief      DataBase SQL PostgreSQL Query class
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 * 
 * @copyright  GEN Group. All rights reserved.
 * 
@@ -74,8 +74,8 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         POSTGRESQL_QUERY::POSTGRESQL_QUERY(DB_SQL_DATABASE* database)
-* @brief      Constructor
-* @ingroup    DATABASES
+* @brief      Constructor of class
+* @ingroup    DATABASE
 *
 * @param[in]  DB_SQL_DATABASE* :
 *
@@ -91,9 +91,9 @@ POSTGRESQL_QUERY::POSTGRESQL_QUERY(DB_SQL_DATABASE* database): DB_SQL_QUERY(data
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         POSTGRESQL_QUERY::~POSTGRESQL_QUERY()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 POSTGRESQL_QUERY::~POSTGRESQL_QUERY()
@@ -134,7 +134,7 @@ POSTGRESQL_QUERY::~POSTGRESQL_QUERY()
 *
 * @fn         bool POSTGRESQL_QUERY::Execute()
 * @brief      Execute
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 *
 * @return     bool : true if is succesful.
 *
@@ -284,8 +284,8 @@ bool POSTGRESQL_QUERY::Execute()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool POSTGRESQL_QUERY::ClearCursor()
-* @brief      ClearCursor
-* @ingroup    DATABASES
+* @brief      Clear cursor
+* @ingroup    DATABASE
 *
 * @return     bool : true if is succesful.
 *
@@ -314,8 +314,8 @@ bool POSTGRESQL_QUERY::ClearCursor()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DB_SQL_RESULT* POSTGRESQL_QUERY::ConstructResult()
-* @brief      ConstructResult
-* @ingroup    DATABASES
+* @brief      Construct result
+* @ingroup    DATABASE
 *
 * @return     DB_SQL_RESULT* :
 *
@@ -332,8 +332,8 @@ DB_SQL_RESULT* POSTGRESQL_QUERY::ConstructResult()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool POSTGRESQL_QUERY::BindParametersToQuery()
-* @brief      BindParametersToQuery
-* @ingroup    DATABASES
+* @brief      Bind parameters to query
+* @ingroup    DATABASE
 *
 * @return     bool : true if is succesful.
 *
@@ -436,8 +436,8 @@ bool POSTGRESQL_QUERY::BindParametersToQuery()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool POSTGRESQL_QUERY::BindParametersToResult()
-* @brief      BindParametersToResult
-* @ingroup    DATABASES
+* @brief      Bind parameters to result
+* @ingroup    DATABASE
 *
 * @return     bool : true if is succesful.
 *
@@ -451,9 +451,9 @@ bool POSTGRESQL_QUERY::BindParametersToResult()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void POSTGRESQL_QUERY::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void POSTGRESQL_QUERY::Clean()

@@ -64,7 +64,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XANDROIDCONSOLE::XANDROIDCONSOLE()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_ANDROID
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -77,7 +77,7 @@ XANDROIDCONSOLE::XANDROIDCONSOLE(): XLINUXCONSOLE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XANDROIDCONSOLE::~XANDROIDCONSOLE()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_ANDROID
 *

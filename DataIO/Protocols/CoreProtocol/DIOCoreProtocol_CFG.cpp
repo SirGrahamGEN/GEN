@@ -64,7 +64,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOCOREPROTOCOL_CFG::DIOCOREPROTOCOL_CFG()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -77,7 +77,7 @@ DIOCOREPROTOCOL_CFG::DIOCOREPROTOCOL_CFG()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOCOREPROTOCOL_CFG::~DIOCOREPROTOCOL_CFG()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 * 
@@ -91,7 +91,7 @@ DIOCOREPROTOCOL_CFG::~DIOCOREPROTOCOL_CFG()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL_CFG::GetIsServer()
-* @brief      GetIsServer
+* @brief      Get is server
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
@@ -106,7 +106,7 @@ bool DIOCOREPROTOCOL_CFG::GetIsServer()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOCOREPROTOCOL_CFG::SetIsServer(bool isserver)
-* @brief      SetIsServer
+* @brief      Set is server
 * @ingroup    DATAIO
 * 
 * @param[in]  isserver : 
@@ -121,7 +121,7 @@ void DIOCOREPROTOCOL_CFG::SetIsServer(bool isserver)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL_CFG::GetCompressHeader()
-* @brief      GetCompressHeader
+* @brief      Get compress header
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
@@ -136,7 +136,7 @@ bool DIOCOREPROTOCOL_CFG::GetCompressHeader()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOCOREPROTOCOL_CFG::SetCompressHeader(bool compressheader)
-* @brief      SetCompressHeader
+* @brief      Set compress header
 * @ingroup    DATAIO
 * 
 * @param[in]  compressheader : 
@@ -151,7 +151,7 @@ void DIOCOREPROTOCOL_CFG::SetCompressHeader(bool compressheader)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL_CFG::GetCompressContent()
-* @brief      GetCompressContent
+* @brief      Get compress content
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
@@ -166,7 +166,7 @@ bool DIOCOREPROTOCOL_CFG::GetCompressContent()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOCOREPROTOCOL_CFG::SetCompressContent(bool compresscontent)
-* @brief      SetCompressContent
+* @brief      Set compress content
 * @ingroup    DATAIO
 * 
 * @param[in]  compresscontent : 
@@ -181,7 +181,7 @@ void DIOCOREPROTOCOL_CFG::SetCompressContent(bool compresscontent)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD DIOCOREPROTOCOL_CFG::GetMinSizeCompressContent()
-* @brief      GetMinSizeCompressContent
+* @brief      Get min size compress content
 * @ingroup    DATAIO
 * 
 * @return     XDWORD : 
@@ -196,7 +196,7 @@ XDWORD DIOCOREPROTOCOL_CFG::GetMinSizeCompressContent()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOCOREPROTOCOL_CFG::SetMinSizeCompressContent(XDWORD minsizecompresscontent)
-* @brief      SetMinSizeCompressContent
+* @brief      Set min size compress content
 * @ingroup    DATAIO
 * 
 * @param[in]  minsizecompresscontent : 
@@ -211,7 +211,7 @@ void DIOCOREPROTOCOL_CFG::SetMinSizeCompressContent(XDWORD minsizecompressconten
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL_CFG::GetIsCipher()
-* @brief      GetIsCipher
+* @brief      Get is cipher
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
@@ -226,7 +226,7 @@ bool DIOCOREPROTOCOL_CFG::GetIsCipher()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOCOREPROTOCOL_CFG::SetIsCipher(bool iscipher)
-* @brief      SetIsCipher
+* @brief      Set is cipher
 * @ingroup    DATAIO
 * 
 * @param[in]  iscipher : 
@@ -241,7 +241,7 @@ void DIOCOREPROTOCOL_CFG::SetIsCipher(bool iscipher)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD DIOCOREPROTOCOL_CFG::GetTimeOutNoResponse()
-* @brief      GetTimeOutNoResponse
+* @brief      Get time out no response
 * @ingroup    DATAIO
 * 
 * @return     XDWORD : 
@@ -256,7 +256,7 @@ XDWORD DIOCOREPROTOCOL_CFG::GetTimeOutNoResponse()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOCOREPROTOCOL_CFG::SetTimeOutNoResponse(XDWORD timeoutnoresponse)
-* @brief      SetTimeOutNoResponse
+* @brief      Set time out no response
 * @ingroup    DATAIO
 * 
 * @param[in]  timeoutnoresponse : 
@@ -271,7 +271,7 @@ void DIOCOREPROTOCOL_CFG::SetTimeOutNoResponse(XDWORD timeoutnoresponse)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD DIOCOREPROTOCOL_CFG::GetTimeToEliminateConnectionDisconnect()
-* @brief      GetTimeToEliminateConnectionDisconnect
+* @brief      Get time to eliminate connection disconnect
 * @ingroup    DATAIO
 * 
 * @return     XDWORD : 
@@ -286,7 +286,7 @@ XDWORD DIOCOREPROTOCOL_CFG::GetTimeToEliminateConnectionDisconnect()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOCOREPROTOCOL_CFG::SetTimeToEliminateConnectionDisconnect(XDWORD timetoeliminateconnectiondisconnect)
-* @brief      SetTimeToEliminateConnectionDisconnect
+* @brief      Set time to eliminate connection disconnect
 * @ingroup    DATAIO
 * 
 * @param[in]  timetoeliminateconnectiondisconnect : 
@@ -301,7 +301,7 @@ void DIOCOREPROTOCOL_CFG::SetTimeToEliminateConnectionDisconnect(XDWORD timetoel
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD DIOCOREPROTOCOL_CFG::GetTimeToCheckConnection()
-* @brief      GetTimeToCheckConnection
+* @brief      Get time to check connection
 * @ingroup    DATAIO
 * 
 * @return     XDWORD : 
@@ -316,7 +316,7 @@ XDWORD DIOCOREPROTOCOL_CFG::GetTimeToCheckConnection()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOCOREPROTOCOL_CFG::SetTimeToCheckConnection(XDWORD timetocheckconnection)
-* @brief      SetTimeToCheckConnection
+* @brief      Set time to check connection
 * @ingroup    DATAIO
 * 
 * @param[in]  timetocheckconnection : 
@@ -331,7 +331,7 @@ void DIOCOREPROTOCOL_CFG::SetTimeToCheckConnection(XDWORD timetocheckconnection)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD DIOCOREPROTOCOL_CFG::GetNTrysToCheckConnection()
-* @brief      GetNTrysToCheckConnection
+* @brief      Get N trys to check connection
 * @ingroup    DATAIO
 * 
 * @return     XDWORD : 
@@ -346,7 +346,7 @@ XDWORD DIOCOREPROTOCOL_CFG::GetNTrysToCheckConnection()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOCOREPROTOCOL_CFG::SetNTrysToCheckConnection(XDWORD ntrystocheckconnection)
-* @brief      SetNTrysToCheckConnection
+* @brief      Set N trys to check connection
 * @ingroup    DATAIO
 * 
 * @param[in]  ntrystocheckconnection : 
@@ -361,7 +361,7 @@ void DIOCOREPROTOCOL_CFG::SetNTrysToCheckConnection(XDWORD ntrystocheckconnectio
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOCOREPROTOCOL_CFG::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 * 

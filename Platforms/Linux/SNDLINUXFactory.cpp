@@ -69,7 +69,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         SNDLINUXFACTORY::SNDLINUXFACTORY()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_LINUX
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -82,7 +82,7 @@ SNDLINUXFACTORY::SNDLINUXFACTORY()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         SNDLINUXFACTORY::~SNDLINUXFACTORY()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
 * 
@@ -96,7 +96,7 @@ SNDLINUXFACTORY::~SNDLINUXFACTORY()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void SNDLINUXFACTORY::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
 * 

@@ -78,7 +78,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOCOREPROTOCOL_COMMAND::DIOCOREPROTOCOL_COMMAND()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -91,7 +91,7 @@ DIOCOREPROTOCOL_COMMAND::DIOCOREPROTOCOL_COMMAND()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOCOREPROTOCOL_COMMAND::~DIOCOREPROTOCOL_COMMAND()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 * 
@@ -105,7 +105,7 @@ DIOCOREPROTOCOL_COMMAND::~DIOCOREPROTOCOL_COMMAND()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int DIOCOREPROTOCOL_COMMAND::GetType()
-* @brief      GetType
+* @brief      Get type
 * @ingroup    DATAIO
 * 
 * @return     int : 
@@ -120,7 +120,7 @@ int DIOCOREPROTOCOL_COMMAND::GetType()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOCOREPROTOCOL_COMMAND::SetType(int type)
-* @brief      SetType
+* @brief      Set type
 * @ingroup    DATAIO
 * 
 * @param[in]  type : 
@@ -135,7 +135,7 @@ void DIOCOREPROTOCOL_COMMAND::SetType(int type)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* DIOCOREPROTOCOL_COMMAND::GetTypeString()
-* @brief      GetTypeString
+* @brief      Get type string
 * @ingroup    DATAIO
 * 
 * @return     XSTRING* : 
@@ -150,7 +150,7 @@ XSTRING* DIOCOREPROTOCOL_COMMAND::GetTypeString()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOCOREPROTOCOL_BIDIRECTIONALITYMODE DIOCOREPROTOCOL_COMMAND::GetBidirectionalityMode()
-* @brief      GetBidirectionalityMode
+* @brief      Get bidirectionality mode
 * @ingroup    DATAIO
 * 
 * @return     DIOCOREPROTOCOL_BIDIRECTIONALITYMODE : 
@@ -165,7 +165,7 @@ DIOCOREPROTOCOL_BIDIRECTIONALITYMODE DIOCOREPROTOCOL_COMMAND::GetBidirectionalit
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOCOREPROTOCOL_COMMAND::SetBidirectionalityMode(DIOCOREPROTOCOL_BIDIRECTIONALITYMODE bidirectionalitymode)
-* @brief      SetBidirectionalityMode
+* @brief      Set bidirectionality mode
 * @ingroup    DATAIO
 * 
 * @param[in]  bidirectionalitymode : 
@@ -180,7 +180,7 @@ void DIOCOREPROTOCOL_COMMAND::SetBidirectionalityMode(DIOCOREPROTOCOL_BIDIRECTIO
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOCOREPROTOCOL_COMMAND::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 * 
@@ -202,7 +202,7 @@ void DIOCOREPROTOCOL_COMMAND::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOCOREPROTOCOL_UPDATECLASS::DIOCOREPROTOCOL_UPDATECLASS()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -217,7 +217,7 @@ DIOCOREPROTOCOL_UPDATECLASS::DIOCOREPROTOCOL_UPDATECLASS()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOCOREPROTOCOL_UPDATECLASS::~DIOCOREPROTOCOL_UPDATECLASS()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 * 
@@ -236,7 +236,7 @@ DIOCOREPROTOCOL_UPDATECLASS::~DIOCOREPROTOCOL_UPDATECLASS()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* DIOCOREPROTOCOL_UPDATECLASS::GetClassName()
-* @brief      GetClassName
+* @brief      Get class name
 * @ingroup    DATAIO
 * 
 * @return     XSTRING* : 
@@ -251,7 +251,7 @@ XSTRING* DIOCOREPROTOCOL_UPDATECLASS::GetClassName()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL_UPDATECLASS::InitCache()
-* @brief      InitCache
+* @brief      Init cache
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
@@ -275,7 +275,7 @@ bool DIOCOREPROTOCOL_UPDATECLASS::InitCache()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSERIALIZABLE* DIOCOREPROTOCOL_UPDATECLASS::GetClassPtr()
-* @brief      GetClassPtr
+* @brief      Get class ptr
 * @ingroup    DATAIO
 * 
 * @return     XSERIALIZABLE* : 
@@ -290,7 +290,7 @@ XSERIALIZABLE* DIOCOREPROTOCOL_UPDATECLASS::GetClassPtr()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOCOREPROTOCOL_UPDATECLASS::SetClassPtr(XSERIALIZABLE* classptr)
-* @brief      SetClassPtr
+* @brief      Set class ptr
 * @ingroup    DATAIO
 * 
 * @param[in]  classptr : 
@@ -305,7 +305,7 @@ void DIOCOREPROTOCOL_UPDATECLASS::SetClassPtr(XSERIALIZABLE* classptr)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL_UPDATECLASS::IsAsk()
-* @brief      IsAsk
+* @brief      Is ask
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
@@ -320,7 +320,7 @@ bool DIOCOREPROTOCOL_UPDATECLASS::IsAsk()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOCOREPROTOCOL_UPDATECLASS::SetIsAsk(bool isask)
-* @brief      SetIsAsk
+* @brief      Set is ask
 * @ingroup    DATAIO
 * 
 * @param[in]  isask : 
@@ -335,7 +335,7 @@ void DIOCOREPROTOCOL_UPDATECLASS::SetIsAsk(bool isask)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOCOREPROTOCOL_BIDIRECTIONALITYMODE DIOCOREPROTOCOL_UPDATECLASS::GetBidirectionalityMode()
-* @brief      GetBidirectionalityMode
+* @brief      Get bidirectionality mode
 * @ingroup    DATAIO
 * 
 * @return     DIOCOREPROTOCOL_BIDIRECTIONALITYMODE : 
@@ -350,7 +350,7 @@ DIOCOREPROTOCOL_BIDIRECTIONALITYMODE DIOCOREPROTOCOL_UPDATECLASS::GetBidirection
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOCOREPROTOCOL_UPDATECLASS::SetBidirectionalityMode(DIOCOREPROTOCOL_BIDIRECTIONALITYMODE bidirectionalitymode)
-* @brief      SetBidirectionalityMode
+* @brief      Set bidirectionality mode
 * @ingroup    DATAIO
 * 
 * @param[in]  bidirectionalitymode : 
@@ -365,7 +365,7 @@ void DIOCOREPROTOCOL_UPDATECLASS::SetBidirectionalityMode(DIOCOREPROTOCOL_BIDIRE
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL_UPDATECLASS::IsInitialUpdate()
-* @brief      IsInitialUpdate
+* @brief      Is initial update
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
@@ -380,7 +380,7 @@ bool DIOCOREPROTOCOL_UPDATECLASS::IsInitialUpdate()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOCOREPROTOCOL_UPDATECLASS::SetIsInitialUpdate(bool isinitialupdate)
-* @brief      SetIsInitialUpdate
+* @brief      Set is initial update
 * @ingroup    DATAIO
 * 
 * @param[in]  isinitialupdate : 
@@ -395,7 +395,7 @@ void DIOCOREPROTOCOL_UPDATECLASS::SetIsInitialUpdate(bool isinitialupdate)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD DIOCOREPROTOCOL_UPDATECLASS::GetTimeToUpdate()
-* @brief      GetTimeToUpdate
+* @brief      Get time to update
 * @ingroup    DATAIO
 * 
 * @return     XDWORD : 
@@ -410,7 +410,7 @@ XDWORD DIOCOREPROTOCOL_UPDATECLASS::GetTimeToUpdate()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOCOREPROTOCOL_UPDATECLASS::SetTimeToUpdate(XDWORD timetoupdate)
-* @brief      SetTimeToUpdate
+* @brief      Set time to update
 * @ingroup    DATAIO
 * 
 * @param[in]  timetoupdate : 
@@ -425,7 +425,7 @@ void DIOCOREPROTOCOL_UPDATECLASS::SetTimeToUpdate(XDWORD timetoupdate)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XTIMER* DIOCOREPROTOCOL_UPDATECLASS::GetTimerLastUpdate()
-* @brief      GetTimerLastUpdate
+* @brief      Get timer last update
 * @ingroup    DATAIO
 * 
 * @return     XTIMER* : 
@@ -440,7 +440,7 @@ XTIMER* DIOCOREPROTOCOL_UPDATECLASS::GetTimerLastUpdate()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOCOREPROTOCOL_UPDATECLASS::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 * 
@@ -466,7 +466,7 @@ void DIOCOREPROTOCOL_UPDATECLASS::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOCOREPROTOCOL::DIOCOREPROTOCOL(DIOCOREPROTOCOL_CFG* protocolCFG, DIOSTREAM* diostream)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 * 
 * @param[in]  protocolCFG : 
@@ -498,7 +498,7 @@ DIOCOREPROTOCOL::DIOCOREPROTOCOL(DIOCOREPROTOCOL_CFG* protocolCFG, DIOSTREAM* di
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOCOREPROTOCOL::~DIOCOREPROTOCOL()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 * 
@@ -556,7 +556,7 @@ bool DIOCOREPROTOCOL::End()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOCOREPROTOCOL_CFG* DIOCOREPROTOCOL::GetProtocolCFG()
-* @brief      GetProtocolCFG
+* @brief      Get protocol CFG
 * @ingroup    DATAIO
 * 
 * @return     DIOCOREPROTOCOL_CFG* : 
@@ -571,7 +571,7 @@ DIOCOREPROTOCOL_CFG* DIOCOREPROTOCOL::GetProtocolCFG()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOSTREAM* DIOCOREPROTOCOL::GetDIOStream()
-* @brief      GetDIOStream
+* @brief      Get DIO stream
 * @ingroup    DATAIO
 * 
 * @return     DIOSTREAM* : 
@@ -586,7 +586,7 @@ DIOSTREAM* DIOCOREPROTOCOL::GetDIOStream()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOCOREPROTOCOL::SetDIOStream(DIOSTREAM* diostream)
-* @brief      SetDIOStream
+* @brief      Set DIO stream
 * @ingroup    DATAIO
 * 
 * @param[in]  diostream : 
@@ -601,7 +601,7 @@ void DIOCOREPROTOCOL::SetDIOStream(DIOSTREAM* diostream)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL::SendMsg(DIOCOREPROTOCOL_HEADER* header, XBUFFER& contentresult)
-* @brief      SendMsg
+* @brief      Send msg
 * @ingroup    DATAIO
 * 
 * @param[in]  header : 
@@ -644,7 +644,7 @@ XDWORD DIOCOREPROTOCOL::SendMsg(DIOCOREPROTOCOL_HEADER* header, XBUFFER& content
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL::ReceivedMsg(DIOCOREPROTOCOL_HEADER& header, XBUFFER& content)
-* @brief      ReceivedMsg
+* @brief      Received msg
 * @ingroup    DATAIO
 * 
 * @param[in]  header : 
@@ -875,7 +875,7 @@ XDWORD DIOCOREPROTOCOL::ReceivedMsg(DIOCOREPROTOCOL_HEADER& header, XBUFFER& con
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOCOREPROTOCOL_HEADER* DIOCOREPROTOCOL::CreateHeader(XUUID* ID_message, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param)
-* @brief      CreateHeader
+* @brief      Create header
 * @ingroup    DATAIO
 * 
 * @param[in]  ID_message : 
@@ -935,7 +935,7 @@ DIOCOREPROTOCOL_HEADER* DIOCOREPROTOCOL::CreateHeader(XUUID* ID_message, DIOCORE
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOCOREPROTOCOL_HEADER* DIOCOREPROTOCOL::CreateHeader(XUUID* ID_message, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XBUFFER* content, XBUFFER* contentresult)
-* @brief      CreateHeader
+* @brief      Create header
 * @ingroup    DATAIO
 * 
 * @param[in]  ID_message : 
@@ -992,7 +992,7 @@ DIOCOREPROTOCOL_HEADER* DIOCOREPROTOCOL::CreateHeader(XUUID* ID_message, DIOCORE
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOCOREPROTOCOL_HEADER* DIOCOREPROTOCOL::CreateHeader(XUUID* ID_message, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XSTRING* content, XBUFFER* contentresult)
-* @brief      CreateHeader
+* @brief      Create header
 * @ingroup    DATAIO
 * 
 * @param[in]  ID_message :  
@@ -1052,7 +1052,7 @@ DIOCOREPROTOCOL_HEADER* DIOCOREPROTOCOL::CreateHeader(XUUID* ID_message, DIOCORE
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOCOREPROTOCOL_HEADER* DIOCOREPROTOCOL::CreateHeader(XUUID* ID_message, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XFILEJSON* content, XBUFFER* contentresult)
-* @brief      CreateHeader
+* @brief      Create header
 * @ingroup    DATAIO
 * 
 * @param[in]  ID_message : 
@@ -1117,7 +1117,7 @@ DIOCOREPROTOCOL_HEADER* DIOCOREPROTOCOL::CreateHeader(XUUID* ID_message, DIOCORE
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL::GenerateAuthenticationChallenge(XBUFFER& autentication_challange)
-* @brief      GenerateAuthenticationChallenge
+* @brief      Generate authentication challenge
 * @ingroup    DATAIO
 * 
 * @param[in]  autentication_challange : 
@@ -1134,7 +1134,7 @@ bool DIOCOREPROTOCOL::GenerateAuthenticationChallenge(XBUFFER& autentication_cha
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL::GenerateAuthenticationResponse(XBUFFER& autentication_challange, XBUFFER& autentication_response)
-* @brief      GenerateAuthenticationResponse
+* @brief      Generate authentication response
 * @ingroup    DATAIO
 * 
 * @param[in]  autentication_challange : 
@@ -1152,7 +1152,7 @@ bool DIOCOREPROTOCOL::GenerateAuthenticationResponse(XBUFFER& autentication_chal
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL::MaskKey(XBYTE* key, int size, XBYTE mask)
-* @brief      MaskKey
+* @brief      Mask key
 * @ingroup    DATAIO
 * 
 * @param[in]  key : 
@@ -1182,7 +1182,7 @@ bool DIOCOREPROTOCOL::MaskKey(XBYTE* key, int size, XBYTE mask)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XVECTOR<DIOCOREPROTOCOL_COMMAND*>* DIOCOREPROTOCOL::Commands_GetAll()
-* @brief      Commands_GetAll
+* @brief      Commands get all
 * @ingroup    DATAIO
 * 
 * @return     XVECTOR<DIOCOREPROTOCOL_COMMAND*>* : 
@@ -1197,7 +1197,7 @@ XVECTOR<DIOCOREPROTOCOL_COMMAND*>* DIOCOREPROTOCOL::Commands_GetAll()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL::Commands_Add(XDWORD type, XCHAR* command, DIOCOREPROTOCOL_BIDIRECTIONALITYMODE bidirectionalitymode)
-* @brief      Commands_Add
+* @brief      Commands add
 * @ingroup    DATAIO
 * 
 * @param[in]  type : 
@@ -1242,7 +1242,7 @@ bool DIOCOREPROTOCOL::Commands_Add(XDWORD type, XCHAR* command, DIOCOREPROTOCOL_
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD DIOCOREPROTOCOL::Commands_Get(XCHAR* command)
-* @brief      Commands_Get
+* @brief      Commands get
 * @ingroup    DATAIO
 * 
 * @param[in]  command : 
@@ -1276,7 +1276,7 @@ XDWORD DIOCOREPROTOCOL::Commands_Get(XCHAR* command)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XCHAR* DIOCOREPROTOCOL::Commands_Get(XDWORD type)
-* @brief      Commands_Get
+* @brief      Commands get
 * @ingroup    DATAIO
 * 
 * @param[in]  type : 
@@ -1310,7 +1310,7 @@ XCHAR* DIOCOREPROTOCOL::Commands_Get(XDWORD type)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOCOREPROTOCOL_COMMAND* DIOCOREPROTOCOL::Commands_GetCoreProtocol(XDWORD type)
-* @brief      Commands_GetCoreProtocol
+* @brief      Commands get core protocol
 * @ingroup    DATAIO
 * 
 * @param[in]  type : 
@@ -1344,7 +1344,7 @@ DIOCOREPROTOCOL_COMMAND* DIOCOREPROTOCOL::Commands_GetCoreProtocol(XDWORD type)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL::Commands_DeleteAll()
-* @brief      Commands_DeleteAll
+* @brief      Commands delete all
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
@@ -1367,7 +1367,7 @@ bool DIOCOREPROTOCOL::Commands_DeleteAll()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XVECTOR<DIOCOREPROTOCOL_UPDATECLASS*>* DIOCOREPROTOCOL::UpdateClass_GetAll()
-* @brief      UpdateClass_GetAll
+* @brief      Update class get all
 * @ingroup    DATAIO
 * 
 * @return     XVECTOR<DIOCOREPROTOCOL_UPDATECLASS*>* : 
@@ -1382,7 +1382,7 @@ XVECTOR<DIOCOREPROTOCOL_UPDATECLASS*>*  DIOCOREPROTOCOL::UpdateClass_GetAll()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL::UpdateClass_Add(bool isask, XCHAR* classname, XSERIALIZABLE* classptr, bool initupdate, XDWORD timetoupdate, DIOCOREPROTOCOL_BIDIRECTIONALITYMODE bidirectionalitymode)
-* @brief      UpdateClass_Add
+* @brief      Update class add
 * @ingroup    DATAIO
 * 
 * @param[in]  isask : 
@@ -1446,7 +1446,7 @@ bool DIOCOREPROTOCOL::UpdateClass_Add(bool isask, XCHAR* classname, XSERIALIZABL
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOCOREPROTOCOL_UPDATECLASS* DIOCOREPROTOCOL::UpdateClass_Get(XCHAR* classname)
-* @brief      UpdateClass_Get
+* @brief      Update class get
 * @ingroup    DATAIO
 * 
 * @param[in]  classname : 
@@ -1480,7 +1480,7 @@ DIOCOREPROTOCOL_UPDATECLASS* DIOCOREPROTOCOL::UpdateClass_Get(XCHAR* classname)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL::UpdateClass_DeleteAll()
-* @brief      UpdateClass_DeleteAll
+* @brief      Update class delete all
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
@@ -1503,7 +1503,7 @@ bool DIOCOREPROTOCOL::UpdateClass_DeleteAll()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD DIOCOREPROTOCOL::UpdateClass_GetNForInitialization()
-* @brief      UpdateClass_GetNForInitialization
+* @brief      Update class get N for initialization
 * @ingroup    DATAIO
 * 
 * @return     XDWORD : 
@@ -1518,7 +1518,7 @@ XDWORD DIOCOREPROTOCOL::UpdateClass_GetNForInitialization()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOCOREPROTOCOL::UpdateClass_SetNForInitialization(XDWORD updateclass_nforinitialization)
-* @brief      UpdateClass_SetNForInitialization
+* @brief      Update class set N for initialization
 * @ingroup    DATAIO
 * 
 * @param[in]  updateclass_nforinitialization : 
@@ -1533,7 +1533,7 @@ void DIOCOREPROTOCOL::UpdateClass_SetNForInitialization(XDWORD updateclass_nfori
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD DIOCOREPROTOCOL::UpdateClass_GetNInitialized()
-* @brief      UpdateClass_GetNInitialized
+* @brief      Update class get N initialized
 * @ingroup    DATAIO
 * 
 * @return     XDWORD : 
@@ -1548,7 +1548,7 @@ XDWORD DIOCOREPROTOCOL::UpdateClass_GetNInitialized()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOCOREPROTOCOL::UpdateClass_SetNInitialized(XDWORD updateclass_ninitialized)
-* @brief      UpdateClass_SetNInitialized
+* @brief      Update class set N initialized
 * @ingroup    DATAIO
 * 
 * @param[in]  updateclass_ninitialized : 
@@ -1563,7 +1563,7 @@ void DIOCOREPROTOCOL::UpdateClass_SetNInitialized(XDWORD updateclass_ninitialize
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOCOREPROTOCOL::UpdateClass_SetRemoteAllInitialized(bool updateclass_remoteallinitialized)
-* @brief      UpdateClass_SetRemoteAllInitialized
+* @brief      Update class set remote all initialized
 * @ingroup    DATAIO
 * 
 * @param[in]  updateclass_remoteallinitialized : 
@@ -1578,7 +1578,7 @@ void DIOCOREPROTOCOL::UpdateClass_SetRemoteAllInitialized(bool updateclass_remot
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL::UpdateClass_GetSendAllClassInitializated()
-* @brief      UpdateClass_GetSendAllClassInitializated
+* @brief      Update class get send all class initializated
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
@@ -1593,7 +1593,7 @@ bool DIOCOREPROTOCOL::UpdateClass_GetSendAllClassInitializated()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOCOREPROTOCOL::UpdateClass_SetSendAllClassInitializated(bool updateclass_sendallclassinitializated)
-* @brief      UpdateClass_SetSendAllClassInitializated
+* @brief      Update class set send all class initializated
 * @ingroup    DATAIO
 * 
 * @param[in]  updateclass_sendallclassinitializated : 
@@ -1608,7 +1608,7 @@ void DIOCOREPROTOCOL::UpdateClass_SetSendAllClassInitializated(bool updateclass_
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL::UpdateClass_IsAllInitialized()
-* @brief      UpdateClass_IsAllInitialized
+* @brief      Update class is all initialized
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
@@ -1628,7 +1628,7 @@ bool DIOCOREPROTOCOL::UpdateClass_IsAllInitialized()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL::ShowDebug(bool send, DIOCOREPROTOCOL_HEADER* header, XBUFFER& content, XDWORD sizeallmessage, bool showlongformat)
-* @brief      ShowDebug
+* @brief      Show debug
 * @ingroup    DATAIO
 * 
 * @param[in]  send : 
@@ -1729,7 +1729,7 @@ bool DIOCOREPROTOCOL::ShowDebug(bool send, DIOCOREPROTOCOL_HEADER* header, XBUFF
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL::GenerateHeaderToSend(DIOCOREPROTOCOL_HEADER* header, XBUFFER& headersenddata, XWORD* headersize)
-* @brief      GenerateHeaderToSend
+* @brief      Generate header to send
 * @ingroup    DATAIO
 * 
 * @param[in]  header : 
@@ -1835,7 +1835,7 @@ bool DIOCOREPROTOCOL::GenerateHeaderToSend(DIOCOREPROTOCOL_HEADER* header, XBUFF
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL::SendData(XBUFFER& senddata)
-* @brief      SendData
+* @brief      Send data
 * @ingroup    DATAIO
 * 
 * @param[in]  senddata : 
@@ -1881,7 +1881,7 @@ bool DIOCOREPROTOCOL::SendData(XBUFFER& senddata)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL::CompressContent(DIOCOREPROTOCOL_HEADER* header, XBUFFER& content, XBUFFER& contentresult)
-* @brief      CompressContent
+* @brief      Compress content
 * @ingroup    DATAIO
 * 
 * @param[in]  header : 
@@ -1920,7 +1920,7 @@ bool DIOCOREPROTOCOL::CompressContent(DIOCOREPROTOCOL_HEADER* header, XBUFFER& c
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOCOREPROTOCOL::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 * 

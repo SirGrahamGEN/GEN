@@ -73,7 +73,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOWINDOWSPCAP::DIOWINDOWSPCAP()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_WINDOWS
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -86,7 +86,7 @@ DIOWINDOWSPCAP::DIOWINDOWSPCAP() : DIOPCAP()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOWINDOWSPCAP::~DIOWINDOWSPCAP()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
 * 
@@ -102,7 +102,7 @@ DIOWINDOWSPCAP::~DIOWINDOWSPCAP()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOWINDOWSPCAP::Capture_Start(DIOPCAPNETINTERFACE* netinterface, bool promiscuousmode, int timeout)
-* @brief      Capture_Start
+* @brief      Capture start
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  netinterface : 
@@ -141,7 +141,7 @@ bool DIOWINDOWSPCAP::Capture_Start(DIOPCAPNETINTERFACE* netinterface, bool promi
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOWINDOWSPCAP::Capture_End()
-* @brief      Capture_End
+* @brief      Capture end
 * @ingroup    PLATFORM_WINDOWS
 *
 * @return     bool : true if is succesful. 
@@ -173,7 +173,7 @@ bool DIOWINDOWSPCAP::Capture_End()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOWINDOWSPCAP::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
 *
@@ -188,7 +188,7 @@ void DIOWINDOWSPCAP::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOWINDOWSPCAP::CreateListNetInterfaces()
-* @brief      CreateListNetInterfaces
+* @brief      Create list net interfaces
 * @ingroup    PLATFORM_WINDOWS
 *
 * @return     bool : true if is succesful. 
@@ -245,7 +245,7 @@ bool DIOWINDOWSPCAP::CreateListNetInterfaces()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOWINDOWSPCAP::ThreadCapture(void* data)
-* @brief      ThreadCapture
+* @brief      Thread capture
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  data : 
@@ -270,7 +270,7 @@ void DIOWINDOWSPCAP::ThreadCapture(void* data)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOWINDOWSPCAP::PacketHandler(u_char* param, const struct pcap_pkthdr* header, const u_char* data)
-* @brief      PacketHandler
+* @brief      Packet handler
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  param : 

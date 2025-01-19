@@ -72,7 +72,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOI2CGPIOPCF8574::DIOI2CGPIOPCF8574()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -85,7 +85,7 @@ DIOI2CGPIOPCF8574::DIOI2CGPIOPCF8574(): DIODEVICEI2C()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOI2CGPIOPCF8574::~DIOI2CGPIOPCF8574()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -167,7 +167,7 @@ bool DIOI2CGPIOPCF8574::End()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOI2CGPIOPCF8574::IniDevice()
-* @brief      IniDevice
+* @brief      Ini device
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -193,7 +193,7 @@ bool DIOI2CGPIOPCF8574::IniDevice()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOI2CGPIOPCF8574::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

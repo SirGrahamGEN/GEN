@@ -4,7 +4,7 @@
 *
 * @class      DIOSTM32GPIO
 * @brief      Data Input/Output STM32 General Port Input/Ouput (GPIO)
-* @ingroup    PLATFORM_STM32    PLATFORM_STM32
+* @ingroup    PLATFORM_STM32
 *
 * @copyright  GEN Group. All rights reserved.
 *

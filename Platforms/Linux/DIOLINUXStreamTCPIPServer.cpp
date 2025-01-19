@@ -107,7 +107,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOLINUXSTREAMTCPIP::DIOLINUXSTREAMTCPIP()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_LINUX
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -156,7 +156,7 @@ DIOLINUXSTREAMTCPIPSERVER::DIOLINUXSTREAMTCPIPSERVER() : DIOSTREAMTCPIPSERVER() 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOLINUXSTREAMTCPIPSERVER::~DIOLINUXSTREAMTCPIPSERVER()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
 * 
@@ -312,7 +312,7 @@ int DIOLINUXSTREAMTCPIPSERVER::Accept(int handlesocket, void* addr, void* addrle
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int DIOLINUXSTREAMTCPIPSERVER::IsReadyConnect(int handlesocket)
-* @brief      IsReadyConnect
+* @brief      Is ready connect
 * @ingroup    PLATFORM_LINUX
 * 
 * @param[in]  handlesocket : 
@@ -368,7 +368,7 @@ int DIOLINUXSTREAMTCPIPSERVER::IsReadyConnect(int handlesocket)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOSTREAM* DIOLINUXSTREAMTCPIPSERVER::CreateStream()
-* @brief      CreateStream
+* @brief      Create stream
 * @ingroup    PLATFORM_LINUX
 * 
 * @return     DIOSTREAM* : 
@@ -406,7 +406,7 @@ DIOSTREAM* DIOLINUXSTREAMTCPIPSERVER::CreateStream()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOLINUXSTREAMTCPIPSERVER::DeleteAllStreamDisconnected()
-* @brief      DeleteAllStreamDisconnected
+* @brief      Delete all stream disconnected
 * @ingroup    PLATFORM_LINUX
 * 
 * @return     bool : true if is succesful. 
@@ -445,7 +445,7 @@ bool DIOLINUXSTREAMTCPIPSERVER::DeleteAllStreamDisconnected()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOLINUXSTREAMTCPIPSERVER::DeleteAllStream()
-* @brief      DeleteAllStream
+* @brief      Delete all stream
 * @ingroup    PLATFORM_LINUX
 * 
 * @return     bool : true if is succesful. 
@@ -481,7 +481,7 @@ bool DIOLINUXSTREAMTCPIPSERVER::DeleteAllStream()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOLINUXSTREAMTCPIPSERVER::GetHandleServer(DIOSTREAMTCPIP* diostream)
-* @brief      GetHandleServer
+* @brief      Get handle server
 * @ingroup    PLATFORM_LINUX
 * 
 * @param[in]  diostream : 
@@ -651,7 +651,7 @@ bool DIOLINUXSTREAMTCPIPSERVER::GetHandleServer(DIOSTREAMTCPIP* diostream)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOLINUXSTREAMTCPIPSERVER::ThreadConnection(void* data)
-* @brief      ThreadConnection
+* @brief      Thread connection
 * @ingroup    PLATFORM_LINUX
 * 
 * @param[in]  data : 
@@ -845,7 +845,7 @@ void DIOLINUXSTREAMTCPIPSERVER::ThreadConnection(void* data)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOLINUXSTREAMTCPIPSERVER::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
 * 

@@ -85,7 +85,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOLINUXWIFIMANAGERMODE::DIOLINUXWIFIMANAGERMODE()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_LINUX
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -98,7 +98,7 @@ DIOLINUXWIFIMANAGERMODE::DIOLINUXWIFIMANAGERMODE()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOLINUXWIFIMANAGERMODE::~DIOLINUXWIFIMANAGERMODE()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
 * 
@@ -112,7 +112,7 @@ DIOLINUXWIFIMANAGERMODE::~DIOLINUXWIFIMANAGERMODE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOLINUXWIFIMANAGERMODE::SetMode_AP(XCHAR* SSID, XCHAR* password, bool serialize)
-* @brief      SetMode_AP
+* @brief      Set mode AP
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  SSID : 
@@ -135,7 +135,7 @@ bool DIOLINUXWIFIMANAGERMODE::SetMode_AP(XCHAR* SSID, XCHAR* password, bool seri
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOLINUXWIFIMANAGERMODE::SetMode_Client(XCHAR* SSID, XCHAR* password, bool serialize)
-* @brief      SetMode_Client
+* @brief      Set mode client
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  SSID : 
@@ -167,7 +167,7 @@ bool DIOLINUXWIFIMANAGERMODE::SetMode_Client(XCHAR* SSID, XCHAR* password, bool 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOLINUXWIFIMANAGERMODE::IsDisconnected()
-* @brief      IsDisconnected
+* @brief      Is disconnected
 * @ingroup    PLATFORM_LINUX
 *
 * @return     bool : true if is succesful. 
@@ -213,7 +213,7 @@ bool DIOLINUXWIFIMANAGERMODE::Disconnect()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOLINUXWIFIMANAGERMODE::APList_Reload()
-* @brief      APList_Reload
+* @brief      AP list reload
 * @ingroup    PLATFORM_LINUX
 *
 * @return     bool : true if is succesful. 
@@ -228,7 +228,7 @@ bool DIOLINUXWIFIMANAGERMODE::APList_Reload()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOLINUXWIFIMANAGERMODE::WPA_SetMode(int mode, XCHAR* SSID, XCHAR* password, int indexnetwork, bool serialize)
-* @brief      WPA_SetMode
+* @brief      WPA set mode
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  mode : 
@@ -402,7 +402,7 @@ bool DIOLINUXWIFIMANAGERMODE::WPA_SetMode(int mode, XCHAR* SSID, XCHAR* password
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOLINUXWIFIMANAGERMODE::WPA_IsDisconnected()
-* @brief      WPA_IsDisconnected
+* @brief      WPA is disconnected
 * @ingroup    PLATFORM_LINUX
 *
 * @return     bool : true if is succesful. 
@@ -446,7 +446,7 @@ bool DIOLINUXWIFIMANAGERMODE::WPA_IsDisconnected()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOLINUXWIFIMANAGERMODE::WPA_Disconnect()
-* @brief      WPA_Disconnected
+* @brief      WPA disconnect
 * @ingroup    PLATFORM_LINUX
 *
 * @return     bool : true if is succesful. 
@@ -473,7 +473,7 @@ bool DIOLINUXWIFIMANAGERMODE::WPA_Disconnect()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOLINUXWIFIMANAGERMODE::WPA_RemoveAllNetworks()
-* @brief      WPA_RemoveAllNetworks
+* @brief      WPA remove all networks
 * @ingroup    PLATFORM_LINUX
 *
 * @return     bool : true if is succesful. 
@@ -504,7 +504,7 @@ bool DIOLINUXWIFIMANAGERMODE::WPA_RemoveAllNetworks()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOLINUXWIFIMANAGERMODE::WPA_SetValue(int indexnetwork, XCHAR* namevalue, XCHAR* value, bool isstring)
-* @brief      WPA_SetValue
+* @brief      WPA set value
 * @ingroup    PLATFORM_LINUX
 * 
 * @param[in]  indexnetwork : 
@@ -542,7 +542,7 @@ bool DIOLINUXWIFIMANAGERMODE::WPA_SetValue(int indexnetwork, XCHAR* namevalue, X
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOLINUXWIFIMANAGERMODE::WPA_SetValue(int indexnetwork, XSTRING& namevalue, XSTRING& value)
-* @brief      WPA_SetValue
+* @brief      WPA set value
 * @ingroup    PLATFORM_LINUX
 * 
 * @param[in]  indexnetwork : 
@@ -561,7 +561,7 @@ bool DIOLINUXWIFIMANAGERMODE::WPA_SetValue(int indexnetwork, XSTRING& namevalue,
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOLINUXWIFIMANAGERMODE::WPA_GetListRemoteAP(XVECTOR<XSTRING*>& nameAPs)
-* @brief      WPA_GetListRemoteAP
+* @brief      WPA get list remote AP
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  nameAPs : 
@@ -635,7 +635,7 @@ bool DIOLINUXWIFIMANAGERMODE::WPA_GetListRemoteAP(XVECTOR<XSTRING*>& nameAPs)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOLINUXWIFIMANAGERMODE::WPA_CLI_Command(XSTRING& command, XSTRING& output)
-* @brief      WPA_CLI_Command
+* @brief      WPACLI command
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  command : 
@@ -673,7 +673,7 @@ bool DIOLINUXWIFIMANAGERMODE::WPA_CLI_Command(XSTRING& command, XSTRING& output)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOLINUXWIFIMANAGERMODE::NM_SetMode(int mode, XCHAR* SSID, XCHAR* password, int indexnetwork, bool serialize)
-* @brief      NM_SetMode
+* @brief      NM set mode
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  mode : 
@@ -730,7 +730,7 @@ bool DIOLINUXWIFIMANAGERMODE::NM_SetMode(int mode, XCHAR* SSID, XCHAR* password,
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOLINUXWIFIMANAGERMODE::NM_IsDisconnected()
-* @brief      NM_IsDisconnected
+* @brief      NM is disconnected
 * @ingroup    PLATFORM_LINUX
 *
 * @return     bool : true if is succesful. 
@@ -758,7 +758,7 @@ bool DIOLINUXWIFIMANAGERMODE::NM_IsDisconnected()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOLINUXWIFIMANAGERMODE::NM_Disconnect()
-* @brief      NM_Disconnected
+* @brief      NM disconnect
 * @ingroup    PLATFORM_LINUX
 *
 * @return     bool : true if is succesful. 
@@ -790,7 +790,7 @@ bool DIOLINUXWIFIMANAGERMODE::NM_Disconnect()
   
   if(status) 
     {
-      // After disconnecting you have to wait 3 seconds for the WIFIs list to be available  ¿? 
+      // After disconnecting you have to wait 3 seconds for the WIFIs list to be available  ? 
       /*
       for(int c=0; c<12; c++)
         {
@@ -813,7 +813,7 @@ bool DIOLINUXWIFIMANAGERMODE::NM_Disconnect()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOLINUXWIFIMANAGERMODE::NM_CLI_Command(XSTRING& command, XSTRING& output)
-* @brief      NM_CLI_Command
+* @brief      NMCLI command
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  command : 
@@ -850,7 +850,7 @@ bool DIOLINUXWIFIMANAGERMODE::NM_CLI_Command(XSTRING& command, XSTRING& output)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOLINUXWIFIMANAGERMODE::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
 * 

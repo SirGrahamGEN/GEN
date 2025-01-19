@@ -65,7 +65,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         APPFLOW_XEVENT::APPFLOW_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family) : XEVENT(subject, type, family)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    APPFLOW
 * 
 * @param[in]  subject : 
@@ -82,7 +82,7 @@ APPFLOW_XEVENT::APPFLOW_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family) : 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         APPFLOW_XEVENT::~APPFLOW_XEVENT()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    APPFLOW
 * 
@@ -96,7 +96,7 @@ APPFLOW_XEVENT::~APPFLOW_XEVENT()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSYSTEM_CHANGESTATUSTYPE APPFLOW_XEVENT::GetChangeStatusType()
-* @brief      GetChangeStatusType
+* @brief      Get change status type
 * @ingroup    APPFLOW
 * 
 * @return     XSYSTEM_CHANGESTATUSTYPE : 
@@ -111,7 +111,7 @@ XSYSTEM_CHANGESTATUSTYPE APPFLOW_XEVENT::GetChangeStatusType()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void APPFLOW_XEVENT::SetChangeStatusType(XSYSTEM_CHANGESTATUSTYPE changestatustype)
-* @brief      SetChangeStatusType
+* @brief      Set change status type
 * @ingroup    APPFLOW
 * 
 * @param[in]  changestatustype : 
@@ -126,7 +126,7 @@ void APPFLOW_XEVENT::SetChangeStatusType(XSYSTEM_CHANGESTATUSTYPE changestatusty
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void APPFLOW_XEVENT::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    APPFLOW
 * 

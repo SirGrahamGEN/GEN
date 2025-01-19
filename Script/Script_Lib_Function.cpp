@@ -65,7 +65,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         SCRIPT_LIB_FUNCTION::SCRIPT_LIB_FUNCTION(SCRIPT_LIB* library, XCHAR* name, SCRFUNCIONLIBRARY functionlibrary)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    SCRIPT
 *
 * @param[in]  library :
@@ -86,7 +86,7 @@ SCRIPT_LIB_FUNCTION::SCRIPT_LIB_FUNCTION(SCRIPT_LIB* library, XCHAR* name, SCRFU
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         SCRIPT_LIB_FUNCTION::SCRIPT_LIB_FUNCTION(SCRIPT_LIB* library, XSTRING& name, SCRFUNCIONLIBRARY functionlibrary)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    SCRIPT
 *
 * @param[in]  library :
@@ -107,7 +107,7 @@ SCRIPT_LIB_FUNCTION::SCRIPT_LIB_FUNCTION(SCRIPT_LIB* library, XSTRING& name, SCR
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         SCRIPT_LIB_FUNCTION::~SCRIPT_LIB_FUNCTION()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    SCRIPT
 *
@@ -121,7 +121,7 @@ SCRIPT_LIB_FUNCTION::~SCRIPT_LIB_FUNCTION()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         SCRIPT_LIB* SCRIPT_LIB_FUNCTION::GetLibrary()
-* @brief      GetLibrary
+* @brief      Get library
 * @ingroup    SCRIPT
 *
 * @return     SCRIPT_LIB* :
@@ -136,7 +136,7 @@ SCRIPT_LIB* SCRIPT_LIB_FUNCTION::GetLibrary()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool SCRIPT_LIB_FUNCTION::SetLibrary(SCRIPT_LIB* library)
-* @brief      SetLibrary
+* @brief      Set library
 * @ingroup    SCRIPT
 *
 * @param[in]  library :
@@ -155,7 +155,7 @@ bool SCRIPT_LIB_FUNCTION::SetLibrary(SCRIPT_LIB* library)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* SCRIPT_LIB_FUNCTION::GetName()
-* @brief      GetName
+* @brief      Get name
 * @ingroup    SCRIPT
 *
 * @return     XSTRING* :
@@ -170,7 +170,7 @@ XSTRING* SCRIPT_LIB_FUNCTION::GetName()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         SCRFUNCIONLIBRARY SCRIPT_LIB_FUNCTION::GetFunctionLibrary()
-* @brief      GetFunctionLibrary
+* @brief      Get function library
 * @ingroup    SCRIPT
 *
 * @return     SCRFUNCIONLIBRARY :
@@ -185,7 +185,7 @@ SCRFUNCIONLIBRARY SCRIPT_LIB_FUNCTION::GetFunctionLibrary()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool SCRIPT_LIB_FUNCTION::SetFunctionLibrary(SCRFUNCIONLIBRARY functionlibrary)
-* @brief      SetFunctionLibrary
+* @brief      Set function library
 * @ingroup    SCRIPT
 *
 * @param[in]  functionlibrary :
@@ -203,7 +203,7 @@ bool SCRIPT_LIB_FUNCTION::SetFunctionLibrary(SCRFUNCIONLIBRARY functionlibrary)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void SCRIPT_LIB_FUNCTION::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    SCRIPT
 *

@@ -630,7 +630,7 @@ XQWORD HASHWHIRLPOOL::rc[HASHWHIRLPOOL_ROUNDS+1]  = { LL(0x0000000000000000),
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         HASHWHIRLPOOL::HASHWHIRLPOOL()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    CIPHER
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -643,7 +643,7 @@ HASHWHIRLPOOL::HASHWHIRLPOOL() : HASH()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         HASHWHIRLPOOL::~HASHWHIRLPOOL()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    CIPHER
 * 
@@ -688,7 +688,7 @@ bool HASHWHIRLPOOL::Do(XBYTE* input, XQWORD size)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int HASHWHIRLPOOL::GetDefaultSize()
-* @brief      GetDefaultSize
+* @brief      Get default size
 * @ingroup    CIPHER
 * 
 * @return     int : 
@@ -703,7 +703,7 @@ int HASHWHIRLPOOL::GetDefaultSize()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void HASHWHIRLPOOL::ProcessBuffer(WHIRLPOOL* structpointer)
-* @brief      ProcessBuffer
+* @brief      Process buffer
 * @ingroup    CIPHER
 * 
 * @param[in]  structpointer : 
@@ -1162,7 +1162,7 @@ void HASHWHIRLPOOL::End(WHIRLPOOL* structpointer, XBYTE* result)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void HASHWHIRLPOOL::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    CIPHER
 * 

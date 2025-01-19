@@ -68,7 +68,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         CIPHER::CIPHER()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    CIPHER
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -87,7 +87,7 @@ CIPHER::CIPHER()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         CIPHER::~CIPHER()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    CIPHER
 * 
@@ -113,7 +113,7 @@ CIPHER::~CIPHER()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         CIPHERTYPE CIPHER::GetType()
-* @brief      GetType
+* @brief      Get type
 * @ingroup    CIPHER
 * 
 * @return     CIPHERTYPE : 
@@ -128,7 +128,7 @@ CIPHERTYPE CIPHER::GetType()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void CIPHER::SetType(CIPHERTYPE type)
-* @brief      SetType
+* @brief      Set type
 * @ingroup    CIPHER
 * 
 * @param[in]  type : 
@@ -143,7 +143,7 @@ void CIPHER::SetType(CIPHERTYPE type)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         CIPHERCHAININGMODE CIPHER::GetChainingMode()
-* @brief      GetChainingMode
+* @brief      Get chaining mode
 * @ingroup    CIPHER
 * 
 * @return     CIPHERCHAININGMODE : 
@@ -158,7 +158,7 @@ CIPHERCHAININGMODE CIPHER::GetChainingMode()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void CIPHER::SetChainingMode(CIPHERCHAININGMODE chainingmode)
-* @brief      SetChainingMode
+* @brief      Set chaining mode
 * @ingroup    CIPHER
 * 
 * @param[in]  chainingmode : 
@@ -173,7 +173,7 @@ void CIPHER::SetChainingMode(CIPHERCHAININGMODE chainingmode)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBUFFER_PADDINGTYPE CIPHER::GetPaddingType()
-* @brief      GetPaddingType
+* @brief      Get padding type
 * @ingroup    CIPHER
 * 
 * @return     XBUFFER_PADDINGTYPE : 
@@ -188,7 +188,7 @@ XBUFFER_PADDINGTYPE CIPHER::GetPaddingType()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void CIPHER::SetPaddingType(XBUFFER_PADDINGTYPE paddingtype)
-* @brief      SetPaddingType
+* @brief      Set padding type
 * @ingroup    CIPHER
 * 
 * @param[in]  paddingtype : 
@@ -203,7 +203,7 @@ void CIPHER::SetPaddingType(XBUFFER_PADDINGTYPE paddingtype)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int CIPHER::GetPaddingAdjustSize()
-* @brief      GetPaddingAdjustSize
+* @brief      Get padding adjust size
 * @ingroup    CIPHER
 * 
 * @return     int : 
@@ -218,7 +218,7 @@ int CIPHER::GetPaddingAdjustSize()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void CIPHER::SetPaddingAdjustSize(int paddingadjustsize)
-* @brief      SetPaddingAdjustSize
+* @brief      Set padding adjust size
 * @ingroup    CIPHER
 * 
 * @param[in]  paddingadjustsize : 
@@ -233,7 +233,7 @@ void CIPHER::SetPaddingAdjustSize(int paddingadjustsize)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         CIPHERKEY* CIPHER::GetKey(CIPHERKEYTYPE type)
-* @brief      GetKey
+* @brief      Get key
 * @ingroup    CIPHER
 * 
 * @param[in]  type : 
@@ -260,7 +260,7 @@ CIPHERKEY* CIPHER::GetKey(CIPHERKEYTYPE type)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool CIPHER::SetKey(CIPHERKEY* key, bool integritycheck)
-* @brief      SetKey
+* @brief      Set key
 * @ingroup    CIPHER
 * 
 * @param[in]  key : 
@@ -290,7 +290,7 @@ bool CIPHER::SetKey(CIPHERKEY* key, bool integritycheck)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTE* CIPHER::GetInitVector()
-* @brief      GetInitVector
+* @brief      Get init vector
 * @ingroup    CIPHER
 * 
 * @return     XBYTE* : 
@@ -307,7 +307,7 @@ XBYTE* CIPHER::GetInitVector()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool CIPHER::SetInitVector(XBYTE* vector, XDWORD size)
-* @brief      SetInitVector
+* @brief      Set init vector
 * @ingroup    CIPHER
 * 
 * @param[in]  vector : 
@@ -331,7 +331,7 @@ bool CIPHER::SetInitVector(XBYTE* vector, XDWORD size)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool CIPHER::SetInitVector(XBUFFER& vector)
-* @brief      SetInitVector
+* @brief      Set init vector
 * @ingroup    CIPHER
 * 
 * @param[in]  vector : 
@@ -438,7 +438,7 @@ bool CIPHER::Uncipher(XBUFFER& input)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTE* CIPHER::GetResult(int& resultsize)
-* @brief      GetResult
+* @brief      Get result
 * @ingroup    CIPHER
 * 
 * @param[in]  resultsize : 
@@ -459,7 +459,7 @@ XBYTE* CIPHER::GetResult(int& resultsize)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBUFFER* CIPHER::GetResult()
-* @brief      GetResult
+* @brief      Get result
 * @ingroup    CIPHER
 * 
 * @return     XBUFFER* : 
@@ -474,7 +474,7 @@ XBUFFER* CIPHER::GetResult()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool CIPHER::GetResultString(XSTRING& stringhex)
-* @brief      GetResultString
+* @brief      Get result string
 * @ingroup    CIPHER
 * 
 * @param[in]  stringhex : 
@@ -507,7 +507,7 @@ bool CIPHER::GetResultString(XSTRING& stringhex)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         CIPHERKEY* CIPHER::GetKey(int index)
-* @brief      GetKey
+* @brief      Get key
 * @ingroup    CIPHER
 * 
 * @param[in]  index : 
@@ -527,7 +527,7 @@ CIPHERKEY* CIPHER::GetKey(int index)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool CIPHER::SetKey(int index, CIPHERKEY* key)
-* @brief      SetKey
+* @brief      Set key
 * @ingroup    CIPHER
 * 
 * @param[in]  index : 
@@ -550,7 +550,7 @@ bool CIPHER::SetKey(int index, CIPHERKEY* key)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void CIPHER::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    CIPHER
 * 

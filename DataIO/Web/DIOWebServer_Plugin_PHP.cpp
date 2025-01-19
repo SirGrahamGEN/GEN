@@ -71,7 +71,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOWEBSERVER_PLUGIN_PHP::DIOWEBSERVER_PLUGIN_PHP()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -92,7 +92,7 @@ DIOWEBSERVER_PLUGIN_PHP::DIOWEBSERVER_PLUGIN_PHP()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOWEBSERVER_PLUGIN_PHP::~DIOWEBSERVER_PLUGIN_PHP()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -130,7 +130,7 @@ bool DIOWEBSERVER_PLUGIN_PHP::Config(XPATH* pathinterpreter)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOWEBSERVER_PLUGIN_PHP::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

@@ -70,7 +70,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIODEVICEI2C::DIODEVICEI2C()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -85,7 +85,7 @@ DIODEVICEI2C::DIODEVICEI2C()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIODEVICEI2C::~DIODEVICEI2C()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -153,7 +153,7 @@ bool DIODEVICEI2C::Ini(int port, int remotedeviceaddress, int timeout)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOSTREAMI2CCONFIG* DIODEVICEI2C::CreateConfig(XCHAR* localdevicename, int remotedeviceaddress)
-* @brief      CreateConfig
+* @brief      Create config
 * @ingroup    DATAIO
 *
 * @param[in]  localdevicename : 
@@ -178,7 +178,7 @@ DIOSTREAMI2CCONFIG* DIODEVICEI2C::CreateConfig(XCHAR* localdevicename, int remot
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOSTREAMI2CCONFIG* DIODEVICEI2C::CreateConfig(int port, int remotedeviceaddress)
-* @brief      CreateConfig
+* @brief      Create config
 * @ingroup    DATAIO
 *
 * @param[in]  port : 
@@ -205,7 +205,7 @@ DIOSTREAMI2CCONFIG* DIODEVICEI2C::CreateConfig(int port, int remotedeviceaddress
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIODEVICEI2C::IniDevice()
-* @brief      IniDevice
+* @brief      Ini device
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
@@ -263,7 +263,7 @@ bool DIODEVICEI2C::End()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIODEVICEI2C::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

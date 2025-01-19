@@ -98,7 +98,7 @@ DELETEFUNC(XLINUXFACTORY, XMUTEX     , XLINUXMUTEX      , Delete_Mutex)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XTHREAD* XLINUXFACTORY::CreateThread(XTHREADGROUPID groupID, XCHAR* ID,XTHREADFUNCTION function,void* param)
-* @brief      Create Thread
+* @brief      Create thread
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  groupID : group ID of threads
@@ -119,7 +119,7 @@ XTHREAD* XLINUXFACTORY::CreateThread(XTHREADGROUPID groupID, XCHAR* ID,XTHREADFU
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XLINUXFACTORY::DeleteThread(XTHREADGROUPID groupID, XTHREAD* xthread)
-* @brief      Delete Thread
+* @brief      Delete thread
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  groupID : group ID of threads

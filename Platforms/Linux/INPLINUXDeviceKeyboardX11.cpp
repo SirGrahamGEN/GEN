@@ -86,7 +86,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         INPLINUXDEVICEKEYBOARDX11::INPLINUXDEVICEKEYBOARDX11()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_LINUX
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -105,7 +105,7 @@ INPLINUXDEVICEKEYBOARDX11::INPLINUXDEVICEKEYBOARDX11(): INPDEVICE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         INPLINUXDEVICEKEYBOARDX11::~INPLINUXDEVICEKEYBOARDX11()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
 *
@@ -204,7 +204,7 @@ bool INPLINUXDEVICEKEYBOARDX11::Update()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool INPLINUXDEVICEKEYBOARDX11::SetScreen(void* screenhandle)
-* @brief      Set Screen
+* @brief      Set screen
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  screenhandle : handle to screen
@@ -226,7 +226,7 @@ bool INPLINUXDEVICEKEYBOARDX11::SetScreen(void* screenhandle)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void INPLINUXDEVICEKEYBOARDX11::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
 *
@@ -240,7 +240,7 @@ void INPLINUXDEVICEKEYBOARDX11::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool INPLINUXDEVICEKEYBOARDX11::CreateAllButtons()
-* @brief      CreateAllButtons
+* @brief      Create all buttons
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
 *

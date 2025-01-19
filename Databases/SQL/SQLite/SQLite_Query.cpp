@@ -4,7 +4,7 @@
 * 
 * @class      SQLITE_QUERY
 * @brief      DataBase SQL SQLite Query class
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 * 
 * @copyright  GEN Group. All rights reserved.
 * 
@@ -74,9 +74,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         SQLITE_QUERY::~SQLITE_QUERY()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 SQLITE_QUERY::~SQLITE_QUERY()
@@ -99,7 +99,7 @@ SQLITE_QUERY::~SQLITE_QUERY()
 *
 * @fn         bool SQLITE_QUERY::Execute()
 * @brief      Execute
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASE
 *
 * @return     bool : true if is succesful.
 *
@@ -151,8 +151,8 @@ bool SQLITE_QUERY::Execute()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool SQLITE_QUERY::ClearCursor()
-* @brief      ClearCursor
-* @ingroup    DATABASES
+* @brief      Clear cursor
+* @ingroup    DATABASE
 * 
 * @return     bool : true if is succesful. 
 * 
@@ -167,7 +167,7 @@ bool SQLITE_QUERY::ClearCursor()
 * 
 * @fn         bool SQLITE_QUERY::Bind(XDWORD ID, int integer)
 * @brief      Bind
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 * 
 * @param[in]  ID : 
 * @param[in]  integer : 
@@ -186,7 +186,7 @@ bool SQLITE_QUERY::Bind(XDWORD ID, int integer)
 * 
 * @fn         bool SQLITE_QUERY::Bind(XDWORD ID, XCHAR* string)
 * @brief      Bind
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 * 
 * @param[in]  ID : 
 * @param[in]  string : 
@@ -204,7 +204,7 @@ bool SQLITE_QUERY::Bind(XDWORD ID, XCHAR* string)
 * 
 * @fn         bool SQLITE_QUERY::Bind(XDWORD ID, float decimal)
 * @brief      Bind
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 * 
 * @param[in]  ID : 
 * @param[in]  decimal : 
@@ -222,7 +222,7 @@ bool SQLITE_QUERY::Bind(XDWORD ID, float decimal)
 * 
 * @fn         bool SQLITE_QUERY::Bind(XDWORD ID, XDATETIME& datetime)
 * @brief      Bind
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 * 
 * @param[in]  ID : 
 * @param[in]  datetime : 
@@ -239,8 +239,8 @@ bool SQLITE_QUERY::Bind(XDWORD ID, XDATETIME& datetime)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool SQLITE_QUERY::IsWellConstructedQuery()
-* @brief      IsWellConstructedQuery
-* @ingroup    DATABASES
+* @brief      Is well constructed query
+* @ingroup    DATABASE
 * 
 * @return     bool : true if is succesful. 
 * 
@@ -256,7 +256,7 @@ bool SQLITE_QUERY::IsWellConstructedQuery()
 *
 * @fn         int SQLITE_QUERY::Exec(const char* sql,XDWORD size)
 * @brief      Exec
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASE
 *
 * @param[in]  char* sql :
 * @param[in]  size :
@@ -399,8 +399,8 @@ int SQLITE_QUERY::Exec(const char* sql, XDWORD size)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool SQLITE_QUERY::BindParametersToQuery()
-* @brief      BindParametersToQuery
-* @ingroup    DATABASES
+* @brief      Bind parameters to query
+* @ingroup    DATABASE
 * 
 * @return     bool : true if is succesful. 
 * 
@@ -495,8 +495,8 @@ bool SQLITE_QUERY::BindParametersToQuery()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DB_SQL_RESULT* SQLITE_QUERY::ConstructResult()
-* @brief      ConstructResult
-* @ingroup    DATABASESSQL
+* @brief      Construct result
+* @ingroup    DATABASE
 *
 * @return     DB_SQL_RESULT* :
 *

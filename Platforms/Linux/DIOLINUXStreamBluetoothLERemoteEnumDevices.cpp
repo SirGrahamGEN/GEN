@@ -76,7 +76,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOLINUXSTREAMBLUETOOTHLEREMOTEENUMDEVICES::DIOLINUXSTREAMBLUETOOTHLEREMOTEENUMDEVICES()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_LINUX
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -91,7 +91,7 @@ DIOLINUXSTREAMBLUETOOTHLEREMOTEENUMDEVICES::DIOLINUXSTREAMBLUETOOTHLEREMOTEENUMD
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOLINUXSTREAMBLUETOOTHLEREMOTEENUMDEVICES::~DIOLINUXSTREAMBLUETOOTHLEREMOTEENUMDEVICES()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
 *
@@ -221,7 +221,7 @@ bool DIOLINUXSTREAMBLUETOOTHLEREMOTEENUMDEVICES::Search()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOLINUXSTREAMBLUETOOTHLEREMOTEENUMDEVICES::StopSearch(bool waitend)
-* @brief      StopSearch
+* @brief      Stop search
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  waitend : 
@@ -274,7 +274,7 @@ bool DIOLINUXSTREAMBLUETOOTHLEREMOTEENUMDEVICES::StopSearch(bool waitend)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOLINUXSTREAMBLUETOOTHLEREMOTEENUMDEVICES::IsSearching()
-* @brief      IsSearching
+* @brief      Is searching
 * @ingroup    PLATFORM_LINUX
 *
 * @return     bool : true if is succesful. 
@@ -293,7 +293,7 @@ bool DIOLINUXSTREAMBLUETOOTHLEREMOTEENUMDEVICES::IsSearching()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOLINUXSTREAMBLUETOOTHLEREMOTEENUMDEVICES::ThreadEnumDevices(void* param)
-* @brief      ThreadEnumDevices
+* @brief      Thread enum devices
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  param : 
@@ -382,7 +382,7 @@ void DIOLINUXSTREAMBLUETOOTHLEREMOTEENUMDEVICES::ThreadEnumDevices(void* param)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOLINUXSTREAMBLUETOOTHLEREMOTEENUMDEVICES::ThreadEnumDevicesEvent(void* param)
-* @brief      ThreadEnumDevicesEvent
+* @brief      Thread enum devices event
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  param : 
@@ -429,7 +429,7 @@ void DIOLINUXSTREAMBLUETOOTHLEREMOTEENUMDEVICES::ThreadEnumDevicesEvent(void* pa
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOLINUXSTREAMBLUETOOTHLEREMOTEENUMDEVICES::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
 *

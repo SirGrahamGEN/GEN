@@ -68,7 +68,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIONODEMANAGER::DIONODEMANAGER()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -81,7 +81,7 @@ DIONODEMANAGER::DIONODEMANAGER()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIONODEMANAGER::~DIONODEMANAGER()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 * 
@@ -150,7 +150,7 @@ bool DIONODEMANAGER::End()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XVECTOR<DIONODE*>* DIONODEMANAGER::GetNodes()
-* @brief      GetNodes
+* @brief      Get nodes
 * @ingroup    DATAIO
 * 
 * @return     XVECTOR<DIONODE*>* : 
@@ -165,7 +165,7 @@ XVECTOR<DIONODE*>* DIONODEMANAGER::GetNodes()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIONODEMANAGER::ThreadNodes(void* data)
-* @brief      ThreadNodes
+* @brief      Thread nodes
 * @ingroup    DATAIO
 * 
 * @param[in]  data : 
@@ -193,7 +193,7 @@ void DIONODEMANAGER::ThreadNodes(void* data)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIONODEMANAGER::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 * 

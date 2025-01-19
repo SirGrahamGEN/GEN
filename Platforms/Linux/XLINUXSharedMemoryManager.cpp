@@ -77,7 +77,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XLINUXSHAREDMEMORYMANAGER::XLINUXSHAREDMEMORYMANAGER()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_LINUX
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -90,7 +90,7 @@ XLINUXSHAREDMEMORYMANAGER::XLINUXSHAREDMEMORYMANAGER()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XLINUXSHAREDMEMORYMANAGER::~XLINUXSHAREDMEMORYMANAGER()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
 *
@@ -223,7 +223,7 @@ bool XLINUXSHAREDMEMORYMANAGER::Close()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XLINUXSHAREDMEMORYMANAGER::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
 *

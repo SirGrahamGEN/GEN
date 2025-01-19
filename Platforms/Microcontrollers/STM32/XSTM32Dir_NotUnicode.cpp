@@ -52,7 +52,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTM32DIR_NOTUNICODE::XSTM32DIR_NOTUNICODE()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_STM32
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -69,7 +69,7 @@ XSTM32DIR_NOTUNICODE::XSTM32DIR_NOTUNICODE(): XDIR()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTM32DIR_NOTUNICODE::~XSTM32DIR_NOTUNICODE()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_STM32
 *
@@ -187,7 +187,7 @@ bool XSTM32DIR_NOTUNICODE::Make(XCHAR* path, bool recursive)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTM32DIR_NOTUNICODE::ChangeTo(XCHAR* path)
-* @brief      ChangeTo
+* @brief      Change to
 * @ingroup    PLATFORM_STM32
 *
 * @param[in]  path :
@@ -287,7 +287,7 @@ bool XSTM32DIR_NOTUNICODE::Delete(XCHAR* path, bool all)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTM32DIR_NOTUNICODE::GetActual(XPATH& xpath)
-* @brief      GetActual
+* @brief      Get actual
 * @ingroup    PLATFORM_STM32
 *
 * @param[in]  xpath :
@@ -314,7 +314,7 @@ bool XSTM32DIR_NOTUNICODE::GetActual(XPATH& xpath)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTM32DIR_NOTUNICODE::FirstSearch(XCHAR* xpath, XCHAR* patternsearch, XDIRELEMENT* searchelement)
-* @brief      FirstSearch
+* @brief      First search
 * @ingroup    PLATFORM_STM32
 *
 * @param[in]  xpath :
@@ -383,7 +383,7 @@ bool XSTM32DIR_NOTUNICODE::FirstSearch(XCHAR* xpath, XCHAR* patternsearch, XDIRE
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTM32DIR_NOTUNICODE::NextSearch(XDIRELEMENT* searchelement)
-* @brief      NextSearch
+* @brief      Next search
 * @ingroup    PLATFORM_STM32
 *
 * @param[in]  searchelement :
@@ -427,7 +427,7 @@ bool XSTM32DIR_NOTUNICODE::NextSearch(XDIRELEMENT* searchelement)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XSTM32DIR_NOTUNICODE::ReconvertSearchData(XDIRELEMENT* searchelement, FILINFO* fileinfo)
-* @brief      ReconvertSearchData
+* @brief      Reconvert search data
 * @ingroup    PLATFORM_STM32
 * 
 * @param[in]  searchelement : 
@@ -455,7 +455,7 @@ bool XSTM32DIR_NOTUNICODE::ReconvertSearchData(XDIRELEMENT* searchelement, FILIN
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XSTM32DIR_NOTUNICODE::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_STM32
 *

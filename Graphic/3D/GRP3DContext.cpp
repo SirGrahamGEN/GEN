@@ -64,7 +64,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRP3DCONTEXT::GRP3DCONTEXT()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    GRAPHIC
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -79,7 +79,7 @@ GRP3DCONTEXT::GRP3DCONTEXT()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRP3DCONTEXT::~GRP3DCONTEXT()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
 *
@@ -93,7 +93,7 @@ GRP3DCONTEXT::~GRP3DCONTEXT()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPSCREEN* GRP3DCONTEXT::GetScreen()
-* @brief      Get Screen Handle
+* @brief      Get screen
 * @ingroup    GRAPHIC
 *
 * @return     GRPSCREEN* :
@@ -108,7 +108,7 @@ GRPSCREEN* GRP3DCONTEXT::GetScreen()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void GRP3DCONTEXT::SetScreen(GRPSCREEN* screen)
-* @brief      Set Screen Handle
+* @brief      Set screen
 * @ingroup    GRAPHIC
 *
 * @param[in]  screen : new screen class (handle)
@@ -123,7 +123,7 @@ void GRP3DCONTEXT::SetScreen(GRPSCREEN* screen)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRP3DCONTEXT::Create(void* handle)
-* @brief      Create context
+* @brief      Create
 * @ingroup    GRAPHIC
 *
 * @param[in]  handle : generic handle
@@ -140,7 +140,7 @@ bool GRP3DCONTEXT::Create(void* handle)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRP3DCONTEXT::IsLost()
-* @brief      Is Lost context
+* @brief      Is lost
 * @ingroup    GRAPHIC
 *
 * @return     bool : true if is succesful.
@@ -155,7 +155,7 @@ bool GRP3DCONTEXT::IsLost()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRP3DCONTEXT::Update()
-* @brief      Update Context
+* @brief      Update
 * @ingroup    GRAPHIC
 *
 * @return     bool : true if is succesful.
@@ -170,7 +170,7 @@ bool GRP3DCONTEXT::Update()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRP3DCONTEXT::Destroy()
-* @brief      Destroy context
+* @brief      Destroy
 * @ingroup    GRAPHIC
 *
 * @return     bool : true if is succesful.
@@ -185,7 +185,7 @@ bool GRP3DCONTEXT::Destroy()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRP3DCONTEXT::IsMustRebuild()
-* @brief      Is Must Rebuild context
+* @brief      Is must rebuild
 * @ingroup    GRAPHIC
 *
 * @return     bool : true if is succesful.
@@ -200,7 +200,7 @@ bool GRP3DCONTEXT::IsMustRebuild()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void GRP3DCONTEXT::SetMustRebuild(bool mustrebuild)
-* @brief      Set Must Rebuild
+* @brief      Set must rebuild
 * @ingroup    GRAPHIC
 *
 * @param[in]  mustrebuild : true if Must Rebuild context
@@ -215,7 +215,7 @@ void GRP3DCONTEXT::SetMustRebuild(bool mustrebuild)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD GRP3DCONTEXT::GetMultisampling()
-* @brief      Get Multi sampling
+* @brief      Get multisampling
 * @ingroup    GRAPHIC
 *
 * @return     XDWORD :
@@ -230,7 +230,7 @@ XDWORD GRP3DCONTEXT::GetMultisampling()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void GRP3DCONTEXT::SetMultiSampling(XDWORD multisampling)
-* @brief      Set Multi Sampling
+* @brief      Set multi sampling
 * @ingroup    GRAPHIC
 *
 * @param[in]  multisampling : multisamplig factor
@@ -245,7 +245,7 @@ void GRP3DCONTEXT::SetMultiSampling(XDWORD multisampling)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void GRP3DCONTEXT::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    GRAPHIC
 *

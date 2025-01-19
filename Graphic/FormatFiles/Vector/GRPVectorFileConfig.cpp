@@ -64,7 +64,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVECTORFILECONFIG::GRPVECTORFILECONFIG()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    GRAPHIC
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -77,7 +77,7 @@ GRPVECTORFILECONFIG::GRPVECTORFILECONFIG()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVECTORFILECONFIG::~GRPVECTORFILECONFIG()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
 * 
@@ -91,7 +91,7 @@ GRPVECTORFILECONFIG::~GRPVECTORFILECONFIG()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPVECTORFILECONFIG::Create_File(XCHAR* namefile)
-* @brief      Create_File
+* @brief      Create file
 * @ingroup    GRAPHIC
 * 
 * @param[in]  namefile : 
@@ -108,7 +108,7 @@ bool GRPVECTORFILECONFIG::Create_File(XCHAR* namefile)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPVECTORFILECONFIG::Load_File(XCHAR* namefile)
-* @brief      Load_File
+* @brief      Load file
 * @ingroup    GRAPHIC
 * 
 * @param[in]  namefile : 
@@ -125,7 +125,7 @@ bool GRPVECTORFILECONFIG::Load_File(XCHAR* namefile)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRPVECTORFILECONFIG::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    GRAPHIC
 * 

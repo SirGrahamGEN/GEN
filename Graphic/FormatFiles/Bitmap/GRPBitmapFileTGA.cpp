@@ -72,7 +72,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPBITMAPFILETGAHEADER::GRPBITMAPFILETGAHEADER()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    GRAPHIC
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -85,7 +85,7 @@ GRPBITMAPFILETGAHEADER::GRPBITMAPFILETGAHEADER()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPBITMAPFILETGAHEADER::~GRPBITMAPFILETGAHEADER()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
 *
@@ -207,7 +207,7 @@ bool GRPBITMAPFILETGAHEADER::Load(XBYTE* buffer, XDWORD size, XDWORD& indexbuffe
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPBITMAPFILETGAHEADERINFO* GRPBITMAPFILETGAHEADER::GetHeaderInfo()
-* @brief      Get Header Info
+* @brief      Get header info
 * @ingroup    GRAPHIC
 *
 * @return     GRPBITMAPFILETGAHEADERINFO* :
@@ -222,7 +222,7 @@ GRPBITMAPFILETGAHEADERINFO* GRPBITMAPFILETGAHEADER::GetHeaderInfo()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int GRPBITMAPFILETGAHEADER::GetWidth()
-* @brief      Get Width
+* @brief      Get width
 * @ingroup    GRAPHIC
 *
 * @return     int : Width of TGA
@@ -237,7 +237,7 @@ int GRPBITMAPFILETGAHEADER::GetWidth()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int GRPBITMAPFILETGAHEADER::GetHeight()
-* @brief      GetHeight
+* @brief      Get height
 * @ingroup    GRAPHIC
 *
 * @return     int : Height if TGA
@@ -252,7 +252,7 @@ int GRPBITMAPFILETGAHEADER::GetHeight()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int GRPBITMAPFILETGAHEADER::GetBitsPerPixel()
-* @brief      Get Bits Per Pixel
+* @brief      Get bits per pixel
 * @ingroup    GRAPHIC
 *
 * @return     int : Bits per pixel
@@ -267,7 +267,7 @@ int GRPBITMAPFILETGAHEADER::GetBitsPerPixel()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int GRPBITMAPFILETGAHEADER::GetOffsetData()
-* @brief      Get Offset Data
+* @brief      Get offset data
 * @ingroup    GRAPHIC
 *
 * @return     int : Offset data
@@ -282,7 +282,7 @@ int GRPBITMAPFILETGAHEADER::GetOffsetData()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPPROPERTYMODE GRPBITMAPFILETGAHEADER::GetMode()
-* @brief      Get Mode
+* @brief      Get mode
 * @ingroup    GRAPHIC
 *
 * @return     GRPPROPERTYMODE : property mode
@@ -297,7 +297,7 @@ GRPPROPERTYMODE GRPBITMAPFILETGAHEADER::GetMode()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPBITMAPFILETGATYPE GRPBITMAPFILETGAHEADER::GetType()
-* @brief      Get Type
+* @brief      Get type
 * @ingroup    GRAPHIC
 *
 * @return     GRPBITMAPFILETGATYPE : type of TGA
@@ -312,7 +312,7 @@ GRPBITMAPFILETGATYPE GRPBITMAPFILETGAHEADER::GetType()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void GRPBITMAPFILETGAHEADER::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    GRAPHIC
 *
@@ -336,7 +336,7 @@ void GRPBITMAPFILETGAHEADER::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPBITMAPFILETGA::GRPBITMAPFILETGA()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    GRAPHIC
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -349,7 +349,7 @@ GRPBITMAPFILETGA::GRPBITMAPFILETGA(): GRPBITMAPFILEBASE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPBITMAPFILETGA::~GRPBITMAPFILETGA()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
 *
@@ -363,7 +363,7 @@ GRPBITMAPFILETGA::~GRPBITMAPFILETGA()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPBITMAP* GRPBITMAPFILETGA::CreateBitmapFromFile(XPATH& xpath, GRPPROPERTYMODE forcemode)
-* @brief      CreateBitmapFromFile
+* @brief      Create bitmap from file
 * @ingroup    GRAPHIC
 *
 * @param[in]  xpath :
@@ -511,7 +511,7 @@ GRPBITMAP* GRPBITMAPFILETGA::CreateBitmapFromFile(XPATH& xpath, GRPPROPERTYMODE 
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPBITMAP* GRPBITMAPFILETGA::CreateBitmapFromBuffer(XBYTE* buffer, XDWORD size, GRPPROPERTYMODE forcemode)
-* @brief      CreateBitmapFromBuffer
+* @brief      Create bitmap from buffer
 * @ingroup    GRAPHIC
 *
 * @param[in]  buffer :
@@ -661,7 +661,7 @@ GRPBITMAP* GRPBITMAPFILETGA::CreateBitmapFromBuffer(XBYTE* buffer, XDWORD size, 
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPBITMAPFILETGA::CreateFileFromBitmap(XPATH& xpath, GRPBITMAP* bitmap, int quality)
-* @brief      CreateFileFromBitmap
+* @brief      Create file from bitmap
 * @ingroup    GRAPHIC
 *
 * @param[in]  xpath :
@@ -738,7 +738,7 @@ bool GRPBITMAPFILETGA::CreateFileFromBitmap(XPATH& xpath, GRPBITMAP* bitmap, int
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPBITMAPFILETGA::ReadHeaderFile(GRPBITMAPFILETGAHEADER* header)
-* @brief      ReadHeaderFile
+* @brief      Read header file
 * @ingroup    GRAPHIC
 *
 * @param[in]  header :
@@ -760,7 +760,7 @@ bool GRPBITMAPFILETGA::ReadHeaderFile(GRPBITMAPFILETGAHEADER* header)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPBITMAPFILEBMP::ReadHeaderBuffer(XBYTE* buffer, XDWORD size, GRPBITMAPFILEBMPHEADER* header)
-* @brief      ReadHeaderBuffer
+* @brief      Read header buffer
 * @ingroup    GRAPHIC
 *
 * @param[in]  buffer :
@@ -781,7 +781,7 @@ bool GRPBITMAPFILETGA::ReadHeaderBuffer(XBYTE* buffer, XDWORD size, GRPBITMAPFIL
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPBITMAPFILETGA::CreateColor(GRPPROPERTYMODE mode, XBYTE* databuffer, GRP2DCOLOR_RGBA8& color)
-* @brief      CreateColor
+* @brief      Create color
 * @ingroup    GRAPHIC
 *
 * @param[in]  mode : mode of color
@@ -824,7 +824,7 @@ bool GRPBITMAPFILETGA::CreateColor(GRPPROPERTYMODE mode, XBYTE* databuffer, GRP2
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void GRPBITMAPFILETGA::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    GRAPHIC
 *

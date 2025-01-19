@@ -66,7 +66,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         SNDNOTE::SNDNOTE()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    SOUND
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -79,7 +79,7 @@ SNDNOTE::SNDNOTE()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         SNDNOTE::~SNDNOTE()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    SOUND
 * 
@@ -93,7 +93,7 @@ SNDNOTE::~SNDNOTE()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD SNDNOTE::GetFrequency()
-* @brief      GetFrequency
+* @brief      Get frequency
 * @ingroup    SOUND
 * 
 * @return     XDWORD : 
@@ -108,7 +108,7 @@ XDWORD SNDNOTE::GetFrequency()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool SNDNOTE::SetFrequency(XDWORD frequency)
-* @brief      SetFrequency
+* @brief      Set frequency
 * @ingroup    SOUND
 * 
 * @param[in]  frequency : 
@@ -127,7 +127,7 @@ bool SNDNOTE::SetFrequency(XDWORD frequency)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD SNDNOTE::GetDuration()
-* @brief      GetDuration
+* @brief      Get duration
 * @ingroup    SOUND
 * 
 * @return     XDWORD : 
@@ -142,7 +142,7 @@ XDWORD SNDNOTE::GetDuration()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD SNDNOTE::SetDuration(XDWORD duration)
-* @brief      SetDuration
+* @brief      Set duration
 * @ingroup    SOUND
 * 
 * @param[in]  duration : 
@@ -161,7 +161,7 @@ XDWORD SNDNOTE::SetDuration(XDWORD duration)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void SNDNOTE::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    SOUND
 * 

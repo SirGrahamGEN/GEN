@@ -74,7 +74,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOSTREAMSPI::DIOSTREAMSPI()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -117,7 +117,7 @@ DIOSTREAMSPI::DIOSTREAMSPI() : DIOSTREAM(), XFSMACHINE(0)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOSTREAMSPI::~DIOSTREAMSPI()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -136,7 +136,7 @@ DIOSTREAMSPI::~DIOSTREAMSPI()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOSTREAMCONFIG* DIOSTREAMSPI::GetConfig()
-* @brief      GetConfig
+* @brief      Get config
 * @ingroup    DATAIO
 *
 * @return     DIOSTREAMCONFIG* : 
@@ -151,7 +151,7 @@ DIOSTREAMCONFIG* DIOSTREAMSPI::GetConfig()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOSTREAMSPI::SetConfig(DIOSTREAMCONFIG* config)
-* @brief      SetConfig
+* @brief      Set config
 * @ingroup    DATAIO
 *
 * @param[in]  config : 
@@ -268,7 +268,7 @@ bool DIOSTREAMSPI::Close()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOSTREAMSPI::TransferBuffer(XBYTE* bufferread, XBYTE* bufferwrite, XDWORD size)
-* @brief      TransferBuffer
+* @brief      Transfer buffer
 * @ingroup    DATAIO
 *
 * @param[in]  bufferread : 
@@ -352,7 +352,7 @@ void DIOSTREAMSPI::Sleep(int count)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOSTREAMSPI::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *
@@ -383,7 +383,7 @@ void DIOSTREAMSPI::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOSTREAMSPI::TransferOneData(XWORD writedata,XWORD& readdata)
-* @brief      TransferOneData
+* @brief      Transfer one data
 * @ingroup    DATAIO
 *
 * @param[in]  writedata : 
@@ -444,7 +444,7 @@ bool DIOSTREAMSPI::TransferOneData(XWORD writedata,XWORD& readdata)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOSTREAMSPI::ThreadConnection(void* data)
-* @brief      ThreadConnection
+* @brief      Thread connection
 * @ingroup    DATAIO
 *
 * @param[in]  data : 

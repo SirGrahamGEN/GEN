@@ -69,7 +69,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOMODBUS_CLIENT::DIOMODBUS_CLIENT(DIOSTREAM* diostream, DIOMODBUS_CLIENTMODE mode)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * @param[in]  diostream :
@@ -90,7 +90,7 @@ DIOMODBUS_CLIENT::DIOMODBUS_CLIENT(DIOSTREAM* diostream, DIOMODBUS_CLIENTMODE mo
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOMODBUS_CLIENT::~DIOMODBUS_CLIENT()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -108,7 +108,7 @@ DIOMODBUS_CLIENT::~DIOMODBUS_CLIENT()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAM* DIOMODBUS_CLIENT::GetDIOStream()
-* @brief      GetDIOStream
+* @brief      Get DIO stream
 * @ingroup    DATAIO
 *
 * @return     DIOSTREAM* :
@@ -123,7 +123,7 @@ DIOSTREAM* DIOMODBUS_CLIENT::GetDIOStream()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOMODBUS_CLIENTMODE DIOMODBUS_CLIENT::GetMode()
-* @brief      GetMode
+* @brief      Get mode
 * @ingroup    DATAIO
 *
 * @return     DIOMODBUS_CLIENTMODE :
@@ -138,7 +138,7 @@ DIOMODBUS_CLIENTMODE DIOMODBUS_CLIENT::GetMode()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOMODBUS_CLIENT::SetMode(DIOMODBUS_CLIENTMODE mode)
-* @brief      SetMode
+* @brief      Set mode
 * @ingroup    DATAIO
 *
 * @param[in]  mode :
@@ -182,7 +182,7 @@ bool DIOMODBUS_CLIENT::Connect(XBYTE unit, int timeout)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XBYTE DIOMODBUS_CLIENT::GetUnit()
-* @brief      GetUnit
+* @brief      Get unit
 * @ingroup    DATAIO
 *
 * @return     XBYTE :
@@ -197,7 +197,7 @@ XBYTE DIOMODBUS_CLIENT::GetUnit()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOMODBUS_CLIENT::SetUnit(XBYTE unit)
-* @brief      SetUnit
+* @brief      Set unit
 * @ingroup    DATAIO
 *
 * @param[in]  unit :
@@ -212,7 +212,7 @@ void DIOMODBUS_CLIENT::SetUnit(XBYTE unit)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOMODBUS_CLIENT::ReadHoldingRegisters(XWORD address, XWORD nregisters, XBUFFER& answer, int timeout)
-* @brief      ReadHoldingRegisters
+* @brief      Read holding registers
 * @ingroup    DATAIO
 *
 * @param[in]  address :
@@ -289,7 +289,7 @@ bool DIOMODBUS_CLIENT::ReadHoldingRegisters(XWORD address, XWORD nregisters, XBU
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOMODBUS_CLIENT::ReadInputRegisters(XWORD address, XWORD nregisters, XBUFFER& answer, int timeout)
-* @brief      ReadInputRegisters
+* @brief      Read input registers
 * @ingroup    DATAIO
 *
 * @param[in]  address :
@@ -341,7 +341,7 @@ bool DIOMODBUS_CLIENT::ReadInputRegisters(XWORD address, XWORD nregisters, XMAP<
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOMODBUS_CLIENT::WriteSingleRegister(XWORD address, XBUFFER& value, int timeout)
-* @brief      WriteSingleRegister
+* @brief      Write single register
 * @ingroup    DATAIO
 *
 * @param[in]  address :
@@ -403,7 +403,7 @@ bool DIOMODBUS_CLIENT::Disconnect()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOMODBUS_CLIENT::MakeCommand(DIOMODBUS_CLIENT_FUNCTION function, XBUFFER& ask, XBUFFER& answer, int timeout)
-* @brief      MakeCommand
+* @brief      Make command
 * @ingroup    DATAIO
 *
 * @param[in]  function :
@@ -535,7 +535,7 @@ XWORD DIOMODBUS_CLIENT::CRC16(XBUFFER& data)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOMODBUS_CLIENT::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

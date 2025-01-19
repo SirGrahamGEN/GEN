@@ -77,7 +77,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         APPFLOWWEBSERVER::APPFLOWWEBSERVER()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    APPFLOW
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -92,7 +92,7 @@ APPFLOWWEBSERVER::APPFLOWWEBSERVER()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         APPFLOWWEBSERVER::~APPFLOWWEBSERVER()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    APPFLOW
 *
@@ -203,7 +203,7 @@ bool APPFLOWWEBSERVER::Ini(XDWORD port, bool doinitialconnectitivitytest, int ti
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOWEBSERVER* APPFLOWWEBSERVER::GetWebServer()
-* @brief      GetWebServer
+* @brief      Get web server
 * @ingroup    APPFLOW
 *
 * @return     DIOWEBSERVER* :
@@ -218,7 +218,7 @@ DIOWEBSERVER* APPFLOWWEBSERVER::GetWebServer()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool APPFLOWWEBSERVER::GetIsAuthenticatedAccess()
-* @brief      GetIsAuthenticatedAccess
+* @brief      Get is authenticated access
 * @ingroup    APPFLOW
 *
 * @return     bool : true if is succesful.
@@ -233,7 +233,7 @@ bool APPFLOWWEBSERVER::GetIsAuthenticatedAccess()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool APPFLOWWEBSERVER::GetIsApiRestOnly()
-* @brief      GetIsApiRestOnly
+* @brief      Get is api rest only
 * @ingroup    APPFLOW
 *
 * @return     bool : true if is succesful.
@@ -248,7 +248,7 @@ bool APPFLOWWEBSERVER::GetIsApiRestOnly()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool APPFLOWWEBSERVER::SendRequest(DIOWEBSERVER_CONNECTION* connection, DIOWEBHEADER_RESULT headerresult, XBUFFER* data, int timeout, XSTRING* addhead)
-* @brief      SendRequest
+* @brief      Send request
 * @ingroup    APPFLOW
 * 
 * @param[in]  connection : 
@@ -308,7 +308,7 @@ bool APPFLOWWEBSERVER::SendRequest(DIOWEBSERVER_CONNECTION* connection, DIOWEBHE
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool APPFLOWWEBSERVER::SendRequest(DIOWEBSERVER_CONNECTION* connection, DIOWEBHEADER_RESULT headerresult, XSTRING& data, int timeout, XSTRING* addhead)
-* @brief      SendRequest
+* @brief      Send request
 * @ingroup    APPFLOW
 * 
 * @param[in]  connection : 
@@ -341,7 +341,7 @@ bool APPFLOWWEBSERVER::SendRequest(DIOWEBSERVER_CONNECTION* connection, DIOWEBHE
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool APPFLOWWEBSERVER::SendRequest(DIOWEBSERVER_CONNECTION* connection, DIOWEBHEADER_RESULT headerresult, XPATH& xpathfile, int timeout, XSTRING* addhead)
-* @brief      SendRequest
+* @brief      Send request
 * @ingroup    APPFLOW
 * 
 * @param[in]  connection : 
@@ -384,7 +384,7 @@ bool APPFLOWWEBSERVER::SendRequest(DIOWEBSERVER_CONNECTION* connection, DIOWEBHE
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool APPFLOWWEBSERVER::ResolveRequest(DIOWEBSERVER* server, DIOWEBSERVER_CONNECTION* connection, DIOWEBSERVER_REQUEST* request)
-* @brief      ResolveRequest
+* @brief      Resolve request
 * @ingroup    APPFLOW
 * 
 * @param[in]  server : 
@@ -678,7 +678,7 @@ bool APPFLOWWEBSERVER::ResolveRequest(DIOWEBSERVER* server, DIOWEBSERVER_CONNECT
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool APPFLOWWEBSERVER::GenerateMessagePage(XCHAR* leyend, DIOWEBPAGEHTMLCREATOR& webHTMLpage)
-* @brief      GenerateMessagePage
+* @brief      Generate message page
 * @ingroup    APPFLOW
 *
 * @param[in]  leyend :
@@ -700,7 +700,7 @@ bool APPFLOWWEBSERVER::GenerateMessagePage(XCHAR* leyend, DIOWEBPAGEHTMLCREATOR&
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool APPFLOWWEBSERVER::GenerateMessagePage(XSTRING& leyend, DIOWEBPAGEHTMLCREATOR& webHTMLpage)
-* @brief      GenerateMessagePage
+* @brief      Generate message page
 * @ingroup    APPFLOW
 *
 * @param[in]  leyend :
@@ -718,7 +718,7 @@ bool APPFLOWWEBSERVER::GenerateMessagePage(XSTRING& leyend, DIOWEBPAGEHTMLCREATO
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool APPFLOWWEBSERVER::GenerateResponse_Error(DIOWEBSERVER_CONNECTION* connection, DIOWEBHEADER_RESULT result, XCHAR* leyend)
-* @brief      GenerateResponse_Error
+* @brief      Generate response error
 * @ingroup    APPFLOW
 *
 * @param[in]  connection :
@@ -748,7 +748,7 @@ bool APPFLOWWEBSERVER::GenerateResponse_Error(DIOWEBSERVER_CONNECTION* connectio
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool APPFLOWWEBSERVER::GenerateResponse_Error(DIOWEBSERVER_CONNECTION* connection, DIOWEBHEADER_RESULT result, XSTRING& leyend)
-* @brief      GenerateResponse_Error
+* @brief      Generate response error
 * @ingroup    APPFLOW
 *
 * @param[in]  connection :
@@ -828,7 +828,7 @@ bool APPFLOWWEBSERVER::End()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void APPFLOWWEBSERVER::HandleEvent_WebServer(DIOWEBSERVER_XEVENT* event)
-* @brief      Handle Event for the observer manager of this class
+* @brief      Handle event web server
 * @note       INTERNAL
 * @ingroup    APPFLOW
 *
@@ -862,7 +862,7 @@ void APPFLOWWEBSERVER::HandleEvent_WebServer(DIOWEBSERVER_XEVENT* event)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void APPFLOWWEBSERVER::HandleEvent(XEVENT* xevent)
-* @brief      Handle Event for the observer manager of this class
+* @brief      Handle event
 * @note       INTERNAL
 * @ingroup    APPFLOW
 *
@@ -888,7 +888,7 @@ void APPFLOWWEBSERVER::HandleEvent(XEVENT* xevent)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void APPFLOWWEBSERVER::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    APPFLOW
 *

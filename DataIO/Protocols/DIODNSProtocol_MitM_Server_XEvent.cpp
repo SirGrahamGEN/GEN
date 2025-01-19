@@ -64,7 +64,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIODNSPROTOCOL_MITM_SERVER_XEVENT::DIODNSPROTOCOL_MITM_SERVER_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family): XEVENT(subject, type, family)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 * 
 * @param[in]  subject : 
@@ -81,7 +81,7 @@ DIODNSPROTOCOL_MITM_SERVER_XEVENT::DIODNSPROTOCOL_MITM_SERVER_XEVENT(XSUBJECT* s
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIODNSPROTOCOL_MITM_SERVER_XEVENT::~DIODNSPROTOCOL_MITM_SERVER_XEVENT()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 * 
@@ -95,7 +95,7 @@ DIODNSPROTOCOL_MITM_SERVER_XEVENT::~DIODNSPROTOCOL_MITM_SERVER_XEVENT()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOIP* DIODNSPROTOCOL_MITM_SERVER_XEVENT::GetOriginIP()
-* @brief      GetOriginIP
+* @brief      Get origin IP
 * @ingroup    DATAIO
 * 
 * @return     DIOIP* : 
@@ -110,7 +110,7 @@ DIOIP* DIODNSPROTOCOL_MITM_SERVER_XEVENT::GetOriginIP()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOURL* DIODNSPROTOCOL_MITM_SERVER_XEVENT::GetAskedURL()
-* @brief      GetAskedURL
+* @brief      Get asked URL
 * @ingroup    DATAIO
 * 
 * @return     DIOURL* : 
@@ -125,7 +125,7 @@ DIOURL* DIODNSPROTOCOL_MITM_SERVER_XEVENT::GetAskedURL()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBUFFER* DIODNSPROTOCOL_MITM_SERVER_XEVENT::GetAskedBuffer()
-* @brief      GetAskedBuffer
+* @brief      Get asked buffer
 * @ingroup    DATAIO
 * 
 * @return     XBUFFER* : 
@@ -140,7 +140,7 @@ XBUFFER* DIODNSPROTOCOL_MITM_SERVER_XEVENT::GetAskedBuffer()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBUFFER* DIODNSPROTOCOL_MITM_SERVER_XEVENT::GetAnsweredBuffer()
-* @brief      GetAnsweredBuffer
+* @brief      Get answered buffer
 * @ingroup    DATAIO
 * 
 * @return     XBUFFER* : 
@@ -155,7 +155,7 @@ XBUFFER* DIODNSPROTOCOL_MITM_SERVER_XEVENT::GetAnsweredBuffer()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOIP* DIODNSPROTOCOL_MITM_SERVER_XEVENT::GetAnsweredIP()
-* @brief      GetAnsweredIP
+* @brief      Get answered IP
 * @ingroup    DATAIO
 * 
 * @return     DIOIP* : 
@@ -170,7 +170,7 @@ DIOIP* DIODNSPROTOCOL_MITM_SERVER_XEVENT::GetAnsweredIP()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIODNSPROTOCOL_MITM_SERVER_XEVENT::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 * 

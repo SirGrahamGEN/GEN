@@ -73,7 +73,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVECTORFILE::GRPVECTORFILE()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    GRAPHIC
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -88,7 +88,7 @@ GRPVECTORFILE::GRPVECTORFILE()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVECTORFILE::~GRPVECTORFILE()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
 * 
@@ -115,7 +115,7 @@ GRPVECTORFILE::~GRPVECTORFILE()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XPATH* GRPVECTORFILE::GetPathFile()
-* @brief      GetPathFile
+* @brief      Get path file
 * @ingroup    GRAPHIC
 * 
 * @return     XPATH* : 
@@ -130,7 +130,7 @@ XPATH* GRPVECTORFILE::GetPathFile()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVECTORFILETYPE GRPVECTORFILE::GetType()
-* @brief      GetType
+* @brief      Get type
 * @ingroup    GRAPHIC
 * 
 * @return     GRPVECTORFILETYPE : 
@@ -145,7 +145,7 @@ GRPVECTORFILETYPE GRPVECTORFILE::GetType()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRPVECTORFILE::SetType(GRPVECTORFILETYPE type)
-* @brief      SetType
+* @brief      Set type
 * @ingroup    GRAPHIC
 * 
 * @param[in]  type : 
@@ -160,7 +160,7 @@ void GRPVECTORFILE::SetType(GRPVECTORFILETYPE type)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVECTORFILE* GRPVECTORFILE::CreateInstance(XPATH& pathfile)
-* @brief      CreateInstance
+* @brief      Create instance
 * @ingroup    GRAPHIC
 * 
 * @param[in]  pathfile : 
@@ -205,7 +205,7 @@ GRPVECTORFILE* GRPVECTORFILE::CreateInstance(XPATH& pathfile)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVECTORFILE* GRPVECTORFILE::CreateInstance(GRPVECTORFILETYPE type)
-* @brief      CreateInstance
+* @brief      Create instance
 * @ingroup    GRAPHIC
 * 
 * @param[in]  type : 
@@ -240,7 +240,7 @@ GRPVECTORFILE* GRPVECTORFILE::CreateInstance(GRPVECTORFILETYPE type)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XCHAR* GRPVECTORFILE::GetTypeText(GRPVECTORFILETYPE type)
-* @brief      GetTypeText
+* @brief      Get type text
 * @ingroup    GRAPHIC
 * 
 * @param[in]  type : 
@@ -271,7 +271,7 @@ XCHAR* GRPVECTORFILE::GetTypeText(GRPVECTORFILETYPE type)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVECTORFILERESULT GRPVECTORFILE::DetectType()
-* @brief      DetectType
+* @brief      Detect type
 * @ingroup    GRAPHIC
 * 
 * @return     GRPVECTORFILERESULT : 
@@ -316,7 +316,7 @@ GRPVECTORFILERESULT GRPVECTORFILE::Load()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVECTORFILECONFIG* GRPVECTORFILE::GetConfig()
-* @brief      GetConfig
+* @brief      Get config
 * @ingroup    GRAPHIC
 * 
 * @return     GRPVECTORFILECONFIG* : 
@@ -331,7 +331,7 @@ GRPVECTORFILECONFIG* GRPVECTORFILE::GetConfig()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPVECTORFILE::DetectFileFormatText(XPATH& pathfile)
-* @brief      DetectFileFormatText
+* @brief      Detect file format text
 * @ingroup    GRAPHIC
 * 
 * @param[in]  pathfile : 
@@ -401,7 +401,7 @@ bool GRPVECTORFILE::DetectFileFormatText(XPATH& pathfile)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPVECTORFILE::IsConversionFile()
-* @brief      IsConversionFile
+* @brief      Is conversion file
 * @ingroup    GRAPHIC
 * 
 * @return     bool : true if is succesful. 
@@ -416,7 +416,7 @@ bool GRPVECTORFILE::IsConversionFile()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRPVECTORFILE::SetIsConversionFile(bool isconversionfile)
-* @brief      SetIsConversionFile
+* @brief      Set is conversion file
 * @ingroup    GRAPHIC
 * 
 * @param[in]  isconversionfile : 
@@ -431,7 +431,7 @@ void GRPVECTORFILE::SetIsConversionFile(bool isconversionfile)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPVECTORFILE::DetectFile(XPATH& pathfile)
-* @brief      DetectFile
+* @brief      Detect file
 * @ingroup    GRAPHIC
 * 
 * @param[in]  pathfile : 
@@ -458,7 +458,7 @@ bool GRPVECTORFILE::DetectFile(XPATH& pathfile)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRPVECTORFILE::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    GRAPHIC
 * 

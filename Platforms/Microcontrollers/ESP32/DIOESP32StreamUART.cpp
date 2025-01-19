@@ -55,7 +55,7 @@ DIOESP32STREAMUART*   diostreamuartptrhandle[DIOESP32STREAMIUART_MAXHANDLES] = {
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOESP32STREAMUART::DIOESP32STREAMUART()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_ESP32
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -91,7 +91,7 @@ DIOESP32STREAMUART::DIOESP32STREAMUART() : DIOSTREAMUART(), XFSMACHINE(0)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOESP32STREAMUART::~DIOESP32STREAMUART()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_ESP32
 *
@@ -110,7 +110,7 @@ DIOESP32STREAMUART::~DIOESP32STREAMUART()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMSTATUS DIOESP32STREAMUART::GetStatus()
-* @brief      GetStatus
+* @brief      Get status
 * @ingroup    PLATFORM_ESP32
 *
 * @return     DIOSTREAMSTATUS :
@@ -294,7 +294,7 @@ bool DIOESP32STREAMUART::Config(XWORD mask)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD DIOESP32STREAMUART::ReadDirect(XBYTE* buffer, XDWORD size)
-* @brief      ReadDirect
+* @brief      Read direct
 * @ingroup    PLATFORM_ESP32
 *
 * @param[in]  buffer :
@@ -322,7 +322,7 @@ XDWORD DIOESP32STREAMUART::ReadDirect(XBYTE* buffer, XDWORD size)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD DIOESP32STREAMUART::WriteDirect(XBYTE* buffer, XDWORD size)
-* @brief      WriteDirect
+* @brief      Write direct
 * @ingroup    PLATFORM_ESP32
 *
 * @param[in]  buffer :
@@ -418,7 +418,7 @@ bool DIOESP32STREAMUART::Close()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOESP32STREAMUART::GetCTS()
-* @brief      GetCTS
+* @brief      Get CTS
 * @ingroup    PLATFORM_ESP32
 *
 * @return     bool : true if is succesful.
@@ -434,7 +434,7 @@ bool DIOESP32STREAMUART::GetCTS()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOESP32STREAMUART::GetDSR()
-* @brief      GetDSR
+* @brief      Get DSR
 * @ingroup    PLATFORM_ESP32
 *
 * @return     bool : true if is succesful.
@@ -450,7 +450,7 @@ bool DIOESP32STREAMUART::GetDSR()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOESP32STREAMUART::GetRing()
-* @brief      GetRing
+* @brief      Get ring
 * @ingroup    PLATFORM_ESP32
 *
 * @return     bool : true if is succesful.
@@ -466,7 +466,7 @@ bool DIOESP32STREAMUART::GetRing()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOESP32STREAMUART::GetRLSD()
-* @brief      GetRLSD
+* @brief      Get RLSD
 * @ingroup    PLATFORM_ESP32
 *
 * @return     bool : true if is succesful.
@@ -482,7 +482,7 @@ bool DIOESP32STREAMUART::GetRLSD()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOESP32STREAMUART::SetRTS(bool on)
-* @brief      SetRTS
+* @brief      Set RTS
 * @ingroup    PLATFORM_ESP32
 *
 * @param[in]  on :
@@ -500,7 +500,7 @@ bool DIOESP32STREAMUART::SetRTS(bool on)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOESP32STREAMUART::SetDTR(bool on)
-* @brief      SetDTR
+* @brief      Set DTR
 * @ingroup    PLATFORM_ESP32
 *
 * @param[in]  on :
@@ -518,7 +518,7 @@ bool DIOESP32STREAMUART::SetDTR(bool on)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOESP32STREAMUART::CleanBuffers()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean buffers
 * @note       INTERNAL
 * @ingroup    PLATFORM_ESP32
 *
@@ -536,7 +536,7 @@ bool DIOESP32STREAMUART::CleanBuffers()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         UART_HandleTypeDef* DIOESP32STREAMUART::GetHuart()
-* @brief      GetHuart
+* @brief      Get huart
 * @ingroup    PLATFORM_ESP32
 *
 * @return     UART_HandleTypeDef* :
@@ -552,7 +552,7 @@ UART_HandleTypeDef* DIOESP32STREAMUART::GetHuart()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOESP32STREAMUART::SetHuart(UART_HandleTypeDef* huart)
-* @brief      SetHuart
+* @brief      Set huart
 * @ingroup    PLATFORM_ESP32
 *
 * @param[in]  huart :
@@ -619,7 +619,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOESP32STREAMUART::ThreadConnection(void* param)
-* @brief      ThreadConnection
+* @brief      Thread connection
 * @ingroup    PLATFORM_ESP32
 *
 * @param[in]  param :
@@ -712,7 +712,7 @@ void DIOESP32STREAMUART::ThreadConnection(void* param)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOESP32STREAMUART::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_ESP32
 *

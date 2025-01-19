@@ -64,7 +64,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XLICENSE_XEVENT::XLICENSE_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * @param[in]  subject :
@@ -81,7 +81,7 @@ XLICENSE_XEVENT::XLICENSE_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family):
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XLICENSE_XEVENT::~XLICENSE_XEVENT()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -125,7 +125,7 @@ void XLICENSE_XEVENT::Set(XLICENSE* xlicense)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XLICENSE_XEVENT::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    XUTILS
 *

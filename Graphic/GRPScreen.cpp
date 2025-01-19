@@ -72,7 +72,7 @@ XMAP<void*, GRPSCREEN*>  GRPSCREEN::listscreens;
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPSCREEN::GRPSCREEN()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    GRAPHIC
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -98,7 +98,7 @@ GRPSCREEN::GRPSCREEN()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPSCREEN::~GRPSCREEN()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
 *
@@ -135,7 +135,7 @@ GRPSCREEN::~GRPSCREEN()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPSCREENTYPE GRPSCREEN::GetType()
-* @brief      Get Screen type
+* @brief      Get type
 * @ingroup    GRAPHIC
 *
 * @return     GRPSCREENTYPE : Screen type
@@ -150,7 +150,7 @@ GRPSCREENTYPE GRPSCREEN::GetType()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPSCREEN::IsValid()
-* @brief      Is valid screen
+* @brief      Is valid
 * @ingroup    GRAPHIC
 *
 * @return     bool : true if is succesful.
@@ -165,7 +165,7 @@ bool GRPSCREEN::IsValid()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPSCREEN::IsActive()
-* @brief      Is screen active
+* @brief      Is active
 * @ingroup    GRAPHIC
 *
 * @return     bool : true if is succesful.
@@ -180,7 +180,7 @@ bool GRPSCREEN::IsActive()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPSCREEN::Style_Is(XDWORD style)
-* @brief      Style_Is
+* @brief      Style is
 * @ingroup    GRAPHIC
 * 
 * @param[in]  style : 
@@ -197,7 +197,7 @@ bool GRPSCREEN::Style_Is(XDWORD style)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRPSCREEN::Style_Add(XDWORD style)
-* @brief      Style_Add
+* @brief      Style add
 * @ingroup    GRAPHIC
 * 
 * @param[in]  style : 
@@ -212,7 +212,7 @@ void GRPSCREEN::Style_Add(XDWORD style)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRPSCREEN::Style_Remove(XDWORD style)
-* @brief      Style_Remove
+* @brief      Style remove
 * @ingroup    GRAPHIC
 * 
 * @param[in]  style : 
@@ -227,7 +227,7 @@ void GRPSCREEN::Style_Remove(XDWORD style)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD GRPSCREEN::Styles_Get()
-* @brief      Styles_Get
+* @brief      Styles get
 * @ingroup    GRAPHIC
 * 
 * @return     XDWORD : 
@@ -242,7 +242,7 @@ XDWORD GRPSCREEN::Styles_Get()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRPSCREEN::Styles_Set(XDWORD styles)
-* @brief      Styles_Set
+* @brief      Styles set
 * @ingroup    GRAPHIC
 * 
 * @param[in]  styles : 
@@ -264,7 +264,7 @@ void GRPSCREEN::Styles_Set(XDWORD styles)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPSCREEN::Styles_IsFullScreen()
-* @brief      Styles_IsFullScreen
+* @brief      Styles is full screen
 * @ingroup    GRAPHIC
 * 
 * @return     bool : true if is succesful. 
@@ -285,7 +285,7 @@ bool GRPSCREEN::Styles_IsFullScreen()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPSCREEN::SetPropertys(int width, int height, float DPIs, int stride, GRPPROPERTYMODE mode)
-* @brief      SetPropertys
+* @brief      Set propertys
 * @ingroup    GRAPHIC
 * 
 * @param[in]  width : 
@@ -315,7 +315,7 @@ bool GRPSCREEN::SetPropertys(int width, int height, float DPIs, int stride, GRPP
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPSCREENROTATION GRPSCREEN::GetRotation()
-* @brief      GetRotation
+* @brief      Get rotation
 * @ingroup    GRAPHIC
 * 
 * @return     GRPSCREENROTATION : 
@@ -330,7 +330,7 @@ GRPSCREENROTATION GRPSCREEN::GetRotation()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRPSCREEN::SetRotation(GRPSCREENROTATION rotation)
-* @brief      SetRotation
+* @brief      Set rotation
 * @ingroup    GRAPHIC
 * 
 * @param[in]  rotation : 
@@ -392,7 +392,7 @@ bool GRPSCREEN::Update(GRPCANVAS* canvas)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPSCREEN::UpdateTransparent(GRPCANVAS* canvas)
-* @brief      UpdateTransparent
+* @brief      Update transparent
 * @ingroup    GRAPHIC
 * 
 * @param[in]  canvas : 
@@ -432,7 +432,7 @@ bool GRPSCREEN::Delete()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPSCREEN::Get_Position(int &x, int &y)
-* @brief      Get_Position
+* @brief      Get position
 * @ingroup    GRAPHIC
 * 
 * @param[in]  &x : 
@@ -450,7 +450,7 @@ bool GRPSCREEN::Get_Position(int &x, int &y)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPSCREEN::Set_Position(int x, int y)
-* @brief      Set_Position
+* @brief      Set position
 * @ingroup    GRAPHIC
 * 
 * @param[in]  x : 
@@ -486,7 +486,7 @@ bool GRPSCREEN::Resize(int width, int height)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPSCREEN::IsShow()
-* @brief      IsShow
+* @brief      Is show
 * @ingroup    GRAPHIC
 *
 * @return     bool : true if is succesful.
@@ -520,7 +520,7 @@ bool GRPSCREEN::Show(bool active)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPSCREEN::ShowCursor(bool active)
-* @brief      ShowCursor
+* @brief      Show cursor
 * @ingroup    GRAPHIC
 *
 * @param[in]  active :
@@ -552,7 +552,7 @@ void* GRPSCREEN::GetHandle()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRPSCREEN::SetHandle(XDWORD handle_window)
-* @brief      SetHandle
+* @brief      Set handle
 * @ingroup    GRAPHIC
 * 
 * @param[in]  handle_window : 
@@ -567,7 +567,7 @@ void GRPSCREEN::SetHandle(void* handle_window)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPSCREEN::Set_Focus()
-* @brief      Set_Focus
+* @brief      Set focus
 * @ingroup    GRAPHIC
 * 
 * @return     bool : true if is succesful. 
@@ -616,7 +616,7 @@ bool GRPSCREEN::Maximize(bool active)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPBITMAP* GRPSCREEN::CaptureContent(GRPRECTINT* rect, void* handle_window)
-* @brief      CaptureContent
+* @brief      Capture content
 * @ingroup    GRAPHIC
 * 
 * @param[in]  rect : 
@@ -634,7 +634,7 @@ GRPBITMAP* GRPSCREEN::CaptureContent(GRPRECTINT* rect, void* handle_window)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void* GRPSCREEN::GetDesktopHandle()
-* @brief      GetDesktopHandle
+* @brief      Get desktop handle
 * @ingroup    GRAPHIC
 * 
 * @return     void* : 
@@ -649,7 +649,7 @@ void* GRPSCREEN::GetDesktopHandle()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void* GRPSCREEN::GetShellHandle()
-* @brief      GetShellHandle
+* @brief      Get shell handle
 * @ingroup    GRAPHIC
 * 
 * @return     void* : 
@@ -664,7 +664,7 @@ void* GRPSCREEN::GetShellHandle()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* GRPSCREEN::GetTitle()
-* @brief      GetTitle
+* @brief      Get title
 * @ingroup    GRAPHIC
 * 
 * @return     XSTRING* : 
@@ -734,7 +734,7 @@ GRPVIEWPORT* GRPSCREEN::GetViewport(int index)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVIEWPORT* GRPSCREEN::GetViewport(XCHAR* ID)
-* @brief      GetViewport
+* @brief      Get viewport
 * @ingroup    GRAPHIC
 *
 * @param[in]  ID : 
@@ -760,7 +760,7 @@ GRPVIEWPORT* GRPSCREEN::GetViewport(XCHAR* ID)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPSCREEN::CreateViewport(XCHAR* ID, float posx, float posy, float width, float height, XDWORD canvasposx, XDWORD canvasposy, XDWORD canvaswidth, XDWORD canvasheight)
-* @brief      CreateViewport
+* @brief      Create viewport
 * @ingroup    GRAPHIC
 *
 * @param[in]  ID :
@@ -848,7 +848,7 @@ bool GRPSCREEN::UpdateViewports()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPSCREEN::DeleteViewport(GRPVIEWPORT* viewport)
-* @brief      DeleteViewport
+* @brief      Delete viewport
 * @ingroup    GRAPHIC
 *
 * @param[in]  viewport :
@@ -869,7 +869,7 @@ bool GRPSCREEN::DeleteViewport(GRPVIEWPORT* viewport)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPSCREEN::DeleteAllViewports()
-* @brief      DeleteAllViewports
+* @brief      Delete all viewports
 * @ingroup    GRAPHIC
 *
 * @return     bool : true if is succesful.
@@ -889,7 +889,7 @@ bool GRPSCREEN::DeleteAllViewports()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPFRAMERATE* GRPSCREEN::GetFrameRate()
-* @brief      GetFrameRate
+* @brief      Get frame rate
 * @ingroup    GRAPHIC
 *
 * @return     GRPFRAMERATE* : 
@@ -904,7 +904,7 @@ GRPFRAMERATE* GRPSCREEN::GetFrameRate()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPDESKTOPMANAGER* GRPSCREEN::GetDesktopManager()
-* @brief      GetDesktopManager
+* @brief      Get desktop manager
 * @ingroup    GRAPHIC
 * 
 * @return     GRPDESKTOPMANAGER* : 
@@ -919,7 +919,7 @@ GRPDESKTOPMANAGER* GRPSCREEN::GetDesktopManager()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPSCREENTYPE_DESKTOP GRPSCREEN::GetDesktopScreenSelected()
-* @brief      GetDesktopScreenSelected
+* @brief      Get desktop screen selected
 * @ingroup    GRAPHIC
 * 
 * @return     GRPSCREENTYPE_DESKTOP : 
@@ -934,7 +934,7 @@ GRPSCREENTYPE_DESKTOP GRPSCREEN::GetDesktopScreenSelected()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRPSCREEN::SetDesktopScreenSelected(GRPSCREENTYPE_DESKTOP desktopscreenselected)
-* @brief      SetDesktopScreenSelected
+* @brief      Set desktop screen selected
 * @ingroup    GRAPHIC
 * 
 * @param[in]  desktopscreenselected : 
@@ -949,7 +949,7 @@ void GRPSCREEN::SetDesktopScreenSelected(GRPSCREENTYPE_DESKTOP desktopscreensele
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XMAP<void*, GRPSCREEN*>* GRPSCREEN::GetListScreens()
-* @brief      GetListScreens
+* @brief      Get list screens
 * @ingroup    GRAPHIC
 * 
 * @return     XMAP<void*, : 
@@ -964,7 +964,7 @@ XMAP<void*, GRPSCREEN*>* GRPSCREEN::GetListScreens()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPCANVAS* GRPSCREEN::GetScreenCanvas()
-* @brief      GetScreenCanvas
+* @brief      Get screen canvas
 * @ingroup    GRAPHIC
 * 
 * @return     GRPCANVAS* : 
@@ -979,7 +979,7 @@ GRPCANVAS* GRPSCREEN::GetScreenCanvas()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPSCREEN::SetScreenCanvas(GRPCANVAS* screencanvas)
-* @brief      SetScreenCanvas
+* @brief      Set screen canvas
 * @ingroup    GRAPHIC
 * 
 * @param[in]  screencanvas : 
@@ -1054,7 +1054,7 @@ bool GRPSCREEN::Rotate(XBYTE* target, GRPCANVAS* screencanvas)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void GRPSCREEN::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    GRAPHIC
 *

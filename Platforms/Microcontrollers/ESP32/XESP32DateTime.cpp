@@ -64,7 +64,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XESP32DATETIME::XESP32DATETIME()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_ESP32
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -77,7 +77,7 @@ XESP32DATETIME::XESP32DATETIME()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XESP32DATETIME::~XESP32DATETIME()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_ESP32
 *
@@ -125,7 +125,7 @@ bool XESP32DATETIME::Write()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XESP32DATETIME::GetMeridianDifference()
-* @brief      GetMeridianDifference
+* @brief      Get meridian difference
 * @ingroup    PLATFORM_ESP32
 *
 * @return     int :
@@ -140,7 +140,7 @@ int XESP32DATETIME::GetMeridianDifference()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XESP32DATETIME::IsDayLigthSavingTime(int* bias)
-* @brief      IsDayLigthSavingTime
+* @brief      Is day ligth saving time
 * @ingroup    PLATFORM_ESP32
 *
 * @param[in]  bias :

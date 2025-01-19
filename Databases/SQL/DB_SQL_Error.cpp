@@ -4,7 +4,7 @@
 * 
 * @class      DB_SQL_ERROR
 * @brief      DataBase SQL Error class
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 * 
 * @copyright  GEN Group. All rights reserved.
 * 
@@ -67,8 +67,8 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DB_SQL_ERROR::DB_SQL_ERROR()
-* @brief      Constructor
-* @ingroup    DATABASES
+* @brief      Constructor of class
+* @ingroup    DATABASE
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DB_SQL_ERROR::DB_SQL_ERROR()
@@ -80,8 +80,8 @@ DB_SQL_ERROR::DB_SQL_ERROR()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DB_SQL_ERROR::DB_SQL_ERROR(DB_SQL_ERROR_TYPE type)
-* @brief      Constructor
-* @ingroup    DATABASES
+* @brief      Constructor of class
+* @ingroup    DATABASE
 *
 * @param[in]  DB_SQL_ERROR_TYPE :
 *
@@ -95,9 +95,9 @@ DB_SQL_ERROR::DB_SQL_ERROR(DB_SQL_ERROR_TYPE type)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DB_SQL_ERROR::~DB_SQL_ERROR()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DB_SQL_ERROR::~DB_SQL_ERROR()
@@ -109,9 +109,9 @@ DB_SQL_ERROR::~DB_SQL_ERROR()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DB_SQL_ERROR::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DB_SQL_ERROR::Clean()

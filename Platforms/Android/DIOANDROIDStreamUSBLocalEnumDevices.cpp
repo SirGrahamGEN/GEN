@@ -78,7 +78,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOANDROIDSTREAMUSBLOCALENUMDEVICES::DIOANDROIDSTREAMUSBLOCALENUMDEVICES()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_ANDROID
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -91,7 +91,7 @@ DIOANDROIDSTREAMUSBLOCALENUMDEVICES::DIOANDROIDSTREAMUSBLOCALENUMDEVICES() : DIO
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOANDROIDSTREAMUSBLOCALENUMDEVICES::~DIOANDROIDSTREAMUSBLOCALENUMDEVICES()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_ANDROID
 * 
@@ -228,7 +228,7 @@ bool DIOANDROIDSTREAMUSBLOCALENUMDEVICES::Search()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOANDROIDSTREAMUSBLOCALENUMDEVICES::IsDeviceAvailable(XCHAR* resource)
-* @brief      IsDeviceAvailable
+* @brief      Is device available
 * @ingroup    PLATFORM_ANDROID
 * 
 * @param[in]  resource : 
@@ -246,7 +246,7 @@ bool DIOANDROIDSTREAMUSBLOCALENUMDEVICES::IsDeviceAvailable(XCHAR* resource)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOANDROIDSTREAMUSBLOCALENUMDEVICES::SearchAndDeleteEqualDevices()
-* @brief      SearchAndDeleteEqualDevices
+* @brief      Search and delete equal devices
 * @ingroup    PLATFORM_ANDROID
 * 
 * @return     bool : true if is succesful. 

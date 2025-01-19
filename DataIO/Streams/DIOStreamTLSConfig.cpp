@@ -68,7 +68,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOSTREAMTLSCONFIG::DIOSTREAMTLSCONFIG()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -81,7 +81,7 @@ DIOSTREAMTLSCONFIG::DIOSTREAMTLSCONFIG() : DIOSTREAMTCPIPCONFIG()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMTLSCONFIG::~DIOSTREAMTLSCONFIG()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -95,7 +95,7 @@ DIOSTREAMTLSCONFIG::~DIOSTREAMTLSCONFIG()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSTREAMTLSCONFIG::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

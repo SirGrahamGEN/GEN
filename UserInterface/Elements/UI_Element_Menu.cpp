@@ -73,7 +73,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_ELEMENT_MENU_OPTION_CFG::UI_ELEMENT_MENU_OPTION_CFG()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    USERINTERFACE
 *
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -86,7 +86,7 @@ UI_ELEMENT_MENU_OPTION_CFG::UI_ELEMENT_MENU_OPTION_CFG()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_ELEMENT_MENU_OPTION_CFG::~UI_ELEMENT_MENU_OPTION_CFG()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
 *
@@ -100,7 +100,7 @@ UI_ELEMENT_MENU_OPTION_CFG::~UI_ELEMENT_MENU_OPTION_CFG()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_ELEMENT_MENU_OPTION_CFG::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
 *
@@ -131,7 +131,7 @@ void UI_ELEMENT_MENU_OPTION_CFG::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_ELEMENT_MENU::UI_ELEMENT_MENU()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    USERINTERFACE
 *
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -148,7 +148,7 @@ UI_ELEMENT_MENU::UI_ELEMENT_MENU()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_ELEMENT_MENU::~UI_ELEMENT_MENU()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
 *
@@ -162,7 +162,7 @@ UI_ELEMENT_MENU::~UI_ELEMENT_MENU()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_ELEMENT_OPTION* UI_ELEMENT_MENU::Option_AddText(UI_ELEMENT_MENU_OPTION_CFG& option_cfg)
-* @brief      Option_AddText
+* @brief      Option add text
 * @ingroup    USERINTERFACE
 *
 * @param[in]  option_cfg : 
@@ -221,7 +221,7 @@ UI_ELEMENT_OPTION* UI_ELEMENT_MENU::Option_AddText(UI_ELEMENT_MENU_OPTION_CFG& o
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_ELEMENT_MENU::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
 *

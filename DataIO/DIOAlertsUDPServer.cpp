@@ -72,7 +72,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOALERTSUDPSERVER::DIOALERTSUDPSERVER()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -85,7 +85,7 @@ DIOALERTSUDPSERVER::DIOALERTSUDPSERVER()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOALERTSUDPSERVER::~DIOALERTSUDPSERVER()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -188,7 +188,7 @@ bool DIOALERTSUDPSERVER::End()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOALERTSUDPSERVER::GetNAlerts()
-* @brief      GetNAlerts
+* @brief      Get N alerts
 * @ingroup    DATAIO
 *
 * @return     int :
@@ -209,7 +209,7 @@ int DIOALERTSUDPSERVER::GetNAlerts()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOALERT* DIOALERTSUDPSERVER::GetAlertByIndex(int index)
-* @brief      GetAlertByIndex
+* @brief      Get alert by index
 * @ingroup    DATAIO
 *
 * @param[in]  index :
@@ -232,7 +232,7 @@ DIOALERT* DIOALERTSUDPSERVER::GetAlertByIndex(int index)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOALERT* DIOALERTSUDPSERVER::GetAlertByID(XDWORD ID)
-* @brief      GetAlertByID
+* @brief      Get alert by ID
 * @ingroup    DATAIO
 *
 * @param[in]  ID :
@@ -264,7 +264,7 @@ DIOALERT* DIOALERTSUDPSERVER::GetAlertByID(XDWORD ID)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOALERTSUDPSERVER::DeleteAlertByIndex(int index)
-* @brief      DeleteAlertByIndex
+* @brief      Delete alert by index
 * @ingroup    DATAIO
 *
 * @param[in]  index :
@@ -294,7 +294,7 @@ bool DIOALERTSUDPSERVER::DeleteAlertByIndex(int index)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOALERTSUDPSERVER::DeleteAlertByID(XDWORD ID)
-* @brief      DeleteAlertByID
+* @brief      Delete alert by ID
 * @ingroup    DATAIO
 *
 * @param[in]  ID :
@@ -333,7 +333,7 @@ bool DIOALERTSUDPSERVER::DeleteAlertByID(XDWORD ID)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOALERTSUDPSERVER::DeleteAllAlerts()
-* @brief      DeleteAllAlerts
+* @brief      Delete all alerts
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -357,7 +357,7 @@ bool DIOALERTSUDPSERVER::DeleteAllAlerts()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOALERTSUDPSERVER::ReceivedEvents()
-* @brief      ReceivedEvents
+* @brief      Received events
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -434,7 +434,7 @@ bool DIOALERTSUDPSERVER::ReceivedEvents()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOALERTSUDPSERVER::ThreadReadFunction(void* param)
-* @brief      ThreadReadFunction
+* @brief      Thread read function
 * @ingroup    DATAIO
 *
 * @param[in]  param :
@@ -452,7 +452,7 @@ void DIOALERTSUDPSERVER::ThreadReadFunction(void* param)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOALERTSUDPSERVER::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

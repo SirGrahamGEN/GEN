@@ -72,7 +72,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOIPADDRESS::DIOIPADDRESS()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -85,7 +85,7 @@ DIOIPADDRESS::DIOIPADDRESS()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOIPADDRESS::~DIOIPADDRESS()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 * 
@@ -114,7 +114,7 @@ XBYTE* DIOIPADDRESS::Get()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOIPADDRESS::GetXString(XSTRING& addressstring)
-* @brief      GetXString
+* @brief      Get X string
 * @ingroup    DATAIO
 * 
 * @param[in]  addressstring : 
@@ -144,7 +144,7 @@ bool DIOIPADDRESS::GetXString(XSTRING& addressstring)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOIPADDRESS::GetDIOURL(DIOURL* url)
-* @brief      GetDIOURL
+* @brief      Get DIOURL
 * @ingroup    DATAIO
 * 
 * @param[in]  url : 
@@ -174,7 +174,7 @@ bool DIOIPADDRESS::GetDIOURL(DIOURL* url)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOIPADDRESS::IsEmpty()
-* @brief      IsEmpty
+* @brief      Is empty
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
@@ -191,7 +191,7 @@ bool DIOIPADDRESS::IsEmpty()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOIPADDRESS::IsLocal()
-* @brief      IsLocal
+* @brief      Is local
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
@@ -217,7 +217,7 @@ bool DIOIPADDRESS::IsLocal()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOIPADDRESS::IsAPIPA()
-* @brief      IsAPIPA
+* @brief      Is APIPA
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
@@ -381,7 +381,7 @@ bool DIOIPADDRESS::Compare(DIOIP& otheraddress)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOIPADDRESS::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 * 
@@ -401,7 +401,7 @@ void DIOIPADDRESS::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOIP::DIOIP()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -414,7 +414,7 @@ DIOIP::DIOIP()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOIP::~DIOIP()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 * 
@@ -428,7 +428,7 @@ DIOIP::~DIOIP()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOIPADDRESS* DIOIP::GetMask()
-* @brief      GetMask
+* @brief      Get mask
 * @ingroup    DATAIO
 * 
 * @return     DIOIPADDRESS* : 
@@ -443,7 +443,7 @@ DIOIPADDRESS* DIOIP::GetMask()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOIP::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 * 

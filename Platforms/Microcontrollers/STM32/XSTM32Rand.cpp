@@ -47,7 +47,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTM32RAND::XSTM32RAND()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_STM32
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -62,7 +62,7 @@ XSTM32RAND::XSTM32RAND()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTM32RAND::~XSTM32RAND()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_STM32
 *
@@ -103,7 +103,7 @@ bool XSTM32RAND::Ini()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XSTM32RAND::MaxElements(int max)
-* @brief      MaxElements
+* @brief      Max elements
 * @ingroup    PLATFORM_STM32
 *
 * @param[in]  max :
@@ -158,7 +158,7 @@ int XSTM32RAND::Between(int min,int max)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void XSTM32RAND::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_STM32
 *

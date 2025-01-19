@@ -68,7 +68,7 @@ UI_ANIMATIONS* UI_ANIMATIONS::instance = NULL;
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_ANIMATIONS::GetIsInstanced()
-* @brief      GetIsInstanced
+* @brief      Get is instanced
 * @ingroup    USERINTERFACE
 *
 * @return     bool : true if is succesful. 
@@ -83,7 +83,7 @@ bool UI_ANIMATIONS::GetIsInstanced()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_ANIMATIONS& UI_ANIMATIONS::GetInstance()
-* @brief      GetInstance
+* @brief      Get instance
 * @ingroup    USERINTERFACE
 *
 * @return     UI_ANIMATIONS& : 
@@ -103,7 +103,7 @@ UI_ANIMATIONS& UI_ANIMATIONS::GetInstance()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_ANIMATIONS::DelInstance()
-* @brief      DelInstance
+* @brief      Del instance
 * @ingroup    USERINTERFACE
 *
 * @return     bool : true if is succesful. 
@@ -201,7 +201,7 @@ UI_ANIMATION* UI_ANIMATIONS::Get(XSTRING& ID)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_ANIMATIONS::DeleteAll()
-* @brief      DeleteAll
+* @brief      Delete all
 * @ingroup    USERINTERFACE
 *
 * @return     bool : true if is succesful. 
@@ -219,7 +219,7 @@ bool UI_ANIMATIONS::DeleteAll()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_ANIMATIONS::UI_ANIMATIONS()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    USERINTERFACE
 *
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -232,7 +232,7 @@ UI_ANIMATIONS::UI_ANIMATIONS()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_ANIMATIONS::~UI_ANIMATIONS()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
 *
@@ -248,7 +248,7 @@ UI_ANIMATIONS::~UI_ANIMATIONS()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_ANIMATIONS::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
 *

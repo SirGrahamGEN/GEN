@@ -77,7 +77,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOATCMDGSM_ALPHABET_8859_1::DIOATCMDGSM_ALPHABET_8859_1()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -91,7 +91,7 @@ DIOATCMDGSM_ALPHABET_8859_1::DIOATCMDGSM_ALPHABET_8859_1()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOATCMDGSM_ALPHABET_8859_1::~DIOATCMDGSM_ALPHABET_8859_1()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -105,7 +105,7 @@ DIOATCMDGSM_ALPHABET_8859_1::~DIOATCMDGSM_ALPHABET_8859_1()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOATCMDGSM_ALPHABET_8859_1::CreateTable()
-* @brief      CreateTable
+* @brief      Create table
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -114,22 +114,22 @@ DIOATCMDGSM_ALPHABET_8859_1::~DIOATCMDGSM_ALPHABET_8859_1()
 bool DIOATCMDGSM_ALPHABET_8859_1::CreateTable()
 {
   char table2[138][2] = { // Normal Characters
-                          { 0x00,'@'   }, { 0x10,'?'   },{ 0x20,' '   },{ 0x30,'0'   },{ 0x40,'¡'   },{ 0x50,'P'   },{ 0x60,'¿'   },{ 0x70,'p'   },
-                          { 0x01,'£'   }, { 0x11,'_'   },{ 0x21,'!'   },{ 0x31,'1'   },{ 0x41,'A'   },{ 0x51,'Q'   },{ 0x61,'a'   },{ 0x71,'q'   },
+                          { 0x00,'@'   }, { 0x10,'?'   },{ 0x20,' '   },{ 0x30,'0'   },{ 0x40,'_'   },{ 0x50,'P'   },{ 0x60,'_'   },{ 0x70,'p'   },
+                          { 0x01,'_'   }, { 0x11,'_'   },{ 0x21,'!'   },{ 0x31,'1'   },{ 0x41,'A'   },{ 0x51,'Q'   },{ 0x61,'a'   },{ 0x71,'q'   },
                           { 0x02,'$'   }, { 0x12,'F'   },{ 0x22,'"'   },{ 0x32,'2'   },{ 0x42,'B'   },{ 0x52,'R'   },{ 0x62,'b'   },{ 0x72,'r'   },
-                          { 0x03,'¥'   }, { 0x13,'G'   },{ 0x23,'#'   },{ 0x33,'3'   },{ 0x43,'C'   },{ 0x53,'S'   },{ 0x63,'c'   },{ 0x73,'s'   },
-                          { 0x04,'è'   }, { 0x14,'?'   },{ 0x24,'¤'   },{ 0x34,'4'   },{ 0x44,'D'   },{ 0x54,'T'   },{ 0x64,'d'   },{ 0x74,'t'   },
-                          { 0x05,'é'   }, { 0x15,'O'   },{ 0x25,'%'   },{ 0x35,'5'   },{ 0x45,'E'   },{ 0x55,'U'   },{ 0x65,'e'   },{ 0x75,'u'   },
-                          { 0x06,'ú'   }, { 0x16,'?'   },{ 0x26,'&'   },{ 0x36,'6'   },{ 0x46,'F'   },{ 0x56,'V'   },{ 0x66,'f'   },{ 0x76,'v'   },
-                          { 0x07,'ì'   }, { 0x17,'?'   },{ 0x27,'\\'  },{ 0x37,'7'   },{ 0x47,'G'   },{ 0x57,'W'   },{ 0x67,'g'   },{ 0x77,'w'   },
-                          { 0x08,'ò'   }, { 0x18,'S'   },{ 0x28,'('   },{ 0x38,'8'   },{ 0x48,'H'   },{ 0x58,'X'   },{ 0x68,'h'   },{ 0x78,'x'   },
-                          { 0x09,'Ç'   }, { 0x19,'T'   },{ 0x29,')'   },{ 0x39,'9'   },{ 0x49,'I'   },{ 0x59,'Y'   },{ 0x69,'i'   },{ 0x79,'y'   },
+                          { 0x03,'_'   }, { 0x13,'G'   },{ 0x23,'#'   },{ 0x33,'3'   },{ 0x43,'C'   },{ 0x53,'S'   },{ 0x63,'c'   },{ 0x73,'s'   },
+                          { 0x04,'_'   }, { 0x14,'?'   },{ 0x24,'_'   },{ 0x34,'4'   },{ 0x44,'D'   },{ 0x54,'T'   },{ 0x64,'d'   },{ 0x74,'t'   },
+                          { 0x05,'_'   }, { 0x15,'O'   },{ 0x25,'%'   },{ 0x35,'5'   },{ 0x45,'E'   },{ 0x55,'U'   },{ 0x65,'e'   },{ 0x75,'u'   },
+                          { 0x06,'_'   }, { 0x16,'?'   },{ 0x26,'&'   },{ 0x36,'6'   },{ 0x46,'F'   },{ 0x56,'V'   },{ 0x66,'f'   },{ 0x76,'v'   },
+                          { 0x07,'_'   }, { 0x17,'?'   },{ 0x27,'\\'  },{ 0x37,'7'   },{ 0x47,'G'   },{ 0x57,'W'   },{ 0x67,'g'   },{ 0x77,'w'   },
+                          { 0x08,'?'   }, { 0x18,'S'   },{ 0x28,'('   },{ 0x38,'8'   },{ 0x48,'H'   },{ 0x58,'X'   },{ 0x68,'h'   },{ 0x78,'x'   },
+                          { 0x09,'_'   }, { 0x19,'T'   },{ 0x29,')'   },{ 0x39,'9'   },{ 0x49,'I'   },{ 0x59,'Y'   },{ 0x69,'i'   },{ 0x79,'y'   },
                           { 0x0A,'\r'  }, { 0x1A,'?'   },{ 0x2A,'*'   },{ 0x3A,':'   },{ 0x4A,'J'   },{ 0x5A,'Z'   },{ 0x6A,'j'   },{ 0x7A,'z'   },
-                          { 0x0B,'Ø'   }, { 0x1B,0x1B  },{ 0x2B,'+'   },{ 0x3B,';'   },{ 0x4B,'K'   },{ 0x5B,'Ä'   },{ 0x6B,'k'   },{ 0x7B,'ä'   },
-                          { 0x0C,'ø'   }, { 0x1C,'Æ'   },{ 0x2C,','   },{ 0x3C,'<'   },{ 0x4C,'L'   },{ 0x5C,'Ö'   },{ 0x6C,'l'   },{ 0x7C,'ö'   },
-                          { 0x0D,'\n'  }, { 0x1D,'æ'   },{ 0x2D,'-'   },{ 0x3D,'='   },{ 0x4D,'M'   },{ 0x5D,'Ñ'   },{ 0x6D,'m'   },{ 0x7D,'ñ'   },
-                          { 0x0E,'Å'   }, { 0x1E,'ß'   },{ 0x2E,'.'   },{ 0x3E,'>'   },{ 0x4E,'N'   },{ 0x5E,'Ü'   },{ 0x6E,'n'   },{ 0x7E,'ü'   },
-                          { 0x0F,'å'   }, { 0x1F,'Ê'   },{ 0x2F,'/'   },{ 0x3F,'?'   },{ 0x4F,'O'   },{ 0x5F,'§'   },{ 0x6F,'o'   },{ 0x7F,'à'   },
+                          { 0x0B,'_'   }, { 0x1B,0x1B  },{ 0x2B,'+'   },{ 0x3B,';'   },{ 0x4B,'K'   },{ 0x5B,'_'   },{ 0x6B,'k'   },{ 0x7B,'_'   },
+                          { 0x0C,'_'   }, { 0x1C,'_'   },{ 0x2C,','   },{ 0x3C,'<'   },{ 0x4C,'L'   },{ 0x5C,'_'   },{ 0x6C,'l'   },{ 0x7C,'?'   },
+                          { 0x0D,'\n'  }, { 0x1D,'_'   },{ 0x2D,'-'   },{ 0x3D,'='   },{ 0x4D,'M'   },{ 0x5D,'_'   },{ 0x6D,'m'   },{ 0x7D,'?'   },
+                          { 0x0E,'_'   }, { 0x1E,'_'   },{ 0x2E,'.'   },{ 0x3E,'>'   },{ 0x4E,'N'   },{ 0x5E,'_'   },{ 0x6E,'n'   },{ 0x7E,'_'   },
+                          { 0x0F,'_'   }, { 0x1F,'_'   },{ 0x2F,'/'   },{ 0x3F,'?'   },{ 0x4F,'O'   },{ 0x5F,'_'   },{ 0x6F,'o'   },{ 0x7F,'_'   },
                           // Extended Characters
                           { 0x0A,'\t'  },
                           { 0x14,'^'   },
@@ -140,7 +140,7 @@ bool DIOATCMDGSM_ALPHABET_8859_1::CreateTable()
                           { 0x3D,'~'   },
                           { 0x3E,']'   },
                           { 0x40,'|'   },
-                          { 0x65,'€'   }
+                          { 0x65,'_'   }
                         };
 
   for(int c=0;c<138;c++)
@@ -206,7 +206,7 @@ XWORD DIOATCMDGSM_ALPHABET_8859_1::Traslate(bool from, XWORD data)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOATCMDGSM_ALPHABET_8859_1::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *
@@ -226,7 +226,7 @@ void DIOATCMDGSM_ALPHABET_8859_1::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOATCMDGSM::DIOATCMDGSM(DIOSTREAM* diostream)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * @param[in]  diostream :
@@ -257,7 +257,7 @@ DIOATCMDGSM::DIOATCMDGSM(DIOSTREAM* diostream) : DIOATCMDS(diostream)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOATCMDGSM::~DIOATCMDGSM()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -271,7 +271,7 @@ DIOATCMDGSM::~DIOATCMDGSM()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOATCMD_ERROR DIOATCMDGSM::GetManufactured(XSTRING& manufactured, int timeout)
-* @brief      GetManufactured
+* @brief      Get manufactured
 * @ingroup    DATAIO
 *
 * @param[in]  manufactured :
@@ -289,7 +289,7 @@ DIOATCMD_ERROR DIOATCMDGSM::GetManufactured(XSTRING& manufactured, int timeout)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOATCMD_ERROR DIOATCMDGSM::GetModel(XSTRING& model, int timeout)
-* @brief      GetModel
+* @brief      Get model
 * @ingroup    DATAIO
 *
 * @param[in]  model :
@@ -307,7 +307,7 @@ DIOATCMD_ERROR DIOATCMDGSM::GetModel(XSTRING& model, int timeout)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOATCMD_ERROR DIOATCMDGSM::GetIMEI(XSTRING& IMEI, int timeout)
-* @brief      GetIMEI
+* @brief      Get IMEI
 * @ingroup    DATAIO
 *
 * @param[in]  IMEI :
@@ -325,7 +325,7 @@ DIOATCMD_ERROR DIOATCMDGSM::GetIMEI(XSTRING& IMEI, int timeout)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOATCMD_ERROR DIOATCMDGSM::GetVersion(XSTRING& version,int timeout)
-* @brief      GetVersion
+* @brief      Get version
 * @ingroup    DATAIO
 *
 * @param[in]  version :
@@ -374,7 +374,7 @@ DIOATCMD_ERROR DIOATCMDGSM::GetVersion(XSTRING& version, int timeout)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOATCMD_ERROR DIOATCMDGSM::GetSignalQuality(int& RSSI, int& BER, int timeout)
-* @brief      GetSignalQuality
+* @brief      Get signal quality
 * @ingroup    DATAIO
 *
 * @param[in]  RSSI :
@@ -416,7 +416,7 @@ DIOATCMD_ERROR DIOATCMDGSM::GetSignalQuality(int& RSSI, int& BER, int timeout)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOATCMD_ERROR DIOATCMDGSM::IsAvailableServiceGSM(bool& available, int timeout)
-* @brief      IsAvailableServiceGSM
+* @brief      Is available service GSM
 * @ingroup    DATAIO
 *
 * @param[in]  available :
@@ -451,7 +451,7 @@ DIOATCMD_ERROR DIOATCMDGSM::IsAvailableServiceGSM(bool& available, int timeout)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOATCMD_ERROR DIOATCMDGSM::GetIMSI(XSTRING& IMSI, int timeout)
-* @brief      GetIMSI
+* @brief      Get IMSI
 * @ingroup    DATAIO
 *
 * @param[in]  IMSI :
@@ -469,7 +469,7 @@ DIOATCMD_ERROR DIOATCMDGSM::GetIMSI(XSTRING& IMSI, int timeout)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOATCMD_ERROR DIOATCMDGSM::PIN_Is(bool& isresolved, int timeout)
-* @brief      PIN_Is
+* @brief      PIN is
 * @ingroup    DATAIO
 *
 * @param[in]  isresolved : 
@@ -504,7 +504,7 @@ DIOATCMD_ERROR DIOATCMDGSM::PIN_Is(bool& isresolved, int timeout)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOATCMD_ERROR DIOATCMDGSM::PIN_Enter(XCHAR* PIN, bool& isenter, int timeout)
-* @brief      PIN_Enter
+* @brief      PIN enter
 * @ingroup    DATAIO
 *
 * @param[in]  PIN : 
@@ -539,7 +539,7 @@ DIOATCMD_ERROR DIOATCMDGSM::PIN_Enter(XCHAR* PIN, bool& isenter, int timeout)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOATCMD_ERROR DIOATCMDGSM::PIN_Activate(XCHAR* PIN, bool activate, int timeout)
-* @brief      PIN_Activate
+* @brief      PIN activate
 * @ingroup    DATAIO
 *
 * @param[in]  PIN : 
@@ -570,7 +570,7 @@ DIOATCMD_ERROR DIOATCMDGSM::PIN_Activate(XCHAR* PIN, bool activate, int timeout)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOATCMD_ERROR DIOATCMDGSM::GetSMSSupport(XBYTE& support, int timeout)
-* @brief      GetSMSSupport
+* @brief      Get SMS support
 * @ingroup    DATAIO
 *
 * @param[in]  support :
@@ -621,7 +621,7 @@ DIOATCMD_ERROR DIOATCMDGSM::GetSMSSupport(XBYTE& support, int timeout)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOATCMD_ERROR DIOATCMDGSM::GetSMSFormat(XBYTE& format,bool support, int timeout)
-* @brief      GetSMSFormat
+* @brief      Get SMS format
 * @ingroup    DATAIO
 *
 * @param[in]  format :
@@ -686,7 +686,7 @@ DIOATCMD_ERROR DIOATCMDGSM::GetSMSFormat(XBYTE& format,bool support, int timeout
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOATCMD_ERROR DIOATCMDGSM::SetSMSFormat(XBYTE format, int timeout)
-* @brief      SetSMSFormat
+* @brief      Set SMS format
 * @ingroup    DATAIO
 *
 * @param[in]  format :
@@ -715,7 +715,7 @@ DIOATCMD_ERROR DIOATCMDGSM::SetSMSFormat(XBYTE format, int timeout)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOATCMD_ERROR DIOATCMDGSM::GetSMSCenter(XSTRING& SMScenter, int timeout)
-* @brief      GetSMSCenter
+* @brief      Get SMS center
 * @ingroup    DATAIO
 *
 * @param[in]  SMScenter :
@@ -764,7 +764,7 @@ DIOATCMD_ERROR DIOATCMDGSM::GetSMSCenter(XSTRING& SMScenter, int timeout)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOATCMD_ERROR DIOATCMDGSM::SetSMSCenter(XCHAR* smscenter, int timeout)
-* @brief      SetSMSCenter
+* @brief      Set SMS center
 * @ingroup    DATAIO
 *
 * @param[in]  smscenter :
@@ -789,7 +789,7 @@ DIOATCMD_ERROR DIOATCMDGSM::SetSMSCenter(XCHAR* smscenter, int timeout)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOATCMD_ERROR DIOATCMDGSM::SendSMS(XCHAR* number, XCHAR* message, int* mrID, int timeout)
-* @brief      SendSMS
+* @brief      Send SMS
 * @ingroup    DATAIO
 *
 * @param[in]  number :
@@ -872,7 +872,7 @@ DIOATCMD_ERROR DIOATCMDGSM::SendSMS(XCHAR* number, XCHAR* message, int* mrID, in
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOATCMDGSM::CodecPDUFormat(XCHAR* number, XCHAR* message, bool inoctets, int validperiod, XSTRING& length, XSTRING& result)
-* @brief      CodecPDUFormat
+* @brief      Codec PDU format
 * @ingroup    DATAIO
 *
 * @param[in]  number :
@@ -1006,7 +1006,7 @@ bool DIOATCMDGSM::CodecPDUFormat(XCHAR* number, XCHAR* message, bool inoctets, i
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOATCMDGSM::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

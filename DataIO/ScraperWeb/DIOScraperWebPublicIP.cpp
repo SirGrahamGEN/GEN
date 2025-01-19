@@ -71,7 +71,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOPUBLICIP_RESULT::DIOPUBLICIP_RESULT()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -84,7 +84,7 @@ DIOPUBLICIP_RESULT::DIOPUBLICIP_RESULT()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOPUBLICIP_RESULT::~DIOPUBLICIP_RESULT()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -113,7 +113,7 @@ DIOIP* DIOPUBLICIP_RESULT::Get()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOPUBLICIP_RESULT::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *
@@ -133,7 +133,7 @@ void DIOPUBLICIP_RESULT::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSCRAPERWEBPUBLICIP::DIOSCRAPERWEBPUBLICIP() : DIOSCRAPERWEB()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -146,7 +146,7 @@ DIOSCRAPERWEBPUBLICIP::DIOSCRAPERWEBPUBLICIP() : DIOSCRAPERWEB()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSCRAPERWEBPUBLICIP::~DIOSCRAPERWEBPUBLICIP()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -237,7 +237,7 @@ bool DIOSCRAPERWEBPUBLICIP::Get(DIOIP& IP, int timeoutforurl,  XSTRING* localIP,
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSCRAPERWEBPUBLICIP::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

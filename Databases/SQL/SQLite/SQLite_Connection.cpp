@@ -4,7 +4,7 @@
 * 
 * @class      SQLITE_CONNECTION
 * @brief      DataBase SQL SQLite Connection class
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 * 
 * @copyright  GEN Group. All rights reserved.
 * 
@@ -76,8 +76,8 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         SQLITE_CONNECTION::SQLITE_CONNECTION(DB_SQL_DATABASE* database)
-* @brief      Constructor
-* @ingroup    DATABASES
+* @brief      Constructor of class
+* @ingroup    DATABASE
 *
 * @param[in]  DB_SQL_DATABASE* :
 *
@@ -91,9 +91,9 @@ SQLITE_CONNECTION::SQLITE_CONNECTION(DB_SQL_DATABASE* database) : DB_SQL_CONNECT
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         SQLITE_CONNECTION::~SQLITE_CONNECTION()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 SQLITE_CONNECTION::~SQLITE_CONNECTION()
@@ -106,7 +106,7 @@ SQLITE_CONNECTION::~SQLITE_CONNECTION()
 *
 * @fn         bool SQLITE_CONNECTION::Connect()
 * @brief      Connect
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 *
 * @return     bool : true if is succesful.
 *
@@ -176,7 +176,7 @@ bool SQLITE_CONNECTION::Connect()
 *
 * @fn         bool SQLITE_CONNECTION::Disconnect()
 * @brief      Disconnect
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 *
 * @return     bool : true if is succesful.
 *
@@ -196,9 +196,9 @@ bool SQLITE_CONNECTION::Disconnect()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void SQLITE_CONNECTION::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void SQLITE_CONNECTION::Clean()

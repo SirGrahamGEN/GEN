@@ -70,7 +70,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOLIGHTSENSORLDRANALOG::DIOLIGHTSENSORLDRANALOG( DIOGPIO* diogpio, int pindata, bool activatecache)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 * 
 * @param[in]   diogpio : 
@@ -104,7 +104,7 @@ DIOLIGHTSENSORLDRANALOG::DIOLIGHTSENSORLDRANALOG( DIOGPIO* diogpio, int pindata,
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOLIGHTSENSORLDRANALOG::~DIOLIGHTSENSORLDRANALOG()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 * 
@@ -149,7 +149,7 @@ bool DIOLIGHTSENSORLDRANALOG::Ini()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int DIOLIGHTSENSORLDRANALOG::GetPinData()
-* @brief      GetPinData
+* @brief      Get pin data
 * @ingroup    DATAIO
 * 
 * @return     int : 
@@ -164,7 +164,7 @@ int DIOLIGHTSENSORLDRANALOG::GetPinData()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOLIGHTSENSORLDRANALOG::ReadFromCache(XDWORD& level)
-* @brief      ReadFromCache
+* @brief      Read from cache
 * @ingroup    DATAIO
 * 
 * @param[in]  level : 
@@ -193,7 +193,7 @@ bool DIOLIGHTSENSORLDRANALOG::ReadFromCache(XDWORD& level)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOLIGHTSENSORLDRANALOG::ReadDirect(XDWORD& level)
-* @brief      ReadDirect
+* @brief      Read direct
 * @ingroup    DATAIO
 * 
 * @param[in]  level : 
@@ -254,7 +254,7 @@ bool DIOLIGHTSENSORLDRANALOG::End()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOLIGHTSENSORLDRANALOG::ThreadRunFunction(void* param)
-* @brief      ThreadRunFunction
+* @brief      Thread run function
 * @ingroup    DATAIO
 * 
 * @param[in]  param : 
@@ -290,7 +290,7 @@ void DIOLIGHTSENSORLDRANALOG::ThreadRunFunction(void* param)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOLIGHTSENSORLDRANALOG::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 * 

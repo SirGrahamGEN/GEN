@@ -75,7 +75,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOMACMANUFACTURED::DIOMACMANUFACTURED()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -88,7 +88,7 @@ DIOMACMANUFACTURED::DIOMACMANUFACTURED()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOMACMANUFACTURED::~DIOMACMANUFACTURED()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 * 
@@ -102,7 +102,7 @@ DIOMACMANUFACTURED::~DIOMACMANUFACTURED()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOMACMANUFACTURED::Web_GetManufactured(DIOMAC& MAC, XSTRING& manufactured)
-* @brief      Web_GetManufactured
+* @brief      Web get manufactured
 * @ingroup    DATAIO
 * 
 * @param[in]  MAC : 
@@ -129,7 +129,7 @@ bool DIOMACMANUFACTURED::Web_GetManufactured(DIOMAC& MAC, XSTRING& manufactured)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOMACMANUFACTURED::File_GetManufactured(XPATH& xpath, DIOMAC& MAC, XSTRING& manufactured)
-* @brief      File_GetManufactured
+* @brief      File get manufactured
 * @ingroup    DATAIO
 * 
 * @param[in]  xpath : 
@@ -183,7 +183,7 @@ bool DIOMACMANUFACTURED::File_GetManufactured(XPATH& xpath, DIOMAC& MAC, XSTRING
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOMACMANUFACTURED::File_GetManufacturedMACs(XPATH& xpath, XSTRING& manufactured, XVECTOR<XDWORD>& MACs)
-* @brief      File_GetManufacturedMACs
+* @brief      File get manufactured MA cs
 * @ingroup    DATAIO
 * 
 * @param[in]  xpath : 
@@ -250,7 +250,7 @@ bool DIOMACMANUFACTURED::File_GetManufacturedMACs(XPATH& xpath, XSTRING& manufac
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOMACMANUFACTURED::File_Download(XBUFFER& xbuffer, int timeout)
-* @brief      File_Download
+* @brief      File download
 * @ingroup    DATAIO
 * 
 * @param[in]  xbuffer : 
@@ -281,7 +281,7 @@ bool DIOMACMANUFACTURED::File_Download(XBUFFER& xbuffer, int timeout)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOMACMANUFACTURED::File_Convert(XBUFFER& xbuffer, XPATH& xpath)
-* @brief      File_Convert
+* @brief      File convert
 * @ingroup    DATAIO
 * 
 * @param[in]  xbuffer : 
@@ -415,7 +415,7 @@ bool DIOMACMANUFACTURED::File_Convert(XBUFFER& xbuffer, XPATH& xpath)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOMACMANUFACTURED::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 * 

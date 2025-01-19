@@ -69,7 +69,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVECTORFILEDXFENTITY::GRPVECTORFILEDXFENTITY()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    GRAPHIC
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -82,7 +82,7 @@ GRPVECTORFILEDXFENTITY::GRPVECTORFILEDXFENTITY()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVECTORFILEDXFENTITY::~GRPVECTORFILEDXFENTITY()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
 * 
@@ -98,7 +98,7 @@ GRPVECTORFILEDXFENTITY::~GRPVECTORFILEDXFENTITY()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* GRPVECTORFILEDXFENTITY::GetName()
-* @brief      GetName
+* @brief      Get name
 * @ingroup    GRAPHIC
 * 
 * @return     XSTRING* : 
@@ -113,7 +113,7 @@ XSTRING* GRPVECTORFILEDXFENTITY::GetName()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPVECTORFILEDXFENTITY::AddValue(GRPVECTORFILEDXFVALUE* value)
-* @brief      AddValue
+* @brief      Add value
 * @ingroup    GRAPHIC
 * 
 * @param[in]  value : 
@@ -132,7 +132,7 @@ bool GRPVECTORFILEDXFENTITY::AddValue(GRPVECTORFILEDXFVALUE* value)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XVECTOR<GRPVECTORFILEDXFVALUE*>* GRPVECTORFILEDXFENTITY::GetValues()
-* @brief      GetValues
+* @brief      Get values
 * @ingroup    GRAPHIC
 * 
 * @return     XVECTOR<GRPVECTORFILEDXFVALUE*>* : 
@@ -147,7 +147,7 @@ XVECTOR<GRPVECTORFILEDXFVALUE*>* GRPVECTORFILEDXFENTITY::GetValues()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVECTORFILEDXFVALUE* GRPVECTORFILEDXFENTITY::GetValue(int index)
-* @brief      GetValue
+* @brief      Get value
 * @ingroup    GRAPHIC
 * 
 * @param[in]  index : 
@@ -169,7 +169,7 @@ GRPVECTORFILEDXFVALUE* GRPVECTORFILEDXFENTITY::GetValue(int index)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPVECTORFILEDXFENTITY::DeleteValue(int index)
-* @brief      DeleteValue
+* @brief      Delete value
 * @ingroup    GRAPHIC
 * 
 * @param[in]  index : 
@@ -191,7 +191,7 @@ bool GRPVECTORFILEDXFENTITY::DeleteValue(int index)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPVECTORFILEDXFENTITY::DeleteAllValues()
-* @brief      DeleteAllValues
+* @brief      Delete all values
 * @ingroup    GRAPHIC
 * 
 * @return     bool : true if is succesful. 
@@ -217,7 +217,7 @@ bool GRPVECTORFILEDXFENTITY::DeleteAllValues()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XVECTOR<GRPVECTORFILEDXFXDATACTRL*>* GRPVECTORFILEDXFENTITY::GetXDataCtrlList()
-* @brief      GetXDataCtrlList
+* @brief      Get X data ctrl list
 * @ingroup    GRAPHIC
 * 
 * @return     XVECTOR<GRPVECTORFILEDXFXDATACTRL*>* : 
@@ -232,7 +232,7 @@ XVECTOR<GRPVECTORFILEDXFXDATACTRL*>* GRPVECTORFILEDXFENTITY::GetXDataCtrlList()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRPVECTORFILEDXFENTITY::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    GRAPHIC
 * 

@@ -88,7 +88,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOANDROIDSTREAMUSB::DIOANDROIDSTREAMUSB()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_ANDROID
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -126,7 +126,7 @@ DIOANDROIDSTREAMUSB::DIOANDROIDSTREAMUSB() : DIOSTREAMUSB(), XFSMACHINE(0)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOANDROIDSTREAMUSB::~DIOANDROIDSTREAMUSB()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_ANDROID
 * 
@@ -144,7 +144,7 @@ DIOANDROIDSTREAMUSB::~DIOANDROIDSTREAMUSB()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOSTREAMSTATUS DIOANDROIDSTREAMUSB::GetStatus()
-* @brief      GetStatus
+* @brief      Get status
 * @ingroup    PLATFORM_ANDROID
 * 
 * @return     DIOSTREAMSTATUS : 
@@ -238,7 +238,7 @@ bool DIOANDROIDSTREAMUSB::Close()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOANDROIDSTREAMUSB::CleanBuffers()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean buffers
 * @note       INTERNAL
 * @ingroup    PLATFORM_ANDROID
 * 
@@ -256,7 +256,7 @@ bool DIOANDROIDSTREAMUSB::CleanBuffers()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOANDROIDSTREAMUSB::ThreadConnection(void* data)
-* @brief      ThreadConnection
+* @brief      Thread connection
 * @ingroup    PLATFORM_ANDROID
 * 
 * @param[in]  data : 
@@ -360,7 +360,7 @@ void DIOANDROIDSTREAMUSB::ThreadConnection(void* data)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD DIOANDROIDSTREAMUSB::ReadBuffer(XBYTE* buffer,XDWORD size)
-* @brief      ReadBuffer
+* @brief      Read buffer
 * @ingroup    PLATFORM_ANDROID
 * 
 * @param[in]  buffer : 
@@ -401,7 +401,7 @@ XDWORD DIOANDROIDSTREAMUSB::ReadBuffer(XBYTE* buffer,XDWORD size)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD DIOANDROIDSTREAMUSB::WriteBuffer(XBYTE* buffer, XDWORD size)
-* @brief      WriteBuffer
+* @brief      Write buffer
 * @ingroup    PLATFORM_ANDROID
 * 
 * @param[in]  buffer : 
@@ -438,7 +438,7 @@ XDWORD DIOANDROIDSTREAMUSB::WriteBuffer(XBYTE* buffer, XDWORD size)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOANDROIDSTREAMUSB::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_ANDROID
 * 

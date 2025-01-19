@@ -4,7 +4,7 @@
 * 
 * @class      DB_SQL_RESULT
 * @brief      DataBase SQL Result class
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 * 
 * @copyright  GEN Group. All rights reserved.
 * 
@@ -67,8 +67,8 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DB_SQL_RESULT::DB_SQL_RESULT()
-* @brief      Constructor
-* @ingroup    DATABASES
+* @brief      Constructor of class
+* @ingroup    DATABASE
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DB_SQL_RESULT::DB_SQL_RESULT()
@@ -80,9 +80,9 @@ DB_SQL_RESULT::DB_SQL_RESULT()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DB_SQL_RESULT::~DB_SQL_RESULT()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DB_SQL_RESULT::~DB_SQL_RESULT()
@@ -99,8 +99,8 @@ DB_SQL_RESULT::~DB_SQL_RESULT()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DB_SQL_ROW* DB_SQL_RESULT::GetRow()
-* @brief      GetRow
-* @ingroup    DATABASES
+* @brief      Get row
+* @ingroup    DATABASE
 *
 * @return     DB_SQL_ROW* :
 *
@@ -114,8 +114,8 @@ DB_SQL_ROW* DB_SQL_RESULT::GetRow()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DB_SQL_ROWHEADER* DB_SQL_RESULT::GetHeader()
-* @brief      GetHeader
-* @ingroup    DATABASES
+* @brief      Get header
+* @ingroup    DATABASE
 *
 * @return     DB_SQL_ROWHEADER* :
 *
@@ -129,8 +129,8 @@ DB_SQL_ROWHEADER* DB_SQL_RESULT::GetHeader()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD DB_SQL_RESULT::GetCurrentRowIndex()
-* @brief      GetCurrentRowIndex
-* @ingroup    DATABASES
+* @brief      Get current row index
+* @ingroup    DATABASE
 *
 * @return     XDWORD :
 *
@@ -144,9 +144,9 @@ XDWORD DB_SQL_RESULT::GetCurrentRowIndex()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DB_SQL_RESULT::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DB_SQL_RESULT::Clean()

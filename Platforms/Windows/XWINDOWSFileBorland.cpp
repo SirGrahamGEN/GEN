@@ -74,7 +74,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XWINDOWSFILEBORLAND::XWINDOWSFILEBORLAND()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_WINDOWS
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -87,7 +87,7 @@ XWINDOWSFILEBORLAND::XWINDOWSFILEBORLAND(): XFILE()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XWINDOWSFILEBORLAND::~XWINDOWSFILEBORLAND()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
 * 
@@ -156,7 +156,7 @@ bool XWINDOWSFILEBORLAND::Create(XCHAR* path)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XWINDOWSFILEBORLAND::SetSize(XQWORD size)
-* @brief      SetSize
+* @brief      Set size
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @param[in]  size : 
@@ -184,7 +184,7 @@ bool XWINDOWSFILEBORLAND::SetSize(XQWORD size)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XWINDOWSFILEBORLAND::GetPosition(XQWORD& position)
-* @brief      GetPosition
+* @brief      Get position
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @param[in]  position : 
@@ -208,7 +208,7 @@ bool XWINDOWSFILEBORLAND::GetPosition(XQWORD& position)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XWINDOWSFILEBORLAND::SetPosition(XQWORD position)
-* @brief      SetPosition
+* @brief      Set position
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @param[in]  position : 
@@ -437,7 +437,7 @@ bool XWINDOWSFILEBORLAND::Rename(XCHAR* xpathold, XCHAR* xpathnew)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         FILE* XWINDOWSFILEBORLAND::GetFileStructHandle()
-* @brief      GetFileStructHandle
+* @brief      Get file struct handle
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @return     FILE* : 
@@ -452,7 +452,7 @@ FILE* XWINDOWSFILEBORLAND::GetFileStructHandle()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         FILE* XWINDOWSFILEBORLAND::CreateStructHandle()
-* @brief      CreateStructHandle
+* @brief      Create struct handle
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @return     FILE* : 
@@ -467,7 +467,7 @@ FILE* XWINDOWSFILEBORLAND::CreateStructHandle()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XWINDOWSFILEBORLAND::DeleteStructHandle()
-* @brief      DeleteStructHandle
+* @brief      Delete struct handle
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @return     bool : true if is succesful. 
@@ -482,7 +482,7 @@ bool XWINDOWSFILEBORLAND::DeleteStructHandle()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XWINDOWSFILEBORLAND::ActualizeSize()
-* @brief      ActualizeSize
+* @brief      Actualize size
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @return     bool : true if is succesful. 
@@ -508,7 +508,7 @@ bool XWINDOWSFILEBORLAND::ActualizeSize()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XWINDOWSFILEBORLAND::ExtendedOpen(XCHAR* path, XCHAR* mode)
-* @brief      ExtendedOpen
+* @brief      Extended open
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @param[in]  path : 
@@ -550,7 +550,7 @@ bool XWINDOWSFILEBORLAND::ExtendedOpen(XCHAR* path, XCHAR* mode)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void XWINDOWSFILEBORLAND::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
 * 

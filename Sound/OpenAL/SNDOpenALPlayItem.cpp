@@ -68,7 +68,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         SNDOPENALPLAYITEM::SNDOPENALPLAYITEM()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    SOUND
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -83,7 +83,7 @@ SNDOPENALPLAYITEM::SNDOPENALPLAYITEM() : XFSMACHINE(0)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         SNDOPENALPLAYITEM::~SNDOPENALPLAYITEM()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    SOUND
 * 
@@ -99,7 +99,7 @@ SNDOPENALPLAYITEM::~SNDOPENALPLAYITEM()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool SNDOPENALPLAYITEM::IniFSMachine()
-* @brief      IniFSMachine
+* @brief      Ini FS machine
 * @ingroup    SOUND
 * 
 * @return     bool : true if is succesful. 
@@ -152,7 +152,7 @@ bool SNDOPENALPLAYITEM::IniFSMachine()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         SNDITEM* SNDOPENALPLAYITEM::GetItem()
-* @brief      GetItem
+* @brief      Get item
 * @ingroup    SOUND
 * 
 * @return     SNDITEM* : 
@@ -167,7 +167,7 @@ SNDITEM* SNDOPENALPLAYITEM::GetItem()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void SNDOPENALPLAYITEM::SetItem(SNDITEM* item)
-* @brief      SetItem
+* @brief      Set item
 * @ingroup    SOUND
 * 
 * @param[in]  item : 
@@ -182,7 +182,7 @@ void SNDOPENALPLAYITEM::SetItem(SNDITEM* item)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         SNDOPENALSOURCE* SNDOPENALPLAYITEM::GetSource()
-* @brief      GetSource
+* @brief      Get source
 * @ingroup    SOUND
 * 
 * @return     SNDOPENALSOURCE* : 
@@ -197,7 +197,7 @@ SNDOPENALSOURCE* SNDOPENALPLAYITEM::GetSource()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void SNDOPENALPLAYITEM::SetSource(SNDOPENALSOURCE* source)
-* @brief      SetSource
+* @brief      Set source
 * @ingroup    SOUND
 * 
 * @param[in]  source : 
@@ -235,7 +235,7 @@ bool SNDOPENALPLAYITEM::Delete()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void SNDOPENALPLAYITEM::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    SOUND
 * 

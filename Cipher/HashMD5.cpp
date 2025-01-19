@@ -83,7 +83,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         HASHMD5::HASHMD5()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    CIPHER
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -100,7 +100,7 @@ HASHMD5::HASHMD5() : HASH()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         HASHMD5::~HASHMD5()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    CIPHER
 * 
@@ -144,7 +144,7 @@ bool HASHMD5::Do(XBYTE* input, XQWORD size)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int HASHMD5::GetDefaultSize()
-* @brief      GetDefaultSize
+* @brief      Get default size
 * @ingroup    CIPHER
 * 
 * @return     int : 
@@ -491,7 +491,7 @@ inline XDWORD HASHMD5::I(XDWORD x, XDWORD y, XDWORD z)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         inline XDWORD HASHMD5::RotateLeft(XDWORD x, int n)
-* @brief      RotateLeft
+* @brief      Rotate left
 * @ingroup    CIPHER
 * 
 * @param[in]  x : 
@@ -601,7 +601,7 @@ inline void HASHMD5::II(XDWORD& a, XDWORD b, XDWORD c, XDWORD d, XDWORD x, XDWOR
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void HASHMD5::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    CIPHER
 * 

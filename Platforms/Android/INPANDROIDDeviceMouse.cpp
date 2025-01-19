@@ -69,7 +69,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         INPANDROIDDEVICEMOUSE::INPANDROIDDEVICEMOUSE(GRPANDROIDSCREEN* grpscreen)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_ANDROID
 * 
 * @param[in]  grpscreen : 
@@ -92,7 +92,7 @@ INPANDROIDDEVICEMOUSE::INPANDROIDDEVICEMOUSE(GRPANDROIDSCREEN* grpscreen)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         INPANDROIDDEVICEMOUSE::~INPANDROIDDEVICEMOUSE()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_ANDROID
 *
@@ -135,7 +135,7 @@ bool INPANDROIDDEVICEMOUSE::Update()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool INPANDROIDDEVICEMOUSE::SetScreen(void* screenpointer)
-* @brief      SetScreen
+* @brief      Set screen
 * @ingroup    PLATFORM_ANDROID
 *
 * @param[in]  screenpointer :
@@ -154,7 +154,7 @@ bool INPANDROIDDEVICEMOUSE::SetScreen(void* screenpointer)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool INPANDROIDDEVICEMOUSE::AddPosition(int index, float x, float y, bool ispressed)
-* @brief      AddPosition
+* @brief      Add position
 * @ingroup    PLATFORM_ANDROID
 * 
 * @param[in]  index : 
@@ -194,7 +194,7 @@ bool INPANDROIDDEVICEMOUSE::AddPosition(int index, float x, float y, bool ispres
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void INPANDROIDDEVICEMOUSE::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_ANDROID
 *
@@ -208,7 +208,7 @@ void INPANDROIDDEVICEMOUSE::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool INPANDROIDDEVICEMOUSE::CreateAllButtons()
-* @brief      CreateAllButtons
+* @brief      Create all buttons
 * @ingroup    PLATFORM_ANDROID
 *
 * @return     bool : true if is succesful.
@@ -229,7 +229,7 @@ bool INPANDROIDDEVICEMOUSE::CreateAllButtons()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool INPANDROIDDEVICEMOUSE::CreateAllCursors()
-* @brief      CreateAllCursors
+* @brief      Create all cursors
 * @ingroup    PLATFORM_ANDROID
 * 
 * @return     bool : true if is succesful. 

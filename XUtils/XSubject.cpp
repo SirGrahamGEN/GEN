@@ -66,7 +66,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSUBJECT::XSUBJECT()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -79,7 +79,7 @@ XSUBJECT::XSUBJECT()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSUBJECT::~XSUBJECT()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -93,7 +93,7 @@ XSUBJECT::~XSUBJECT()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSUBJECT::RegisterEvent(XDWORD type)
-* @brief      RegisterEvent
+* @brief      Register event
 * @ingroup    XUTILS
 *
 * @param[in]  type :
@@ -110,7 +110,7 @@ bool XSUBJECT::RegisterEvent(XDWORD type)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSUBJECT::DeRegisterEvent(XDWORD type)
-* @brief      DeRegisterEvent
+* @brief      De register event
 * @ingroup    XUTILS
 *
 * @param[in]  type :
@@ -127,7 +127,7 @@ bool XSUBJECT::DeRegisterEvent(XDWORD type)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSUBJECT::DeRegisterAllEvents()
-* @brief      DeRegisterAllEvents
+* @brief      De register all events
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -142,7 +142,7 @@ bool XSUBJECT::DeRegisterAllEvents()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSUBJECT::PostEvent(XEVENT* event)
-* @brief      PostEvent
+* @brief      Post event
 * @ingroup    XUTILS
 *
 * @param[in]  event :
@@ -159,7 +159,7 @@ bool XSUBJECT::PostEvent(XEVENT* event)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSUBJECT::PostEvent(XEVENT* event, XSUBJECT* xsubject)
-* @brief      PostEvent
+* @brief      Post event
 * @ingroup    XUTILS
 *
 * @param[in]  event :
@@ -177,7 +177,7 @@ bool XSUBJECT::PostEvent(XEVENT* event, XSUBJECT* xsubject)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XSUBJECT::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    XUTILS
 *

@@ -84,7 +84,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_VIRTUALKEYBOARD_KEYINFO::UI_VIRTUALKEYBOARD_KEYINFO()
-* @brief      UI_VIRTUALKEYBOARD_KEYINFO
+* @brief      Constructor of class
 * @ingroup    USERINTERFACE
 *
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -97,7 +97,7 @@ UI_VIRTUALKEYBOARD_KEYINFO::UI_VIRTUALKEYBOARD_KEYINFO()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_VIRTUALKEYBOARD_KEYINFO::~UI_VIRTUALKEYBOARD_KEYINFO()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
 *
@@ -111,7 +111,7 @@ UI_VIRTUALKEYBOARD_KEYINFO::~UI_VIRTUALKEYBOARD_KEYINFO()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_VIRTUALKEYBOARD_KEYINFO::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
 *
@@ -137,7 +137,7 @@ void UI_VIRTUALKEYBOARD_KEYINFO::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_VIRTUALKEYBOARD::UI_VIRTUALKEYBOARD()
-* @brief      UI_VIRTUALKEYBOARD
+* @brief      Constructor of class
 * @ingroup    USERINTERFACE
 *
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -150,7 +150,7 @@ UI_VIRTUALKEYBOARD::UI_VIRTUALKEYBOARD()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn          UI_VIRTUALKEYBOARD::~UI_VIRTUALKEYBOARD()
-* @brief      ~UI_VIRTUALKEYBOARD
+* @brief      Destructor of class
 * @ingroup    USERINTERFACE
 *
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -220,7 +220,7 @@ bool UI_VIRTUALKEYBOARD::Ini(UI_LAYOUT* layout, GRPSCREEN* screen)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_VIRTUALKEYBOARD::IsShow()
-* @brief      IsShow
+* @brief      Is show
 * @ingroup    USERINTERFACE
 *
 * @return     bool : true if is succesful. 
@@ -235,7 +235,7 @@ bool UI_VIRTUALKEYBOARD::IsShow()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_ELEMENT* UI_VIRTUALKEYBOARD::GetElementEditable()
-* @brief      GetElementEditable
+* @brief      Get element editable
 * @ingroup    USERINTERFACE
 *
 * @return     UI_ELEMENT* : 
@@ -335,7 +335,7 @@ bool UI_VIRTUALKEYBOARD::Show(bool on, UI_ELEMENT* element_editable)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_VIRTUALKEYBOARD::SelectInput(UI_ELEMENT* key_select)
-* @brief      SelectInput
+* @brief      Select input
 * @ingroup    USERINTERFACE
 *
 * @param[in]  key_select : 
@@ -522,7 +522,7 @@ bool UI_VIRTUALKEYBOARD::End()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_ANIMATION* UI_VIRTUALKEYBOARD::AddImageCache(XCHAR* name, XCHAR* resource)
-* @brief      AddImageCache
+* @brief      Add image cache
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  name : 
@@ -582,7 +582,7 @@ UI_ANIMATION* UI_VIRTUALKEYBOARD::AddImageCache(XCHAR* name, XCHAR* resource)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPBITMAP* UI_VIRTUALKEYBOARD::LoadKeyImage(XCHAR* pathimage)
-* @brief      LoadKeyImage
+* @brief      Load key image
 * @ingroup    USERINTERFACE
 *
 * @param[in]  pathimage : 
@@ -605,7 +605,7 @@ GRPBITMAP* UI_VIRTUALKEYBOARD::LoadKeyImage(XCHAR* pathimage)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_VIRTUALKEYBOARD::AddKeyButton(XCHAR* leyend, XCHAR* text, XCHAR* xpathbitmap, UI_VIRTUALKEYBOARD_KEYINFO& keyinfo)
-* @brief      AddKeyButton
+* @brief      Add key button
 * @ingroup    USERINTERFACE
 *
 * @param[in]  leyend : 
@@ -745,7 +745,7 @@ bool UI_VIRTUALKEYBOARD::AddKeyButton(XCHAR* leyend, XCHAR* text, XCHAR* xpathbi
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_VIRTUALKEYBOARD::CreateAllKeys(double x, double y)
-* @brief      CreateAllKeys
+* @brief      Create all keys
 * @ingroup    USERINTERFACE
 *
 * @param[in]  x : 
@@ -886,7 +886,7 @@ bool UI_VIRTUALKEYBOARD::CreateAllKeys(double x, double y)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_VIRTUALKEYBOARD::DeleteAllKeys()
-* @brief      DeleteAllKeys
+* @brief      Delete all keys
 * @ingroup    USERINTERFACE
 *
 * @return     bool : true if is succesful. 
@@ -906,7 +906,7 @@ bool UI_VIRTUALKEYBOARD::DeleteAllKeys()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_VIRTUALKEYBOARD::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
 *

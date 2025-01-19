@@ -72,7 +72,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOI2CLIGHTSENSORTSL2561::DIOI2CLIGHTSENSORTSL2561()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -85,7 +85,7 @@ DIOI2CLIGHTSENSORTSL2561::DIOI2CLIGHTSENSORTSL2561(): DIODEVICEI2C()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOI2CLIGHTSENSORTSL2561::~DIOI2CLIGHTSENSORTSL2561()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -101,7 +101,7 @@ DIOI2CLIGHTSENSORTSL2561::~DIOI2CLIGHTSENSORTSL2561()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOI2CLIGHTSENSORTSL2561::SetIntegrationTime(DIOI2CLIGHTSENSORTSL2561INTEGRATIONTIME integrationtime)
-* @brief      SetIntegrationTime
+* @brief      Set integration time
 * @ingroup    DATAIO
 *
 * @param[in]  integrationtime :
@@ -129,7 +129,7 @@ bool DIOI2CLIGHTSENSORTSL2561::SetIntegrationTime(DIOI2CLIGHTSENSORTSL2561INTEGR
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOI2CLIGHTSENSORTSL2561::SetGain(DIOI2CLIGHTSENSORTSL2561GAIN gain)
-* @brief      SetGain
+* @brief      Set gain
 * @ingroup    DATAIO
 *
 * @param[in]  gain :
@@ -280,7 +280,7 @@ bool DIOI2CLIGHTSENSORTSL2561::End()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOI2CLIGHTSENSORTSL2561::IniDevice()
-* @brief      IniDevice
+* @brief      Ini device
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -313,7 +313,7 @@ bool DIOI2CLIGHTSENSORTSL2561::IniDevice()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOI2CLIGHTSENSORTSL2561::WriteReg(XBYTE reg, XBYTE value, int timeout)
-* @brief      WriteReg
+* @brief      Write reg
 * @ingroup    DATAIO
 *
 * @param[in]  reg :
@@ -342,7 +342,7 @@ bool DIOI2CLIGHTSENSORTSL2561::WriteReg(XBYTE reg, XBYTE value, int timeout)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOI2CLIGHTSENSORTSL2561::ReadData16(XBYTE reg, XWORD& value, int timeout)
-* @brief      ReadData16
+* @brief      Read data16
 * @ingroup    DATAIO
 *
 * @param[in]  reg :
@@ -378,7 +378,7 @@ bool DIOI2CLIGHTSENSORTSL2561::ReadData16(XBYTE reg, XWORD& value, int timeout)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOI2CLIGHTSENSORTSL2561::GetData(XWORD& fullspectrum, XWORD& infrared)
-* @brief      GetData
+* @brief      Get data
 * @ingroup    DATAIO
 *
 * @param[in]  fullspectrum :
@@ -446,7 +446,7 @@ bool DIOI2CLIGHTSENSORTSL2561::Deactivate()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD DIOI2CLIGHTSENSORTSL2561::CalculateLux(XWORD broadband, XWORD inflared)
-* @brief      CalculateLux
+* @brief      Calculate lux
 * @ingroup    DATAIO
 *
 * @param[in]  broadband :
@@ -557,7 +557,7 @@ XDWORD DIOI2CLIGHTSENSORTSL2561::CalculateLux(XWORD broadband, XWORD inflared)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOI2CLIGHTSENSORTSL2561::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

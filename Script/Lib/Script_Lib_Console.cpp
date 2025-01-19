@@ -68,10 +68,11 @@
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
 #pragma region CLASS_MEMBERS
 
+
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         SCRIPT_LIB_CONSOLE::SCRIPT_LIB_CONSOLE()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    SCRIPT
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -86,7 +87,7 @@ SCRIPT_LIB_CONSOLE::SCRIPT_LIB_CONSOLE() : SCRIPT_LIB(SCRIPT_LIB_NAME_CONSOLE)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         SCRIPT_LIB_CONSOLE::~SCRIPT_LIB_CONSOLE()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    SCRIPT
 *
@@ -102,7 +103,7 @@ SCRIPT_LIB_CONSOLE::~SCRIPT_LIB_CONSOLE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool SCRIPT_LIB_CONSOLE::AddLibraryFunctions(SCRIPT* script)
-* @brief      AddLibraryFunctions
+* @brief      Add library functions
 * @ingroup    SCRIPT
 *
 * @param[in]  script :
@@ -127,7 +128,7 @@ bool SCRIPT_LIB_CONSOLE::AddLibraryFunctions(SCRIPT* script)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XCONSOLE* SCRIPT_LIB_CONSOLE::GetConsole()
-* @brief      GetConsole
+* @brief      Get console
 * @ingroup    SCRIPT
 *
 * @return     XCONSOLE* :
@@ -149,7 +150,7 @@ XCONSOLE* SCRIPT_LIB_CONSOLE::GetConsole()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void SCRIPT_LIB_CONSOLE::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    SCRIPT
 *
@@ -168,16 +169,16 @@ void SCRIPT_LIB_CONSOLE::Clean()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         void Call_Console_GetChar(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
-* @brief      Call_Console_GetChar
+* @brief      Call  console  get char
 * @ingroup    SCRIPT
-*
-* @param[in]  library :
-* @param[in]  script :
-* @param[in]  params :
-* @param[in]  returnvalue :
-*
+* 
+* @param[in]  library : 
+* @param[in]  script : 
+* @param[in]  params : 
+* @param[in]  returnvalue : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void Call_Console_GetChar(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
 {

@@ -64,7 +64,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIONODEITEMVALUEUNITFORMAT::DIONODEITEMVALUEUNITFORMAT()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -77,7 +77,7 @@ DIONODEITEMVALUEUNITFORMAT::DIONODEITEMVALUEUNITFORMAT()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIONODEITEMVALUEUNITFORMAT::~DIONODEITEMVALUEUNITFORMAT()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 * 
@@ -91,7 +91,7 @@ DIONODEITEMVALUEUNITFORMAT::~DIONODEITEMVALUEUNITFORMAT()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD DIONODEITEMVALUEUNITFORMAT::GetType()
-* @brief      GetType
+* @brief      Get type
 * @ingroup    DATAIO
 * 
 * @return     XDWORD : 
@@ -106,7 +106,7 @@ XDWORD DIONODEITEMVALUEUNITFORMAT::GetType()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIONODEITEMVALUEUNITFORMAT::SetType(XDWORD type)
-* @brief      SetType
+* @brief      Set type
 * @ingroup    DATAIO
 * 
 * @param[in]  type : 
@@ -124,7 +124,7 @@ void DIONODEITEMVALUEUNITFORMAT::SetType(XDWORD type)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XVARIANT* DIONODEITEMVALUEUNITFORMAT::GetName()
-* @brief      GetName
+* @brief      Get name
 * @ingroup    DATAIO
 * 
 * @return     XVARIANT* : 
@@ -139,7 +139,7 @@ XVARIANT* DIONODEITEMVALUEUNITFORMAT::GetName()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XVARIANT* DIONODEITEMVALUEUNITFORMAT::GetSymbol()
-* @brief      GetSymbol
+* @brief      Get symbol
 * @ingroup    DATAIO
 * 
 * @return     XVARIANT* : 
@@ -192,7 +192,7 @@ bool DIONODEITEMVALUEUNITFORMAT::Deserialize()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIONODEITEMVALUEUNITFORMAT::GetDefaultName()
-* @brief      GetDefaultName
+* @brief      Get default name
 * @ingroup    DATAIO
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -227,7 +227,7 @@ void DIONODEITEMVALUEUNITFORMAT::GetDefaultName()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIONODEITEMVALUEUNITFORMAT::GetDefaultSymbol()
-* @brief      GetDefaultSymbol
+* @brief      Get default symbol
 * @ingroup    DATAIO
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -273,7 +273,7 @@ void DIONODEITEMVALUEUNITFORMAT::GetDefaultSymbol()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIONODEITEMVALUEUNITFORMAT::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 * 

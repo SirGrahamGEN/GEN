@@ -64,7 +64,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPXEVENT::GRPXEVENT(XSUBJECT* subject, XDWORD type, XDWORD family)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    GRAPHIC
 *
 * @param[in]  subject : subject origin
@@ -81,7 +81,7 @@ GRPXEVENT::GRPXEVENT(XSUBJECT* subject, XDWORD type, XDWORD family): XEVENT(subj
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPXEVENT::~GRPXEVENT()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
 *
@@ -95,7 +95,7 @@ GRPXEVENT::~GRPXEVENT()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPSCREEN* GRPXEVENT::GetScreen()
-* @brief      Get Screen
+* @brief      Get screen
 * @ingroup    GRAPHIC
 *
 * @return     GRPSCREEN* :
@@ -110,7 +110,7 @@ GRPSCREEN* GRPXEVENT::GetScreen()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void GRPXEVENT::SetScreen(GRPSCREEN* screen)
-* @brief      Set Screen
+* @brief      Set screen
 * @ingroup    GRAPHIC
 *
 * @param[in]  screen :
@@ -125,7 +125,7 @@ void GRPXEVENT::SetScreen(GRPSCREEN* screen)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPVIEWPORT* GRPXEVENT::GetViewport()
-* @brief      Get Viewport
+* @brief      Get viewport
 * @ingroup    GRAPHIC
 *
 * @return     GRPVIEWPORT* :
@@ -140,7 +140,7 @@ GRPVIEWPORT* GRPXEVENT::GetViewport()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void GRPXEVENT::SetViewport(GRPVIEWPORT* viewport)
-* @brief      Set Viewport
+* @brief      Set viewport
 * @ingroup    GRAPHIC
 *
 * @param[in]  viewport :
@@ -155,7 +155,7 @@ void GRPXEVENT::SetViewport(GRPVIEWPORT* viewport)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPXEVENT::GetError()
-* @brief      GetError
+* @brief      Get error
 * @ingroup    GRAPHIC
 *
 * @return     bool : true if is succesful.
@@ -170,7 +170,7 @@ bool GRPXEVENT::GetError()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void GRPXEVENT::SetError(bool error)
-* @brief      SetError
+* @brief      Set error
 * @ingroup    GRAPHIC
 *
 * @param[in]  error :
@@ -185,7 +185,7 @@ void GRPXEVENT::SetError(bool error)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void GRPXEVENT::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    GRAPHIC
 *

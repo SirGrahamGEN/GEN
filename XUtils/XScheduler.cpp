@@ -76,7 +76,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSCHEDULERTASK::XSCHEDULERTASK(XSCHEDULER* xscheduler)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * @param[in]  xscheduler :
@@ -95,7 +95,7 @@ XSCHEDULERTASK::XSCHEDULERTASK(XSCHEDULER* xscheduler)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSCHEDULERTASK::~XSCHEDULERTASK()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    XUTILS
 * 
@@ -115,7 +115,7 @@ XSCHEDULERTASK::~XSCHEDULERTASK()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSCHEDULERTASK::IsActive()
-* @brief      IsActive
+* @brief      Is active
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -130,7 +130,7 @@ bool XSCHEDULERTASK::IsActive()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSCHEDULERTASK::SetIsActive(bool active)
-* @brief      SetIsActive
+* @brief      Set is active
 * @ingroup    XUTILS
 *
 * @param[in]  active :
@@ -150,7 +150,7 @@ bool XSCHEDULERTASK::SetIsActive(bool active)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD XSCHEDULERTASK::GetID()
-* @brief      GetID
+* @brief      Get ID
 * @ingroup    XUTILS
 *
 * @return     XDWORD :
@@ -165,7 +165,7 @@ XDWORD XSCHEDULERTASK::GetID()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XSCHEDULERTASK::SetID(XDWORD ID)
-* @brief      SetID
+* @brief      Set ID
 * @ingroup    XUTILS
 *
 * @param[in]  ID :
@@ -180,7 +180,7 @@ void XSCHEDULERTASK::SetID(XDWORD ID)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XTIMER* XSCHEDULERTASK::GetXTimer()
-* @brief      GetXTimer
+* @brief      Get X timer
 * @ingroup    XUTILS
 *
 * @return     XTIMER* :
@@ -195,7 +195,7 @@ XTIMER* XSCHEDULERTASK::GetXTimer()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSCHEDULERTASK::IsInValidTimeLimit()
-* @brief      IsInValidTimeLimit
+* @brief      Is in valid time limit
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -210,7 +210,7 @@ bool XSCHEDULERTASK::IsInValidTimeLimit()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDATETIME* XSCHEDULERTASK::GetTimeLimitStart()
-* @brief      GetTimeLimitStart
+* @brief      Get time limit start
 * @ingroup    XUTILS
 *
 * @return     XDATETIME* :
@@ -225,7 +225,7 @@ XDATETIME* XSCHEDULERTASK::GetTimeLimitStart()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDATETIME* XSCHEDULERTASK::GetTimeLimitEnd()
-* @brief      GetTimeLimitEnd
+* @brief      Get time limit end
 * @ingroup    XUTILS
 *
 * @return     XDATETIME* :
@@ -240,7 +240,7 @@ XDATETIME* XSCHEDULERTASK::GetTimeLimitEnd()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSCHEDULERTASK::IsCyclic()
-* @brief      XSCHEDULERTASK::IsCyclic
+* @brief      Is cyclic
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -255,7 +255,7 @@ bool XSCHEDULERTASK::IsCyclic()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XSCHEDULERTASK::GetNCyclesTodo()
-* @brief      XSCHEDULERTASK::GetNCyclesTodo
+* @brief      Get N cycles todo
 * @ingroup    XUTILS
 *
 * @return     int :
@@ -270,7 +270,7 @@ int XSCHEDULERTASK::GetNCyclesTodo()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSCHEDULERTASK::SetNCycles(int ncyclestodo, XDATETIME* xdatetimecadence)
-* @brief      SetNCycles
+* @brief      Set N cycles
 * @ingroup    XUTILS
 *
 * @param[in]  ncyclestodo :
@@ -295,7 +295,7 @@ bool XSCHEDULERTASK::SetNCycles(int ncyclestodo, XDATETIME* xdatetimecadence)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSCHEDULERTASK::SetNCycles(int ncyclestodo, XQWORD cadenceinseconds)
-* @brief      SetNCycles
+* @brief      Set N cycles
 * @ingroup    XUTILS
 *
 * @param[in]  ncyclestodo :
@@ -323,7 +323,7 @@ bool XSCHEDULERTASK::SetNCycles(int ncyclestodo, XQWORD cadenceinseconds)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSCHEDULERTASK::SetNCycles(int ncyclestodo, int cadenceinseconds)
-* @brief      SetNCycles
+* @brief      Set N cycles
 * @ingroup    XUTILS
 *
 * @param[in]  ncyclestodo :
@@ -341,7 +341,7 @@ bool XSCHEDULERTASK::SetNCycles(int ncyclestodo, int cadenceinseconds)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSCHEDULERTASK::IsStartImmediatelyCycles()
-* @brief      IsStartImmediatelyCycles
+* @brief      Is start immediately cycles
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -356,7 +356,7 @@ bool XSCHEDULERTASK::IsStartImmediatelyCycles()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XSCHEDULERTASK::SetIsStartImmediatelyCycles(bool isstartimmediatelycycles)
-* @brief      SetIsStartImmediatelyCycles
+* @brief      Set is start immediately cycles
 * @ingroup    XUTILS
 *
 * @param[in]  isstartimmediatelycycles :
@@ -371,7 +371,7 @@ void XSCHEDULERTASK::SetIsStartImmediatelyCycles(bool isstartimmediatelycycles)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSCHEDULERTASK::SetTimeLimits(XDATETIME* xdatetimelimitstart, XDATETIME* xdatetimelimitend)
-* @brief      SetTimeLimits
+* @brief      Set time limits
 * @ingroup    XUTILS
 *
 * @param[in]  xdatetimelimitstart :
@@ -392,7 +392,7 @@ bool XSCHEDULERTASK::SetTimeLimits(XDATETIME* xdatetimelimitstart, XDATETIME* xd
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XSCHEDULERTASK::SetConditionDayWeek(XBYTE mask)
-* @brief      SetConditionDayWeek
+* @brief      Set condition day week
 * @ingroup    XUTILS
 *
 * @param[in]  mask :
@@ -407,7 +407,7 @@ void XSCHEDULERTASK::SetConditionDayWeek(XBYTE mask)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XSCHEDULERTASK::ResetCondition()
-* @brief      ResetCondition
+* @brief      Reset condition
 * @ingroup    XUTILS
 * 
 * @return     bool : true if is succesful. 
@@ -431,7 +431,7 @@ bool XSCHEDULERTASK::ResetCondition()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XSCHEDULERTASK::StartConditionImmediately()
-* @brief      StartConditionImmediately
+* @brief      Start condition immediately
 * @ingroup    XUTILS
 * 
 * @return     bool : true if is succesful. 
@@ -453,7 +453,7 @@ bool XSCHEDULERTASK::StartConditionImmediately()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSCHEDULERTASK::CheckCondition(XDATETIME* xdatetimeactual, XTIMER* xtimeractual)
-* @brief      CheckCondition
+* @brief      Check condition
 * @ingroup    XUTILS
 *
 * @param[in]  xdatetimeactual :
@@ -528,7 +528,7 @@ bool XSCHEDULERTASK::CheckCondition(XDATETIME* xdatetimeactual, XTIMER* xtimerac
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XBYTE XSCHEDULERTASK::GetDayOfWeekMask(XDATETIME* xtimeactual)
-* @brief      GetDayOfWeekMask
+* @brief      Get day of week mask
 * @ingroup    XUTILS
 *
 * @param[in]  xtimeactual :
@@ -560,7 +560,7 @@ XBYTE XSCHEDULERTASK::GetDayOfWeekMask(XDATETIME* xtimeactual)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XSCHEDULERTASK::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    XUTILS
 *
@@ -594,7 +594,7 @@ void XSCHEDULERTASK::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSCHEDULER::XSCHEDULER()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -611,7 +611,7 @@ XSCHEDULER::XSCHEDULER()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSCHEDULER::~XSCHEDULER()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -662,7 +662,7 @@ bool XSCHEDULER::Ini()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSCHEDULER::IsActive()
-* @brief      IsActive
+* @brief      Is active
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -692,7 +692,7 @@ void XSCHEDULER::Activate(bool on)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XMUTEX* XSCHEDULER::GetMutexScheduler()
-* @brief      GetMutexScheduler
+* @brief      Get mutex scheduler
 * @ingroup    XUTILS
 * 
 * @return     XMUTEX* : 
@@ -707,7 +707,7 @@ XMUTEX* XSCHEDULER::GetMutexScheduler()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDATETIME* XSCHEDULER::GetDateTimeActual()
-* @brief      GetDateTimeActual
+* @brief      Get date time actual
 * @ingroup    XUTILS
 * 
 * @return     XDATETIME* : 
@@ -722,7 +722,7 @@ XDATETIME* XSCHEDULER::GetDateTimeActual()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSCHEDULER::Task_Add(XSCHEDULERTASK* task)
-* @brief      Task_Add
+* @brief      Task add
 * @ingroup    XUTILS
 *
 * @param[in]  task :
@@ -749,7 +749,7 @@ bool XSCHEDULER::Task_Add(XSCHEDULERTASK* task)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSCHEDULERTASK* XSCHEDULER::Task_Get(int index)
-* @brief      Task_Get
+* @brief      Task get
 * @ingroup    XUTILS
 *
 * @param[in]  index :
@@ -768,7 +768,7 @@ XSCHEDULERTASK* XSCHEDULER::Task_Get(int index)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSCHEDULERTASK* XSCHEDULER::Task_GetForID(XDWORD ID)
-* @brief      Task_GetForID
+* @brief      Task get for ID
 * @ingroup    XUTILS
 *
 * @param[in]  ID :
@@ -805,7 +805,7 @@ XSCHEDULERTASK* XSCHEDULER::Task_GetForID(XDWORD ID)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSCHEDULER::Task_Del(int index)
-* @brief      Task_Del
+* @brief      Task del
 * @ingroup    XUTILS
 *
 * @param[in]  index :
@@ -838,7 +838,7 @@ bool XSCHEDULER::Task_Del(int index)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSCHEDULER::Task_DelForID(XDWORD ID)
-* @brief      Task_DelForID
+* @brief      Task del for ID
 * @ingroup    XUTILS
 *
 * @param[in]  ID :
@@ -878,7 +878,7 @@ bool XSCHEDULER::Task_DelForID(XDWORD ID)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSCHEDULER::Task_DelAll()
-* @brief      Task_DelAll
+* @brief      Task del all
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -941,7 +941,7 @@ bool XSCHEDULER::End()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XSCHEDULER::ThreadScheduler(void* data)
-* @brief      ThreadScheduler
+* @brief      Thread scheduler
 * @ingroup    XUTILS
 *
 * @param[in]  data :
@@ -1016,7 +1016,7 @@ void XSCHEDULER::ThreadScheduler(void* data)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XSCHEDULER::Clean ()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean 
 * @note       INTERNAL
 * @ingroup    XUTILS
 *

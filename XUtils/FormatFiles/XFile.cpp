@@ -78,7 +78,7 @@ XFILEOPENLIST XFileOpenList;
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILE::XFILE()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -91,7 +91,7 @@ XFILE::XFILE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILE::~XFILE()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -108,7 +108,7 @@ XFILE::~XFILE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD XFILE::GetSize()
-* @brief      GetSize
+* @brief      Get size
 * @ingroup    XUTILS
 *
 * @return     XQWORD :
@@ -279,7 +279,7 @@ bool XFILE::Rename(XPATH& xpathold,XCHAR* xpathnew)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILE::IsOpen()
-* @brief      IsOpen
+* @brief      Is open
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -294,7 +294,7 @@ bool XFILE::IsOpen()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILE::IsReadOnly()
-* @brief      IsReadOnly
+* @brief      Is read only
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -309,7 +309,7 @@ bool XFILE::IsReadOnly()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XCHAR* XFILE::GetPathNameFile()
-* @brief      GetPathNameFile
+* @brief      Get path name file
 * @ingroup    XUTILS
 *
 * @return     XCHAR* :
@@ -324,7 +324,7 @@ XCHAR* XFILE::GetPathNameFile()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILE::EraseBlock(XQWORD size)
-* @brief      EraseBlock
+* @brief      Erase block
 * @ingroup    XUTILS
 *
 * @param[in]  size :
@@ -381,7 +381,7 @@ bool XFILE::EraseBlock(XQWORD size)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILE::InsertBlock(XBYTE* buffer, XDWORD size)
-* @brief      InsertBlock
+* @brief      Insert block
 * @ingroup    XUTILS
 *
 * @param[in]  buffer :
@@ -454,7 +454,7 @@ bool XFILE::InsertBlock(XBYTE* buffer, XDWORD size)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XFILE::ChangeAttributes(XCHAR* attributes)
-* @brief      ChangeAttributes
+* @brief      Change attributes
 * @ingroup    XUTILS
 *
 * @param[in]  attributes :
@@ -469,7 +469,7 @@ void XFILE::ChangeAttributes(XCHAR* attributes)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XFILE::OverwriteContent(XCHAR* xpath)
-* @brief      OverwriteContent
+* @brief      Overwrite content
 * @ingroup    XUTILS
 * 
 * @param[in]  xpath : 
@@ -520,7 +520,7 @@ bool XFILE::OverwriteContent(XCHAR* xpath)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XFILE::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    XUTILS
 *
@@ -542,7 +542,7 @@ void XFILE::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILECONTAINER::XFILECONTAINER()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -555,7 +555,7 @@ XFILECONTAINER::XFILECONTAINER()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILECONTAINER::~XFILECONTAINER()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -569,7 +569,7 @@ XFILECONTAINER::~XFILECONTAINER()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XFILECONTAINER::CreatePrimaryFile()
-* @brief      CreatePrimaryFile
+* @brief      Create primary file
 * @ingroup    XUTILS
 * 
 * @return     bool : true if is succesful. 
@@ -589,7 +589,7 @@ bool XFILECONTAINER::CreatePrimaryFile()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XFILE* XFILECONTAINER::GetPrimaryFile()
-* @brief      GetPrimaryFile
+* @brief      Get primary file
 * @ingroup    XUTILS
 * 
 * @return     XFILE* : 
@@ -604,7 +604,7 @@ XFILE* XFILECONTAINER::GetPrimaryFile()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XFILECONTAINER::DeletePrimaryFile()
-* @brief      DeletePrimaryFile
+* @brief      Delete primary file
 * @ingroup    XUTILS
 * 
 * @return     bool : true if is succesful. 
@@ -627,7 +627,7 @@ bool XFILECONTAINER::DeletePrimaryFile()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XFILECONTAINER::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    XUTILS
 *
@@ -651,7 +651,7 @@ void XFILECONTAINER::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XFILEOPENLIST::~XFILEOPENLIST()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    XUTILS
 * 
@@ -705,7 +705,7 @@ bool XFILEOPENLIST::Del(XFILE* xfile)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XFILEOPENLIST::CloseAll()
-* @brief      CloseAll
+* @brief      Close all
 * @ingroup    XUTILS
 * 
 * @return     bool : true if is succesful. 
@@ -729,7 +729,7 @@ bool XFILEOPENLIST::CloseAll()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XFILEOPENLIST::DisplayAll()
-* @brief      DisplayAll
+* @brief      Display all
 * @ingroup    XUTILS
 * 
 * @return     bool : true if is succesful. 

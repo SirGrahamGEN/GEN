@@ -66,7 +66,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMUART::DIOSTREAMUART()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -81,7 +81,7 @@ DIOSTREAMUART::DIOSTREAMUART(): DIOSTREAM()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMUART::~DIOSTREAMUART()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -97,7 +97,7 @@ DIOSTREAMUART::~DIOSTREAMUART()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMCONFIG* DIOSTREAMUART::GetConfig()
-* @brief      GetConfig
+* @brief      Get config
 * @ingroup    DATAIO
 *
 * @return     DIOSTREAMCONFIG* :
@@ -112,7 +112,7 @@ DIOSTREAMCONFIG* DIOSTREAMUART::GetConfig()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMUART::SetConfig(DIOSTREAMCONFIG* config)
-* @brief      SetConfig
+* @brief      Set config
 * @ingroup    DATAIO
 *
 * @param[in]  config :
@@ -133,7 +133,7 @@ bool DIOSTREAMUART::SetConfig(DIOSTREAMCONFIG* config)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMSTATUS DIOSTREAMUART::GetStatus()
-* @brief      GetStatus
+* @brief      Get status
 * @ingroup    DATAIO
 *
 * @return     DIOSTREAMSTATUS :
@@ -180,7 +180,7 @@ bool DIOSTREAMUART::Config(XWORD mask)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD DIOSTREAMUART::ReadDirect(XBYTE* buffer, XDWORD size)
-* @brief      ReadDirect
+* @brief      Read direct
 * @ingroup    DATAIO
 *
 * @param[in]  buffer :
@@ -198,7 +198,7 @@ XDWORD DIOSTREAMUART::ReadDirect(XBYTE* buffer, XDWORD size)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD DIOSTREAMUART::WriteDirect(XBYTE* buffer, XDWORD size)
-* @brief      WriteDirect
+* @brief      Write direct
 * @ingroup    DATAIO
 *
 * @param[in]  buffer :
@@ -231,7 +231,7 @@ bool DIOSTREAMUART::Close()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMUART::GetCTS()
-* @brief      GetCTS
+* @brief      Get CTS
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -246,7 +246,7 @@ bool DIOSTREAMUART::GetCTS()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMUART::GetDSR()
-* @brief      GetDSR
+* @brief      Get DSR
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -261,7 +261,7 @@ bool DIOSTREAMUART::GetDSR()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMUART::GetRing()
-* @brief      GetRing
+* @brief      Get ring
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -276,7 +276,7 @@ bool DIOSTREAMUART::GetRing()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMUART::GetRLSD()
-* @brief      GetRLSD
+* @brief      Get RLSD
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -291,7 +291,7 @@ bool DIOSTREAMUART::GetRLSD()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMUART::SetRTS(bool on)
-* @brief      SetRTS
+* @brief      Set RTS
 * @ingroup    DATAIO
 *
 * @param[in]  on :
@@ -308,7 +308,7 @@ bool DIOSTREAMUART::SetRTS(bool on)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMUART::SetDTR(bool on)
-* @brief      SetDTR
+* @brief      Set DTR
 * @ingroup    DATAIO
 *
 * @param[in]  on :
@@ -325,7 +325,7 @@ bool DIOSTREAMUART::SetDTR(bool on)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMUART::CleanBuffers()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean buffers
 * @note       INTERNAL
 * @ingroup    DATAIO
 *
@@ -341,7 +341,7 @@ bool DIOSTREAMUART::CleanBuffers()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSTREAMUART::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

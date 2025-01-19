@@ -65,7 +65,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVECTORFILE_XEVENT::GRPVECTORFILE_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    GRAPHIC
 * 
 * @param[in]  subject : 
@@ -82,7 +82,7 @@ GRPVECTORFILE_XEVENT::GRPVECTORFILE_XEVENT(XSUBJECT* subject, XDWORD type, XDWOR
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVECTORFILE_XEVENT::~GRPVECTORFILE_XEVENT()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
 * 
@@ -96,7 +96,7 @@ GRPVECTORFILE_XEVENT::~GRPVECTORFILE_XEVENT()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVECTORFILETYPE GRPVECTORFILE_XEVENT::GetType()
-* @brief      GetType
+* @brief      Get type
 * @ingroup    GRAPHIC
 * 
 * @return     GRPVECTORFILETYPE : 
@@ -111,7 +111,7 @@ GRPVECTORFILETYPE GRPVECTORFILE_XEVENT::GetType()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRPVECTORFILE_XEVENT::SetType(GRPVECTORFILETYPE type)
-* @brief      SetType
+* @brief      Set type
 * @ingroup    GRAPHIC
 * 
 * @param[in]  type : 
@@ -126,7 +126,7 @@ void GRPVECTORFILE_XEVENT::SetType(GRPVECTORFILETYPE type)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XPATH* GRPVECTORFILE_XEVENT::GetPath()
-* @brief      GetPath
+* @brief      Get path
 * @ingroup    GRAPHIC
 * 
 * @return     XPATH* : 
@@ -141,7 +141,7 @@ XPATH* GRPVECTORFILE_XEVENT::GetPath()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* GRPVECTORFILE_XEVENT::GetMsg()
-* @brief      GetMsg
+* @brief      Get msg
 * @ingroup    GRAPHIC
 * 
 * @return     XSTRING* : 
@@ -156,7 +156,7 @@ XSTRING* GRPVECTORFILE_XEVENT::GetMsg()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRPVECTORFILE_XEVENT::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    GRAPHIC
 * 

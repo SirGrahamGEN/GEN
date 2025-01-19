@@ -76,7 +76,7 @@ XDRIVEIMAGEMANAGER* XDRIVEIMAGEMANAGER::instance = NULL;
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDRIVEIMAGEMANAGER_DRIVE::XDRIVEIMAGEMANAGER_DRIVE()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -89,7 +89,7 @@ XDRIVEIMAGEMANAGER_DRIVE::XDRIVEIMAGEMANAGER_DRIVE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDRIVEIMAGEMANAGER_DRIVE::~XDRIVEIMAGEMANAGER_DRIVE()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -109,7 +109,7 @@ XDRIVEIMAGEMANAGER_DRIVE::~XDRIVEIMAGEMANAGER_DRIVE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XDRIVEIMAGEMANAGER::GetIsInstanced()
-* @brief      Get if Is Instanced
+* @brief      Get is instanced
 * @note       STATIC
 * @ingroup    XUTILS
 *
@@ -125,7 +125,7 @@ bool XDRIVEIMAGEMANAGER::GetIsInstanced()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDRIVEIMAGEMANAGER& XDRIVEIMAGEMANAGER::GetInstance()
-* @brief      Get Instance of XDRIVEIMAGEMANAGER
+* @brief      Get instance
 * @note       STATIC
 * @ingroup    XUTILS
 *
@@ -146,7 +146,7 @@ XDRIVEIMAGEMANAGER& XDRIVEIMAGEMANAGER::GetInstance()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XDRIVEIMAGEMANAGER::SetInstance(XDRIVEIMAGEMANAGER* _instance)
-* @brief      Set Instance of XDRIVEIMAGEMANAGER
+* @brief      Set instance
 * @note       STATIC
 * @ingroup    XUTILS
 *
@@ -168,7 +168,7 @@ bool XDRIVEIMAGEMANAGER::SetInstance(XDRIVEIMAGEMANAGER* _instance)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XDRIVEIMAGEMANAGER::DelInstance()
-* @brief      Delete Instance of XDRIVEIMAGE
+* @brief      Del instance
 * @note       STATIC
 * @ingroup    XUTILS
 *
@@ -192,7 +192,7 @@ bool XDRIVEIMAGEMANAGER::DelInstance()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* XDRIVEIMAGEMANAGER_DRIVE::GetName()
-* @brief      GetName
+* @brief      Get name
 * @ingroup    XUTILS
 *
 * @return     XSTRING* :
@@ -207,7 +207,7 @@ XSTRING* XDRIVEIMAGEMANAGER_DRIVE::GetName()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* XDRIVEIMAGEMANAGER_DRIVE::GetLabel()
-* @brief      GetLabel
+* @brief      Get label
 * @ingroup    XUTILS
 *
 * @return     XSTRING* :
@@ -222,7 +222,7 @@ XSTRING* XDRIVEIMAGEMANAGER_DRIVE::GetLabel()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XPATH* XDRIVEIMAGEMANAGER_DRIVE::GetPath()
-* @brief      GetPath
+* @brief      Get path
 * @ingroup    XUTILS
 * 
 * @return     XPATH* : 
@@ -237,7 +237,7 @@ XPATH* XDRIVEIMAGEMANAGER_DRIVE::GetPath()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XDRIVEIMAGEMANAGER_DRIVE::GetVolume()
-* @brief      GetVolume
+* @brief      Get volume
 * @ingroup    XUTILS
 *
 * @return     int :
@@ -252,7 +252,7 @@ int XDRIVEIMAGEMANAGER_DRIVE::GetVolume()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XDRIVEIMAGEMANAGER_DRIVE::SetVolume(int volume)
-* @brief      SetVolume
+* @brief      Set volume
 * @ingroup    XUTILS
 *
 * @param[in]  volume :
@@ -267,7 +267,7 @@ void XDRIVEIMAGEMANAGER_DRIVE::SetVolume(int volume)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD XDRIVEIMAGEMANAGER_DRIVE::GetDeviceID()
-* @brief      GetDeviceID
+* @brief      Get device ID
 * @ingroup    XUTILS
 *
 * @return     XDWORD :
@@ -282,7 +282,7 @@ XDWORD XDRIVEIMAGEMANAGER_DRIVE::GetDeviceID()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XDRIVEIMAGEMANAGER_DRIVE::SetDeviceID(XDWORD deviceID)
-* @brief      SetDeviceID
+* @brief      Set device ID
 * @ingroup    XUTILS
 *
 * @param[in]  deviceID :
@@ -297,7 +297,7 @@ void  XDRIVEIMAGEMANAGER_DRIVE::SetDeviceID(XDWORD deviceID)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XQWORD XDRIVEIMAGEMANAGER_DRIVE::GetID()
-* @brief      GetID
+* @brief      Get ID
 * @ingroup    XUTILS
 *
 * @return     XQWORD :
@@ -312,7 +312,7 @@ XQWORD XDRIVEIMAGEMANAGER_DRIVE::GetID()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XDRIVEIMAGEMANAGER_DRIVE::SetID(XQWORD ID)
-* @brief      SetID
+* @brief      Set ID
 * @ingroup    XUTILS
 *
 * @param[in]  ID :
@@ -327,7 +327,7 @@ void XDRIVEIMAGEMANAGER_DRIVE::SetID(XQWORD ID)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XQWORD XDRIVEIMAGEMANAGER_DRIVE::GetSectorSize()
-* @brief      GetSectorSize
+* @brief      Get sector size
 * @ingroup    XUTILS
 *
 * @return     XQWORD :
@@ -342,7 +342,7 @@ XQWORD XDRIVEIMAGEMANAGER_DRIVE::GetSectorSize()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XDRIVEIMAGEMANAGER_DRIVE::SetSectorSize(XQWORD sectorsize)
-* @brief      SetSectorSize
+* @brief      Set sector size
 * @ingroup    XUTILS
 *
 * @param[in]  sectorsize :
@@ -357,7 +357,7 @@ void XDRIVEIMAGEMANAGER_DRIVE::SetSectorSize(XQWORD sectorsize)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XQWORD XDRIVEIMAGEMANAGER_DRIVE::GetNumberSectors()
-* @brief      GetNumberSectors
+* @brief      Get number sectors
 * @ingroup    XUTILS
 *
 * @return     XQWORD :
@@ -372,7 +372,7 @@ XQWORD XDRIVEIMAGEMANAGER_DRIVE::GetNumberSectors()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XDRIVEIMAGEMANAGER_DRIVE::SetNumberSectors(XQWORD numbersectors)
-* @brief      SetNumberSectors
+* @brief      Set number sectors
 * @ingroup    XUTILS
 *
 * @param[in]  numbersectors :
@@ -387,7 +387,7 @@ void XDRIVEIMAGEMANAGER_DRIVE::SetNumberSectors(XQWORD numbersectors)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XQWORD XDRIVEIMAGEMANAGER_DRIVE::GetSize()
-* @brief      GetSize
+* @brief      Get size
 * @ingroup    XUTILS
 *
 * @return     XQWORD :
@@ -402,7 +402,7 @@ XQWORD XDRIVEIMAGEMANAGER_DRIVE::GetSize()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD XDRIVEIMAGEMANAGER_DRIVE::GetSizeInGB()
-* @brief      GetSizeInGB
+* @brief      Get size in GB
 * @ingroup    XUTILS
 *
 * @return     XDWORD :
@@ -422,7 +422,7 @@ XDWORD XDRIVEIMAGEMANAGER_DRIVE::GetSizeInGB()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD XDRIVEIMAGEMANAGER_DRIVE::GetHandle()
-* @brief      GetHandle
+* @brief      Get handle
 * @ingroup    XUTILS
 *
 * @return     XDWORD :
@@ -437,7 +437,7 @@ XDWORD XDRIVEIMAGEMANAGER_DRIVE::GetHandle()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XDRIVEIMAGEMANAGER_DRIVE::SetHandle(XDWORD handle)
-* @brief      SetHandle
+* @brief      Set handle
 * @ingroup    XUTILS
 *
 * @param[in]  handle :
@@ -452,7 +452,7 @@ void XDRIVEIMAGEMANAGER_DRIVE::SetHandle(XDWORD handle)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD XDRIVEIMAGEMANAGER_DRIVE::GetRawHandle()
-* @brief      GetRawHandle
+* @brief      Get raw handle
 * @ingroup    XUTILS
 *
 * @return     XDWORD :
@@ -467,7 +467,7 @@ XDWORD XDRIVEIMAGEMANAGER_DRIVE::GetRawHandle()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XDRIVEIMAGEMANAGER_DRIVE::SetRawHandle(XDWORD rawhandle)
-* @brief      SetRawHandle
+* @brief      Set raw handle
 * @ingroup    XUTILS
 *
 * @param[in]  rawhandle :
@@ -482,7 +482,7 @@ void XDRIVEIMAGEMANAGER_DRIVE::SetRawHandle(XDWORD rawhandle)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XDRIVEIMAGEMANAGER_DRIVE::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    XUTILS
 *
@@ -502,7 +502,7 @@ void XDRIVEIMAGEMANAGER_DRIVE::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDRIVEIMAGEMANAGER::XDRIVEIMAGEMANAGER()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -520,7 +520,7 @@ XDRIVEIMAGEMANAGER::XDRIVEIMAGEMANAGER()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDRIVEIMAGEMANAGER::~XDRIVEIMAGEMANAGER()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -539,7 +539,7 @@ XDRIVEIMAGEMANAGER::~XDRIVEIMAGEMANAGER()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XDRIVEIMAGEMANAGER::GetDrives(XVECTOR<XDRIVEIMAGEMANAGER_DRIVE*>& drives)
-* @brief      GetDrives
+* @brief      Get drives
 * @ingroup    XUTILS
 * 
 * @param[in]  drives : 
@@ -614,7 +614,7 @@ bool XDRIVEIMAGEMANAGER::Write(XDRIVEIMAGEMANAGER_DRIVE& drive, XQWORD startsect
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XDRIVEIMAGEMANAGER::ReadToIMGFile(XDRIVEIMAGEMANAGER_DRIVE& drive, XPATH& pathfileIMG, XQWORD nsectorsperblock)
-* @brief      ReadToIMGFile
+* @brief      Read to IMG file
 * @ingroup    XUTILS
 *
 * @param[in]  drive :
@@ -688,7 +688,7 @@ bool XDRIVEIMAGEMANAGER::ReadToIMGFile(XDRIVEIMAGEMANAGER_DRIVE& drive, XPATH& p
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XDRIVEIMAGEMANAGER::WriteFromIMGFile(XDRIVEIMAGEMANAGER_DRIVE& drive, XPATH& pathfileIMG, XQWORD nsectorsperblock)
-* @brief      WriteFromIMGFile
+* @brief      Write from IMG file
 * @ingroup    XUTILS
 * 
 * @param[in]  drive : 
@@ -763,7 +763,7 @@ bool XDRIVEIMAGEMANAGER::WriteFromIMGFile(XDRIVEIMAGEMANAGER_DRIVE& drive, XPATH
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         float XDRIVEIMAGEMANAGER::GetLastOperationPercent()
-* @brief      GetLastOperationPercent
+* @brief      Get last operation percent
 * @ingroup    XUTILS
 *
 * @return     float :
@@ -778,7 +778,7 @@ float XDRIVEIMAGEMANAGER::GetLastOperationPercent()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDRIVEIMAGEMANAGER_ERROR XDRIVEIMAGEMANAGER::GetLastError()
-* @brief      GetLastError
+* @brief      Get last error
 * @ingroup    XUTILS
 *
 * @return     XDRIVEIMAGEMANAGER_ERROR :
@@ -810,7 +810,7 @@ bool XDRIVEIMAGEMANAGER::Close(XDRIVEIMAGEMANAGER_DRIVE& drive)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XDRIVEIMAGEMANAGER::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    XUTILS
 *

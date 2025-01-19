@@ -78,7 +78,7 @@ DIODNSRESOLVER* DIODNSRESOLVER::instance = NULL;
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIODNSRESOLVER_HOSTRESOLVED::DIODNSRESOLVER_HOSTRESOLVED()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -91,7 +91,7 @@ DIODNSRESOLVER_HOSTRESOLVED::DIODNSRESOLVER_HOSTRESOLVED()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIODNSRESOLVER_HOSTRESOLVED::~DIODNSRESOLVER_HOSTRESOLVED()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 * 
@@ -105,7 +105,7 @@ DIODNSRESOLVER_HOSTRESOLVED::~DIODNSRESOLVER_HOSTRESOLVED()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* DIODNSRESOLVER_HOSTRESOLVED::GetHost()
-* @brief      GetHost
+* @brief      Get host
 * @ingroup    DATAIO
 * 
 * @return     XSTRING* : 
@@ -120,7 +120,7 @@ XSTRING* DIODNSRESOLVER_HOSTRESOLVED::GetHost()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* DIODNSRESOLVER_HOSTRESOLVED::GetIP()
-* @brief      GetIP
+* @brief      Get IP
 * @ingroup    DATAIO
 *
 * @return     XSTRING* :
@@ -135,7 +135,7 @@ XSTRING* DIODNSRESOLVER_HOSTRESOLVED::GetIP()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIODNSRESOLVER_HOSTRESOLVED::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 * 
@@ -155,7 +155,7 @@ void DIODNSRESOLVER_HOSTRESOLVED::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIODNSRESOLVER_DNSSERVER::DIODNSRESOLVER_DNSSERVER()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -168,7 +168,7 @@ DIODNSRESOLVER_DNSSERVER::DIODNSRESOLVER_DNSSERVER()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIODNSRESOLVER_DNSSERVER::~DIODNSRESOLVER_DNSSERVER()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 * 
@@ -182,7 +182,7 @@ DIODNSRESOLVER_DNSSERVER::~DIODNSRESOLVER_DNSSERVER()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOIP* DIODNSRESOLVER_DNSSERVER::GetIP()
-* @brief      GetIP
+* @brief      Get IP
 * @ingroup    DATAIO
 * 
 * @return     DIOIP* : 
@@ -197,7 +197,7 @@ DIOIP* DIODNSRESOLVER_DNSSERVER::GetIP()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XWORD DIODNSRESOLVER_DNSSERVER::GetPort()
-* @brief      GetPort
+* @brief      Get port
 * @ingroup    DATAIO
 * 
 * @return     XWORD : 
@@ -212,7 +212,7 @@ XWORD DIODNSRESOLVER_DNSSERVER::GetPort()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIODNSRESOLVER_DNSSERVER::SetPort(XWORD port)
-* @brief      SetPort
+* @brief      Set port
 * @ingroup    DATAIO
 * 
 * @param[in]  port : 
@@ -227,7 +227,7 @@ void DIODNSRESOLVER_DNSSERVER::SetPort(XWORD port)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIODNSRESOLVER_DNSSERVER::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 * 
@@ -247,7 +247,7 @@ void DIODNSRESOLVER_DNSSERVER::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIODNSRESOLVER::GetIsInstanced()
-* @brief      GetIsInstanced
+* @brief      Get is instanced
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -262,7 +262,7 @@ bool DIODNSRESOLVER::GetIsInstanced()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIODNSRESOLVER& DIODNSRESOLVER::GetInstance()
-* @brief      GetInstance
+* @brief      Get instance
 * @ingroup    DATAIO
 *
 * @return     DIODNSRESOLVER& :
@@ -279,7 +279,7 @@ DIODNSRESOLVER& DIODNSRESOLVER::GetInstance()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIODNSRESOLVER::DelInstance()
-* @brief      DelInstance
+* @brief      Del instance
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -302,7 +302,7 @@ bool DIODNSRESOLVER::DelInstance()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIODNSRESOLVER::ResolveURL(XCHAR* URL, DIOIP& IPresolved, int querytype, XDWORD timeout)
-* @brief      ResolveURL
+* @brief      Resolve URL
 * @ingroup    DATAIO
 *
 * @param[in]  URL :
@@ -405,7 +405,7 @@ bool DIODNSRESOLVER::ResolveURL(XCHAR* URL, DIOIP& IPresolved, int querytype, XD
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIODNSRESOLVER::ResolveURL(DIOURL& URL, DIOIP& IPresolved, int querytype, XDWORD timeout)
-* @brief      ResolveURL
+* @brief      Resolve URL
 * @ingroup    DATAIO
 *
 * @param[in]  URL :
@@ -425,7 +425,7 @@ bool DIODNSRESOLVER::ResolveURL(DIOURL& URL, DIOIP& IPresolved, int querytype, X
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIODNSRESOLVER::ResolveURL(XSTRING& URL, DIOIP& IPresolved, int querytype, XDWORD timeout)
-* @brief      ResolveURL
+* @brief      Resolve URL
 * @ingroup    DATAIO
 *
 * @param[in]  URL :
@@ -445,7 +445,7 @@ bool DIODNSRESOLVER::ResolveURL(XSTRING& URL, DIOIP& IPresolved, int querytype, 
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIODNSRESOLVER::DNSServer_AddDNSServer(XCHAR* server)
-* @brief      DNSServer_AddDNSServer
+* @brief      DNS server add DNS server
 * @ingroup    DATAIO
 *
 * @param[in]  server :
@@ -493,7 +493,7 @@ bool DIODNSRESOLVER::DNSServer_AddDNSServer(XCHAR* server)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIODNSRESOLVER::DNSServer_AddDNSServer(XSTRING& server)
-* @brief      DNSServer_AddDNSServer
+* @brief      DNS server add DNS server
 * @ingroup    DATAIO
 *
 * @param[in]  server :
@@ -510,7 +510,7 @@ bool DIODNSRESOLVER::DNSServer_AddDNSServer(XSTRING& server)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIODNSRESOLVER::DNSServer_AddDNSServer(XBYTE* serverIP, XWORD port)
-* @brief      DNSServer_AddDNSServer
+* @brief      DNS server add DNS server
 * @ingroup    DATAIO
 *
 * @param[in]  serverIP :
@@ -541,7 +541,7 @@ bool DIODNSRESOLVER::DNSServer_AddDNSServer(XBYTE* serverIP, XWORD port)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIODNSRESOLVER::DNSServer_AddDNSServer(DIOIP& serverIP, XWORD port)
-* @brief      DNSServer_AddDNSServer
+* @brief      DNS server add DNS server
 * @ingroup    DATAIO
 *
 * @param[in]  serverIP :
@@ -567,7 +567,7 @@ bool DIODNSRESOLVER::DNSServer_AddDNSServer(DIOIP& serverIP, XWORD port)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIODNSRESOLVER::DNSServer_IsIPonList(DIOIP& serverIP)
-* @brief      DNSServer_IsIPonList
+* @brief      DNS server is I pon list
 * @ingroup    DATAIO
 * 
 * @param[in]  serverIP : 
@@ -596,7 +596,7 @@ bool DIODNSRESOLVER::DNSServer_IsIPonList(DIOIP& serverIP)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XVECTOR<DIOIP*>* DIODNSRESOLVER::DNSServer_GetList()
-* @brief      DNSServer_GetList
+* @brief      DNS server get list
 * @ingroup    DATAIO
 *
 * @return     XVECTOR<DIOIP*>* :
@@ -611,7 +611,7 @@ XVECTOR<DIODNSRESOLVER_DNSSERVER*>* DIODNSRESOLVER::DNSServer_GetList()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIODNSRESOLVER::Host_FindIP(XCHAR* host, DIOIP& IPresolved)
-* @brief      Host_FindIP
+* @brief      Host find IP
 * @ingroup    DATAIO
 *
 * @param[in]  host :
@@ -645,7 +645,7 @@ bool DIODNSRESOLVER::Host_FindIP(XCHAR* host, DIOIP& IPresolved)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIODNSRESOLVER::Host_FindIP(XSTRING& host, DIOIP& IPresolved)
-* @brief      Host_FindIP
+* @brief      Host find IP
 * @ingroup    DATAIO
 *
 * @param[in]  host :
@@ -663,7 +663,7 @@ bool DIODNSRESOLVER::Host_FindIP(XSTRING& host, DIOIP& IPresolved)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIODNSRESOLVER::DNSServer_DeleteAllList()
-* @brief      DNSServer_DeleteAllList
+* @brief      DNS server delete all list
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -681,7 +681,7 @@ bool DIODNSRESOLVER::DNSServer_DeleteAllList()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIODNSRESOLVER::Host_Add(XCHAR* host, XCHAR* IPresolved)
-* @brief      Host_Add
+* @brief      Host add
 * @ingroup    DATAIO
 *
 * @param[in]  host :
@@ -705,7 +705,7 @@ bool DIODNSRESOLVER::Host_Add(XCHAR* host, XCHAR* IPresolved)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIODNSRESOLVER::Host_Add(XSTRING& host, XSTRING& IPresolved)
-* @brief      Host_Add
+* @brief      Host add
 * @ingroup    DATAIO
 *
 * @param[in]  host :
@@ -723,7 +723,7 @@ bool DIODNSRESOLVER::Host_Add(XSTRING& host, XSTRING& IPresolved)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XVECTOR<DIODNSRESOLVER_HOSTRESOLVED*>* DIODNSRESOLVER::Host_GetList()
-* @brief      Host_GetList
+* @brief      Host get list
 * @ingroup    DATAIO
 *
 * @return     XVECTOR<DIODNSRESOLVER_HOSTRESOLVED*>* :
@@ -738,7 +738,7 @@ XVECTOR<DIODNSRESOLVER_HOSTRESOLVED*>*  DIODNSRESOLVER::Host_GetList()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIODNSRESOLVER::Host_DeleteAllList()
-* @brief      Host_DeleteAllList
+* @brief      Host delete all list
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -756,7 +756,7 @@ bool DIODNSRESOLVER::Host_DeleteAllList()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIODNSRESOLVER::DIODNSRESOLVER()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -771,7 +771,7 @@ DIODNSRESOLVER::DIODNSRESOLVER()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIODNSRESOLVER::~DIODNSRESOLVER()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -794,7 +794,7 @@ DIODNSRESOLVER::~DIODNSRESOLVER()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIODNSRESOLVER::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

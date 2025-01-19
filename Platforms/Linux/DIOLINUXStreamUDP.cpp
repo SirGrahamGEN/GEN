@@ -101,8 +101,8 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOLINUXSTREAMUDP::DIOLINUXSTREAMUDP()
-* @brief      Constructor
-* @ingroup    PLATFORM_LINUX 
+* @brief      Constructor of class
+* @ingroup    PLATFORM_LINUX
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOLINUXSTREAMUDP::DIOLINUXSTREAMUDP() : DIOSTREAMUDP() , XFSMACHINE(0)
@@ -150,7 +150,7 @@ DIOLINUXSTREAMUDP::DIOLINUXSTREAMUDP() : DIOSTREAMUDP() , XFSMACHINE(0)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOLINUXSTREAMUDP::~DIOLINUXSTREAMUDP()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
 * 
@@ -278,7 +278,7 @@ bool DIOLINUXSTREAMUDP::Close()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int DIOLINUXSTREAMUDP::IsReadyConnect(int socket)
-* @brief      IsReadyConnect
+* @brief      Is ready connect
 * @ingroup    PLATFORM_LINUX
 * 
 * @param[in]  socket : 
@@ -332,7 +332,7 @@ int DIOLINUXSTREAMUDP::IsReadyConnect(int socket)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOLINUXSTREAMUDP::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
 * 
@@ -348,7 +348,7 @@ void DIOLINUXSTREAMUDP::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOLINUXSTREAMUDP::ThreadRunFunction(void* thread)
-* @brief      ThreadRunFunction
+* @brief      Thread run function
 * @ingroup    PLATFORM_LINUX
 * 
 * @param[in]  thread : 

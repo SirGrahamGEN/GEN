@@ -67,7 +67,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         SNDITEM::SNDITEM()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    SOUND
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -82,7 +82,7 @@ SNDITEM::SNDITEM()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         SNDITEM::~SNDITEM()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    SOUND
 *
@@ -113,7 +113,7 @@ SNDITEM::~SNDITEM()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         SNDITEM_TYPE SNDITEM::GetType()
-* @brief      GetType
+* @brief      Get type
 * @ingroup    SOUND
 * 
 * @return     SNDITEM_TYPE : 
@@ -128,7 +128,7 @@ SNDITEM_TYPE SNDITEM::GetType()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void SNDITEM::SetType(SNDITEM_TYPE type)
-* @brief      SetType
+* @brief      Set type
 * @ingroup    SOUND
 * 
 * @param[in]  type : 
@@ -143,7 +143,7 @@ void SNDITEM::SetType(SNDITEM_TYPE type)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool SNDITEM::GetType(XSTRING& typestr)
-* @brief      GetType
+* @brief      Get type
 * @ingroup    SOUND
 * 
 * @param[in]  typestr : 
@@ -173,7 +173,7 @@ bool SNDITEM::GetType(XSTRING& typestr)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* SNDITEM::GetID()
-* @brief      GetID
+* @brief      Get ID
 * @ingroup    SOUND
 *
 * @return     XSTRING* : 
@@ -188,7 +188,7 @@ XSTRING* SNDITEM::GetID()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         SNDITEM_STATUS SNDITEM::GetStatus()
-* @brief      GetStatus
+* @brief      Get status
 * @ingroup    SOUND
 * 
 * @return     SNDITEM_STATUS : 
@@ -203,7 +203,7 @@ SNDITEM_STATUS SNDITEM::GetStatus()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void SNDITEM::SetStatus(SNDITEM_STATUS status)
-* @brief      SetStatus
+* @brief      Set status
 * @ingroup    SOUND
 * 
 * @param[in]  status : 
@@ -218,7 +218,7 @@ void SNDITEM::SetStatus(SNDITEM_STATUS status)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool SNDITEM::GetStatus(XSTRING& statusstr)
-* @brief      GetStatus
+* @brief      Get status
 * @ingroup    SOUND
 * 
 * @param[in]  statusstr : 
@@ -250,7 +250,7 @@ bool SNDITEM::GetStatus(XSTRING& statusstr)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD SNDITEM::GetNTimesPlayed()
-* @brief      GetNTimesPlayed
+* @brief      Get N times played
 * @ingroup    SOUND
 * 
 * @return     XDWORD : 
@@ -265,7 +265,7 @@ XDWORD SNDITEM::GetNTimesPlayed()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void SNDITEM::AddOneNTimesPlayed()
-* @brief      AddOneNTimesPlayed
+* @brief      Add one N times played
 * @ingroup    SOUND
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -278,7 +278,7 @@ void SNDITEM::AddOneNTimesPlayed()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int SNDITEM::GetNTimesToPlay()
-* @brief      GetNTimesToPlay
+* @brief      Get N times to play
 * @ingroup    SOUND
 * 
 * @return     int : 
@@ -293,7 +293,7 @@ int SNDITEM::GetNTimesToPlay()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void SNDITEM::SetNTimesToPlay(int ntimestoplay)
-* @brief      SetNTimesToPlay
+* @brief      Set N times to play
 * @ingroup    SOUND
 * 
 * @param[in]  ntimestoplay : 
@@ -308,7 +308,7 @@ void SNDITEM::SetNTimesToPlay(int ntimestoplay)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int SNDITEM::GetCounterPlay()
-* @brief      GetCounterPlay
+* @brief      Get counter play
 * @ingroup    SOUND
 * 
 * @return     int : 
@@ -323,7 +323,7 @@ int SNDITEM::GetCounterPlay()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void SNDITEM::SetCounterPlay(int counterplay)
-* @brief      SetCounterPlay
+* @brief      Set counter play
 * @ingroup    SOUND
 * 
 * @param[in]  counterplay : 
@@ -338,7 +338,7 @@ void SNDITEM::SetCounterPlay(int counterplay)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD SNDITEM::GetPlayingTime()
-* @brief      GetPlayingTime
+* @brief      Get playing time
 * @ingroup    SOUND
 * 
 * @return     XDWORD : 
@@ -353,7 +353,7 @@ XDWORD SNDITEM::GetPlayingTime()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void SNDITEM::SetPlayingTime(XDWORD playingtime)
-* @brief      SetPlayingTime
+* @brief      Set playing time
 * @ingroup    SOUND
 * 
 * @param[in]  playingtime : 
@@ -368,7 +368,7 @@ void SNDITEM::SetPlayingTime(XDWORD playingtime)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD SNDITEM::GetCurrentPlayingTime()
-* @brief      GetCurrentPlayingTime
+* @brief      Get current playing time
 * @ingroup    SOUND
 * 
 * @return     XDWORD : 
@@ -383,7 +383,7 @@ XDWORD SNDITEM::GetCurrentPlayingTime()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void SNDITEM::SetCurrentPlayingTime(XDWORD currentplayingtime)
-* @brief      SetCurrentPlayingTime
+* @brief      Set current playing time
 * @ingroup    SOUND
 * 
 * @param[in]  currentplayingtime : 
@@ -399,7 +399,7 @@ void SNDITEM::SetCurrentPlayingTime(XDWORD currentplayingtime)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XTIMER* SNDITEM::GetTimerPlay()
-* @brief      GetTimerPlay
+* @brief      Get timer play
 * @ingroup    SOUND
 * 
 * @return     XTIMER* : 
@@ -414,7 +414,7 @@ XTIMER* SNDITEM::GetTimerPlay()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD SNDITEM::GetDuration()
-* @brief      GetDuration
+* @brief      Get duration
 * @ingroup    SOUND
 * 
 * @return     XDWORD : 
@@ -447,7 +447,7 @@ XDWORD SNDITEM::GetDuration()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         SNDPLAYCFG* SNDITEM::GetPlayCFG()
-* @brief      GetPlayCFG
+* @brief      Get play CFG
 * @ingroup    SOUND
 * 
 * @return     SNDPLAYCFG* : 
@@ -462,7 +462,7 @@ SNDPLAYCFG* SNDITEM::GetPlayCFG()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool SNDITEM::SetPlayCFG(SNDPLAYCFG& playCFG)
-* @brief      SetPlayCFG
+* @brief      Set play CFG
 * @ingroup    SOUND
 * 
 * @param[in]  playCFG : 
@@ -479,7 +479,7 @@ bool SNDITEM::SetPlayCFG(SNDPLAYCFG& playCFG)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         SNDFILE* SNDITEM::GetSoundFile()
-* @brief      GetSoundFile
+* @brief      Get sound file
 * @ingroup    SOUND
 * 
 * @return     SNDFILE* : 
@@ -494,7 +494,7 @@ SNDFILE* SNDITEM::GetSoundFile()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void SNDITEM::SetSoundFile(SNDFILE* soundfile)
-* @brief      SetSoundFile
+* @brief      Set sound file
 * @ingroup    SOUND
 * 
 * @param[in]  soundfile : 
@@ -509,7 +509,7 @@ void SNDITEM::SetSoundFile(SNDFILE* soundfile)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         SNDNOTE* SNDITEM::GetSoundNote()
-* @brief      GetSoundNote
+* @brief      Get sound note
 * @ingroup    SOUND
 * 
 * @return     SNDNOTE* : 
@@ -524,7 +524,7 @@ SNDNOTE* SNDITEM::GetSoundNote()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void SNDITEM::SetSoundNote(SNDNOTE* soundnote)
-* @brief      SetSoundNote
+* @brief      Set sound note
 * @ingroup    SOUND
 * 
 * @param[in]  soundnote : 
@@ -539,7 +539,7 @@ void SNDITEM::SetSoundNote(SNDNOTE* soundnote)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void SNDITEM::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    SOUND
 *

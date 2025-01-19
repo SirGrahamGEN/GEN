@@ -3,8 +3,8 @@
 * @file       GEN_Defines.h
 * 
 * @class      GEN_DEFINES
-* @brief       GEN Defines precompilated
-* @ingroup    PLATFORM_COMMON
+* @brief      GEN Defines precompilated
+* @ingroup    COMMON
 * 
 * @copyright  GEN Group. All rights reserved.
 * 
@@ -33,36 +33,7 @@
 /*---- DEFINE GROUPS DOXYGEN -----------------------------------------------------------------------------------------*/
 #pragma region DEFINES_GROUPS_DOXYGEN
 /**
-* @defgroup XUTILS eXtended Utils
-* @{
 * 
-* @}
-*
-* @defgroup DATAIO Data Input/Output
-* @{
-* 
-* @}
-*
-* @defgroup INPUT Input 
-* @{
-* 
-* @}
-*
-* @defgroup SOUND Sound
-* @{
-* 
-* @}
-*
-* @defgroup GRAPHIC Graphics
-* @{
-* 
-* @}
-*
-* @defgroup MAIN_PROCEDURE Main Procedure
-* @{
-* 
-* @}
-*
 * @defgroup APPFLOW AppFlow
 * @{
 * 
@@ -72,28 +43,29 @@
 * @{
 * 
 * @}
+* 
+* @defgroup COMMON Common
+* @{
+* 
+* @}
+*
 *
 * @defgroup COMPRESS Compress
 * @{
 * 
 * @}
-*
-* @defgroup DATABASES Databases
+* 
+* @defgroup DATABASE Database
 * @{
 * 
 * @}
 *
-* @defgroup SCRIPT Script
+* @defgroup DATAIO Data Input/Output
 * @{
 * 
 * @}
-*
-* @defgroup USERINTERFACE User Interface
-* @{
 * 
-* @}
-*
-* @defgroup LOCATION Location/Position
+* @defgroup GRAPHIC Graphics
 * @{
 * 
 * @}
@@ -103,16 +75,55 @@
 * 
 * @}
 *
-* @defgroup VIDEO Video
+* @defgroup INPUT Input 
 * @{
 * 
 * @}
 *
-* @defgroup PLATFORM_COMMON Common
+* @defgroup MAIN_PROCEDURE Main Procedure
 * @{
 * 
 * @}
 *
+* @defgroup SCRIPT Script
+* @{
+* 
+* @}
+*
+* @defgroup SOUND Sound
+* @{
+* 
+* @}
+*
+* @defgroup USERINTERFACE User Interface
+* @{
+* 
+* @}
+*
+* @defgroup XUTILS eXtended Utils
+* @{
+* 
+* @}
+* 
+* -------------------------------------------------------------------
+* 
+* @defgroup EXAMPLES Examples
+* @{
+* 
+* @} 
+* 
+* @defgroup TESTS Tests
+* @{
+* 
+* @}
+* 
+* @defgroup UNIT_TESTS Unit Tests
+* @{
+* 
+* @}
+* 
+* -------------------------------------------------------------------
+*  
 * @defgroup PLATFORM_WINDOWS Platform Windows
 * @{
 * 
@@ -128,6 +139,11 @@
 * 
 * @}
 *
+* @defgroup PLATFORM_COMMON Platform Common
+* @{
+* 
+* @}
+*
 * @defgroup PLATFORM_STM32 Platform STM32
 * @{
 * 
@@ -137,6 +153,18 @@
 * @{
 * 
 * @}
+* @defgroup PLATFORM_SAMD5XE5X Platform SAMD5XE5X 
+* @{
+* 
+* @}
+* 
+* -------------------------------------------------------------------
+*     
+* @defgroup APPLICATION Application
+* @{
+* 
+* @}
+*
 */
 
 

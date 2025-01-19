@@ -66,7 +66,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XWINDOWSSLEEP::XWINDOWSSLEEP()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_WINDOWS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -84,7 +84,7 @@ XWINDOWSSLEEP::XWINDOWSSLEEP()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XWINDOWSSLEEP::~XWINDOWSSLEEP()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
 *
@@ -98,7 +98,7 @@ XWINDOWSSLEEP::~XWINDOWSSLEEP()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XWINDOWSSLEEP::Seconds(int seconds)
-* @brief      Sleep n Seconds
+* @brief      Seconds
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  seconds : seconds to sleep
@@ -113,7 +113,7 @@ void XWINDOWSSLEEP::Seconds(int seconds)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XWINDOWSSLEEP::MilliSeconds(int milliseconds)
-* @brief      Sleep n MilliSeconds
+* @brief      Milli seconds
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  milliseconds : milliseconds to sleep
@@ -128,7 +128,7 @@ void XWINDOWSSLEEP::MilliSeconds(int milliseconds)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XWINDOWSSLEEP::MicroSeconds(int microseconds)
-* @brief      Sleep n MicroSeconds
+* @brief      Micro seconds
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  microseconds : microseconds to sleep
@@ -158,7 +158,7 @@ void XWINDOWSSLEEP::MicroSeconds(int microseconds)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void XWINDOWSSLEEP::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
 * 

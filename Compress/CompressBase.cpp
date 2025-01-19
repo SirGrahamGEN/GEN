@@ -70,7 +70,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         COMPRESSBASE::COMPRESSBASE()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    COMPRESS
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -83,7 +83,7 @@ COMPRESSBASE::COMPRESSBASE()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         COMPRESSBASE::COMPRESSBASE(COMPRESSBASE_TYPE type)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    COMPRESS
 * 
 * @param[in]  type : 
@@ -98,7 +98,7 @@ COMPRESSBASE::COMPRESSBASE(COMPRESSBASE_TYPE type)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         COMPRESSBASE::~COMPRESSBASE()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    COMPRESS
 * 
@@ -112,7 +112,7 @@ COMPRESSBASE::~COMPRESSBASE()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         COMPRESSBASE_TYPE COMPRESSBASE::GetType()
-* @brief      GetType
+* @brief      Get type
 * @ingroup    COMPRESS
 * 
 * @return     COMPRESSBASE_TYPE : 
@@ -127,7 +127,7 @@ COMPRESSBASE_TYPE COMPRESSBASE::GetType()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         COMPRESSBASE_TYPE COMPRESSBASE::SetType(COMPRESSBASE_TYPE type)
-* @brief      SetType
+* @brief      Set type
 * @ingroup    COMPRESS
 * 
 * @param[in]  type : 
@@ -252,7 +252,7 @@ bool COMPRESSBASE::Decompress(XBYTE* origin,XDWORD size,void* param1)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool COMPRESSBASE::CompressResult(bool compress,XBYTE data,void* param1)
-* @brief      CompressResult
+* @brief      Compress result
 * @ingroup    COMPRESS
 * 
 * @param[in]  compress : 

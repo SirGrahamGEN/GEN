@@ -4,7 +4,7 @@
 * 
 * @class      DB_SQL_DATABASE
 * @brief      DataBase SQL "database" class
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 * 
 * @copyright  GEN Group. All rights reserved.
 * 
@@ -74,8 +74,8 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DB_SQL_DATABASE::DB_SQL_DATABASE()
-* @brief      Constructor
-* @ingroup    DATABASES
+* @brief      Constructor of class
+* @ingroup    DATABASE
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DB_SQL_DATABASE::DB_SQL_DATABASE()
@@ -90,9 +90,9 @@ DB_SQL_DATABASE::DB_SQL_DATABASE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DB_SQL_DATABASE::~DB_SQL_DATABASE()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DB_SQL_DATABASE::~DB_SQL_DATABASE()
@@ -112,8 +112,8 @@ DB_SQL_DATABASE::~DB_SQL_DATABASE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DB_SQL_DATABASE_ENCODING DB_SQL_DATABASE::GetCurrentEncoding()
-* @brief      GetCurrentEncoding
-* @ingroup    DATABASES
+* @brief      Get current encoding
+* @ingroup    DATABASE
 *
 * @return     DB_SQL_DATABASE_ENCODING :
 *
@@ -127,8 +127,8 @@ DB_SQL_DATABASE_ENCODING DB_SQL_DATABASE::GetCurrentEncoding()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DB_SQL_DATABASE_TYPE DB_SQL_DATABASE::GetType()
-* @brief      GetType
-* @ingroup    DATABASES
+* @brief      Get type
+* @ingroup    DATABASE
 *
 * @return     DB_SQL_DATABASE_TYPE :
 *
@@ -142,8 +142,8 @@ DB_SQL_DATABASE_TYPE DB_SQL_DATABASE::GetType()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XCHAR* DB_SQL_DATABASE::GetTypeName()
-* @brief      GetTypeName
-* @ingroup    DATABASES
+* @brief      Get type name
+* @ingroup    DATABASE
 *
 * @return     XCHAR* :
 *
@@ -157,8 +157,8 @@ XCHAR* DB_SQL_DATABASE::GetTypeName()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD DB_SQL_DATABASE::GetDefaultPort()
-* @brief      GetDefultPort
-* @ingroup    DATABASES
+* @brief      Get default port
+* @ingroup    DATABASE
 *
 * @return     XDWORD :
 *
@@ -172,8 +172,8 @@ XDWORD DB_SQL_DATABASE::GetDefaultPort()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XPATH* DB_SQL_DATABASE::GetDefaultPath()
-* @brief      GetDefaultPath
-* @ingroup    DATABASES
+* @brief      Get default path
+* @ingroup    DATABASE
 *
 * @return     XPATH* :
 *
@@ -191,8 +191,8 @@ XPATH* DB_SQL_DATABASE::GetDefaultPath()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DB_SQL_DATABASE::IsOpen()
-* @brief      IsOpen
-* @ingroup    DATABASES
+* @brief      Is open
+* @ingroup    DATABASE
 *
 * @return     bool : true if is succesful.
 *
@@ -206,8 +206,8 @@ bool DB_SQL_DATABASE::IsOpen()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DB_SQL_DATABASE::SetConnection(DB_SQL_CONNECTION* connection)
-* @brief      SetConnection
-* @ingroup    DATABASES
+* @brief      Set connection
+* @ingroup    DATABASE
 *
 * @param[in]  connection :
 *
@@ -224,8 +224,8 @@ bool DB_SQL_DATABASE::SetConnection(DB_SQL_CONNECTION* connection)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DB_SQL_DATABASE::IsTransactionStarted()
-* @brief      IsTransactionStarted
-* @ingroup    DATABASES
+* @brief      Is transaction started
+* @ingroup    DATABASE
 *
 * @return     bool : true if is succesful.
 *
@@ -239,8 +239,8 @@ bool DB_SQL_DATABASE::IsTransactionStarted()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DB_SQL_VECTOR<DB_SQL_STRING*>* DB_SQL_DATABASE::GetTableList()
-* @brief      GetTableList
-* @ingroup    DATABASES
+* @brief      Get table list
+* @ingroup    DATABASE
 *
 * @return     DB_SQL_VECTOR<DB_SQL_STRING*>* :
 *
@@ -254,8 +254,8 @@ DB_SQL_VECTOR<DB_SQL_STRING*>* DB_SQL_DATABASE::GetTableList()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DB_SQL_VECTOR<DB_SQL_ERROR*>* DB_SQL_DATABASE::GetErrorList()
-* @brief      GetErrorList
-* @ingroup    DATABASES
+* @brief      Get error list
+* @ingroup    DATABASE
 *
 * @return     DB_SQL_VECTOR<DB_SQL_ERROR*>* :
 *
@@ -269,8 +269,8 @@ DB_SQL_VECTOR<DB_SQL_ERROR*>* DB_SQL_DATABASE::GetErrorList()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DB_SQL_VARIANT* DB_SQL_DATABASE::CreateVariant()
-* @brief      CreateVariant
-* @ingroup    DATABASES
+* @brief      Create variant
+* @ingroup    DATABASE
 *
 * @return     DB_SQL_VARIANT* :
 *
@@ -284,8 +284,8 @@ DB_SQL_VARIANT* DB_SQL_DATABASE::CreateVariant()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DB_SQL_DATABASE::OnConnection()
-* @brief      OnConnection
-* @ingroup    DATABASES
+* @brief      On connection
+* @ingroup    DATABASE
 *
 * @return     bool : true if is succesful.
 *
@@ -302,8 +302,8 @@ bool DB_SQL_DATABASE::OnConnection()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DB_SQL_DATABASE::OnDisconnection()
-* @brief      OnDisconnection
-* @ingroup    DATABASES
+* @brief      On disconnection
+* @ingroup    DATABASE
 *
 * @return     bool : true if is succesful.
 *
@@ -318,7 +318,7 @@ bool DB_SQL_DATABASE::OnDisconnection()
 *
 * @fn         bool DB_SQL_DATABASE::Open()
 * @brief      Open
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 *
 * @return     bool : true if is succesful.
 *
@@ -342,7 +342,7 @@ bool DB_SQL_DATABASE::Open()
 *
 * @fn         bool DB_SQL_DATABASE::Close()
 * @brief      Close
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 *
 * @return     bool : true if is succesful.
 *
@@ -364,8 +364,8 @@ bool DB_SQL_DATABASE::Close()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XCHAR* DB_SQL_DATABASE::GetLastError()
-* @brief      GetLastError
-* @ingroup    DATABASES
+* @brief      Get last error
+* @ingroup    DATABASE
 *
 * @return     XCHAR* :
 *
@@ -380,7 +380,7 @@ XCHAR* DB_SQL_DATABASE::GetLastError()
 *
 * @fn         bool DB_SQL_DATABASE::Execute(DB_SQL_QUERY* constructedquery)
 * @brief      Execute
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 *
 * @param[in]  constructedquery :
 *
@@ -403,7 +403,7 @@ bool DB_SQL_DATABASE::Execute(DB_SQL_QUERY* constructedquery)
 *
 * @fn         void DB_SQL_DATABASE::Error(XCHAR* errorstring)
 * @brief      Error
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 *
 * @param[in]  errorstring :
 *
@@ -424,7 +424,7 @@ void DB_SQL_DATABASE::Error(XCHAR* errorstring)
 *
 * @fn         void DB_SQL_DATABASE::Error(char* errorstring)
 * @brief      Error
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 *
 * @param[in]  errorstring :
 *
@@ -442,8 +442,8 @@ void DB_SQL_DATABASE::Error(char* errorstring)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DB_SQL_DATABASE::ClearPreviousErrors()
-* @brief      ClearPreviousErrors
-* @ingroup    DATABASES
+* @brief      Clear previous errors
+* @ingroup    DATABASE
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DB_SQL_DATABASE::ClearPreviousErrors()
@@ -456,8 +456,8 @@ void DB_SQL_DATABASE::ClearPreviousErrors()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DB_SQL_DATABASE::Table_IsThere(XCHAR* nametable, XCHAR* constfield, bool& isexist)
-* @brief      Table_IsThere
-* @ingroup    DATABASES
+* @brief      Table is there
+* @ingroup    DATABASE
 *
 * @param[in]  nametable :
 * @param[in]  constfield :
@@ -514,8 +514,8 @@ bool DB_SQL_DATABASE::Table_IsThere(XCHAR* nametable, XCHAR* constfield, bool& i
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DB_SQL_DATABASE::Table_IsThere(XSTRING& nametable, XCHAR* constfield, bool& isexist)
-* @brief      Table_IsThere
-* @ingroup    DATABASES
+* @brief      Table is there
+* @ingroup    DATABASE
 *
 * @param[in]  nametable :
 * @param[in]  constfield :
@@ -533,8 +533,8 @@ bool DB_SQL_DATABASE::Table_IsThere(XSTRING& nametable, XCHAR* constfield, bool&
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DB_SQL_DATABASE::Table_Create(XCHAR* nametable, XCHAR* fields[], int nfields)
-* @brief      Table_Create
-* @ingroup    DATABASES
+* @brief      Table create
+* @ingroup    DATABASE
 *
 * @param[in]  nametable :
 * @param[in]  fields[] :
@@ -577,8 +577,8 @@ bool DB_SQL_DATABASE::Table_Create(XCHAR* nametable, XCHAR* fields[], int nfield
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DB_SQL_DATABASE::Table_Delete(XCHAR* nametable)
-* @brief      Table_Delete
-* @ingroup    DATABASES
+* @brief      Table delete
+* @ingroup    DATABASE
 *
 * @param[in]  nametable :
 *
@@ -619,8 +619,8 @@ bool DB_SQL_DATABASE::Table_Delete(XCHAR* nametable)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DB_SQL_DATABASE::Table_GetNRecords(XCHAR* nametable, XQWORD& nrecords)
-* @brief      Table_GetNRecords
-* @ingroup    DATABASES
+* @brief      Table get N records
+* @ingroup    DATABASE
 * 
 * @param[in]  nametable : 
 * @param[in]  nrecords : 
@@ -664,8 +664,8 @@ bool DB_SQL_DATABASE::Table_GetNRecords(XCHAR* nametable, XQWORD& nrecords)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DB_SQL_DATABASE::IsThreadSafe()
-* @brief      IsThreadSafe
-* @ingroup    DATABASES
+* @brief      Is thread safe
+* @ingroup    DATABASE
 *
 * @return     bool : true if is succesful.
 *
@@ -680,7 +680,7 @@ bool DB_SQL_DATABASE::IsThreadSafe()
 *
 * @fn         bool DB_SQL_DATABASE::Lock()
 * @brief      Lock
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 *
 * @return     bool : true if is succesful.
 *
@@ -697,7 +697,7 @@ bool DB_SQL_DATABASE::Lock()
 *
 * @fn         bool DB_SQL_DATABASE::Unlock()
 * @brief      Unlock
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 *
 * @return     bool : true if is succesful.
 *
@@ -713,8 +713,8 @@ bool DB_SQL_DATABASE::Unlock()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DB_SQL_DATABASE::ExecuteQuery(DB_SQL_QUERY* wellconstructedquery)
-* @brief      ExecuteQuery
-* @ingroup    DATABASES
+* @brief      Execute query
+* @ingroup    DATABASE
 *
 * @param[in]  wellconstructedquery :
 *
@@ -740,9 +740,9 @@ bool DB_SQL_DATABASE::ExecuteQuery(DB_SQL_QUERY* wellconstructedquery)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DB_SQL_DATABASE::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DB_SQL_DATABASE::Clean()

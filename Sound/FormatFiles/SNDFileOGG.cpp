@@ -70,7 +70,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         SNDFILEOGG::SNDFILEOGG()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    SOUND
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -85,7 +85,7 @@ SNDFILEOGG::SNDFILEOGG() : SNDFILE()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         SNDFILEOGG::~SNDFILEOGG()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    SOUND
 * 
@@ -99,7 +99,7 @@ SNDFILEOGG::~SNDFILEOGG()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool SNDFILEOGG::LoadFile()
-* @brief      LoadFile
+* @brief      Load file
 * @ingroup    SOUND
 * 
 * @return     bool : true if is succesful. 
@@ -185,7 +185,7 @@ bool SNDFILEOGG::LoadFile()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void SNDFILEOGG::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    SOUND
 * 

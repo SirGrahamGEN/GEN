@@ -348,7 +348,7 @@ XDWORD CIPHERBLOWFISH::S[4][256]                     =  { { 0xD1310BA6L, 0x98DFB
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         CIPHERBLOWFISH::CIPHERBLOWFISH()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    CIPHER
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -364,7 +364,7 @@ CIPHERBLOWFISH::CIPHERBLOWFISH() : CIPHER()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         CIPHERBLOWFISH::~CIPHERBLOWFISH()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    CIPHER
 * 
@@ -542,7 +542,7 @@ XDWORD CIPHERBLOWFISH::F(CIPHERBLOWFISH_CONTEXT* ctx, XDWORD x)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void CIPHERBLOWFISH::BlowfishCipher(CIPHERBLOWFISH_CONTEXT* ctx, XDWORD* xl, XDWORD* xr)
-* @brief      BlowfishCipher
+* @brief      Blowfish cipher
 * @ingroup    CIPHER
 * 
 * @param[in]  ctx : 
@@ -585,7 +585,7 @@ void CIPHERBLOWFISH::BlowfishCipher(CIPHERBLOWFISH_CONTEXT* ctx, XDWORD* xl, XDW
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void CIPHERBLOWFISH::BlowfishUncipher(CIPHERBLOWFISH_CONTEXT* ctx, XDWORD* xl, XDWORD* xr)
-* @brief      BlowfishUncipher
+* @brief      Blowfish uncipher
 * @ingroup    CIPHER
 * 
 * @param[in]  ctx : 
@@ -628,7 +628,7 @@ void CIPHERBLOWFISH::BlowfishUncipher(CIPHERBLOWFISH_CONTEXT* ctx, XDWORD* xl, X
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool CIPHERBLOWFISH::BlowfishSetKey(CIPHERBLOWFISH_CONTEXT* ctx, XBYTE* key, XDWORD keysize)
-* @brief      BlowfishSetKey
+* @brief      Blowfish set key
 * @ingroup    CIPHER
 * 
 * @param[in]  ctx : 
@@ -698,7 +698,7 @@ bool CIPHERBLOWFISH::BlowfishSetKey(CIPHERBLOWFISH_CONTEXT* ctx, XBYTE* key, XDW
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool CIPHERBLOWFISH::BlowfishCipher_ECB(CIPHERBLOWFISH_CONTEXT* ctx, int mode, XBYTE input[CIPHERBLOWFISH_BLOCKSIZE], XBYTE output[CIPHERBLOWFISH_BLOCKSIZE])
-* @brief      BlowfishCipher_ECB
+* @brief      Blowfish cipher ECB
 * @ingroup    CIPHER
 * 
 * @param[in]  ctx : 
@@ -736,7 +736,7 @@ bool CIPHERBLOWFISH::BlowfishCipher_ECB(CIPHERBLOWFISH_CONTEXT* ctx, int mode, X
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool CIPHERBLOWFISH::BlowfishCipher_CBC(CIPHERBLOWFISH_CONTEXT* ctx, int mode, XDWORD size, XBYTE iv[CIPHERBLOWFISH_BLOCKSIZE], XBYTE* input, XBYTE* output)
-* @brief      BlowfishCipher_CBC
+* @brief      Blowfish cipher CBC
 * @ingroup    CIPHER
 * 
 * @param[in]  ctx : 
@@ -801,7 +801,7 @@ bool CIPHERBLOWFISH::BlowfishCipher_CBC(CIPHERBLOWFISH_CONTEXT* ctx, int mode, X
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool CIPHERBLOWFISH::BlowfishCipher_CFB64(CIPHERBLOWFISH_CONTEXT* ctx, int mode, XDWORD size, int* iv_off, XBYTE iv[CIPHERBLOWFISH_BLOCKSIZE], XBYTE* input, XBYTE* output)
-* @brief      BlowfishCipher_CFB64
+* @brief      Blowfish cipher CFB64
 * @ingroup    CIPHER
 * 
 * @param[in]  ctx : 
@@ -854,7 +854,7 @@ bool CIPHERBLOWFISH::BlowfishCipher_CFB64(CIPHERBLOWFISH_CONTEXT* ctx, int mode,
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool CIPHERBLOWFISH::BlowfishCipher_CTR(CIPHERBLOWFISH_CONTEXT* ctx, XDWORD size, int* nc_off, XBYTE nonce_counter[CIPHERBLOWFISH_BLOCKSIZE], XBYTE stream_block[CIPHERBLOWFISH_BLOCKSIZE], XBYTE* input, XBYTE* output)
-* @brief      BlowfishCipher_CTR
+* @brief      Blowfish cipher CTR
 * @ingroup    CIPHER
 * 
 * @param[in]  ctx : 
@@ -900,7 +900,7 @@ bool CIPHERBLOWFISH::BlowfishCipher_CTR(CIPHERBLOWFISH_CONTEXT* ctx, XDWORD size
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void CIPHERBLOWFISH::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    CIPHER
 * 

@@ -64,7 +64,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         UI_BOUNDARYLINE::UI_BOUNDARYLINE()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    USERINTERFACE
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -82,7 +82,7 @@ UI_BOUNDARYLINE::UI_BOUNDARYLINE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         UI_BOUNDARYLINE::~UI_BOUNDARYLINE()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
 *
@@ -96,7 +96,7 @@ UI_BOUNDARYLINE::~UI_BOUNDARYLINE()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_BOUNDARYLINE::CopyFrom(UI_BOUNDARYLINE& boundaryline)
-* @brief      CopyFrom
+* @brief      Copy from
 * @ingroup    USERINTERFACE
 *
 * @param[in]  boundaryline : 
@@ -114,7 +114,7 @@ void UI_BOUNDARYLINE::CopyFrom(UI_BOUNDARYLINE& boundaryline)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_BOUNDARYLINE::CopyTo(UI_BOUNDARYLINE& boundaryline)
-* @brief      CopyTo
+* @brief      Copy to
 * @ingroup    USERINTERFACE
 *
 * @param[in]  boundaryline : 
@@ -132,7 +132,7 @@ void UI_BOUNDARYLINE::CopyTo(UI_BOUNDARYLINE& boundaryline)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_BOUNDARYLINE::SetAround(UI_BOUNDARYLINE& boundaryline)
-* @brief      SetAround
+* @brief      Set around
 * @ingroup    USERINTERFACE
 *
 * @param[in]  boundaryline : 
@@ -155,7 +155,7 @@ bool UI_BOUNDARYLINE::SetAround(UI_BOUNDARYLINE& boundaryline)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_BOUNDARYLINE::IsWithin(XDWORD xpos, XDWORD ypos)
-* @brief      IsWithin
+* @brief      Is within
 * @ingroup    USERINTERFACE
 *
 * @param[in]  xpos : 
@@ -179,7 +179,7 @@ bool UI_BOUNDARYLINE::IsWithin(XDWORD xpos, XDWORD ypos)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_BOUNDARYLINE::IsEmpty()
-* @brief      IsEmpty
+* @brief      Is empty
 * @ingroup    USERINTERFACE
 * 
 * @return     bool : true if is succesful. 
@@ -199,7 +199,7 @@ bool UI_BOUNDARYLINE::IsEmpty()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void UI_BOUNDARYLINE::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
 *

@@ -4,7 +4,7 @@
 * 
 * @class      POSTGRESQL_CONNECTION
 * @brief      DataBase SQL PostgreSQL Connection class
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 * 
 * @copyright  GEN Group. All rights reserved.
 * 

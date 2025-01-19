@@ -64,7 +64,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         APPFLOWCHECKRESOURCESHARDWARE_XEVENT::APPFLOWCHECKRESOURCESHARDWARE_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    APPFLOW
 * 
 * @param[in]  subject : 
@@ -81,7 +81,7 @@ APPFLOWCHECKRESOURCESHARDWARE_XEVENT::APPFLOWCHECKRESOURCESHARDWARE_XEVENT(XSUBJ
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         APPFLOWCHECKRESOURCESHARDWARE_XEVENT::~APPFLOWCHECKRESOURCESHARDWARE_XEVENT()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    APPFLOW
 * 
@@ -95,7 +95,7 @@ APPFLOWCHECKRESOURCESHARDWARE_XEVENT::~APPFLOWCHECKRESOURCESHARDWARE_XEVENT()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool APPFLOWCHECKRESOURCESHARDWARE_XEVENT::GetActualMemFree(XDWORD& memfree_inbytes, XBYTE& memfree_percent)
-* @brief      GetActualMemFree
+* @brief      Get actual mem free
 * @ingroup    APPFLOW
 *
 * @param[in]  memfree_inbytes : 
@@ -116,7 +116,7 @@ bool APPFLOWCHECKRESOURCESHARDWARE_XEVENT::GetActualMemFree(XDWORD& memfree_inby
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void APPFLOWCHECKRESOURCESHARDWARE_XEVENT::SetActualMemFree(XDWORD memfree_inbytes, XBYTE memfree_percent)
-* @brief      SetActualMemFree
+* @brief      Set actual mem free
 * @ingroup    APPFLOW
 *
 * @param[in]  memfree_inbytes : 
@@ -133,7 +133,7 @@ void APPFLOWCHECKRESOURCESHARDWARE_XEVENT::SetActualMemFree(XDWORD memfree_inbyt
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int APPFLOWCHECKRESOURCESHARDWARE_XEVENT::GetActualTotalCPUUsage()
-* @brief      GetActualTotalCPUUsage
+* @brief      Get actual total CPU usage
 * @ingroup    APPFLOW
 * 
 * @return     int : 
@@ -148,7 +148,7 @@ int APPFLOWCHECKRESOURCESHARDWARE_XEVENT::GetActualTotalCPUUsage()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void APPFLOWCHECKRESOURCESHARDWARE_XEVENT::SetActualTotalCPUUsage(int& CPUusage)
-* @brief      SetActualTotalCPUUsage
+* @brief      Set actual total CPU usage
 * @ingroup    APPFLOW
 * 
 * @param[in]  CPUusage : 
@@ -163,7 +163,7 @@ void APPFLOWCHECKRESOURCESHARDWARE_XEVENT::SetActualTotalCPUUsage(int& CPUusage)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int APPFLOWCHECKRESOURCESHARDWARE_XEVENT::GetActualAppCPUUsage()
-* @brief      GetActualAppCPUUsage
+* @brief      Get actual app CPU usage
 * @ingroup    APPFLOW
 * 
 * @return     int : 
@@ -178,7 +178,7 @@ int APPFLOWCHECKRESOURCESHARDWARE_XEVENT::GetActualAppCPUUsage()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void APPFLOWCHECKRESOURCESHARDWARE_XEVENT::SetActualAppCPUUsage(int& CPUusage)
-* @brief      SetActualAppCPUUsage
+* @brief      Set actual app CPU usage
 * @ingroup    APPFLOW
 * 
 * @param[in]  CPUusage : 
@@ -193,7 +193,7 @@ void APPFLOWCHECKRESOURCESHARDWARE_XEVENT::SetActualAppCPUUsage(int& CPUusage)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void APPFLOWCHECKRESOURCESHARDWARE_XEVENT::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    APPFLOW
 * 

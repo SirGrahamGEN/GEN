@@ -435,7 +435,7 @@ GRPVECTORFILEDXFTEXTSECTIONENTITYDEF GRPVECTORFILEDXFTEXTSECTIONENTITIES::defent
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVECTORFILEDXFTEXTSECTIONENTITIES::GRPVECTORFILEDXFTEXTSECTIONENTITIES()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    GRAPHIC
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -450,7 +450,7 @@ GRPVECTORFILEDXFTEXTSECTIONENTITIES::GRPVECTORFILEDXFTEXTSECTIONENTITIES()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVECTORFILEDXFTEXTSECTIONENTITIES::~GRPVECTORFILEDXFTEXTSECTIONENTITIES()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
 * 
@@ -467,7 +467,7 @@ GRPVECTORFILEDXFTEXTSECTIONENTITIES::~GRPVECTORFILEDXFTEXTSECTIONENTITIES()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPVECTORFILEDXFTEXTSECTIONENTITIES::IsKnownEntity(XSTRING& namevar)
-* @brief      IsKnownEntity
+* @brief      Is known entity
 * @ingroup    GRAPHIC
 * 
 * @param[in]  namevar : 
@@ -496,7 +496,7 @@ bool GRPVECTORFILEDXFTEXTSECTIONENTITIES::IsKnownEntity(XSTRING& namevar)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVECTORFILEDXFTEXTSECTIONENTITYDEFTYPE* GRPVECTORFILEDXFTEXTSECTIONENTITIES::IsKnownTypeValue(XSTRING& namevar, int type)
-* @brief      IsKnownTypeValue
+* @brief      Is known type value
 * @ingroup    GRAPHIC
 * 
 * @param[in]  namevar : 
@@ -536,7 +536,7 @@ GRPVECTORFILEDXFTEXTSECTIONENTITYDEFTYPE* GRPVECTORFILEDXFTEXTSECTIONENTITIES::I
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPVECTORFILEDXFTEXTSECTIONENTITIES::AddEntity(GRPVECTORFILEDXFENTITY* entity)
-* @brief      AddEntity
+* @brief      Add entity
 * @ingroup    GRAPHIC
 * 
 * @param[in]  entity : 
@@ -568,7 +568,7 @@ bool GRPVECTORFILEDXFTEXTSECTIONENTITIES::AddEntity(GRPVECTORFILEDXFENTITY* enti
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XVECTOR<GRPVECTORFILEDXFENTITY*>* GRPVECTORFILEDXFTEXTSECTIONENTITIES::GetEntities()
-* @brief      GetEntities
+* @brief      Get entities
 * @ingroup    GRAPHIC
 * 
 * @return     XVECTOR<GRPVECTORFILEDXFENTITY*>* : 
@@ -583,7 +583,7 @@ XVECTOR<GRPVECTORFILEDXFENTITY*>* GRPVECTORFILEDXFTEXTSECTIONENTITIES::GetEntiti
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVECTORFILEDXFENTITY* GRPVECTORFILEDXFTEXTSECTIONENTITIES::GetEntity (XCHAR* nameentity, XDWORD index)
-* @brief      GetEntity
+* @brief      Get entity 
 * @ingroup    GRAPHIC
 * 
 * @param[in]  nameentity : 
@@ -625,7 +625,7 @@ GRPVECTORFILEDXFENTITY* GRPVECTORFILEDXFTEXTSECTIONENTITIES::GetEntity (XCHAR* n
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPVECTORFILEDXFTEXTSECTIONENTITIES::DeleteEntity(XCHAR* nameentity, XDWORD index)
-* @brief      DeleteEntity
+* @brief      Delete entity
 * @ingroup    GRAPHIC
 * 
 * @param[in]  nameentity : 
@@ -659,7 +659,7 @@ bool GRPVECTORFILEDXFTEXTSECTIONENTITIES::DeleteEntity(XCHAR* nameentity, XDWORD
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPVECTORFILEDXFTEXTSECTIONENTITIES::DeleteAllEntities(XCHAR* nameentity)
-* @brief      DeleteAllEntities
+* @brief      Delete all entities
 * @ingroup    GRAPHIC
 * 
 * @param[in]  nameentity : 
@@ -696,7 +696,7 @@ bool GRPVECTORFILEDXFTEXTSECTIONENTITIES::DeleteAllEntities(XCHAR* nameentity)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPVECTORFILEDXFTEXTSECTIONENTITIES::DeleteAllEntities()
-* @brief      DeleteAllEntities
+* @brief      Delete all entities
 * @ingroup    GRAPHIC
 * 
 * @return     bool : true if is succesful. 
@@ -722,7 +722,7 @@ bool GRPVECTORFILEDXFTEXTSECTIONENTITIES::DeleteAllEntities()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XMAP<XSTRING*, int>* GRPVECTORFILEDXFTEXTSECTIONENTITIES::GetEnumEntitys()
-* @brief      GetEnumEntitys
+* @brief      Get enum entitys
 * @ingroup    GRAPHIC
 * 
 * @return     XMAP<XSTRING*, : 
@@ -737,7 +737,7 @@ XMAP<XSTRING*, int>* GRPVECTORFILEDXFTEXTSECTIONENTITIES::GetEnumEntitys()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int GRPVECTORFILEDXFTEXTSECTIONENTITIES::GetNEntitys(XCHAR* nameentity)
-* @brief      GetNEntitys
+* @brief      Get N entitys
 * @ingroup    GRAPHIC
 * 
 * @param[in]  nameentity : 
@@ -762,7 +762,7 @@ int GRPVECTORFILEDXFTEXTSECTIONENTITIES::GetNEntitys(XCHAR* nameentity)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XVECTOR<GRPVECTORFILEDXFENTITYOBJ*>* GRPVECTORFILEDXFTEXTSECTIONENTITIES::GetEntitiesObj()
-* @brief      GetEntitiesObj
+* @brief      Get entities obj
 * @ingroup    GRAPHIC
 * 
 * @return     XVECTOR<GRPVECTORFILEDXFENTITYOBJ*>* : 
@@ -777,7 +777,7 @@ XVECTOR<GRPVECTORFILEDXFENTITYOBJ*>* GRPVECTORFILEDXFTEXTSECTIONENTITIES::GetEnt
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPVECTORFILEDXFTEXTSECTIONENTITIES::DeleteAllEntitiesObj()
-* @brief      DeleteAllEntitiesObj
+* @brief      Delete all entities obj
 * @ingroup    GRAPHIC
 * 
 * @return     bool : true if is succesful. 
@@ -800,7 +800,7 @@ bool GRPVECTORFILEDXFTEXTSECTIONENTITIES::DeleteAllEntitiesObj()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVECTORFILERESULT GRPVECTORFILEDXFTEXTSECTIONENTITIES::ParserTextSection(XFILETXT* fileTXT)
-* @brief      ParserTextSection
+* @brief      Parser text section
 * @ingroup    GRAPHIC
 * 
 * @param[in]  fileTXT : 
@@ -1048,7 +1048,7 @@ GRPVECTORFILERESULT GRPVECTORFILEDXFTEXTSECTIONENTITIES::ParserTextSection(XFILE
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int GRPVECTORFILEDXFTEXTSECTIONENTITIES::GetEntityEnumIndex(XCHAR* nameentity)
-* @brief      GetEntityEnumIndex
+* @brief      Get entity enum index
 * @ingroup    GRAPHIC
 * 
 * @param[in]  nameentity : 
@@ -1074,7 +1074,7 @@ int GRPVECTORFILEDXFTEXTSECTIONENTITIES::GetEntityEnumIndex(XCHAR* nameentity)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPVECTORFILEDXFTEXTSECTIONENTITIES::AddEntityEnum(XCHAR* nameentity)
-* @brief      AddEntityEnum
+* @brief      Add entity enum
 * @ingroup    GRAPHIC
 * 
 * @param[in]  nameentity : 
@@ -1110,7 +1110,7 @@ bool GRPVECTORFILEDXFTEXTSECTIONENTITIES::AddEntityEnum(XCHAR* nameentity)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPVECTORFILEDXFTEXTSECTIONENTITIES::SubtractEntityEnum(XCHAR* nameentity)
-* @brief      SubtractEntityEnum
+* @brief      Subtract entity enum
 * @ingroup    GRAPHIC
 * 
 * @param[in]  nameentity : 
@@ -1144,7 +1144,7 @@ bool GRPVECTORFILEDXFTEXTSECTIONENTITIES::SubtractEntityEnum(XCHAR* nameentity)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPVECTORFILEDXFTEXTSECTIONENTITIES::SetZeroEntityEnum(XCHAR* nameentity)
-* @brief      SetZeroEntityEnum
+* @brief      Set zero entity enum
 * @ingroup    GRAPHIC
 * 
 * @param[in]  nameentity : 
@@ -1177,7 +1177,7 @@ bool GRPVECTORFILEDXFTEXTSECTIONENTITIES::SetZeroEntityEnum(XCHAR* nameentity)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPVECTORFILEDXFTEXTSECTIONENTITIES::ShowTraceAllEntities()
-* @brief      ShowTraceAllEntities
+* @brief      Show trace all entities
 * @ingroup    GRAPHIC
 * 
 * @return     bool : true if is succesful. 
@@ -1218,7 +1218,7 @@ bool GRPVECTORFILEDXFTEXTSECTIONENTITIES::ShowTraceAllEntities()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRPVECTORFILEDXFTEXTSECTIONENTITIES::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    GRAPHIC
 * 

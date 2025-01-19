@@ -66,7 +66,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPWINDOWSDESKTOPMONITORS::GRPWINDOWSDESKTOPMONITORS()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_WINDOWS
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -81,7 +81,7 @@ GRPWINDOWSDESKTOPMONITORS::GRPWINDOWSDESKTOPMONITORS() : GRPDESKTOPMONITORS()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPWINDOWSDESKTOPMONITORS::~GRPWINDOWSDESKTOPMONITORS()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
 * 
@@ -98,7 +98,7 @@ GRPWINDOWSDESKTOPMONITORS::~GRPWINDOWSDESKTOPMONITORS()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         static BOOL CALLBACK GRPWINDOWSDESKTOPMONITORS::MonitorEnum(HMONITOR hmon,HDC hdc,LPRECT rectmonitor,LPARAM pdata)
-* @brief      MonitorEnum
+* @brief      Monitor enum
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @param[in]  hmon : 
@@ -145,7 +145,7 @@ BOOL CALLBACK GRPWINDOWSDESKTOPMONITORS::MonitorEnum(HMONITOR hmon,HDC hdc,LPREC
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRPWINDOWSDESKTOPMONITORS::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
 * 
@@ -165,7 +165,7 @@ void GRPWINDOWSDESKTOPMONITORS::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPWINDOWSDESKTOPMANAGER::GRPWINDOWSDESKTOPMANAGER()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_WINDOWS
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -178,7 +178,7 @@ GRPWINDOWSDESKTOPMANAGER::GRPWINDOWSDESKTOPMANAGER()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPWINDOWSDESKTOPMANAGER::~GRPWINDOWSDESKTOPMANAGER()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
 * 
@@ -192,7 +192,7 @@ GRPWINDOWSDESKTOPMANAGER::~GRPWINDOWSDESKTOPMANAGER()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPWINDOWSDESKTOPMONITORS* GRPWINDOWSDESKTOPMANAGER::GetDesktopMonitors()
-* @brief      GetDesktopMonitors
+* @brief      Get desktop monitors
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @return     XDESKTOPMONITORS* : 
@@ -207,7 +207,7 @@ GRPDESKTOPMONITORS* GRPWINDOWSDESKTOPMANAGER::GetDesktopMonitors()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRPWINDOWSDESKTOPMANAGER::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
 * 

@@ -82,7 +82,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOWINDOWSSTREAMTCPIP::DIOWINDOWSSTREAMTCPIP()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_WINDOWS
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -131,7 +131,7 @@ DIOWINDOWSSTREAMTCPIP::DIOWINDOWSSTREAMTCPIP() : DIOSTREAMTCPIP() , XFSMACHINE(0
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOWINDOWSSTREAMTCPIP::~DIOWINDOWSSTREAMTCPIP()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
 * 
@@ -261,7 +261,7 @@ bool DIOWINDOWSSTREAMTCPIP::Close()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         SOCKET DIOWINDOWSSTREAMTCPIP::GetHandleSocket()
-* @brief      GetHandleSocket
+* @brief      Get handle socket
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @return     SOCKET : 
@@ -276,7 +276,7 @@ SOCKET DIOWINDOWSSTREAMTCPIP::GetHandleSocket()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOWINDOWSSTREAMTCPIP::SetHandleSocket(SOCKET handlesocket)
-* @brief      SetHandleSocket
+* @brief      Set handle socket
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @param[in]  handlesocket : 
@@ -333,7 +333,7 @@ SOCKET DIOWINDOWSSTREAMTCPIP::Accept(SOCKET handlesocket, void* addr, void* addr
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int DIOWINDOWSSTREAMTCPIP::IsReadyConnect(SOCKET handlesocket)
-* @brief      IsReadyConnect
+* @brief      Is ready connect
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @param[in]  handlesocket : 
@@ -407,7 +407,7 @@ int DIOWINDOWSSTREAMTCPIP::IsReadyConnect(SOCKET handlesocket)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOWINDOWSSTREAMTCPIP::GetHandleServer()
-* @brief      GetHandleServer
+* @brief      Get handle server
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @return     bool : true if is succesful. 
@@ -550,7 +550,7 @@ bool DIOWINDOWSSTREAMTCPIP::GetHandleServer()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOWINDOWSSTREAMTCPIP::GetHandleClient()
-* @brief      GetHandleClient
+* @brief      Get handle client
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @return     bool : true if is succesful. 
@@ -670,7 +670,7 @@ bool DIOWINDOWSSTREAMTCPIP::GetHandleClient()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOWINDOWSSTREAMTCPIP::ThreadConnection(void* data)
-* @brief      ThreadConnection
+* @brief      Thread connection
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @param[in]  data : 
@@ -856,7 +856,7 @@ void DIOWINDOWSSTREAMTCPIP::ThreadConnection(void* data)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOWINDOWSSTREAMTCPIP::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
 * 

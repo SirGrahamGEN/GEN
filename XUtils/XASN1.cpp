@@ -818,7 +818,7 @@ XASN1_OID_PROPERTY XASN1::OID_properties[] = {  { __L("0.4.0.1862.1.1"),        
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XASN1::XASN1()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -831,7 +831,7 @@ XASN1::XASN1()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XASN1::~XASN1()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    XUTILS
 * 
@@ -850,7 +850,7 @@ XASN1::~XASN1()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XASN1_OID_PROPERTY* XASN1::GetOIDProperty(XCHAR* OID)
-* @brief      GetOIDProperty
+* @brief      Get OID property
 * @ingroup    XUTILS
 * 
 * @param[in]  OID : 
@@ -877,7 +877,7 @@ XASN1_OID_PROPERTY* XASN1::GetOIDProperty(XCHAR* OID)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XCHAR* XASN1::GetOIDPropertyDescription(XCHAR* OID)
-* @brief      GetOIDPropertyDescription
+* @brief      Get OID property description
 * @ingroup    XUTILS
 * 
 * @param[in]  OID : 
@@ -940,7 +940,7 @@ bool XASN1::Decode(XBUFFER& databin, XOBSERVER* observer)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void XASN1::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    XUTILS
 * 

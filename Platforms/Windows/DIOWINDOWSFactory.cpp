@@ -166,7 +166,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMENUMDEVICES* DIOWINDOWSFACTORY::CreateStreamEnumDevices(DIOSTREAMENUMTYPE type)
-* @brief      CreateStreamEnumDevices
+* @brief      Create stream enum devices
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  type : enum type to created
@@ -222,7 +222,7 @@ DIOSTREAMENUMDEVICES* DIOWINDOWSFACTORY::CreateStreamEnumDevices(DIOSTREAMENUMTY
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWINDOWSFACTORY::DeleteStreamEnumDevices(DIOSTREAMENUMDEVICES* enumdevices)
-* @brief      Delete Stream Enum Devices
+* @brief      Delete stream enum devices
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  enumdevices : enum to delete
@@ -243,7 +243,7 @@ bool DIOWINDOWSFACTORY::DeleteStreamEnumDevices(DIOSTREAMENUMDEVICES* enumdevice
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOSTREAM* DIOWINDOWSFACTORY::CreateStreamIO(DIOSTREAMCONFIG* config)
-* @brief      CreateStreamIO
+* @brief      Create stream IO
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @param[in]  config : 
@@ -327,7 +327,7 @@ DIOSTREAM* DIOWINDOWSFACTORY::CreateStreamIO(DIOSTREAMCONFIG* config)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWINDOWSFACTORY::DeleteStreamIO(DIOSTREAM* diostream)
-* @brief      Delete Stream IO
+* @brief      Delete stream IO
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  diostream : stream IO to delete

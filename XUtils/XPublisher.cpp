@@ -75,7 +75,7 @@ XPUBLISHER*   XPUBLISHER::instance = NULL;
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XPUBLISHERENTRY::XPUBLISHERENTRY()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -88,7 +88,7 @@ XPUBLISHERENTRY::XPUBLISHERENTRY()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XPUBLISHERENTRY::~XPUBLISHERENTRY()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -102,7 +102,7 @@ XPUBLISHERENTRY::~XPUBLISHERENTRY()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XPUBLISHERENTRY::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    XUTILS
 *
@@ -124,7 +124,7 @@ void XPUBLISHERENTRY::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XPUBLISHER::GetIsInstanced()
-* @brief      GetIsInstanced
+* @brief      Get is instanced
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -139,7 +139,7 @@ bool XPUBLISHER::GetIsInstanced()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XPUBLISHER& XPUBLISHER::GetInstance()
-* @brief      GetInstance
+* @brief      Get instance
 * @ingroup    XUTILS
 * 
 * @return     XPUBLISHER& : 
@@ -156,7 +156,7 @@ XPUBLISHER& XPUBLISHER::GetInstance()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XPUBLISHER::DelInstance()
-* @brief      DelInstance
+* @brief      Del instance
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -179,7 +179,7 @@ bool XPUBLISHER::DelInstance()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XPUBLISHER::RegisterEvent(XDWORD type, XSUBJECT* subject)
-* @brief      RegisterEvent
+* @brief      Register event
 * @ingroup    XUTILS
 *
 * @param[in]  type :
@@ -219,7 +219,7 @@ bool XPUBLISHER::RegisterEvent(XDWORD type, XSUBJECT* subject)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XPUBLISHER::DeRegisterEvent(XDWORD type, XSUBJECT* subject)
-* @brief      DeRegisterEvent
+* @brief      De register event
 * @ingroup    XUTILS
 *
 * @param[in]  type :
@@ -273,7 +273,7 @@ bool XPUBLISHER::DeRegisterEvent(XDWORD type, XSUBJECT* subject)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XPUBLISHER::DeRegisterAllEvents()
-* @brief      DeRegisterAllEvents
+* @brief      De register all events
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -297,7 +297,7 @@ bool XPUBLISHER::DeRegisterAllEvents()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XPUBLISHER::SubscribeEvent(XDWORD type, XSUBJECT* subject, XOBSERVER* observer)
-* @brief      SubscribeEvent
+* @brief      Subscribe event
 * @ingroup    XUTILS
 *
 * @param[in]  type :
@@ -368,7 +368,7 @@ bool XPUBLISHER::SubscribeEvent(XDWORD type, XSUBJECT* subject, XOBSERVER* obser
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XPUBLISHER::UnSubscribeEvent(XDWORD type, XSUBJECT* subject, XOBSERVER* observer)
-* @brief      UnSubscribeEvent
+* @brief      Un subscribe event
 * @ingroup    XUTILS
 *
 * @param[in]  type :
@@ -424,7 +424,7 @@ void XPUBLISHER::Active(bool on)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XPUBLISHER::IsInEvent()
-* @brief      IsInEvent
+* @brief      Is in event
 * @ingroup    XUTILS
 * 
 * @return     bool : true if is succesful. 
@@ -439,7 +439,7 @@ bool XPUBLISHER::IsInEvent()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XPUBLISHER::PostEvent(XEVENT* event, XSUBJECT* subject)
-* @brief      PostEvent
+* @brief      Post event
 * @ingroup    XUTILS
 *
 * @param[in]  event :
@@ -489,7 +489,7 @@ bool XPUBLISHER::PostEvent(XEVENT* event, XSUBJECT* subject)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XPUBLISHER::XPUBLISHER()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -506,7 +506,7 @@ XPUBLISHER::XPUBLISHER()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XPUBLISHER::~XPUBLISHER()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -524,7 +524,7 @@ XPUBLISHER::~XPUBLISHER()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XPUBLISHER::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    XUTILS
 *

@@ -4,7 +4,7 @@
 * 
 * @class      MYSQL_QUERY
 * @brief      DataBase SQL MySQL Query class
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 * 
 * @copyright  GEN Group. All rights reserved.
 * 
@@ -74,8 +74,8 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         MYSQL_QUERY::MYSQL_QUERY(DB_SQL_DATABASE* database)
-* @brief      Constructor
-* @ingroup    DATABASES
+* @brief      Constructor of class
+* @ingroup    DATABASE
 *
 * @param[in]  DB_SQL_DATABASE* :
 *
@@ -89,9 +89,9 @@ MYSQL_QUERY::MYSQL_QUERY(DB_SQL_DATABASE* database): DB_SQL_QUERY(database)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         MYSQL_QUERY::~MYSQL_QUERY()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 MYSQL_QUERY::~MYSQL_QUERY()
@@ -108,7 +108,7 @@ MYSQL_QUERY::~MYSQL_QUERY()
 *
 * @fn         bool MYSQL_QUERY::Execute()
 * @brief      Execute
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 *
 * @return     bool : true if is succesful.
 *
@@ -163,8 +163,8 @@ bool MYSQL_QUERY::Execute()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool MYSQL_QUERY::UnbindAll()
-* @brief      UnbindAll
-* @ingroup    DATABASES
+* @brief      Unbind all
+* @ingroup    DATABASE
 *
 * @return     bool : true if is succesful.
 *
@@ -200,7 +200,7 @@ bool MYSQL_QUERY::UnbindAll()
 *
 * @fn         bool MYSQL_QUERY::Bind(XDWORD ID, DB_SQL_DATETIME& datetime)
 * @brief      Bind
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 *
 * @param[in]  ID :
 * @param[in]  datetime :
@@ -223,7 +223,7 @@ bool MYSQL_QUERY::Bind(XDWORD ID, DB_SQL_DATETIME& datetime)
 *
 * @fn         bool MYSQL_QUERY::Exec(MYSQL* db,char* sql)
 * @brief      Exec
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 *
 * @param[in]  db :
 * @param[in]  sql :
@@ -367,8 +367,8 @@ bool MYSQL_QUERY::Exec(MYSQL* db,char* sql)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DB_SQL_RESULT* MYSQL_QUERY::ConstructResult()
-* @brief      ConstructResult
-* @ingroup    DATABASES
+* @brief      Construct result
+* @ingroup    DATABASE
 *
 * @return     DB_SQL_RESULT* :
 *
@@ -387,8 +387,8 @@ DB_SQL_RESULT* MYSQL_QUERY::ConstructResult()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool MYSQL_QUERY::BindParametersToQuery()
-* @brief      BindParametersToQuery
-* @ingroup    DATABASES
+* @brief      Bind parameters to query
+* @ingroup    DATABASE
 *
 * @return     bool : true if is succesful.
 *
@@ -497,8 +497,8 @@ bool MYSQL_QUERY::BindParametersToQuery()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool MYSQL_QUERY::BindParametersToResult()
-* @brief      BindParametersToResult
-* @ingroup    DATABASES
+* @brief      Bind parameters to result
+* @ingroup    DATABASE
 *
 * @return     bool : true if is succesful.
 *
@@ -572,9 +572,9 @@ bool MYSQL_QUERY::BindParametersToResult()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void MYSQL_QUERY::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void MYSQL_QUERY::Clean()

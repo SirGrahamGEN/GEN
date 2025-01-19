@@ -64,7 +64,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIODEVICE::DIODEVICE()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -77,7 +77,7 @@ DIODEVICE::DIODEVICE()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIODEVICE::~DIODEVICE()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -107,7 +107,7 @@ bool DIODEVICE::Ini(void)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIODEVICE::IsInitialized()
-* @brief      IsInitialized
+* @brief      Is initialized
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful. 
@@ -138,7 +138,7 @@ bool DIODEVICE::End(void)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIODEVICE::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

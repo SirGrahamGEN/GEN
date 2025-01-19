@@ -4,7 +4,7 @@
 * 
 * @class      DB_SQL_DATABASE
 * @brief      DataBase SQL "database" class
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 * 
 * @copyright  GEN Group. All rights reserved.
 * 

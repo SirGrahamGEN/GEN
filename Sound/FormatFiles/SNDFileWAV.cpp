@@ -68,7 +68,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         SNDFILEWAV::SNDFILEWAV()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    SOUND
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -81,7 +81,7 @@ SNDFILEWAV::SNDFILEWAV() : SNDFILE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         SNDFILEWAV::~SNDFILEWAV()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    SOUND
 *
@@ -95,7 +95,7 @@ SNDFILEWAV::~SNDFILEWAV()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool SNDFILEWAV::LoadFile()
-* @brief      LoadFile
+* @brief      Load file
 * @ingroup    SOUND
 * 
 * @return     bool : true if is succesful. 
@@ -183,7 +183,7 @@ bool SNDFILEWAV::Open(XCHAR* path)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool SNDFILEWAV::ReadData(XBYTE* data, XDWORD& sizeread, bool isfinished)
-* @brief      ReadData
+* @brief      Read data
 * @ingroup    SOUND
 *
 * @param[in]  data : 
@@ -230,7 +230,7 @@ bool SNDFILEWAV::ReadData(XBYTE* data, XDWORD& sizeread, bool& isfinished)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD SNDFILEWAV::GetDataSize()
-* @brief      GetDataSize
+* @brief      Get data size
 * @ingroup    SOUND
 *
 * @return     XDWORD : 
@@ -245,7 +245,7 @@ XDWORD SNDFILEWAV::GetDataSize()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD SNDFILEWAV::GetReadSize()
-* @brief      GetReadSize
+* @brief      Get read size
 * @ingroup    SOUND
 *
 * @return     XDWORD : 
@@ -286,7 +286,7 @@ bool SNDFILEWAV::Close()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         SNDFILEWAV_FORMAT* SNDFILEWAV::GetFormat()
-* @brief      GetFormat
+* @brief      Get format
 * @ingroup    SOUND
 *
 * @return     SNDFILEWAV_FORMAT* : 
@@ -301,7 +301,7 @@ SNDFILEWAV_FORMAT*  SNDFILEWAV::GetFormat()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void SNDFILEWAV::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    SOUND
 *

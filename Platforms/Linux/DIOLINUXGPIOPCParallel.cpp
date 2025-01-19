@@ -81,7 +81,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOLINUXGPIOPCPARALLEL::DIOLINUXGPIOPCPARALLEL()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_LINUX
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -94,7 +94,7 @@ DIOLINUXGPIOPCPARALLEL::DIOLINUXGPIOPCPARALLEL() : DIOGPIO()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOLINUXGPIOPCPARALLEL::~DIOLINUXGPIOPCPARALLEL()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
 *
@@ -108,7 +108,7 @@ DIOLINUXGPIOPCPARALLEL::~DIOLINUXGPIOPCPARALLEL()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XWORD DIOLINUXGPIOPCPARALLEL::GetParallelPort()
-* @brief      GetParallelPort
+* @brief      Get parallel port
 * @ingroup    PLATFORM_LINUX
 *
 * @return     XWORD : 
@@ -123,7 +123,7 @@ XWORD DIOLINUXGPIOPCPARALLEL::GetParallelPort()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOLINUXGPIOPCPARALLEL::SetParallelPort(XWORD port)
-* @brief      SetParallelPort
+* @brief      Set parallel port
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  port : 
@@ -153,7 +153,7 @@ bool DIOLINUXGPIOPCPARALLEL::Ini()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOLINUXGPIOPCPARALLEL::SetMode(DIOGPIO_ENTRY* entry, XWORD mode)
-* @brief      SetMode
+* @brief      Set mode
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  entry : 
@@ -173,7 +173,7 @@ bool DIOLINUXGPIOPCPARALLEL::SetMode(DIOGPIO_ENTRY* entry, XWORD mode)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOLINUXGPIOPCPARALLEL::GetValue(DIOGPIO_ENTRY* entry)
-* @brief      GetValue
+* @brief      Get value
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  entry : 
@@ -196,7 +196,7 @@ bool DIOLINUXGPIOPCPARALLEL::GetValue(DIOGPIO_ENTRY* entry)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOLINUXGPIOPCPARALLEL::SetValue(DIOGPIO_ENTRY* entry, bool value)
-* @brief      SetValue
+* @brief      Set value
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  entry : 
@@ -236,7 +236,7 @@ bool DIOLINUXGPIOPCPARALLEL::End()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOLINUXGPIOPCPARALLEL::PC_Get(XDWORD nport,XBYTE& data)
-* @brief      PC_Get
+* @brief      PC get
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  nport :
@@ -264,7 +264,7 @@ bool DIOLINUXGPIOPCPARALLEL::PC_Get(XDWORD nport,XBYTE& data)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOLINUXGPIOPCPARALLEL::PC_Set(XDWORD nport,XBYTE data)
-* @brief      PC_Set
+* @brief      PC set
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  nport :
@@ -288,7 +288,7 @@ bool DIOLINUXGPIOPCPARALLEL::PC_Set(XDWORD nport,XBYTE data)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOLINUXGPIOPCPARALLEL::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
 *

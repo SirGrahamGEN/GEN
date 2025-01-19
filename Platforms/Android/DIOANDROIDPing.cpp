@@ -92,7 +92,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOANDROIDPING::DIOANDROIDPING()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_ANDROID
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -105,7 +105,7 @@ DIOANDROIDPING::DIOANDROIDPING()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOANDROIDPING::~DIOANDROIDPING()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_ANDROID
 * 
@@ -138,7 +138,7 @@ bool DIOANDROIDPING::Do(XDWORD nretries, XDWORD timebetweenchecks, bool exitfirs
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOANDROIDPING::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_ANDROID
 * 

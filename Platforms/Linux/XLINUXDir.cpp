@@ -81,7 +81,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XLINUXDIR::XLINUXDIR()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_LINUX
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -94,7 +94,7 @@ XLINUXDIR::XLINUXDIR(): XDIR()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XLINUXDIR::~XLINUXDIR()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
 *
@@ -108,7 +108,7 @@ XLINUXDIR::~XLINUXDIR()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XLINUXDIR::Exist(XCHAR* path)
-* @brief      Exist this directory
+* @brief      Exist
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  path : path to directory
@@ -240,7 +240,7 @@ bool XLINUXDIR::Make(XCHAR* path, bool recursive)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XLINUXDIR::ChangeTo(XCHAR* path)
-* @brief      Change To Dir
+* @brief      Change to
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  path : path to change
@@ -266,7 +266,7 @@ bool XLINUXDIR::ChangeTo(XCHAR* path)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XLINUXDIR::Delete(XCHAR* path,bool all)
-* @brief      Delete directory
+* @brief      Delete
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  path : directory to delete
@@ -318,7 +318,7 @@ bool XLINUXDIR::Delete(XCHAR* path,bool all)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XLINUXDIR::GetActual(XPATH& path)
-* @brief      GetActual
+* @brief      Get actual
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  path :
@@ -341,7 +341,7 @@ bool XLINUXDIR::GetActual(XPATH& path)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XLINUXDIR::FirstSearch(XCHAR* path, XCHAR* patternsearch, XDIRELEMENT* searchelement)
-* @brief      First Search (start search)
+* @brief      First search
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  path : path to do the search
@@ -390,7 +390,7 @@ bool XLINUXDIR::FirstSearch(XCHAR* path, XCHAR* patternsearch, XDIRELEMENT* sear
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XLINUXDIR::NextSearch(XDIRELEMENT* searchelement)
-* @brief      Next Search (continue the search
+* @brief      Next search
 * @ingroup    PLATFORM_LINUX
 *
 * @param[out] searchelement :  search element
@@ -447,7 +447,7 @@ bool XLINUXDIR::NextSearch(XDIRELEMENT* searchelement)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDIRELEMENTTYPE XLINUXDIR::TypeOfEntry(XCHAR* path)
-* @brief      Type Of Entry of path
+* @brief      Type of entry
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
 *
@@ -547,7 +547,7 @@ XDIRELEMENTTYPE XLINUXDIR::TypeOfEntry(XCHAR* path, XDIRELEMENT* searchelement)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XLINUXDIR::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
 *

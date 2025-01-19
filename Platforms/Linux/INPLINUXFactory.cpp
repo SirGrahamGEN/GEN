@@ -80,7 +80,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         INPDEVICE* INPLINUXFACTORY::CreateDevice(XCHAR* devicename, void* param)
-* @brief      CreateDevice
+* @brief      Create device
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  type : device type of the input device
@@ -170,7 +170,7 @@ INPDEVICE* INPLINUXFACTORY::CreateDevice(INPDEVICE_TYPE type, void* param)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool INPLINUXFACTORY::DeleteDevice(INPDEVICE* device)
-* @brief      Delete Device
+* @brief      Delete device
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  device : device to delete
@@ -191,7 +191,7 @@ bool INPLINUXFACTORY::DeleteDevice(INPDEVICE* device)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool INPLINUXFACTORY::GetDeviceHandlers(INPDEVICE_TYPE devicetype, XVECTOR<INPLINUXDEVICEID*>& devices)
-* @brief      GetDeviceHandlers
+* @brief      Get device handlers
 * @ingroup    PLATFORM_LINUX
 * 
 * @param[in]  devicetype : 
@@ -356,7 +356,7 @@ bool INPLINUXFACTORY::GetDeviceHandlers(INPDEVICE_TYPE devicetype, XVECTOR<INPLI
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         INPSIMULATE* INPLINUXFACTORY::CreateSimulator()
-* @brief      CreateSimulator
+* @brief      Create simulator
 * @ingroup    PLATFORM_LINUX
 * 
 * @return     INPSIMULATE* : 
@@ -373,7 +373,7 @@ INPSIMULATE* INPLINUXFACTORY::CreateSimulator()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool INPLINUXFACTORY::DeleteSimulator(INPSIMULATE* inputsimulated)
-* @brief      DeleteSimulator
+* @brief      Delete simulator
 * @ingroup    PLATFORM_LINUX
 * 
 * @param[in]  inputsimulated : 

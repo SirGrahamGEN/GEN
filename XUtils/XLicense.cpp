@@ -82,7 +82,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XLICENSEID::XLICENSEID()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -95,7 +95,7 @@ XLICENSEID::XLICENSEID()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XLICENSEID::~XLICENSEID()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -109,7 +109,7 @@ XLICENSEID::~XLICENSEID()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XLICENSEID::GetPart(int npart, XDWORD part)
-* @brief      GetPart
+* @brief      Get part
 * @ingroup    XUTILS
 *
 * @param[in]  npart :
@@ -132,7 +132,7 @@ bool XLICENSEID::GetPart(int npart, XDWORD part)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XLICENSEID::SetPart(int npart, XDWORD part)
-* @brief      SetPart
+* @brief      Set part
 * @ingroup    XUTILS
 *
 * @param[in]  npart :
@@ -155,7 +155,7 @@ bool XLICENSEID::SetPart(int npart, XDWORD part)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD* XLICENSEID::GetParts()
-* @brief      GetParts
+* @brief      Get parts
 * @ingroup    XUTILS
 *
 * @return     XDWORD* :
@@ -170,7 +170,7 @@ XDWORD* XLICENSEID::GetParts()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XLICENSEID::GetXBuffer(XBUFFER& xbuffer)
-* @brief      GetXBuffer
+* @brief      Get X buffer
 * @ingroup    XUTILS
 *
 * @param[in]  xbuffer :
@@ -188,7 +188,7 @@ void XLICENSEID::GetXBuffer(XBUFFER& xbuffer)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XLICENSEID::GetXString(XSTRING& IDstring)
-* @brief      GetXString
+* @brief      Get X string
 * @ingroup    XUTILS
 *
 * @param[in]  IDstring :
@@ -212,7 +212,7 @@ void XLICENSEID::GetXString(XSTRING& IDstring)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XLICENSEID::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    XUTILS
 *
@@ -235,7 +235,7 @@ void XLICENSEID::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XLICENSE::XLICENSE()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -253,7 +253,7 @@ XLICENSE::XLICENSE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XLICENSE::~XLICENSE()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -272,7 +272,7 @@ XLICENSE::~XLICENSE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XLICENSE::GenerateMachineID(XLICENSEID& licenseID)
-* @brief      GenerateMachineID
+* @brief      Generate machine ID
 * @ingroup    XUTILS
 *
 * @param[in]  licenseID :
@@ -403,7 +403,7 @@ bool XLICENSE::Generate(XLICENSEID& licenseID, XSTRING* applicationID, XBUFFER* 
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XLICENSE::GetBufferKeyFromMachineID(XSTRING& applicationID, XBUFFER& xbufferkey)
-* @brief      GetBufferKeyFromMachineID
+* @brief      Get buffer key from machine ID
 * @ingroup    XUTILS
 *
 * @param[in]  applicationID :
@@ -438,7 +438,7 @@ bool XLICENSE::GetBufferKeyFromMachineID(XSTRING& applicationID, XBUFFER& xbuffe
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XLICENSE::CipherExpirationDate(bool cipher, XSTRING& applicationID, XSTRING& expirationdate)
-* @brief      CipherExpirationDate
+* @brief      Cipher expiration date
 * @ingroup    XUTILS
 *
 * @param[in]  cipher :
@@ -505,7 +505,7 @@ bool XLICENSE::CipherExpirationDate(bool cipher, XSTRING& applicationID, XSTRING
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* XLICENSE::Application_GetID()
-* @brief      Application_GetID
+* @brief      Application get ID
 * @ingroup    XUTILS
 *
 * @return     XSTRING* :
@@ -520,7 +520,7 @@ XSTRING* XLICENSE::Application_GetID()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDATETIME* XLICENSE::GetExpirationDateTime()
-* @brief      GetExpirationDateTime
+* @brief      Get expiration date time
 * @ingroup    XUTILS
 *
 * @return     XDATETIME* :
@@ -580,7 +580,7 @@ bool XLICENSE::Get(XSTRING& licensestring)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XLICENSE::LoadFromFile(XPATH& xpath, XSTRING& applicationID, XBUFFER* license, XSTRING* expirationdate)
-* @brief      LoadFromFile
+* @brief      Load from file
 * @ingroup    XUTILS
 *
 * @param[in]  xpath :
@@ -621,7 +621,7 @@ bool XLICENSE::LoadFromFile(XPATH& xpath, XSTRING& applicationID, XBUFFER* licen
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XLICENSE::LoadFromURL(DIOURL& url, int timeout, XSTRING* IPlocal, XSTRING& applicationID, XBUFFER* license, XSTRING* expirationdate)
-* @brief      LoadFromURL
+* @brief      Load from URL
 * @ingroup    XUTILS
 *
 * @param[in]  url :
@@ -654,7 +654,7 @@ bool XLICENSE::LoadFromURL(DIOURL& url, int timeout, XSTRING* IPlocal, XSTRING& 
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XLICENSE::LoadFromBuffer(XBUFFER& xbuffer, XSTRING& applicationID, XBUFFER* license, XSTRING* expirationdate)
-* @brief      LoadFromBuffer
+* @brief      Load from buffer
 * @ingroup    XUTILS
 *
 * @param[in]  xbuffer :
@@ -706,7 +706,7 @@ bool XLICENSE::LoadFromBuffer(XBUFFER& xbuffer, XSTRING& applicationID, XBUFFER*
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XLICENSE::CheckMasterCreation(XPATH& xpath, XLICENSEID& licenseID, XSTRING& applicationID, int expirationseconds)
-* @brief      CheckMasterCreation
+* @brief      Check master creation
 * @ingroup    XUTILS
 *
 * @param[in]  xpath :
@@ -774,7 +774,7 @@ bool XLICENSE::CheckMasterCreation(XPATH& xpath, XLICENSEID& licenseID, XSTRING&
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XLICENSE::SetEvent(XLICENSEXEVENT_TYPE type)
-* @brief      SetEvent
+* @brief      Set event
 * @ingroup    XUTILS
 *
 * @param[in]  type :
@@ -796,7 +796,7 @@ bool XLICENSE::SetEvent(XLICENSEXEVENT_TYPE type)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XLICENSE::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    XUTILS
 *

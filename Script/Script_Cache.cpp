@@ -73,8 +73,8 @@ SCRIPT_CACHE*  SCRIPT_CACHE::instance = NULL;
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool SCRIPT_CACHE::GetIsInstanced()
-* @brief      GetIsInstanced
-* @ingroup    XUTILS
+* @brief      Get is instanced
+* @ingroup    SCRIPT
 *
 * @return     bool : true if is succesful.
 *
@@ -88,8 +88,8 @@ bool SCRIPT_CACHE::GetIsInstanced()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         SCRIPT_CACHE& SCRIPT_CACHE::GetInstance()
-* @brief      GetInstance
-* @ingroup    XUTILS
+* @brief      Get instance
+* @ingroup    SCRIPT
 *
 * @return     SCRIPT_CACHE& :
 *
@@ -104,8 +104,8 @@ SCRIPT_CACHE& SCRIPT_CACHE::GetInstance()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool SCRIPT_CACHE::DelInstance()
-* @brief      DelInstance
-* @ingroup    XUTILS
+* @brief      Del instance
+* @ingroup    SCRIPT
 *
 * @return     bool : true if is succesful.
 *
@@ -124,7 +124,7 @@ bool SCRIPT_CACHE::DelInstance()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD SCRIPT_CACHE::GenerateID(XSTRING& stringID)
-* @brief      GenerateID
+* @brief      Generate ID
 * @ingroup    SCRIPT
 * 
 * @param[in]  stringID : 
@@ -150,7 +150,7 @@ XDWORD SCRIPT_CACHE::GenerateID(XSTRING& stringID)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool SCRIPT_CACHE::Cache_Add(XDWORD ID, XSTRING* script)
-* @brief      Cache_Add
+* @brief      Cache add
 * @ingroup    SCRIPT
 * 
 * @param[in]  ID : 
@@ -198,7 +198,7 @@ bool SCRIPT_CACHE::Cache_Add(XDWORD ID, XSTRING* script)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* SCRIPT_CACHE::Cache_Get(XDWORD ID, int* index)
-* @brief      Cache_Get
+* @brief      Cache get
 * @ingroup    SCRIPT
 * 
 * @param[in]  ID : 
@@ -244,7 +244,7 @@ XSTRING* SCRIPT_CACHE::Cache_Get(XDWORD ID, int* index)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool SCRIPT_CACHE::Cache_Set(XDWORD ID, XSTRING* script)
-* @brief      Cache_Set
+* @brief      Cache set
 * @ingroup    SCRIPT
 * 
 * @param[in]  ID : 
@@ -292,7 +292,7 @@ bool SCRIPT_CACHE::Cache_Set(XDWORD ID, XSTRING* script)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool SCRIPT_CACHE::Cache_Del(XDWORD ID)
-* @brief      Cache_Del
+* @brief      Cache del
 * @ingroup    SCRIPT
 * 
 * @param[in]  ID : 
@@ -319,7 +319,7 @@ bool SCRIPT_CACHE::Cache_Del(XDWORD ID)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XMAP<XSTRING*, XSTRING*> SCRIPT_CACHE::Cache_Get()
-* @brief      Cache_Get
+* @brief      Cache get
 * @ingroup    SCRIPT
 * 
 * @return     XMAP<XSTRING*, XSTRING*> : 
@@ -334,7 +334,7 @@ XMAP<XDWORD, XSTRING*>* SCRIPT_CACHE::Cache_GetAll()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool SCRIPT_CACHE::Cache_DelAll()
-* @brief      Cache_DelAll
+* @brief      Cache del all
 * @ingroup    SCRIPT
 * 
 * @return     bool : true if is succesful. 
@@ -357,7 +357,7 @@ bool SCRIPT_CACHE::Cache_DelAll()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool SCRIPT_CACHE::Cache_AllDirectory(XPATH& xpath)
-* @brief      Cache_AllDirectory
+* @brief      Cache all directory
 * @ingroup    SCRIPT
 * 
 * @param[in]  xpath : 
@@ -408,7 +408,7 @@ bool SCRIPT_CACHE::Cache_AllDirectory(XPATH& xpath)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool SCRIPT_CACHE::Cache_AllList(XVECTOR<XSTRING*>* listscripts)
-* @brief      Cache_AllList
+* @brief      Cache all list
 * @ingroup    SCRIPT
 * 
 * @param[in]  listscripts : 
@@ -522,7 +522,7 @@ bool SCRIPT_CACHE::Cache_AllList(XVECTOR<XSTRING*>* listscripts)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         SCRIPT_CACHE::SCRIPT_CACHE()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    SCRIPT
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -535,7 +535,7 @@ SCRIPT_CACHE::SCRIPT_CACHE()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         SCRIPT_CACHE::~SCRIPT_CACHE()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    SCRIPT
 * 
@@ -551,7 +551,7 @@ SCRIPT_CACHE::~SCRIPT_CACHE()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void SCRIPT_CACHE::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    SCRIPT
 * 

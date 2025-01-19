@@ -79,7 +79,7 @@ COMPRESSMANAGER* COMPRESSMANAGER::instance=NULL;
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         COMPRESSMANAGER::COMPRESSMANAGER()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    COMPRESS
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -92,7 +92,7 @@ COMPRESSMANAGER::COMPRESSMANAGER()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         COMPRESSMANAGER::~COMPRESSMANAGER()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    COMPRESS
 * 
@@ -151,7 +151,7 @@ COMPRESSBASE* COMPRESSMANAGER::Create(COMPRESSBASE_TYPE type)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         COMPRESSMANAGER* COMPRESSMANAGER::GetInstance()
-* @brief      GetInstance
+* @brief      Get instance
 * @ingroup    COMPRESS
 * 
 * @return     COMPRESSMANAGER* : 
@@ -168,7 +168,7 @@ COMPRESSMANAGER* COMPRESSMANAGER::GetInstance()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void COMPRESSMANAGER::DeleteInstance()
-* @brief      DeleteInstance
+* @brief      Delete instance
 * @ingroup    COMPRESS
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -181,7 +181,7 @@ void COMPRESSMANAGER::DeleteInstance()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void COMPRESSMANAGER::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    COMPRESS
 * 

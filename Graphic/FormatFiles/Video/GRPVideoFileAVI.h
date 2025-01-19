@@ -4,7 +4,7 @@
 * 
 * @class      GRPVIDEOFILEAVI
 * @brief      Graphic Video File AVI class
-* @ingroup    VIDEO
+* @ingroup    GRAPHIC
 * 
 * @copyright  GEN Group. All rights reserved.
 * 

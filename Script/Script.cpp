@@ -109,7 +109,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         SCRIPT::SCRIPT()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    SCRIPT
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -135,7 +135,7 @@ SCRIPT::SCRIPT()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         SCRIPT::~SCRIPT()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    SCRIPT
 * 
@@ -169,7 +169,7 @@ SCRIPT::~SCRIPT()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         SCRIPT_TYPE SCRIPT::GetType()
-* @brief      GetType
+* @brief      Get type
 * @ingroup    SCRIPT
 * 
 * @return     SCRIPT_TYPE : 
@@ -184,7 +184,7 @@ SCRIPT_TYPE SCRIPT::GetType()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         SCRIPT_TYPE SCRIPT::GetTypeByExtension(XCHAR* namefilescript)
-* @brief      GetTypeByExtension
+* @brief      Get type by extension
 * @ingroup    SCRIPT
 * 
 * @param[in]  namefilescript : 
@@ -361,7 +361,7 @@ bool SCRIPT::Load(XPATH& xpath)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool SCRIPT::LoadAdd(XPATH& xpath)
-* @brief      LoadAdd
+* @brief      Load add
 * @ingroup    SCRIPT
 * 
 * @param[in]  xpath : 
@@ -432,7 +432,7 @@ bool SCRIPT::Save(XPATH& xpath)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool SCRIPT::LoadScriptAndRun(XVECTOR<XSTRING*>* listscripts, SCRFUNCADJUSTLIBRARYS adjustlibrarys)
-* @brief      LoadScriptAndRun
+* @brief      Load script and run
 * @ingroup    SCRIPT
 * 
 * @param[in]  listscripts : 
@@ -559,7 +559,7 @@ bool SCRIPT::LoadScriptAndRun(XVECTOR<XSTRING*>* listscripts, SCRFUNCADJUSTLIBRA
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool SCRIPT::AddReturnByType()
-* @brief      AddReturnByType
+* @brief      Add return by type
 * @ingroup    SCRIPT
 * 
 * @return     bool : true if is succesful. 
@@ -583,7 +583,7 @@ bool SCRIPT::AddReturnByType()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool SCRIPT::IsScript(XPATH& xpath, XCHAR* extension)
-* @brief      IsScript
+* @brief      Is script
 * @ingroup    SCRIPT
 * 
 * @param[in]  xpath : 
@@ -605,7 +605,7 @@ bool SCRIPT::IsScript(XPATH& xpath, XCHAR* extension)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* SCRIPT::GetNameScript()
-* @brief      GetNameScript
+* @brief      Get name script
 * @ingroup    SCRIPT
 * 
 * @return     XSTRING* : 
@@ -620,7 +620,7 @@ XSTRING* SCRIPT::GetNameScript()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* SCRIPT::GetScript()
-* @brief      GetScript
+* @brief      Get script
 * @ingroup    SCRIPT
 * 
 * @return     XSTRING* : 
@@ -635,7 +635,7 @@ XSTRING* SCRIPT::GetScript()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XPATH* SCRIPT::GetPath()
-* @brief      GetPath
+* @brief      Get path
 * @ingroup    SCRIPT
 * 
 * @return     XPATH* : 
@@ -678,7 +678,7 @@ int SCRIPT::Run(int* returnval)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool SCRIPT::RunWithThread()
-* @brief      RunWithThread
+* @brief      Run with thread
 * @ingroup    SCRIPT
 * 
 * @return     bool : true if is succesful. 
@@ -696,7 +696,7 @@ bool SCRIPT::RunWithThread()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool SCRIPT::IsRunWithThread()
-* @brief      IsRunWithThread
+* @brief      Is run with thread
 * @ingroup    SCRIPT
 *
 * @return     bool : true if is succesful.
@@ -711,7 +711,7 @@ bool SCRIPT::IsRunWithThread()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool SCRIPT::IsRunThread(SCRIPT_G_ERRORCODE* error,int* returnvalue)
-* @brief      IsRunThread
+* @brief      Is run thread
 * @ingroup    SCRIPT
 *
 * @param[in]  error :
@@ -745,7 +745,7 @@ bool SCRIPT::IsRunThread(int* error,int* returnvalue)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool SCRIPT::CancelExecution()
-* @brief      CancelExecution
+* @brief      Cancel execution
 * @ingroup    SCRIPT
 * 
 * @return     bool : true if is succesful. 
@@ -764,7 +764,7 @@ bool SCRIPT::CancelExecution()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XTIMER* SCRIPT::GetTimer()
-* @brief      GetTimer
+* @brief      Get timer
 * @ingroup    SCRIPT
 * 
 * @return     XTIMER* : 
@@ -779,7 +779,7 @@ XTIMER* SCRIPT::GetTimer()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XTHREADCOLLECTED* SCRIPT::GetThread()
-* @brief      GetThread
+* @brief      Get thread
 * @ingroup    SCRIPT
 * 
 * @return     XTHREADCOLLECTED* : 
@@ -794,7 +794,7 @@ XTHREADCOLLECTED* SCRIPT::GetThread()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         SCRIPT_LIB* SCRIPT::GetLibrary(XCHAR* ID)
-* @brief      GetLibrary
+* @brief      Get library
 * @ingroup    SCRIPT
 *
 * @param[in]  ID :
@@ -829,7 +829,7 @@ SCRIPT_LIB* SCRIPT::GetLibrary(XCHAR* ID)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool SCRIPT::AddLibrary(SCRIPT_LIB* scriptlib)
-* @brief      AddLibrary
+* @brief      Add library
 * @ingroup    SCRIPT
 *
 * @param[in]  scriptlib :
@@ -850,7 +850,7 @@ bool SCRIPT::AddLibrary(SCRIPT_LIB* scriptlib)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool SCRIPT::DeleteAllLibrarys()
-* @brief      DeleteAllLibrarys
+* @brief      Delete all librarys
 * @ingroup    SCRIPT
 * 
 * @return     bool : true if is succesful. 
@@ -870,7 +870,7 @@ bool SCRIPT::DeleteAllLibrarys()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         SCRIPT_LIB_FUNCTION* SCRIPT::GetLibraryFunction(XCHAR* name)
-* @brief      GetLibraryFunction
+* @brief      Get library function
 * @ingroup    SCRIPT
 * 
 * @param[in]  name : 
@@ -896,7 +896,7 @@ SCRIPT_LIB_FUNCTION* SCRIPT::GetLibraryFunction(XCHAR* name)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         SCRIPT_LIB_FUNCTION* SCRIPT::GetLibraryFunction(void* ptrfunction)
-* @brief      GetLibraryFunction
+* @brief      Get library function
 * @ingroup    SCRIPT
 * 
 * @param[in]  ptrfunction : 
@@ -922,7 +922,7 @@ SCRIPT_LIB_FUNCTION* SCRIPT::GetLibraryFunction(void* ptrfunction)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool SCRIPT::AddLibraryFunction(SCRIPT_LIB* library, XCHAR* name, SCRFUNCIONLIBRARY libfunction)
-* @brief      AddLibraryFunction
+* @brief      Add library function
 * @ingroup    SCRIPT
 * 
 * @param[in]  library : 
@@ -946,7 +946,7 @@ bool SCRIPT::AddLibraryFunction(SCRIPT_LIB* library, XCHAR* name, SCRFUNCIONLIBR
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool SCRIPT::DeleteLibraryFuncions()
-* @brief      DeleteLibraryFuncions
+* @brief      Delete library funcions
 * @ingroup    SCRIPT
 * 
 * @return     bool : true if is succesful. 
@@ -966,7 +966,7 @@ bool SCRIPT::DeleteLibraryFuncions()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool SCRIPT::AddInternalLibraries()
-* @brief      AddInternalLibraries
+* @brief      Add internal libraries
 * @ingroup    SCRIPT
 * 
 * @return     bool : true if is succesful. 
@@ -1047,7 +1047,7 @@ bool SCRIPT::AddInternalLibraries()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int SCRIPT::GetErrorScript()
-* @brief      GetErrorScript
+* @brief      Get error script
 * @ingroup    SCRIPT
 * 
 * @return     int : 
@@ -1062,7 +1062,7 @@ int SCRIPT::GetErrorScript()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool SCRIPT::SetErrorScript(int errorcode)
-* @brief      SetErrorScript
+* @brief      Set error script
 * @ingroup    SCRIPT
 * 
 * @param[in]  errorcode : 
@@ -1081,7 +1081,7 @@ bool SCRIPT::SetErrorScript(int errorcode)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool SCRIPT::HaveError(int errorcode)
-* @brief      HaveError
+* @brief      Have error
 * @ingroup    SCRIPT
 * 
 * @param[in]  errorcode : 
@@ -1098,7 +1098,7 @@ bool SCRIPT::HaveError(int errorcode)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool SCRIPT::EliminateExtraChars(XSTRING* namescript)
-* @brief      EliminateExtraChars
+* @brief      Eliminate extra chars
 * @ingroup    SCRIPT
 * 
 * @param[in]  namescript : 
@@ -1131,7 +1131,7 @@ bool SCRIPT::EliminateExtraChars(XSTRING* namescript)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void SCRIPT::HandleEvent(XEVENT* xevent)
-* @brief      Handle Event for the observer manager of this class
+* @brief      Handle event
 * @note       INTERNAL
 * @ingroup    SCRIPT
 * 
@@ -1147,7 +1147,7 @@ void SCRIPT::HandleEvent(XEVENT* xevent)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void SCRIPT::ThreadFunction(void* data)
-* @brief      ThreadFunction
+* @brief      Thread function
 * @ingroup    SCRIPT
 * 
 * @param[in]  data : 
@@ -1169,7 +1169,7 @@ void SCRIPT::ThreadFunction(void* data)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void SCRIPT::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    SCRIPT
 * 

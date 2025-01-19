@@ -71,7 +71,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         INPDEVICE* INPANDROIDFACTORY::CreateDevice(XCHAR* devicename, void* param)
-* @brief      CreateDevice
+* @brief      Create device
 * @ingroup    PLATFORM_ANDROID
 *
 * @param[in]  type : device type of the input device
@@ -113,7 +113,7 @@ INPDEVICE* INPANDROIDFACTORY::CreateDevice(INPDEVICE_TYPE type, void* param)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool INPANDROIDFACTORY::DeleteDevice(INPDEVICE* device)
-* @brief      Delete Device
+* @brief      Delete device
 * @ingroup    PLATFORM_ANDROID
 *
 * @param[in]  device : device to delete

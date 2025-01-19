@@ -53,7 +53,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTM32FILE::XSTM32FILE()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_STM32
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -78,7 +78,7 @@ XSTM32FILE::XSTM32FILE(): XFILE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTM32FILE::~XSTM32FILE()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_STM32
 *
@@ -215,7 +215,7 @@ bool XSTM32FILE::Create(XCHAR* path)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTM32FILE::SetSize(XQWORD size)
-* @brief      SetSize
+* @brief      Set size
 * @ingroup    PLATFORM_STM32
 *
 * @param[in]  size :
@@ -242,7 +242,7 @@ bool XSTM32FILE::SetSize(XQWORD size)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTM32FILE::GetPosition(XQWORD& position)
-* @brief      GetPosition
+* @brief      Get position
 * @ingroup    PLATFORM_STM32
 *
 * @param[in]  position :
@@ -268,7 +268,7 @@ bool XSTM32FILE::GetPosition(XQWORD& position)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTM32FILE::SetPosition(XQWORD position)
-* @brief      SetPosition
+* @brief      Set position
 * @ingroup    PLATFORM_STM32
 *
 * @param[in]  position :
@@ -512,7 +512,7 @@ bool XSTM32FILE::Rename(XCHAR* pathold, XCHAR* pathnew)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         FILE* XSTM32FILE::CreateStructHandle()
-* @brief      CreateStructHandle
+* @brief      Create struct handle
 * @ingroup    PLATFORM_STM32
 *
 * @return     FILE* : 
@@ -528,7 +528,7 @@ FILE* XSTM32FILE::CreateStructHandle()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XSTM32FILE::DeleteStructHandle()
-* @brief      DeleteStructHandle
+* @brief      Delete struct handle
 * @ingroup    PLATFORM_STM32
 *
 * @return     bool : true if is succesful. 
@@ -544,7 +544,7 @@ bool XSTM32FILE::DeleteStructHandle()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XSTM32FILE::ActualizeSize()
-* @brief      ActualizeSize
+* @brief      Actualize size
 * @ingroup    PLATFORM_STM32
 *
 * @return     bool : true if is succesful. 
@@ -560,7 +560,7 @@ bool XSTM32FILE::ActualizeSize()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XSTM32FILE::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_STM32
 *

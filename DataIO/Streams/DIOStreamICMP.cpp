@@ -74,7 +74,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMICMPDATAGRAM::DIOSTREAMICMPDATAGRAM()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -89,7 +89,7 @@ DIOSTREAMICMPDATAGRAM::DIOSTREAMICMPDATAGRAM()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMICMPDATAGRAM::~DIOSTREAMICMPDATAGRAM()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -105,7 +105,7 @@ DIOSTREAMICMPDATAGRAM::~DIOSTREAMICMPDATAGRAM()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMICMPDATAGRAM::IsToSend()
-* @brief      IsToSend
+* @brief      Is to send
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -120,7 +120,7 @@ bool DIOSTREAMICMPDATAGRAM::IsToSend()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSTREAMICMPDATAGRAM::SetIsToSend(bool istosend)
-* @brief      SetIsToSend
+* @brief      Set is to send
 * @ingroup    DATAIO
 *
 * @param[in]  istosend :
@@ -135,7 +135,7 @@ void DIOSTREAMICMPDATAGRAM::SetIsToSend(bool istosend)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* DIOSTREAMICMPDATAGRAM::GetAddress()
-* @brief      GetAddress
+* @brief      Get address
 * @ingroup    DATAIO
 *
 * @return     XSTRING* :
@@ -150,7 +150,7 @@ XSTRING* DIOSTREAMICMPDATAGRAM::GetAddress()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMICMPDATAGRAM::SetAddress(XCHAR* address)
-* @brief      SetAddress
+* @brief      Set address
 * @ingroup    DATAIO
 *
 * @param[in]  address :
@@ -170,7 +170,7 @@ bool DIOSTREAMICMPDATAGRAM::SetAddress(XCHAR* address)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMICMPDATAGRAM::SetAddress(XSTRING& address)
-* @brief      SetAddress
+* @brief      Set address
 * @ingroup    DATAIO
 *
 * @param[in]  address :
@@ -187,7 +187,7 @@ bool DIOSTREAMICMPDATAGRAM::SetAddress(XSTRING& address)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XBUFFER* DIOSTREAMICMPDATAGRAM::GetData()
-* @brief      GetData
+* @brief      Get data
 * @ingroup    DATAIO
 *
 * @return     XBUFFER* :
@@ -202,7 +202,7 @@ XBUFFER* DIOSTREAMICMPDATAGRAM::GetData()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMICMPDATAGRAM::SetData(XBYTE* data,XDWORD size)
-* @brief      SetData
+* @brief      Set data
 * @ingroup    DATAIO
 *
 * @param[in]  data :
@@ -224,7 +224,7 @@ bool DIOSTREAMICMPDATAGRAM::SetData(XBYTE* data,XDWORD size)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSTREAMICMPDATAGRAM::SetData(XBUFFER& data)
-* @brief      SetData
+* @brief      Set data
 * @ingroup    DATAIO
 *
 * @param[in]  data :
@@ -239,7 +239,7 @@ void DIOSTREAMICMPDATAGRAM::SetData(XBUFFER& data)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSTREAMICMPDATAGRAM::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *
@@ -261,7 +261,7 @@ void DIOSTREAMICMPDATAGRAM::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMICMP::DIOSTREAMICMP()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -277,7 +277,7 @@ DIOSTREAMICMP::DIOSTREAMICMP() : DIOSTREAM()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMICMP::~DIOSTREAMICMP()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -297,7 +297,7 @@ DIOSTREAMICMP::~DIOSTREAMICMP()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMCONFIG* DIOSTREAMICMP::GetConfig()
-* @brief      GetConfig
+* @brief      Get config
 * @ingroup    DATAIO
 *
 * @return     DIOSTREAMCONFIG* :
@@ -312,7 +312,7 @@ DIOSTREAMCONFIG* DIOSTREAMICMP::GetConfig()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMICMP::SetConfig(DIOSTREAMCONFIG* config)
-* @brief      SetConfig
+* @brief      Set config
 * @ingroup    DATAIO
 *
 * @param[in]  config :
@@ -402,7 +402,7 @@ XDWORD DIOSTREAMICMP::Write(XBYTE* buffer, XDWORD size)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMICMP::ReadDatagram(XSTRING& address, XBUFFER& xbuffer)
-* @brief      ReadDatagram
+* @brief      Read datagram
 * @ingroup    DATAIO
 *
 * @param[in]  address :
@@ -440,7 +440,7 @@ bool DIOSTREAMICMP::ReadDatagram(XSTRING& address, XBUFFER& xbuffer)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMICMP::WriteDatagram(XSTRING& address, XBYTE* buffer, XDWORD size)
-* @brief      WriteDatagram
+* @brief      Write datagram
 * @ingroup    DATAIO
 *
 * @param[in]  address :
@@ -463,7 +463,7 @@ bool DIOSTREAMICMP::WriteDatagram(XSTRING& address, XBYTE* buffer, XDWORD size)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMICMP::WriteDatagram(XSTRING& address, XBUFFER& xbuffer)
-* @brief      WriteDatagram
+* @brief      Write datagram
 * @ingroup    DATAIO
 *
 * @param[in]  address :
@@ -481,7 +481,7 @@ bool DIOSTREAMICMP::WriteDatagram(XSTRING& address, XBUFFER& xbuffer)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMICMP::ResetXBuffers()
-* @brief      ResetXBuffers
+* @brief      Reset X buffers
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -498,7 +498,7 @@ bool DIOSTREAMICMP::ResetXBuffers()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMICMP::ResetInXBuffer()
-* @brief      ResetInXBuffer
+* @brief      Reset in X buffer
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -529,7 +529,7 @@ bool DIOSTREAMICMP::ResetInXBuffer()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMICMP::ResetOutXBuffer()
-* @brief      ResetOutXBuffer
+* @brief      Reset out X buffer
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -560,7 +560,7 @@ bool DIOSTREAMICMP::ResetOutXBuffer()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOURL* DIOSTREAMICMP::GetHost()
-* @brief      GetHost
+* @brief      Get host
 * @ingroup    DATAIO
 *
 * @return     DIOURL* :
@@ -575,7 +575,7 @@ DIOURL* DIOSTREAMICMP::GetHost()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XVECTOR<DIOSTREAMICMPDATAGRAM*>* DIOSTREAMICMP::GetDatagramsVector()
-* @brief      GetDatagramsVector
+* @brief      Get datagrams vector
 * @ingroup    DATAIO
 *
 * @return     XVECTOR<DIOSTREAMICMPDATAGRAM*>* :
@@ -590,7 +590,7 @@ XVECTOR<DIOSTREAMICMPDATAGRAM*>* DIOSTREAMICMP::GetDatagramsVector()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMICMP::DeleteAllDatagrams()
-* @brief      DeleteAllDatagrams
+* @brief      Delete all datagrams
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -615,7 +615,7 @@ bool DIOSTREAMICMP::DeleteAllDatagrams()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMICMP::AddDatagram(bool istosend, XCHAR* address, XBYTE* data, XDWORD size)
-* @brief      AddDatagram
+* @brief      Add datagram
 * @ingroup    DATAIO
 *
 * @param[in]  istosend :
@@ -652,7 +652,7 @@ bool DIOSTREAMICMP::AddDatagram(bool istosend, XCHAR* address, XBYTE* data, XDWO
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMICMP::AddDatagram(bool istosend, XSTRING& address, XBYTE* data,XDWORD size)
-* @brief      AddDatagram
+* @brief      Add datagram
 * @ingroup    DATAIO
 *
 * @param[in]  istosend :
@@ -672,7 +672,7 @@ bool DIOSTREAMICMP::AddDatagram(bool istosend, XSTRING& address, XBYTE* data,XDW
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMICMPDATAGRAM* DIOSTREAMICMP::GetDatagram(int index)
-* @brief      GetDatagram
+* @brief      Get datagram
 * @ingroup    DATAIO
 *
 * @param[in]  index :
@@ -689,7 +689,7 @@ DIOSTREAMICMPDATAGRAM* DIOSTREAMICMP::GetDatagram(int index)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOSTREAMICMP::GetFirstDatagram(bool tosend)
-* @brief      GetFirstDatagram
+* @brief      Get first datagram
 * @ingroup    DATAIO
 *
 * @param[in]  tosend :
@@ -725,7 +725,7 @@ int DIOSTREAMICMP::GetFirstDatagram(bool tosend)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMICMP::DeleteDatagram(int index)
-* @brief      DeleteDatagram
+* @brief      Delete datagram
 * @ingroup    DATAIO
 *
 * @param[in]  index :
@@ -753,7 +753,7 @@ bool DIOSTREAMICMP::DeleteDatagram(int index)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSTREAMICMP::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

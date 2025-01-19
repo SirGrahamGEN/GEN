@@ -66,7 +66,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOIEC60870_5_XEVENT::DIOIEC60870_5_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 * 
 * @param[in]  subject : 
@@ -83,7 +83,7 @@ DIOIEC60870_5_XEVENT::DIOIEC60870_5_XEVENT(XSUBJECT* subject, XDWORD type, XDWOR
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOIEC60870_5_XEVENT::~DIOIEC60870_5_XEVENT()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 * 
@@ -97,7 +97,7 @@ DIOIEC60870_5_XEVENT::~DIOIEC60870_5_XEVENT()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOIEC60870_5_XEVENT::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 * 
@@ -117,7 +117,7 @@ void DIOIEC60870_5_XEVENT::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIO_C_CI_NU_2_RESULT::DIO_C_CI_NU_2_RESULT()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -132,7 +132,7 @@ DIO_C_CI_NU_2_RESULT::DIO_C_CI_NU_2_RESULT()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIO_C_CI_NU_2_RESULT::~DIO_C_CI_NU_2_RESULT()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 * 
@@ -148,7 +148,7 @@ DIO_C_CI_NU_2_RESULT::~DIO_C_CI_NU_2_RESULT()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDATETIME* DIO_C_CI_NU_2_RESULT::GetDateTime()
-* @brief      GetDateTime
+* @brief      Get date time
 * @ingroup    DATAIO
 * 
 * @return     XDATETIME* : 
@@ -163,7 +163,7 @@ XDATETIME* DIO_C_CI_NU_2_RESULT::GetDateTime()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XVECTOR<XDWORD>* DIO_C_CI_NU_2_RESULT::GetIndexValues()
-* @brief      GetIndexValues
+* @brief      Get index values
 * @ingroup    DATAIO
 * 
 * @return     XVECTOR<XDWORD>* : 
@@ -178,7 +178,7 @@ XVECTOR<XDWORD>* DIO_C_CI_NU_2_RESULT::GetIndexValues()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XVECTOR<XDWORD>* DIO_C_CI_NU_2_RESULT::GetValues()
-* @brief      GetValues
+* @brief      Get values
 * @ingroup    DATAIO
 * 
 * @return     XVECTOR<XDWORD>* : 
@@ -193,7 +193,7 @@ XVECTOR<XDWORD>* DIO_C_CI_NU_2_RESULT::GetValues()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIO_C_CI_NU_2_RESULT::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 * 
@@ -212,7 +212,7 @@ void DIO_C_CI_NU_2_RESULT::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIO_C_TR_AA_RESULT::DIO_C_TR_AA_RESULT()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -227,7 +227,7 @@ DIO_C_TR_AA_RESULT::DIO_C_TR_AA_RESULT()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIO_C_TR_AA_RESULT::~DIO_C_TR_AA_RESULT()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 * 
@@ -243,7 +243,7 @@ DIO_C_TR_AA_RESULT::~DIO_C_TR_AA_RESULT()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDATETIME* DIO_C_TR_AA_RESULT::GetDateTime()
-* @brief      GetDateTime
+* @brief      Get date time
 * @ingroup    DATAIO
 * 
 * @return     XDATETIME* : 
@@ -258,7 +258,7 @@ XDATETIME* DIO_C_TR_AA_RESULT::GetDateTime()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int DIO_C_TR_AA_RESULT::GetActiveImport()
-* @brief      GetActiveImport
+* @brief      Get active import
 * @ingroup    DATAIO
 * 
 * @return     int : 
@@ -273,7 +273,7 @@ int DIO_C_TR_AA_RESULT::GetActiveImport()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIO_C_TR_AA_RESULT::SetActiveImport(int activeimport)
-* @brief      SetActiveImport
+* @brief      Set active import
 * @ingroup    DATAIO
 * 
 * @param[in]  activeimport : 
@@ -291,7 +291,7 @@ bool DIO_C_TR_AA_RESULT::SetActiveImport(int activeimport)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int DIO_C_TR_AA_RESULT::GetActiveExport()
-* @brief      GetActiveExport
+* @brief      Get active export
 * @ingroup    DATAIO
 * 
 * @return     int : 
@@ -306,7 +306,7 @@ int DIO_C_TR_AA_RESULT::GetActiveExport()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIO_C_TR_AA_RESULT::SetActiveExport(int activeexport)
-* @brief      SetActiveExport
+* @brief      Set active export
 * @ingroup    DATAIO
 * 
 * @param[in]  activeexport : 
@@ -324,7 +324,7 @@ bool DIO_C_TR_AA_RESULT::SetActiveExport(int activeexport)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int DIO_C_TR_AA_RESULT::GetReactiveQ(int index)
-* @brief      GetReactiveQ
+* @brief      Get reactive q
 * @ingroup    DATAIO
 * 
 * @param[in]  index : 
@@ -343,7 +343,7 @@ int DIO_C_TR_AA_RESULT::GetReactiveQ(int index)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIO_C_TR_AA_RESULT::SetReactiveQ(int index,int reactiveQ)
-* @brief      SetReactiveQ
+* @brief      Set reactive q
 * @ingroup    DATAIO
 * 
 * @param[in]  index : 
@@ -363,7 +363,7 @@ bool DIO_C_TR_AA_RESULT::SetReactiveQ(int index,int reactiveQ)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int DIO_C_TR_AA_RESULT::GetTotalActivePower()
-* @brief      GetTotalActivePower
+* @brief      Get total active power
 * @ingroup    DATAIO
 * 
 * @return     int : 
@@ -378,7 +378,7 @@ int DIO_C_TR_AA_RESULT::GetTotalActivePower()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIO_C_TR_AA_RESULT::SetTotalActivePower(int totalactivepower)
-* @brief      SetTotalActivePower
+* @brief      Set total active power
 * @ingroup    DATAIO
 * 
 * @param[in]  totalactivepower : 
@@ -396,7 +396,7 @@ bool DIO_C_TR_AA_RESULT::SetTotalActivePower(int totalactivepower)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int DIO_C_TR_AA_RESULT::GetTotalReactivePower()
-* @brief      GetTotalReactivePower
+* @brief      Get total reactive power
 * @ingroup    DATAIO
 * 
 * @return     int : 
@@ -411,7 +411,7 @@ int DIO_C_TR_AA_RESULT::GetTotalReactivePower()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIO_C_TR_AA_RESULT::SetTotalReactivePower(int totalreactivepower)
-* @brief      SetTotalReactivePower
+* @brief      Set total reactive power
 * @ingroup    DATAIO
 * 
 * @param[in]  totalreactivepower : 
@@ -429,7 +429,7 @@ bool DIO_C_TR_AA_RESULT::SetTotalReactivePower(int totalreactivepower)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         float DIO_C_TR_AA_RESULT::GetTotalPowerFactor()
-* @brief      GetTotalPowerFactor
+* @brief      Get total power factor
 * @ingroup    DATAIO
 * 
 * @return     float : 
@@ -444,7 +444,7 @@ float DIO_C_TR_AA_RESULT::GetTotalPowerFactor()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIO_C_TR_AA_RESULT::SetTotalPowerFactor(float totalpowerfactor)
-* @brief      SetTotalPowerFactor
+* @brief      Set total power factor
 * @ingroup    DATAIO
 * 
 * @param[in]  totalpowerfactor : 
@@ -462,7 +462,7 @@ bool DIO_C_TR_AA_RESULT::SetTotalPowerFactor(float totalpowerfactor)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int DIO_C_TR_AA_RESULT::GetActivePowerPhase(int phase)
-* @brief      GetActivePowerPhase
+* @brief      Get active power phase
 * @ingroup    DATAIO
 * 
 * @param[in]  phase : 
@@ -480,7 +480,7 @@ int DIO_C_TR_AA_RESULT::GetActivePowerPhase(int phase)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIO_C_TR_AA_RESULT::SetActivePowerPhase(int phase, int activepowerphase)
-* @brief      SetActivePowerPhase
+* @brief      Set active power phase
 * @ingroup    DATAIO
 * 
 * @param[in]  phase : 
@@ -500,7 +500,7 @@ bool DIO_C_TR_AA_RESULT::SetActivePowerPhase(int phase, int activepowerphase)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int DIO_C_TR_AA_RESULT::GetReactivePowerPhase(int phase)
-* @brief      GetReactivePowerPhase
+* @brief      Get reactive power phase
 * @ingroup    DATAIO
 * 
 * @param[in]  phase : 
@@ -518,7 +518,7 @@ int DIO_C_TR_AA_RESULT::GetReactivePowerPhase(int phase)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIO_C_TR_AA_RESULT::SetReactivePowerPhase(int phase, int reactivepowerphase)
-* @brief      SetReactivePowerPhase
+* @brief      Set reactive power phase
 * @ingroup    DATAIO
 * 
 * @param[in]  phase : 
@@ -538,7 +538,7 @@ bool DIO_C_TR_AA_RESULT::SetReactivePowerPhase(int phase, int reactivepowerphase
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         float DIO_C_TR_AA_RESULT::GetPowerFactorPhase(int phase)
-* @brief      GetPowerFactorPhase
+* @brief      Get power factor phase
 * @ingroup    DATAIO
 * 
 * @param[in]  phase : 
@@ -556,7 +556,7 @@ float DIO_C_TR_AA_RESULT::GetPowerFactorPhase(int phase)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIO_C_TR_AA_RESULT::SetPowerFactorPhase(int phase, float powerfactorphase)
-* @brief      SetPowerFactorPhase
+* @brief      Set power factor phase
 * @ingroup    DATAIO
 * 
 * @param[in]  phase : 
@@ -576,7 +576,7 @@ bool DIO_C_TR_AA_RESULT::SetPowerFactorPhase(int phase, float powerfactorphase)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         float DIO_C_TR_AA_RESULT::GetVoltagePhase(int phase)
-* @brief      GetVoltagePhase
+* @brief      Get voltage phase
 * @ingroup    DATAIO
 * 
 * @param[in]  phase : 
@@ -594,7 +594,7 @@ float DIO_C_TR_AA_RESULT::GetVoltagePhase(int phase)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         float DIO_C_TR_AA_RESULT::SetVoltagePhase(int phase, float voltagephase)
-* @brief      SetVoltagePhase
+* @brief      Set voltage phase
 * @ingroup    DATAIO
 * 
 * @param[in]  phase : 
@@ -614,7 +614,7 @@ float DIO_C_TR_AA_RESULT::SetVoltagePhase(int phase, float voltagephase)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         float DIO_C_TR_AA_RESULT::GetCurrentPhase(int phase)
-* @brief      GetCurrentPhase
+* @brief      Get current phase
 * @ingroup    DATAIO
 * 
 * @param[in]  phase : 
@@ -632,7 +632,7 @@ float DIO_C_TR_AA_RESULT::GetCurrentPhase(int phase)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         float DIO_C_TR_AA_RESULT::SetCurrentPhase(int phase, float currentphase)
-* @brief      SetCurrentPhase
+* @brief      Set current phase
 * @ingroup    DATAIO
 * 
 * @param[in]  phase : 
@@ -652,7 +652,7 @@ float DIO_C_TR_AA_RESULT::SetCurrentPhase(int phase, float currentphase)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIO_C_TR_AA_RESULT::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 * 
@@ -695,7 +695,7 @@ void DIO_C_TR_AA_RESULT::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOIEC60870_5::DIOIEC60870_5(DIOSTREAM* diostream)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 * 
 * @param[in]  diostream : 
@@ -719,7 +719,7 @@ DIOIEC60870_5::DIOIEC60870_5(DIOSTREAM* diostream)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOIEC60870_5::~DIOIEC60870_5()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 * 
@@ -798,7 +798,7 @@ bool DIOIEC60870_5::Connect(XWORD addressfield,XBYTE addressPM, XDWORD keyPM, bo
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOIEC60870_5::CMD_ResetRemoteLink(int timeout)
-* @brief      CMD_ResetRemoteLink
+* @brief      CMD reset remote link
 * @ingroup    DATAIO
 * 
 * @param[in]  timeout : 
@@ -824,7 +824,7 @@ bool DIOIEC60870_5::CMD_ResetRemoteLink(int timeout)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOIEC60870_5::CMD_RequestStatusLink(int timeout)
-* @brief      CMD_RequestStatusLink
+* @brief      CMD request status link
 * @ingroup    DATAIO
 * 
 * @param[in]  timeout : 
@@ -849,7 +849,7 @@ bool DIOIEC60870_5::CMD_RequestStatusLink(int timeout)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOIEC60870_5::CMD_RequestUserDataClass1(XBUFFER* asdu,int timeout)
-* @brief      CMD_RequestUserDataClass1
+* @brief      CMD request user data class1
 * @ingroup    DATAIO
 * 
 * @param[in]  asdu : 
@@ -880,7 +880,7 @@ bool DIOIEC60870_5::CMD_RequestUserDataClass1(XBUFFER* asdu,int timeout)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOIEC60870_5::CMD_RequestUserDataClass2(XBUFFER* asdu,int timeout)
-* @brief      CMD_RequestUserDataClass2
+* @brief      CMD request user data class2
 * @ingroup    DATAIO
 * 
 * @param[in]  asdu : 
@@ -918,7 +918,7 @@ bool DIOIEC60870_5::CMD_RequestUserDataClass2(XBUFFER* asdu,int timeout)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOIEC60870_5::CMD_C_AC_NA_2_IniSession(int timeout)
-* @brief      CMD_C_AC_NA_2_IniSession
+* @brief      CMDCACNA2 ini session
 * @ingroup    DATAIO
 * 
 * @param[in]  timeout : 
@@ -986,7 +986,7 @@ bool DIOIEC60870_5::CMD_C_AC_NA_2_IniSession(int timeout)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOIEC60870_5::CMD_C_FS_NA_2_EndSession(int timeout)
-* @brief      CMD_C_FS_NA_2_EndSession
+* @brief      CMDCFSNA2 end session
 * @ingroup    DATAIO
 * 
 * @param[in]  timeout : 
@@ -1040,7 +1040,7 @@ bool DIOIEC60870_5::CMD_C_FS_NA_2_EndSession(int timeout)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOIEC60870_5::CMD_C_CI_NU_2_Init(int TM,XDATETIME& timestart,XDATETIME& timeend,int timeout)
-* @brief      CMD_C_CI_NU_2_Init
+* @brief      CMDCCINU2 init
 * @ingroup    DATAIO
 * 
 * @param[in]  TM : 
@@ -1092,7 +1092,7 @@ bool DIOIEC60870_5::CMD_C_CI_NU_2_Init(int TM,XDATETIME& timestart,XDATETIME& ti
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOIEC60870_5::CMD_C_CI_NU_2_Read(DIO_C_CI_NU_2_RESULT* result,int timeout)
-* @brief      CMD_C_CI_NU_2_Read
+* @brief      CMDCCINU2 read
 * @ingroup    DATAIO
 * 
 * @param[in]  result : 
@@ -1142,7 +1142,7 @@ bool DIOIEC60870_5::CMD_C_CI_NU_2_Read(DIO_C_CI_NU_2_RESULT* result,int timeout)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOIEC60870_5::CMD_C_CI_NU_2_ReadAllValues(int TM, XDATETIME* timestart, XDATETIME* timeend, XVECTOR<DIO_C_CI_NU_2_RESULT*>* results, int timeout)
-* @brief      CMD_C_CI_NU_2_ReadAllValues
+* @brief      CMDCCINU2 read all values
 * @ingroup    DATAIO
 * 
 * @param[in]  TM : 
@@ -1196,7 +1196,7 @@ bool DIOIEC60870_5::CMD_C_CI_NU_2_ReadAllValues(int TM, XDATETIME* timestart, XD
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOIEC60870_5::CMD_C_CI_NU_2_DeleteResults(XVECTOR<DIO_C_CI_NU_2_RESULT*>* results)
-* @brief      CMD_C_CI_NU_2_DeleteResults
+* @brief      CMDCCINU2 delete results
 * @ingroup    DATAIO
 * 
 * @param[in]  results : 
@@ -1220,7 +1220,7 @@ bool DIOIEC60870_5::CMD_C_CI_NU_2_DeleteResults(XVECTOR<DIO_C_CI_NU_2_RESULT*>* 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOIEC60870_5::CMD_C_TR_AA_ReadValues(DIO_C_TR_AA_RESULT* result,int timeout)
-* @brief      CMD_C_TR_AA_ReadValues
+* @brief      CMDCTRAA read values
 * @ingroup    DATAIO
 * 
 * @param[in]  result : 
@@ -1359,7 +1359,7 @@ bool DIOIEC60870_5::CMD_C_TR_AA_ReadValues(DIO_C_TR_AA_RESULT* result,int timeou
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOIEC60870_5::SetTimeLabelTypeA(XDATETIME& time, bool rate, bool VI, bool summer,XBYTE* result)
-* @brief      SetTimeLabelTypeA
+* @brief      Set time label type a
 * @ingroup    DATAIO
 * 
 * @param[in]  time : 
@@ -1388,7 +1388,7 @@ bool DIOIEC60870_5::SetTimeLabelTypeA(XDATETIME& time, bool rate, bool VI, bool 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOIEC60870_5::SetTimeLabelTypeB(XDATETIME& time, bool rate, bool VI, bool summer,XBYTE* result)
-* @brief      SetTimeLabelTypeB
+* @brief      Set time label type b
 * @ingroup    DATAIO
 * 
 * @param[in]  time : 
@@ -1421,7 +1421,7 @@ bool DIOIEC60870_5::SetTimeLabelTypeB(XDATETIME& time, bool rate, bool VI, bool 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOIEC60870_5::GetTimeLabelTypeA(XBYTE* result, bool& rate, bool& VI,bool& summer,XDATETIME& time)
-* @brief      GetTimeLabelTypeA
+* @brief      Get time label type a
 * @ingroup    DATAIO
 * 
 * @param[in]  result : 
@@ -1456,7 +1456,7 @@ bool DIOIEC60870_5::GetTimeLabelTypeA(XBYTE* result, bool& rate, bool& VI,bool& 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOIEC60870_5::GetTimeLabelTypeB(XBYTE* result, bool& rate, bool& VI,bool& summer,XDATETIME& time)
-* @brief      GetTimeLabelTypeB
+* @brief      Get time label type b
 * @ingroup    DATAIO
 * 
 * @param[in]  result : 
@@ -1502,7 +1502,7 @@ bool DIOIEC60870_5::GetTimeLabelTypeB(XBYTE* result, bool& rate, bool& VI,bool& 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOIEC60870_5::CancelOperations()
-* @brief      CancelOperations
+* @brief      Cancel operations
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
@@ -1537,7 +1537,7 @@ void DIOIEC60870_5::Disconnect()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOIEC60870_5::IsValidFrameCount(XBYTE functioncode)
-* @brief      IsValidFrameCount
+* @brief      Is valid frame count
 * @ingroup    DATAIO
 * 
 * @param[in]  functioncode : 
@@ -1566,7 +1566,7 @@ bool DIOIEC60870_5::IsValidFrameCount(XBYTE functioncode)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOIEC60870_5::SendMsgVar(XBYTE functioncode, XBUFFER* dataASDU)
-* @brief      SendMsgVar
+* @brief      Send msg var
 * @ingroup    DATAIO
 * 
 * @param[in]  functioncode : 
@@ -1636,7 +1636,7 @@ bool DIOIEC60870_5::SendMsgVar(XBYTE functioncode, XBUFFER* dataASDU)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOIEC60870_5::SendMsgFix(XBYTE functioncode)
-* @brief      SendMsgFix
+* @brief      Send msg fix
 * @ingroup    DATAIO
 * 
 * @param[in]  functioncode : 
@@ -1696,7 +1696,7 @@ bool DIOIEC60870_5::SendMsgFix(XBYTE functioncode)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOIEC60870_5::WaitToReadMsg(XDWORD size,int timeout)
-* @brief      WaitToReadMsg
+* @brief      Wait to read msg
 * @ingroup    DATAIO
 * 
 * @param[in]  size : 
@@ -1736,7 +1736,7 @@ bool DIOIEC60870_5::WaitToReadMsg(XDWORD size,int timeout)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOIEC60870_5::ReadMsg(XBYTE& retfunctioncode,bool& retisfixmsg,XBUFFER* retASDU,int timeout)
-* @brief      ReadMsg
+* @brief      Read msg
 * @ingroup    DATAIO
 * 
 * @param[in]  retfunctioncode : 
@@ -1847,7 +1847,7 @@ bool DIOIEC60870_5::ReadMsg(XBYTE& retfunctioncode,bool& retisfixmsg,XBUFFER* re
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTE DIOIEC60870_5::CalculateCheckSum(XBYTE* buffer,XDWORD sizebuffer)
-* @brief      CalculateCheckSum
+* @brief      Calculate check sum
 * @ingroup    DATAIO
 * 
 * @param[in]  buffer : 
@@ -1900,7 +1900,7 @@ XBYTE DIOIEC60870_5::CalculateCheckSum(XBYTE* buffer,XDWORD sizebuffer)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTE DIOIEC60870_5::CalculateCheckSum(XBUFFER& xbuffer)
-* @brief      CalculateCheckSum
+* @brief      Calculate check sum
 * @ingroup    DATAIO
 * 
 * @param[in]  xbuffer : 
@@ -1917,7 +1917,7 @@ XBYTE DIOIEC60870_5::CalculateCheckSum(XBUFFER& xbuffer)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int DIOIEC60870_5::GetIntFromBuffer(XBYTE* buffer,XDWORD size)
-* @brief      GetIntFromBuffer
+* @brief      Get int from buffer
 * @ingroup    DATAIO
 * 
 * @param[in]  buffer : 
@@ -1943,7 +1943,7 @@ int DIOIEC60870_5::GetIntFromBuffer(XBYTE* buffer,XDWORD size)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOIEC60870_5::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 * 

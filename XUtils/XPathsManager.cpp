@@ -73,7 +73,7 @@ XPATHSMANAGER*  XPATHSMANAGER::instance = NULL;
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XPATHSMANAGERSECTION::XPATHSMANAGERSECTION()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -88,7 +88,7 @@ XPATHSMANAGERSECTION::XPATHSMANAGERSECTION()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XPATHSMANAGERSECTION::~XPATHSMANAGERSECTION()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -104,7 +104,7 @@ XPATHSMANAGERSECTION::~XPATHSMANAGERSECTION()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XPATHSMANAGERSECTION::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    XUTILS
 *
@@ -125,7 +125,7 @@ void XPATHSMANAGERSECTION::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XPATHSMANAGER::GetIsInstanced()
-* @brief      GetIsInstanced
+* @brief      Get is instanced
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -140,7 +140,7 @@ bool XPATHSMANAGER::GetIsInstanced()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XPATHSMANAGER& XPATHSMANAGER::GetInstance()
-* @brief      GetInstance
+* @brief      Get instance
 * @ingroup    XUTILS
 *
 * @return     XPATHSMANAGER& :
@@ -156,7 +156,7 @@ XPATHSMANAGER& XPATHSMANAGER::GetInstance()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XPATHSMANAGER::DelInstance()
-* @brief      DelInstance
+* @brief      Del instance
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -176,7 +176,7 @@ bool XPATHSMANAGER::DelInstance()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XPATHSMANAGER::GetPathOfSection(XPATHSMANAGERSECTIONTYPE sectiontype, XPATH& xpath, bool addroot)
-* @brief      GetPathOfSection
+* @brief      Get path of section
 * @ingroup    XUTILS
 *
 * @param[in]  sectiontype :
@@ -227,7 +227,7 @@ bool XPATHSMANAGER::GetPathOfSection(XPATHSMANAGERSECTIONTYPE sectiontype, XPATH
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XPATH* XPATHSMANAGER::GetAppExecPath()
-* @brief      GetAppExecPath
+* @brief      Get app exec path
 * @ingroup    XUTILS
 *
 * @return     XPATH* :
@@ -242,7 +242,7 @@ XPATH* XPATHSMANAGER::GetAppExecPath()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XPATHSMANAGER::GetAppExecPathWithoutAsset(XCHAR* assetlevel, XPATH& xpath);
-* @brief      GetAppExecPathWithoutAsset
+* @brief      Get app exec path without asset
 * @ingroup    XUTILS
 *
 * @param[in]  assetlevel : 
@@ -275,7 +275,7 @@ bool XPATHSMANAGER::GetAppExecPathWithoutAsset(XCHAR* assetlevel, XPATH& xpath)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XPATHSMANAGERSECTION* XPATHSMANAGER::GetPathSection(XPATHSMANAGERSECTIONTYPE sectiontype)
-* @brief      GetPathSection
+* @brief      Get path section
 * @ingroup    XUTILS
 *
 * @param[in]  sectiontype :
@@ -306,7 +306,7 @@ XPATHSMANAGERSECTION* XPATHSMANAGER::GetPathSection(XPATHSMANAGERSECTIONTYPE sec
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XPATHSMANAGER::AddPathSection(XPATHSMANAGERSECTIONTYPE sectiontype, XSTRING& xpath)
-* @brief      AddPathSection
+* @brief      Add path section
 * @ingroup    XUTILS
 *
 * @param[in]  sectiontype :
@@ -348,7 +348,7 @@ bool XPATHSMANAGER::AddPathSection(XPATHSMANAGERSECTIONTYPE sectiontype, XSTRING
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XPATHSMANAGER::AddPathSection(XPATHSMANAGERSECTIONTYPE sectiontype,const XCHAR* string)
-* @brief      AddPathSection
+* @brief      Add path section
 * @ingroup    XUTILS
 *
 * @param[in]  sectiontype :
@@ -368,7 +368,7 @@ bool XPATHSMANAGER::AddPathSection(XPATHSMANAGERSECTIONTYPE sectiontype,const XC
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XPATHSMANAGER::DeleteAllPathSections()
-* @brief      DeleteAllPathSections
+* @brief      Delete all path sections
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -389,7 +389,7 @@ bool XPATHSMANAGER::DeleteAllPathSections()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XPATHSMANAGER::CreateAllPathSectionOnDisk()
-* @brief      CreateAllPathSectionOnDisk
+* @brief      Create all path section on disk
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -437,7 +437,7 @@ bool XPATHSMANAGER::CreateAllPathSectionOnDisk()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XPATHSMANAGER::AdjustRootPathDefault(XCHAR* assetsdirname)
-* @brief      AdjustRootPathDefault
+* @brief      Adjust root path default
 * @ingroup    XUTILS
 *
 * @param[in]  assetsdirname : 
@@ -505,7 +505,7 @@ bool XPATHSMANAGER::AdjustRootPathDefault(XCHAR* assetsdirname)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XPATHSMANAGER::XPATHSMANAGER()
-* @brief      Construct
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -520,7 +520,7 @@ XPATHSMANAGER::XPATHSMANAGER()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XPATHSMANAGER::~XPATHSMANAGER()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -541,7 +541,7 @@ XPATHSMANAGER::~XPATHSMANAGER()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XPATHSMANAGER::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    XUTILS
 *

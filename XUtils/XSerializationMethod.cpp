@@ -68,7 +68,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSERIALIZATIONMETHOD::XSERIALIZATIONMETHOD()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -81,7 +81,7 @@ XSERIALIZATIONMETHOD::XSERIALIZATIONMETHOD()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSERIALIZATIONMETHOD::~XSERIALIZATIONMETHOD()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    XUTILS
 * 
@@ -347,7 +347,7 @@ bool XSERIALIZATIONMETHOD::Add(XVARIANT* var, XCHAR* name)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XSERIALIZATIONMETHOD::AddStruct(XCHAR* name, bool open)
-* @brief      AddStruct
+* @brief      Add struct
 * @ingroup    XUTILS
 * 
 * @param[in]  name : 
@@ -365,7 +365,7 @@ bool XSERIALIZATIONMETHOD::AddStruct(XCHAR* name, bool open)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XSERIALIZATIONMETHOD::AddArray(XDWORD nelements, XCHAR* name, bool open)
-* @brief      AddArray
+* @brief      Add array
 * @ingroup    XUTILS
 * 
 * @param[in]  nelements : 
@@ -636,7 +636,7 @@ bool XSERIALIZATIONMETHOD::Extract(XVARIANT& var, XCHAR* name)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XSERIALIZATIONMETHOD::ExtractStruct(XCHAR* name)
-* @brief      ExtractStruct
+* @brief      Extract struct
 * @ingroup    XUTILS
 * 
 * @param[in]  name : 
@@ -653,7 +653,7 @@ bool XSERIALIZATIONMETHOD::ExtractStruct(XCHAR* name)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XSERIALIZATIONMETHOD::ExtractArray(XDWORD nelements, XCHAR* name)
-* @brief      ExtractArray
+* @brief      Extract array
 * @ingroup    XUTILS
 * 
 * @param[in]  nelements : 
@@ -671,7 +671,7 @@ bool XSERIALIZATIONMETHOD::ExtractArray(XDWORD nelements, XCHAR* name)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void XSERIALIZATIONMETHOD::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    XUTILS
 * 

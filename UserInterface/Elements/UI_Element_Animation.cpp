@@ -71,7 +71,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_ELEMENT_ANIMATION::UI_ELEMENT_ANIMATION()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    USERINTERFACE
 *
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -91,7 +91,7 @@ UI_ELEMENT_ANIMATION::UI_ELEMENT_ANIMATION()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_ELEMENT_ANIMATION::~UI_ELEMENT_ANIMATION()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
 *
@@ -181,7 +181,7 @@ bool UI_ELEMENT_ANIMATION::Pause()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_ELEMENT_ANIMATION_STATE UI_ELEMENT_ANIMATION::GetState()
-* @brief      GetState
+* @brief      Get state
 * @ingroup    USERINTERFACE
 *
 * @return     UI_ELEMENT_ANIMATION_STATE : 
@@ -196,7 +196,7 @@ UI_ELEMENT_ANIMATION_STATE UI_ELEMENT_ANIMATION::GetState()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XTIMER* UI_ELEMENT_ANIMATION::GetXTimerPlay()
-* @brief      GetXTimerPlay
+* @brief      Get X timer play
 * @ingroup    USERINTERFACE
 *
 * @return     XTIMER* : 
@@ -211,7 +211,7 @@ XTIMER* UI_ELEMENT_ANIMATION::GetXTimerPlay()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int UI_ELEMENT_ANIMATION::GetMilliSecondsDelay()
-* @brief      GetMilliSecondsDelay
+* @brief      Get milli seconds delay
 * @ingroup    USERINTERFACE
 *
 * @return     int : 
@@ -226,7 +226,7 @@ int UI_ELEMENT_ANIMATION::GetMilliSecondsDelay()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_ELEMENT_ANIMATION::SetMilliSecondsDelay(int millisecdelay)
-* @brief      SetMilliSecondsDelay
+* @brief      Set milli seconds delay
 * @ingroup    USERINTERFACE
 *
 * @param[in]  millisecdelay : 
@@ -241,7 +241,7 @@ void UI_ELEMENT_ANIMATION::SetMilliSecondsDelay(int millisecdelay)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int UI_ELEMENT_ANIMATION::IndexImage_Get()
-* @brief      IndexImage_Get
+* @brief      Index image get
 * @ingroup    USERINTERFACE
 *
 * @return     int : 
@@ -256,7 +256,7 @@ int UI_ELEMENT_ANIMATION::IndexImage_Get()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_ELEMENT_ANIMATION::IndexImage_Set(int indeximage)
-* @brief      IndexImage_Set
+* @brief      Index image set
 * @ingroup    USERINTERFACE
 *
 * @param[in]  indeximage : 
@@ -280,7 +280,7 @@ bool UI_ELEMENT_ANIMATION::IndexImage_Set(int indeximage)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_ELEMENT_ANIMATION::IndexImage_Add(int inc)
-* @brief      IndexImage_Add
+* @brief      Index image add
 * @ingroup    USERINTERFACE
 *
 * @param[in]  inc : 
@@ -303,7 +303,7 @@ bool UI_ELEMENT_ANIMATION::IndexImage_Add(int inc)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_ELEMENT_ANIMATION::IndexImage_Reset()
-* @brief      IndexImage_Reset
+* @brief      Index image reset
 * @ingroup    USERINTERFACE
 *
 * @return     bool : true if is succesful. 
@@ -320,7 +320,7 @@ bool UI_ELEMENT_ANIMATION::IndexImage_Reset()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTE UI_ELEMENT_ANIMATION::GetAlpha()
-* @brief      GetAlpha
+* @brief      Get alpha
 * @ingroup    USERINTERFACE
 *
 * @return     XBYTE : 
@@ -335,7 +335,7 @@ XBYTE UI_ELEMENT_ANIMATION::GetAlpha()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_ELEMENT_ANIMATION::SetAlpha(XBYTE alpha)
-* @brief      SetAlpha
+* @brief      Set alpha
 * @ingroup    USERINTERFACE
 *
 * @param[in]  alpha : 
@@ -350,7 +350,7 @@ void UI_ELEMENT_ANIMATION::SetAlpha(XBYTE alpha)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_ELEMENT_ANIMATION::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
 *

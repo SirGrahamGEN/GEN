@@ -4,7 +4,7 @@
 * 
 * @class      DB_SQL_FACTORY
 * @brief      DataBase SQL Connector Factory class
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 * 
 * @copyright  GEN Group. All rights reserved.
 * 
@@ -79,7 +79,7 @@
 *
 * @fn         DB_SQL_DATABASE* DB_SQL_FACTORY::Create( DB_SQL_DATABASE_TYPE databasetype)
 * @brief      Create
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 *
 * @param[in]  databasetype :
 *

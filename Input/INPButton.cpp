@@ -70,7 +70,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         INPBUTTON::INPBUTTON()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    INPUT
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -85,7 +85,7 @@ INPBUTTON::INPBUTTON()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         INPBUTTON::~INPBUTTON()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    INPUT
 *
@@ -101,7 +101,7 @@ INPBUTTON::~INPBUTTON()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         INPBUTTON_ID INPBUTTON::GetID()
-* @brief      Get ID of button
+* @brief      Get ID
 * @ingroup    INPUT
 *
 * @return     INPBUTTON_ID : ID of button
@@ -116,7 +116,7 @@ INPBUTTON_ID INPBUTTON::GetID()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void INPBUTTON::SetID(INPBUTTON_ID ID)
-* @brief      Set ID of button
+* @brief      Set ID
 * @ingroup    INPUT
 *
 * @param[in]  ID : new ID to Set
@@ -131,7 +131,7 @@ void INPBUTTON::SetID(INPBUTTON_ID ID)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XWORD INPBUTTON::GetKeyCode()
-* @brief      Get Key Code
+* @brief      Get key code
 * @ingroup    INPUT
 *
 * @return     XWORD : Key Code of button
@@ -146,7 +146,7 @@ XWORD INPBUTTON::GetKeyCode()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void INPBUTTON::SetKeyCode(XWORD keycode)
-* @brief      Set Key Code
+* @brief      Set key code
 * @ingroup    INPUT
 *
 * @param[in]  keycode : new Key Code of button
@@ -161,7 +161,7 @@ void INPBUTTON::SetKeyCode(XWORD keycode)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XCHAR INPBUTTON::GetSymbol()
-* @brief      Get Symbol
+* @brief      Get symbol
 * @ingroup    INPUT
 *
 * @return     XCHAR : Symbol of key
@@ -176,7 +176,7 @@ XCHAR INPBUTTON::GetSymbol()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void INPBUTTON::SetSymbol(XCHAR symbol)
-* @brief      Set Symbol
+* @brief      Set symbol
 * @ingroup    INPUT
 *
 * @param[in]  symbol : new Symbol of key
@@ -191,7 +191,7 @@ void INPBUTTON::SetSymbol(XCHAR symbol)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         INPBUTTON_STATE INPBUTTON::GetState()
-* @brief      GetState
+* @brief      Get state
 * @ingroup    INPUT
 *
 * @return     INPBUTTON_STATE : statue of button
@@ -206,7 +206,7 @@ INPBUTTON_STATE INPBUTTON::GetState()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void INPBUTTON::SetState(INPBUTTON_STATE state)
-* @brief      SetState
+* @brief      Set state
 * @ingroup    INPUT
 *
 * @param[in]  state : new state
@@ -221,7 +221,7 @@ void INPBUTTON::SetState(INPBUTTON_STATE state)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         float INPBUTTON::GetPressure()
-* @brief      GetPressure
+* @brief      Get pressure
 * @ingroup    INPUT
 *
 * @return     float :
@@ -236,7 +236,7 @@ float INPBUTTON::GetPressure()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void INPBUTTON::SetPressure(float pressure)
-* @brief      Set Pressure button
+* @brief      Set pressure
 * @ingroup    INPUT
 *
 * @param[in]  pressure : new pressure
@@ -251,7 +251,7 @@ void INPBUTTON::SetPressure(float pressure)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool INPBUTTON::IsPressed()
-* @brief      Is Pressed button
+* @brief      Is pressed
 * @ingroup    INPUT
 *
 * @return     bool : true if is succesful.
@@ -266,7 +266,7 @@ bool INPBUTTON::IsPressed()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool INPBUTTON::IsPressedWithRelease()
-* @brief      Is Pressed With Release
+* @brief      Is pressed with release
 * @ingroup    INPUT
 *
 * @return     bool : true if is succesful.
@@ -294,7 +294,7 @@ bool INPBUTTON::IsPressedWithRelease()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void INPBUTTON::SetPressed(bool ispressed)
-* @brief      Set Pressed
+* @brief      Set pressed
 * @ingroup    INPUT
 *
 * @param[in]  ispressed :
@@ -317,7 +317,7 @@ void INPBUTTON::SetPressed(bool ispressed)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XQWORD INPBUTTON::GetTimePressed()
-* @brief      Get Time Pressed
+* @brief      Get time pressed
 * @ingroup    INPUT
 *
 * @return     XQWORD : Millisecond pressed
@@ -334,7 +334,7 @@ XQWORD INPBUTTON::GetTimePressed()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool INPBUTTON::CreateButton(XVECTOR<INPBUTTON*>* buttons, int keycode, INPBUTTON_ID ID, XCHAR symbol)
-* @brief      CreateButton
+* @brief      Create button
 * @ingroup    INPUT
 *
 * @param[in]  buttons : vector to add new button
@@ -367,7 +367,7 @@ bool INPBUTTON::CreateButton(XVECTOR<INPBUTTON*>* buttons, int keycode, INPBUTTO
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void INPBUTTON::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    INPUT
 *

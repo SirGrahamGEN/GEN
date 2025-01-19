@@ -72,8 +72,8 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XESP32DIR::XESP32DIR()
-* @brief      Constructor
-* @ingroup    PLATFORM_ESP32 
+* @brief      Constructor of class
+* @ingroup    PLATFORM_ESP32
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XESP32DIR::XESP32DIR(): XDIR()
@@ -85,9 +85,9 @@ XESP32DIR::XESP32DIR(): XDIR()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XESP32DIR::~XESP32DIR()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
-* @ingroup    PLATFORM_ESP32 
+* @ingroup    PLATFORM_ESP32
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XESP32DIR::~XESP32DIR()
@@ -100,7 +100,7 @@ XESP32DIR::~XESP32DIR()
 *
 * @fn         bool XESP32DIR::Exist(XCHAR* path)
 * @brief      Exist
-* @ingroup    PLATFORM_ESP32 
+* @ingroup    PLATFORM_ESP32
 *
 * @param[in]  path :
 *
@@ -117,7 +117,7 @@ bool XESP32DIR::Exist(XCHAR* path)
 * 
 * @fn         bool XESP32DIR::Make(XCHAR* path, bool recursive)
 * @brief      Make
-* @ingroup    PLATFORM_ESP32 
+* @ingroup    PLATFORM_ESP32
 *
 * @param[in]  path : 
 * @param[in]  recursive : 
@@ -134,8 +134,8 @@ bool XESP32DIR::Make(XCHAR* path, bool recursive)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XESP32DIR::ChangeTo(XCHAR* path)
-* @brief      ChangeTo
-* @ingroup    PLATFORM_ESP32 
+* @brief      Change to
+* @ingroup    PLATFORM_ESP32
 *
 * @param[in]  path :
 *
@@ -152,7 +152,7 @@ bool XESP32DIR::ChangeTo(XCHAR* path)
 *
 * @fn         bool XESP32DIR::Delete(XCHAR* path,bool all)
 * @brief      Delete
-* @ingroup    PLATFORM_ESP32 
+* @ingroup    PLATFORM_ESP32
 *
 * @param[in]  path :
 * @param[in]  all :
@@ -169,8 +169,8 @@ bool XESP32DIR::Delete(XCHAR* path, bool all)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XESP32DIR::GetActual(XPATH& xpath)
-* @brief      GetActual
-* @ingroup    PLATFORM_ESP32 
+* @brief      Get actual
+* @ingroup    PLATFORM_ESP32
 *
 * @param[in]  xpath :
 *
@@ -186,8 +186,8 @@ bool XESP32DIR::GetActual(XPATH& xpath)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XESP32DIR::FirstSearch(XCHAR* xpath, XCHAR* patternsearch, XDIRELEMENT* searchelement)
-* @brief      FirstSearch
-* @ingroup    PLATFORM_ESP32 
+* @brief      First search
+* @ingroup    PLATFORM_ESP32
 *
 * @param[in]  xpath :
 * @param[in]  patternsearch :
@@ -205,7 +205,7 @@ bool XESP32DIR::FirstSearch(XCHAR* xpath, XCHAR* patternsearch, XDIRELEMENT* sea
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XESP32DIR::NextSearch(XDIRELEMENT* searchelement)
-* @brief      NextSearch
+* @brief      Next search
 * @ingroup    PLATFORM_ESP32
 * 
 * @param[in]  searchelement : 
@@ -222,9 +222,9 @@ bool XESP32DIR::NextSearch(XDIRELEMENT* searchelement)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XESP32DIR::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
-* @ingroup    PLATFORM_ESP32 
+* @ingroup    PLATFORM_ESP32
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XESP32DIR::Clean()

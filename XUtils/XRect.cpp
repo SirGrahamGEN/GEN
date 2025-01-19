@@ -64,7 +64,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XRECT::XRECT()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -82,7 +82,7 @@ XRECT::XRECT()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XRECT::~XRECT()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -96,7 +96,7 @@ XRECT::~XRECT()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void XRECT::CopyFrom(XRECT& xrect)
-* @brief      CopyFrom
+* @brief      Copy from
 * @ingroup    XUTILS
 *
 * @param[in]  xrect : 
@@ -114,7 +114,7 @@ void XRECT::CopyFrom(XRECT& xrect)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void XRECT::CopyTo(XRECT& xrect)
-* @brief      CopyTo
+* @brief      Copy to
 * @ingroup    XUTILS
 *
 * @param[in]  xrect : 
@@ -132,7 +132,7 @@ void XRECT::CopyTo(XRECT& xrect)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XRECT::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    XUTILS
 *

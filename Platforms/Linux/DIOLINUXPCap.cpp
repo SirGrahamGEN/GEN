@@ -70,7 +70,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOLINUXPCAP::DIOLINUXPCAP()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_LINUX
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -83,7 +83,7 @@ DIOLINUXPCAP::DIOLINUXPCAP() : DIOPCAP()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOLINUXPCAP::~DIOLINUXPCAP()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
 * 
@@ -99,7 +99,7 @@ DIOLINUXPCAP::~DIOLINUXPCAP()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOLINUXPCAP::Capture_Start(DIOPCAPNETINTERFACE* netinterface, bool promiscuousmode, int timeout)
-* @brief      Capture_Start
+* @brief      Capture start
 * @ingroup    PLATFORM_LINUX
 * 
 * @param[in]  netinterface : 
@@ -160,7 +160,7 @@ bool DIOLINUXPCAP::Capture_Start(DIOPCAPNETINTERFACE* netinterface, bool promisc
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOLINUXPCAP::Capture_End()
-* @brief      Capture_End
+* @brief      Capture end
 * @ingroup    PLATFORM_LINUX
 * 
 * @return     bool : true if is succesful. 
@@ -188,7 +188,7 @@ bool DIOLINUXPCAP::Capture_End()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOLINUXPCAP::CreateListNetInterfaces()
-* @brief      CreateListNetInterfaces
+* @brief      Create list net interfaces
 * @ingroup    PLATFORM_LINUX
 * 
 * @return     bool : true if is succesful. 
@@ -245,7 +245,7 @@ bool DIOLINUXPCAP::CreateListNetInterfaces()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOLINUXPCAP::ThreadCapture(void* data)
-* @brief      ThreadCapture
+* @brief      Thread capture
 * @ingroup    PLATFORM_LINUX
 * 
 * @param[in]  data : 
@@ -270,7 +270,7 @@ void DIOLINUXPCAP::ThreadCapture(void* data)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOLINUXPCAP::PacketHandler(u_char* param, const struct pcap_pkthdr* header, const u_char* data)
-* @brief      PacketHandler
+* @brief      Packet handler
 * @ingroup    PLATFORM_LINUX
 * 
 * @param[in]  param : 
@@ -290,7 +290,7 @@ void DIOLINUXPCAP::PacketHandler(u_char* param, const struct pcap_pkthdr* header
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOLINUXPCAP::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
 * 

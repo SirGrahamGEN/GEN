@@ -99,7 +99,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOANDROIDSTREAMUDP::DIOANDROIDSTREAMUDP()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_ANDROID
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -148,7 +148,7 @@ DIOANDROIDSTREAMUDP::DIOANDROIDSTREAMUDP() : DIOSTREAMUDP() , XFSMACHINE(0)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOANDROIDSTREAMUDP::~DIOANDROIDSTREAMUDP()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_ANDROID
 * 
@@ -247,7 +247,7 @@ bool DIOANDROIDSTREAMUDP::Close()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int DIOANDROIDSTREAMUDP::IsReadyConnect(int socket)
-* @brief      IsReadyConnect
+* @brief      Is ready connect
 * @ingroup    PLATFORM_ANDROID
 * 
 * @param[in]  socket : 
@@ -301,7 +301,7 @@ int DIOANDROIDSTREAMUDP::IsReadyConnect(int socket)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOANDROIDSTREAMUDP::ThreadRunFunction(void* thread)
-* @brief      ThreadRunFunction
+* @brief      Thread run function
 * @ingroup    PLATFORM_ANDROID
 * 
 * @param[in]  thread : 
@@ -641,7 +641,7 @@ void DIOANDROIDSTREAMUDP::ThreadRunFunction(void* thread)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOANDROIDSTREAMUDP::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_ANDROID
 * 

@@ -64,7 +64,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XEVENT::XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * @param[in]  subject :
@@ -85,7 +85,7 @@ XEVENT::XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XEVENT::XEVENT(XSUBJECT* subject, XDWORD type)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * @param[in]  subject :
@@ -104,7 +104,7 @@ XEVENT::XEVENT(XSUBJECT* subject, XDWORD type)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XEVENT::~XEVENT()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -118,7 +118,7 @@ XEVENT::~XEVENT()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSUBJECT* XEVENT::GetSubject()
-* @brief      GetSubject
+* @brief      Get subject
 * @ingroup    XUTILS
 *
 * @return     XSUBJECT* :
@@ -133,7 +133,7 @@ XSUBJECT* XEVENT::GetSubject()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XEVENT::SetSubject(XSUBJECT* subject)
-* @brief      SetSubject
+* @brief      Set subject
 * @ingroup    XUTILS
 *
 * @param[in]  subject :
@@ -148,7 +148,7 @@ void XEVENT::SetSubject(XSUBJECT* subject)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD XEVENT::GetEventFamily()
-* @brief      GetEventFamily
+* @brief      Get event family
 * @ingroup    XUTILS
 *
 * @return     XDWORD :
@@ -163,7 +163,7 @@ XDWORD XEVENT::GetEventFamily()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XEVENT::SetEventFamily(XDWORD family)
-* @brief      SetEventFamily
+* @brief      Set event family
 * @ingroup    XUTILS
 *
 * @param[in]  family :
@@ -178,7 +178,7 @@ void XEVENT::SetEventFamily(XDWORD family)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD XEVENT::GetEventType()
-* @brief      GetEventType
+* @brief      Get event type
 * @ingroup    XUTILS
 *
 * @return     XDWORD :
@@ -193,7 +193,7 @@ XDWORD XEVENT::GetEventType()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XEVENT::SetEventType(XDWORD type)
-* @brief      SetEventType
+* @brief      Set event type
 * @ingroup    XUTILS
 *
 * @param[in]  type :
@@ -208,7 +208,7 @@ void XEVENT::SetEventType(XDWORD type)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XEVENT::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    XUTILS
 *

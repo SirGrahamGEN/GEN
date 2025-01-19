@@ -85,7 +85,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOWINDOWSSTREAMBLUETOOTH::DIOWINDOWSSTREAMBLUETOOTH()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_WINDOWS
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -134,7 +134,7 @@ DIOWINDOWSSTREAMBLUETOOTH::DIOWINDOWSSTREAMBLUETOOTH() : DIOSTREAMBLUETOOTH() , 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOWINDOWSSTREAMBLUETOOTH::~DIOWINDOWSSTREAMBLUETOOTH()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
 * 
@@ -257,7 +257,7 @@ bool DIOWINDOWSSTREAMBLUETOOTH::Close()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int DIOWINDOWSSTREAMBLUETOOTH::IsReadyConnect(SOCKET socket)
-* @brief      IsReadyConnect
+* @brief      Is ready connect
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @param[in]  socket : 
@@ -304,7 +304,7 @@ int DIOWINDOWSSTREAMBLUETOOTH::IsReadyConnect(SOCKET socket)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOWINDOWSSTREAMBLUETOOTH::SDP_RegisterService(bool reg, char* service_name, char* service_dsc, char* service_prov, void* addr)
-* @brief      SDP_RegisterService
+* @brief      SDP register service
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @param[in]  reg : 
@@ -358,7 +358,7 @@ bool DIOWINDOWSSTREAMBLUETOOTH::SDP_RegisterService(bool reg, char* service_name
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOWINDOWSSTREAMBLUETOOTH::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
 * 
@@ -377,7 +377,7 @@ void DIOWINDOWSSTREAMBLUETOOTH::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOWINDOWSSTREAMBLUETOOTH::ThreadConnection(void* param)
-* @brief      ThreadConnection
+* @brief      Thread connection
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @param[in]  param : 

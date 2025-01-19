@@ -64,7 +64,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT::DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * @param[in]  subject :
@@ -81,7 +81,7 @@ DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT::DIOCOREPROTOCOL_CONNECTIONSMANAGER_XE
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT::~DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -95,7 +95,7 @@ DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT::~DIOCOREPROTOCOL_CONNECTIONSMANAGER_X
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOCOREPROTOCOL_CONNECTION* DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT::GetConnection()
-* @brief      GetConnection
+* @brief      Get connection
 * @ingroup    DATAIO
 * 
 * @return     DIOCOREPROTOCOL_CONNECTION* : 
@@ -110,7 +110,7 @@ DIOCOREPROTOCOL_CONNECTION* DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT::GetConnec
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT::SetConnection(DIOCOREPROTOCOL_CONNECTION* connection)
-* @brief      SetConnection
+* @brief      Set connection
 * @ingroup    DATAIO
 * 
 * @param[in]  connection : 
@@ -133,7 +133,7 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT::SetConnection(DIOCOREPROTOCOL_CO
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOCOREPROTOCOL_CONNECTION_STATUS DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT::GetActualStatus()
-* @brief      GetActualStatus
+* @brief      Get actual status
 * @ingroup    DATAIO
 * 
 * @return     DIOCOREPROTOCOL_CONNECTION_STATUS : 
@@ -148,7 +148,7 @@ DIOCOREPROTOCOL_CONNECTION_STATUS DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT::Get
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT::SetActualStatus(DIOCOREPROTOCOL_CONNECTION_STATUS actualstatus)
-* @brief      SetActualStatus
+* @brief      Set actual status
 * @ingroup    DATAIO
 * 
 * @param[in]  actualstatus : 
@@ -163,7 +163,7 @@ void DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT::SetActualStatus(DIOCOREPROTOCOL_
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOCOREPROTOCOL_CONNECTION_STATUS DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT::GetNextStatus()
-* @brief      GetNextStatus
+* @brief      Get next status
 * @ingroup    DATAIO
 * 
 * @return     DIOCOREPROTOCOL_CONNECTION_STATUS : 
@@ -178,7 +178,7 @@ DIOCOREPROTOCOL_CONNECTION_STATUS DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT::Get
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT::SetNextStatus(DIOCOREPROTOCOL_CONNECTION_STATUS nextstatus)
-* @brief      SetNextStatus
+* @brief      Set next status
 * @ingroup    DATAIO
 * 
 * @param[in]  nextstatus : 
@@ -193,7 +193,7 @@ void DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT::SetNextStatus(DIOCOREPROTOCOL_CO
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOCOREPROTOCOL_MESSAGE* DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT::GetMsg()
-* @brief      GetMsg
+* @brief      Get msg
 * @ingroup    DATAIO
 * 
 * @return     DIOCOREPROTOCOL_MESSAGE* : 
@@ -208,7 +208,7 @@ DIOCOREPROTOCOL_MESSAGE* DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT::GetMsg()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT::SetMsg(DIOCOREPROTOCOL_MESSAGE* message)
-* @brief      SetMsg
+* @brief      Set msg
 * @ingroup    DATAIO
 * 
 * @param[in]  message : 
@@ -223,7 +223,7 @@ void DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT::SetMsg(DIOCOREPROTOCOL_MESSAGE* 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBUFFER* DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT::GetContentResponseBuffer()
-* @brief      GetContentResponseBuffer
+* @brief      Get content response buffer
 * @ingroup    DATAIO
 * 
 * @return     XBUFFER* : 
@@ -238,7 +238,7 @@ XBUFFER* DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT::GetContentResponseBuffer()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT::GetContenteResponseString()
-* @brief      GetContenteResponseString
+* @brief      Get contente response string
 * @ingroup    DATAIO
 * 
 * @return     XSTRING* : 
@@ -253,7 +253,7 @@ XSTRING* DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT::GetContenteResponseString()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XFILEJSON* DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT::GetContenteResponseXFileJSON()
-* @brief      GetContenteResponseXFileJSON
+* @brief      Get contente response X file JSON
 * @ingroup    DATAIO
 * 
 * @return     XFILEJSON* : 
@@ -268,7 +268,7 @@ XFILEJSON* DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT::GetContenteResponseXFileJS
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

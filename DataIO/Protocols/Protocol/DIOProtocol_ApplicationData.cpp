@@ -66,7 +66,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOPROTOCOL_APPLICATIONDATA::DIOPROTOCOL_APPLICATIONDATA()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -82,7 +82,7 @@ DIOPROTOCOL_APPLICATIONDATA::DIOPROTOCOL_APPLICATIONDATA()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOPROTOCOL_APPLICATIONDATA::~DIOPROTOCOL_APPLICATIONDATA()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -101,7 +101,7 @@ DIOPROTOCOL_APPLICATIONDATA::~DIOPROTOCOL_APPLICATIONDATA()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOPROTOCOL_APPLICATIONDATA::AddAlert(DIOALERT& alert)
-* @brief      AddAlert
+* @brief      Add alert
 * @ingroup    DATAIO
 *
 * @param[in]  alert :
@@ -132,7 +132,7 @@ bool DIOPROTOCOL_APPLICATIONDATA::AddAlert(DIOALERT& alert)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOPROTOCOL_APPLICATIONDATA::ExtractAlert(int index, DIOALERT& alert)
-* @brief      ExtractAlert
+* @brief      Extract alert
 * @ingroup    DATAIO
 *
 * @param[in]  index :
@@ -163,7 +163,7 @@ bool DIOPROTOCOL_APPLICATIONDATA::ExtractAlert(int index, DIOALERT& alert)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOPROTOCOL_APPLICATIONDATA::DeleteAllAlerts()
-* @brief      DeleteAllAlerts
+* @brief      Delete all alerts
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -195,7 +195,7 @@ bool DIOPROTOCOL_APPLICATIONDATA::DeleteAllAlerts()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOPROTOCOL_APPLICATIONDATA::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

@@ -4,7 +4,7 @@
 * 
 * @class      MYSQL_RESULT
 * @brief      DataBase SQL MySQL Result class
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 * 
 * @copyright  GEN Group. All rights reserved.
 * 

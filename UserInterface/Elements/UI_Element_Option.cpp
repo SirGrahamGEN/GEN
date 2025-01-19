@@ -66,7 +66,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_ELEMENT_OPTION::UI_ELEMENT_OPTION()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    USERINTERFACE
 *
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -82,7 +82,7 @@ UI_ELEMENT_OPTION::UI_ELEMENT_OPTION()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_ELEMENT_OPTION::~UI_ELEMENT_OPTION()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
 *
@@ -96,7 +96,7 @@ UI_ELEMENT_OPTION::~UI_ELEMENT_OPTION()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD UI_ELEMENT_OPTION::GetVisibleLimitType()
-* @brief      GetVisibleLimitType
+* @brief      Get visible limit type
 * @ingroup    USERINTERFACE
 * 
 * @return     XDWORD : 
@@ -111,7 +111,7 @@ XDWORD UI_ELEMENT_OPTION::GetVisibleLimitType()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_ELEMENT_OPTION::SetVisibleLimitType(XDWORD visiblelimittype)
-* @brief      SetVisibleLimitType
+* @brief      Set visible limit type
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  visiblelimittype : 
@@ -126,7 +126,7 @@ void UI_ELEMENT_OPTION::SetVisibleLimitType(XDWORD visiblelimittype)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_ELEMENT_OPTION_ALLOCATION_TEXT_TYPE UI_ELEMENT_OPTION::GetAllocationTextType()
-* @brief      GetAllocationTextType
+* @brief      Get allocation text type
 * @ingroup    USERINTERFACE
 *
 * @return     UI_ELEMENT_OPTION_ALLOCATION_TEXT_TYPE : 
@@ -141,7 +141,7 @@ UI_ELEMENT_OPTION_ALLOCATION_TEXT_TYPE UI_ELEMENT_OPTION::GetAllocationTextType(
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_ELEMENT_OPTION::SetAllocationTextType(UI_ELEMENT_OPTION_ALLOCATION_TEXT_TYPE allocationtexttype)
-* @brief      SetAllocationTextType
+* @brief      Set allocation text type
 * @ingroup    USERINTERFACE
 *
 * @param[in]  allocationtexttype : 
@@ -156,7 +156,7 @@ void UI_ELEMENT_OPTION::SetAllocationTextType(UI_ELEMENT_OPTION_ALLOCATION_TEXT_
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_ELEMENT_TEXT* UI_ELEMENT_OPTION::Get_UIText()
-* @brief      Get_UIText
+* @brief      Get UI text
 * @ingroup    USERINTERFACE
 *
 * @return     UI_ELEMENT_TEXT* : 
@@ -171,7 +171,7 @@ UI_ELEMENT_TEXT* UI_ELEMENT_OPTION::Get_UIText()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_ELEMENT_OPTION::Set_UIText(UI_ELEMENT_TEXT* elementtext)
-* @brief      Set_UIText
+* @brief      Set UI text
 * @ingroup    USERINTERFACE
 *
 * @param[in]  elementtext : 
@@ -190,7 +190,7 @@ bool UI_ELEMENT_OPTION::Set_UIText(UI_ELEMENT_TEXT* elementtext)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_ELEMENT_ANIMATION* UI_ELEMENT_OPTION::Get_UIAnimation()
-* @brief      Get_UIAnimation
+* @brief      Get UI animation
 * @ingroup    USERINTERFACE
 *
 * @return     UI_ELEMENT_ANIMATION* : 
@@ -205,7 +205,7 @@ UI_ELEMENT_ANIMATION* UI_ELEMENT_OPTION::Get_UIAnimation()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_ELEMENT_OPTION::Set_UIAnimation(UI_ELEMENT_ANIMATION* elementanimation)
-* @brief      Set_UIAnimation
+* @brief      Set UI animation
 * @ingroup    USERINTERFACE
 *
 * @param[in]  elementanimation : 
@@ -224,7 +224,7 @@ bool UI_ELEMENT_OPTION::Set_UIAnimation(UI_ELEMENT_ANIMATION* elementanimation)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_ELEMENT_OPTION::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
 *

@@ -4,7 +4,7 @@
 * 
 * @class      DIOLOCATIONADDRESS
 * @brief      Data Input/Output Location Address class  (container)
-* @ingroup    LOCATION
+* @ingroup    DATAIO
 * 
 * @copyright  GEN Group. All rights reserved.
 * 
@@ -64,8 +64,8 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOLOCATIONADDRESS::DIOLOCATIONADDRESS()
-* @brief      Constructor
-* @ingroup    LOCATION
+* @brief      Constructor of class
+* @ingroup    DATAIO
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOLOCATIONADDRESS::DIOLOCATIONADDRESS()
@@ -77,9 +77,9 @@ DIOLOCATIONADDRESS::DIOLOCATIONADDRESS()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOLOCATIONADDRESS::~DIOLOCATIONADDRESS()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
-* @ingroup    LOCATION
+* @ingroup    DATAIO
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOLOCATIONADDRESS::~DIOLOCATIONADDRESS()
@@ -91,8 +91,8 @@ DIOLOCATIONADDRESS::~DIOLOCATIONADDRESS()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* DIOLOCATIONADDRESS::GetStreet()
-* @brief      GetStreet
-* @ingroup    LOCATION
+* @brief      Get street
+* @ingroup    DATAIO
 * 
 * @return     XSTRING* : 
 * 
@@ -106,8 +106,8 @@ XSTRING* DIOLOCATIONADDRESS::GetStreet()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* DIOLOCATIONADDRESS::GetCity()
-* @brief      GetCity
-* @ingroup    LOCATION
+* @brief      Get city
+* @ingroup    DATAIO
 * 
 * @return     XSTRING* : 
 * 
@@ -121,8 +121,8 @@ XSTRING* DIOLOCATIONADDRESS::GetCity()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* DIOLOCATIONADDRESS::GetState()
-* @brief      GetState
-* @ingroup    LOCATION
+* @brief      Get state
+* @ingroup    DATAIO
 * 
 * @return     XSTRING* : 
 * 
@@ -136,8 +136,8 @@ XSTRING* DIOLOCATIONADDRESS::GetState()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* DIOLOCATIONADDRESS::GetCountry()
-* @brief      GetCountry
-* @ingroup    LOCATION
+* @brief      Get country
+* @ingroup    DATAIO
 * 
 * @return     XSTRING* : 
 * 
@@ -151,8 +151,8 @@ XSTRING* DIOLOCATIONADDRESS::GetCountry()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD DIOLOCATIONADDRESS::GetPostalCode()
-* @brief      GetPostalCode
-* @ingroup    LOCATION
+* @brief      Get postal code
+* @ingroup    DATAIO
 * 
 * @return     XDWORD : 
 * 
@@ -166,8 +166,8 @@ XDWORD DIOLOCATIONADDRESS::GetPostalCode()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOLOCATIONADDRESS::SetPostalCode(XDWORD postalcode)
-* @brief      SetPostalCode
-* @ingroup    LOCATION
+* @brief      Set postal code
+* @ingroup    DATAIO
 * 
 * @param[in]  postalcode : 
 * 
@@ -181,9 +181,9 @@ void DIOLOCATIONADDRESS::SetPostalCode(XDWORD postalcode)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOLOCATIONADDRESS::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
-* @ingroup    LOCATION
+* @ingroup    DATAIO
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOLOCATIONADDRESS::Clean()

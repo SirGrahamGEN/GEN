@@ -64,7 +64,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOPING_XEVENT::DIOPING_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 * 
 * @param[in]  subject : 
@@ -81,7 +81,7 @@ DIOPING_XEVENT::DIOPING_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family) : 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOPING_XEVENT::~DIOPING_XEVENT()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 * 
@@ -95,7 +95,7 @@ DIOPING_XEVENT::~DIOPING_XEVENT()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOPINGREPLY* DIOPING_XEVENT::GetPingReply()
-* @brief      GetPingReply
+* @brief      Get ping reply
 * @ingroup    DATAIO
 * 
 * @return     DIOPINGREPLY* : 
@@ -110,7 +110,7 @@ DIOPINGREPLY* DIOPING_XEVENT::GetPingReply()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOPING_XEVENT::SetPingReply(DIOPINGREPLY* pingreply)
-* @brief      SetPingReply
+* @brief      Set ping reply
 * @ingroup    DATAIO
 * 
 * @param[in]  pingreply : 
@@ -125,7 +125,7 @@ void DIOPING_XEVENT::SetPingReply(DIOPINGREPLY* pingreply)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOPING_XEVENT::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 * 

@@ -89,7 +89,7 @@ DIOALERTS* DIOALERTS::instance = NULL;
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOALERT_CONDITION::DIOALERT_CONDITION()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -104,7 +104,7 @@ DIOALERT_CONDITION::DIOALERT_CONDITION()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOALERT_CONDITION::~DIOALERT_CONDITION()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -120,7 +120,7 @@ DIOALERT_CONDITION::~DIOALERT_CONDITION()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOALERT_CONDITION::GetTimeLimitForRepeat()
-* @brief      GetTimeLimitForRepeat
+* @brief      Get time limit for repeat
 * @ingroup    DATAIO
 *
 * @return     int : 
@@ -135,7 +135,7 @@ int DIOALERT_CONDITION::GetTimeLimitForRepeat()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOALERT_CONDITION::SetTimeLinitRepeat(int timelimitforrepeat)
-* @brief      SetTimeLinitRepeat
+* @brief      Set time linit repeat
 * @ingroup    DATAIO
 *
 * @param[in]  timelimitforrepeat : 
@@ -150,7 +150,7 @@ void DIOALERT_CONDITION::SetTimeLinitRepeat(int timelimitforrepeat)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOALERT_CONDITION::GetEveryNumberOfTimes()
-* @brief      GetEveryNumberOfTimes
+* @brief      Get every number of times
 * @ingroup    DATAIO
 *
 * @return     int : 
@@ -165,7 +165,7 @@ int DIOALERT_CONDITION::GetEveryNumberOfTimes()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOALERT_CONDITION::SetEveryNumberOfTimes(int everynumberoftimes)
-* @brief      SetEveryNumberOfTimes
+* @brief      Set every number of times
 * @ingroup    DATAIO
 *
 * @param[in]  everynumberoftimes : 
@@ -180,7 +180,7 @@ void DIOALERT_CONDITION::SetEveryNumberOfTimes(int everynumberoftimes)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XTIMER* DIOALERT_CONDITION::GetLastTimerSend()
-* @brief      GetLastTimerSend
+* @brief      Get last timer send
 * @ingroup    DATAIO
 *
 * @return     XTIMER* : 
@@ -195,7 +195,7 @@ XTIMER* DIOALERT_CONDITION::GetLastTimerSend()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOALERT_CONDITION::GetNSended()
-* @brief      GetNSended
+* @brief      Get N sended
 * @ingroup    DATAIO
 *
 * @return     int : 
@@ -210,7 +210,7 @@ int DIOALERT_CONDITION::GetNSended()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOALERT_CONDITION::SetNSended(int nsended)
-* @brief      SetNSended
+* @brief      Set N sended
 * @ingroup    DATAIO
 *
 * @param[in]  nsended : 
@@ -225,7 +225,7 @@ void DIOALERT_CONDITION::SetNSended(int nsended)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOALERT_CONDITION::GetNTimesSended()
-* @brief      GetNTimesSended
+* @brief      Get N times sended
 * @ingroup    DATAIO
 *
 * @return     int : 
@@ -240,7 +240,7 @@ int DIOALERT_CONDITION::GetNTimesSended()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOALERT_CONDITION::SetNTimesSended(int ntimessended)
-* @brief      SetNTimesSended
+* @brief      Set N times sended
 * @ingroup    DATAIO
 *
 * @param[in]  ntimessended : 
@@ -255,7 +255,7 @@ void DIOALERT_CONDITION::SetNTimesSended(int ntimessended)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOALERT_CONDITION::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *
@@ -280,7 +280,7 @@ void DIOALERT_CONDITION::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOALERT::DIOALERT()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -295,7 +295,7 @@ DIOALERT::DIOALERT()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOALERT::~DIOALERT()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -311,7 +311,7 @@ DIOALERT::~DIOALERT()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDATETIME* DIOALERT::GetDateTime()
-* @brief      GetDateTime
+* @brief      Get date time
 * @ingroup    DATAIO
 *
 * @return     XDATETIME* :
@@ -326,7 +326,7 @@ XDATETIME* DIOALERT::GetDateTime()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* DIOALERT::Application_GetID()
-* @brief      Application_GetID
+* @brief      Application get ID
 * @ingroup    DATAIO
 *
 * @return     XSTRING* :
@@ -341,7 +341,7 @@ XSTRING* DIOALERT::Application_GetID()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOALERT::Application_GetVersion(XDWORD& version, XDWORD& subversion, XDWORD& subversionerr)
-* @brief      Application_GetVersion
+* @brief      Application get version
 * @ingroup    DATAIO
 *
 * @param[in]  version :
@@ -364,7 +364,7 @@ bool DIOALERT::Application_GetVersion(XDWORD& version, XDWORD& subversion, XDWOR
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOALERT::Application_SetVersion(XDWORD version, XDWORD subversion, XDWORD subversionerr)
-* @brief      Application_SetVersion
+* @brief      Application set version
 * @ingroup    DATAIO
 *
 * @param[in]  version :
@@ -387,7 +387,7 @@ bool DIOALERT::Application_SetVersion(XDWORD version, XDWORD subversion, XDWORD 
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD DIOALERT::GetID()
-* @brief      GetID
+* @brief      Get ID
 * @ingroup    DATAIO
 *
 * @return     XDWORD :
@@ -402,7 +402,7 @@ XDWORD DIOALERT::GetID()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOALERT::SetID(XDWORD ID)
-* @brief      SetID
+* @brief      Set ID
 * @ingroup    DATAIO
 *
 * @param[in]  ID :
@@ -417,7 +417,7 @@ void DIOALERT::SetID(XDWORD ID)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD DIOALERT::CalculateID(bool withdatetime)
-* @brief      CalculateID
+* @brief      Calculate ID
 * @ingroup    DATAIO
 *
 * @param[in]  withdatetime :
@@ -470,7 +470,7 @@ XDWORD DIOALERT::CalculateID(bool withdatetime)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOALERTLEVEL DIOALERT::GetLevel()
-* @brief      GetLevel
+* @brief      Get level
 * @ingroup    DATAIO
 *
 * @return     DIOALERTLEVEL :
@@ -485,7 +485,7 @@ DIOALERTLEVEL DIOALERT::GetLevel()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOALERT::SetLevel(DIOALERTLEVEL level)
-* @brief      SetLevel
+* @brief      Set level
 * @ingroup    DATAIO
 *
 * @param[in]  level :
@@ -500,7 +500,7 @@ void DIOALERT::SetLevel(DIOALERTLEVEL level)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* DIOALERT::GetOrigin()
-* @brief      GetOrigin
+* @brief      Get origin
 * @ingroup    DATAIO
 *
 * @return     XSTRING* :
@@ -515,7 +515,7 @@ XSTRING* DIOALERT::GetOrigin()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* DIOALERT::GetTitle()
-* @brief      GetTitle
+* @brief      Get title
 * @ingroup    DATAIO
 *
 * @return     XSTRING* :
@@ -530,7 +530,7 @@ XSTRING* DIOALERT::GetTitle()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* DIOALERT::Get_Message()
-* @brief      Get_Message
+* @brief      Get message
 * @ingroup    DATAIO
 *
 * @return     XSTRING* :
@@ -545,7 +545,7 @@ XSTRING* DIOALERT::Get_Message()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOALERT::CopyFrom(DIOALERT* alert)
-* @brief      CopyFrom
+* @brief      Copy from
 * @ingroup    DATAIO
 *
 * @param[in]  alert :
@@ -576,7 +576,7 @@ bool DIOALERT::CopyFrom(DIOALERT* alert)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOALERT::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *
@@ -602,7 +602,7 @@ void DIOALERT::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOALERTS::GetIsInstanced()
-* @brief      GetIsInstanced
+* @brief      Get is instanced
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -617,7 +617,7 @@ bool DIOALERTS::GetIsInstanced()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOALERTS& DIOALERTS::GetInstance()
-* @brief      GetInstance
+* @brief      Get instance
 * @ingroup    DATAIO
 *
 * @return     DIOALERTS& :
@@ -634,7 +634,7 @@ DIOALERTS& DIOALERTS::GetInstance()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOALERTS::DelInstance()
-* @brief      DelInstance
+* @brief      Del instance
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -704,7 +704,7 @@ bool DIOALERTS::Ini()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* DIOALERTS::Application_GetID()
-* @brief      Application_GetID
+* @brief      Application get ID
 * @ingroup    DATAIO
 *
 * @return     XSTRING* :
@@ -719,7 +719,7 @@ XSTRING* DIOALERTS::Application_GetID()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOALERTS::Application_GetVersion(XDWORD& version, XDWORD& subversion, XDWORD& subversionerr)
-* @brief      Application_GetVersion
+* @brief      Application get version
 * @ingroup    DATAIO
 *
 * @param[in]  version :
@@ -742,7 +742,7 @@ bool DIOALERTS::Application_GetVersion(XDWORD& version, XDWORD& subversion, XDWO
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOALERTS::Application_SetVersion (XDWORD version, XDWORD subversion, XDWORD subversionerr)
-* @brief      Application_SetVersion
+* @brief      Application set version 
 * @ingroup    DATAIO
 *
 * @param[in]  version :
@@ -765,7 +765,7 @@ bool DIOALERTS::Application_SetVersion(XDWORD version, XDWORD subversion, XDWORD
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* DIOALERTS::GetOrigin()
-* @brief      GetOrigin
+* @brief      Get origin
 * @ingroup    DATAIO
 *
 * @return     XSTRING* :
@@ -780,7 +780,7 @@ XSTRING* DIOALERTS::GetOrigin()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOALERTS::IsSending()
-* @brief      IsSending
+* @brief      Is sending
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful. 
@@ -795,7 +795,7 @@ bool DIOALERTS::IsSending()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOALERT* DIOALERTS::CreateAlert(XCHAR* applicationID, DIOALERTLEVEL level, XCHAR* origin, XCHAR* title, XCHAR* message)
-* @brief      CreateAlert
+* @brief      Create alert
 * @ingroup    DATAIO
 *
 * @param[in]  applicationID : 
@@ -844,7 +844,7 @@ DIOALERT* DIOALERTS::CreateAlert(XCHAR* applicationID, DIOALERTLEVEL level, XCHA
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOALERT* DIOALERTS::CreateAlert(XSTRING& applicationID, DIOALERTLEVEL level, XSTRING& origin, XSTRING& title, XSTRING& message)
-* @brief      CreateAlert
+* @brief      Create alert
 * @ingroup    DATAIO
 *
 * @param[in]  applicationID : 
@@ -865,7 +865,7 @@ DIOALERT* DIOALERTS::CreateAlert(XSTRING& applicationID, DIOALERTLEVEL level, XS
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOALERT* DIOALERTS::CreateAlert(DIOALERTLEVEL level, XCHAR* title, XCHAR* message)
-* @brief      CreateAlert
+* @brief      Create alert
 * @ingroup    DATAIO
 *
 * @param[in]  level : 
@@ -884,7 +884,7 @@ DIOALERT* DIOALERTS::CreateAlert(DIOALERTLEVEL level, XCHAR* title, XCHAR* messa
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOALERT* DIOALERTS::CreateAlert(DIOALERTLEVEL level, XSTRING& title, XSTRING& message)
-* @brief      CreateAlert
+* @brief      Create alert
 * @ingroup    DATAIO
 *
 * @param[in]  level : 
@@ -903,7 +903,7 @@ DIOALERT* DIOALERTS::CreateAlert(DIOALERTLEVEL level, XSTRING& title, XSTRING& m
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOALERTS::Sender_SMTPConfig(XCHAR* URL, int port, XCHAR* login, XCHAR* password, XCHAR* senderemail, int nrecipients,...)
-* @brief      Sender_SMTPConfig
+* @brief      Sender SMTP config
 * @ingroup    DATAIO
 *
 * @param[in]  URL :
@@ -978,7 +978,7 @@ bool DIOALERTS::Sender_SMTPConfig(XCHAR* URL, int port, XCHAR* login, XCHAR* pas
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOALERTS::Sender_SMSConfig(DIOSTREAM* diostream, int nrecipients, ...)
-* @brief      Sender_SMSConfig
+* @brief      Sender SMS config
 * @ingroup    DATAIO
 *
 * @param[in]  diostream :
@@ -1028,7 +1028,7 @@ bool DIOALERTS::Sender_SMSConfig(DIOSTREAM* diostream, int nrecipients, ...)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOALERTS::Sender_WEBConfig(XCHAR* command, bool isuseget, int nrecipients, ...)
-* @brief      Sender_WEBConfig
+* @brief      Sender WEB config
 * @ingroup    DATAIO
 *
 * @param[in]  command :
@@ -1107,7 +1107,7 @@ bool DIOALERTS::Sender_WEBConfig(XCHAR* command, bool isuseget, int nrecipients,
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOALERTS::Sender_UDPConfig(int port, int nrecipients, ...)
-* @brief      Sender_UDPConfig
+* @brief      Sender UDP config
 * @ingroup    DATAIO
 *
 * @param[in]  port :
@@ -1170,7 +1170,7 @@ bool DIOALERTS::Sender_UDPConfig(int port, int nrecipients, ...)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOALERTS::IsValidConditionToSend(XDWORD conditionID)
-* @brief      IsValidConditionToSend
+* @brief      Is valid condition to send
 * @ingroup    DATAIO
 *
 * @param[in]  conditionID : 
@@ -1270,7 +1270,7 @@ int DIOALERTS::Send(DIOALERTSENDER sender, XDWORD conditionID, DIOALERT* alert)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOALERTS::AddCondition(XDWORD conditionID, int timelimitforrepeat, int everynumberoftimes)
-* @brief      AddCondition
+* @brief      Add condition
 * @ingroup    DATAIO
 *
 * @param[in]  conditionID : 
@@ -1303,7 +1303,7 @@ bool DIOALERTS::AddCondition(XDWORD conditionID, int timelimitforrepeat, int eve
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOALERT_CONDITION_CFG* DIOALERTS::GetConditionConfig(XDWORD conditionID)
-* @brief      GetConditionConfig
+* @brief      Get condition config
 * @ingroup    DATAIO
 *
 * @param[in]  conditionID : 
@@ -1320,7 +1320,7 @@ DIOALERT_CONDITION* DIOALERTS::GetCondition(XDWORD conditionID)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOALERTS::DeleteAllConditionConfig()
-* @brief      DeleteAllConditionConfig
+* @brief      Delete all condition config
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful. 
@@ -1435,7 +1435,7 @@ bool DIOALERTS::End()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOALERTS::DIOALERTS()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -1448,7 +1448,7 @@ DIOALERTS::DIOALERTS()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOALERTS::~DIOALERTS()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -1464,7 +1464,7 @@ DIOALERTS::~DIOALERTS()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOALERTS::Sender_SMTPSend(DIOALERT* alert)
-* @brief      Sender_SMTPSend
+* @brief      Sender SMTP send
 * @ingroup    DATAIO
 *
 * @param[in]  alert :
@@ -1511,7 +1511,7 @@ bool DIOALERTS::Sender_SMTPSend(DIOALERT* alert)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOALERTS::Sender_SMSSend(DIOALERT* alert)
-* @brief      Sender_SMSSend
+* @brief      Sender SMS send
 * @ingroup    DATAIO
 *
 * @param[in]  alert :
@@ -1589,7 +1589,7 @@ bool DIOALERTS::Sender_SMSSend(DIOALERT* alert)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOALERTS::Sender_WEBSend(DIOALERT* alert)
-* @brief      Sender_WEBSend
+* @brief      Sender WEB send
 * @ingroup    DATAIO
 *
 * @param[in]  alert :
@@ -1713,7 +1713,7 @@ bool DIOALERTS::Sender_WEBSend(DIOALERT* alert)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOALERTS::Sender_UDPSend(DIOALERT* alert)
-* @brief      Sender_UDPSend
+* @brief      Sender UDP send
 * @ingroup    DATAIO
 *
 * @param[in]  alert :
@@ -1792,7 +1792,7 @@ bool DIOALERTS::Sender_UDPSend(DIOALERT* alert)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOALERTS::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

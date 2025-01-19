@@ -70,7 +70,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         COMPRESS_GZ::COMPRESS_GZ()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    COMPRESS
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -85,7 +85,7 @@ COMPRESS_GZ::COMPRESS_GZ() : COMPRESSBASE()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         COMPRESS_GZ::~COMPRESS_GZ()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    COMPRESS
 * 
@@ -158,7 +158,7 @@ bool COMPRESS_GZ::Decompress(XBYTE* source, XDWORD size, XBUFFER* xbuffer)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int COMPRESS_GZ::ZCompress(XBYTE* target, XDWORD* targetsize, XBYTE* source, XDWORD sourcesize)
-* @brief      ZCompress
+* @brief      Z compress
 * @ingroup    COMPRESS
 * 
 * @param[in]  target : 
@@ -207,7 +207,7 @@ int COMPRESS_GZ::ZCompress(XBYTE* target, XDWORD* targetsize, XBYTE* source, XDW
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int COMPRESS_GZ::ZDecompress(XBYTE* target,XDWORD* targetsize,XBYTE* source,XDWORD sourcesize)
-* @brief      ZDecompress
+* @brief      Z decompress
 * @ingroup    COMPRESS
 * 
 * @param[in]  target : 
@@ -276,7 +276,7 @@ int COMPRESS_GZ::ZDecompress(XBYTE* target,XDWORD* targetsize,XBYTE* source,XDWO
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void COMPRESS_GZ::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    COMPRESS
 * 

@@ -73,7 +73,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIODNSPROTOCOL_MITM_SERVER::DIODNSPROTOCOL_MITM_SERVER()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -86,7 +86,7 @@ DIODNSPROTOCOL_MITM_SERVER::DIODNSPROTOCOL_MITM_SERVER()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIODNSPROTOCOL_MITM_SERVER::~DIODNSPROTOCOL_MITM_SERVER()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 * 
@@ -455,7 +455,7 @@ bool DIODNSPROTOCOL_MITM_SERVER::End()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIODNSPROTOCOL_MITM_SERVER::AddDNSServer(XCHAR* server, XWORD port)
-* @brief      AddDNSServer
+* @brief      Add DNS server
 * @ingroup    DATAIO
 * 
 * @param[in]  server : 
@@ -487,7 +487,7 @@ bool DIODNSPROTOCOL_MITM_SERVER::AddDNSServer(XCHAR* server, XWORD port)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIODNSPROTOCOL_MITM_SERVER::AddDNSServer(XSTRING& server, XWORD port)
-* @brief      AddDNSServer
+* @brief      Add DNS server
 * @ingroup    DATAIO
 * 
 * @param[in]  server : 
@@ -505,7 +505,7 @@ bool DIODNSPROTOCOL_MITM_SERVER::AddDNSServer(XSTRING& server, XWORD port)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIODNSPROTOCOL_MITM_SERVER::AddDNSServer(XBYTE* serverIP, XWORD port)
-* @brief      AddDNSServer
+* @brief      Add DNS server
 * @ingroup    DATAIO
 * 
 * @param[in]  serverIP : 
@@ -537,7 +537,7 @@ bool DIODNSPROTOCOL_MITM_SERVER::AddDNSServer(XBYTE* serverIP, XWORD port)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIODNSPROTOCOL_MITM_SERVER::AddDNSServer(DIOIP& serverIP, XWORD port)
-* @brief      AddDNSServer
+* @brief      Add DNS server
 * @ingroup    DATAIO
 * 
 * @param[in]  serverIP : 
@@ -564,7 +564,7 @@ bool DIODNSPROTOCOL_MITM_SERVER::AddDNSServer(DIOIP& serverIP, XWORD port)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIODNSPROTOCOL_MITM_SERVER::DeleteAllDNSServers()
-* @brief      DeleteAllDNSServers
+* @brief      Delete all DNS servers
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
@@ -587,7 +587,7 @@ bool DIODNSPROTOCOL_MITM_SERVER::DeleteAllDNSServers()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XMUTEX* DIODNSPROTOCOL_MITM_SERVER::GetServerMutex()
-* @brief      GetServerMutex
+* @brief      Get server mutex
 * @ingroup    DATAIO
 * 
 * @return     XMUTEX* : 
@@ -679,7 +679,7 @@ bool DIODNSPROTOCOL_MITM_SERVER::Detour(DIODNSRESOLVER_DNSSERVER* DNSserver, XBU
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIODNSPROTOCOL_MITM_SERVER::ThreadServer(void* param)
-* @brief      ThreadServer
+* @brief      Thread server
 * @ingroup    DATAIO
 * 
 * @param[in]  param : 
@@ -711,7 +711,7 @@ void DIODNSPROTOCOL_MITM_SERVER::ThreadServer(void* param)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIODNSPROTOCOL_MITM_SERVER::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 * 

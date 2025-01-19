@@ -73,7 +73,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XMUTEX::XMUTEX()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -86,7 +86,7 @@ XMUTEX::XMUTEX()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XMUTEX::~XMUTEX()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -100,7 +100,7 @@ XMUTEX::~XMUTEX()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XMUTEX::IsLock()
-* @brief      IsLock
+* @brief      Is lock
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -130,7 +130,7 @@ bool XMUTEX::Lock()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XMUTEX::UnLock()
-* @brief      UnLock
+* @brief      Un lock
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -145,7 +145,7 @@ bool XMUTEX::UnLock()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XMUTEX::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    XUTILS
 *
@@ -165,7 +165,7 @@ void XMUTEX::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XTHREAD::XTHREAD(XTHREADGROUPID groupID, XCHAR* ID, XTHREADFUNCTION function, void* param)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * @param[in]  groupID :
@@ -190,7 +190,7 @@ XTHREAD::XTHREAD(XTHREADGROUPID groupID, XCHAR* ID, XTHREADFUNCTION function, vo
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XTHREAD::~XTHREAD()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -253,7 +253,7 @@ bool XTHREAD::End()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XTHREAD::IsRunning()
-* @brief      IsRunning
+* @brief      Is running
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -297,7 +297,7 @@ bool XTHREAD::Run(bool activate)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XTHREAD::WaitToEnd(XDWORD timeout)
-* @brief      WaitToEnd
+* @brief      Wait to end
 * @ingroup    XUTILS
 *
 * @param[in]  timeout :
@@ -338,7 +338,7 @@ bool XTHREAD::WaitToEnd(XDWORD timeout)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD XTHREAD::GetWaitYield()
-* @brief      GetWaitYield
+* @brief      Get wait yield
 * @ingroup    XUTILS
 *
 * @return     XDWORD :
@@ -353,7 +353,7 @@ XDWORD XTHREAD::GetWaitYield()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XTHREAD::SetWaitYield(XDWORD waityield = XTHREAD_DEFAULTWAITYIELD)
-* @brief      SetWaitYield
+* @brief      Set wait yield
 * @ingroup    XUTILS
 *
 * @param[in]  waityield = XTHREAD_DEFAULTWAITYIELD :
@@ -384,7 +384,7 @@ bool XTHREAD::Exit()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XTHREADGROUPID XTHREAD::GetGroupID()
-* @brief      GetGroupID
+* @brief      Get group ID
 * @ingroup    XUTILS
 *
 * @return     XTHREADGROUPID :
@@ -399,7 +399,7 @@ XTHREADGROUPID XTHREAD::GetGroupID()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XTHREAD::SetGroupID(XTHREADGROUPID groupID)
-* @brief      SetGroupID
+* @brief      Set group ID
 * @ingroup    XUTILS
 *
 * @param[in]  groupID : 
@@ -414,7 +414,7 @@ void XTHREAD::SetGroupID(XTHREADGROUPID groupID)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* XTHREAD::GetID()
-* @brief      GetID
+* @brief      Get ID
 * @ingroup    XUTILS
 *
 * @return     XSTRING* :
@@ -429,7 +429,7 @@ XSTRING* XTHREAD::GetID()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XTHREADFUNCTION XTHREAD::GetFunction()
-* @brief      GetFunction
+* @brief      Get function
 * @ingroup    XUTILS
 *
 * @return     XTHREADFUNCTION :
@@ -444,7 +444,7 @@ XTHREADFUNCTION XTHREAD::GetFunction()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void* XTHREAD::GetParam()
-* @brief      GetParam
+* @brief      Get param
 * @ingroup    XUTILS
 *
 * @return     void* :
@@ -459,7 +459,7 @@ void* XTHREAD::GetParam()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XTHREADPRIORITY XTHREAD::GetPriority()
-* @brief      GetPriority
+* @brief      Get priority
 * @ingroup    XUTILS
 *
 * @return     XTHREADPRIORITY :
@@ -474,7 +474,7 @@ XTHREADPRIORITY XTHREAD::GetPriority()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XTHREAD::SetPriority(XTHREADPRIORITY priority)
-* @brief      SetPriority
+* @brief      Set priority
 * @ingroup    XUTILS
 *
 * @param[in]  priority :
@@ -489,7 +489,7 @@ void XTHREAD::SetPriority(XTHREADPRIORITY priority)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD XTHREAD::GetStackSize()
-* @brief      GetStackSize
+* @brief      Get stack size
 * @ingroup    XUTILS
 *
 * @return     XDWORD :
@@ -504,7 +504,7 @@ XDWORD XTHREAD::GetStackSize()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XTHREAD::SetStackSize(XDWORD stacksize)
-* @brief      SetStackSize
+* @brief      Set stack size
 * @ingroup    XUTILS
 *
 * @param[in]  stacksize :
@@ -519,7 +519,7 @@ void XTHREAD::SetStackSize(XDWORD stacksize)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XTHREAD::IsInFunction()
-* @brief      IsInFunction
+* @brief      Is in function
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -534,7 +534,7 @@ bool XTHREAD::IsInFunction()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XTHREADSTATUS XTHREAD::GetStatusFunc()
-* @brief      GetStatusFunc
+* @brief      Get status func
 * @ingroup    XUTILS
 *
 * @return     XTHREADSTATUS :
@@ -549,7 +549,7 @@ XTHREADSTATUS XTHREAD::GetStatusFunc()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XTHREAD::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    XUTILS
 *

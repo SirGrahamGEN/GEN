@@ -76,7 +76,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XWINDOWSCONSOLE::XWINDOWSCONSOLE()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_WINDOWS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -98,7 +98,7 @@ XWINDOWSCONSOLE::XWINDOWSCONSOLE(): XCONSOLE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XWINDOWSCONSOLE::~XWINDOWSCONSOLE()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
 *
@@ -112,7 +112,7 @@ XWINDOWSCONSOLE::~XWINDOWSCONSOLE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSCONSOLE::GetSize(int& width, int& height)
-* @brief      GetSize
+* @brief      Get size
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  width :
@@ -145,7 +145,7 @@ bool XWINDOWSCONSOLE::GetSize(int& width, int& height)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSCONSOLE::SetSize(int width, int height)
-* @brief      SetSize
+* @brief      Set size
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  width :
@@ -180,7 +180,7 @@ bool XWINDOWSCONSOLE::SetSize(int width, int height)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSCONSOLE::GetSizeText(int& columns, int& rows)
-* @brief      GetSizeText
+* @brief      Get size text
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  columns :
@@ -303,7 +303,7 @@ bool XWINDOWSCONSOLE::Hide()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSCONSOLE::IsHide()
-* @brief      IsHide
+* @brief      Is hide
 * @ingroup    PLATFORM_WINDOWS
 *
 * @return     bool : true if is succesful.
@@ -329,7 +329,7 @@ bool XWINDOWSCONSOLE::IsHide()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSCONSOLE::UnHide()
-* @brief      UnHide
+* @brief      Un hide
 * @ingroup    PLATFORM_WINDOWS
 *
 * @return     bool : true if is succesful.
@@ -404,7 +404,7 @@ bool XWINDOWSCONSOLE::Clear(bool fill)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XWINDOWSCONSOLE::KBHit(void)
-* @brief      KBHit
+* @brief      KB hit
 * @ingroup    PLATFORM_WINDOWS
 *  
 * @return     bool : true if is succesful. 
@@ -427,7 +427,7 @@ bool XWINDOWSCONSOLE::KBHit(void)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XWINDOWSCONSOLE::GetChar()
-* @brief      GetChar
+* @brief      Get char
 * @ingroup    PLATFORM_WINDOWS
 *
 * @return     int :
@@ -551,7 +551,7 @@ bool XWINDOWSCONSOLE::Close()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void XWINDOWSCONSOLE::SendEnterKey()
-* @brief      SendEnterKey
+* @brief      Send enter key
 * @ingroup    PLATFORM_WINDOWS
 * 
 * --------------------------------------------------------------------------------------------------------------------*/

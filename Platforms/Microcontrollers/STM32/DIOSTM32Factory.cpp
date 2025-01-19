@@ -74,7 +74,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAM* DIOSTM32FACTORY::CreateStreamIO(DIOSTREAMCONFIG* config)
-* @brief      CreateStreamIO
+* @brief      Create stream IO
 * @ingroup    PLATFORM_STM32
 *
 * @param[in]  config :
@@ -125,7 +125,7 @@ DIOSTREAM* DIOSTM32FACTORY::CreateStreamIO(DIOSTREAMCONFIG* config)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTM32FACTORY::DeleteStreamIO(DIOSTREAM* diostream)
-* @brief      DeleteStreamIO
+* @brief      Delete stream IO
 * @ingroup    PLATFORM_STM32
 *
 * @param[in]  diostream :
@@ -148,7 +148,7 @@ bool DIOSTM32FACTORY::DeleteStreamIO(DIOSTREAM* diostream)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOLEDNEOPIXELWS2812B* DIOSTM32FACTORY::CreateLedNeopixelWS2812B()
-* @brief      CreateLedNeopixelWS2812B
+* @brief      Create led neopixel WS2812B
 * @ingroup    PLATFORM_STM32
 *
 * @return     DIOLEDNEOPIXELWS2812B* : 
@@ -166,7 +166,7 @@ DIOLEDNEOPIXELWS2812B* DIOSTM32FACTORY::CreateLedNeopixelWS2812B()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOSTM32FACTORY::DeleteLedNeopixelWS2812B(DIOLEDNEOPIXELWS2812B* ledneopixelws2812b)
-* @brief      DeleteLedNeopixelWS2812B
+* @brief      Delete led neopixel WS2812B
 * @ingroup    PLATFORM_STM32
 *
 * @param[in]  ledneopixelws2812b : 

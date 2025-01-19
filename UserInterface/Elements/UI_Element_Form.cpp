@@ -64,7 +64,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_ELEMENT_FORM::UI_ELEMENT_FORM()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    USERINTERFACE
 *
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -81,7 +81,7 @@ UI_ELEMENT_FORM::UI_ELEMENT_FORM()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_ELEMENT_FORM::~UI_ELEMENT_FORM()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
 *
@@ -95,7 +95,7 @@ UI_ELEMENT_FORM::~UI_ELEMENT_FORM()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_COLOR* UI_ELEMENT_FORM::GetLineColor()
-* @brief      GetLineColor
+* @brief      Get line color
 * @ingroup    USERINTERFACE
 *
 * @return     UI_COLOR* : 
@@ -110,7 +110,7 @@ UI_COLOR* UI_ELEMENT_FORM::GetLineColor()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_BOUNDARYLINE* UI_ELEMENT_FORM::GetVisibleRect()
-* @brief      GetVisibleRect
+* @brief      Get visible rect
 * @ingroup    USERINTERFACE
 *
 * @return     UI_BOUNDARYLINE* : 
@@ -125,7 +125,7 @@ UI_BOUNDARYLINE* UI_ELEMENT_FORM::GetVisibleRect()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_ELEMENT_FORM::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
 *

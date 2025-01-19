@@ -69,8 +69,8 @@ DIOPUBLICINTERNETIP* DIOPUBLICINTERNETIP::instance = NULL;
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOPUBLICINTERNETIP::GetIsInstanced()
-* @brief      GetIsInstanced
-* @ingroup    XUTILS
+* @brief      Get is instanced
+* @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
 * 
@@ -84,8 +84,8 @@ bool DIOPUBLICINTERNETIP::GetIsInstanced()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOPUBLICINTERNETIP& DIOPUBLICINTERNETIP::GetInstance()
-* @brief      GetInstance
-* @ingroup    XUTILS
+* @brief      Get instance
+* @ingroup    DATAIO
 * 
 * @return     DIOPUBLICINTERNETIP& : 
 * 
@@ -101,8 +101,8 @@ DIOPUBLICINTERNETIP& DIOPUBLICINTERNETIP::GetInstance()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOPUBLICINTERNETIP::DelInstance()
-* @brief      DelInstance
-* @ingroup    XUTILS
+* @brief      Del instance
+* @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
 * 
@@ -124,7 +124,7 @@ bool DIOPUBLICINTERNETIP::DelInstance()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOPUBLICINTERNETIP::FastIsThereInternetConnection()
-* @brief      FastIsThereInternetConnection
+* @brief      Fast is there internet connection
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
@@ -211,7 +211,7 @@ bool DIOPUBLICINTERNETIP::Get(DIOIP& publicIP)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOPUBLICINTERNETIP::DIOPUBLICINTERNETIP()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -224,7 +224,7 @@ DIOPUBLICINTERNETIP::DIOPUBLICINTERNETIP()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOPUBLICINTERNETIP::~DIOPUBLICINTERNETIP()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 * 
@@ -239,7 +239,7 @@ DIOPUBLICINTERNETIP::~DIOPUBLICINTERNETIP()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOPUBLICINTERNETIP::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 * 

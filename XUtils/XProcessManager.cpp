@@ -4,7 +4,7 @@
 * 
 * @class      XPROCESSMANAGER
 * @brief      eXtended Utils process manager class
-* @note       Can´t be construct Factory + singelton without depends of system. IT´S NOT A SINGLETON.
+* @note       Cant be construct Factory + singelton without depends of system. ITS NOT A SINGLETON.
 * @ingroup    XUTILS
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -68,7 +68,7 @@ XPROCESSMANAGER* XPROCESSMANAGER::instance = NULL;
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XPROCESS::XPROCESS()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -81,7 +81,7 @@ XPROCESS::XPROCESS()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XPROCESS::~XPROCESS()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -97,7 +97,7 @@ XPROCESS::~XPROCESS()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD XPROCESS::GetID()
-* @brief      GetID
+* @brief      Get ID
 * @ingroup    XUTILS
 *
 * @return     XDWORD : 
@@ -112,7 +112,7 @@ XDWORD XPROCESS::GetID()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void XPROCESS::SetID(XDWORD ID)
-* @brief      SetID
+* @brief      Set ID
 * @ingroup    XUTILS
 *
 * @param[in]  ID : 
@@ -127,7 +127,7 @@ void XPROCESS::SetID(XDWORD ID)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XVECTOR<XDWORD>* XPROCESS::GetProcessIDs()
-* @brief      GetProcessIDs
+* @brief      Get process I ds
 * @ingroup    XUTILS
 * 
 * @return     XVECTOR<XDWORD>* : 
@@ -142,7 +142,7 @@ XVECTOR<XDWORD>* XPROCESS::GetProcessIDs()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XPATH* XPROCESS::GetPath()
-* @brief      GetPath
+* @brief      Get path
 * @ingroup    XUTILS
 *
 * @return     XPATH* : 
@@ -157,7 +157,7 @@ XPATH* XPROCESS::GetPath()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* XPROCESS::GetName()
-* @brief      GetName
+* @brief      Get name
 * @ingroup    XUTILS
 *
 * @return     XSTRING* : 
@@ -172,7 +172,7 @@ XSTRING* XPROCESS::GetName()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void* XPROCESS::GetWindowHandle()
-* @brief      GetWindowHandle
+* @brief      Get window handle
 * @ingroup    XUTILS
 * 
 * @return     void* : 
@@ -188,7 +188,7 @@ void* XPROCESS::GetWindowHandle()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void XPROCESS::SetWindowHandle(void* windowhandle)
-* @brief      SetWindowHandle
+* @brief      Set window handle
 * @ingroup    XUTILS
 * 
 * @param[in]  windowhandle : 
@@ -203,7 +203,7 @@ void XPROCESS::SetWindowHandle(void* windowhandle)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* XPROCESS::GetWindowTitle()
-* @brief      GetWindowTitle
+* @brief      Get window title
 * @ingroup    XUTILS
 *
 * @return     XSTRING* : 
@@ -218,7 +218,7 @@ XSTRING* XPROCESS::GetWindowTitle()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPRECTINT* XPROCESS::GetWindowRect()
-* @brief      GetWindowRect
+* @brief      Get window rect
 * @ingroup    XUTILS
 * 
 * @return     GRPRECTINT* : 
@@ -233,7 +233,7 @@ GRPRECTINT* XPROCESS::GetWindowRect()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int XPROCESS::GetWindowTitleHeight()
-* @brief      GetWindowTitleHeight
+* @brief      Get window title height
 * @ingroup    XUTILS
 * 
 * @return     int : 
@@ -248,7 +248,7 @@ int XPROCESS::GetWindowTitleHeight()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void XPROCESS::SetWindowTitleHeight(int windowtitleheight)
-* @brief      SetWindowTitleHeight
+* @brief      Set window title height
 * @ingroup    XUTILS
 * 
 * @param[in]  windowtitleheight : 
@@ -263,7 +263,7 @@ void XPROCESS::SetWindowTitleHeight(int windowtitleheight)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int XPROCESS::GetWindowBorderWidth()
-* @brief      GetWindowBorderWidth
+* @brief      Get window border width
 * @ingroup    XUTILS
 * 
 * @return     int : 
@@ -278,7 +278,7 @@ int XPROCESS::GetWindowBorderWidth()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void XPROCESS::SetWindowBorderWidth(int windowborderwidth)
-* @brief      SetWindowBorderWidth
+* @brief      Set window border width
 * @ingroup    XUTILS
 * 
 * @param[in]  windowborderwidth : 
@@ -293,7 +293,7 @@ void XPROCESS::SetWindowBorderWidth(int windowborderwidth)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XPROCESS::CopyTo(XPROCESS& xprocess)
-* @brief      CopyTo
+* @brief      Copy to
 * @ingroup    XUTILS
 *
 * @param[in]  xprocess : 
@@ -320,7 +320,7 @@ bool XPROCESS::CopyTo(XPROCESS& xprocess)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XPROCESS::CopyFrom(XPROCESS& xprocess)
-* @brief      CopyFrom
+* @brief      Copy from
 * @ingroup    XUTILS
 *
 * @param[in]  xprocess : 
@@ -404,7 +404,7 @@ bool XPROCESS::Compare(XPROCESS& xprocess, bool onlyfixed)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void XPROCESS::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    XUTILS
 *
@@ -425,7 +425,7 @@ void XPROCESS::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XPROCESSMANAGER::XPROCESSMANAGER()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -438,7 +438,7 @@ XPROCESSMANAGER::XPROCESSMANAGER()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XPROCESSMANAGER::~XPROCESSMANAGER()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -452,7 +452,7 @@ XPROCESSMANAGER::~XPROCESSMANAGER()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XPROCESSMANAGER::GetIsInstanced()
-* @brief      GetIsInstanced
+* @brief      Get is instanced
 * @note       STATIC
 * @ingroup    XUTILS
 *
@@ -468,7 +468,7 @@ bool XPROCESSMANAGER::GetIsInstanced()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XPROCESSMANAGER& XPROCESSMANAGER::GetInstance()
-* @brief      GetInstance
+* @brief      Get instance
 * @note       STATIC
 * @ingroup    XUTILS
 *
@@ -486,7 +486,7 @@ XPROCESSMANAGER& XPROCESSMANAGER::GetInstance()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XPROCESSMANAGER::SetInstance(XPROCESSMANAGER* _instance)
-* @brief      SetInstance
+* @brief      Set instance
 * @note       STATIC
 * @ingroup    XUTILS
 *
@@ -508,7 +508,7 @@ bool XPROCESSMANAGER::SetInstance(XPROCESSMANAGER* _instance)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XPROCESSMANAGER::DelInstance()
-* @brief      DelInstance
+* @brief      Del instance
 * @note       STATIC
 * @ingroup    XUTILS
 *
@@ -532,7 +532,7 @@ bool XPROCESSMANAGER::DelInstance()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XPROCESSMANAGER::MakeSystemCommand(XCHAR* command)
-* @brief      MakeSystemCommand
+* @brief      Make system command
 * @ingroup    XUTILS
 *
 * @param[in]  command : 
@@ -549,7 +549,7 @@ bool XPROCESSMANAGER::MakeSystemCommand(XCHAR* command)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XPROCESSMANAGER::MakeCommand(XCHAR* command, XBUFFER* out, int* returncode)
-* @brief      MakeCommand
+* @brief      Make command
 * @ingroup    XUTILS
 * 
 * @param[in]  command : 
@@ -568,7 +568,7 @@ bool XPROCESSMANAGER::MakeCommand(XCHAR* command, XBUFFER* out, int* returncode)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XPROCESSMANAGER::OpenURL(XCHAR* url)
-* @brief      OpenURL
+* @brief      Open URL
 * @ingroup    XUTILS
 * 
 * @param[in]  url : 
@@ -585,7 +585,7 @@ bool XPROCESSMANAGER::OpenURL(XCHAR* url)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XPROCESSMANAGER::Application_Execute(XCHAR* applicationpath, XCHAR* params, XBUFFER* in, XBUFFER* out, int* returncode)
-* @brief      Application_Execute
+* @brief      Application execute
 * @ingroup    XUTILS
 * 
 * @param[in]  applicationpath : 
@@ -606,7 +606,7 @@ bool XPROCESSMANAGER::Application_Execute(XCHAR* applicationpath, XCHAR* params,
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XPROCESSMANAGER::Application_Execute(XCHAR* applicationpath, XCHAR* params, XSTRING* in, XSTRING* out, int* returncode)
-* @brief      application  execute
+* @brief      Application execute
 * @ingroup    XUTILS
 * 
 * @param[in]  applicationpath : 
@@ -642,7 +642,7 @@ bool XPROCESSMANAGER::Application_Execute(XCHAR* applicationpath, XCHAR* params,
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XPROCESSMANAGER::Application_IsRunning(XCHAR* applicationname, XDWORD* ID)
-* @brief      Check if Is Application Running
+* @brief      Application is running
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -661,7 +661,7 @@ bool XPROCESSMANAGER::Application_IsRunning(XCHAR* applicationname, XDWORD* ID)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XPROCESSMANAGER::Application_GetRunningList(XVECTOR<XPROCESS*>& applist, bool onlywithvalidwindow)
-* @brief      Application_GetRunningList
+* @brief      Application get running list
 * @ingroup    XUTILS
 * 
 * @param[in]  applist : 
@@ -679,7 +679,7 @@ bool XPROCESSMANAGER::Application_GetRunningList(XVECTOR<XPROCESS*>& applist, bo
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XPROCESSMANAGER::Application_Terminate(XDWORD processID, XDWORD exitcode)
-* @brief      Application_Terminate
+* @brief      Application terminate
 * @ingroup    XUTILS
 *
 * @param[in]  processID : 
@@ -697,7 +697,7 @@ bool XPROCESSMANAGER::Application_Terminate(XDWORD processID, XDWORD exitcode)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XPROCESSMANAGER::Application_Terminate(XPROCESS& process, XDWORD exitcode)
-* @brief      Application_Terminate
+* @brief      Application terminate
 * @ingroup    XUTILS
 *
 * @param[in]  process : 
@@ -715,7 +715,7 @@ bool XPROCESSMANAGER::Application_Terminate(XPROCESS& process, XDWORD exitcode)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XPROCESSMANAGER::Application_Terminate(XCHAR* processname, XDWORD exitcode)
-* @brief      Application_Terminate
+* @brief      Application terminate
 * @ingroup    XUTILS
 *
 * @param[in]  processname : 
@@ -754,7 +754,7 @@ bool XPROCESSMANAGER::Application_Terminate(XCHAR* processname, XDWORD exitcode)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XPROCESSMANAGER::Application_Terminate(XSTRING& processname, XDWORD exitcode)
-* @brief      Application_Terminate
+* @brief      Application terminate
 * @ingroup    XUTILS
 *
 * @param[in]  processname : 
@@ -772,7 +772,7 @@ bool XPROCESSMANAGER::Application_Terminate(XSTRING& processname, XDWORD exitcod
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XPROCESS* XPROCESSMANAGER::Application_GetProcessByID(XDWORD processID, XVECTOR<XPROCESS*>& applist)
-* @brief      Application_GetProcessByID
+* @brief      Application get process by ID
 * @ingroup    XUTILS
 * 
 * @param[in]  processID : 
@@ -802,7 +802,7 @@ XPROCESS* XPROCESSMANAGER::Application_GetProcessByID(XDWORD processID, XVECTOR<
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XPROCESSMANAGER::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    XUTILS
 *

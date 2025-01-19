@@ -67,7 +67,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XBASE::XBASE()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -80,7 +80,7 @@ XBASE::XBASE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XBASE::~XBASE()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -94,7 +94,7 @@ XBASE::~XBASE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XBASE::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    XUTILS
 *

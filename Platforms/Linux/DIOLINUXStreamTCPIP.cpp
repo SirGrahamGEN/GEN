@@ -105,7 +105,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOLINUXSTREAMTCPIP::DIOLINUXSTREAMTCPIP()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_LINUX
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -154,7 +154,7 @@ DIOLINUXSTREAMTCPIP::DIOLINUXSTREAMTCPIP() : DIOSTREAMTCPIP() , XFSMACHINE(0)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOLINUXSTREAMTCPIP::~DIOLINUXSTREAMTCPIP()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
 * 
@@ -293,7 +293,7 @@ bool DIOLINUXSTREAMTCPIP::Close()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int DIOLINUXSTREAMTCPIP::GetHandleSocket()
-* @brief      GetHandleSocket
+* @brief      Get handle socket
 * @ingroup    PLATFORM_LINUX
 * 
 * @return     int : 
@@ -308,7 +308,7 @@ int DIOLINUXSTREAMTCPIP::GetHandleSocket()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOLINUXSTREAMTCPIP::SetHandleSocket(int handlesocket)
-* @brief      SetHandleSocket
+* @brief      Set handle socket
 * @ingroup    PLATFORM_LINUX
 * 
 * @param[in]  handlesocket : 
@@ -360,7 +360,7 @@ int DIOLINUXSTREAMTCPIP::Accept(int socket, void* addr, void* addrlen, XDWORD us
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int DIOLINUXSTREAMTCPIP::IsReadyConnect(int socket)
-* @brief      IsReadyConnect
+* @brief      Is ready connect
 * @ingroup    PLATFORM_LINUX
 * 
 * @param[in]  socket : 
@@ -423,7 +423,7 @@ int DIOLINUXSTREAMTCPIP::IsReadyConnect(int socket)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOLINUXSTREAMTCPIP::GetHandleServer()
-* @brief      GetHandleServer
+* @brief      Get handle server
 * @ingroup    PLATFORM_LINUX
 * 
 * @return     bool : true if is succesful. 
@@ -570,7 +570,7 @@ bool DIOLINUXSTREAMTCPIP::GetHandleServer()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOLINUXSTREAMTCPIP::GetHandleClient()
-* @brief      GetHandleClient
+* @brief      Get handle client
 * @ingroup    PLATFORM_LINUX
 * 
 * @return     bool : true if is succesful. 
@@ -673,7 +673,7 @@ bool DIOLINUXSTREAMTCPIP::GetHandleClient()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOLINUXSTREAMTCPIP::ThreadConnection(void* data)
-* @brief      ThreadConnection
+* @brief      Thread connection
 * @ingroup    PLATFORM_LINUX
 * 
 * @param[in]  data : 
@@ -856,7 +856,7 @@ void DIOLINUXSTREAMTCPIP::ThreadConnection(void* data)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOLINUXSTREAMTCPIP::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
 * 

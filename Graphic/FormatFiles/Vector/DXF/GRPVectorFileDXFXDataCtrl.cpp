@@ -64,7 +64,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVECTORFILEDXFXDATACTRL::GRPVECTORFILEDXFXDATACTRL()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    GRAPHIC
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -77,7 +77,7 @@ GRPVECTORFILEDXFXDATACTRL::GRPVECTORFILEDXFXDATACTRL()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVECTORFILEDXFXDATACTRL::~GRPVECTORFILEDXFXDATACTRL()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
 * 
@@ -91,7 +91,7 @@ GRPVECTORFILEDXFXDATACTRL::~GRPVECTORFILEDXFXDATACTRL()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* GRPVECTORFILEDXFXDATACTRL::GetName()
-* @brief      GetName
+* @brief      Get name
 * @ingroup    GRAPHIC
 * 
 * @return     XSTRING* : 
@@ -106,7 +106,7 @@ XSTRING* GRPVECTORFILEDXFXDATACTRL::GetName()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XVECTOR<GRPVECTORFILEDXFVALUE*>* GRPVECTORFILEDXFXDATACTRL::GetValues()
-* @brief      GetValues
+* @brief      Get values
 * @ingroup    GRAPHIC
 * 
 * @return     XVECTOR<GRPVECTORFILEDXFVALUE*>* : 
@@ -121,7 +121,7 @@ XVECTOR<GRPVECTORFILEDXFVALUE*>* GRPVECTORFILEDXFXDATACTRL::GetValues()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRPVECTORFILEDXFXDATACTRL::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    GRAPHIC
 * 

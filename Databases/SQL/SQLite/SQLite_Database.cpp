@@ -4,7 +4,7 @@
 * 
 * @class      SQLITE_DATABASE
 * @brief      DataBase SQL SQLite Database class
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 * 
 * @copyright  GEN Group. All rights reserved.
 * 
@@ -74,8 +74,8 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         SQLITE_DATABASE::SQLITE_DATABASE()
-* @brief      Constructor
-* @ingroup    DATABASES
+* @brief      Constructor of class
+* @ingroup    DATABASE
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 SQLITE_DATABASE::SQLITE_DATABASE() : DB_SQL_DATABASE()
@@ -89,9 +89,9 @@ SQLITE_DATABASE::SQLITE_DATABASE() : DB_SQL_DATABASE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         SQLITE_DATABASE::~SQLITE_DATABASE()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 SQLITE_DATABASE::~SQLITE_DATABASE()
@@ -103,8 +103,8 @@ SQLITE_DATABASE::~SQLITE_DATABASE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DB_SQL_DATABASE_TYPE SQLITE_DATABASE::GetType()
-* @brief      GetType
-* @ingroup    DATABASES
+* @brief      Get type
+* @ingroup    DATABASE
 *
 * @return     DB_SQL_DATABASE_TYPE :
 *
@@ -118,8 +118,8 @@ DB_SQL_DATABASE_TYPE SQLITE_DATABASE::GetType()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XCHAR* SQLITE_DATABASE::GetTypeName()
-* @brief      GetTypeName
-* @ingroup    DATABASES
+* @brief      Get type name
+* @ingroup    DATABASE
 *
 * @return     XCHAR* :
 *
@@ -134,7 +134,7 @@ XCHAR* SQLITE_DATABASE::GetTypeName()
 *
 * @fn         bool SQLITE_DATABASE::Transaction()
 * @brief      Transaction
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 *
 * @return     bool : true if is succesful.
 *
@@ -153,7 +153,7 @@ bool SQLITE_DATABASE::Transaction()
 *
 * @fn         bool SQLITE_DATABASE::Commit()
 * @brief      Commit
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 *
 * @return     bool : true if is succesful.
 *
@@ -177,7 +177,7 @@ bool SQLITE_DATABASE::Commit()
 *
 * @fn         bool SQLITE_DATABASE::Rollback(XCHAR* savepoint)
 * @brief      Rollback
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 *
 * @param[in]  savepoint :
 *
@@ -218,7 +218,7 @@ bool SQLITE_DATABASE::Rollback(XCHAR* savepoint)
 *
 * @fn         bool SQLITE_DATABASE::Savepoint(XCHAR* savepoint)
 * @brief      Savepoint
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 *
 * @param[in]  savepoint :
 *
@@ -242,8 +242,8 @@ bool SQLITE_DATABASE::Savepoint(XCHAR* savepoint)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool SQLITE_DATABASE::ReleaseSavepoint(XCHAR* savepoint)
-* @brief      ReleaseSavepoint
-* @ingroup    DATABASES
+* @brief      Release savepoint
+* @ingroup    DATABASE
 *
 * @param[in]  savepoint :
 *
@@ -267,8 +267,8 @@ bool SQLITE_DATABASE::ReleaseSavepoint(XCHAR* savepoint)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DB_SQL_QUERY* SQLITE_DATABASE::CreateQuery()
-* @brief      CreateQuery
-* @ingroup    DATABASES
+* @brief      Create query
+* @ingroup    DATABASE
 *
 * @return     DB_SQL_QUERY* :
 *
@@ -288,8 +288,8 @@ DB_SQL_QUERY* SQLITE_DATABASE::CreateQuery()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DB_SQL_CONNECTION* SQLITE_DATABASE::CreateConnection()
-* @brief      CreateConnection
-* @ingroup    DATABASES
+* @brief      Create connection
+* @ingroup    DATABASE
 *
 * @return     DB_SQL_CONNECTION* :
 *
@@ -304,8 +304,8 @@ DB_SQL_CONNECTION* SQLITE_DATABASE::CreateConnection()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool SQLITE_DATABASE::GetTables()
-* @brief      GetTables
-* @ingroup    DATABASES
+* @brief      Get tables
+* @ingroup    DATABASE
 *
 * @return     bool : true if is succesful.
 *
@@ -364,8 +364,8 @@ bool SQLITE_DATABASE::GetTables()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DB_SQL_DATABASE_ENCODING SQLITE_DATABASE::GetDatabaseEncoding()
-* @brief      GetDatabaseEncoding
-* @ingroup    DATABASES
+* @brief      Get database encoding
+* @ingroup    DATABASE
 *
 * @return     DB_SQL_DATABASE_ENCODING :
 *
@@ -379,8 +379,8 @@ DB_SQL_DATABASE_ENCODING SQLITE_DATABASE::GetDatabaseEncoding()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool SQLITE_DATABASE::SetDatabaseEncoding(DB_SQL_DATABASE_ENCODING encodingtouse)
-* @brief      SetDatabaseEncoding
-* @ingroup    DATABASES
+* @brief      Set database encoding
+* @ingroup    DATABASE
 *
 * @param[in]  encodingtouse :
 *
@@ -456,9 +456,9 @@ bool SQLITE_DATABASE::SetDatabaseEncoding(DB_SQL_DATABASE_ENCODING encodingtouse
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void SQLITE_DATABASE::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void SQLITE_DATABASE::Clean()

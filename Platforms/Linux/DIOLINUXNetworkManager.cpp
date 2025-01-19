@@ -71,7 +71,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOLINUXNETWORKMANAGER::DIOLINUXNETWORKMANAGER()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_LINUX
 *
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -87,7 +87,7 @@ DIOLINUXNETWORKMANAGER::DIOLINUXNETWORKMANAGER()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOLINUXNETWORKMANAGER::~DIOLINUXNETWORKMANAGER()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
 *
@@ -180,7 +180,7 @@ bool DIOLINUXNETWORKMANAGER::Enable(bool on)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOLINUXNETWORKMANAGER_STATE DIOLINUXNETWORKMANAGER::GetConnectionState()
-* @brief      GetConnectionState
+* @brief      Get connection state
 * @ingroup    PLATFORM_LINUX
 *
 * @return     DIOLINUXNETWORKMANAGER_STATE : 
@@ -240,7 +240,7 @@ DIOLINUXNETWORKMANAGER_STATE DIOLINUXNETWORKMANAGER::GetConnectionState()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOLINUXNETWORKMANAGER::GetDevices(XVECTOR<DIOSTREAMDEVICEIP*>& devices)
-* @brief      GetDevices
+* @brief      Get devices
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  devices : 
@@ -356,7 +356,7 @@ bool DIOLINUXNETWORKMANAGER::GetDevices(XVECTOR<DIOSTREAMDEVICEIP*>& devices)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOLINUXNETWORKMANAGER::Signal_Add(XCHAR* type, XCHAR* name)
-* @brief      Signal_Add
+* @brief      Signal add
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  type : 
@@ -377,7 +377,7 @@ bool DIOLINUXNETWORKMANAGER::Signal_Add(XCHAR* type, XCHAR* name)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOLINUXNETWORKMANAGER::Signal_Add(XSTRING& type, XSTRING& name)
-* @brief      Signal_Add
+* @brief      Signal add
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  type : 
@@ -420,7 +420,7 @@ bool DIOLINUXNETWORKMANAGER::End()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOLINUXNETWORKMANAGER::GetDevicePathList(XVECTOR<XSTRING*>& pathdevices)
-* @brief      GetDevicePathList
+* @brief      Get device path list
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  pathdevices : 
@@ -474,7 +474,7 @@ bool DIOLINUXNETWORKMANAGER::GetDevicePathList(XVECTOR<XSTRING*>& pathdevices)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOLINUXNETWORKMANAGER::GetProperty(XCHAR* iface, XCHAR* pathdevice, XCHAR* propertyname, XVARIANT& result)
-* @brief      GetProperty
+* @brief      Get property
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  iface : 
@@ -554,7 +554,7 @@ bool DIOLINUXNETWORKMANAGER::GetProperty(XCHAR* iface, XCHAR* pathdevice, XCHAR*
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOLINUXNETWORKMANAGER::HandleEvent_Signal(DIOLINUXDBUS_XEVENT* event)
-* @brief      Handle Event for the observer manager of this class
+* @brief      Handle event signal
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
 *
@@ -580,7 +580,7 @@ void DIOLINUXNETWORKMANAGER::HandleEvent_Signal(DIOLINUXDBUS_XEVENT* event)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOLINUXNETWORKMANAGER::HandleEvent(XEVENT* xevent)
-* @brief      Handle Event for the observer manager of this class
+* @brief      Handle event
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
 *
@@ -607,7 +607,7 @@ void DIOLINUXNETWORKMANAGER::HandleEvent(XEVENT* xevent)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOLINUXNETWORKMANAGER::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
 *

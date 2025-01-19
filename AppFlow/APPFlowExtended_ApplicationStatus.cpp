@@ -77,7 +77,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         APPFLOWEXTENDED_APPLICATIONSTATUS::APPFLOWEXTENDED_APPLICATIONSTATUS(APPFLOWCFG* cfg) : DIOWEBSERVER_RESOLVEENDPOINT()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    APPFLOW
 * 
 * @param[in]  cfg : 
@@ -106,7 +106,7 @@ APPFLOWEXTENDED_APPLICATIONSTATUS::APPFLOWEXTENDED_APPLICATIONSTATUS(APPFLOWCFG*
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         APPFLOWEXTENDED_APPLICATIONSTATUS::~APPFLOWEXTENDED_APPLICATIONSTATUS()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    APPFLOW
 * 
@@ -132,7 +132,7 @@ APPFLOWEXTENDED_APPLICATIONSTATUS::~APPFLOWEXTENDED_APPLICATIONSTATUS()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         APPCHECKRESOURCESHARDWARE* APPFLOWEXTENDED_APPLICATIONSTATUS::GetCheckResourcesHardware()
-* @brief      GetAPPCheckResourcesHardware
+* @brief      Get check resources hardware
 * @ingroup    APPFLOW
 * 
 * @return     APPCHECKRESOURCESHARDWARE* : 
@@ -147,7 +147,7 @@ APPFLOWCHECKRESOURCESHARDWARE* APPFLOWEXTENDED_APPLICATIONSTATUS::GetCheckResour
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* APPFLOWEXTENDED_APPLICATIONSTATUS::GetOSVersion()
-* @brief      GetOSVersion
+* @brief      Get OS version
 * @ingroup    APPFLOW
 * 
 * @return     XSTRING* : 
@@ -162,7 +162,7 @@ XSTRING* APPFLOWEXTENDED_APPLICATIONSTATUS::GetOSVersion()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* APPFLOWEXTENDED_APPLICATIONSTATUS::GetAppVersion()
-* @brief      GetAppVersion
+* @brief      Get app version
 * @ingroup    APPFLOW
 * 
 * @return     XSTRING* : 
@@ -177,7 +177,7 @@ XSTRING* APPFLOWEXTENDED_APPLICATIONSTATUS::GetAppVersion()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD APPFLOWEXTENDED_APPLICATIONSTATUS::GetMemoryTotal()
-* @brief      GetMemoryTotal
+* @brief      Get memory total
 * @ingroup    APPFLOW
 * 
 * @return     XDWORD : 
@@ -192,7 +192,7 @@ XDWORD APPFLOWEXTENDED_APPLICATIONSTATUS::GetMemoryTotal()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void APPFLOWEXTENDED_APPLICATIONSTATUS::SetMemoryTotal(XDWORD memory_total)
-* @brief      SetMemoryTotal
+* @brief      Set memory total
 * @ingroup    APPFLOW
 * 
 * @param[in]  memory_total : 
@@ -207,7 +207,7 @@ void APPFLOWEXTENDED_APPLICATIONSTATUS::SetMemoryTotal(XDWORD memory_total)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD APPFLOWEXTENDED_APPLICATIONSTATUS::GetMemoryFree()
-* @brief      GetMemoryFree
+* @brief      Get memory free
 * @ingroup    APPFLOW
 * 
 * @return     XDWORD : 
@@ -222,7 +222,7 @@ XDWORD APPFLOWEXTENDED_APPLICATIONSTATUS::GetMemoryFree()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void APPFLOWEXTENDED_APPLICATIONSTATUS::SetMemoryFree(XDWORD memory_free)
-* @brief      SetMemoryFree
+* @brief      Set memory free
 * @ingroup    APPFLOW
 * 
 * @param[in]  memory_free : 
@@ -237,7 +237,7 @@ void APPFLOWEXTENDED_APPLICATIONSTATUS::SetMemoryFree(XDWORD memory_free)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD APPFLOWEXTENDED_APPLICATIONSTATUS::GetMemoryFreePercent()
-* @brief      GetMemoryFreePercent
+* @brief      Get memory free percent
 * @ingroup    APPFLOW
 * 
 * @return     XDWORD : 
@@ -252,7 +252,7 @@ XDWORD APPFLOWEXTENDED_APPLICATIONSTATUS::GetMemoryFreePercent()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void APPFLOWEXTENDED_APPLICATIONSTATUS::SetMemoryFreePercent(XDWORD memory_freepercent)
-* @brief      SetMemoryFreePercent
+* @brief      Set memory free percent
 * @ingroup    APPFLOW
 * 
 * @param[in]  memory_freepercent : 
@@ -267,7 +267,7 @@ void APPFLOWEXTENDED_APPLICATIONSTATUS::SetMemoryFreePercent(XDWORD memory_freep
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* APPFLOWEXTENDED_APPLICATIONSTATUS::GetAverange()
-* @brief      GetAverange
+* @brief      Get averange
 * @ingroup    APPFLOW
 * 
 * @return     XSTRING* : 
@@ -282,7 +282,7 @@ XSTRING* APPFLOWEXTENDED_APPLICATIONSTATUS::GetAverange()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* APPFLOWEXTENDED_APPLICATIONSTATUS::GetCurrentDate()
-* @brief      GetCurrentDate
+* @brief      Get current date
 * @ingroup    APPFLOW
 * 
 * @return     XSTRING* : 
@@ -297,7 +297,7 @@ XSTRING* APPFLOWEXTENDED_APPLICATIONSTATUS::GetCurrentDate()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* APPFLOWEXTENDED_APPLICATIONSTATUS::GetOperatingTime()
-* @brief      GetOperatingTime
+* @brief      Get operating time
 * @ingroup    APPFLOW
 * 
 * @return     XSTRING* : 
@@ -488,7 +488,7 @@ bool APPFLOWEXTENDED_APPLICATIONSTATUS::Deserialize()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void APPFLOWEXTENDED_APPLICATIONSTATUS::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    APPFLOW
 * 

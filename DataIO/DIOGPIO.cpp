@@ -71,7 +71,7 @@ DIOGPIO* DIOGPIO::instance = NULL;
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOGPIO_ENTRY::DIOGPIO_ENTRY()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -84,7 +84,7 @@ DIOGPIO_ENTRY::DIOGPIO_ENTRY()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOGPIO_ENTRY::~DIOGPIO_ENTRY()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -98,7 +98,7 @@ DIOGPIO_ENTRY::~DIOGPIO_ENTRY()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD DIOGPIO_ENTRY::GetID()
-* @brief      GetID
+* @brief      Get ID
 * @ingroup    DATAIO
 *
 * @return     XDWORD : 
@@ -113,7 +113,7 @@ XDWORD DIOGPIO_ENTRY::GetID()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOGPIO_ENTRY::SetID(XDWORD ID)
-* @brief      SetID
+* @brief      Set ID
 * @ingroup    DATAIO
 *
 * @param[in]  ID : 
@@ -128,7 +128,7 @@ void DIOGPIO_ENTRY::SetID(XDWORD ID)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XQWORD DIOGPIO_ENTRY::GetGPIO()
-* @brief      GetGPIO
+* @brief      Get GPIO
 * @ingroup    DATAIO
 *
 * @return     XQWORD : 
@@ -143,7 +143,7 @@ XQWORD DIOGPIO_ENTRY::GetGPIO()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOGPIO_ENTRY::SetGPIO(XQWORD GPIO)
-* @brief      SetGPIO
+* @brief      Set GPIO
 * @ingroup    DATAIO
 *
 * @param[in]  GPIO : 
@@ -158,7 +158,7 @@ void DIOGPIO_ENTRY::SetGPIO(XQWORD GPIO)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOGPIO_PINSGROUP DIOGPIO_ENTRY::GetGroup()
-* @brief      GetGroup
+* @brief      Get group
 * @ingroup    DATAIO
 *
 * @return     DIOGPIO_PINSGROUP : 
@@ -173,7 +173,7 @@ DIOGPIO_PINSGROUP DIOGPIO_ENTRY::GetGroup()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOGPIO_ENTRY::SetGroup(DIOGPIO_PINSGROUP group)
-* @brief      SetGroup
+* @brief      Set group
 * @ingroup    DATAIO
 *
 * @param[in]  group : 
@@ -188,7 +188,7 @@ void DIOGPIO_ENTRY::SetGroup(DIOGPIO_PINSGROUP group)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XWORD DIOGPIO_ENTRY::GetPin()
-* @brief      GetPin
+* @brief      Get pin
 * @ingroup    DATAIO
 *
 * @return     XWORD : 
@@ -203,7 +203,7 @@ XWORD DIOGPIO_ENTRY::GetPin()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOGPIO_ENTRY::SetPin(XWORD pin)
-* @brief      SetPin
+* @brief      Set pin
 * @ingroup    DATAIO
 *
 * @param[in]  pin : 
@@ -218,7 +218,7 @@ void DIOGPIO_ENTRY::SetPin(XWORD pin)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XWORD DIOGPIO_ENTRY::GetMode()
-* @brief      GetMode
+* @brief      Get mode
 * @ingroup    DATAIO
 *
 * @return     XWORD : 
@@ -233,7 +233,7 @@ XWORD DIOGPIO_ENTRY::GetMode()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOGPIO_ENTRY::SetMode(XWORD mode)
-* @brief      SetMode
+* @brief      Set mode
 * @ingroup    DATAIO
 *
 * @param[in]  mode : 
@@ -248,7 +248,7 @@ void DIOGPIO_ENTRY::SetMode(XWORD mode)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOGPIO_PULLMODE DIOGPIO_ENTRY::GetPullMode()
-* @brief      GetPullMode
+* @brief      Get pull mode
 * @ingroup    DATAIO
 *
 * @return     DIOGPIO_PULLMODE : 
@@ -263,7 +263,7 @@ DIOGPIO_PULLMODE DIOGPIO_ENTRY::GetPullMode()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOGPIO_ENTRY::SetPullMode(DIOGPIO_PULLMODE pullmode)
-* @brief      SetPullMode
+* @brief      Set pull mode
 * @ingroup    DATAIO
 *
 * @param[in]  pullmode : 
@@ -278,7 +278,7 @@ void DIOGPIO_ENTRY::SetPullMode(DIOGPIO_PULLMODE pullmode)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOGPIO_INT_FUNCPTR DIOGPIO_ENTRY::GetIntFunctionPointer()
-* @brief      GetIntFunctionPointer
+* @brief      Get int function pointer
 * @ingroup    DATAIO
 *
 * @return     DIOGPIO_INT_FUNCPTR : 
@@ -293,7 +293,7 @@ DIOGPIO_INT_FUNCPTR DIOGPIO_ENTRY::GetIntFunctionPointer()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOGPIO_ENTRY::SetIntFunctionPointer(DIOGPIO_INT_FUNCPTR int_funcptr)
-* @brief      SetIntFunctionPointer
+* @brief      Set int function pointer
 * @ingroup    DATAIO
 *
 * @param[in]  int_funcptr : 
@@ -308,7 +308,7 @@ void DIOGPIO_ENTRY::SetIntFunctionPointer(DIOGPIO_INT_FUNCPTR int_funcptr)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void* DIOGPIO_ENTRY::GetIntParamPointer()
-* @brief      GetIntParamPointer
+* @brief      Get int param pointer
 * @ingroup    DATAIO
 *
 * @return     void* : 
@@ -323,7 +323,7 @@ void* DIOGPIO_ENTRY::GetIntParamPointer()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOGPIO_ENTRY::SetIntParamPointer(void* int_paramptr)
-* @brief      SetIntParamPointer
+* @brief      Set int param pointer
 * @ingroup    DATAIO
 *
 * @param[in]  int_paramptr : 
@@ -338,7 +338,7 @@ void DIOGPIO_ENTRY::SetIntParamPointer(void* int_paramptr)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD DIOGPIO_ENTRY::GetIntIRQ()
-* @brief      GetIntIRQ
+* @brief      Get int IRQ
 * @ingroup    DATAIO
 *
 * @return     XDWORD : 
@@ -353,7 +353,7 @@ XDWORD DIOGPIO_ENTRY::GetIntIRQ()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOGPIO_ENTRY::SetIntIRQ(XDWORD int_IRQ)
-* @brief      SetIntIRQ
+* @brief      Set int IRQ
 * @ingroup    DATAIO
 *
 * @param[in]  int_IRQ : 
@@ -368,7 +368,7 @@ void DIOGPIO_ENTRY::SetIntIRQ(XDWORD int_IRQ)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD DIOGPIO_ENTRY::GetIntPriority()
-* @brief      GetIntPriority
+* @brief      Get int priority
 * @ingroup    DATAIO
 *
 * @return     XDWORD : 
@@ -383,7 +383,7 @@ XDWORD DIOGPIO_ENTRY::GetIntPriority()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOGPIO_ENTRY::SetIntPriority(XDWORD int_priority)
-* @brief      SetIntPriority
+* @brief      Set int priority
 * @ingroup    DATAIO
 *
 * @param[in]  int_priority : 
@@ -398,7 +398,7 @@ void DIOGPIO_ENTRY::SetIntPriority(XDWORD int_priority)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOGPIO_ENTRY::DebugTrace()
-* @brief      DebugTrace
+* @brief      Debug trace
 * @ingroup    DATAIO
 *
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -420,7 +420,7 @@ void DIOGPIO_ENTRY::DebugTrace()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOGPIO_ENTRY::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *
@@ -450,7 +450,7 @@ void DIOGPIO_ENTRY::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOGPIO::DIOGPIO()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -463,7 +463,7 @@ DIOGPIO::DIOGPIO()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOGPIO::~DIOGPIO()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -479,7 +479,7 @@ DIOGPIO::~DIOGPIO()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOGPIO::GetIsInstanced()
-* @brief      GetIsInstanced
+* @brief      Get is instanced
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -494,7 +494,7 @@ bool DIOGPIO::GetIsInstanced()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOGPIO& DIOGPIO::GetInstance()
-* @brief      GetInstance
+* @brief      Get instance
 * @ingroup    DATAIO
 *
 * @return     DIOGPIO& :
@@ -511,7 +511,7 @@ DIOGPIO& DIOGPIO::GetInstance()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOGPIO::SetInstance(DIOGPIO* _instance)
-* @brief      SetInstance
+* @brief      Set instance
 * @ingroup    DATAIO
 *
 * @param[in]  _instance :
@@ -532,7 +532,7 @@ bool DIOGPIO::SetInstance(DIOGPIO* _instance)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOGPIO::DelInstance()
-* @brief      DelInstance
+* @brief      Del instance
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -555,7 +555,7 @@ bool DIOGPIO::DelInstance()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XVECTOR<DIOGPIO_ENTRY*>* DIOGPIO::GPIOEntry_GetAll()
-* @brief      GPIOEntry_GetAll
+* @brief      GPIO entry get all
 * @ingroup    DATAIO
 * 
 * @return     XVECTOR<DIOGPIO_ENTRY*>* : 
@@ -570,7 +570,7 @@ XVECTOR<DIOGPIO_ENTRY*>* DIOGPIO::GPIOEntry_GetAll()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOGPIO_ENTRY* DIOGPIO::GPIOEntry_CreateByPin(XDWORD ID, XWORD pin, DIOGPIO_PINSGROUP group)
-* @brief      GPIOEntry_CreateByPin
+* @brief      GPIO entry create by pin
 * @ingroup    DATAIO
 *
 * @param[in]  ID : 
@@ -599,7 +599,7 @@ DIOGPIO_ENTRY* DIOGPIO::GPIOEntry_CreateByPin(XDWORD ID, XWORD pin, DIOGPIO_PINS
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOGPIO_ENTRY* DIOGPIO::GPIOEntry_CreateByGPIO(XDWORD ID, XQWORD GPIO)
-* @brief      GPIOEntry_CreateByGPIO
+* @brief      GPIO entry create by GPIO
 * @ingroup    DATAIO
 *
 * @param[in]  ID : 
@@ -627,7 +627,7 @@ DIOGPIO_ENTRY* DIOGPIO::GPIOEntry_CreateByGPIO(XDWORD ID, XQWORD GPIO)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOGPIO_ENTRY* DIOGPIO::GPIOEntry_Create(XDWORD ID, XWORD pin, XQWORD GPIO)
-* @brief      GPIOEntry_Create
+* @brief      GPIO entry create
 * @ingroup    DATAIO
 *
 * @param[in]  ID : 
@@ -656,7 +656,7 @@ DIOGPIO_ENTRY* DIOGPIO::GPIOEntry_Create(XDWORD ID, XWORD pin, XQWORD GPIO)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOGPIO_ENTRY* DIOGPIO::GPIOEntry_GetByID(XDWORD ID)
-* @brief      GPIOEntry_GetByID
+* @brief      GPIO entry get by ID
 * @ingroup    DATAIO
 *
 * @param[in]  ID : 
@@ -684,7 +684,7 @@ DIOGPIO_ENTRY* DIOGPIO::GPIOEntry_GetByID(XDWORD ID)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOGPIO_ENTRY* DIOGPIO::GPIOEntry_GetByPin(XWORD pin, DIOGPIO_PINSGROUP group)
-* @brief      GPIOEntry_GetByPin
+* @brief      GPIO entry get by pin
 * @ingroup    DATAIO
 *
 * @param[in]  pin : 
@@ -713,7 +713,7 @@ DIOGPIO_ENTRY* DIOGPIO::GPIOEntry_GetByPin(XWORD pin, DIOGPIO_PINSGROUP group)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOGPIO_ENTRY* DIOGPIO::GPIOEntry_GetInterruptByPin(XWORD pin)
-* @brief      GPIOEntry_GetInterruptByPin
+* @brief      GPIO entry get interrupt by pin
 * @ingroup    DATAIO
 *
 * @param[in]  pin : 
@@ -741,7 +741,7 @@ DIOGPIO_ENTRY* DIOGPIO::GPIOEntry_GetInterruptByPin(XWORD pin)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOGPIO_ENTRY* DIOGPIO::GPIOEntry_GetByGPIO(XQWORD GPIO)
-* @brief      GPIOEntry_GetByGPIO
+* @brief      GPIO entry get by GPIO
 * @ingroup    DATAIO
 *
 * @param[in]  GPIO : 
@@ -769,7 +769,7 @@ DIOGPIO_ENTRY* DIOGPIO::GPIOEntry_GetByGPIO(XQWORD GPIO)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOGPIO::GPIOEntry_DeleteAll()
-* @brief      GPIOEntry_DeleteAll
+* @brief      GPIO entry delete all
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful. 
@@ -789,7 +789,7 @@ bool DIOGPIO::GPIOEntry_DeleteAll()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOGPIO::GPIOEntry_SetIDByPin(XDWORD ID, XWORD pin, DIOGPIO_PINSGROUP group)
-* @brief      GPIOEntry_SetIDByPin
+* @brief      GPIO entry set ID by pin
 * @ingroup    DATAIO
 *
 * @param[in]  ID : 
@@ -813,7 +813,7 @@ bool DIOGPIO::GPIOEntry_SetIDByPin(XDWORD ID, XWORD pin, DIOGPIO_PINSGROUP group
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOGPIO::GPIOEntry_SetIDByGPIO(XDWORD ID, XQWORD GPIO)
-* @brief      GPIOEntry_SetIDByGPIO
+* @brief      GPIO entry set ID by GPIO
 * @ingroup    DATAIO
 *
 * @param[in]  ID : 
@@ -851,7 +851,7 @@ bool DIOGPIO::Ini()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XWORD DIOGPIO::GetMode(XDWORD ID)
-* @brief      GetMode
+* @brief      Get mode
 * @ingroup    DATAIO
 *
 * @param[in]  ID : 
@@ -871,7 +871,7 @@ XWORD DIOGPIO::GetMode(XDWORD ID)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOGPIO::SetMode(XDWORD ID, XWORD mode)
-* @brief      SetMode
+* @brief      Set mode
 * @ingroup    DATAIO
 *
 * @param[in]  ID : 
@@ -894,7 +894,7 @@ bool DIOGPIO::SetMode(XDWORD ID, XWORD mode)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOGPIO::GetValue(XDWORD ID)
-* @brief      GetValue
+* @brief      Get value
 * @ingroup    DATAIO
 *
 * @param[in]  ID : 
@@ -914,7 +914,7 @@ bool DIOGPIO::GetValue(XDWORD ID)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOGPIO::SetValue(XDWORD ID, bool value)
-* @brief      SetValue
+* @brief      Set value
 * @ingroup    DATAIO
 *
 * @param[in]  ID : 
@@ -935,7 +935,7 @@ bool DIOGPIO::SetValue(XDWORD ID, bool value)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XWORD DIOGPIO::GetMode(DIOGPIO_ENTRY* entry)
-* @brief      GetMode
+* @brief      Get mode
 * @ingroup    DATAIO
 *
 * @param[in]  entry : 
@@ -954,7 +954,7 @@ XWORD DIOGPIO::GetMode(DIOGPIO_ENTRY* entry)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOGPIO::SetMode(DIOGPIO_ENTRY* entry, XWORD mode)
-* @brief      SetMode
+* @brief      Set mode
 * @ingroup    DATAIO
 *
 * @param[in]  entry : 
@@ -976,7 +976,7 @@ bool DIOGPIO::SetMode(DIOGPIO_ENTRY* entry, XWORD mode)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOGPIO::GetValue(DIOGPIO_ENTRY* entry)
-* @brief      GetValue
+* @brief      Get value
 * @ingroup    DATAIO
 *
 * @param[in]  entry : 
@@ -993,7 +993,7 @@ bool DIOGPIO::GetValue(DIOGPIO_ENTRY* entry)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOGPIO::SetValue(DIOGPIO_ENTRY* entry, bool value)
-* @brief      SetValue
+* @brief      Set value
 * @ingroup    DATAIO
 *
 * @param[in]  entry : 
@@ -1028,7 +1028,7 @@ bool DIOGPIO::End()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOGPIO::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

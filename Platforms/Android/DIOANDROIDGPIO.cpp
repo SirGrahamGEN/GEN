@@ -78,7 +78,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOANDROIDGPIO::DIOANDROIDGPIO()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_ANDROID
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -91,7 +91,7 @@ DIOANDROIDGPIO::DIOANDROIDGPIO(): DIOGPIO()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOANDROIDGPIO::~DIOANDROIDGPIO()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_ANDROID
 *
@@ -120,7 +120,7 @@ bool DIOANDROIDGPIO::Ini()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOANDROIDGPIO::SetMode(XBYTE pin, bool isinput)
-* @brief      SetMode
+* @brief      Set mode
 * @ingroup    PLATFORM_ANDROID
 *
 * @param[in]  pin :
@@ -188,7 +188,7 @@ bool DIOANDROIDGPIO::End()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOANDROIDGPIO::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_ANDROID
 *

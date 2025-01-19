@@ -71,7 +71,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         INPDEVICE::INPDEVICE()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    INPUT
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -84,7 +84,7 @@ INPDEVICE::INPDEVICE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         INPDEVICE::~INPDEVICE()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    INPUT
 *
@@ -98,7 +98,7 @@ INPDEVICE::~INPDEVICE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool INPDEVICE::IsCreated()
-* @brief      Is Created
+* @brief      Is created
 * @ingroup    INPUT
 *
 * @return     bool : true if is succesful.
@@ -113,7 +113,7 @@ bool INPDEVICE::IsCreated()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool INPDEVICE::IsEnabled()
-* @brief      Is Enabled
+* @brief      Is enabled
 * @ingroup    INPUT
 *
 * @return     bool : true if is succesful.
@@ -128,7 +128,7 @@ bool INPDEVICE::IsEnabled()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void INPDEVICE::SetEnabled(bool ON)
-* @brief      Set Enabled
+* @brief      Set enabled
 * @ingroup    INPUT
 *
 * @param[in]  ON : true enabled.
@@ -143,7 +143,7 @@ void INPDEVICE::SetEnabled(bool enabled)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         INPDEVICE_TYPE INPDEVICE::GetType()
-* @brief      Get Type
+* @brief      Get type
 * @ingroup    INPUT
 *
 * @return     INPDEVICE_TYPE : type of device
@@ -158,7 +158,7 @@ INPDEVICE_TYPE INPDEVICE::GetType()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void INPDEVICE::SetType(INPDEVICE_TYPE type)
-* @brief      Set Type
+* @brief      Set type
 * @ingroup    INPUT
 *
 * @param[in]  type : type of device
@@ -173,7 +173,7 @@ void INPDEVICE::SetType(INPDEVICE_TYPE type)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int INPDEVICE::GetNButtons()
-* @brief      Get Numbers Buttons
+* @brief      Get N buttons
 * @ingroup    INPUT
 *
 * @return     int : Numbers Buttons
@@ -191,7 +191,7 @@ int INPDEVICE::GetNButtons()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XVECTOR<INPBUTTON*>* INPDEVICE::GetButtons()
-* @brief      Get Buttons
+* @brief      Get buttons
 * @ingroup    INPUT
 *
 * @return     XVECTOR<INPBUTTON*>* : vector of buttons
@@ -206,7 +206,7 @@ XVECTOR<INPBUTTON*>* INPDEVICE::GetButtons()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XVECTOR<INPCURSOR*>* INPDEVICE::GetCursors()
-* @brief      Get Cursors
+* @brief      Get cursors
 * @ingroup    INPUT
 *
 * @return     XVECTOR<INPCURSOR*>* : vector of cursors
@@ -221,7 +221,7 @@ XVECTOR<INPCURSOR*>* INPDEVICE::GetCursors()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool INPDEVICE::DeleteAllButtons()
-* @brief      Delete All Buttons
+* @brief      Delete all buttons
 * @ingroup    INPUT
 *
 * @return     bool : true if is succesful.
@@ -241,7 +241,7 @@ bool INPDEVICE::DeleteAllButtons()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool INPDEVICE::DeleteAllCursors()
-* @brief      Delete All Cursors
+* @brief      Delete all cursors
 * @ingroup    INPUT
 *
 * @return     bool : true if is succesful.
@@ -261,7 +261,7 @@ bool INPDEVICE::DeleteAllCursors()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         INPBUTTON* INPDEVICE::GetButton(INPBUTTON_ID ID)
-* @brief      Get Button
+* @brief      Get button
 * @ingroup    INPUT
 *
 * @param[in]  ID : ID of button
@@ -290,7 +290,7 @@ INPBUTTON* INPDEVICE::GetButton(INPBUTTON_ID ID)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         INPBUTTON* INPDEVICE::GetButton(int index)
-* @brief      Get Button
+* @brief      Get button
 * @ingroup    INPUT
 *
 * @param[in]  index : index of button
@@ -314,7 +314,7 @@ INPBUTTON* INPDEVICE::GetButton(int index)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         INPBUTTON* INPDEVICE::GetButtonByCode(XWORD code)
-* @brief      Get Button By Code
+* @brief      Get button by code
 * @ingroup    INPUT
 *
 * @param[in]  code : code of button
@@ -345,7 +345,7 @@ INPBUTTON* INPDEVICE::GetButtonByCode(XWORD code)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         INPBUTTON_STATE INPDEVICE::GetButtonState(INPBUTTON_ID ID)
-* @brief      Get Button State
+* @brief      Get button state
 * @ingroup    INPUT
 *
 * @param[in]  ID : ID of button
@@ -376,7 +376,7 @@ INPBUTTON_STATE INPDEVICE::GetButtonState(INPBUTTON_ID ID)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         INPBUTTON* INPDEVICE::IsPressButton()
-* @brief      Is Press Button
+* @brief      Is press button
 * @ingroup    INPUT
 *
 * @return     INPBUTTON* : button class obtain
@@ -403,7 +403,7 @@ INPBUTTON* INPDEVICE::IsPressButton()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool INPDEVICE::ReleaseAllButtons()
-* @brief      Release All Buttons
+* @brief      Release all buttons
 * @ingroup    INPUT
 *
 * @return     bool : true if is succesful.
@@ -428,7 +428,7 @@ bool INPDEVICE::ReleaseAllButtons()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int INPDEVICE::GetNCursors()
-* @brief      Get Number of Cursors
+* @brief      Get N cursors
 * @ingroup    INPUT
 *
 * @return     int : Number of Cursors
@@ -446,7 +446,7 @@ int INPDEVICE::GetNCursors()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         INPCURSOR* INPDEVICE::GetCursor(INPCURSOR_ID ID)
-* @brief      Get Cursor
+* @brief      Get cursor
 * @ingroup    INPUT
 *
 * @param[in]  ID : id of cursor
@@ -477,7 +477,7 @@ INPCURSOR* INPDEVICE::GetCursor(INPCURSOR_ID ID)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         INPCURSOR* INPDEVICE::GetCursor(int index)
-* @brief      Get Cursor
+* @brief      Get cursor
 * @ingroup    INPUT
 *
 * @param[in]  index : index of cursor
@@ -501,7 +501,7 @@ INPCURSOR* INPDEVICE::GetCursor(int index)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         INPCURSOR* INPDEVICE::IsChangeCursor()
-* @brief      Is Change Cursor
+* @brief      Is change cursor
 * @ingroup    INPUT
 *
 * @return     INPCURSOR* : cursor class obtain
@@ -528,7 +528,7 @@ INPCURSOR* INPDEVICE::IsChangeCursor()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool INPDEVICE::SetScreen(void* param)
-* @brief      Set Screen handle
+* @brief      Set screen
 * @ingroup    INPUT
 *
 * @param[in]  param : screen handle (void*)
@@ -547,7 +547,7 @@ bool INPDEVICE::SetScreen(void* param)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool INPDEVICE::Release()
-* @brief      Release Device
+* @brief      Release
 * @ingroup    INPUT
 *
 * @return     bool : true if is succesful.
@@ -562,7 +562,7 @@ bool INPDEVICE::Release()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool INPDEVICE::Update()
-* @brief      Update Device
+* @brief      Update
 * @ingroup    INPUT
 *
 * @return     bool : true if is succesful.
@@ -577,7 +577,7 @@ bool INPDEVICE::Update()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void INPDEVICE::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    INPUT
 *

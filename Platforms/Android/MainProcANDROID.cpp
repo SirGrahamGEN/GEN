@@ -130,7 +130,7 @@ void*            java_vm;
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         MAINPROCANDROID::MAINPROCANDROID()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_ANDROID
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -143,7 +143,7 @@ MAINPROCANDROID::MAINPROCANDROID()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         MAINPROCANDROID::~MAINPROCANDROID()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_ANDROID
 *
@@ -276,7 +276,7 @@ bool MAINPROCANDROID::End()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         android_app* MAINPROCANDROID::GetAndroidApplication()
-* @brief      GetAndroidApplication
+* @brief      Get android application
 * @ingroup    PLATFORM_ANDROID
 *
 * @return     android_app* :
@@ -291,7 +291,7 @@ android_app* MAINPROCANDROID::GetAndroidApplication()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void MAINPROCANDROID::SetAndroidApplication(android_app* application)
-* @brief      SetAndroidApplication
+* @brief      Set android application
 * @ingroup    PLATFORM_ANDROID
 *
 * @param[in]  application :
@@ -307,7 +307,7 @@ void MAINPROCANDROID::SetAndroidApplication(android_app* application)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         INPDEVICE* MAINPROCANDROID::GetKeyboard()
-* @brief      GetKeyboard
+* @brief      Get keyboard
 * @ingroup    PLATFORM_ANDROID
 *
 * @return     INPDEVICE* :
@@ -322,7 +322,7 @@ INPDEVICE* MAINPROCANDROID::GetKeyboard()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         INPDEVICE* MAINPROCANDROID::GetTouchscreen()
-* @brief      GetTouchscreen
+* @brief      Get touchscreen
 * @ingroup    PLATFORM_ANDROID
 *
 * @return     INPDEVICE* :
@@ -338,7 +338,7 @@ INPDEVICE* MAINPROCANDROID::GetTouchscreen()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool MAINPROCANDROID::OnTouchEvent(AInputEvent* event)
-* @brief      OnTouchEvent
+* @brief      On touch event
 * @ingroup    PLATFORM_ANDROID
 *
 * @param[in]  event :
@@ -450,7 +450,7 @@ bool MAINPROCANDROID::OnTouchEvent(AInputEvent* event)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool MAINPROCANDROID::OnKeyboardEvent(AInputEvent* event)
-* @brief      OnKeyboardEvent
+* @brief      On keyboard event
 * @ingroup    PLATFORM_ANDROID
 *
 * @param[in]  event :
@@ -489,7 +489,7 @@ bool MAINPROCANDROID::OnKeyboardEvent(AInputEvent* event)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool MAINPROCANDROID::OnTrackballEvent(AInputEvent* event)
-* @brief      OnTrackballEvent
+* @brief      On trackball event
 * @ingroup    PLATFORM_ANDROID
 *
 * @param[in]  event :
@@ -508,7 +508,7 @@ bool MAINPROCANDROID::OnTrackballEvent(AInputEvent* event)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         STATUS MAINPROCANDROID::OnActivate()
-* @brief      OnActivate
+* @brief      On activate
 * @ingroup    PLATFORM_ANDROID
 *
 * @return     STATUS :
@@ -525,7 +525,7 @@ STATUS MAINPROCANDROID::OnActivate()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void MAINPROCANDROID::OnDeactivate()
-* @brief      OnDeactivate
+* @brief      On deactivate
 * @ingroup    PLATFORM_ANDROID
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -538,7 +538,7 @@ void MAINPROCANDROID::OnDeactivate()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         STATUS MAINPROCANDROID::OnStep()
-* @brief      OnStep
+* @brief      On step
 * @ingroup    PLATFORM_ANDROID
 *
 * @return     STATUS :
@@ -569,7 +569,7 @@ STATUS MAINPROCANDROID::OnStep()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void MAINPROCANDROID::OnStart()
-* @brief      OnStart
+* @brief      On start
 * @ingroup    PLATFORM_ANDROID
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -613,7 +613,7 @@ void MAINPROCANDROID::OnStart()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void MAINPROCANDROID::OnResume()
-* @brief      OnResume
+* @brief      On resume
 * @ingroup    PLATFORM_ANDROID
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -627,7 +627,7 @@ void MAINPROCANDROID::OnResume()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void MAINPROCANDROID::OnPause()
-* @brief      OnPause
+* @brief      On pause
 * @ingroup    PLATFORM_ANDROID
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -640,7 +640,7 @@ void MAINPROCANDROID::OnPause()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void MAINPROCANDROID::OnStop()
-* @brief      OnStop
+* @brief      On stop
 * @ingroup    PLATFORM_ANDROID
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -653,7 +653,7 @@ void MAINPROCANDROID::OnStop()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void MAINPROCANDROID::OnDestroy()
-* @brief      OnDestroy
+* @brief      On destroy
 * @ingroup    PLATFORM_ANDROID
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -672,7 +672,7 @@ void MAINPROCANDROID::OnDestroy()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void MAINPROCANDROID::OnSaveState(void** data, size_t* size)
-* @brief      OnSaveState
+* @brief      On save state
 * @ingroup    PLATFORM_ANDROID
 *
 * @param[in]  data :
@@ -688,7 +688,7 @@ void MAINPROCANDROID::OnSaveState(void** data, size_t* size)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void MAINPROCANDROID::OnConfigurationChanged()
-* @brief      OnConfigurationChanged
+* @brief      On configuration changed
 * @ingroup    PLATFORM_ANDROID
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -724,7 +724,7 @@ void MAINPROCANDROID::OnConfigurationChanged()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void MAINPROCANDROID::OnLowMemory()
-* @brief      OnLowMemory
+* @brief      On low memory
 * @ingroup    PLATFORM_ANDROID
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -737,7 +737,7 @@ void MAINPROCANDROID::OnLowMemory()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void MAINPROCANDROID::OnCreateWindow()
-* @brief      OnCreateWindow
+* @brief      On create window
 * @ingroup    PLATFORM_ANDROID
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -859,7 +859,7 @@ void MAINPROCANDROID::OnCreateWindow()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void MAINPROCANDROID::OnDestroyWindow()
-* @brief      OnDestroyWindow
+* @brief      On destroy window
 * @ingroup    PLATFORM_ANDROID
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -895,7 +895,7 @@ void MAINPROCANDROID::OnDestroyWindow()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void MAINPROCANDROID::OnGainFocus()
-* @brief      OnGainFocus
+* @brief      On gain focus
 * @ingroup    PLATFORM_ANDROID
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -911,7 +911,7 @@ void MAINPROCANDROID::OnGainFocus()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void MAINPROCANDROID::OnLostFocus()
-* @brief      OnLostFocus
+* @brief      On lost focus
 * @ingroup    PLATFORM_ANDROID
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -927,7 +927,7 @@ void MAINPROCANDROID::OnLostFocus()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool MAINPROCANDROID::GetPackageResourcePath(struct android_app* app, XSTRING& path)
-* @brief      GetPackageResourcePath
+* @brief      Get package resource path
 * @ingroup    PLATFORM_ANDROID
 *
 * @param[in]  app :
@@ -966,7 +966,7 @@ bool MAINPROCANDROID::GetPackageResourcePath(struct android_app* app, XSTRING& p
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool MAINPROCANDROID::GetAbsolutePath(struct android_app* app, XSTRING& path)
-* @brief      GetAbsolutePath
+* @brief      Get absolute path
 * @ingroup    PLATFORM_ANDROID
 *
 * @param[in]  app :
@@ -1007,7 +1007,7 @@ bool MAINPROCANDROID::GetAbsolutePath(struct android_app* app, XSTRING& path)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool MAINPROCANDROID::GetDPI(struct android_app* app)
-* @brief      GetDPI
+* @brief      Get DPI
 * @ingroup    PLATFORM_ANDROID
 *
 * @param[in]  app :
@@ -1022,7 +1022,7 @@ bool MAINPROCANDROID::GetDPI(struct android_app* app)
   //grpfactory  = new GRPANDROIDFACTORY();
   //if(!grpfactory) return false;
 
-  //// get the screen dpi  //DIEGO : supongo que meter esto en una función consumía tinta de monitor, no? de hecho , no hay una clase para manejar el JNI????
+  //// get the screen dpi  //DIEGO : supongo que meter esto en una funci?n consum_a tinta de monitor, no? de hecho , no hay una clase para manejar el JNI????
   //JNIEnv* env = NULL;
 
   //jint      res     = androidapplication->activity->vm->AttachCurrentThread(&env, NULL);
@@ -1048,7 +1048,7 @@ bool MAINPROCANDROID::GetDPI(struct android_app* app)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void MAINPROCANDROID::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_ANDROID
 *
@@ -1068,7 +1068,7 @@ void MAINPROCANDROID::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool MAINPROCANDROID::Factorys_Ini()
-* @brief      Factorys_Ini
+* @brief      Factorys ini
 * @ingroup    PLATFORM_ANDROID
 *
 * @return     bool : true if is succesful.
@@ -1119,7 +1119,7 @@ bool MAINPROCANDROID::Factorys_Ini()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool MAINPROCANDROID::Factorys_End()
-* @brief      Factorys_End
+* @brief      Factorys end
 * @ingroup    PLATFORM_ANDROID
 *
 * @return     bool : true if is succesful.
@@ -1218,7 +1218,7 @@ bool MAINPROCANDROID::Factorys_End()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool MAINPROCANDROID::OverturnAssetsToExternalLocation(XPATH& origin, XPATH& target, XPATH& addtarget)
-* @brief      OverturnAssetsToExternalLocation
+* @brief      Overturn assets to external location
 * @ingroup    PLATFORM_ANDROID
 *
 * @param[in]  origin : 
@@ -1317,7 +1317,7 @@ bool MAINPROCANDROID::OverturnAssetsToExternalLocation(XPATH& origin, XPATH& dat
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool MAINPROCANDROID::AssetsDir_CreateAll(XPATH& origin)
-* @brief      AssetsDir_CreateAll
+* @brief      Assets dir create all
 * @ingroup    PLATFORM_ANDROID
 *
 * @param[in]  origin : 
@@ -1402,7 +1402,7 @@ bool MAINPROCANDROID::AssetsDir_CreateAll(XPATH& origin)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool MAINPROCANDROID::AssetsDir_Add(XPATH* assetsdir)
-* @brief      AssetsDir_Add
+* @brief      Assets dir add
 * @ingroup    PLATFORM_ANDROID
 *
 * @param[in]  assetsdir : 
@@ -1428,7 +1428,7 @@ bool MAINPROCANDROID::AssetsDir_Add(XPATH* assetsdir)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XVECTOR<XPATH*>* MAINPROCANDROID::AssetsDir_GetAll()
-* @brief      AssetsDir_GetAll
+* @brief      Assets dir get all
 * @ingroup    PLATFORM_ANDROID
 *
 * @return     XVECTOR<XPATH*>* : 
@@ -1443,7 +1443,7 @@ XVECTOR<XPATH*>* MAINPROCANDROID::AssetsDir_GetAll()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XPATH* MAINPROCANDROID::AssetsDir_Get(int index)
-* @brief      AssetsDir_Get
+* @brief      Assets dir get
 * @ingroup    PLATFORM_ANDROID
 *
 * @param[in]  index : 
@@ -1462,7 +1462,7 @@ XPATH* MAINPROCANDROID::AssetsDir_Get(int index)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool MAINPROCANDROID::AssetsDir_DeleteAll()
-* @brief      AssetsDir_DeleteAll
+* @brief      Assets dir delete all
 * @ingroup    PLATFORM_ANDROID
 *
 * @return     bool : true if is succesful. 
@@ -1484,7 +1484,7 @@ bool MAINPROCANDROID::AssetsDir_DeleteAll()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool MAINPROCANDROID::CreateInputDevices(INPMANAGER* inpmanager, GRPANDROIDSCREEN* screen)
-* @brief      CreateInputDevices
+* @brief      Create input devices
 * @ingroup    PLATFORM_ANDROID
 *
 * @param[in]  inpmanager :
@@ -1508,7 +1508,7 @@ bool MAINPROCANDROID::CreateInputDevices(INPMANAGER* inpmanager, GRPANDROIDSCREE
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool MAINPROCANDROID::DeleteInputDevices()
-* @brief      DeleteInputDevices
+* @brief      Delete input devices
 * @ingroup    PLATFORM_ANDROID
 *
 * @return     bool : true if is succesful. 

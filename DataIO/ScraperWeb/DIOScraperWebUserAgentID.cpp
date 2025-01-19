@@ -69,7 +69,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOUSERAGENTID_RESULT::DIOUSERAGENTID_RESULT()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -82,7 +82,7 @@ DIOUSERAGENTID_RESULT::DIOUSERAGENTID_RESULT()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOUSERAGENTID_RESULT::~DIOUSERAGENTID_RESULT()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 * 
@@ -96,7 +96,7 @@ DIOUSERAGENTID_RESULT::~DIOUSERAGENTID_RESULT()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* DIOUSERAGENTID_RESULT::GetBrowser()
-* @brief      GetBrowser
+* @brief      Get browser
 * @ingroup    DATAIO
 *
 * @return     XSTRING* : 
@@ -111,7 +111,7 @@ XSTRING* DIOUSERAGENTID_RESULT::GetBrowser()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* DIOUSERAGENTID_RESULT::GetSO()
-* @brief      GetSO
+* @brief      Get SO
 * @ingroup    DATAIO
 *
 * @return     XSTRING* : 
@@ -126,7 +126,7 @@ XSTRING* DIOUSERAGENTID_RESULT::GetSO()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOUSERAGENTID_RESULT::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *
@@ -146,7 +146,7 @@ void DIOUSERAGENTID_RESULT::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSCRAPERWEBUSERAGENTID::DIOSCRAPERWEBUSERAGENTID()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -159,7 +159,7 @@ DIOSCRAPERWEBUSERAGENTID::DIOSCRAPERWEBUSERAGENTID() : DIOSCRAPERWEB()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSCRAPERWEBUSERAGENTID::~DIOSCRAPERWEBUSERAGENTID()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -173,7 +173,7 @@ DIOSCRAPERWEBUSERAGENTID::~DIOSCRAPERWEBUSERAGENTID()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSCRAPERWEBUSERAGENTID::ChangeURL(XCHAR* maskurl, DIOURL& url)
-* @brief      ChangeURL
+* @brief      Change URL
 * @ingroup    DATAIO
 *
 * @param[in]  maskurl : 
@@ -293,7 +293,7 @@ bool DIOSCRAPERWEBUSERAGENTID::Get(XSTRING& useragent, XSTRING& browser, XSTRING
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSCRAPERWEBUSERAGENTID::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

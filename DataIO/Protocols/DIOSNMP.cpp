@@ -76,7 +76,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOSNMP_XBER::DIOSNMP_XBER(): XBER()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -89,7 +89,7 @@ DIOSNMP_XBER::DIOSNMP_XBER(): XBER()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOSNMP_XBER::~DIOSNMP_XBER()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -103,7 +103,7 @@ DIOSNMP_XBER::~DIOSNMP_XBER()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOSNMP_XBER::SetIPADDRESS(XCHAR* IPstring)
-* @brief      SetIPADDRESS
+* @brief      Set IPADDRESS
 * @ingroup    DATAIO
 *
 * @param[in]  IPstring : 
@@ -169,7 +169,7 @@ bool DIOSNMP_XBER::SetIPADDRESS(XCHAR* IPstring)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOSNMP_XBER::SetTIMETICKS(XDWORD ticks)
-* @brief      SetTIMETICKS
+* @brief      Set TIMETICKS
 * @ingroup    DATAIO
 *
 * @param[in]  ticks : 
@@ -190,7 +190,7 @@ bool DIOSNMP_XBER::SetTIMETICKS(XDWORD ticks)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOSNMP_XBER::Sequence_AddTo(XBER& xber)
-* @brief      Sequence_AddTo
+* @brief      Sequence add to
 * @ingroup    DATAIO
 *
 * @param[in]  xber : 
@@ -211,7 +211,7 @@ bool DIOSNMP_XBER::Sequence_AddTo(XBER& xber)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOSNMP_XBER::TrapData_AddTo(XBER& xber)
-* @brief      TrapData_AddTo
+* @brief      Trap data add to
 * @ingroup    DATAIO
 *
 * @param[in]  xber : 
@@ -238,7 +238,7 @@ bool DIOSNMP_XBER::TrapData_AddTo(XBER& xber)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOSNMP_BASE::DIOSNMP_BASE()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -251,7 +251,7 @@ DIOSNMP_BASE::DIOSNMP_BASE()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOSNMP_BASE::~DIOSNMP_BASE()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -265,7 +265,7 @@ DIOSNMP_BASE::~DIOSNMP_BASE()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOSTREAMUDPCONFIG* DIOSNMP_BASE::GetDIOStreamUDPCFG()
-* @brief      GetDIOStreamUDPCFG
+* @brief      Get DIO stream UDPCFG
 * @ingroup    DATAIO
 *
 * @return     DIOSTREAMUDPCONFIG* : 
@@ -280,7 +280,7 @@ DIOSTREAMUDPCONFIG* DIOSNMP_BASE::GetDIOStreamUDPCFG()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOSTREAMUDP* DIOSNMP_BASE::GetDIOStreamUDP()
-* @brief      GetDIOStreamUDP
+* @brief      Get DIO stream UDP
 * @ingroup    DATAIO
 *
 * @return     DIOSTREAMUDP* : 
@@ -295,7 +295,7 @@ DIOSTREAMUDP* DIOSNMP_BASE::GetDIOStreamUDP()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOSNMP_VERSION DIOSNMP_BASE::GetVersion()
-* @brief      GetVersion
+* @brief      Get version
 * @ingroup    DATAIO
 *
 * @return     DIOSNMP_VERSION : 
@@ -310,7 +310,7 @@ DIOSNMP_VERSION DIOSNMP_BASE::GetVersion()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOSNMP_BASE::SetVersion(DIOSNMP_VERSION version)
-* @brief      SetVersion
+* @brief      Set version
 * @ingroup    DATAIO
 *
 * @param[in]  version : 
@@ -416,7 +416,7 @@ bool DIOSNMP_BASE::Close()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOSNMP_BASE::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *
@@ -439,7 +439,7 @@ void DIOSNMP_BASE::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOSNMP_TRAP::DIOSNMP_TRAP()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -452,7 +452,7 @@ DIOSNMP_TRAP::DIOSNMP_TRAP()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOSNMP_TRAP::~DIOSNMP_TRAP()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -582,7 +582,7 @@ bool DIOSNMP_TRAP::Send(XCHAR* community,XCHAR* enterprise,XCHAR* agentip,int ge
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOSNMP_TRAP::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *
@@ -602,7 +602,7 @@ void DIOSNMP_TRAP::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOSNMP::DIOSNMP()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -615,7 +615,7 @@ DIOSNMP::DIOSNMP()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOSNMP::~DIOSNMP()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -842,7 +842,7 @@ bool DIOSNMP::Send(XCHAR* community,XCHAR* enterprise,XCHAR* agentip,int generic
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOSNMP::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

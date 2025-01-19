@@ -66,7 +66,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         SNDPLAYCFG::SNDPLAYCFG()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    SOUND
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -82,7 +82,7 @@ SNDPLAYCFG::SNDPLAYCFG()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         SNDPLAYCFG::~SNDPLAYCFG()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    SOUND
 * 
@@ -97,7 +97,7 @@ SNDPLAYCFG::~SNDPLAYCFG()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int SNDPLAYCFG::GetVolume()
-* @brief      GetVolume
+* @brief      Get volume
 * @ingroup    SOUND
 * 
 * @return     int : 
@@ -112,7 +112,7 @@ int SNDPLAYCFG::GetVolume()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void SNDPLAYCFG::SetVolume(int volume)
-* @brief      SetVolume
+* @brief      Set volume
 * @ingroup    SOUND
 * 
 * @param[in]  volume : 
@@ -127,7 +127,7 @@ void SNDPLAYCFG::SetVolume(int volume)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         float SNDPLAYCFG::GetPitch()
-* @brief      GetPitch
+* @brief      Get pitch
 * @ingroup    SOUND
 * 
 * @return     float : 
@@ -142,7 +142,7 @@ float SNDPLAYCFG::GetPitch()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void SNDPLAYCFG::SetPitch(float pitch)
-* @brief      SetPitch
+* @brief      Set pitch
 * @ingroup    SOUND
 * 
 * @param[in]  pitch : 
@@ -157,7 +157,7 @@ void SNDPLAYCFG::SetPitch(float pitch)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool SNDPLAYCFG::CopyTo(SNDPLAYCFG& playCFG)
-* @brief      CopyTo
+* @brief      Copy to
 * @ingroup    SOUND
 * 
 * @param[in]  playCFG : 
@@ -177,7 +177,7 @@ bool SNDPLAYCFG::CopyTo(SNDPLAYCFG& playCFG)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool SNDPLAYCFG::CopyFrom(SNDPLAYCFG& playCFG)
-* @brief      CopyFrom
+* @brief      Copy from
 * @ingroup    SOUND
 * 
 * @param[in]  playCFG : 
@@ -197,7 +197,7 @@ bool SNDPLAYCFG::CopyFrom(SNDPLAYCFG& playCFG)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void SNDPLAYCFG::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    SOUND
 * 

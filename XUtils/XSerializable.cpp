@@ -72,7 +72,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSERIALIZABLE::XSERIALIZABLE()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -85,7 +85,7 @@ XSERIALIZABLE::XSERIALIZABLE()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSERIALIZABLE::~XSERIALIZABLE()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    XUTILS
 * 
@@ -100,7 +100,7 @@ XSERIALIZABLE::~XSERIALIZABLE()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSERIALIZATIONMETHOD* XSERIALIZATIONMETHOD::CreateInstance(XBUFFER& databinary)
-* @brief      CreateInstance
+* @brief      Create instance
 * @ingroup    XUTILS
 * 
 * @param[in]  databinary : 
@@ -125,7 +125,7 @@ XSERIALIZATIONMETHOD* XSERIALIZABLE::CreateInstance(XBUFFER& databinary)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSERIALIZATIONMETHOD* XSERIALIZABLE::CreateInstance(XFILEJSON& fileJSON)
-* @brief      CreateInstance
+* @brief      Create instance
 * @ingroup    XUTILS
 * 
 * @param[in]  fileJSON : 
@@ -169,7 +169,7 @@ XSERIALIZATIONMETHOD* XSERIALIZABLE::CreateInstance(XFILEJSON& fileJSON)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSERIALIZATIONMETHOD* XSERIALIZABLE::GetSerializationMethod()
-* @brief      GetSerializationMethod
+* @brief      Get serialization method
 * @ingroup    XUTILS
 * 
 * @return     XSERIALIZATIONMETHOD* : 
@@ -184,7 +184,7 @@ XSERIALIZATIONMETHOD* XSERIALIZABLE::GetSerializationMethod()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void XSERIALIZABLE::SetSerializationMethod(XSERIALIZATIONMETHOD* serializationmethod)
-* @brief      SetSerializationMethod
+* @brief      Set serialization method
 * @ingroup    XUTILS
 * 
 * @param[in]  serializationmethod : 
@@ -199,7 +199,7 @@ void XSERIALIZABLE::SetSerializationMethod(XSERIALIZATIONMETHOD* serializationme
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XSERIALIZABLE::DoDeserialize()
-* @brief      DoDeserialize
+* @brief      Do deserialize
 * @ingroup    XUTILS
 * 
 * @return     bool : true if is succesful. 
@@ -219,7 +219,7 @@ bool XSERIALIZABLE::DoDeserialize()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XSERIALIZABLE::DoSerialize()
-* @brief      DoSerialize
+* @brief      Do serialize
 * @ingroup    XUTILS
 * 
 * @return     bool : true if is succesful. 
@@ -239,7 +239,7 @@ bool XSERIALIZABLE::DoSerialize()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XSERIALIZABLE::DoSerialize(XSERIALIZATIONMETHOD* serializationmethod)
-* @brief      DoSerialize
+* @brief      Do serialize
 * @ingroup    XUTILS
 * 
 * @param[in]  serializationmethod : 
@@ -263,7 +263,7 @@ bool XSERIALIZABLE::DoSerialize(XSERIALIZATIONMETHOD* serializationmethod)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XSERIALIZABLE::DoDeserialize(XSERIALIZATIONMETHOD* serializationmethod)
-* @brief      DoDeserialize
+* @brief      Do deserialize
 * @ingroup    XUTILS
 * 
 * @param[in]  serializationmethod : 
@@ -287,7 +287,7 @@ bool XSERIALIZABLE::DoDeserialize(XSERIALIZATIONMETHOD* serializationmethod)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XSERIALIZABLE::HasBeenChanged()
-* @brief      HasBeenChanged
+* @brief      Has been changed
 * @ingroup    XUTILS
 * 
 * @return     bool : true if is succesful. 
@@ -332,7 +332,7 @@ bool XSERIALIZABLE::HasBeenChanged()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void XSERIALIZABLE::SetHasBeenChanged(bool hasbeenchanged)
-* @brief      SetHasBeenChanged
+* @brief      Set has been changed
 * @ingroup    XUTILS
 * 
 * @param[in]  hasbeenchanged : 
@@ -381,7 +381,7 @@ bool XSERIALIZABLE::Deserialize()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void XSERIALIZABLE::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    XUTILS
 * 

@@ -48,7 +48,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XESP32EEPROMMEMORYMANAGER::XESP32EEPROMMEMORYMANAGER()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_ESP32
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -62,7 +62,7 @@ XESP32EEPROMMEMORYMANAGER::XESP32EEPROMMEMORYMANAGER()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XESP32EEPROMMEMORYMANAGER::~XESP32EEPROMMEMORYMANAGER()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_ESP32
 *
@@ -171,7 +171,7 @@ bool XESP32EEPROMMEMORYMANAGER::Write(XDWORD offset, XBYTE* data, XDWORD size)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XESP32EEPROMMEMORYMANAGER::EraseAll()
-* @brief      EraseAll
+* @brief      Erase all
 * @ingroup    PLATFORM_ESP32
 *
 * @return     bool : true if is succesful.

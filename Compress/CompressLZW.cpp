@@ -69,7 +69,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         COMPRESS_LZW::COMPRESS_LZW()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    COMPRESS
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -86,7 +86,7 @@ COMPRESS_LZW::COMPRESS_LZW()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         COMPRESS_LZW::~COMPRESS_LZW()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    COMPRESS
 * 
@@ -155,7 +155,7 @@ bool COMPRESS_LZW::Decompress(XBYTE* source,XDWORD size,XBUFFER* xbuffer)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD COMPRESS_LZW::LZW_Encode(XBYTE* inbuffer,XDWORD length,XBYTE* outbuffer)
-* @brief      LZW_Encode
+* @brief      LZW encode
 * @ingroup    COMPRESS
 * 
 * @param[in]  inbuffer : 
@@ -176,7 +176,7 @@ XDWORD COMPRESS_LZW::LZW_Encode(XBYTE* inbuffer,XDWORD length,XBYTE* outbuffer)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void COMPRESS_LZW::LZW_Decode(XBYTE* inbuffer,XBYTE* outbuffer)
-* @brief      LZW_Decode
+* @brief      LZW decode
 * @ingroup    COMPRESS
 * 
 * @param[in]  inbuffer : 
@@ -192,7 +192,7 @@ void COMPRESS_LZW::LZW_Decode(XBYTE* inbuffer,XBYTE* outbuffer)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD COMPRESS_LZW::LZW_GIF_Encode(XBYTE* dibbuffer,XBYTE* outbuffer,XDWORD dibwidth,XDWORD dibheight,XWORD colorbit)
-* @brief      LZW_GIF_Encode
+* @brief      LZWGIF encode
 * @ingroup    COMPRESS
 * 
 * @param[in]  dibbuffer : 
@@ -269,7 +269,7 @@ XDWORD COMPRESS_LZW::LZW_GIF_Encode(XBYTE* dibbuffer,XBYTE* outbuffer,XDWORD dib
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void COMPRESS_LZW::LZW_GIF_Decode(XBYTE* inbuffer,XBYTE* dibbuffer,XDWORD dibwidth,XDWORD dibheight,bool binterlace)
-* @brief      LZW_GIF_Decode
+* @brief      LZWGIF decode
 * @ingroup    COMPRESS
 * 
 * @param[in]  inbuffer : 
@@ -335,7 +335,7 @@ void COMPRESS_LZW::LZW_GIF_Decode(XBYTE* inbuffer,XBYTE* dibbuffer,XDWORD dibwid
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void COMPRESS_LZW::Decode_InitStringTable()
-* @brief      Decode_InitStringTable
+* @brief      Decode init string table
 * @ingroup    COMPRESS
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -354,7 +354,7 @@ void COMPRESS_LZW::Decode_InitStringTable()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XWORD COMPRESS_LZW::Decode_GetNextcode()
-* @brief      Decode_GetNextcode
+* @brief      Decode get nextcode
 * @ingroup    COMPRESS
 * 
 * @return     XWORD : 
@@ -396,7 +396,7 @@ XWORD COMPRESS_LZW::Decode_GetNextcode()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool COMPRESS_LZW::Decode_IsInTable(XWORD code)
-* @brief      Decode_IsInTable
+* @brief      Decode is in table
 * @ingroup    COMPRESS
 * 
 * @param[in]  code : 
@@ -413,7 +413,7 @@ bool COMPRESS_LZW::Decode_IsInTable(XWORD code)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void COMPRESS_LZW::Decode_AddStringToTable(XWORD prefix, XWORD suffix)
-* @brief      Decode_AddStringToTable
+* @brief      Decode add string to table
 * @ingroup    COMPRESS
 * 
 * @param[in]  prefix : 
@@ -436,7 +436,7 @@ void COMPRESS_LZW::Decode_AddStringToTable(XWORD prefix, XWORD suffix)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTE COMPRESS_LZW::Decode_GetFirstChar(XWORD code)
-* @brief      Decode_GetFirstChar
+* @brief      Decode get first char
 * @ingroup    COMPRESS
 * 
 * @param[in]  code : 
@@ -458,7 +458,7 @@ XBYTE COMPRESS_LZW::Decode_GetFirstChar(XWORD code)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void COMPRESS_LZW::Decode_WriteString_to8(XWORD code)
-* @brief      Decode_WriteString_to8
+* @brief      Decode write stringto8
 * @ingroup    COMPRESS
 * 
 * @param[in]  code : 
@@ -483,7 +483,7 @@ void COMPRESS_LZW::Decode_WriteString_to8(XWORD code)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void COMPRESS_LZW::Decode_SwitchToFollowLine()
-* @brief      Decode_SwitchToFollowLine
+* @brief      Decode switch to follow line
 * @ingroup    COMPRESS
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -512,7 +512,7 @@ void COMPRESS_LZW::Decode_SwitchToFollowLine()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void COMPRESS_LZW::Encode_InitStringTable()
-* @brief      Encode_InitStringTable
+* @brief      Encode init string table
 * @ingroup    COMPRESS
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -528,7 +528,7 @@ void COMPRESS_LZW::Encode_InitStringTable()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTE COMPRESS_LZW::Encode_GetNextPixel()
-* @brief      Encode_GetNextPixel
+* @brief      Encode get next pixel
 * @ingroup    COMPRESS
 * 
 * @return     XBYTE : 
@@ -566,7 +566,7 @@ XBYTE COMPRESS_LZW::Encode_GetNextPixel()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool COMPRESS_LZW::Encode_IsInTable(XWORD Old, XWORD Pixel)
-* @brief      Encode_IsInTable
+* @brief      Encode is in table
 * @ingroup    COMPRESS
 * 
 * @param[in]  Old : 
@@ -584,7 +584,7 @@ bool COMPRESS_LZW::Encode_IsInTable(XWORD Old, XWORD Pixel)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void COMPRESS_LZW::Encode_AddStringToTable(XWORD Old, XWORD Pixel)
-* @brief      Encode_AddStringToTable
+* @brief      Encode add string to table
 * @ingroup    COMPRESS
 * 
 * @param[in]  Old : 
@@ -606,7 +606,7 @@ void COMPRESS_LZW::Encode_AddStringToTable(XWORD Old, XWORD Pixel)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void COMPRESS_LZW::Encode_WriteIndex(XDWORD Index)
-* @brief      Encode_WriteIndex
+* @brief      Encode write index
 * @ingroup    COMPRESS
 * 
 * @param[in]  Index : 

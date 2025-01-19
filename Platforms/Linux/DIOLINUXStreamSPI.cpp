@@ -82,7 +82,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOLINUXSTREAMSPI::DIOLINUXSTREAMSPI()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_LINUX
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -95,7 +95,7 @@ DIOLINUXSTREAMSPI::DIOLINUXSTREAMSPI() : DIOSTREAMSPI()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOLINUXSTREAMSPI::~DIOLINUXSTREAMSPI()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
 * 
@@ -172,7 +172,7 @@ bool DIOLINUXSTREAMSPI::Close()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOLINUXSTREAMSPI::TransferBuffer(XBYTE* bufferread, XBYTE* bufferwrite, XDWORD size)
-* @brief      TransferBuffer
+* @brief      Transfer buffer
 * @ingroup    PLATFORM_LINUX
 * 
 * @param[in]  bufferread : 
@@ -235,7 +235,7 @@ void DIOLINUXSTREAMSPI::Sleep(int count)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOLINUXSTREAMSPI::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
 * 

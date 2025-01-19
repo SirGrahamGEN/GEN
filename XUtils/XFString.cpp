@@ -64,7 +64,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFSTRING::XFSTRING()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -77,7 +77,7 @@ XFSTRING::XFSTRING(): XSTRING()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFSTRING::XFSTRING(int n) : XSTRING(n)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * @param[in]  n :
@@ -92,7 +92,7 @@ XFSTRING::XFSTRING(int n) : XSTRING(n)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFSTRING::XFSTRING(const XCHAR* string) : XSTRING(string)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * @param[in]  string :
@@ -107,7 +107,7 @@ XFSTRING::XFSTRING(const XCHAR* string) : XSTRING(string)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFSTRING::XFSTRING(XCHAR* string) : XSTRING(string)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * @param[in]  string :
@@ -122,7 +122,7 @@ XFSTRING::XFSTRING(XCHAR* string) : XSTRING(string)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFSTRING::XFSTRING(const char* string) : XSTRING(string)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * @param[in]  string :
@@ -137,7 +137,7 @@ XFSTRING::XFSTRING(const char* string) : XSTRING(string)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFSTRING::XFSTRING(XSTRING& string) : XSTRING(string)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * @param[in]  string :
@@ -152,7 +152,7 @@ XFSTRING::XFSTRING(XSTRING& string) : XSTRING(string)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XFSTRING::Fast_ConvertToInt(int index)
-* @brief      Fast_ConvertToInt
+* @brief      Fast convert to int
 * @ingroup    XUTILS
 *
 * @param[in]  index :
@@ -172,7 +172,7 @@ int XFSTRING::Fast_ConvertToInt(int index)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD XFSTRING::Fast_ConvertToDWord(int index)
-* @brief      Fast_ConvertToDWord
+* @brief      Fast convert to D word
 * @ingroup    XUTILS
 *
 * @param[in]  index :
@@ -193,7 +193,7 @@ XDWORD XFSTRING::Fast_ConvertToDWord(int index)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XQWORD XFSTRING::Fast_ConvertToQWord(int index)
-* @brief      Fast_ConvertToQWord
+* @brief      Fast convert to Q word
 * @ingroup    XUTILS
 *
 * @param[in]  index :
@@ -214,7 +214,7 @@ XQWORD XFSTRING::Fast_ConvertToQWord(int index)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XQWORDSIG XFSTRING::Fast_ConvertToSQWord(int index)
-* @brief      Fast_ConvertToSQWord
+* @brief      Fast convert to SQ word
 * @ingroup    XUTILS
 *
 * @param[in]  index :
@@ -235,7 +235,7 @@ XQWORDSIG XFSTRING::Fast_ConvertToSQWord(int index)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         float XFSTRING::Fast_ConvertToFloat(int index)
-* @brief      Fast_ConvertToFloat
+* @brief      Fast convert to float
 * @ingroup    XUTILS
 *
 * @param[in]  index :
@@ -256,7 +256,7 @@ float XFSTRING::Fast_ConvertToFloat(int index)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         double XFSTRING::Fast_ConvertToDouble(int index)
-* @brief      Fast_ConvertToDouble
+* @brief      Fast convert to double
 * @ingroup    XUTILS
 *
 * @param[in]  index :
@@ -277,7 +277,7 @@ double XFSTRING::Fast_ConvertToDouble(int index)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFSTRING::Fast_AddCharacter(XCHAR character)
-* @brief      Fast_AddCharacter
+* @brief      Fast add character
 * @ingroup    XUTILS
 *
 * @param[in]  character :
@@ -298,7 +298,7 @@ bool XFSTRING::Fast_AddCharacter(XCHAR character)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFSTRING::Fast_Empty()
-* @brief      Fast_Empty
+* @brief      Fast empty
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -318,7 +318,7 @@ bool XFSTRING::Fast_Empty()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XFSTRING::operator = (const char* string)
-* @brief      operator =
+* @brief      operator = 
 * @ingroup    XUTILS
 *
 * @param[in]  string :
@@ -333,7 +333,7 @@ void XFSTRING::operator =  (const char* string)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XFSTRING::operator = (const XCHAR* string)
-* @brief      operator =
+* @brief      operator = 
 * @ingroup    XUTILS
 *
 * @param[in]  string :
@@ -348,7 +348,7 @@ void XFSTRING::operator =  (const XCHAR* string)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XFSTRING::operator = (const XSTRING& string)
-* @brief      operator =
+* @brief      operator = 
 * @ingroup    XUTILS
 *
 * @param[in]  string :
@@ -363,7 +363,7 @@ void XFSTRING::operator =  (const XSTRING& string)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XFSTRING::operator = (XWORD* string)
-* @brief      operator =
+* @brief      operator = 
 * @ingroup    XUTILS
 *
 * @param[in]  string :
@@ -378,7 +378,7 @@ void XFSTRING::operator =  (XWORD* string)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XFSTRING::operator = (XBUFFER& string)
-* @brief      operator =
+* @brief      operator = 
 * @ingroup    XUTILS
 *
 * @param[in]  string :
@@ -393,7 +393,7 @@ void XFSTRING::operator =  (XBUFFER& string)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XFSTRING::operator += (const char* string)
-* @brief      operator +=
+* @brief      operator += 
 * @ingroup    XUTILS
 *
 * @param[in]  string :
@@ -408,7 +408,7 @@ void XFSTRING::operator += (const char* string)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XFSTRING::operator += (const XCHAR* string)
-* @brief      operator +=
+* @brief      operator += 
 * @ingroup    XUTILS
 *
 * @param[in]  string :
@@ -423,7 +423,7 @@ void XFSTRING::operator += (const XCHAR* string)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XFSTRING::operator += (XSTRING& string)
-* @brief      operator +=
+* @brief      operator += 
 * @ingroup    XUTILS
 *
 * @param[in]  string :
@@ -438,7 +438,7 @@ void XFSTRING::operator += (XSTRING& string)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XFSTRING::operator += (XCHAR character)
-* @brief      operator +=
+* @brief      operator += 
 * @ingroup    XUTILS
 *
 * @param[in]  character :
@@ -453,7 +453,7 @@ void XFSTRING::operator += (XCHAR character)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFSTRING::operator < (const XSTRING& string) const
-* @brief      operator <
+* @brief      operator < 
 * @ingroup    XUTILS
 *
 * @param[in]  string :
@@ -470,7 +470,7 @@ bool XFSTRING::operator <  (const XSTRING& string) const
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFSTRING::operator > (XSTRING& string)
-* @brief      operator >
+* @brief      operator > 
 * @ingroup    XUTILS
 *
 * @param[in]  string :
@@ -487,7 +487,7 @@ bool XFSTRING::operator >  (XSTRING& string)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFSTRING::operator <= (XSTRING& string)
-* @brief      operator <=
+* @brief      operator <= 
 * @ingroup    XUTILS
 *
 * @param[in]  string :
@@ -504,7 +504,7 @@ bool XFSTRING::operator <= (XSTRING& string)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFSTRING::operator >= (XSTRING& string)
-* @brief      operator >=
+* @brief      operator >= 
 * @ingroup    XUTILS
 *
 * @param[in]  string :
@@ -521,7 +521,7 @@ bool XFSTRING::operator >= (XSTRING& string)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFSTRING::operator == (const XSTRING& string) const
-* @brief      operator ==
+* @brief      operator == 
 * @ingroup    XUTILS
 *
 * @param[in]  string :
@@ -538,7 +538,7 @@ bool XFSTRING::operator == (const XSTRING& string) const
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFSTRING::operator != (XSTRING& string)
-* @brief      operator !=
+* @brief      operator != 
 * @ingroup    XUTILS
 *
 * @param[in]  string :
@@ -555,7 +555,7 @@ bool XFSTRING::operator != (XSTRING& string)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XCHAR XFSTRING::operator [] (int position)
-* @brief      operator []
+* @brief      operator [] 
 * @ingroup    XUTILS
 *
 * @param[in]  position :

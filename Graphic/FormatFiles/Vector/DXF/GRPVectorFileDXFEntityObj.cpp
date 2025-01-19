@@ -75,7 +75,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVECTORFILEDXFENTITYOBJ::GRPVECTORFILEDXFENTITYOBJ(XCHAR* nametype)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    GRAPHIC
 * 
 * @param[in]  nametype : 
@@ -94,7 +94,7 @@ GRPVECTORFILEDXFENTITYOBJ::GRPVECTORFILEDXFENTITYOBJ(XCHAR* nametype)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVECTORFILEDXFENTITYOBJ::~GRPVECTORFILEDXFENTITYOBJ()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
 * 
@@ -108,7 +108,7 @@ GRPVECTORFILEDXFENTITYOBJ::~GRPVECTORFILEDXFENTITYOBJ()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVECTORFILEDXFENTITYOBJ* GRPVECTORFILEDXFENTITYOBJ::CreateInstance(GRPVECTORFILEDXFENTITY* entity)
-* @brief      CreateInstance
+* @brief      Create instance
 * @ingroup    GRAPHIC
 * 
 * @param[in]  entity : 
@@ -179,7 +179,7 @@ GRPVECTORFILEDXFENTITYOBJ* GRPVECTORFILEDXFENTITYOBJ::CreateInstance(GRPVECTORFI
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVECTORFILEDXFENTITYOBJTYPE GRPVECTORFILEDXFENTITYOBJ::GetType()
-* @brief      GetType
+* @brief      Get type
 * @ingroup    GRAPHIC
 * 
 * @return     GRPVECTORFILEDXFENTITYOBJTYPE : 
@@ -194,7 +194,7 @@ GRPVECTORFILEDXFENTITYOBJTYPE GRPVECTORFILEDXFENTITYOBJ::GetType()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* GRPVECTORFILEDXFENTITYOBJ::GetNameType()
-* @brief      GetNameType
+* @brief      Get name type
 * @ingroup    GRAPHIC
 * 
 * @return     XSTRING* : 
@@ -209,7 +209,7 @@ XSTRING* GRPVECTORFILEDXFENTITYOBJ::GetNameType()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* GRPVECTORFILEDXFENTITYOBJ::GetLayerName()
-* @brief      GetLayerName
+* @brief      Get layer name
 * @ingroup    GRAPHIC
 * 
 * @return     XSTRING* : 
@@ -224,7 +224,7 @@ XSTRING* GRPVECTORFILEDXFENTITYOBJ::GetLayerName()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int GRPVECTORFILEDXFENTITYOBJ::GetLineColor()
-* @brief      GetLineColor
+* @brief      Get line color
 * @ingroup    GRAPHIC
 * 
 * @return     int : 
@@ -239,7 +239,7 @@ int GRPVECTORFILEDXFENTITYOBJ::GetLineColor()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRPVECTORFILEDXFENTITYOBJ::SetLineColor(int linecolor)
-* @brief      SetLineColor
+* @brief      Set line color
 * @ingroup    GRAPHIC
 * 
 * @param[in]  linecolor : 
@@ -254,7 +254,7 @@ void GRPVECTORFILEDXFENTITYOBJ::SetLineColor(int linecolor)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* GRPVECTORFILEDXFENTITYOBJ::GetLineTypeName()
-* @brief      GetLineTypeName
+* @brief      Get line type name
 * @ingroup    GRAPHIC
 * 
 * @return     XSTRING* : 
@@ -269,7 +269,7 @@ XSTRING* GRPVECTORFILEDXFENTITYOBJ::GetLineTypeName()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int GRPVECTORFILEDXFENTITYOBJ::GetTypeSpace()
-* @brief      GetTypeSpace
+* @brief      Get type space
 * @ingroup    GRAPHIC
 * 
 * @return     int : 
@@ -284,7 +284,7 @@ int GRPVECTORFILEDXFENTITYOBJ::GetTypeSpace()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRPVECTORFILEDXFENTITYOBJ::SetTypeSpace(int typeSpace)
-* @brief      SetTypeSpace
+* @brief      Set type space
 * @ingroup    GRAPHIC
 * 
 * @param[in]  typeSpace : 
@@ -299,7 +299,7 @@ void GRPVECTORFILEDXFENTITYOBJ::SetTypeSpace(int typeSpace)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPVECTORFILEDXFENTITYOBJ::GetVisibility()
-* @brief      GetVisibility
+* @brief      Get visibility
 * @ingroup    GRAPHIC
 * 
 * @return     bool : true if is succesful. 
@@ -314,7 +314,7 @@ bool GRPVECTORFILEDXFENTITYOBJ::GetVisibility()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRPVECTORFILEDXFENTITYOBJ::SetVisibility(bool visibility)
-* @brief      SetVisibility
+* @brief      Set visibility
 * @ingroup    GRAPHIC
 * 
 * @param[in]  visibility : 
@@ -329,7 +329,7 @@ void GRPVECTORFILEDXFENTITYOBJ::SetVisibility(bool visibility)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPVECTORFILEDXFENTITYOBJ::ApplyData(GRPVECTORFILEDXFENTITY* entity)
-* @brief      ApplyData
+* @brief      Apply data
 * @ingroup    GRAPHIC
 * 
 * @param[in]  entity : 
@@ -378,7 +378,7 @@ bool GRPVECTORFILEDXFENTITYOBJ::ApplyData(GRPVECTORFILEDXFENTITY* entity)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVECTORFILEDXFVALUE* GRPVECTORFILEDXFENTITYOBJ::GetDataValue(int type, GRPVECTORFILEDXFENTITY* entity)
-* @brief      GetDataValue
+* @brief      Get data value
 * @ingroup    GRAPHIC
 * 
 * @param[in]  type : 
@@ -413,7 +413,7 @@ GRPVECTORFILEDXFVALUE* GRPVECTORFILEDXFENTITYOBJ::GetDataValue(int type, GRPVECT
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVECTORFILEDXFVALUE* GRPVECTORFILEDXFENTITYOBJ::GetDataValue(XCHAR* name, GRPVECTORFILEDXFENTITY* entity)
-* @brief      GetDataValue
+* @brief      Get data value
 * @ingroup    GRAPHIC
 * 
 * @param[in]  name : 
@@ -448,7 +448,7 @@ GRPVECTORFILEDXFVALUE* GRPVECTORFILEDXFENTITYOBJ::GetDataValue(XCHAR* name, GRPV
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRPVECTORFILEDXFENTITYOBJ::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    GRAPHIC
 * 

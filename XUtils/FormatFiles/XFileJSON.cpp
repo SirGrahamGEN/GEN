@@ -77,7 +77,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILEJSONVALUE::XFILEJSONVALUE()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -90,7 +90,7 @@ XFILEJSONVALUE::XFILEJSONVALUE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILEJSONVALUE::~XFILEJSONVALUE()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -106,7 +106,7 @@ XFILEJSONVALUE::~XFILEJSONVALUE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILEJSONVALUETYPE XFILEJSONVALUE::GetType()
-* @brief      GetType
+* @brief      Get type
 * @ingroup    XUTILS
 *
 * @return     XFILEJSONVALUETYPE :
@@ -121,7 +121,7 @@ XFILEJSONVALUETYPE XFILEJSONVALUE::GetType()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XFILEJSONVALUE::SetType(XFILEJSONVALUETYPE type)
-* @brief      SetType
+* @brief      Set type
 * @ingroup    XUTILS
 *
 * @param[in]  type : 
@@ -136,7 +136,7 @@ void XFILEJSONVALUE::SetType(XFILEJSONVALUETYPE type)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* XFILEJSONVALUE::GetName()
-* @brief      GetName
+* @brief      Get name
 * @ingroup    XUTILS
 *
 * @return     XSTRING* :
@@ -151,7 +151,7 @@ XSTRING* XFILEJSONVALUE::GetName()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEJSONVALUE::SetName(XSTRING& name)
-* @brief      SetName
+* @brief      Set name
 * @ingroup    XUTILS
 *
 * @param[in]  name :
@@ -173,7 +173,7 @@ bool XFILEJSONVALUE::SetName(XSTRING& name)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEJSONVALUE::SetName(XCHAR* name)
-* @brief      SetName
+* @brief      Set name
 * @ingroup    XUTILS
 *
 * @param[in]  name :
@@ -195,7 +195,7 @@ bool XFILEJSONVALUE::SetName(XCHAR* name)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XVARIANT* XFILEJSONVALUE::GetValue()
-* @brief      GetValue
+* @brief      Get value
 * @ingroup    XUTILS
 * 
 * @return     XVARIANT* : 
@@ -210,7 +210,7 @@ XVARIANT* XFILEJSONVALUE::GetValue()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEJSONVALUE::GetValueBoolean()
-* @brief      GetValueBoolean
+* @brief      Get value boolean
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -225,7 +225,7 @@ bool XFILEJSONVALUE::GetValueBoolean()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         short XFILEJSONVALUE::GetValueShort()
-* @brief      GetValueShort
+* @brief      Get value short
 * @ingroup    XUTILS
 * 
 * @return     short : 
@@ -240,7 +240,7 @@ short XFILEJSONVALUE::GetValueShort()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XWORD XFILEJSONVALUE::GetValueWord()
-* @brief      GetValueWord
+* @brief      Get value word
 * @ingroup    XUTILS
 * 
 * @return     XWORD : 
@@ -255,7 +255,7 @@ XWORD XFILEJSONVALUE::GetValueWord()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XFILEJSONVALUE::GetValueInteger()
-* @brief      GetValueInteger
+* @brief      Get value integer
 * @ingroup    XUTILS
 *
 * @return     int :
@@ -270,7 +270,7 @@ int XFILEJSONVALUE::GetValueInteger()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         long XFILEJSONVALUE::GetValueDoubleInteger()
-* @brief      GetValueDoubleInteger
+* @brief      Get value double integer
 * @ingroup    XUTILS
 * 
 * @return     long : 
@@ -285,7 +285,7 @@ XDWORD XFILEJSONVALUE::GetValueDWord()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         long long XFILEJSONVALUE::GetValueDoubleInteger()
-* @brief      GetValueDoubleInteger
+* @brief      Get value double integer
 * @ingroup    XUTILS
 * 
 * @return     long : 
@@ -300,7 +300,7 @@ long long XFILEJSONVALUE::GetValueDoubleInteger()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XQWORD XFILEJSONVALUE::GetValueQWord()
-* @brief      GetValueQWord
+* @brief      Get value Q word
 * @ingroup    XUTILS
 * 
 * @return     XQWORD : 
@@ -315,7 +315,7 @@ XQWORD XFILEJSONVALUE::GetValueQWord()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         float XFILEJSONVALUE::GetValueFloating()
-* @brief      GetValueFloating
+* @brief      Get value floating
 * @ingroup    XUTILS
 *
 * @return     float :
@@ -330,7 +330,7 @@ float XFILEJSONVALUE::GetValueFloating()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         double XFILEJSONVALUE::GetValueDoubleFloat()
-* @brief      GetValueDoubleFloat
+* @brief      Get value double float
 * @ingroup    XUTILS
 * 
 * @return     double : 
@@ -345,7 +345,7 @@ double XFILEJSONVALUE::GetValueDoubleFloat()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* XFILEJSONVALUE::GetValueString()
-* @brief      GetValueString
+* @brief      Get value string
 * @ingroup    XUTILS
 * 
 * @return     XSTRING* : 
@@ -362,7 +362,7 @@ XSTRING XFILEJSONVALUE::GetValueString()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XFILEJSONOBJECT* XFILEJSONVALUE::GetValueObject()
-* @brief      GetValueObject
+* @brief      Get value object
 * @ingroup    XUTILS
 *
 * @return     XFILEJSONOBJECT* : 
@@ -377,7 +377,7 @@ XFILEJSONOBJECT* XFILEJSONVALUE::GetValueObject()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XFILEJSONARRAY* XFILEJSONVALUE::GetValueArray()
-* @brief      GetValueArray
+* @brief      Get value array
 * @ingroup    XUTILS
 *
 * @return     XFILEJSONARRAY* : 
@@ -392,7 +392,7 @@ XFILEJSONARRAY* XFILEJSONVALUE::GetValueArray()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void* XFILEJSONVALUE::GetValuePointer()
-* @brief      GetValuePointer
+* @brief      Get value pointer
 * @ingroup    XUTILS
 *
 * @return     void* :
@@ -869,7 +869,7 @@ XFILEJSONVALUE* XFILEJSONVALUE::Clone()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XFILEJSONVALUE::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    XUTILS
 *
@@ -890,7 +890,7 @@ void XFILEJSONVALUE::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILEJSONOBJECT::XFILEJSONOBJECT()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -903,7 +903,7 @@ XFILEJSONOBJECT::XFILEJSONOBJECT()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILEJSONOBJECT::~XFILEJSONOBJECT()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -925,7 +925,7 @@ bool XFILEJSONOBJECT::IsArray()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XFILEJSONOBJECT::SetIsArray(bool isarray)
-* @brief      SetIsArray
+* @brief      Set is array
 * @ingroup    XUTILS
 *
 * @param[in]  isarray : 
@@ -1057,7 +1057,7 @@ bool XFILEJSONOBJECT::Add(XSTRING& name, XFILEJSONOBJECT* object)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XFILEJSONOBJECT* XFILEJSONOBJECT::GetFather()
-* @brief      GetFather
+* @brief      Get father
 * @ingroup    XUTILS
 * 
 * @return     XFILEJSONOBJECT* : 
@@ -1072,7 +1072,7 @@ XFILEJSONOBJECT* XFILEJSONOBJECT::GetFather()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void XFILEJSONOBJECT::SetFather(XFILEJSONOBJECT* father)
-* @brief      SetFather
+* @brief      Set father
 * @ingroup    XUTILS
 * 
 * @param[in]  father : 
@@ -1087,7 +1087,7 @@ void XFILEJSONOBJECT::SetFather(XFILEJSONOBJECT* father)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XVECTOR<XFILEJSONVALUE*>* XFILEJSONOBJECT::GetValues()
-* @brief      GetValues
+* @brief      Get values
 * @ingroup    XUTILS
 *
 * @return     XVECTOR<XFILEJSONVALUE*>* :
@@ -1102,7 +1102,7 @@ XVECTOR<XFILEJSONVALUE*>* XFILEJSONOBJECT::GetValues()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEJSONOBJECT::DeleteAllValues()
-* @brief      DeleteAllValues
+* @brief      Delete all values
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -1155,7 +1155,7 @@ XFILEJSONOBJECT* XFILEJSONOBJECT::Clone()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XFILEJSONOBJECT::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    XUTILS
 *
@@ -1176,7 +1176,7 @@ void XFILEJSONOBJECT::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XFILEJSONARRAY::XFILEJSONARRAY()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -1191,7 +1191,7 @@ XFILEJSONARRAY::XFILEJSONARRAY() : XFILEJSONOBJECT()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILEJSONARRAY::~XFILEJSONARRAY()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -1207,7 +1207,7 @@ XFILEJSONARRAY::~XFILEJSONARRAY()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* XFILEJSONARRAY::GetName()
-* @brief      GetName
+* @brief      Get name
 * @ingroup    XUTILS
 *
 * @return     XSTRING* :
@@ -1222,7 +1222,7 @@ XSTRING* XFILEJSONARRAY::GetName()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEJSONARRAY::SetName(XSTRING& name)
-* @brief      SetName
+* @brief      Set name
 * @ingroup    XUTILS
 *
 * @param[in]  name :
@@ -1241,7 +1241,7 @@ bool XFILEJSONARRAY::SetName(XSTRING& name)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEJSONARRAY::SetName(XCHAR* name)
-* @brief      SetName
+* @brief      Set name
 * @ingroup    XUTILS
 *
 * @param[in]  name :
@@ -1280,7 +1280,7 @@ XFILEJSONARRAY* XFILEJSONARRAY::Clone()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XFILEJSONARRAY::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    XUTILS
 *
@@ -1300,7 +1300,7 @@ void XFILEJSONARRAY::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILEJSON::XFILEJSON()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -1313,7 +1313,7 @@ XFILEJSON::XFILEJSON(): XFILETXT()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILEJSON::~XFILEJSON()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -1331,7 +1331,7 @@ XFILEJSON::~XFILEJSON()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILEJSONOBJECT* XFILEJSON::GetRoot()
-* @brief      GetRoot
+* @brief      Get root
 * @ingroup    XUTILS
 *
 * @return     XFILEJSONOBJECT* :
@@ -1346,7 +1346,7 @@ XFILEJSONOBJECT* XFILEJSON::GetRoot()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEJSON::SetRoot(XFILEJSONOBJECT* root)
-* @brief      SetRoot
+* @brief      Set root
 * @ingroup    XUTILS
 *
 * @param[in]  root :
@@ -1367,7 +1367,7 @@ bool XFILEJSON::SetRoot(XFILEJSONOBJECT* root)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEJSON::DecodeAllLines()
-* @brief      DecodeAllLines
+* @brief      Decode all lines
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -1417,7 +1417,7 @@ bool XFILEJSON::DecodeAllLines()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEJSON::EncodeAllLines(bool istabulatedline)
-* @brief      EncodeAllLines
+* @brief      Encode all lines
 * @ingroup    XUTILS
 *
 * @param[in]  istabulatedline :
@@ -1438,7 +1438,7 @@ bool XFILEJSON::EncodeAllLines(bool istabulatedline)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEJSON::ReadAndDecodeAllLines()
-* @brief      ReadAndDecodeAllLines
+* @brief      Read and decode all lines
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -1457,7 +1457,7 @@ bool XFILEJSON::ReadAndDecodeAllLines()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEJSON::WriteAndEncodeAllLines(bool istabulatedline,XFILETXTFORMATCHAR formatchar, XFILETXTTYPELF typeLF)
-* @brief      WriteAndEncodeAllLines
+* @brief      Write and encode all lines
 * @ingroup    XUTILS
 *
 * @param[in]  istabulatedline :
@@ -1479,7 +1479,7 @@ bool XFILEJSON::WriteAndEncodeAllLines(bool istabulatedline,XFILETXTFORMATCHAR f
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEJSON::WriteAndEncodeAllLines(bool istabulatedline)
-* @brief      WriteAndEncodeAllLines
+* @brief      Write and encode all lines
 * @ingroup    XUTILS
 *
 * @param[in]  istabulatedline :
@@ -1504,7 +1504,7 @@ bool XFILEJSON::WriteAndEncodeAllLines(bool istabulatedline)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEJSON::DeleteAllObjects()
-* @brief      DeleteAllObjects
+* @brief      Delete all objects
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -1524,7 +1524,7 @@ bool XFILEJSON::DeleteAllObjects()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILEJSONOBJECT* XFILEJSON::GetObj(XCHAR* name, XFILEJSONOBJECT* startobject)
-* @brief      GetObj
+* @brief      Get obj
 * @ingroup    XUTILS
 *
 * @param[in]  name :
@@ -1594,7 +1594,7 @@ XFILEJSONOBJECT* XFILEJSON::GetObj(XCHAR* name, XFILEJSONOBJECT* startobject)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XFILEJSONOBJECT* XFILEJSON::GetObj(XSTRING& name, XFILEJSONOBJECT* startobject)
-* @brief      GetObj
+* @brief      Get obj
 * @ingroup    XUTILS
 * 
 * @param[in]  name : 
@@ -1612,7 +1612,7 @@ XFILEJSONOBJECT* XFILEJSON::GetObj(XSTRING& name, XFILEJSONOBJECT* startobject)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILEJSONVALUE* XFILEJSON::GetValue(XCHAR* name, XFILEJSONOBJECT* startobject)
-* @brief      GetValue
+* @brief      Get value
 * @ingroup    XUTILS
 *
 * @param[in]  name :
@@ -1656,7 +1656,7 @@ XFILEJSONVALUE* XFILEJSON::GetValue(XCHAR* name, XFILEJSONOBJECT* startobject)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILEJSONVALUE* XFILEJSON::GetValue(XSTRING& name, XFILEJSONOBJECT* startobject)
-* @brief      GetValue
+* @brief      Get value
 * @ingroup    XUTILS
 *
 * @param[in]  name :
@@ -1674,7 +1674,7 @@ XFILEJSONVALUE* XFILEJSON::GetValue(XSTRING& name, XFILEJSONOBJECT* startobject)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XFILEJSONVALUE* XFILEJSON::GetValue(int index, XFILEJSONOBJECT* startobject)
-* @brief      GetValue
+* @brief      Get value
 * @ingroup    XUTILS
 * 
 * @param[in]  index : 
@@ -1697,7 +1697,7 @@ XFILEJSONVALUE* XFILEJSON::GetValue(int index, XFILEJSONOBJECT* startobject)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XFILEJSON::ShowTraceJSON(XBYTE color, bool istabulatedline, XFILETXTTYPELF typeLF)
-* @brief      ShowTraceJSON
+* @brief      Show trace JSON
 * @ingroup    XUTILS
 * 
 * @param[in]  color : 
@@ -1728,7 +1728,7 @@ bool XFILEJSON::ShowTraceJSON(XBYTE color, bool istabulatedline)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILEJSONOBJECT* XFILEJSON::GetObjSubValue(XCHAR* name, XFILEJSONVALUE* value)
-* @brief      GetObjSubValue
+* @brief      Get obj sub value
 * @ingroup    XUTILS
 *
 * @param[in]  name :
@@ -1787,7 +1787,7 @@ XFILEJSONOBJECT* XFILEJSON::GetObjSubValue(XCHAR* name, XFILEJSONVALUE* value)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEJSON::DecodeObject(int& position, bool isobject, XFILEJSONOBJECT* object)
-* @brief      DecodeObject
+* @brief      Decode object
 * @ingroup    XUTILS
 *
 * @param[in]  position :
@@ -2047,7 +2047,7 @@ bool XFILEJSON::DecodeObject(int& position, bool isobject, XFILEJSONOBJECT* obje
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILEJSONCONTROLCHAR XFILEJSON::CheckControlCharacter(XCHAR character)
-* @brief      CheckControlCharacter
+* @brief      Check control character
 * @ingroup    XUTILS
 *
 * @param[in]  character :
@@ -2102,7 +2102,7 @@ XFILEJSONCONTROLCHAR XFILEJSON::CheckControlCharacter(XCHAR character)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XCHAR XFILEJSON::GetControlCharacter(XFILEJSONCONTROLCHAR ctrlchar)
-* @brief      GetControlCharacter
+* @brief      Get control character
 * @ingroup    XUTILS
 *
 * @param[in]  ctrlchar :
@@ -2132,7 +2132,7 @@ XCHAR XFILEJSON::GetControlCharacter(XFILEJSONCONTROLCHAR ctrlchar)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEJSON::AddControlCharacter(XFILEJSONCONTROLCHAR ctrlchar, XSTRING& line)
-* @brief      AddControlCharacter
+* @brief      Add control character
 * @ingroup    XUTILS
 *
 * @param[in]  ctrlchar :
@@ -2157,7 +2157,7 @@ bool XFILEJSON::AddControlCharacter(XFILEJSONCONTROLCHAR ctrlchar, XSTRING& line
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILEJSONCONTROLCHAR XFILEJSON::SearchNextControlCharacter(int& position)
-* @brief      SearchNextControlCharacter
+* @brief      Search next control character
 * @ingroup    XUTILS
 *
 * @param[in]  position :
@@ -2188,7 +2188,7 @@ XFILEJSONCONTROLCHAR XFILEJSON::SearchNextControlCharacter(int& position)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEJSON::SearchControlCharacter(XFILEJSONCONTROLCHAR ctrlchar,int& position)
-* @brief      SearchControlCharacter
+* @brief      Search control character
 * @ingroup    XUTILS
 *
 * @param[in]  ctrlchar :
@@ -2219,7 +2219,7 @@ bool XFILEJSON::SearchControlCharacter(XFILEJSONCONTROLCHAR ctrlchar, int& posit
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEJSON::GetNumber(int& position,XSTRING& string,bool& special)
-* @brief      GetNumber
+* @brief      Get number
 * @ingroup    XUTILS
 *
 * @param[in]  position :
@@ -2260,7 +2260,7 @@ bool XFILEJSON::GetNumber(int& position, XSTRING& string, bool& special)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEJSON::GetText(int& position,XSTRING& string)
-* @brief      GetText
+* @brief      Get text
 * @ingroup    XUTILS
 *
 * @param[in]  position :
@@ -2296,7 +2296,7 @@ bool XFILEJSON::GetText(int& position, XSTRING& string)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEJSON::GetString(int& position, XSTRING& string)
-* @brief      GetString
+* @brief      Get string
 * @ingroup    XUTILS
 *
 * @param[in]  position :
@@ -2368,7 +2368,7 @@ bool XFILEJSON::GetString(int& position, XSTRING& string)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEJSON::AddTabs(int level, int spacetabs, XSTRING& string)
-* @brief      AddTabs
+* @brief      Add tabs
 * @ingroup    XUTILS
 *
 * @param[in]  level :
@@ -2397,7 +2397,7 @@ bool XFILEJSON::AddTabs(int level, int spacetabs, XSTRING& string)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEJSON::EncodeObject(bool isobject, XFILEJSONOBJECT* object, bool istabulatedline)
-* @brief      EncodeObject
+* @brief      Encode object
 * @ingroup    XUTILS
 *
 * @param[in]  isobject :
@@ -2535,7 +2535,7 @@ bool XFILEJSON::EncodeObject(bool isobject, XFILEJSONOBJECT* object, bool istabu
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XFILEJSON::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    XUTILS
 *

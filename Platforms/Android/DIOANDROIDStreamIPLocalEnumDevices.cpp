@@ -77,7 +77,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOANDROIDSTREAMIPLOCALENUMDEVICES::DIOANDROIDSTREAMIPLOCALENUMDEVICES()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_ANDROID
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -90,7 +90,7 @@ DIOANDROIDSTREAMIPLOCALENUMDEVICES::DIOANDROIDSTREAMIPLOCALENUMDEVICES() : DIOST
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOANDROIDSTREAMIPLOCALENUMDEVICES::~DIOANDROIDSTREAMIPLOCALENUMDEVICES()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_ANDROID
 * 

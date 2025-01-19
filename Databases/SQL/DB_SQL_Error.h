@@ -4,7 +4,7 @@
 * 
 * @class      DB_SQL_ERROR
 * @brief      DataBase SQL Error class
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 * 
 * @copyright  GEN Group. All rights reserved.
 * 

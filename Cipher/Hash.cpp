@@ -67,7 +67,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         HASH::HASH()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    CIPHER
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -82,7 +82,7 @@ HASH::HASH()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         HASH::~HASH()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    CIPHER
 * 
@@ -98,7 +98,7 @@ HASH::~HASH()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         HASHTYPE HASH::GetType()
-* @brief      GetType
+* @brief      Get type
 * @ingroup    CIPHER
 * 
 * @return     HASHTYPE : 
@@ -113,7 +113,7 @@ HASHTYPE HASH::GetType()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* HASH::GetOUINoSign()
-* @brief      GetOUINoSign
+* @brief      Get OUI no sign
 * @ingroup    CIPHER
 * 
 * @return     XSTRING* : 
@@ -267,7 +267,7 @@ bool HASH::Do(XFILE* xfile, XQWORD size, XQWORD pos)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool HASH::ResetResult()
-* @brief      ResetResult
+* @brief      Reset result
 * @ingroup    CIPHER
 * 
 * @return     bool : true if is succesful. 
@@ -286,7 +286,7 @@ bool HASH::ResetResult()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int HASH::GetDefaultSize()
-* @brief      GetDefaultSize
+* @brief      Get default size
 * @ingroup    CIPHER
 * 
 * @return     int : 
@@ -301,7 +301,7 @@ int HASH::GetDefaultSize()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBUFFER* HASH::GetResult()
-* @brief      GetResult
+* @brief      Get result
 * @ingroup    CIPHER
 * 
 * @return     XBUFFER* : 
@@ -316,7 +316,7 @@ XBUFFER* HASH::GetResult()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTE* HASH::GetResult(XDWORD& resultsize)
-* @brief      GetResult
+* @brief      Get result
 * @ingroup    CIPHER
 * 
 * @param[in]  resultsize : 
@@ -339,7 +339,7 @@ XBYTE* HASH::GetResult(XDWORD& resultsize)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool HASH::GetResultString(XSTRING& stringhex)
-* @brief      GetResultString
+* @brief      Get result string
 * @ingroup    CIPHER
 * 
 * @param[in]  stringhex : 
@@ -372,7 +372,7 @@ bool HASH::GetResultString(XSTRING& stringhex)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void HASH::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    CIPHER
 * 

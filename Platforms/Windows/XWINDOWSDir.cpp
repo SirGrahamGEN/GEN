@@ -70,7 +70,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XWINDOWSDIR::XWINDOWSDIR()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_WINDOWS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -83,7 +83,7 @@ XWINDOWSDIR::XWINDOWSDIR(): XDIR()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XWINDOWSDIR::~XWINDOWSDIR()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
 *
@@ -225,7 +225,7 @@ bool XWINDOWSDIR::Make(XCHAR* path, bool recursive)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSDIR::ChangeTo(XCHAR* path)
-* @brief      ChangeTo
+* @brief      Change to
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  path :
@@ -297,7 +297,7 @@ bool XWINDOWSDIR::Delete(XCHAR* path,bool all)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSDIR::GetActual(XPATH& xpath)
-* @brief      GetActual
+* @brief      Get actual
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  xpath :
@@ -325,7 +325,7 @@ bool XWINDOWSDIR::GetActual(XPATH& xpath)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSDIR::FirstSearch(XCHAR* xpath,XCHAR* patternsearch,XDIRELEMENT* searchelement)
-* @brief      FirstSearch
+* @brief      First search
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  xpath :
@@ -393,7 +393,7 @@ bool XWINDOWSDIR::FirstSearch(XCHAR* xpath,XCHAR* patternsearch,XDIRELEMENT* sea
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSDIR::NextSearch(XDIRELEMENT* searchelement)
-* @brief      NextSearch
+* @brief      Next search
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  searchelement :
@@ -433,7 +433,7 @@ bool XWINDOWSDIR::NextSearch(XDIRELEMENT* searchelement)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSDIR::ReconvertSearchData(XDIRELEMENT* searchelement)
-* @brief      ReconvertSearchData
+* @brief      Reconvert search data
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  searchelement :
@@ -465,7 +465,7 @@ bool XWINDOWSDIR::ReconvertSearchData(XDIRELEMENT* searchelement)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XWINDOWSDIR::SetFileDate(XDIRELEMENT* searchelement)
-* @brief      SetFileDate
+* @brief      Set file date
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  searchelement : 
@@ -515,7 +515,7 @@ bool XWINDOWSDIR::SetFileDate(XDIRELEMENT* searchelement)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XWINDOWSDIR::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
 *

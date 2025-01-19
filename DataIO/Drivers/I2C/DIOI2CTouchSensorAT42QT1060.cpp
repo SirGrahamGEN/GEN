@@ -77,7 +77,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOI2CTOUCHSENSORAT42QT1060::DIOI2CTOUCHSENSORAT42QT1060()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -90,7 +90,7 @@ DIOI2CTOUCHSENSORAT42QT1060::DIOI2CTOUCHSENSORAT42QT1060() : DIODEVICEI2C()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOI2CTOUCHSENSORAT42QT1060::~DIOI2CTOUCHSENSORAT42QT1060()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 * 
@@ -107,7 +107,7 @@ DIOI2CTOUCHSENSORAT42QT1060::~DIOI2CTOUCHSENSORAT42QT1060()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD DIOI2CTOUCHSENSORAT42QT1060::GetGPIOInterruptEntryID()
-* @brief      GetGPIOInterruptEntryID
+* @brief      Get GPIO interrupt entry ID
 * @ingroup    DATAIO
 *
 * @return     XDWORD : 
@@ -122,7 +122,7 @@ XDWORD DIOI2CTOUCHSENSORAT42QT1060::GetGPIOInterruptEntryID()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOI2CTOUCHSENSORAT42QT1060::SetGPIOInterruptEntryID(XDWORD GPIOentryID)
-* @brief      SetGPIOInterruptEntryID
+* @brief      Set GPIO interrupt entry ID
 * @ingroup    DATAIO
 *
 * @param[in]  GPIOentryID : 
@@ -141,7 +141,7 @@ bool DIOI2CTOUCHSENSORAT42QT1060::SetGPIOInterruptEntryID(XDWORD GPIOentryID)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOI2CTOUCHSENSORAT42QT1060::GetHW_ID(XBYTE& ID)
-* @brief      GetHW_ID
+* @brief      Get HWID
 * @ingroup    DATAIO
 * 
 * @param[in]  ID : 
@@ -168,7 +168,7 @@ bool DIOI2CTOUCHSENSORAT42QT1060::GetHW_ID(XBYTE& ID)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOI2CTOUCHSENSORAT42QT1060::IsNecessaryUpdate()
-* @brief      IsNecessaryUpdate
+* @brief      Is necessary update
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful. 
@@ -183,7 +183,7 @@ bool DIOI2CTOUCHSENSORAT42QT1060::IsNecessaryUpdate()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOI2CTOUCHSENSORAT42QT1060::SetIsNecessaryUpdate(bool isnecessaryupdate)
-* @brief      SetIsNecessaryUpdate
+* @brief      Set is necessary update
 * @ingroup    DATAIO
 *
 * @param[in]  isnecessaryupdate : 
@@ -198,7 +198,7 @@ void DIOI2CTOUCHSENSORAT42QT1060::SetIsNecessaryUpdate(bool isnecessaryupdate)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTE DIOI2CTOUCHSENSORAT42QT1060::GetStatus()
-* @brief      GetStatus
+* @brief      Get status
 * @ingroup    DATAIO
 *
 * @return     XBYTE : 
@@ -241,7 +241,7 @@ bool DIOI2CTOUCHSENSORAT42QT1060::End()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOI2CTOUCHSENSORAT42QT1060::IniDevice()
-* @brief      IniDevice
+* @brief      Ini device
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -326,7 +326,7 @@ bool DIOI2CTOUCHSENSORAT42QT1060::Initializate()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOI2CTOUCHSENSORAT42QT1060::ReadRegister(XBYTE offset, XBYTE& data)
-* @brief      ReadRegister
+* @brief      Read register
 * @ingroup    DATAIO
 * 
 * @param[in]  offset : 
@@ -344,7 +344,7 @@ bool DIOI2CTOUCHSENSORAT42QT1060::ReadRegister(XBYTE offset, XBYTE& data)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOI2CTOUCHSENSORAT42QT1060::ReadRegister(XBYTE offset, XBYTE* data, XDWORD sizedata)
-* @brief      ReadRegister
+* @brief      Read register
 * @ingroup    DATAIO
 * 
 * @param[in]  offset : 
@@ -375,7 +375,7 @@ bool DIOI2CTOUCHSENSORAT42QT1060::ReadRegister(XBYTE offset, XBYTE* data, XDWORD
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOI2CTOUCHSENSORAT42QT1060::WriteRegister(XBYTE offset, XBYTE data)
-* @brief      WriteRegister
+* @brief      Write register
 * @ingroup    DATAIO
 * 
 * @param[in]  offset : 
@@ -393,7 +393,7 @@ bool DIOI2CTOUCHSENSORAT42QT1060::WriteRegister(XBYTE offset, XBYTE data)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOI2CTOUCHSENSORAT42QT1060::WriteRegister(XBYTE offset, XBYTE* data, XDWORD sizedata)
-* @brief      WriteRegister
+* @brief      Write register
 * @ingroup    DATAIO
 * 
 * @param[in]  offset : 
@@ -424,7 +424,7 @@ bool DIOI2CTOUCHSENSORAT42QT1060::WriteRegister(XBYTE offset, XBYTE* data, XDWOR
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOI2CTOUCHSENSORAT42QT1060::Handler_Interrupt(void* param)
-* @brief      Handler_Interrupt
+* @brief      Handler interrupt
 * @ingroup    DATAIO
 *
 * @param[in]  param : 
@@ -440,7 +440,7 @@ void DIOI2CTOUCHSENSORAT42QT1060::Handler_Interrupt(void* param)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOI2CTOUCHSENSORAT42QT1060::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 * 

@@ -79,7 +79,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         INPLINUXDEVICEMOUSEX11::INPLINUXDEVICEMOUSEX11()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_LINUX
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -104,7 +104,7 @@ INPLINUXDEVICEMOUSEX11::INPLINUXDEVICEMOUSEX11() : INPDEVICE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         INPLINUXDEVICEMOUSEX11::~INPLINUXDEVICEMOUSEX11()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
 *
@@ -260,7 +260,7 @@ bool INPLINUXDEVICEMOUSEX11::Update()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool INPLINUXDEVICEMOUSEX11::SetScreen(void* screenhandle)
-* @brief      Set Screen
+* @brief      Set screen
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  screenhandle : handle to screen
@@ -293,7 +293,7 @@ bool INPLINUXDEVICEMOUSEX11::SetScreen(void* screenhandle)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void INPLINUXDEVICEMOUSEX11::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
 *
@@ -307,7 +307,7 @@ void INPLINUXDEVICEMOUSEX11::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool INPLINUXDEVICEMOUSEX11::CreateAllButtons()
-* @brief      CreateAllButtons
+* @brief      Create all buttons
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
 *
@@ -327,7 +327,7 @@ bool INPLINUXDEVICEMOUSEX11::CreateAllButtons()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool INPLINUXDEVICEMOUSEX11::CreateAllCursors()
-* @brief      Create All Cursors
+* @brief      Create all cursors
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
 *

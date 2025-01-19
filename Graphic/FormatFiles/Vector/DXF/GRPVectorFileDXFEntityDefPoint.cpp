@@ -64,7 +64,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVECTORFILEDXFENTITYDEFPOINT::GRPVECTORFILEDXFENTITYDEFPOINT()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    GRAPHIC
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -77,7 +77,7 @@ GRPVECTORFILEDXFENTITYDEFPOINT::GRPVECTORFILEDXFENTITYDEFPOINT()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVECTORFILEDXFENTITYDEFPOINT::GRPVECTORFILEDXFENTITYDEFPOINT(double xpoint, double ypoint, double zpoint)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    GRAPHIC
 * 
 * @param[in]  xpoint : 
@@ -98,7 +98,7 @@ GRPVECTORFILEDXFENTITYDEFPOINT::GRPVECTORFILEDXFENTITYDEFPOINT(double xpoint, do
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVECTORFILEDXFENTITYDEFPOINT::GRPVECTORFILEDXFENTITYDEFPOINT(GRPVECTORFILEDXFENTITYDEFPOINT* point)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    GRAPHIC
 * 
 * @param[in]  point : 
@@ -115,7 +115,7 @@ GRPVECTORFILEDXFENTITYDEFPOINT::GRPVECTORFILEDXFENTITYDEFPOINT(GRPVECTORFILEDXFE
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVECTORFILEDXFENTITYDEFPOINT::~GRPVECTORFILEDXFENTITYDEFPOINT()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
 * 
@@ -129,7 +129,7 @@ GRPVECTORFILEDXFENTITYDEFPOINT::~GRPVECTORFILEDXFENTITYDEFPOINT()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRPVECTORFILEDXFENTITYDEFPOINT::operator = (GRPVECTORFILEDXFENTITYDEFPOINT* point)
-* @brief      operator =
+* @brief      operator = 
 * @ingroup    GRAPHIC
 * 
 * @param[in]  point : 
@@ -144,7 +144,7 @@ void GRPVECTORFILEDXFENTITYDEFPOINT::operator =  (GRPVECTORFILEDXFENTITYDEFPOINT
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRPVECTORFILEDXFENTITYDEFPOINT::operator = (GRPVECTORFILEDXFENTITYDEFPOINT point)
-* @brief      operator =
+* @brief      operator = 
 * @ingroup    GRAPHIC
 * 
 * @param[in]  point : 
@@ -159,7 +159,7 @@ void GRPVECTORFILEDXFENTITYDEFPOINT::operator =  (GRPVECTORFILEDXFENTITYDEFPOINT
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         double GRPVECTORFILEDXFENTITYDEFPOINT::GetX()
-* @brief      GetX
+* @brief      Get x
 * @ingroup    GRAPHIC
 * 
 * @return     double : 
@@ -174,7 +174,7 @@ double GRPVECTORFILEDXFENTITYDEFPOINT::GetX()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRPVECTORFILEDXFENTITYDEFPOINT::SetX(double xpoint)
-* @brief      SetX
+* @brief      Set x
 * @ingroup    GRAPHIC
 * 
 * @param[in]  xpoint : 
@@ -189,7 +189,7 @@ void GRPVECTORFILEDXFENTITYDEFPOINT::SetX(double xpoint)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         double GRPVECTORFILEDXFENTITYDEFPOINT::GetY()
-* @brief      GetY
+* @brief      Get y
 * @ingroup    GRAPHIC
 * 
 * @return     double : 
@@ -204,7 +204,7 @@ double GRPVECTORFILEDXFENTITYDEFPOINT::GetY()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRPVECTORFILEDXFENTITYDEFPOINT::SetY(double ypoint)
-* @brief      SetY
+* @brief      Set y
 * @ingroup    GRAPHIC
 * 
 * @param[in]  ypoint : 
@@ -219,7 +219,7 @@ void GRPVECTORFILEDXFENTITYDEFPOINT::SetY(double ypoint)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         double GRPVECTORFILEDXFENTITYDEFPOINT::GetZ()
-* @brief      GetZ
+* @brief      Get z
 * @ingroup    GRAPHIC
 * 
 * @return     double : 
@@ -234,7 +234,7 @@ double GRPVECTORFILEDXFENTITYDEFPOINT::GetZ()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRPVECTORFILEDXFENTITYDEFPOINT::SetZ(double zpoint)
-* @brief      SetZ
+* @brief      Set z
 * @ingroup    GRAPHIC
 * 
 * @param[in]  zpoint : 
@@ -249,7 +249,7 @@ void GRPVECTORFILEDXFENTITYDEFPOINT::SetZ(double zpoint)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPVECTORFILEDXFENTITYDEFPOINT::CopyTo(GRPVECTORFILEDXFENTITYDEFPOINT* point)
-* @brief      CopyTo
+* @brief      Copy to
 * @ingroup    GRAPHIC
 * 
 * @param[in]  point : 
@@ -275,7 +275,7 @@ bool GRPVECTORFILEDXFENTITYDEFPOINT::CopyTo(GRPVECTORFILEDXFENTITYDEFPOINT* poin
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPVECTORFILEDXFENTITYDEFPOINT::CopyFrom(GRPVECTORFILEDXFENTITYDEFPOINT* point)
-* @brief      CopyFrom
+* @brief      Copy from
 * @ingroup    GRAPHIC
 * 
 * @param[in]  point : 
@@ -301,7 +301,7 @@ bool GRPVECTORFILEDXFENTITYDEFPOINT::CopyFrom(GRPVECTORFILEDXFENTITYDEFPOINT* po
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRPVECTORFILEDXFENTITYDEFPOINT::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    GRAPHIC
 * 

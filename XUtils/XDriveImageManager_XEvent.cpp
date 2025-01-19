@@ -64,7 +64,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDRIVEIMAGEMANAGER_XEVENT::XDRIVEIMAGEMANAGER_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * @param[in]  subject :
@@ -81,7 +81,7 @@ XDRIVEIMAGEMANAGER_XEVENT::XDRIVEIMAGEMANAGER_XEVENT(XSUBJECT* subject, XDWORD t
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDRIVEIMAGEMANAGER_XEVENT::~XDRIVEIMAGEMANAGER_XEVENT()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -95,7 +95,7 @@ XDRIVEIMAGEMANAGER_XEVENT::~XDRIVEIMAGEMANAGER_XEVENT()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDRIVEIMAGEMANAGER_DRIVE* XDRIVEIMAGEMANAGER_XEVENT::GetDrive()
-* @brief      GetDrive
+* @brief      Get drive
 * @ingroup    XUTILS
 *
 * @return     XDRIVEIMAGE_DRIVE* :
@@ -110,7 +110,7 @@ XDRIVEIMAGEMANAGER_DRIVE* XDRIVEIMAGEMANAGER_XEVENT::GetDrive()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XDRIVEIMAGEMANAGER_XEVENT::SetDrive(XDRIVEIMAGEMANAGER_DRIVE* drive)
-* @brief      SetDrive
+* @brief      Set drive
 * @ingroup    XUTILS
 *
 * @param[in]  drive :
@@ -125,7 +125,7 @@ void XDRIVEIMAGEMANAGER_XEVENT::SetDrive(XDRIVEIMAGEMANAGER_DRIVE* drive)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XQWORD XDRIVEIMAGEMANAGER_XEVENT::GetIndexSector()
-* @brief      GetIndexSector
+* @brief      Get index sector
 * @ingroup    XUTILS
 *
 * @return     XQWORD :
@@ -140,7 +140,7 @@ XQWORD XDRIVEIMAGEMANAGER_XEVENT::GetIndexSector()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XDRIVEIMAGEMANAGER_XEVENT::SetIndexSector(XQWORD indexsector)
-* @brief      SetIndexSector
+* @brief      Set index sector
 * @ingroup    XUTILS
 *
 * @param[in]  indexsector :
@@ -155,7 +155,7 @@ void XDRIVEIMAGEMANAGER_XEVENT::SetIndexSector(XQWORD indexsector)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XQWORD XDRIVEIMAGEMANAGER_XEVENT::GetNumberSectorsInOperation()
-* @brief      GetNumberSectorsInOperation
+* @brief      Get number sectors in operation
 * @ingroup    XUTILS
 *
 * @return     XQWORD :
@@ -170,7 +170,7 @@ XQWORD XDRIVEIMAGEMANAGER_XEVENT::GetNumberSectorsInOperation()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XDRIVEIMAGEMANAGER_XEVENT::SetNumberSectorsInOperation(XQWORD numbersectorsinoperation)
-* @brief      SetNumberSectorsInOperation
+* @brief      Set number sectors in operation
 * @ingroup    XUTILS
 *
 * @param[in]  numbersectorsinoperation :
@@ -185,7 +185,7 @@ void XDRIVEIMAGEMANAGER_XEVENT::SetNumberSectorsInOperation(XQWORD numbersectors
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         float XDRIVEIMAGEMANAGER_XEVENT::GetOperationPercent()
-* @brief      GetOperationPercent
+* @brief      Get operation percent
 * @ingroup    XUTILS
 *
 * @return     float :
@@ -200,7 +200,7 @@ float XDRIVEIMAGEMANAGER_XEVENT::GetOperationPercent()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XDRIVEIMAGEMANAGER_XEVENT::SetOperationPercent(float operationpercent)
-* @brief      SetOperationPercent
+* @brief      Set operation percent
 * @ingroup    XUTILS
 *
 * @param[in]  operationpercent :
@@ -215,7 +215,7 @@ void XDRIVEIMAGEMANAGER_XEVENT::SetOperationPercent(float operationpercent)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDRIVEIMAGE_ERROR XDRIVEIMAGEMANAGER_XEVENT::GetError()
-* @brief      GetError
+* @brief      Get error
 * @ingroup    XUTILS
 *
 * @return     XDRIVEIMAGE_ERROR :
@@ -230,7 +230,7 @@ XDRIVEIMAGEMANAGER_ERROR XDRIVEIMAGEMANAGER_XEVENT::GetError()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XDRIVEIMAGEMANAGER_XEVENT::SetError(XDRIVEIMAGE_ERROR error)
-* @brief      SetError
+* @brief      Set error
 * @ingroup    XUTILS
 *
 * @param[in]  error :
@@ -245,7 +245,7 @@ void XDRIVEIMAGEMANAGER_XEVENT::SetError(XDRIVEIMAGEMANAGER_ERROR error)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XDRIVEIMAGEMANAGER_XEVENT::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    XUTILS
 *

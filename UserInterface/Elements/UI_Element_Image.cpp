@@ -66,7 +66,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_ELEMENT_IMAGE::UI_ELEMENT_IMAGE()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    USERINTERFACE
 *
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -82,7 +82,7 @@ UI_ELEMENT_IMAGE::UI_ELEMENT_IMAGE()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_ELEMENT_IMAGE::~UI_ELEMENT_IMAGE()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
 *
@@ -96,7 +96,7 @@ UI_ELEMENT_IMAGE::~UI_ELEMENT_IMAGE()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPBITMAP* UI_ELEMENT_IMAGE::GetImage()
-* @brief      GetImage
+* @brief      Get image
 * @ingroup    USERINTERFACE
 *
 * @return     GRPBITMAP* : 
@@ -111,7 +111,7 @@ GRPBITMAP* UI_ELEMENT_IMAGE::GetImage()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_ELEMENT_IMAGE::SetImage(GRPBITMAP* image)
-* @brief      SetImage
+* @brief      Set image
 * @ingroup    USERINTERFACE
 *
 * @param[in]  image : 
@@ -132,7 +132,7 @@ bool UI_ELEMENT_IMAGE::SetImage(GRPBITMAP* image)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTE UI_ELEMENT_IMAGE::GetAlpha()
-* @brief      GetAlpha
+* @brief      Get alpha
 * @ingroup    USERINTERFACE
 *
 * @return     XBYTE : 
@@ -147,7 +147,7 @@ XBYTE UI_ELEMENT_IMAGE::GetAlpha()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_ELEMENT_IMAGE::SetAlpha(XBYTE alpha)
-* @brief      SetAlpha
+* @brief      Set alpha
 * @ingroup    USERINTERFACE
 *
 * @param[in]  alpha : 
@@ -162,7 +162,7 @@ void UI_ELEMENT_IMAGE::SetAlpha(XBYTE alpha)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_ELEMENT_IMAGE::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
 *

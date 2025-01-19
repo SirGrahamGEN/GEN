@@ -70,8 +70,8 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XESP32FILE::XESP32FILE()
-* @brief      Constructor
-* @ingroup    PLATFORM_WINDOWS
+* @brief      Constructor of class
+* @ingroup    PLATFORM_ESP32
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XESP32FILE::XESP32FILE(): XFILE()
@@ -83,9 +83,9 @@ XESP32FILE::XESP32FILE(): XFILE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XESP32FILE::~XESP32FILE()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
-* @ingroup    PLATFORM_WINDOWS
+* @ingroup    PLATFORM_ESP32
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XESP32FILE::~XESP32FILE()
@@ -98,7 +98,7 @@ XESP32FILE::~XESP32FILE()
 *
 * @fn         bool XESP32FILE::Exist(XCHAR* path)
 * @brief      Exist
-* @ingroup    PLATFORM_WINDOWS
+* @ingroup    PLATFORM_ESP32
 *
 * @param[in]  path :
 *
@@ -117,7 +117,7 @@ bool XESP32FILE::Exist(XCHAR* path)
 *
 * @fn         bool XESP32FILE::Open(XCHAR* xpath, bool isreadonly)
 * @brief      Open
-* @ingroup    PLATFORM_WINDOWS
+* @ingroup    PLATFORM_ESP32
 *
 * @param[in]  xpath :
 * @param[in]  isreadonly :
@@ -137,7 +137,7 @@ bool XESP32FILE::Open(XCHAR* path, bool isreadonly)
 *
 * @fn         bool XESP32FILE::Create(XCHAR* xpath)
 * @brief      Create
-* @ingroup    PLATFORM_WINDOWS
+* @ingroup    PLATFORM_ESP32
 *
 * @param[in]  xpath :
 *
@@ -155,8 +155,8 @@ bool XESP32FILE::Create(XCHAR* path)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XESP32FILE::SetSize(XQWORD size)
-* @brief      SetSize
-* @ingroup    PLATFORM_WINDOWS
+* @brief      Set size
+* @ingroup    PLATFORM_ESP32
 *
 * @param[in]  size :
 *
@@ -174,8 +174,8 @@ bool XESP32FILE::SetSize(XQWORD size)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XESP32FILE::GetPosition(XQWORD& position)
-* @brief      GetPosition
-* @ingroup    PLATFORM_WINDOWS
+* @brief      Get position
+* @ingroup    PLATFORM_ESP32
 *
 * @param[in]  position :
 *
@@ -193,8 +193,8 @@ bool XESP32FILE::GetPosition(XQWORD& position)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XESP32FILE::SetPosition(XQWORD position)
-* @brief      SetPosition
-* @ingroup    PLATFORM_WINDOWS
+* @brief      Set position
+* @ingroup    PLATFORM_ESP32
 *
 * @param[in]  position :
 *
@@ -213,7 +213,7 @@ bool XESP32FILE::SetPosition(XQWORD position)
 *
 * @fn         bool XESP32FILE::Read(XBYTE* buffer, XDWORD size, CIPHER* cipher)
 * @brief      Read
-* @ingroup    PLATFORM_WINDOWS
+* @ingroup    PLATFORM_ESP32
 *
 * @param[in]  buffer :
 * @param[in]  size :
@@ -234,7 +234,7 @@ bool XESP32FILE::Read(XBYTE* buffer, XDWORD size, CIPHER* cipher)
 *
 * @fn         bool XESP32FILE::Read(XBYTE* buffer, XDWORD* size, CIPHER* cipher)
 * @brief      Read
-* @ingroup    PLATFORM_WINDOWS
+* @ingroup    PLATFORM_ESP32
 *
 * @param[in]  buffer :
 * @param[in]  size :
@@ -255,7 +255,7 @@ bool XESP32FILE::Read(XBYTE* buffer, XDWORD* size, CIPHER* cipher)
 *
 * @fn         bool XESP32FILE::Write(XBYTE* buffer, XDWORD size, CIPHER* cipher)
 * @brief      Write
-* @ingroup    PLATFORM_WINDOWS
+* @ingroup    PLATFORM_ESP32
 *
 * @param[in]  buffer :
 * @param[in]  size :
@@ -276,7 +276,7 @@ bool XESP32FILE::Write(XBYTE* buffer, XDWORD size, CIPHER* cipher)
 *
 * @fn         bool XESP32FILE::Flush()
 * @brief      Flush
-* @ingroup    PLATFORM_WINDOWS
+* @ingroup    PLATFORM_ESP32
 *
 * @return     bool : true if is succesful.
 *
@@ -293,7 +293,7 @@ bool XESP32FILE::Flush()
 *
 * @fn         bool XESP32FILE::Close()
 * @brief      Close
-* @ingroup    PLATFORM_WINDOWS
+* @ingroup    PLATFORM_ESP32
 *
 * @return     bool : true if is succesful.
 *
@@ -308,7 +308,7 @@ bool XESP32FILE::Close()
 *
 * @fn         bool XESP32FILE::Erase(XCHAR* path,bool overwrite)
 * @brief      Erase
-* @ingroup    PLATFORM_WINDOWS
+* @ingroup    PLATFORM_ESP32
 *
 * @param[in]  path :
 * @param[in]  overwrite :
@@ -329,7 +329,7 @@ bool XESP32FILE::Erase(XCHAR* path, bool overwrite)
 *
 * @fn         bool XESP32FILE::Rename(XCHAR* pathold, XCHAR* pathnew)
 * @brief      Rename
-* @ingroup    PLATFORM_WINDOWS
+* @ingroup    PLATFORM_ESP32
 *
 * @param[in]  pathold :
 * @param[in]  pathnew :
@@ -348,7 +348,7 @@ bool XESP32FILE::Rename(XCHAR* pathold, XCHAR* pathnew)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         FILE* XESP32FILE::CreateStructHandle()
-* @brief      CreateStructHandle
+* @brief      Create struct handle
 * @ingroup    PLATFORM_ESP32
 *
 * @return     FILE* : 
@@ -363,7 +363,7 @@ FILE* XESP32FILE::CreateStructHandle()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XESP32FILE::DeleteStructHandle()
-* @brief      DeleteStructHandle
+* @brief      Delete struct handle
 * @ingroup    PLATFORM_ESP32
 *
 * @return     bool : true if is succesful. 
@@ -379,7 +379,7 @@ bool XESP32FILE::DeleteStructHandle()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XESP32FILE::ActualizeSize()
-* @brief      ActualizeSize
+* @brief      Actualize size
 * @ingroup    PLATFORM_ESP32
 *
 * @return     bool : true if is succesful. 
@@ -394,9 +394,9 @@ bool XESP32FILE::ActualizeSize()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XESP32FILE::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
-* @ingroup    PLATFORM_WINDOWS
+* @ingroup    PLATFORM_ESP32
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XESP32FILE::Clean()

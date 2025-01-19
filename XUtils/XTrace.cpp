@@ -80,7 +80,7 @@ XTRACE* XTRACE::instance = NULL;
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XTRACE_TARGET::XTRACE_TARGET()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -93,7 +93,7 @@ XTRACE_TARGET::XTRACE_TARGET()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XTRACE_TARGET::~XTRACE_TARGET()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -107,7 +107,7 @@ XTRACE_TARGET::~XTRACE_TARGET()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XTRACE_TYPE XTRACE_TARGET::GetType()
-* @brief      Get Type of debug trace (enum XTRACE_TYPE)
+* @brief      Get type
 * @ingroup    XUTILS
 *
 * @return     XTRACE_TYPE : type of debug trace (enum XTRACE_TYPE)
@@ -122,7 +122,7 @@ XTRACE_TYPE XTRACE_TARGET::GetType()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XTRACE_TARGET::SetType(XTRACE_TYPE type)
-* @brief      Set debug trace type (enum XTRACE_TYPE)
+* @brief      Set type
 * @ingroup    XUTILS
 *
 * @param[in]  type : type of debug trace (enum XTRACE_TYPE)
@@ -137,7 +137,7 @@ void XTRACE_TARGET::SetType(XTRACE_TYPE type)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XCHAR* XTRACE_TARGET::GetAim()
-* @brief      Get aim of target
+* @brief      Get aim
 * @ingroup    XUTILS
 *
 * @return     XCHAR* : aim of target
@@ -152,7 +152,7 @@ XCHAR* XTRACE_TARGET::GetAim()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XTRACE_TARGET::GetAim(XSTRING& aim)
-* @brief      Get aim of target
+* @brief      Get aim
 * @ingroup    XUTILS
 *
 * @param[out] aim : Get aim of target
@@ -172,7 +172,7 @@ bool XTRACE_TARGET::GetAim(XSTRING& aim)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XTRACE_TARGET::SetAim(XSTRING& aim)
-* @brief      Set aim of target
+* @brief      Set aim
 * @ingroup    XUTILS
 *
 * @param[in]  aim : new aim of target
@@ -188,7 +188,7 @@ void XTRACE_TARGET::SetAim(XSTRING& aim)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XTRACE_TARGET::SetAim(XCHAR* aim)
-* @brief      Set aim of target
+* @brief      Set aim
 * @ingroup    XUTILS
 *
 * @param[in]  aim : new aim of target
@@ -205,7 +205,7 @@ void XTRACE_TARGET::SetAim(XCHAR* aim)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD XTRACE_TARGET::GetNSendings()
-* @brief      GetNSendings
+* @brief      Get N sendings
 * @ingroup    XUTILS
 * 
 * @return     XDWORD : 
@@ -220,7 +220,7 @@ XDWORD XTRACE_TARGET::GetNSendings()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XTRACE_TARGET::AddNSendings()
-* @brief      Add One to number of sendings
+* @brief      Add N sendings
 * @ingroup    XUTILS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -236,7 +236,7 @@ void XTRACE_TARGET::AddNSendings()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XWORD XTRACE_TARGET::GetPort()
-* @brief      Get port of target
+* @brief      Get port
 * @ingroup    XUTILS
 *
 * @return     XWORD : port of target
@@ -251,7 +251,7 @@ XWORD XTRACE_TARGET::GetPort()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XTRACE_TARGET::SetPort(XWORD port)
-* @brief      Set Port of target
+* @brief      Set port
 * @ingroup    XUTILS
 *
 * @param[in]  port : port of target
@@ -266,7 +266,7 @@ void XTRACE_TARGET::SetPort(XWORD port)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XTRACE_TARGET::IPTarget()
-* @brief      IPTarget IP of target aim = URL to IP
+* @brief      IP target
 * @ingroup    XUTILS
 * 
 * @return     bool : true if is succesful. 
@@ -313,7 +313,7 @@ bool XTRACE_TARGET::IPTarget()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         char* XTRACE_TARGET::GetIP()
-* @brief      Get IP of target
+* @brief      Get IP
 * @ingroup    XUTILS
 *
 * @return     char* : string with the IP
@@ -328,7 +328,7 @@ char* XTRACE_TARGET::GetIP()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XQWORD XTRACE_TARGET::GetNETHandle()
-* @brief      Get net Handle of target
+* @brief      Get NET handle
 * @ingroup    XUTILS
 *
 * @return     XQWORD : Net Handle of target
@@ -343,7 +343,7 @@ XQWORD XTRACE_TARGET::GetNETHandle()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XTRACE_TARGET:: SetNETHandle(XQWORD NEThandle)
-* @brief      Set Net Handle of target
+* @brief       Set NET handle
 * @ingroup    XUTILS
 *
 * @param[in]  NEThandle : new Net Handle of target
@@ -361,7 +361,7 @@ void XTRACE_TARGET:: SetNETHandle(XQWORD NEThandle)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XTRACE_TARGET::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    XUTILS
 *
@@ -392,7 +392,7 @@ void XTRACE_TARGET::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XTRACE_STATUS_MSG::XTRACE_STATUS_MSG()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -407,7 +407,7 @@ XTRACE_STATUS_MSG::XTRACE_STATUS_MSG()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XTRACE_STATUS_MSG::~XTRACE_STATUS_MSG()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -427,7 +427,7 @@ XTRACE_STATUS_MSG::~XTRACE_STATUS_MSG()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XTRACE_TYPE_STATUS_MSG XTRACE_STATUS_MSG::GetType()
-* @brief      GetType
+* @brief      Get type
 * @ingroup    XUTILS
 *
 * @return     XTRACE_TYPE_STATUS_MSG : 
@@ -442,7 +442,7 @@ XTRACE_TYPE_STATUS_MSG XTRACE_STATUS_MSG::GetType()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void XTRACE_STATUS_MSG::SetType(XTRACE_TYPE_STATUS_MSG type)
-* @brief      SetType
+* @brief      Set type
 * @ingroup    XUTILS
 *
 * @param[in]  type : 
@@ -457,7 +457,7 @@ void XTRACE_STATUS_MSG::SetType(XTRACE_TYPE_STATUS_MSG type)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* XTRACE_STATUS_MSG::GetName()
-* @brief      GetName
+* @brief      Get name
 * @ingroup    XUTILS
 *
 * @return     XSTRING* : 
@@ -472,7 +472,7 @@ XSTRING* XTRACE_STATUS_MSG::GetName()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XTIMER* XTRACE_STATUS_MSG::GetXTimerLastUpdate()
-* @brief      GetXTimerLastUpdate
+* @brief      Get X timer last update
 * @ingroup    XUTILS
 *
 * @return     XTIMER* : 
@@ -487,7 +487,7 @@ XTIMER* XTRACE_STATUS_MSG::GetXTimerLastUpdate()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XTRACE_STATUS_MSG::Value_GetBoolean()
-* @brief      Value_GetBoolean
+* @brief      Value get boolean
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful. 
@@ -502,7 +502,7 @@ bool XTRACE_STATUS_MSG::Value_GetBoolean()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void XTRACE_STATUS_MSG::Value_SetBoolean(bool value)
-* @brief      Value_SetBoolean
+* @brief      Value set boolean
 * @ingroup    XUTILS
 *
 * @param[in]  value : 
@@ -517,7 +517,7 @@ void XTRACE_STATUS_MSG::Value_SetBoolean(bool value)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int XTRACE_STATUS_MSG::Value_GetInteger()
-* @brief      Value_GetInteger
+* @brief      Value get integer
 * @ingroup    XUTILS
 *
 * @return     int : 
@@ -532,7 +532,7 @@ int XTRACE_STATUS_MSG::Value_GetInteger()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void XTRACE_STATUS_MSG::Value_SetInteger(int value)
-* @brief      Value_SetInteger
+* @brief      Value set integer
 * @ingroup    XUTILS
 *
 * @param[in]  value : 
@@ -547,7 +547,7 @@ void XTRACE_STATUS_MSG::Value_SetInteger(int value)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* XTRACE_STATUS_MSG::Value_GetString()
-* @brief      Value_GetString
+* @brief      Value get string
 * @ingroup    XUTILS
 *
 * @return     XSTRING* : 
@@ -562,7 +562,7 @@ XSTRING* XTRACE_STATUS_MSG::Value_GetString()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD XTRACE_STATUS_MSG::Value_GetDword()
-* @brief      Value_GetDword
+* @brief      Value get dword
 * @ingroup    XUTILS
 *
 * @return     XDWORD : 
@@ -577,7 +577,7 @@ XDWORD XTRACE_STATUS_MSG::Value_GetDword()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void XTRACE_STATUS_MSG::Value_SetDword(XDWORD value)
-* @brief      Value_SetDword
+* @brief      Value set dword
 * @ingroup    XUTILS
 *
 * @param[in]  value : 
@@ -592,7 +592,7 @@ void XTRACE_STATUS_MSG::Value_SetDword(XDWORD value)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         float XTRACE_STATUS_MSG::Value_GetFloat()
-* @brief      Value_GetFloat
+* @brief      Value get float
 * @ingroup    XUTILS
 *
 * @return     float : 
@@ -607,7 +607,7 @@ float XTRACE_STATUS_MSG::Value_GetFloat()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void XTRACE_STATUS_MSG::Value_SetFloat(float value)
-* @brief      Value_SetFloat
+* @brief      Value set float
 * @ingroup    XUTILS
 *
 * @param[in]  value : 
@@ -622,7 +622,7 @@ void XTRACE_STATUS_MSG::Value_SetFloat(float value)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTE* XTRACE_STATUS_MSG::Value_GetColor()
-* @brief      Value_GetColor
+* @brief      Value get color
 * @ingroup    XUTILS
 *
 * @return     XBYTE* : 
@@ -637,7 +637,7 @@ XBYTE* XTRACE_STATUS_MSG::Value_GetColor()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void XTRACE_STATUS_MSG::Value_SetColor(XBYTE* value)
-* @brief      Value_SetColor
+* @brief      Value set color
 * @ingroup    XUTILS
 *
 * @param[in]  value : 
@@ -655,7 +655,7 @@ void XTRACE_STATUS_MSG::Value_SetColor(XBYTE* value)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void XTRACE_STATUS_MSG::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    XUTILS
 *
@@ -688,7 +688,7 @@ void XTRACE_STATUS_MSG::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XTRACE_STATUS_MSGS::XTRACE_STATUS_MSGS()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -701,7 +701,7 @@ XTRACE_STATUS_MSGS::XTRACE_STATUS_MSGS()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XTRACE_STATUS_MSGS::~XTRACE_STATUS_MSGS()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -717,7 +717,7 @@ XTRACE_STATUS_MSGS::~XTRACE_STATUS_MSGS()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XTRACE_STATUS_MSG* XTRACE_STATUS_MSGS::StatusMsg_Add(XSTRING* line)
-* @brief      StatusMsg_Add
+* @brief      Status msg add
 * @ingroup    XUTILS
 *
 * @param[in]  line : 
@@ -833,7 +833,7 @@ XTRACE_STATUS_MSG* XTRACE_STATUS_MSGS::StatusMsg_Add(XSTRING* line)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XTRACE_STATUS_MSG* XTRACE_STATUS_MSGS::StatusMsg_Get(XCHAR* name)
-* @brief      StatusMsg_Get
+* @brief      Status msg get
 * @ingroup    XUTILS
 *
 * @param[in]  name : 
@@ -861,7 +861,7 @@ XTRACE_STATUS_MSG* XTRACE_STATUS_MSGS::StatusMsg_Get(XCHAR* name)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XTRACE_STATUS_MSG* XTRACE_STATUS_MSGS::StatusMsg_Get(int index)
-* @brief      StatusMsg_Get
+* @brief      Status msg get
 * @ingroup    XUTILS
 *
 * @param[in]  index : 
@@ -881,7 +881,7 @@ XTRACE_STATUS_MSG* XTRACE_STATUS_MSGS::StatusMsg_Get(int index)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XVECTOR<XTRACE_STATUS_MSG*>* XTRACE_STATUS_MSGS::StatusMsg_GetAll()
-* @brief      StatusMsg_GetAll
+* @brief      Status msg get all
 * @ingroup    XUTILS
 *
 * @return     XVECTOR<XTRACE_STATUS_MSG*>* : 
@@ -896,7 +896,7 @@ XVECTOR<XTRACE_STATUS_MSG*>* XTRACE_STATUS_MSGS::StatusMsg_GetAll()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XTRACE_STATUS_MSGS::StatusMsg_DeleteAll()
-* @brief      StatusMsg_DeleteAll
+* @brief      Status msg delete all
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful. 
@@ -916,7 +916,7 @@ bool XTRACE_STATUS_MSGS::StatusMsg_DeleteAll()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void XTRACE_STATUS_MSGS::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    XUTILS
 *
@@ -936,7 +936,7 @@ void XTRACE_STATUS_MSGS::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XTRACE::XTRACE()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -949,7 +949,7 @@ XTRACE::XTRACE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XTRACE::~XTRACE()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -963,7 +963,7 @@ XTRACE::~XTRACE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XTRACE::SetTarget(int index, XTRACE_TYPE type, XCHAR* aim)
-* @brief      Set Target by index
+* @brief      Set target
 * @ingroup    XUTILS
 *
 * @param[in]  index : index to set target
@@ -1021,7 +1021,7 @@ bool XTRACE::SetTarget(int index, XTRACE_TYPE type, XCHAR* aim)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XTRACE::AddTarget(XTRACE_TYPE type, XCHAR* aim)
-* @brief      Add target (first index free)
+* @brief      Add target
 * @ingroup    XUTILS
 *
 * @param[in]  type : type of the target
@@ -1044,7 +1044,7 @@ bool XTRACE::AddTarget(XTRACE_TYPE type, XCHAR* aim)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XTRACE::DeactivateAllTargets()
-* @brief      DeactivateAllTargets
+* @brief      Deactivate all targets
 * @ingroup    XUTILS
 * 
 * @return     bool : true if is succesful. 
@@ -1099,7 +1099,7 @@ bool XTRACE::SetSizeLimit(XDWORD sizelimit)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XCHAR* XTRACE::Application_GetName()
-* @brief      Get Application Name
+* @brief      Application get name
 * @ingroup    XUTILS
 *
 * @return     XCHAR* : application name
@@ -1114,7 +1114,7 @@ XCHAR* XTRACE::Application_GetName()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XTRACE::Application_SetName(XCHAR* applicationname)
-* @brief      Set Application Name
+* @brief      Application set name
 * @ingroup    XUTILS
 *
 * @param[in]  applicationname : new application name
@@ -1133,7 +1133,7 @@ void XTRACE::Application_SetName(XCHAR* applicationname)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XTRACE::Application_SetName(XCHAR* applicationname, XDWORD size)
-* @brief      Set Application Name
+* @brief      Application set name
 * @ingroup    XUTILS
 *
 * @param[in]  applicationname : new application name
@@ -1150,7 +1150,7 @@ void XTRACE::Application_SetName(XCHAR* applicationname, XDWORD size)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XTRACE::Application_SetName(XSTRING& applicationname)
-* @brief      Set Application name
+* @brief      Application set name
 * @ingroup    XUTILS
 *
 * @param[in]  applicationname : new application name
@@ -1165,7 +1165,7 @@ void XTRACE::Application_SetName(XSTRING& applicationname)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XTRACE::Application_GetVersion(int& applicationversion, int& applicationsubversion, int& applicationsubversionerr)
-* @brief      Get Application version (three data)
+* @brief      Application get version
 * @ingroup    XUTILS
 *
 * @param[in]  applicationversion : version number
@@ -1184,7 +1184,7 @@ void XTRACE::Application_GetVersion(int& applicationversion, int& applicationsub
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XTRACE::Application_SetVersion(int applicationversion, int applicationsubversion, int applicationsubversionerr)
-* @brief      Set Application version
+* @brief      Application set version
 * @ingroup    XUTILS
 *
 * @param[in]  applicationversion : new version number
@@ -1203,7 +1203,7 @@ void XTRACE::Application_SetVersion(int applicationversion, int applicationsubve
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XCHAR* XTRACE::Application_GetID()
-* @brief      Get Application ID
+* @brief      Application get ID
 * @ingroup    XUTILS
 *
 * @return     XCHAR* :
@@ -1218,7 +1218,7 @@ XCHAR* XTRACE::Application_GetID()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XTRACE::Application_SetID(XCHAR* applicationID, XDWORD size)
-* @brief      Set Application ID
+* @brief      Application set ID
 * @ingroup    XUTILS
 *
 * @param[in]  applicationID : new string application ID
@@ -1235,7 +1235,7 @@ void XTRACE::Application_SetID(XCHAR* applicationID, XDWORD size)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XTRACE::Application_SetID(XSTRING& applicationID)
-* @brief      Set Application ID
+* @brief      Application set ID
 * @ingroup    XUTILS
 *
 * @param[in]  applicationID : new string application ID
@@ -1250,7 +1250,7 @@ void XTRACE::Application_SetID(XSTRING& applicationID)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XTRACE::ClearScreen(XBYTE level)
-* @brief      ClearScreen
+* @brief      Clear screen
 * @ingroup    XUTILS
 *
 * @param[in]  level : 
@@ -1271,7 +1271,7 @@ bool XTRACE::ClearScreen(XBYTE level)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void XTRACE::PrintHeader(XBYTE level, XCHAR* header)
-* @brief      PrintHeader
+* @brief      Print header
 * @ingroup    XUTILS
 * 
 * @param[in]  level : 
@@ -1307,7 +1307,7 @@ void XTRACE::PrintHeader(XBYTE level, XCHAR* header)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XTRACE::Print(XBYTE level, XCHAR* mask,...)
-* @brief      Print format line
+* @brief      Print
 * @ingroup    XUTILS
 *
 * @param[in]  level : level of line
@@ -1515,7 +1515,7 @@ bool XTRACE::PrintDataBlock(XBYTE level, XBUFFER& data, XDWORD marginsize, XDWOR
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XTRACE::ClearMsgsStatus(XBYTE level)
-* @brief      ClearMsgsStatus
+* @brief      Clear msgs status
 * @ingroup    XUTILS
 *
 * @param[in]  level : 
@@ -1536,7 +1536,7 @@ bool XTRACE::ClearMsgsStatus(XBYTE level)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XTRACE::PrintMsgStatus(XBYTE level, XCHAR* name, bool value)
-* @brief      PrintMsgStatus
+* @brief      Print msg status
 * @ingroup    XUTILS
 *
 * @param[in]  level :
@@ -1559,7 +1559,7 @@ bool XTRACE::PrintMsgStatus(XBYTE level, XCHAR* name, bool value)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XTRACE::PrintMsgStatus(XBYTE level, XCHAR* name, int value)
-* @brief      PrintMsgStatus
+* @brief      Print msg status
 * @ingroup    XUTILS
 *
 * @param[in]  level : 
@@ -1582,7 +1582,7 @@ bool XTRACE::PrintMsgStatus(XBYTE level, XCHAR* name, int value)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XTRACE::PrintMsgStatus(XBYTE level, XCHAR* name, XCHAR* value)
-* @brief      PrintMsgStatus
+* @brief      Print msg status
 * @ingroup    XUTILS
 *
 * @param[in]  level :
@@ -1605,7 +1605,7 @@ bool XTRACE::PrintMsgStatus(XBYTE level, XCHAR* name, XCHAR* value)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XTRACE::PrintMsgStatus(XBYTE level, XCHAR* name, XDWORD value)
-* @brief      PrintMsgStatus
+* @brief      Print msg status
 * @ingroup    XUTILS
 *
 * @param[in]  level :
@@ -1628,7 +1628,7 @@ bool XTRACE::PrintMsgStatus(XBYTE level, XCHAR* name, XDWORD value)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XTRACE::PrintMsgStatus(XBYTE level, XCHAR* name, float value)
-* @brief      PrintMsgStatus
+* @brief      Print msg status
 * @ingroup    XUTILS
 *
 * @param[in]  level :
@@ -1651,7 +1651,7 @@ bool XTRACE::PrintMsgStatus(XBYTE level, XCHAR* name, float value)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XTRACE::PrintMsgStatus(XBYTE level, XCHAR* name, XBYTE value[3])
-* @brief      PrintMsgStatus
+* @brief      Print msg status
 * @ingroup    XUTILS
 *
 * @param[in]  level :
@@ -1674,7 +1674,7 @@ bool XTRACE::PrintMsgStatus(XBYTE level, XCHAR* name, XBYTE value[3])
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XTRACE::PrintSpecial(XTRACE_TARGET* target, XBYTE level, XCHAR* string)
-* @brief      Print Special aim
+* @brief      Print special
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -1692,7 +1692,7 @@ void XTRACE::PrintSpecial(XTRACE_TARGET* target, XBYTE level, XCHAR* string)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XTRACE::PrintFile(XTRACE_TARGET* target, XBYTE level, XCHAR* string)
-* @brief      Print in file aim
+* @brief      Print file
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -1710,7 +1710,7 @@ void XTRACE::PrintFile(XTRACE_TARGET* target, XBYTE level, XCHAR* string)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XTRACE::PrintNet(XTRACE_TARGET* target, XBYTE level, XCHAR* string)
-* @brief      Print net aim
+* @brief      Print net
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -1728,7 +1728,7 @@ void XTRACE::PrintNet(XTRACE_TARGET* target, XBYTE level, XCHAR* string)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XTRACE::GetHandleNet(XTRACE_TARGET* target)
-* @brief      Get Handle NET (depends of plataform)
+* @brief      Get handle net
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -1746,7 +1746,7 @@ bool XTRACE::GetHandleNet(XTRACE_TARGET* target)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XTRACE::CloseHandleNet(XTRACE_TARGET* target)
-* @brief      Close Handle NET (depends of plataform)
+* @brief      Close handle net
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -1764,7 +1764,7 @@ bool XTRACE::CloseHandleNet(XTRACE_TARGET* target)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD XTRACE::GetTraceFromXBuffer(XBUFFER& xbufferpacket, XDWORD& publicIP, XDWORD& localIP, XBYTE& level, XDWORD& sequence, XDATETIME* xtime, XBUFFER& data)
-* @brief      GetTraceFromXBuffer
+* @brief      Get trace from X buffer
 * @ingroup    XUTILS
 *
 * @param[in]  xbufferpacket : 
@@ -1880,7 +1880,7 @@ XDWORD XTRACE::GetTraceFromXBuffer(XBUFFER& xbufferpacket, XDWORD& publicIP, XDW
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD XTRACE::GetTraceFromDIOStream(DIOSTREAM* DIOstream, XDWORD& publicIP, XDWORD& localIP, XBYTE& level, XDWORD& sequence, XDATETIME* xtime, XBUFFER& data)
-* @brief      GetTraceFromDIOStream
+* @brief      Get trace from DIO stream
 * @ingroup    XUTILS
 * 
 * @param[in]  DIOstream : 
@@ -1908,7 +1908,7 @@ XDWORD XTRACE::GetTraceFromDIOStream(DIOSTREAM* DIOstream, XDWORD& publicIP, XDW
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XTRACE::SetTraceDataToText(XBUFFER& data, XSTRING& string)
-* @brief      SetTraceDataToText
+* @brief      Set trace data to text
 * @ingroup    XUTILS
 *
 * @param[in]  data : 
@@ -1936,7 +1936,7 @@ bool XTRACE::SetTraceDataToText(XBUFFER& data, XSTRING& string)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XTRACE::SetTraceToXBuffer(XDWORD publicIP, XDWORD localIP, XBYTE level, XDWORD sequence, XDATETIME* xtime, XDWORD& sizepacket, XBUFFER& xbufferpacket)
-* @brief      SetTraceToXBuffer
+* @brief      Set trace to X buffer
 * @ingroup    XUTILS
 *
 * @param[in]  publicIP : 
@@ -1991,7 +1991,7 @@ bool XTRACE::SetTraceToXBuffer(XDWORD publicIP, XDWORD localIP, XBYTE level, XDW
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XTRACE::SetTraceTextToXBuffer(XDWORD publicIP, XDWORD localIP, XBYTE level, XDWORD sequence, XDATETIME* xtime, XCHAR* string, XBUFFER& xbufferpacket)
-* @brief      Set Trace Text pack to XBuffer
+* @brief      Set trace text to X buffer
 * @ingroup    XUTILS
 *
 * @param[in]  publicIP : Public IP (in DWORD format)
@@ -2033,7 +2033,7 @@ bool XTRACE::SetTraceTextToXBuffer(XDWORD publicIP, XDWORD localIP, XBYTE level,
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XTRACE::SetLocalIPFilter(XBYTE localIPfilter)
-* @brief      SetLocalIPFilter
+* @brief      Set local IP filter
 * @ingroup    XUTILS
 *
 * @param[in]  localIPfilter :
@@ -2048,7 +2048,7 @@ void XTRACE::SetLocalIPFilter(XBYTE localIPfilter)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XTRACE::ObtainLocalIP()
-* @brief      Obtain Local IP
+* @brief      Obtain local IP
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -2113,7 +2113,7 @@ bool XTRACE::ObtainLocalIP()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XTRACE::SetLocalIPString(XSTRING* localIPstring)
-* @brief      Set Local IP (in string format)
+* @brief      Set local IP string
 * @ingroup    XUTILS
 *
 * @param[in]  localIPstring : new local ip in string format
@@ -2141,7 +2141,7 @@ bool XTRACE::SetLocalIPString(XCHAR* localIPstring)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD XTRACE::GetLocalIP()
-* @brief      Get Local IP (in DWORD format)
+* @brief      Get local IP
 * @ingroup    XUTILS
 *
 * @return     XDWORD : local IP in DWORD format
@@ -2157,7 +2157,7 @@ XDWORD XTRACE::GetLocalIP()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XTRACE::ObtainPublicIP()
-* @brief      Obtain Public IP
+* @brief      Obtain public IP
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -2185,7 +2185,7 @@ bool XTRACE::ObtainPublicIP()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD XTRACE::GetPublicIP()
-* @brief      Get Public IP (in DWORD format)
+* @brief      Get public IP
 * @ingroup    XUTILS
 *
 * @return     XDWORD : public IP in DWORD format
@@ -2200,7 +2200,7 @@ XDWORD XTRACE::GetPublicIP()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XTRACE::SetPublicIPString(XCHAR* publicIPstring)
-* @brief      SetPublicIPString
+* @brief      Set public IP string
 * @ingroup    XUTILS
 * 
 * @param[in]  publicIPstring : 
@@ -2231,7 +2231,7 @@ bool XTRACE::SetPublicIPString(XCHAR* publicIPstring)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XTRACE::ObtainResourcesIP()
-* @brief      Obtain Resources IP (public + local)
+* @brief      Obtain resources IP
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -2258,7 +2258,7 @@ bool XTRACE::ObtainResourcesIP()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XTRACE::ReConnectedAllNetTargets()
-* @brief      Re connect all Net Targets
+* @brief      Re connected all net targets
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -2287,7 +2287,7 @@ bool XTRACE::ReConnectedAllNetTargets()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XTRACE::ResolveAllNetTargets(bool& changed)
-* @brief      Resolve All Net Targets
+* @brief      Resolve all net targets
 * @ingroup    XUTILS
 *
 * @param[out] changed : true if the target net changed IP
@@ -2324,7 +2324,7 @@ bool XTRACE::ResolveAllNetTargets(bool& changed)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XTRACE::ResolveAllResources()
-* @brief      Resolve All Resources local + public: (if chnaged obtain and reconnect)
+* @brief      Resolve all resources
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -2348,7 +2348,7 @@ bool XTRACE::ResolveAllResources()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XTRACE::GenerateTab(int ntab, XSTRING& tab)
-* @brief      Generate Tab for the line
+* @brief      Generate tab
 * @ingroup    XUTILS
 *
 * @param[in]  ntab : number of tab
@@ -2373,7 +2373,7 @@ bool XTRACE::GenerateTab(int ntab, XSTRING& tab)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XTRACE::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    XUTILS
 *

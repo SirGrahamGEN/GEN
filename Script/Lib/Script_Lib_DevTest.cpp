@@ -66,7 +66,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         SCRIPT_LIB_DEVTEST::SCRIPT_LIB_DEVTEST()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    SCRIPT
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -79,7 +79,7 @@ SCRIPT_LIB_DEVTEST::SCRIPT_LIB_DEVTEST() : SCRIPT_LIB(SCRIPT_LIB_NAME_DEVTEST)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         SCRIPT_LIB_DEVTEST::~SCRIPT_LIB_DEVTEST()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    SCRIPT
 *
@@ -93,7 +93,7 @@ SCRIPT_LIB_DEVTEST::~SCRIPT_LIB_DEVTEST()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool SCRIPT_LIB_DEVTEST::AddLibraryFunctions(SCRIPT* script)
-* @brief      AddLibraryFunctions
+* @brief      Add library functions
 * @ingroup    SCRIPT
 *
 * @param[in]  script :
@@ -117,7 +117,7 @@ bool SCRIPT_LIB_DEVTEST::AddLibraryFunctions(SCRIPT* script)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void SCRIPT_LIB_DEVTEST::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    SCRIPT
 *
@@ -135,17 +135,18 @@ void SCRIPT_LIB_DEVTEST::Clean()
 #pragma region LIBRARY_FUNCTIONS
 
 
+
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         void Call_Console_GetChar(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
-* @brief      Call_Console_GetChar
+* 
+* @fn         void Call_DevTest_Func1(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+* @brief      all  dev test  func1
 * @ingroup    SCRIPT
-*
-* @param[in]  library :
-* @param[in]  script :
-* @param[in]  params :
-* @param[in]  returnvalue :
-*
+* 
+* @param[in]  library : 
+* @param[in]  script : 
+* @param[in]  params : 
+* @param[in]  returnvalue : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void Call_DevTest_Func1(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
 {

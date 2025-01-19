@@ -72,7 +72,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAM::DIOSTREAM()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -97,7 +97,7 @@ DIOSTREAM::DIOSTREAM()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAM::~DIOSTREAM()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -155,7 +155,7 @@ DIOSTREAM::~DIOSTREAM()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMSTATUS DIOSTREAM::GetStatus()
-* @brief      GetStatus
+* @brief      Get status
 * @ingroup    DATAIO
 *
 * @return     DIOSTREAMSTATUS :
@@ -170,7 +170,7 @@ DIOSTREAMSTATUS DIOSTREAM::GetStatus()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOSTREAM::SetStatus(DIOSTREAMSTATUS status)
-* @brief      SetStatus
+* @brief      Set status
 * @ingroup    DATAIO
 * 
 * @param[in]  status : 
@@ -185,7 +185,7 @@ void DIOSTREAM::SetStatus(DIOSTREAMSTATUS status)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAM::IsConnected()
-* @brief      IsConnected
+* @brief      Is connected
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -202,7 +202,7 @@ bool DIOSTREAM::IsConnected()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAM::IsDisconnected()
-* @brief      IsDisconnected
+* @brief      Is disconnected
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -219,7 +219,7 @@ bool DIOSTREAM::IsDisconnected()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAM::WaitToConnected(int timeout)
-* @brief      WaitToConnected
+* @brief      Wait to connected
 * @ingroup    DATAIO
 *
 * @param[in]  timeout :
@@ -267,7 +267,7 @@ bool DIOSTREAM::WaitToConnected(int timeout)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAM::WaitToDisconnected(int timeout)
-* @brief      WaitToDisconnected
+* @brief      Wait to disconnected
 * @ingroup    DATAIO
 *
 * @param[in]  timeout :
@@ -401,7 +401,7 @@ XDWORD DIOSTREAM::Write(XBUFFER& xbuffer)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAM::WaitToFilledReadingBuffer(int filledto, int timeout)
-* @brief      WaitToFilledReadingBuffer
+* @brief      Wait to filled reading buffer
 * @ingroup    DATAIO
 *
 * @param[in]  filledto :
@@ -452,7 +452,7 @@ bool DIOSTREAM::WaitToFilledReadingBuffer(int filledto, int timeout)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAM::ReadStr(char* str)
-* @brief      ReadStr
+* @brief      Read str
 * @ingroup    DATAIO
 *
 * @param[in]  str :
@@ -479,7 +479,7 @@ bool DIOSTREAM::ReadStr(char* str)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAM::ReadStr(XSTRING& string)
-* @brief      ReadStr
+* @brief      Read str
 * @ingroup    DATAIO
 *
 * @param[in]  string :
@@ -544,7 +544,7 @@ bool DIOSTREAM::ReadStr(XSTRING& string)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAM::ReadStr(XSTRING& string, int timeout)
-* @brief      ReadStr
+* @brief      Read str
 * @ingroup    DATAIO
 *
 * @param[in]  string :
@@ -581,7 +581,7 @@ bool DIOSTREAM::ReadStr(XSTRING& string, int timeout)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAM::WriteStr(const char* str)
-* @brief      WriteStr
+* @brief      Write str
 * @ingroup    DATAIO
 *
 * @param[in]  str :
@@ -602,7 +602,7 @@ bool DIOSTREAM::WriteStr(const char* str)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAM::WriteStr(XCHAR* string)
-* @brief      WriteStr
+* @brief      Write str
 * @ingroup    DATAIO
 *
 * @param[in]  string :
@@ -625,7 +625,7 @@ bool DIOSTREAM::WriteStr(XCHAR* string)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAM::WriteStr(XSTRING& string)
-* @brief      WriteStr
+* @brief      Write str
 * @ingroup    DATAIO
 *
 * @param[in]  string :
@@ -646,7 +646,7 @@ bool DIOSTREAM::WriteStr(XSTRING& string)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAM::IsBlockRead()
-* @brief      IsBlockRead
+* @brief      Is block read
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -661,7 +661,7 @@ bool DIOSTREAM::IsBlockRead()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSTREAM::SetIsBlockRead(bool isblockread)
-* @brief      SetIsBlockRead
+* @brief      Set is block read
 * @ingroup    DATAIO
 *
 * @param[in]  isblockread :
@@ -676,7 +676,7 @@ void DIOSTREAM::SetIsBlockRead(bool isblockread)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAM::IsBlockWrite()
-* @brief      IsBlockWrite
+* @brief      Is block write
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -691,7 +691,7 @@ bool DIOSTREAM::IsBlockWrite()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSTREAM::SetIsBlockWrite(bool isblockwrite)
-* @brief      SetIsBlockWrite
+* @brief      Set is block write
 * @ingroup    DATAIO
 *
 * @param[in]  isblockwrite :
@@ -721,7 +721,7 @@ bool DIOSTREAM::Disconnect()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMTYPE DIOSTREAM::GetType()
-* @brief      GetType
+* @brief      Get type
 * @ingroup    DATAIO
 *
 * @return     DIOSTREAMTYPE :
@@ -736,7 +736,7 @@ DIOSTREAMTYPE DIOSTREAM::GetType()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSTREAM::SetType(DIOSTREAMTYPE type)
-* @brief      SetType
+* @brief      Set type
 * @ingroup    DATAIO
 *
 * @param[in]  type :
@@ -751,7 +751,7 @@ void DIOSTREAM::SetType(DIOSTREAMTYPE type)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XBUFFER* DIOSTREAM::GetInXBuffer()
-* @brief      GetInXBuffer
+* @brief      Get in X buffer
 * @ingroup    DATAIO
 *
 * @return     XBUFFER* :
@@ -766,7 +766,7 @@ XBUFFER* DIOSTREAM::GetInXBuffer()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XBUFFER* DIOSTREAM::GetOutXBuffer()
-* @brief      GetOutXBuffer
+* @brief      Get out X buffer
 * @ingroup    DATAIO
 *
 * @return     XBUFFER* :
@@ -781,7 +781,7 @@ XBUFFER* DIOSTREAM::GetOutXBuffer()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAM::ResetXBuffers()
-* @brief      ResetXBuffers
+* @brief      Reset X buffers
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -801,7 +801,7 @@ bool DIOSTREAM::ResetXBuffers()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAM::ResetInXBuffer()
-* @brief      ResetInXBuffer
+* @brief      Reset in X buffer
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -820,7 +820,7 @@ bool DIOSTREAM::ResetInXBuffer()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAM::ResetOutXBuffer()
-* @brief      ResetOutXBuffer
+* @brief      Reset out X buffer
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -839,7 +839,7 @@ bool DIOSTREAM::ResetOutXBuffer()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAM::IsFlushOutXBuffer()
-* @brief      IsFlushOutXBuffer
+* @brief      Is flush out X buffer
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -858,7 +858,7 @@ bool DIOSTREAM::IsFlushOutXBuffer()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAM::IsFlushXBuffers()
-* @brief      IsFlushXBuffers
+* @brief      Is flush X buffers
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -878,7 +878,7 @@ bool DIOSTREAM::IsFlushXBuffers()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAM::WaitToFlushOutXBuffer(int timeout)
-* @brief      WaitToFlushOutXBuffer
+* @brief      Wait to flush out X buffer
 * @ingroup    DATAIO
 *
 * @param[in]  timeout :
@@ -921,7 +921,7 @@ bool DIOSTREAM::WaitToFlushOutXBuffer(int timeout)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAM::WaitToFlushXBuffers(int timeout)
-* @brief      WaitToFlushXBuffers
+* @brief      Wait to flush X buffers
 * @ingroup    DATAIO
 *
 * @param[in]  timeout :
@@ -964,7 +964,7 @@ bool DIOSTREAM::WaitToFlushXBuffers(int timeout)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XTIMER* DIOSTREAM::GetXTimerConnection()
-* @brief      GetXTimerConnection
+* @brief      Get X timer connection
 * @ingroup    DATAIO
 *
 * @return     XTIMER* :
@@ -979,7 +979,7 @@ XTIMER* DIOSTREAM::GetXTimerConnection()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XTIMER* DIOSTREAM::GetXTimerNotActivity()
-* @brief      GetXTimerNotActivity
+* @brief      Get X timer not activity
 * @ingroup    DATAIO
 *
 * @return     XTIMER* :
@@ -994,7 +994,7 @@ XTIMER* DIOSTREAM::GetXTimerNotActivity()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD DIOSTREAM::GetNBytesRead()
-* @brief      GetNBytesRead
+* @brief      Get N bytes read
 * @ingroup    DATAIO
 *
 * @return     XDWORD :
@@ -1009,7 +1009,7 @@ XDWORD DIOSTREAM::GetNBytesRead()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOSTREAM::AddNBytesRead(XDWORD size)
-* @brief      AddNBytesRead
+* @brief      Add N bytes read
 * @ingroup    DATAIO
 * 
 * @param[in]  size : 
@@ -1024,7 +1024,7 @@ void DIOSTREAM::AddNBytesRead(XDWORD size)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD DIOSTREAM::GetNBytesWrite()
-* @brief      GetNBytesWrite
+* @brief      Get N bytes write
 * @ingroup    DATAIO
 *
 * @return     XDWORD :
@@ -1039,7 +1039,7 @@ XDWORD DIOSTREAM::GetNBytesWrite()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOSTREAM::AddNBytesWrite(XDWORD size)
-* @brief      AddNBytesWrite
+* @brief      Add N bytes write
 * @ingroup    DATAIO
 * 
 * @param[in]  size : 
@@ -1054,7 +1054,7 @@ void DIOSTREAM::AddNBytesWrite(XDWORD size)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMERROR DIOSTREAM::GetLastDIOError()
-* @brief      GetLastDIOError
+* @brief      Get last DIO error
 * @ingroup    DATAIO
 *
 * @return     DIOSTREAMERROR :
@@ -1072,7 +1072,7 @@ DIOSTREAMERROR DIOSTREAM::GetLastDIOError()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSTREAM::SetLastDIOError(DIOSTREAMERROR error)
-* @brief      SetLastDIOError
+* @brief      Set last DIO error
 * @ingroup    DATAIO
 *
 * @param[in]  error :
@@ -1102,7 +1102,7 @@ void DIOSTREAM::Wait(int milliseconds)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAM::ResetConnectionStatistics()
-* @brief      ResetConnectionStatistics
+* @brief      Reset connection statistics
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -1123,7 +1123,7 @@ bool DIOSTREAM::ResetConnectionStatistics()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSTREAM::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

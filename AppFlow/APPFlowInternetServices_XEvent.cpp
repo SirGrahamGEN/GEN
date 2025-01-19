@@ -64,7 +64,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         APPFLOWINTERNETSERVICES_XEVENT::APPFLOWINTERNETSERVICES_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    APPFLOW
 * 
 * @param[in]  subject : 
@@ -81,7 +81,7 @@ APPFLOWINTERNETSERVICES_XEVENT::APPFLOWINTERNETSERVICES_XEVENT(XSUBJECT* subject
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         APPFLOWINTERNETSERVICES_XEVENT::~APPFLOWINTERNETSERVICES_XEVENT()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    APPFLOW
 * 
@@ -95,7 +95,7 @@ APPFLOWINTERNETSERVICES_XEVENT::~APPFLOWINTERNETSERVICES_XEVENT()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         APPFLOWINTERNETSERVICES_CHECKINTERNETCONNEXION_STATE APPFLOWINTERNETSERVICES_XEVENT::GetInternetConnexionState()
-* @brief      GetInternetConnexionState
+* @brief      Get internet connexion state
 * @ingroup    APPFLOW
 *
 * @return     APPFLOWINTERNETSERVICES_CHECKINTERNETCONNEXION_STATE : 
@@ -110,7 +110,7 @@ APPFLOWINTERNETSERVICES_CHECKINTERNETCONNEXION_STATE APPFLOWINTERNETSERVICES_XEV
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void APPFLOWINTERNETSERVICES_XEVENT::SetInternetConnexionState(APPFLOWINTERNETSERVICES_CHECKINTERNETCONNEXION_STATE internetconnexionstate)
-* @brief      SetInternetConnexionState
+* @brief      Set internet connexion state
 * @ingroup    APPFLOW
 *
 * @param[in]  internetconnexionstate : 
@@ -125,7 +125,7 @@ void APPFLOWINTERNETSERVICES_XEVENT::SetInternetConnexionState(APPFLOWINTERNETSE
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOCHECKTCPIPCONNECTION_CUT* APPFLOWINTERNETSERVICES_XEVENT::GetInternetConnextionCut()
-* @brief      GetInternetConnextionCut
+* @brief      Get internet connextion cut
 * @ingroup    APPFLOW
 *
 * @return     DIOCHECKTCPIPCONNECTION_CUT* : 
@@ -140,7 +140,7 @@ DIOCHECKTCPIPCONNECTION_CUT* APPFLOWINTERNETSERVICES_XEVENT::GetInternetConnexti
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void APPFLOWINTERNETSERVICES_XEVENT::SetInternetConnextionCut(DIOCHECKTCPIPCONNECTION_CUT* internetconnectioncut)
-* @brief      SetInternetConnextionCut
+* @brief      Set internet connextion cut
 * @ingroup    APPFLOW
 *
 * @param[in]  internetconnectioncut : 
@@ -155,7 +155,7 @@ void APPFLOWINTERNETSERVICES_XEVENT::SetInternetConnextionCut(DIOCHECKTCPIPCONNE
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool APPFLOWINTERNETSERVICES_XEVENT::IsChangePublicIP()
-* @brief      IsChangePublicIP
+* @brief      Is change public IP
 * @ingroup    APPFLOW
 * 
 * @return     bool : true if is succesful. 
@@ -171,7 +171,7 @@ bool APPFLOWINTERNETSERVICES_XEVENT::IsChangePublicIP()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void APPFLOWINTERNETSERVICES_XEVENT::SetIsChangePublicIP(bool ischangepublicIP)
-* @brief      SetIsChangePublicIP
+* @brief      Set is change public IP
 * @ingroup    APPFLOW
 * 
 * @param[in]  ischangepublicIP : 
@@ -186,7 +186,7 @@ void APPFLOWINTERNETSERVICES_XEVENT::SetIsChangePublicIP(bool ischangepublicIP)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool APPFLOWINTERNETSERVICES_XEVENT::IsChangeLocalIP()
-* @brief      IsChangeLocalIP
+* @brief      Is change local IP
 * @ingroup    APPFLOW
 *
 * @return     bool : true if is succesful. 
@@ -201,7 +201,7 @@ bool APPFLOWINTERNETSERVICES_XEVENT::IsChangeLocalIP()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void APPFLOWINTERNETSERVICES_XEVENT::SetIsChangeLocalIP(bool ischangelocalIP)
-* @brief      SetIsChangeLocalIP
+* @brief      Set is change local IP
 * @ingroup    APPFLOW
 *
 * @param[in]  ischangelocalIP : 
@@ -216,7 +216,7 @@ void APPFLOWINTERNETSERVICES_XEVENT::SetIsChangeLocalIP(bool ischangelocalIP)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* APPFLOWINTERNETSERVICES_XEVENT::GetChangePublicIP()
-* @brief      GetChangePublicIP
+* @brief      Get change public IP
 * @ingroup    APPFLOW
 * 
 * @return     XSTRING* : 
@@ -231,7 +231,7 @@ XSTRING* APPFLOWINTERNETSERVICES_XEVENT::GetChangePublicIP()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* APPFLOWINTERNETSERVICES_XEVENT::GetChangeLocalIP()
-* @brief      GetChangeLocalIP
+* @brief      Get change local IP
 * @ingroup    APPFLOW
 * 
 * @return     XSTRING* : 
@@ -246,7 +246,7 @@ XSTRING* APPFLOWINTERNETSERVICES_XEVENT::GetChangeLocalIP()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD APPFLOWINTERNETSERVICES_XEVENT::GetNChangesIP()
-* @brief      GetNChangesIP
+* @brief      Get N changes IP
 * @ingroup    APPFLOW
 * 
 * @return     XDWORD : 
@@ -261,7 +261,7 @@ XDWORD APPFLOWINTERNETSERVICES_XEVENT::GetNChangesIP()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void APPFLOWINTERNETSERVICES_XEVENT::SetNChangesIP(XDWORD nchangesIP)
-* @brief      SetNChangesIP
+* @brief      Set N changes IP
 * @ingroup    APPFLOW
 * 
 * @param[in]  nchangesIP : 
@@ -276,7 +276,7 @@ void APPFLOWINTERNETSERVICES_XEVENT::SetNChangesIP(XDWORD nchangesIP)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD APPFLOWINTERNETSERVICES_XEVENT::GetNChangesLocalIP()
-* @brief      GetNChangesLocalIP
+* @brief      Get N changes local IP
 * @ingroup    APPFLOW
 * 
 * @return     XDWORD : 
@@ -291,7 +291,7 @@ XDWORD APPFLOWINTERNETSERVICES_XEVENT::GetNChangesLocalIP()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void APPFLOWINTERNETSERVICES_XEVENT::SetNChangesLocalIP(XDWORD nchangeslocalIP)
-* @brief      SetNChangesLocalIP
+* @brief      Set N changes local IP
 * @ingroup    APPFLOW
 * 
 * @param[in]  nchangeslocalIP : 
@@ -306,7 +306,7 @@ void APPFLOWINTERNETSERVICES_XEVENT::SetNChangesLocalIP(XDWORD nchangeslocalIP)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD APPFLOWINTERNETSERVICES_XEVENT::GetNChangesPublicIP()
-* @brief      GetNChangesPublicIP
+* @brief      Get N changes public IP
 * @ingroup    APPFLOW
 * 
 * @return     XDWORD : 
@@ -321,7 +321,7 @@ XDWORD APPFLOWINTERNETSERVICES_XEVENT::GetNChangesPublicIP()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void APPFLOWINTERNETSERVICES_XEVENT::SetNChangesPublicIP(XDWORD nchangespublicIP)
-* @brief      SetNChangesPublicIP
+* @brief      Set N changes public IP
 * @ingroup    APPFLOW
 * 
 * @param[in]  nchangespublicIP : 
@@ -336,7 +336,7 @@ void APPFLOWINTERNETSERVICES_XEVENT::SetNChangesPublicIP(XDWORD nchangespublicIP
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void APPFLOWINTERNETSERVICES_XEVENT::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    APPFLOW
 * 

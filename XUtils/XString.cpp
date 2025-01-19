@@ -84,7 +84,7 @@ const char XSTRING::decodetablebase64[] = "|$$$}rstuvwxyz{$$$$$$$>?@ABCDEFGHIJKL
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING::XSTRING()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -99,7 +99,7 @@ XSTRING::XSTRING()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING::XSTRING(XDWORD size)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * @param[in]  size :
@@ -118,7 +118,7 @@ XSTRING::XSTRING(XDWORD size)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING::XSTRING(const char* string)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * @param[in]  string :
@@ -137,7 +137,7 @@ XSTRING::XSTRING(const char* string)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING::XSTRING(const XCHAR* string)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 * 
 * @param[in]  string : 
@@ -156,7 +156,7 @@ XSTRING::XSTRING(const XCHAR* string)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING::XSTRING(const XCHAR* string, XDWORD size)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * @param[in]  string :
@@ -176,7 +176,7 @@ XSTRING::XSTRING(const XCHAR* string, XDWORD size)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING::XSTRING(const XSTRING& string)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * @param[in]  string :
@@ -195,7 +195,7 @@ XSTRING::XSTRING(const XSTRING& string)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING::XSTRING(XWORD* string)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * @param[in]  string :
@@ -214,7 +214,7 @@ XSTRING::XSTRING(XWORD* string)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING::~XSTRING()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -249,7 +249,7 @@ XCHAR* XSTRING::Get() const
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD XSTRING::GetSize() const
-* @brief      GetSize
+* @brief      Get size
 * @ingroup    XUTILS
 *
 * @return     XDWORD :
@@ -266,7 +266,7 @@ XDWORD XSTRING::GetSize() const
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD XSTRING::GetSize(const XCHAR* string)
-* @brief      GetSize
+* @brief      Get size
 * @ingroup    XUTILS
 *
 * @param[in]  string :
@@ -290,7 +290,7 @@ XDWORD XSTRING::GetSize(const XCHAR* string)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD XSTRING::GetSize(XWORD* string)
-* @brief      GetSize
+* @brief      Get size
 * @ingroup    XUTILS
 *
 * @param[in]  string :
@@ -314,7 +314,7 @@ XDWORD XSTRING::GetSize(XWORD* string)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRINGCODING XSTRING::GetTypeCoding()
-* @brief      GetTypeCoding
+* @brief      Get type coding
 * @ingroup    XUTILS
 * 
 * @return     XSTRINGCODING : 
@@ -906,7 +906,7 @@ bool XSTRING::Add(XBUFFER& buffer)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XSTRING::operator = (const char* string)
-* @brief      operator =
+* @brief      operator = 
 * @ingroup    XUTILS
 *
 * @param[in]  string :
@@ -921,7 +921,7 @@ void XSTRING::operator =  (const char* string)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XSTRING::operator = (const XCHAR* string)
-* @brief      operator =
+* @brief      operator = 
 * @ingroup    XUTILS
 *
 * @param[in]  string :
@@ -936,7 +936,7 @@ void XSTRING::operator =  (const XCHAR* string)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void XSTRING::operator = (const XSTRING& string)
-* @brief      operator =
+* @brief      operator = 
 * @ingroup    XUTILS
 * 
 * @param[in]  string : 
@@ -951,7 +951,7 @@ void XSTRING::operator =  (const XSTRING& string)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XSTRING::operator = (XWORD* string)
-* @brief      operator =
+* @brief      operator = 
 * @ingroup    XUTILS
 *
 * @param[in]  string :
@@ -966,7 +966,7 @@ void XSTRING::operator =  (XWORD* string)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XSTRING::operator = (XBUFFER& string)
-* @brief      operator =
+* @brief      operator = 
 * @ingroup    XUTILS
 *
 * @param[in]  string :
@@ -981,7 +981,7 @@ void XSTRING::operator =  (XBUFFER& string)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XSTRING::operator += (const char* string)
-* @brief      operator +=
+* @brief      operator += 
 * @ingroup    XUTILS
 *
 * @param[in]  string :
@@ -996,7 +996,7 @@ void XSTRING::operator += (const char* string)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XSTRING::operator += (const XCHAR* string)
-* @brief      operator +=
+* @brief      operator += 
 * @ingroup    XUTILS
 *
 * @param[in]  string :
@@ -1011,7 +1011,7 @@ void XSTRING::operator += (const XCHAR* string)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XSTRING::operator += (XSTRING& string)
-* @brief      operator +=
+* @brief      operator += 
 * @ingroup    XUTILS
 *
 * @param[in]  string :
@@ -1026,7 +1026,7 @@ void XSTRING::operator += (XSTRING& string)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XSTRING::operator += (XCHAR character)
-* @brief      operator +=
+* @brief      operator += 
 * @ingroup    XUTILS
 *
 * @param[in]  character :
@@ -1041,7 +1041,7 @@ void XSTRING::operator += (XCHAR character)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTRING::operator < (XSTRING& string) const
-* @brief      operator <
+* @brief      operator < 
 * @ingroup    XUTILS
 *
 * @param[in]  string :
@@ -1058,7 +1058,7 @@ bool XSTRING::operator <  (const XSTRING& string) const
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTRING::operator > (XSTRING& string)
-* @brief      operator >
+* @brief      operator > 
 * @ingroup    XUTILS
 *
 * @param[in]  string :
@@ -1075,7 +1075,7 @@ bool XSTRING::operator >  (XSTRING& string)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTRING::operator <= (XSTRING& string)
-* @brief      operator <=
+* @brief      operator <= 
 * @ingroup    XUTILS
 *
 * @param[in]  string :
@@ -1092,7 +1092,7 @@ bool XSTRING::operator <= (XSTRING& string)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTRING::operator >= (XSTRING& string)
-* @brief      operator >=
+* @brief      operator >= 
 * @ingroup    XUTILS
 *
 * @param[in]  string :
@@ -1109,7 +1109,7 @@ bool XSTRING::operator >= (XSTRING& string)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTRING::operator == (XSTRING& string)
-* @brief      operator ==
+* @brief      operator == 
 * @ingroup    XUTILS
 *
 * @param[in]  string :
@@ -1126,7 +1126,7 @@ bool XSTRING::operator == (const XSTRING& string) const
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTRING::operator != (XSTRING& string)
-* @brief      operator !=
+* @brief      operator != 
 * @ingroup    XUTILS
 *
 * @param[in]  string :
@@ -1143,7 +1143,7 @@ bool XSTRING::operator != (XSTRING& string)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XCHAR XSTRING::operator [] (int position)
-* @brief      operator []
+* @brief      operator [] 
 * @ingroup    XUTILS
 *
 * @param[in]  position :
@@ -1164,7 +1164,7 @@ XCHAR XSTRING::operator [] (int position)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTRING::FillChar(XCHAR character)
-* @brief      FillChar
+* @brief      Fill char
 * @ingroup    XUTILS
 *
 * @param[in]  character :
@@ -1207,7 +1207,7 @@ bool XSTRING::Empty()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTRING::IsEmpty()
-* @brief      IsEmpty
+* @brief      Is empty
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -1225,7 +1225,7 @@ bool XSTRING::IsEmpty()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTRING::HaveCharacters()
-* @brief      HaveCharacters
+* @brief      Have characters
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -1248,7 +1248,7 @@ bool XSTRING::HaveCharacters()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTRING::HaveOnlyNumbers()
-* @brief      HaveOnlyNumbers
+* @brief      Have only numbers
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -1271,7 +1271,7 @@ bool XSTRING::HaveOnlyNumbers()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XSTRING::HaveNumbers()
-* @brief      HaveNumbers
+* @brief      Have numbers
 * @ingroup    XUTILS
 * 
 * @return     bool : true if is succesful. 
@@ -1294,7 +1294,7 @@ bool XSTRING::HaveNumbers()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTRING::DeleteCharacters(XDWORD index, XDWORD ncharacteres)
-* @brief      DeleteCharacters
+* @brief      Delete characters
 * @ingroup    XUTILS
 *
 * @param[in]  index :
@@ -1328,7 +1328,7 @@ bool XSTRING::DeleteCharacters(XDWORD index, XDWORD ncharacteres)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XSTRING::DeleteCharactersToEnd(XDWORD index)
-* @brief      DeleteCharactersToEnd
+* @brief      Delete characters to end
 * @ingroup    XUTILS
 *
 * @param[in]  index : 
@@ -1359,7 +1359,7 @@ bool XSTRING::DeleteCharactersToEnd(XDWORD index)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTRING::DeleteCharacter(XCHAR character,XSTRINGCONTEXT context)
-* @brief      DeleteCharacter
+* @brief      Delete character
 * @ingroup    XUTILS
 *
 * @param[in]  character :
@@ -1423,7 +1423,7 @@ bool XSTRING::DeleteCharacter(XCHAR character,XSTRINGCONTEXT context)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTRING::DeleteNoCharacters(XSTRINGCONTEXT context)
-* @brief      DeleteNoCharacters
+* @brief      Delete no characters
 * @ingroup    XUTILS
 *
 * @param[in]  context :
@@ -1446,7 +1446,7 @@ bool XSTRING::DeleteNoCharacters(XSTRINGCONTEXT context)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XSTRING::DeleteNoCharacters(XCHAR* n, int start, XSTRINGCONTEXT context)
-* @brief      DeleteNoCharacters
+* @brief      Delete no characters
 * @ingroup    XUTILS
 *
 * @param[in]  n :
@@ -1549,7 +1549,7 @@ int XSTRING::DeleteNoCharacters(XCHAR* n, int start, XSTRINGCONTEXT context)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XSTRING::DeleteLastCharacter()
-* @brief      DeleteLastCharacter
+* @brief      Delete last character
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful. 
@@ -1564,7 +1564,7 @@ bool XSTRING::DeleteLastCharacter()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XSTRING::DeleteLastZeros()
-* @brief      DeleteLastZeros
+* @brief      Delete last zeros
 * @ingroup    XUTILS
 * 
 * @return     bool : true if is succesful. 
@@ -1593,7 +1593,7 @@ bool XSTRING::DeleteLastZeros()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTRING::Character_IsAlpha(XCHAR character) const
-* @brief      Character_IsAlpha
+* @brief      Character is alpha
 * @ingroup    XUTILS
 *
 * @param[in]  character :
@@ -1615,7 +1615,7 @@ bool XSTRING::Character_IsAlpha(XCHAR character) const
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTRING::Character_IsUpperCase(XCHAR character)
-* @brief      Character_IsUpperCase
+* @brief      Character is upper case
 * @ingroup    XUTILS
 *
 * @param[in]  character :
@@ -1636,7 +1636,7 @@ bool XSTRING::Character_IsUpperCase(XCHAR character)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTRING::Character_IsLowerCase(XCHAR character)
-* @brief      Character_IsLowerCase
+* @brief      Character is lower case
 * @ingroup    XUTILS
 *
 * @param[in]  character :
@@ -1657,7 +1657,7 @@ bool XSTRING::Character_IsLowerCase(XCHAR character)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XSTRING::Character_IsNumber(XCHAR character, bool isextended)
-* @brief      Character_IsNumber
+* @brief      Character is number
 * @ingroup    XUTILS
 * 
 * @param[in]  character : 
@@ -1688,7 +1688,7 @@ bool XSTRING::Character_IsNumber(XCHAR character, bool isextended)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTRING::Character_IsNOT(XCHAR character)
-* @brief      Character_IsNOT
+* @brief      Character is NOT
 * @ingroup    XUTILS
 *
 * @param[in]  character :
@@ -1714,7 +1714,7 @@ bool XSTRING::Character_IsNOT(XCHAR character)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XCHAR XSTRING::Character_ToUpper(XCHAR character) const
-* @brief      Character_ToUpper
+* @brief      Character to upper
 * @ingroup    XUTILS
 *
 * @param[in]  character :
@@ -1741,7 +1741,7 @@ XCHAR XSTRING::Character_ToUpper(XCHAR character) const
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XCHAR XSTRING::Character_ToLower(XCHAR character) const
-* @brief      Character_ToLower
+* @brief      Character to lower
 * @ingroup    XUTILS
 *
 * @param[in]  character :
@@ -1767,7 +1767,7 @@ XCHAR XSTRING::Character_ToLower(XCHAR character) const
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XCHAR XSTRING::Character_GetFirst()
-* @brief      Character_GetFirst
+* @brief      Character get first
 * @ingroup    XUTILS
 *
 * @return     XCHAR :
@@ -1784,7 +1784,7 @@ XCHAR XSTRING::Character_GetFirst()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XCHAR XSTRING::Character_GetLast()
-* @brief      Character_GetLast
+* @brief      Character get last
 * @ingroup    XUTILS
 *
 * @return     XCHAR :
@@ -1810,7 +1810,7 @@ XCHAR XSTRING::Character_GetLast()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTRING::Character_Change(XCHAR source,XCHAR target)
-* @brief      Character_Change
+* @brief      Character change
 * @ingroup    XUTILS
 *
 * @param[in]  source :
@@ -1841,7 +1841,7 @@ bool XSTRING::Character_Change(XCHAR source, XCHAR target)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XSTRING::IsNumber()
-* @brief      IsNumber
+* @brief      Is number
 * @ingroup    XUTILS
 * 
 * @return     bool : true if is succesful. 
@@ -1863,7 +1863,7 @@ bool XSTRING::IsNumber()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XSTRING::IsDecimalNumber(int* ndecimals)
-* @brief      IsDecimalNumber
+* @brief      Is decimal number
 * @ingroup    XUTILS
 * 
 * @param[in]  ndecimals : 
@@ -1908,7 +1908,7 @@ bool XSTRING::IsDecimalNumber(int* ndecimals)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTRING::ToUpperCase()
-* @brief      ToUpperCase
+* @brief      To upper case
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -1934,7 +1934,7 @@ bool XSTRING::ToUpperCase()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTRING::ToLowerCase()
-* @brief      ToLowerCase
+* @brief      To lower case
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -2275,7 +2275,7 @@ int XSTRING::Find(XSTRING& string, bool ignorecase,int startindex)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XSTRING::FindCharacter(XCHAR character, XDWORD startindex, bool endtostart)
-* @brief      FindCharacter
+* @brief      Find character
 * @ingroup    XUTILS
 *
 * @param[in]  character :
@@ -2311,7 +2311,7 @@ int XSTRING::FindCharacter(XCHAR character, XDWORD startindex, bool endtostart)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD XSTRING::CountCharacter(XCHAR character, int startindex, bool endtostart)
-* @brief      CountCharacter
+* @brief      Count character
 * @ingroup    XUTILS
 *
 * @param[in]  character :
@@ -2351,7 +2351,7 @@ XDWORD XSTRING::CountCharacter(XCHAR character, int startindex, bool endtostart)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XSTRING::FindDiferentCharacter(XCHAR character, int startindex, bool endtostart)
-* @brief      FindDiferentCharacter
+* @brief      Find diferent character
 * @ingroup    XUTILS
 *
 * @param[in]  character :
@@ -2390,7 +2390,7 @@ int XSTRING::FindDiferentCharacter(XCHAR character, int startindex, bool endtost
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XSTRING::GetNCharacters(XCHAR character)
-* @brief      GetNCharacters
+* @brief      Get N characters
 * @ingroup    XUTILS
 *
 * @param[in]  character :
@@ -2414,7 +2414,7 @@ int XSTRING::GetNCharacters(XCHAR character)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTRING::AreValidCharacters(XCHAR* validcharacterslist)
-* @brief      AreValidCharacters
+* @brief      Are valid characters
 * @ingroup    XUTILS
 *
 * @param[in]  validcharacterslist :
@@ -2690,7 +2690,7 @@ int XSTRING::Replace(XCHAR* findwhat, XCHAR* replaceby)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XSTRING::ReplaceFirst(XCHAR* findwhat, XCHAR* replaceby)
-* @brief      ReplaceFirst
+* @brief      Replace first
 * @ingroup    XUTILS
 *
 * @param[in]  findwhat :
@@ -2760,7 +2760,7 @@ bool XSTRING::Insert(XSTRING str,XDWORD position)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XSTRING::ConvertFromNULL(bool uppercase)
-* @brief      ConvertFromNULL
+* @brief      Convert from NULL
 * @ingroup    XUTILS
 * 
 * @param[in]  uppercase : 
@@ -2779,7 +2779,7 @@ bool XSTRING::ConvertFromNULL(bool uppercase)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XSTRING::ConvertFromBoolean(bool boolean, XBYTE mode)
-* @brief      ConvertFromBoolean
+* @brief      Convert from boolean
 * @ingroup    XUTILS
 * 
 * @param[in]  boolean : 
@@ -2819,7 +2819,7 @@ bool XSTRING::ConvertFromBoolean(bool boolean, XBYTE mode)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XSTRING::ConvertFromShort(short value, const XCHAR* mask)
-* @brief      ConvertFromShort
+* @brief      Convert from short
 * @ingroup    XUTILS
 * 
 * @param[in]  value : 
@@ -2856,7 +2856,7 @@ bool XSTRING::ConvertFromShort(short value, const XCHAR* mask)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XSTRING::ConvertFromWord(XWORD value, const XCHAR* mask)
-* @brief      ConvertFromWord
+* @brief      Convert from word
 * @ingroup    XUTILS
 * 
 * @param[in]  value : 
@@ -2893,7 +2893,7 @@ bool XSTRING::ConvertFromWord(XWORD value, const XCHAR* mask)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTRING::ConvertFromInt(int value, const XCHAR* mask)
-* @brief      ConvertFromInt
+* @brief      Convert from int
 * @ingroup    XUTILS
 *
 * @param[in]  value :
@@ -2931,7 +2931,7 @@ bool XSTRING::ConvertFromInt(int value, const XCHAR* mask)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTRING::ConvertFromDWord(XDWORD value, const XCHAR* mask)
-* @brief      ConvertFromDWord
+* @brief      Convert from D word
 * @ingroup    XUTILS
 *
 * @param[in]  value :
@@ -2968,7 +2968,7 @@ bool XSTRING::ConvertFromDWord(XDWORD value, const XCHAR* mask)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTRING::ConvertFromLongLong(long long value, const XCHAR* mask)
-* @brief      ConvertFromLongLong
+* @brief      Convert from long long
 * @ingroup    XUTILS
 *
 * @param[in]  value :
@@ -3005,7 +3005,7 @@ bool XSTRING::ConvertFromLongLong(long long value, const XCHAR* mask)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTRING::ConvertFromQWord(XQWORD value, const XCHAR* mask)
-* @brief      ConvertFromQWord
+* @brief      Convert from Q word
 * @ingroup    XUTILS
 *
 * @param[in]  value :
@@ -3042,7 +3042,7 @@ bool XSTRING::ConvertFromQWord(XQWORD value, const XCHAR* mask)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTRING::ConvertFromFloat(float value, const XCHAR* mask)
-* @brief      ConvertFromFloat
+* @brief      Convert from float
 * @ingroup    XUTILS
 *
 * @param[in]  value :
@@ -3084,7 +3084,7 @@ bool XSTRING::ConvertFromFloat(float value, const XCHAR* mask)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTRING::ConvertFromDouble(double value, const XCHAR* mask)
-* @brief      ConvertFromDouble
+* @brief      Convert from double
 * @ingroup    XUTILS
 *
 * @param[in]  value :
@@ -3126,7 +3126,7 @@ bool XSTRING::ConvertFromDouble(double value, const XCHAR* mask)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTRING::ConvertHexFormatChars()
-* @brief      ConvertHexFormatChars
+* @brief      Convert hex format chars
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -3181,7 +3181,7 @@ bool XSTRING::ConvertHexFormatChars()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTRING::ConvertToHexString(XSTRING& string, bool uppercase)
-* @brief      ConvertToHexString
+* @brief      Convert to hex string
 * @ingroup    XUTILS
 *
 * @param[in]  string :
@@ -3209,7 +3209,7 @@ bool XSTRING::ConvertToHexString(XSTRING& string, bool uppercase)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTRING::ConvertHexStringToBuffer(XBUFFER& xbuffer)
-* @brief      ConvertHexStringToBuffer
+* @brief      Convert hex string to buffer
 * @ingroup    XUTILS
 *
 * @param[in]  xbuffer :
@@ -3243,7 +3243,7 @@ bool XSTRING::ConvertHexStringToBuffer(XBUFFER& xbuffer)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTRING::ConvertHexStringFromBuffer(XBUFFER& xbuffer, bool uppercase)
-* @brief      ConvertHexStringFromBuffer
+* @brief      Convert hex string from buffer
 * @ingroup    XUTILS
 *
 * @param[in]  xbuffer :
@@ -3271,7 +3271,7 @@ bool XSTRING::ConvertHexStringFromBuffer(XBUFFER& xbuffer, bool uppercase)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTRING::ConvertToBoolean()
-* @brief      ConvertToBoolean
+* @brief      Convert to boolean
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -3310,7 +3310,7 @@ bool XSTRING::ConvertToBoolean()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XSTRING::ConvertToInt(int index, const XCHAR* mask, bool checkvalidchars)
-* @brief      ConvertToInt
+* @brief      Convert to int
 * @ingroup    XUTILS
 *
 * @param[in]  index :
@@ -3354,7 +3354,7 @@ int XSTRING::ConvertToInt(int index, const XCHAR* mask, bool checkvalidchars)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD XSTRING::ConvertToDWord(int index, const XCHAR* mask, bool checkvalidchars)
-* @brief      ConvertToDWord
+* @brief      Convert to D word
 * @ingroup    XUTILS
 *
 * @param[in]  index :
@@ -3395,7 +3395,7 @@ XDWORD XSTRING::ConvertToDWord(int index, const XCHAR* mask, bool checkvalidchar
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         long long XSTRING::ConvertToLongLong(int index, const XCHAR* mask, bool checkvalidchars)
-* @brief      ConvertToLongLong
+* @brief      Convert to long long
 * @ingroup    XUTILS
 * 
 * @param[in]  index : 
@@ -3436,7 +3436,7 @@ long long XSTRING::ConvertToLongLong(int index, const XCHAR* mask, bool checkval
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XQWORD XSTRING::ConvertToQWord(int index, const XCHAR* mask, bool checkvalidchars)
-* @brief      ConvertToQWord
+* @brief      Convert to Q word
 * @ingroup    XUTILS
 *
 * @param[in]  index :
@@ -3477,7 +3477,7 @@ XQWORD XSTRING::ConvertToQWord(int index, const XCHAR* mask, bool checkvalidchar
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         float XSTRING::ConvertToFloat(int index, const XCHAR* mask, bool checkvalidchars)
-* @brief      ConvertToFloat
+* @brief      Convert to float
 * @ingroup    XUTILS
 *
 * @param[in]  index :
@@ -3518,7 +3518,7 @@ float XSTRING::ConvertToFloat(int index, const XCHAR* mask, bool checkvalidchars
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         double XSTRING::ConvertToDouble(int index, const XCHAR* mask, bool checkvalidchars)
-* @brief      ConvertToDouble
+* @brief      Convert to double
 * @ingroup    XUTILS
 *
 * @param[in]  index :
@@ -3559,7 +3559,7 @@ double XSTRING::ConvertToDouble(int index, const XCHAR* mask, bool checkvalidcha
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XSTRING::IsValidASCII()
-* @brief      IsValidASCII
+* @brief      Is valid ASCII
 * @ingroup    XUTILS
 * 
 * @return     bool : true if is succesful. 
@@ -3579,7 +3579,7 @@ bool XSTRING::IsValidASCII()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XSTRING::ConvertToASCII(XBUFFER& xbuffer)
-* @brief      ConvertToASCII
+* @brief      Convert to ASCII
 * @ingroup    XUTILS
 * 
 * @param[in]  xbuffer : 
@@ -3612,7 +3612,7 @@ bool XSTRING::ConvertToASCII(XBUFFER& xbuffer)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XSTRING::ConvertFromASCII(XBUFFER& xbuffer)
-* @brief      ConvertFromASCII
+* @brief      Convert from ASCII
 * @ingroup    XUTILS
 * 
 * @param[in]  xbuffer : 
@@ -3640,7 +3640,7 @@ bool XSTRING::ConvertFromASCII(XBUFFER& xbuffer)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XSTRING::ConvertToXBuffer(XBUFFER& xbuffer)
-* @brief      ConvertToXBuffer
+* @brief      Convert to X buffer
 * @ingroup    XUTILS
 * 
 * @param[in]  xbuffer : 
@@ -3684,7 +3684,7 @@ bool XSTRING::ConvertToXBuffer(XBUFFER& xbuffer)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XSTRING::ConvertFromXBuffer(XBUFFER& xbuffer, XSTRINGCODING buffercoding)
-* @brief      ConvertFromXBuffer
+* @brief      Convert from X buffer
 * @ingroup    XUTILS
 * 
 * @param[in]  xbuffer : 
@@ -3845,7 +3845,7 @@ bool XSTRING::ConvertFromXBuffer(XBUFFER& xbuffer, XSTRINGCODING buffercoding)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XSTRING::ConvertToExchangeXBuffer(XBUFFER& xbuffer, bool addzeroatend, bool inverse)
-* @brief      ConvertToExchangeXBuffer
+* @brief      Convert to exchange X buffer
 * @ingroup    XUTILS
 * 
 * @param[in]  xbuffer : 
@@ -3884,7 +3884,7 @@ bool XSTRING::ConvertToExchangeXBuffer(XBUFFER& xbuffer, bool addzeroatend, bool
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XSTRING::GetSizeConvertToUTF8()
-* @brief      GetSizeConvertToUTF8
+* @brief      Get size convert to UTF8
 * @ingroup    XUTILS
 *
 * @return     int :
@@ -3950,7 +3950,7 @@ int XSTRING::GetSizeConvertToUTF8()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTRING::ConvertFromUTF8(XBYTE* data,XDWORD size)
-* @brief      ConvertFromUTF8
+* @brief      Convert from UTF8
 * @ingroup    XUTILS
 *
 * @param[in]  data :
@@ -4042,7 +4042,7 @@ bool XSTRING::ConvertFromUTF8(XBYTE* data, XDWORD size)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTRING::ConvertFromUTF8(XBUFFER& xbuffer)
-* @brief      ConvertFromUTF8
+* @brief      Convert from UTF8
 * @ingroup    XUTILS
 *
 * @param[in]  xbuffer :
@@ -4059,7 +4059,7 @@ bool XSTRING::ConvertFromUTF8(XBUFFER& xbuffer)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XSTRING::ConvertToUTF8(XBYTE* data, int& size, bool addzeroatend)
-* @brief      ConvertToUTF8
+* @brief      Convert to UTF8
 * @ingroup    XUTILS
 * 
 * @param[in]  data : 
@@ -4141,7 +4141,7 @@ bool XSTRING::ConvertToUTF8(XBYTE* data, int& size, bool addzeroatend)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XSTRING::ConvertToUTF8(XBUFFER& xbuffer, bool addzeroatend)
-* @brief      ConvertToUTF8
+* @brief      Convert to UTF8
 * @ingroup    XUTILS
 * 
 * @param[in]  xbuffer : 
@@ -4174,7 +4174,7 @@ bool XSTRING::ConvertToUTF8(XBUFFER& xbuffer, bool addzeroatend)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XSTRING::ConvertFromUTF16(XBUFFER& xbuffer)
-* @brief      ConvertFromUTF16
+* @brief      Convert from UTF16
 * @ingroup    XUTILS
 * 
 * @param[in]  xbuffer : 
@@ -4191,7 +4191,7 @@ bool XSTRING::ConvertFromUTF16(XBUFFER& xbuffer)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XSTRING::ConvertToUTF16(XBUFFER& xbuffer)
-* @brief      ConvertToUTF16
+* @brief      Convert to UTF16
 * @ingroup    XUTILS
 * 
 * @param[in]  xbuffer : 
@@ -4245,7 +4245,7 @@ bool XSTRING::ConvertToUTF16(XBUFFER& xbuffer)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XSTRING::ConvertFromUTF32(XBUFFER& xbuffer)
-* @brief      ConvertFromUTF32
+* @brief      Convert from UTF32
 * @ingroup    XUTILS
 * 
 * @param[in]  xbuffer : 
@@ -4262,7 +4262,7 @@ bool XSTRING::ConvertFromUTF32(XBUFFER& xbuffer)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XSTRING::ConvertToUTF32(XBUFFER& xbuffer)
-* @brief      ConvertToUTF32
+* @brief      Convert to UTF32
 * @ingroup    XUTILS
 * 
 * @param[in]  xbuffer : 
@@ -4320,7 +4320,7 @@ bool XSTRING::ConvertToUTF32(XBUFFER& xbuffer)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XSTRING::ConvertToBase64(XSTRING& string)
-* @brief      ConvertToBase64
+* @brief      Convert to base64
 * @ingroup    XUTILS
 * 
 * @param[in]  string : 
@@ -4348,7 +4348,7 @@ bool XSTRING::ConvertToBase64(XSTRING& string)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XSTRING::ConvertBinaryToBase64(XBUFFER& inbuffer)
-* @brief      ConvertBinaryToBase64
+* @brief      Convert binary to base64
 * @ingroup    XUTILS
 * 
 * @param[in]  inbuffer : 
@@ -4365,7 +4365,7 @@ bool XSTRING::ConvertBinaryToBase64(XBUFFER& inbuffer)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XSTRING::ConvertBase64ToBinary(XBUFFER& outbuffer)
-* @brief      ConvertBase64ToBinary
+* @brief      Convert base64 to binary
 * @ingroup    XUTILS
 * 
 * @param[in]  outbuffer : 
@@ -4390,7 +4390,7 @@ bool XSTRING::ConvertBase64ToBinary(XBUFFER& outbuffer)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTRING::ConvertToPascal(SHORTSTRING& pascalstring)
-* @brief      ConvertToPascal
+* @brief      Convert to pascal
 * @ingroup    XUTILS
 *
 * @param[in]  pascalstring :
@@ -4416,7 +4416,7 @@ bool XSTRING::ConvertToPascal(SHORTSTRING& pascalstring)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTRING::ConvertFromPascal(SHORTSTRING& pascalstring)
-* @brief      ConvertFromPascal
+* @brief      Convert from pascal
 * @ingroup    XUTILS
 *
 * @param[in]  pascalstring :
@@ -4437,7 +4437,7 @@ bool XSTRING::ConvertFromPascal(SHORTSTRING& pascalstring)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTRING::ConvertFromDoubleToSpanishText(double value, bool withintegerpart, bool withdecimalpart, double& integerpart, double& decimalpart)
-* @brief      ConvertFromDoubleToSpanishText
+* @brief      Convert from double to spanish text
 * @ingroup    XUTILS
 *
 * @param[in]  value :
@@ -4704,7 +4704,7 @@ bool XSTRING::Split(XCHAR separator, XVECTOR<XSTRING*>& results, bool addsubstri
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTRING::FormatArg(const XCHAR* mask, va_list* arg, bool isspecialweb)
-* @brief      FormatArg
+* @brief      Format arg
 * @ingroup    XUTILS
 *
 * @param[in]  mask :
@@ -5020,7 +5020,7 @@ bool XSTRING::Format(const XCHAR* mask, ...)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTRING::AddFormat(const XCHAR* mask, ...)
-* @brief      AddFormat
+* @brief      Add format
 * @ingroup    XUTILS
 *
 * @param[in]  mask :
@@ -5049,7 +5049,7 @@ bool XSTRING::AddFormat(const XCHAR* mask, ...)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTRING::UnFormat(const XCHAR* mask,...)
-* @brief      UnFormat
+* @brief      Un format
 * @ingroup    XUTILS
 *
 * @param[in]  mask :
@@ -5330,7 +5330,7 @@ bool XSTRING::UnFormat(const XCHAR* mask,...)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XSTRING::FindCharacterFromSet(const XCHAR* chars)
-* @brief      FindCharacterFromSet
+* @brief      Find character from set
 * @ingroup    XUTILS
 *
 * @param[in]  chars :
@@ -5362,7 +5362,7 @@ int XSTRING::FindCharacterFromSet(const XCHAR* chars)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTRING::AdjustSize(XDWORD size,bool ahead, XCHAR* characters, bool addstring)
-* @brief      AdjustSize
+* @brief      Adjust size
 * @ingroup    XUTILS
 *
 * @param[in]  size :
@@ -5435,7 +5435,7 @@ bool XSTRING::AdjustSize(XDWORD size, bool ahead, XCHAR* characters, bool addstr
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTRING::AdjustSize()
-* @brief      AdjustSize
+* @brief      Adjust size
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -5462,7 +5462,7 @@ bool XSTRING::AdjustSize()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTRING::BinaryCompare(XSTRING& string)
-* @brief      BinaryCompare
+* @brief      Binary compare
 * @ingroup    XUTILS
 *
 * @param[in]  string :
@@ -5525,7 +5525,7 @@ bool XSTRING::Explode(XCHAR token, XVECTOR<XSTRING*>* receive)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTRING::GetTypeOfLineEnd(XSTRING& lineend)
-* @brief      GetTypeOfLineEnd
+* @brief      Get type of line end
 * @ingroup    XUTILS
 *
 * @param[in]  lineend :
@@ -5603,7 +5603,7 @@ bool XSTRING::GetTypeOfLineEnd(XSTRING& lineend)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTRING::ReAllocBuffer(XDWORD size)
-* @brief      ReAllocBuffer
+* @brief      Re alloc buffer
 * @ingroup    XUTILS
 *
 * @param[in]  size :
@@ -5655,7 +5655,7 @@ bool XSTRING::ReAllocBuffer(XDWORD sizechar)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTRING::FreeBuffer()
-* @brief      FreeBuffer
+* @brief      Free buffer
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -5693,7 +5693,7 @@ bool XSTRING::FreeBuffer()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSTRING::ConvertStringWithMask(XCHAR* mask, XCHAR* string, XCHAR* result)
-* @brief      ConvertStringWithMask
+* @brief      Convert string with mask
 * @ingroup    XUTILS
 *
 * @param[in]  mask :
@@ -5736,7 +5736,7 @@ bool XSTRING::ConvertStringWithMask(XCHAR* mask, XCHAR* string, XCHAR* result)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void XSTRING::Base64_EncodeBlock(XBYTE* in, XBYTE* out, int len)
-* @brief      Base64_EncodeBlock
+* @brief      Base64 encode block
 * @ingroup    XUTILS
 * 
 * @param[in]  in : 
@@ -5756,7 +5756,7 @@ void XSTRING::Base64_EncodeBlock(XBYTE *in, XBYTE *out, int len)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XSTRING::Base64_Encode(XBYTE* buffer, XDWORD buffersize, XSTRING& line)
-* @brief      Base64_Encode
+* @brief      Base64 encode
 * @ingroup    XUTILS
 * 
 * @param[in]  buffer : 
@@ -5808,7 +5808,7 @@ bool XSTRING::Base64_Encode(XBYTE* buffer, XDWORD buffersize, XSTRING& line)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void XSTRING::Base64_DecodeBlock(XBYTE in[4], XBYTE out[3])
-* @brief      Base64_DecodeBlock
+* @brief      Base64 decode block
 * @ingroup    XUTILS
 * 
 * @param[in]  in : 
@@ -5826,7 +5826,7 @@ void XSTRING::Base64_DecodeBlock(XBYTE in[4], XBYTE out[3])
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XSTRING::Base64_Decode(const char* in_buffer, int in_buffer_size, XBUFFER& outbuffer)
-* @brief      Base64_Decode
+* @brief      Base64 decode
 * @ingroup    XUTILS
 * 
 * @param[in]  in_buffer : 
@@ -5887,7 +5887,7 @@ bool XSTRING::Base64_Decode(const char* in_buffer, int in_buffer_size, XBUFFER& 
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XSTRING::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    XUTILS
 *

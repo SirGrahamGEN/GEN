@@ -101,7 +101,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOLINUXSTREAMICMP::DIOLINUXSTREAMICMP()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_LINUX
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -150,7 +150,7 @@ DIOLINUXSTREAMICMP::DIOLINUXSTREAMICMP() : DIOSTREAMICMP() , XFSMACHINE(0)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOLINUXSTREAMICMP::~DIOLINUXSTREAMICMP()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
 * 
@@ -266,7 +266,7 @@ bool DIOLINUXSTREAMICMP::Close()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int DIOLINUXSTREAMICMP::IsReadyConnect(int socket)
-* @brief      IsReadyConnect
+* @brief      Is ready connect
 * @ingroup    PLATFORM_LINUX
 * 
 * @param[in]  socket : 
@@ -320,7 +320,7 @@ int DIOLINUXSTREAMICMP::IsReadyConnect(int socket)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOLINUXSTREAMICMP::ThreadRunFunction(void* thread)
-* @brief      ThreadRunFunction
+* @brief      Thread run function
 * @ingroup    PLATFORM_LINUX
 * 
 * @param[in]  thread : 
@@ -575,7 +575,7 @@ void DIOLINUXSTREAMICMP::ThreadRunFunction(void* thread)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOLINUXSTREAMICMP::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
 * 

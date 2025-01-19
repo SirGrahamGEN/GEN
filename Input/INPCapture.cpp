@@ -67,7 +67,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         INPCAPTURE::INPCAPTURE()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    INPUT
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -80,7 +80,7 @@ INPCAPTURE::INPCAPTURE()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         INPCAPTURE::~INPCAPTURE()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    INPUT
 * 
@@ -94,7 +94,7 @@ INPCAPTURE::~INPCAPTURE()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void INPCAPTURE::Application_SetHandle(void* applicationhandle)
-* @brief      Application_SetHandle
+* @brief      Application set handle
 * @ingroup    INPUT
 * 
 * @param[in]  applicationhandle : 
@@ -139,7 +139,7 @@ bool INPCAPTURE::Deactivate()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD INPCAPTURE::GetNKeys()
-* @brief      GetNKeys
+* @brief      Get N keys
 * @ingroup    INPUT
 * 
 * @return     XDWORD : 
@@ -154,7 +154,7 @@ XDWORD INPCAPTURE::GetNKeys()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void INPCAPTURE::SetNKeys(XDWORD nkeys)
-* @brief      SetNKeys
+* @brief      Set N keys
 * @ingroup    INPUT
 * 
 * @param[in]  nkeys : 
@@ -169,7 +169,7 @@ void INPCAPTURE::SetNKeys(XDWORD nkeys)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD INPCAPTURE::GetLimit()
-* @brief      GetLimit
+* @brief      Get limit
 * @ingroup    INPUT
 * 
 * @return     XDWORD : 
@@ -184,7 +184,7 @@ XDWORD INPCAPTURE::GetLimit()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void INPCAPTURE::SetLimit(XDWORD limit)
-* @brief      SetLimit
+* @brief      Set limit
 * @ingroup    INPUT
 * 
 * @param[in]  limit : 
@@ -199,7 +199,7 @@ void INPCAPTURE::SetLimit(XDWORD limit)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBUFFER* INPCAPTURE::GetBuffer()
-* @brief      GetCaptureBuffer
+* @brief      Get buffer
 * @ingroup    INPUT
 * 
 * @return     XBUFFER* : 
@@ -214,7 +214,7 @@ XBUFFER* INPCAPTURE::GetBuffer()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* INPCAPTURE::GetString()
-* @brief      GetCaptureString
+* @brief      Get string
 * @ingroup    INPUT
 * 
 * @return     XSTRING* : 
@@ -229,7 +229,7 @@ XSTRING* INPCAPTURE::GetString()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void INPCAPTURE::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    INPUT
 * 

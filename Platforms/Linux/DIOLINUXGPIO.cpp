@@ -79,7 +79,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOLINUXGPIO::DIOLINUXGPIO()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_LINUX
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -92,7 +92,7 @@ DIOLINUXGPIO::DIOLINUXGPIO() : DIOGPIO()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOLINUXGPIO::~DIOLINUXGPIO()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
 *
@@ -121,7 +121,7 @@ bool DIOLINUXGPIO::Ini()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOLINUXGPIO::SetMode(DIOGPIO_ENTRY* entry, XWORD mode)
-* @brief      SetMode
+* @brief      Set mode
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  entry : 
@@ -158,7 +158,7 @@ bool DIOLINUXGPIO::SetMode(DIOGPIO_ENTRY* entry, XWORD mode)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOLINUXGPIO::GetValue(DIOGPIO_ENTRY* entry)
-* @brief      GetValue
+* @brief      Get value
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  entry : 
@@ -182,7 +182,7 @@ bool DIOLINUXGPIO::GetValue(DIOGPIO_ENTRY* entry)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOLINUXGPIO::SetValue(DIOGPIO_ENTRY* entry, bool value)
-* @brief      SetValue
+* @brief      Set value
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  entry : 
@@ -237,7 +237,7 @@ bool DIOLINUXGPIO::End()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOLINUXGPIO::GPIOExport_Add(XDWORD GPIO)
-* @brief      GPIOExport_Add
+* @brief      GPIO export add
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  GPIO : 
@@ -259,7 +259,7 @@ bool DIOLINUXGPIO::GPIOExport_Add(XDWORD GPIO)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOLINUXGPIO::GPIOExport_IsExport(XDWORD GPIO)
-* @brief      GPIOExport_IsExport
+* @brief      GPIO export is export
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  GPIO : 
@@ -285,7 +285,7 @@ bool DIOLINUXGPIO::GPIOExport_IsExport(XDWORD GPIO)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XVECTOR<XDWORD>* DIOLINUXGPIO::GPIOExport_Get()
-* @brief      GPIOexport_Get
+* @brief      GPIO export get
 * @ingroup    PLATFORM_LINUX
 *
 * @return     XVECTOR<XDWORD>* : 
@@ -300,7 +300,7 @@ XVECTOR<XDWORD>* DIOLINUXGPIO::GPIOExport_Get()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOLINUXGPIO::GPIOExport_DeleteAll()
-* @brief      GPIOExport_DeleteAll
+* @brief      GPIO export delete all
 * @ingroup    PLATFORM_LINUX
 *
 * @return     bool : true if is succesful. 
@@ -322,7 +322,7 @@ bool DIOLINUXGPIO::GPIOExport_DeleteAll()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOLINUXGPIO::GPIO_Export(XDWORD GPIO, bool isexport)
-* @brief      GPIO_Export
+* @brief      GPIO export
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  GPIO : 
@@ -366,7 +366,7 @@ bool DIOLINUXGPIO::GPIO_Export(XDWORD GPIO, bool isexport)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOLINUXGPIO::GPIO_SetDirection(XDWORD GPIO, bool isinput)
-* @brief      GPIO_SetDirection
+* @brief      GPIO set direction
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  GPIO : 
@@ -410,7 +410,7 @@ bool DIOLINUXGPIO::GPIO_SetDirection(XDWORD GPIO, bool isinput)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOLINUXGPIO::GPIO_GetData(XDWORD GPIO)
-* @brief      GPIO_GetData
+* @brief      GPIO get data
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  GPIO : 
@@ -452,7 +452,7 @@ bool DIOLINUXGPIO::GPIO_GetData(XDWORD GPIO)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOLINUXGPIO::GPIO_SetData(XDWORD GPIO, bool on)
-* @brief      GPIO_SetData
+* @brief      GPIO set data
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  GPIO : 
@@ -496,7 +496,7 @@ bool DIOLINUXGPIO::GPIO_SetData(XDWORD GPIO, bool on)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOLINUXGPIO::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
 *

@@ -71,7 +71,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOPIFACE::DIOPIFACE()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -84,7 +84,7 @@ DIOPIFACE::DIOPIFACE() : DIOSPIGPIOMCP23S17()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOPIFACE::~DIOPIFACE()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 * 
@@ -119,7 +119,7 @@ bool DIOPIFACE::Configure()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOPIFACE::ReadInputs(XBYTE& value)
-* @brief      ReadInputs
+* @brief      Read inputs
 * @ingroup    DATAIO
 * 
 * @param[in]  value : 
@@ -150,7 +150,7 @@ bool DIOPIFACE::ReadInputs(XBYTE& value)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOPIFACE::WriteOutputs(XBYTE value)
-* @brief      WriteOutputs
+* @brief      Write outputs
 * @ingroup    DATAIO
 * 
 * @param[in]  value : 

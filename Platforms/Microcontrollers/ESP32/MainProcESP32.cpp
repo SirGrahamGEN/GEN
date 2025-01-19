@@ -99,7 +99,7 @@ MAINPROCESP32    mainprocesp32;
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         MAINPROCESP32::MAINPROCESP32()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_ESP32
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -112,9 +112,9 @@ MAINPROCESP32::MAINPROCESP32()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         MAINPROCESP32::~MAINPROCESP32()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
-* @ingroup    PLATFORM_ESP32 
+* @ingroup    PLATFORM_ESP32
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 MAINPROCESP32::~MAINPROCESP32()
@@ -168,7 +168,7 @@ bool MAINPROCESP32::Ini(APPFLOWMAIN* appmain)
 *
 * @fn         bool MAINPROCESP32::Update()
 * @brief      Update
-* @ingroup    PLATFORM_ESP32 
+* @ingroup    PLATFORM_ESP32
 *
 * @return     bool : true if is succesful.
 *
@@ -195,7 +195,7 @@ bool MAINPROCESP32::Update()
 *
 * @fn         bool MAINPROCESP32::End()
 * @brief      End
-* @ingroup    PLATFORM_ESP32 
+* @ingroup    PLATFORM_ESP32
 *
 * @return     bool : true if is succesful.
 *
@@ -246,8 +246,8 @@ bool MAINPROCESP32::End()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool MAINPROCESP32::Factorys_Ini(XSTRING* xpath)
-* @brief      Factorys Ini
-* @ingroup    PLATFORM_ESP32 
+* @brief      Factorys ini
+* @ingroup    PLATFORM_ESP32
 *
 * @param[in]  xpath : always NULL in this platform
 *
@@ -295,8 +295,8 @@ bool MAINPROCESP32::Factorys_Ini()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool MAINPROCESP32::Factorys_End()
-* @brief      Factorys End
-* @ingroup    PLATFORM_ESP32 
+* @brief      Factorys end
+* @ingroup    PLATFORM_ESP32
 *
 * @return     bool : true if is succesful.
 *
@@ -356,9 +356,9 @@ bool MAINPROCESP32::Factorys_End()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void MAINPROCESP32::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
-* @ingroup    PLATFORM_ESP32 
+* @ingroup    PLATFORM_ESP32
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void MAINPROCESP32::Clean()
@@ -377,7 +377,7 @@ void MAINPROCESP32::Clean()
 *
 * @fn         int main()
 * @brief      main
-* @ingroup    PLATFORM_ESP32 
+* @ingroup    PLATFORM_ESP32
 *
 * @return     int :
 *

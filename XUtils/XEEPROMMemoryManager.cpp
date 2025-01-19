@@ -69,7 +69,7 @@ XEEPROMMEMORYMANAGER* XEEPROMMEMORYMANAGER::instance = NULL;
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XEEPROMMEMORYMANAGER::XEEPROMMEMORYMANAGER()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -82,7 +82,7 @@ XEEPROMMEMORYMANAGER::XEEPROMMEMORYMANAGER()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XEEPROMMEMORYMANAGER::~XEEPROMMEMORYMANAGER()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -96,7 +96,7 @@ XEEPROMMEMORYMANAGER::~XEEPROMMEMORYMANAGER()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XEEPROMMEMORYMANAGER::GetIsInstanced()
-* @brief      Get if Is Instanced
+* @brief      Get is instanced
 * @note       STATIC
 * @ingroup    XUTILS
 *
@@ -112,7 +112,7 @@ bool XEEPROMMEMORYMANAGER::GetIsInstanced()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XEEPROMMEMORYMANAGER& XEEPROMMEMORYMANAGER::GetInstance()
-* @brief      Get Instance of XEEPROMMEMORYMANAGER
+* @brief      Get instance
 * @note       STATIC
 * @ingroup    XUTILS
 *
@@ -130,7 +130,7 @@ XEEPROMMEMORYMANAGER& XEEPROMMEMORYMANAGER::GetInstance()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XEEPROMMEMORYMANAGER::SetInstance(XEEPROMMEMORYMANAGER* _instance)
-* @brief      Set Instance of XEEPROMMEMORYMANAGER
+* @brief      Set instance
 * @note       STATIC
 * @ingroup    XUTILS
 *
@@ -152,7 +152,7 @@ bool XEEPROMMEMORYMANAGER::SetInstance(XEEPROMMEMORYMANAGER* _instance)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XEEPROMMEMORYMANAGER::DelInstance()
-* @brief      Delete Instance of XEEPROMMEMORYMANAGER
+* @brief      Del instance
 * @note       STATIC
 * @ingroup    XUTILS
 *
@@ -353,7 +353,7 @@ bool XEEPROMMEMORYMANAGER::Write(XDWORD offset, XBYTE* data, XDWORD size)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XEEPROMMEMORYMANAGER::EraseAll()
-* @brief      EraseAll
+* @brief      Erase all
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.

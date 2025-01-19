@@ -4,7 +4,7 @@
 * 
 * @class      APPFLOWGRAPHICS
 * @brief      Application Flow Graphics class
-* @ingroup    APPFLOW
+* @ingroup    GRAPHIC
 * 
 * @copyright  GEN Group. All rights reserved.
 * 
@@ -87,11 +87,11 @@
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         APPLICATIONAPPFLOWCFG::APPFLOWGRAPHICS()
-* @brief      Constructor
-* @ingroup    APPFLOW
-*
+* 
+* @fn         APPFLOWGRAPHICS::APPFLOWGRAPHICS()
+* @brief      Constructor of class
+* @ingroup    GRAPHIC
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 APPFLOWGRAPHICS::APPFLOWGRAPHICS()
 {
@@ -102,9 +102,9 @@ APPFLOWGRAPHICS::APPFLOWGRAPHICS()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         APPFLOWGRAPHICS::~APPFLOWGRAPHICS()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
-* @ingroup    APPFLOW
+* @ingroup    GRAPHIC
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 APPFLOWGRAPHICS::~APPFLOWGRAPHICS()
@@ -117,7 +117,7 @@ APPFLOWGRAPHICS::~APPFLOWGRAPHICS()
 *
 * @fn         bool APPFLOWGRAPHICS::Ini(XVECTOR<XSTRING*>* execparams, bool haveconsole)
 * @brief      Ini
-* @ingroup    APPFLOW
+* @ingroup    GRAPHIC
 *
 * @param[in]  execparams :
 *
@@ -154,8 +154,8 @@ bool APPFLOWGRAPHICS::Ini(XVECTOR<XSTRING*>* execparams)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool APPFLOWGRAPHICS::End()
-* @brief      End application console function
-* @ingroup    APPFLOW
+* @brief      End
+* @ingroup    GRAPHIC
 *
 * @return     bool : true if is succesful.
 *
@@ -187,8 +187,8 @@ bool APPFLOWGRAPHICS::End()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD APPFLOWGRAPHICS::GetInitOptions()
-* @brief      GetInitOptions
-* @ingroup    APPFLOW
+* @brief      Get init options
+* @ingroup    GRAPHIC
 * 
 * @return     XDWORD : 
 * 
@@ -202,8 +202,8 @@ XDWORD APPFLOWGRAPHICS::GetInitOptions()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void APPFLOWGRAPHICS::SetInitOptions(XDWORD initoptions)
-* @brief      SetInitOptions
-* @ingroup    APPFLOW
+* @brief      Set init options
+* @ingroup    GRAPHIC
 * 
 * @param[in]  initoptions : 
 * 
@@ -217,8 +217,8 @@ void APPFLOWGRAPHICS::SetInitOptions(XDWORD initoptions)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool APPFLOWGRAPHICS::CreateMainScreenProcess(bool show)
-* @brief      CreateMainScreenProcess
-* @ingroup    APPFLOW
+* @brief      Create main screen process
+* @ingroup    GRAPHIC
 * 
 * @param[in]  show : 
 * 
@@ -331,8 +331,8 @@ bool APPFLOWGRAPHICS::CreateMainScreenProcess(bool show)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool APPFLOWGRAPHICS::DeleteMainScreenProcess()
-* @brief      DeleteMainScreenProcess
-* @ingroup    APPFLOW
+* @brief      Delete main screen process
+* @ingroup    GRAPHIC
 * 
 * @return     bool : true if is succesful. 
 * 
@@ -373,8 +373,8 @@ bool APPFLOWGRAPHICS::DeleteMainScreenProcess()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPSCREEN* APPFLOWGRAPHICS::GetMainScreen()
-* @brief      GetMainScreen
-* @ingroup    APPFLOW
+* @brief      Get main screen
+* @ingroup    GRAPHIC
 * 
 * @return     GRPSCREEN* : 
 * 
@@ -388,8 +388,8 @@ GRPSCREEN* APPFLOWGRAPHICS::GetMainScreen()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void APPFLOWGRAPHICS::SetMainScreen(GRPSCREEN* mainscreen)
-* @brief      SetMainScreen
-* @ingroup    APPFLOW
+* @brief      Set main screen
+* @ingroup    GRAPHIC
 *
 * @param[in]  mainscreen :
 *
@@ -403,8 +403,8 @@ void APPFLOWGRAPHICS::SetMainScreen(GRPSCREEN* mainscreen)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPCANVAS* APPFLOWGRAPHICS::GetScreenCanvas(GRPSCREEN* screen, int viewportindex)
-* @brief      GetScreenCanvas
-* @ingroup    APPFLOW
+* @brief      Get screen canvas
+* @ingroup    GRAPHIC
 * 
 * @param[in]  screen : 
 * @param[in]  viewportindex : 
@@ -437,8 +437,8 @@ GRPCANVAS* APPFLOWGRAPHICS::GetScreenCanvas(GRPSCREEN* screen, int viewportindex
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         INPDEVICE* APPFLOWGRAPHICS::GetInputKeyboard()
-* @brief      GetInputKeyboard
-* @ingroup    APPFLOW
+* @brief      Get input keyboard
+* @ingroup    GRAPHIC
 * 
 * @return     INPDEVICE* : 
 * 
@@ -452,8 +452,8 @@ INPDEVICE* APPFLOWGRAPHICS::GetInputKeyboard()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         INPDEVICE* APPFLOWGRAPHICS::GetInputMouse()
-* @brief      GetInputMouse
-* @ingroup    APPFLOW
+* @brief      Get input mouse
+* @ingroup    GRAPHIC
 * 
 * @return     INPDEVICE* : 
 * 
@@ -469,8 +469,8 @@ INPDEVICE* APPFLOWGRAPHICS::GetInputMouse()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool APPFLOWGRAPHICS::AppProc_BeforeCreateMainScreen(GRPSCREEN* mainscreen)
-* @brief      AppProc_BeforeCreateMainScreen
-* @ingroup    APPFLOW
+* @brief      App proc before create main screen
+* @ingroup    GRAPHIC
 * 
 * @param[in]  mainscreen : 
 * 
@@ -486,8 +486,8 @@ bool APPFLOWGRAPHICS::AppProc_BeforeCreateMainScreen(GRPSCREEN* mainscreen)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool APPFLOWGRAPHICS::AppProc_BeforeCreateMainCanvas(GRPCANVAS* maincanvas)
-* @brief      AppProc_BeforeCreateMainCanvas
-* @ingroup    APPFLOW
+* @brief      App proc before create main canvas
+* @ingroup    GRAPHIC
 * 
 * @param[in]  maincanvas : 
 * 
@@ -503,9 +503,9 @@ bool APPFLOWGRAPHICS::AppProc_BeforeCreateMainCanvas(GRPCANVAS* maincanvas)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void APPFLOWGRAPHICS::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
-* @ingroup    APPFLOW
+* @ingroup    GRAPHIC
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void APPFLOWGRAPHICS::Clean()

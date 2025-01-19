@@ -116,7 +116,7 @@ UI_MANAGER* UI_MANAGER::instance = NULL;
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_MANAGER::GetIsInstanced()
-* @brief      GetIsInstanced
+* @brief      Get is instanced
 * @ingroup    USERINTERFACE
 *
 * @return     bool : true if is succesful. 
@@ -131,7 +131,7 @@ bool UI_MANAGER::GetIsInstanced()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_MANAGER& UI_MANAGER::GetInstance()
-* @brief      GetInstance
+* @brief      Get instance
 * @ingroup    USERINTERFACE
 *
 * @return     UI_MANAGER& : 
@@ -151,7 +151,7 @@ UI_MANAGER& UI_MANAGER::GetInstance()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_MANAGER::DelInstance()
-* @brief      DelInstance
+* @brief      Del instance
 * @ingroup    USERINTERFACE
 *
 * @return     bool : true if is succesful. 
@@ -255,7 +255,7 @@ bool UI_MANAGER::Load(XPATH& pathfile, GRPSCREEN* screen, int viewportindex)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_MANAGER::LoadLayout(XPATH& pathfile, GRPSCREEN* screen, int viewportindex)
-* @brief      LoadLayout
+* @brief      Load layout
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  pathfile : 
@@ -286,7 +286,7 @@ bool UI_MANAGER::LoadLayout(XPATH& pathfile, GRPSCREEN* screen, int viewportinde
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_MANAGER::IsZippedFile()
-* @brief      IsZippedFile
+* @brief      Is zipped file
 * @ingroup    USERINTERFACE
 * 
 * @return     bool : true if is succesful. 
@@ -306,7 +306,7 @@ bool UI_MANAGER::IsZippedFile()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XPATH* UI_MANAGER::GetUnzipPathFile()
-* @brief      GetUnzipPathFile
+* @brief      Get unzip path file
 * @ingroup    USERINTERFACE
 * 
 * @return     XPATH* : 
@@ -321,7 +321,7 @@ XPATH* UI_MANAGER::GetUnzipPathFile()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XFILEUNZIP* UI_MANAGER::GetUnzipFile()
-* @brief      GetUnzipFile
+* @brief      Get unzip file
 * @ingroup    USERINTERFACE
 * 
 * @return     XFILEUNZIP* : 
@@ -336,7 +336,7 @@ XFILEUNZIP* UI_MANAGER::GetUnzipFile()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_MANAGER::DeleteTemporalUnZipFile(XPATH& pathfile)
-* @brief      DeleteTemporalUnZipFile
+* @brief      Delete temporal un zip file
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  pathfile : 
@@ -363,7 +363,7 @@ bool UI_MANAGER::DeleteTemporalUnZipFile(XPATH& pathfile)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_MANAGER::CloseUnZipFile()
-* @brief      CloseUnZipFile
+* @brief      Close un zip file
 * @ingroup    USERINTERFACE
 * 
 * @return     bool : true if is succesful. 
@@ -388,7 +388,7 @@ bool UI_MANAGER::CloseUnZipFile()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_MANAGER::Layouts_Add(UI_LAYOUT* layout)
-* @brief      Layouts_Add
+* @brief      Layouts add
 * @ingroup    USERINTERFACE
 *
 * @param[in]  layout : 
@@ -412,7 +412,7 @@ bool UI_MANAGER::Layouts_Add(UI_LAYOUT* layout)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XVECTOR<UI_LAYOUT*>* UI_MANAGER::Layouts_GetAll()
-* @brief      Layouts_GetAll
+* @brief      Layouts get all
 * @ingroup    USERINTERFACE
 * 
 * @return     XVECTOR<UI_LAYOUT*>* : 
@@ -427,7 +427,7 @@ XVECTOR<UI_LAYOUT*>* UI_MANAGER::Layouts_GetAll()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_LAYOUT* UI_MANAGER::Layouts_Get(int index)
-* @brief      Layouts_Get
+* @brief      Layouts get
 * @ingroup    USERINTERFACE
 *
 * @param[in]  index : 
@@ -454,7 +454,7 @@ UI_LAYOUT* UI_MANAGER::Layouts_Get(int index)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_LAYOUT* UI_MANAGER::Layouts_Get(XCHAR* name)
-* @brief      Layouts_Get
+* @brief      Layouts get
 * @ingroup    USERINTERFACE
 *
 * @param[in]  name : 
@@ -488,7 +488,7 @@ UI_LAYOUT* UI_MANAGER::Layouts_Get(XCHAR* name)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_LAYOUT* UI_MANAGER::Layouts_Get(XSTRING& name)
-* @brief      Layouts_Get
+* @brief      Layouts get
 * @ingroup    USERINTERFACE
 *
 * @param[in]  name : 
@@ -505,7 +505,7 @@ UI_LAYOUT* UI_MANAGER::Layouts_Get(XSTRING& name)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_MANAGER::Layouts_DeleteAll()
-* @brief      Layouts_DeleteAll
+* @brief      Layouts delete all
 * @ingroup    USERINTERFACE
 *
 * @return     bool : true if is succesful. 
@@ -525,7 +525,7 @@ bool UI_MANAGER::Layouts_DeleteAll()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_LAYOUT* UI_MANAGER::Layouts_GetCommonLayout()
-* @brief      Layouts_GetCommonLayout
+* @brief      Layouts get common layout
 * @ingroup    USERINTERFACE
 * 
 * @return     UI_LAYOUT* : 
@@ -550,7 +550,7 @@ UI_LAYOUT* UI_MANAGER::Layouts_GetCommonLayout()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_MANAGER::Layout_PutBackground(XCHAR* layoutname)
-* @brief      Layout_PutBackground
+* @brief      Layout put background
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  layoutname : 
@@ -575,7 +575,7 @@ bool UI_MANAGER::Layout_PutBackground(XCHAR* layoutname)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_MANAGER::Layout_PutBackgroundColor(XCHAR* layoutname)
-* @brief      Layout_PutBackgroundColor
+* @brief      Layout put background color
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  layoutname : 
@@ -635,7 +635,7 @@ bool UI_MANAGER::Layout_PutBackgroundColor(XCHAR* layoutname)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_MANAGER::Layout_PutBackgroundBitmap(XCHAR* layoutname)
-* @brief      Layout_PutBackgroundBitmap
+* @brief      Layout put background bitmap
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  layoutname : 
@@ -692,7 +692,7 @@ bool UI_MANAGER::Layout_PutBackgroundBitmap(XCHAR* layoutname)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_MANAGER::Layout_PutBackground(bool scale)
-* @brief      Layout_PutBackground
+* @brief      Layout put background
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  scale : 
@@ -717,7 +717,7 @@ bool UI_MANAGER::Layout_PutBackground(bool scale)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_MANAGER::Layout_PutBackgroundColor()
-* @brief      Layout_PutBackgroundColor
+* @brief      Layout put background color
 * @ingroup    USERINTERFACE
 * 
 * @return     bool : true if is succesful. 
@@ -777,7 +777,7 @@ bool UI_MANAGER::Layout_PutBackgroundColor()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_MANAGER::Layout_PutBackgroundBitmap(bool scale)
-* @brief      Layout_PutBackgroundBitmap
+* @brief      Layout put background bitmap
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  scale : 
@@ -985,7 +985,7 @@ bool UI_MANAGER::Update()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_ELEMENT* UI_MANAGER::Element_Get(XCHAR* layoutname, XCHAR* name, UI_ELEMENT_TYPE type)
-* @brief      Element_Get
+* @brief      Element get
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  layoutname : 
@@ -1028,7 +1028,7 @@ UI_ELEMENT* UI_MANAGER::Element_Get(XCHAR* layoutname, XCHAR* name, UI_ELEMENT_T
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_ELEMENT* UI_MANAGER::Element_Get(XCHAR* layoutname, XSTRING& name, UI_ELEMENT_TYPE type)
-* @brief      Element_Get
+* @brief      Element get
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  layoutname : 
@@ -1047,7 +1047,7 @@ UI_ELEMENT* UI_MANAGER::Element_Get(XCHAR* layoutname, XSTRING& name, UI_ELEMENT
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_ELEMENT* UI_MANAGER::Element_Get(XCHAR* name, UI_ELEMENT_TYPE type)
-* @brief      Element_Get
+* @brief      Element get
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  name : 
@@ -1085,7 +1085,7 @@ UI_ELEMENT* UI_MANAGER::Element_Get(XCHAR* name, UI_ELEMENT_TYPE type)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_ELEMENT* UI_MANAGER::Element_Get(XSTRING& name, UI_ELEMENT_TYPE type)
-* @brief      Element_Get
+* @brief      Element get
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  name : 
@@ -1103,7 +1103,7 @@ UI_ELEMENT* UI_MANAGER::Element_Get(XSTRING& name, UI_ELEMENT_TYPE type)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_LAYOUT* UI_MANAGER::Element_GetLayout(UI_ELEMENT* element)
-* @brief      Element_GetLayout
+* @brief      Element get layout
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  element : 
@@ -1163,7 +1163,7 @@ UI_LAYOUT* UI_MANAGER::Element_GetLayout(UI_ELEMENT* element)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_LAYOUT* UI_MANAGER::Element_GetLayout(XCHAR* name, UI_ELEMENT_TYPE type)
-* @brief      Element_GetLayout
+* @brief      Element get layout
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  name : 
@@ -1201,7 +1201,7 @@ UI_LAYOUT* UI_MANAGER::Element_GetLayout(XCHAR* name, UI_ELEMENT_TYPE type)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_LAYOUT* UI_MANAGER::Element_GetLayout(XSTRING& name, UI_ELEMENT_TYPE type)
-* @brief      Element_GetLayout
+* @brief      Element get layout
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  name : 
@@ -1219,7 +1219,7 @@ UI_LAYOUT* UI_MANAGER::Element_GetLayout(XSTRING& name, UI_ELEMENT_TYPE type)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_MANAGER::Element_PutToLastPositionLayout(UI_ELEMENT* element)
-* @brief      Element_PutToLastPositionLayout
+* @brief      Element put to last position layout
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  element : 
@@ -1281,7 +1281,7 @@ bool UI_MANAGER::Element_PutToLastPositionLayout(UI_ELEMENT* element)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_MANAGER::Element_PutToLastPositionLayout(XCHAR* name, UI_ELEMENT_TYPE type)
-* @brief      Element_PutToLastPositionLayout
+* @brief      Element put to last position layout
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  name : 
@@ -1348,7 +1348,7 @@ bool UI_MANAGER::Element_PutToLastPositionLayout(XCHAR* name, UI_ELEMENT_TYPE ty
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_MANAGER::Element_PutToLastPositionLayout(XSTRING& name, UI_ELEMENT_TYPE type)
-* @brief      Element_PutToLastPositionLayout
+* @brief      Element put to last position layout
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  name : 
@@ -1366,7 +1366,7 @@ bool UI_MANAGER::Element_PutToLastPositionLayout(XSTRING& name, UI_ELEMENT_TYPE 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_MANAGER::Element_SetModal(UI_ELEMENT* element_modal)
-* @brief      Element_SetModal
+* @brief      Element set modal
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  element_modal : 
@@ -1400,7 +1400,7 @@ bool UI_MANAGER::Element_SetModal(UI_ELEMENT* element_modal)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_MANAGER::Elements_SetToRedraw()
-* @brief      Elements_SetToRedraw
+* @brief      Elements set to redraw
 * @ingroup    USERINTERFACE
 * 
 * @return     bool : true if is succesful. 
@@ -1426,7 +1426,7 @@ bool UI_MANAGER::Elements_SetToRedraw()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_MANAGER::Elements_SetToRedraw(UI_ELEMENT* element, bool recursive)
-* @brief      Elements_SetToRedraw
+* @brief      Elements set to redraw
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  element : 
@@ -1455,7 +1455,7 @@ bool UI_MANAGER::Elements_SetToRedraw(UI_ELEMENT* element, bool recursive)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_MANAGER::Elements_RebuildDrawAreas()
-* @brief      Elements_RebuildDrawAreas
+* @brief      Elements rebuild draw areas
 * @ingroup    USERINTERFACE
 * 
 * @return     bool : true if is succesful. 
@@ -1499,7 +1499,7 @@ bool UI_MANAGER::Elements_RebuildDrawAreas()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_MANAGER::Elements_RebuildDrawAreas(UI_LAYOUT* layout)
-* @brief      Elements_RebuildDrawAreas
+* @brief      Elements rebuild draw areas
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  layout : 
@@ -1545,7 +1545,7 @@ bool UI_MANAGER::Elements_RebuildDrawAreas(UI_LAYOUT* layout)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_MANAGER::Elements_RebuildDrawAreas(UI_LAYOUT* layout, UI_ELEMENT* element)
-* @brief      Elements_RebuildDrawAreas
+* @brief      Elements rebuild draw areas
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  layout : 
@@ -1592,7 +1592,7 @@ bool UI_MANAGER::Elements_RebuildDrawAreas(UI_LAYOUT* layout, UI_ELEMENT* elemen
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_MANAGER::Elements_RebuildDrawAreas(XCHAR* layoutname)
-* @brief      Elements_RebuildDrawAreas
+* @brief      Elements rebuild draw areas
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  layoutname : 
@@ -1617,7 +1617,7 @@ bool UI_MANAGER::Elements_RebuildDrawAreas(XCHAR* layoutname)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_MANAGER::Elements_RebuildDrawAreas(XCHAR* layoutname, UI_ELEMENT* element)
-* @brief      Elements_RebuildDrawAreas
+* @brief      Elements rebuild draw areas
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  layoutname : 
@@ -1643,7 +1643,7 @@ bool UI_MANAGER::Elements_RebuildDrawAreas(XCHAR* layoutname, UI_ELEMENT* elemen
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int UI_MANAGER::GetOutputTextChangeID(XSTRING* text, int start, XSTRING& value)
-* @brief      GetOutputTextChangeID
+* @brief      Get output text change ID
 * @ingroup    USERINTERFACE
 *
 * @param[in]  text : 
@@ -1682,7 +1682,7 @@ int UI_MANAGER::GetOutputTextChangeID(XSTRING* text, int start, XSTRING& value)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_ANIMATION* UI_MANAGER::GetOrAddAnimationCache(UI_SKIN_DRAWMODE drawmode, GRPPROPERTYMODE grppropertymode, XCHAR* name, XCHAR* resource)
-* @brief      GetOrAddAnimationCache
+* @brief      Get or add animation cache
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  drawmode : 
@@ -1749,7 +1749,7 @@ UI_ANIMATION* UI_MANAGER::GetOrAddAnimationCache(UI_SKIN_DRAWMODE drawmode, GRPP
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_MANAGER::SetLevelAuto(UI_ELEMENT* element, UI_ELEMENT* father, XDWORD addlevel)
-* @brief      SetLevelAuto
+* @brief      Set level auto
 * @ingroup    USERINTERFACE
 *
 * @param[in]  element : 
@@ -1777,7 +1777,7 @@ bool UI_MANAGER::SetLevelAuto(UI_ELEMENT* element, UI_ELEMENT* father, XDWORD ad
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_MANAGER::SetPreselectElement(UI_ELEMENT* element)
-* @brief      SetPreselectElement
+* @brief      Set preselect element
 * @ingroup    USERINTERFACE
 *
 * @param[in]  element : 
@@ -1796,7 +1796,7 @@ bool UI_MANAGER::SetPreselectElement(UI_ELEMENT* element)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_MANAGER::ResetPreselect()
-* @brief      ResetPreselect
+* @brief      Reset preselect
 * @ingroup    USERINTERFACE
 * 
 * @return     bool : true if is succesful. 
@@ -1822,7 +1822,7 @@ bool UI_MANAGER::ResetPreselect()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_MANAGER::SendEvent(UI_XEVENT_TYPE event, ...)
-* @brief      SendEvent
+* @brief      Send event
 * @ingroup    USERINTERFACE
 *
 * @param[in]  event : 
@@ -1972,7 +1972,7 @@ bool UI_MANAGER::SendEvent(UI_XEVENT_TYPE event, ...)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_MANAGER::ChangeAutomaticTextElementValue(UI_ELEMENT* element, XSTRING* maskvalue, XSTRING* maskresolved)
-* @brief      ChangeAutomaticTextElementValue
+* @brief      Change automatic text element value
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  element : 
@@ -2018,7 +2018,7 @@ bool UI_MANAGER::ChangeAutomaticTextElementValue(UI_ELEMENT* element, XSTRING* m
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_MANAGER::ChangeTextElementValue(UI_ELEMENT* element, XSTRING* text, XSTRING& value)
-* @brief      ChangeTextElementValue
+* @brief      Change text element value
 * @ingroup    USERINTERFACE
 *
 * @param[in]  element : 
@@ -2082,7 +2082,7 @@ bool UI_MANAGER::ChangeTextElementValue(UI_ELEMENT* element, XSTRING* text, XSTR
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_MANAGER::ChangeTextElementValue(UI_LAYOUT* layout, UI_ELEMENT* element)
-* @brief      ChangeTextElementValue
+* @brief      Change text element value
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  layout : 
@@ -2213,7 +2213,7 @@ bool UI_MANAGER::ChangeTextElementValue(UI_LAYOUT* layout, UI_ELEMENT* element)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_MANAGER::ChangeTextElementValue(UI_LAYOUT* layout)
-* @brief      ChangeTextElementValue
+* @brief      Change text element value
 * @ingroup    USERINTERFACE
 *
 * @param[in]  layout : 
@@ -2244,7 +2244,7 @@ bool UI_MANAGER::ChangeTextElementValue(UI_LAYOUT* layout, UI_ELEMENT* element)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_MANAGER::SubscribeInputEvents(bool active)
-* @brief      SubscribeInputEvents
+* @brief      Subscribe input events
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  active : 
@@ -2273,7 +2273,7 @@ bool UI_MANAGER::SubscribeInputEvents(bool active)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_MANAGER::SubscribeOutputEvents(bool active, XOBSERVER* observer, XSUBJECT* subject)
-* @brief      SubscribeOutputEvents
+* @brief      Subscribe output events
 * @ingroup    USERINTERFACE
 *
 * @param[in]  active : 
@@ -2304,7 +2304,7 @@ bool UI_MANAGER::SubscribeOutputEvents(bool active, XOBSERVER* observer, XSUBJEC
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_MANAGER::CreaterVirtualKeyboard(UI_LAYOUT* layout, GRPSCREEN* screen)
-* @brief      CreaterVirtualKeyboard
+* @brief      Creater virtual keyboard
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  layout : 
@@ -2345,7 +2345,7 @@ bool UI_MANAGER::CreaterVirtualKeyboard(UI_LAYOUT* layout, GRPSCREEN* screen)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_MANAGER::DeleteVirtualKeyboard()
-* @brief      DeleteVirtualKeyboard
+* @brief      Delete virtual keyboard
 * @ingroup    USERINTERFACE
 *
 * @return     bool : true if is succesful. 
@@ -2372,7 +2372,7 @@ bool UI_MANAGER::DeleteVirtualKeyboard()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_MANAGER::UI_MANAGER()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    USERINTERFACE
 *
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -2390,7 +2390,7 @@ UI_MANAGER::UI_MANAGER()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_MANAGER::~UI_MANAGER()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
 *
@@ -2428,7 +2428,7 @@ UI_MANAGER::~UI_MANAGER()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_SKIN* UI_MANAGER::Skin_Create(XCHAR* name, UI_SKIN_DRAWMODE drawmode, GRPSCREEN* screen, int viewportindex)
-* @brief      Skin_Create
+* @brief      Skin create
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  name : 
@@ -2479,7 +2479,7 @@ UI_SKIN* UI_MANAGER::Skin_Create(XSTRING& skintypename, UI_SKIN_DRAWMODE drawmod
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_MANAGER::GetLayoutElementValue(XFILEXMLELEMENT* node, XCHAR* leyend, double& value)
-* @brief      GetLayoutElementValue
+* @brief      Get layout element value
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  node : 
@@ -2510,7 +2510,7 @@ bool UI_MANAGER::GetLayoutElementValue(XFILEXMLELEMENT* node, XCHAR* leyend, dou
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_MANAGER::GetLayoutElementValue(XFILEXMLELEMENT* node, XCHAR* leyend, XSTRING& value)
-* @brief      GetLayoutElementValue
+* @brief      Get layout element value
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  node : 
@@ -2538,7 +2538,7 @@ bool UI_MANAGER::GetLayoutElementValue(XFILEXMLELEMENT* node, XCHAR* leyend, XST
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_MANAGER::GetLayoutElement_CalculateBoundaryLine(UI_ELEMENT* element, bool adjustsizemargin)
-* @brief      GetLayoutElement_CalculateBoundaryLine
+* @brief      Get layout element calculate boundary line
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  element : 
@@ -2588,7 +2588,7 @@ bool UI_MANAGER::GetLayoutElement_CalculateBoundaryLine(UI_LAYOUT* layout, UI_EL
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_MANAGER::GetParentSizeFont(XFILEXMLELEMENT* node, double& sizefont)
-* @brief      GetParentSizeFont
+* @brief      Get parent size font
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  node : 
@@ -2615,7 +2615,7 @@ bool UI_MANAGER::GetParentSizeFont(XFILEXMLELEMENT* node, double& sizefont)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_MANAGER::GetLayoutElement_Base(XFILEXMLELEMENT* node, UI_LAYOUT* layout, UI_ELEMENT* element, bool adjusttoparent)
-* @brief      GetLayoutElement_Base
+* @brief      Get layout element base
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  node : 
@@ -2760,7 +2760,7 @@ bool UI_MANAGER::GetLayoutElement_Base(XFILEXMLELEMENT* node, UI_LAYOUT* layout,
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_ELEMENT* UI_MANAGER::GetLayoutElement_Text(XFILEXMLELEMENT* node, UI_LAYOUT* layout, UI_ELEMENT* father, UI_ELEMENT* element_legacy)
-* @brief      GetLayoutElement_Text
+* @brief      Get layout element text
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  node : 
@@ -2910,7 +2910,7 @@ UI_ELEMENT* UI_MANAGER::GetLayoutElement_Text(XFILEXMLELEMENT* node, UI_LAYOUT* 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_ELEMENT* UI_MANAGER::GetLayoutElement_TextBox(XFILEXMLELEMENT* node, UI_LAYOUT* layout, UI_ELEMENT* father, UI_ELEMENT* element_legacy)
-* @brief      GetLayoutElement_TextBox
+* @brief      Get layout element text box
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  node : 
@@ -3046,7 +3046,7 @@ UI_ELEMENT* UI_MANAGER::GetLayoutElement_TextBox(XFILEXMLELEMENT* node, UI_LAYOU
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_ELEMENT* UI_MANAGER::GetLayoutElement_Image(XFILEXMLELEMENT* node, UI_ELEMENT* father, UI_ELEMENT* element_legacy)
-* @brief      GetLayoutElement_Image
+* @brief      Get layout element image
 * @ingroup    USERINTERFACE
 *
 * @param[in]  node : 
@@ -3134,7 +3134,7 @@ UI_ELEMENT* UI_MANAGER::GetLayoutElement_Image(XFILEXMLELEMENT* node, UI_LAYOUT*
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_ELEMENT* UI_MANAGER::GetLayoutElement_Animation(XFILEXMLELEMENT* node, UI_LAYOUT* layout, UI_ELEMENT* father, UI_ELEMENT* element_legacy)
-* @brief      GetLayoutElement_Animation
+* @brief      Get layout element animation
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  node : 
@@ -3297,7 +3297,7 @@ UI_ELEMENT* UI_MANAGER::GetLayoutElement_Animation(XFILEXMLELEMENT* node, UI_LAY
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_ELEMENT* UI_MANAGER::GetLayoutElement_Option(XFILEXMLELEMENT* node, UI_LAYOUT* layout, UI_ELEMENT* father, UI_ELEMENT* element_legacy)
-* @brief      GetLayoutElement_Option
+* @brief      Get layout element option
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  node : 
@@ -3418,7 +3418,7 @@ UI_ELEMENT* UI_MANAGER::GetLayoutElement_Option(XFILEXMLELEMENT* node, UI_LAYOUT
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_ELEMENT* UI_MANAGER::GetLayoutElement_MultiOption(XFILEXMLELEMENT* node, UI_LAYOUT* layout, UI_ELEMENT* father, UI_ELEMENT* element_legacy)
-* @brief      GetLayoutElement_MultiOption
+* @brief      Get layout element multi option
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  node : 
@@ -3483,7 +3483,7 @@ UI_ELEMENT* UI_MANAGER::GetLayoutElement_MultiOption(XFILEXMLELEMENT* node, UI_L
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_ELEMENT* UI_MANAGER::GetLayoutElement_Button(XFILEXMLELEMENT* node, UI_LAYOUT* layout, UI_ELEMENT* father, UI_ELEMENT* element_legacy)
-* @brief      GetLayoutElement_Button
+* @brief      Get layout element button
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  node : 
@@ -3515,7 +3515,7 @@ UI_ELEMENT* UI_MANAGER::GetLayoutElement_CheckBox(XFILEXMLELEMENT* node, UI_LAYO
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_ELEMENT* UI_MANAGER::GetLayoutElement_EditText(XFILEXMLELEMENT* node, UI_LAYOUT* layout, UI_ELEMENT* father, UI_ELEMENT* element_legacy)
-* @brief      GetLayoutElement_EditText
+* @brief      Get layout element edit text
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  node : 
@@ -3538,7 +3538,7 @@ UI_ELEMENT* UI_MANAGER::GetLayoutElement_EditText(XFILEXMLELEMENT* node, UI_LAYO
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_ELEMENT* UI_MANAGER::GetLayoutElement_Form(XFILEXMLELEMENT* node, UI_LAYOUT* layout, UI_ELEMENT* father, UI_ELEMENT* element_legacy)
-* @brief      GetLayoutElement_Form
+* @brief      Get layout element form
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  node : 
@@ -3650,7 +3650,7 @@ UI_ELEMENT* UI_MANAGER::GetLayoutElement_Form(XFILEXMLELEMENT* node, UI_LAYOUT* 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_ELEMENT* UI_MANAGER::GetLayoutElement_Menu(XFILEXMLELEMENT* node, UI_LAYOUT* layout, UI_ELEMENT* father, UI_ELEMENT* element_legacy)
-* @brief      GetLayoutElement_Menu
+* @brief      Get layout element menu
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  node : 
@@ -3673,7 +3673,7 @@ UI_ELEMENT* UI_MANAGER::GetLayoutElement_Menu(XFILEXMLELEMENT* node, UI_LAYOUT* 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_ELEMENT* UI_MANAGER::GetLayoutElement_ListBox(XFILEXMLELEMENT* node, UI_LAYOUT* layout, UI_ELEMENT* father, UI_ELEMENT* element_legacy)
-* @brief      GetLayoutElement_ListBox
+* @brief      Get layout element list box
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  node : 
@@ -3720,7 +3720,7 @@ UI_ELEMENT* UI_MANAGER::GetLayoutElement_ListBox(XFILEXMLELEMENT* node, UI_LAYOU
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_ELEMENT* UI_MANAGER::GetLayoutElement_ProgressBar(XFILEXMLELEMENT* node, UI_LAYOUT* layout, UI_ELEMENT* father, UI_ELEMENT* element_legacy)
-* @brief      GetLayoutElement_ProgressBar
+* @brief      Get layout element progress bar
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  node : 
@@ -3883,7 +3883,7 @@ UI_ELEMENT* UI_MANAGER::GetLayoutElement_ProgressBar(XFILEXMLELEMENT* node, UI_L
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_ELEMENT* UI_MANAGER::CreatePartialLayout(XFILEXMLELEMENT* nodeelement, UI_LAYOUT* layout, UI_ELEMENT* father)
-* @brief      CreatePartialLayout
+* @brief      Create partial layout
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  nodeelement : 
@@ -3973,7 +3973,7 @@ UI_ELEMENT* UI_MANAGER::CreatePartialLayout(XFILEXMLELEMENT* nodeelement, UI_LAY
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_MANAGER::CreateLayouts(XFILEXML& xml, GRPSCREEN* screen, int viewportindex)
-* @brief      CreateLayouts
+* @brief      Create layouts
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  xml : 
@@ -4167,7 +4167,7 @@ bool UI_MANAGER::CreateLayouts(XFILEXML& xml, GRPSCREEN* screen, int viewportind
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPBITMAP* UI_MANAGER::LoadBackgroundBitmap(XSTRING& namefilebitmap, GRPPROPERTYMODE mode)
-* @brief      LoadBackgroundBitmap
+* @brief      Load background bitmap
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  namefilebitmap : 
@@ -4231,7 +4231,7 @@ GRPBITMAP* UI_MANAGER::LoadBackgroundBitmap(XSTRING& namefilebitmap, GRPPROPERTY
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_MANAGER::CreateCacheElements(XFILEXMLELEMENT* nodeelement, UI_SKIN_DRAWMODE drawmode, GRPPROPERTYMODE grppropertymode, bool recursive)
-* @brief      CreateCacheElements
+* @brief      Create cache elements
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  nodeelement : 
@@ -4315,7 +4315,7 @@ bool UI_MANAGER::CreateCacheElements(XFILEXMLELEMENT* nodeelement, UI_SKIN_DRAWM
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_MANAGER::RegisterEvents(bool active)
-* @brief      RegisterEvents
+* @brief      Register events
 * @ingroup    USERINTERFACE
 *
 * @param[in]  active : 
@@ -4347,7 +4347,7 @@ bool UI_MANAGER::RegisterEvents(bool active)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_ELEMENT* UI_MANAGER::PreSelectElement(UI_LAYOUT* layout, UI_ELEMENT* element, int x, int y)
-* @brief      PreSelectElement
+* @brief      Pre select element
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  layout : 
@@ -4429,7 +4429,7 @@ UI_ELEMENT* UI_MANAGER::PreSelectElement(UI_ELEMENT* element, int x, int y)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_MANAGER::SelectElement(UI_ELEMENT* element)
-* @brief      SelectElement
+* @brief      Select element
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  element : 
@@ -4472,7 +4472,7 @@ bool UI_MANAGER::SelectElement(UI_ELEMENT* element)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_MANAGER::SelectedElement(UI_LAYOUT* layout, UI_ELEMENT* element)
-* @brief      SelectedElement
+* @brief      Selected element
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  layout : 
@@ -4558,7 +4558,7 @@ bool UI_MANAGER::SelectedElement(UI_ELEMENT* element)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_MANAGER::UnSelectedElement(UI_ELEMENT* element)
-* @brief      UnSelectedElement
+* @brief      Un selected element
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  element : 
@@ -4613,7 +4613,7 @@ bool UI_MANAGER::UnSelectedElement(UI_ELEMENT* element)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_MANAGER::UnSelectedElement()
-* @brief      UnSelectedElement
+* @brief      Un selected element
 * @ingroup    USERINTERFACE
 *
 * @return     bool : true if is succesful. 
@@ -4644,7 +4644,7 @@ bool UI_MANAGER::UnSelectedElement()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_MANAGER::UseMotionInElement(UI_ELEMENT* element, INPCURSORMOTION* cursormotion)
-* @brief      UseMotionInElement
+* @brief      Use motion in element
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  element : 
@@ -4729,7 +4729,7 @@ bool UI_MANAGER::UseMotionInElement(UI_ELEMENT* element, INPCURSORMOTION* cursor
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_MANAGER::UseMotion(INPCURSORMOTION* cursormotion)
-* @brief      UseMotion
+* @brief      Use motion
 * @ingroup    USERINTERFACE
 *
 * @param[in]  cursormotion : 
@@ -4767,7 +4767,7 @@ bool UI_MANAGER::UseMotion(INPCURSORMOTION* cursormotion)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_MANAGER::HandleEvent_UI(UI_XEVENT* event)
-* @brief      Handle Event for the observer manager of this class
+* @brief      Handle event UI
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
 *
@@ -4884,7 +4884,7 @@ void UI_MANAGER::HandleEvent_UI(UI_XEVENT* event)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_MANAGER::HandleEvent(XEVENT* xevent)
-* @brief      Handle Event for the observer manager of this class
+* @brief      Handle event
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
 *
@@ -4910,7 +4910,7 @@ void UI_MANAGER::HandleEvent(XEVENT* xevent)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_MANAGER::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
 *

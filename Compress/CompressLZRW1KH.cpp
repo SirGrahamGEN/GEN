@@ -66,7 +66,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         COMPRESS_LZRW1KH::COMPRESS_LZRW1KH()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    COMPRESS
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -79,7 +79,7 @@ COMPRESS_LZRW1KH::COMPRESS_LZRW1KH()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         COMPRESS_LZRW1KH::~COMPRESS_LZRW1KH()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    COMPRESS
 * 
@@ -185,7 +185,7 @@ bool COMPRESS_LZRW1KH::Decompress(XBYTE* origin,XDWORD size,void* param1)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTE COMPRESS_LZRW1KH::GetMatch(XBYTE* source, XDWORD x, XDWORD sourcesize, XDWORD* hash, XDWORD* size, XDWORD* pos)
-* @brief      GetMatch
+* @brief      Get match
 * @ingroup    COMPRESS
 * 
 * @param[in]  source : 
@@ -223,7 +223,7 @@ XBYTE COMPRESS_LZRW1KH::GetMatch(XBYTE* source, XDWORD x, XDWORD sourcesize, XDW
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD COMPRESS_LZRW1KH::CompressionBuffer(XBYTE* source, XBYTE* target, XDWORD sourcesize)
-* @brief      CompressionBuffer
+* @brief      Compression buffer
 * @ingroup    COMPRESS
 * 
 * @param[in]  source : 
@@ -325,7 +325,7 @@ XDWORD COMPRESS_LZRW1KH::CompressionBuffer(XBYTE* source, XBYTE* target, XDWORD 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD COMPRESS_LZRW1KH::DecompressionBuffer(XBYTE*source,XBYTE*target,XDWORD sourcesize)
-* @brief      DecompressionBuffer
+* @brief      Decompression buffer
 * @ingroup    COMPRESS
 * 
 * @param[in]  XBYTE*source : 

@@ -69,7 +69,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOCLIPROTOCOLBUS::DIOCLIPROTOCOLBUS()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -90,7 +90,7 @@ DIOCLIPROTOCOLBUS::DIOCLIPROTOCOLBUS()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOCLIPROTOCOLBUS::~DIOCLIPROTOCOLBUS()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 * 
@@ -146,7 +146,7 @@ bool DIOCLIPROTOCOLBUS::Ini(DIOSTREAM* diostream, XCHAR* ID, int timeout)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCLIPROTOCOLBUS::GetVersion(XDWORD& version, XDWORD& subversion, XDWORD& subversionerror)
-* @brief      GetVersion
+* @brief      Get version
 * @ingroup    DATAIO
 * 
 * @param[in]  version : 
@@ -171,7 +171,7 @@ bool DIOCLIPROTOCOLBUS::GetVersion(XDWORD& version, XDWORD& subversion, XDWORD& 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOCLIPROTOCOLBUS::SetVersion(XDWORD version, XDWORD subversion, XDWORD subversionerror)
-* @brief      SetVersion
+* @brief      Set version
 * @ingroup    DATAIO
 * 
 * @param[in]  version : 
@@ -190,7 +190,7 @@ void DIOCLIPROTOCOLBUS::SetVersion(XDWORD version, XDWORD subversion, XDWORD sub
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCLIPROTOCOLBUS::EnumRemoteDevices(XVECTOR<XSTRING*>* remotedevices, XDWORD maxtime)
-* @brief      EnumRemoteDevices
+* @brief      Enum remote devices
 * @ingroup    DATAIO
 * 
 * @param[in]  remotedevices : 
@@ -234,7 +234,7 @@ bool DIOCLIPROTOCOLBUS::EnumRemoteDevices(XVECTOR<XSTRING*>* remotedevices, XDWO
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCLIPROTOCOLBUS::GetEnumRemoteDevices(XVECTOR<XSTRING*>& remotedevices)
-* @brief      GetEnumRemoteDevices
+* @brief      Get enum remote devices
 * @ingroup    DATAIO
 * 
 * @param[in]  remotedevices : 
@@ -266,7 +266,7 @@ bool DIOCLIPROTOCOLBUS::GetEnumRemoteDevices(XVECTOR<XSTRING*>& remotedevices)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int DIOCLIPROTOCOLBUS::GetNRetries()
-* @brief      GetNRetries
+* @brief      Get N retries
 * @ingroup    DATAIO
 * 
 * @return     int : 
@@ -281,7 +281,7 @@ int DIOCLIPROTOCOLBUS::GetNRetries()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOCLIPROTOCOLBUS::SetNRetries(int nretries)
-* @brief      SetNRetries
+* @brief      Set N retries
 * @ingroup    DATAIO
 * 
 * @param[in]  nretries : 
@@ -297,7 +297,7 @@ void DIOCLIPROTOCOLBUS::SetNRetries(int nretries)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCLIPROTOCOLBUS::SendCommand(XCHAR* command, XSTRING* target, XSTRING* answer, int timeoutanswer, ...)
-* @brief      SendCommand
+* @brief      Send command
 * @ingroup    DATAIO
 * 
 * @param[in]  command : 
@@ -332,7 +332,7 @@ bool DIOCLIPROTOCOLBUS::SendCommand(XCHAR* command, XSTRING* target, XSTRING* an
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCLIPROTOCOLBUS::ReceivedCommand(XSTRING& originID, XSTRING& command, XVECTOR<XSTRING*>& params, XSTRING& answer)
-* @brief      ReceivedCommand
+* @brief      Received command
 * @ingroup    DATAIO
 * 
 * @param[in]  originID : 
@@ -459,7 +459,7 @@ void DIOCLIPROTOCOLBUS::End()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOCLIPROTOCOLBUS::ThreadReceivedCommand(void* param)
-* @brief      ThreadReceivedCommand
+* @brief      Thread received command
 * @ingroup    DATAIO
 * 
 * @param[in]  param : 
@@ -482,7 +482,7 @@ void DIOCLIPROTOCOLBUS::ThreadReceivedCommand(void* param)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOCLIPROTOCOLBUS::ThreadSendEnumRequest(void* param)
-* @brief      ThreadSendEnumRequest
+* @brief      Thread send enum request
 * @ingroup    DATAIO
 * 
 * @param[in]  param : 
@@ -522,7 +522,7 @@ void DIOCLIPROTOCOLBUS::ThreadSendEnumRequest(void* param)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOCLIPROTOCOLBUS::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 * 

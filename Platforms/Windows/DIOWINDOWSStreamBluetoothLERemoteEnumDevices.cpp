@@ -67,7 +67,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOWINDOWSSTREAMBLUETOOTHLEREMOTEENUMDEVICES::DIOWINDOWSSTREAMBLUETOOTHLEREMOTEENUMDEVICES()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_WINDOWS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -80,7 +80,7 @@ DIOWINDOWSSTREAMBLUETOOTHLEREMOTEENUMDEVICES::DIOWINDOWSSTREAMBLUETOOTHLEREMOTEE
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOWINDOWSSTREAMBLUETOOTHLEREMOTEENUMDEVICES::~DIOWINDOWSSTREAMBLUETOOTHLEREMOTEENUMDEVICES()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
 *
@@ -111,7 +111,7 @@ bool DIOWINDOWSSTREAMBLUETOOTHLEREMOTEENUMDEVICES::Search()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWINDOWSSTREAMBLUETOOTHLEREMOTEENUMDEVICES::StopSearch(bool waitend)
-* @brief      StopSearch
+* @brief      Stop search
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  waitend : 
@@ -128,7 +128,7 @@ bool DIOWINDOWSSTREAMBLUETOOTHLEREMOTEENUMDEVICES::StopSearch(bool waitend)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWINDOWSSTREAMBLUETOOTHLEREMOTEENUMDEVICES::IsSearching()
-* @brief      IsSearching
+* @brief      Is searching
 * @ingroup    PLATFORM_WINDOWS
 *
 * @return     bool : true if is succesful. 
@@ -143,7 +143,7 @@ bool DIOWINDOWSSTREAMBLUETOOTHLEREMOTEENUMDEVICES::IsSearching()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOWINDOWSSTREAMBLUETOOTHLEREMOTEENUMDEVICES::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
 *

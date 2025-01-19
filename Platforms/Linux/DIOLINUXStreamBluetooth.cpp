@@ -75,7 +75,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOLINUXSTREAMBLUETOOTH::DIOLINUXSTREAMBLUETOOTH()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_LINUX
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -122,7 +122,7 @@ DIOLINUXSTREAMBLUETOOTH::DIOLINUXSTREAMBLUETOOTH() : DIOSTREAMBLUETOOTH() , XFSM
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOLINUXSTREAMBLUETOOTH::~DIOLINUXSTREAMBLUETOOTH()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
 *
@@ -229,7 +229,7 @@ bool DIOLINUXSTREAMBLUETOOTH::Close()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOLINUXSTREAMBLUETOOTH::IsReadyConnect(int socket)
-* @brief      IsReadyConnect
+* @brief      Is ready connect
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  socket : 
@@ -276,7 +276,7 @@ int DIOLINUXSTREAMBLUETOOTH::IsReadyConnect(int socket)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         sdp_session_t* DIOLINUXSTREAMBLUETOOTH::SDP_RegisterService(char* service_name,char* service_dsc,char* service_prov,int rfcomm_channel)
-* @brief      SDP_RegisterService
+* @brief      SDP register service
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  service_name : 
@@ -361,7 +361,7 @@ sdp_session_t* DIOLINUXSTREAMBLUETOOTH::SDP_RegisterService(char* service_name,c
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOLINUXSTREAMBLUETOOTH::ManagementOfPIN(bool active, XSTRING &localMACstring, XSTRING &remoteMACstring, XSTRING& PIN)
-* @brief      ManagementOfPIN
+* @brief      Management of PIN
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  active : 
@@ -473,7 +473,7 @@ bool DIOLINUXSTREAMBLUETOOTH::ManagementOfPIN(bool active, XSTRING &localMACstri
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOLINUXSTREAMBLUETOOTH::ThreadRunFunction(void* param)
-* @brief      ThreadRunFunction
+* @brief      Thread run function
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  param : 
@@ -759,7 +759,7 @@ void DIOLINUXSTREAMBLUETOOTH::ThreadRunFunction(void* param)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOLINUXSTREAMBLUETOOTH::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
 *

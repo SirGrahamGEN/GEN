@@ -67,7 +67,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMDEVICEWIFI::DIOSTREAMDEVICEWIFI()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -80,7 +80,7 @@ DIOSTREAMDEVICEWIFI::DIOSTREAMDEVICEWIFI()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMDEVICEWIFI::~DIOSTREAMDEVICEWIFI()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -94,7 +94,7 @@ DIOSTREAMDEVICEWIFI::~DIOSTREAMDEVICEWIFI()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMDEVICEWIFI::HasSecurity()
-* @brief      HasSecurity
+* @brief      Has security
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -109,7 +109,7 @@ bool DIOSTREAMDEVICEWIFI::HasSecurity()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSTREAMDEVICEWIFI::SetHasSecurity(bool hassecurity)
-* @brief      SetHasSecurity
+* @brief      Set has security
 * @ingroup    DATAIO
 *
 * @param[in]  hassecurity :
@@ -124,7 +124,7 @@ void DIOSTREAMDEVICEWIFI::SetHasSecurity(bool hassecurity)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOSTREAMDEVICEWIFI::GetTransmisionPower()
-* @brief      GetTransmisionPower
+* @brief      Get transmision power
 * @ingroup    DATAIO
 *
 * @return     int :
@@ -139,7 +139,7 @@ int DIOSTREAMDEVICEWIFI::GetTransmisionPower()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSTREAMDEVICEWIFI::SetTransmisionPower(int transmisionpower)
-* @brief      SetTransmisionPower
+* @brief      Set transmision power
 * @ingroup    DATAIO
 *
 * @param[in]  transmisionpower :
@@ -154,7 +154,7 @@ void DIOSTREAMDEVICEWIFI::SetTransmisionPower(int transmisionpower)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMDEVICEWIFI::DebugPrintInfo()
-* @brief      DebugPrintInfo
+* @brief      Debug print info
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -176,7 +176,7 @@ bool DIOSTREAMDEVICEWIFI::DebugPrintInfo()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSTREAMDEVICEWIFI::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

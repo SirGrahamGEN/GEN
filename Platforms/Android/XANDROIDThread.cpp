@@ -67,7 +67,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XANDROIDMUTEX::XANDROIDMUTEX()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_ANDROID
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -80,7 +80,7 @@ XANDROIDMUTEX::XANDROIDMUTEX()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XANDROIDMUTEX::~XANDROIDMUTEX()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_ANDROID
 *
@@ -100,7 +100,7 @@ XANDROIDMUTEX::~XANDROIDMUTEX()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XANDROIDTHREAD::XANDROIDTHREAD(XTHREADGROUPID groupID, XCHAR* ID, XTHREADFUNCTION function, void* param)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_ANDROID
 *
 * @param[in]  groupID : group ID of threads
@@ -118,7 +118,7 @@ XANDROIDTHREAD::XANDROIDTHREAD(XTHREADGROUPID groupID, XCHAR* ID, XTHREADFUNCTIO
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XANDROIDTHREAD::~XANDROIDTHREAD()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_ANDROID
 *

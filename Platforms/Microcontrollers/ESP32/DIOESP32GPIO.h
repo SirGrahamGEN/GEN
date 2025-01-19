@@ -4,7 +4,7 @@
 *
 * @class      DIOESP32GPIO
 * @brief      Data Input/Output ESP32 General Port Input/Ouput (GPIO)
-* @ingroup    PLATFORM_ESP32    PLATFORM_ESP32
+* @ingroup    PLATFORM_ESP32
 *
 * @copyright  GEN Group. All rights reserved.
 *

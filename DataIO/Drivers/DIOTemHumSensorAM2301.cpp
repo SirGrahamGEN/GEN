@@ -75,7 +75,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOTEMHUMSENSORAM2301::DIOTEMHUMSENSORAM2301(int pindata, bool activatecache)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 * 
 * @param[in]  pindata : 
@@ -107,7 +107,7 @@ DIOTEMHUMSENSORAM2301::DIOTEMHUMSENSORAM2301(int pindata, bool activatecache) : 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOTEMHUMSENSORAM2301::~DIOTEMHUMSENSORAM2301()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 * 
@@ -151,7 +151,7 @@ bool DIOTEMHUMSENSORAM2301::Ini(int cadenceread)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int DIOTEMHUMSENSORAM2301::GetPinData()
-* @brief      GetPinData
+* @brief      Get pin data
 * @ingroup    DATAIO
 * 
 * @return     int : 
@@ -166,7 +166,7 @@ int DIOTEMHUMSENSORAM2301::GetPinData()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOTEMHUMSENSORAM2301::ReadFromCache(float& temperature, float& humidity)
-* @brief      ReadFromCache
+* @brief      Read from cache
 * @ingroup    DATAIO
 * 
 * @param[in]  temperature : 
@@ -196,7 +196,7 @@ bool DIOTEMHUMSENSORAM2301::ReadFromCache(float& temperature, float& humidity)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOTEMHUMSENSORAM2301::ReadDirect(float& temperature, float& humidity)
-* @brief      ReadDirect
+* @brief      Read direct
 * @ingroup    DATAIO
 * 
 * @param[in]  temperature : 
@@ -297,7 +297,7 @@ bool DIOTEMHUMSENSORAM2301::End()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOTEMHUMSENSORAM2301::WaitTo(bool tohigh, int timeout, int* timeelapsed)
-* @brief      WaitTo
+* @brief      Wait to
 * @ingroup    DATAIO
 * 
 * @param[in]  tohigh : 
@@ -346,7 +346,7 @@ bool DIOTEMHUMSENSORAM2301::WaitTo(bool tohigh, int timeout, int* timeelapsed)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOTEMHUMSENSORAM2301::ThreadRunFunction(void* param)
-* @brief      ThreadRunFunction
+* @brief      Thread run function
 * @ingroup    DATAIO
 * 
 * @param[in]  param : 
@@ -390,7 +390,7 @@ void DIOTEMHUMSENSORAM2301::ThreadRunFunction(void* param)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOTEMHUMSENSORAM2301::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 * 

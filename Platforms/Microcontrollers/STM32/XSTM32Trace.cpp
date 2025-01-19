@@ -54,7 +54,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTM32TRACE::XSTM32TRACE()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_STM32
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -70,7 +70,7 @@ XSTM32TRACE::XSTM32TRACE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTM32TRACE::~XSTM32TRACE()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_STM32
 *
@@ -88,7 +88,7 @@ XSTM32TRACE::~XSTM32TRACE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XSTM32TRACE::PrintSpecial(XTRACE_TARGET* target, XBYTE level, XCHAR* string)
-* @brief      Print Special aim
+* @brief      Print special
 * @ingroup    PLATFORM_STM32
 *
 * @param[in]  target : target to print the debug
@@ -138,7 +138,7 @@ void XSTM32TRACE::PrintSpecial(XTRACE_TARGET* target, XBYTE level, XCHAR* string
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         UART_HandleTypeDef* XSTM32TRACE::GetHuart()
-* @brief      GetHuart
+* @brief      Get huart
 * @ingroup    PLATFORM_STM32
 *
 * @return     UART_HandleTypeDef* :
@@ -154,7 +154,7 @@ UART_HandleTypeDef* XSTM32TRACE::GetHuart()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XSTM32TRACE::SetHuart(UART_HandleTypeDef* huart)
-* @brief      SetHuart
+* @brief      Set huart
 * @ingroup    PLATFORM_STM32
 *
 * @param[in]  huart :
@@ -170,7 +170,7 @@ void XSTM32TRACE::SetHuart(UART_HandleTypeDef* huart)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XSTM32TRACE::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_STM32
 *

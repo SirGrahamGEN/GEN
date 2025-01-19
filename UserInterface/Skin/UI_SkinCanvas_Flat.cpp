@@ -81,7 +81,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_SKINCANVAS_FLAT::UI_SKINCANVAS_FLAT(GRPSCREEN* screen, int viewportindex)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  screen : 
@@ -99,7 +99,7 @@ UI_SKINCANVAS_FLAT::UI_SKINCANVAS_FLAT(GRPSCREEN* screen, int viewportindex) : U
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_SKINCANVAS_FLAT::~UI_SKINCANVAS_FLAT()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
 *
@@ -113,7 +113,7 @@ UI_SKINCANVAS_FLAT::~UI_SKINCANVAS_FLAT()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKINCANVAS_FLAT::Draw_Form(UI_ELEMENT* element)
-* @brief      Draw_Form
+* @brief      Draw form
 * @ingroup    USERINTERFACE
 *
 * @param[in]  element : 
@@ -177,7 +177,7 @@ bool UI_SKINCANVAS_FLAT::Draw_Form(UI_ELEMENT* element)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_SKINCANVAS_FLAT::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
 *

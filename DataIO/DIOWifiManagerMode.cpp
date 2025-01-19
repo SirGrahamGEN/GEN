@@ -71,7 +71,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOWIFIMANAGERMODE::DIOWIFIMANAGERMODE()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -84,7 +84,7 @@ DIOWIFIMANAGERMODE::DIOWIFIMANAGERMODE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOWIFIMANAGERMODE::~DIOWIFIMANAGERMODE()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -101,7 +101,7 @@ DIOWIFIMANAGERMODE::~DIOWIFIMANAGERMODE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWIFIMANAGERMODE::GetSelectNetInterface(XSTRING& netinterface)
-* @brief      GetSelectNetInterface
+* @brief      Get select net interface
 * @ingroup    DATAIO
 *
 * @param[in]  netinterface : 
@@ -120,7 +120,7 @@ bool DIOWIFIMANAGERMODE::GetSelectNetInterface(XSTRING& netinterface)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOWIFIMANAGERMODE::SetSelectNetInterface(XCHAR* netinterface)
-* @brief      SetSelectNetInterface
+* @brief      Set select net interface
 * @ingroup    DATAIO
 * 
 * @param[in]  netinterface : 
@@ -139,7 +139,7 @@ bool DIOWIFIMANAGERMODE::SetSelectNetInterface(XCHAR* netinterface)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOWIFIMANAGERMODE::SetSelectNetInterface(XSTRING& netinterface)
-* @brief      SetSelectNetInterface
+* @brief      Set select net interface
 * @ingroup    DATAIO
 * 
 * @param[in]  netinterface : 
@@ -156,7 +156,7 @@ bool DIOWIFIMANAGERMODE::SetSelectNetInterface(XSTRING& netinterface)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOWIFIMANAGER_MODETYPE DIOWIFIMANAGERMODE::GetModeType()
-* @brief      GetModeType
+* @brief      Get mode type
 * @ingroup    DATAIO
 *
 * @return     DIOWIFIMANAGER_MODETYPE : 
@@ -171,7 +171,7 @@ DIOWIFIMANAGER_MODETYPE DIOWIFIMANAGERMODE::GetModeType()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOWIFIMANAGERMODE::SetModeType(DIOWIFIMANAGER_MODETYPE modetype)
-* @brief      SetModeType
+* @brief      Set mode type
 * @ingroup    DATAIO
 *
 * @param[in]  modetype : 
@@ -186,7 +186,7 @@ void DIOWIFIMANAGERMODE::SetModeType(DIOWIFIMANAGER_MODETYPE modetype)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWIFIMANAGERMODE::CheckNetInterface(DIOIP* IP)
-* @brief      CheckNetInterface
+* @brief      Check net interface
 * @ingroup    DATAIO
 *
 * @param[in]  IP : 
@@ -250,7 +250,7 @@ bool DIOWIFIMANAGERMODE::CheckNetInterface(DIOIP* IP)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWIFIMANAGERMODE::CheckNetInterface(XSTRING* IP)
-* @brief      CheckNetInterface
+* @brief      Check net interface
 * @ingroup    DATAIO
 *
 * @param[in]  IP : 
@@ -277,7 +277,7 @@ bool DIOWIFIMANAGERMODE::CheckNetInterface(XSTRING* IP)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWIFIMANAGERMODE::SetMode_AP(XCHAR* SSID, XCHAR* password, bool serialize)
-* @brief      SetMode_AP
+* @brief      Set mode AP
 * @ingroup    DATAIO
 *
 * @param[in]  SSID : 
@@ -296,7 +296,7 @@ bool DIOWIFIMANAGERMODE::SetMode_AP(XCHAR* SSID, XCHAR* password,  bool serializ
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWIFIMANAGERMODE::SetMode_AP(XSTRING& SSID, XSTRING& password, bool serialize)
-* @brief      SetMode_AP
+* @brief      Set mode AP
 * @ingroup    DATAIO
 *
 * @param[in]  SSID : 
@@ -315,7 +315,7 @@ bool DIOWIFIMANAGERMODE::SetMode_AP(XSTRING& SSID, XSTRING& password, bool seria
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOWIFIMANAGERMODE::SetMode_AP(XSTRING& SSID, XCHAR* password, bool serialize)
-* @brief      SetMode_AP
+* @brief      Set mode AP
 * @ingroup    DATAIO
 *
 * @param[in]  SSID : 
@@ -334,7 +334,7 @@ bool DIOWIFIMANAGERMODE::SetMode_AP(XSTRING& SSID, XCHAR* password, bool seriali
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWIFIMANAGERMODE::SetMode_Client(XCHAR* SSID, XCHAR* password, bool serialize)
-* @brief      SetMode_Client
+* @brief      Set mode client
 * @ingroup    DATAIO
 *
 * @param[in]  SSID : 
@@ -353,7 +353,7 @@ bool DIOWIFIMANAGERMODE::SetMode_Client(XCHAR* SSID, XCHAR* password, bool seria
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOWIFIMANAGERMODE::SetMode_Client(XSTRING& SSID, XSTRING& password, bool serialize)
-* @brief      SetMode_Client
+* @brief      Set mode client
 * @ingroup    DATAIO
 * 
 * @param[in]  SSID : 
@@ -372,7 +372,7 @@ bool DIOWIFIMANAGERMODE::SetMode_Client(XSTRING& SSID, XSTRING& password, bool s
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOWIFIMANAGERMODE::SetMode_Client(XSTRING& SSID, XCHAR* password, bool serialize)
-* @brief      SetMode_Client
+* @brief      Set mode client
 * @ingroup    DATAIO
 * 
 * @param[in]  SSID : 
@@ -391,7 +391,7 @@ bool DIOWIFIMANAGERMODE::SetMode_Client(XSTRING& SSID, XCHAR* password, bool ser
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOWIFIMANAGERMODE::IsDisconnected()
-* @brief      IsDisconnected
+* @brief      Is disconnected
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful. 
@@ -421,7 +421,7 @@ bool DIOWIFIMANAGERMODE::Disconnect()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWIFIMANAGERMODE::APList_Reload()
-* @brief      APList_Reload
+* @brief      AP list reload
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful. 
@@ -436,7 +436,7 @@ bool DIOWIFIMANAGERMODE::APList_Reload()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XVECTOR<XSTRING*>* DIOWIFIMANAGERMODE::APList_Get()
-* @brief      APList_Get
+* @brief      AP list get
 * @ingroup    DATAIO
 *
 * @return     XVECTOR<XSTRING*>* : 
@@ -451,7 +451,7 @@ XVECTOR<XSTRING*>* DIOWIFIMANAGERMODE::APList_Get()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOWIFIMANAGERMODE::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

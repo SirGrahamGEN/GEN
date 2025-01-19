@@ -73,7 +73,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIONODEITEMHANDLER_ENTRYGPIO::DIONODEITEMHANDLER_ENTRYGPIO()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -88,7 +88,7 @@ DIONODEITEMHANDLER_ENTRYGPIO::DIONODEITEMHANDLER_ENTRYGPIO()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIONODEITEMHANDLER_ENTRYGPIO::DIONODEITEMHANDLER_ENTRYGPIO(XDWORD entryID, bool writemode, int GPIO, int pin, XCHAR* description)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 * 
 * @param[in]  entryID : 
@@ -115,7 +115,7 @@ DIONODEITEMHANDLER_ENTRYGPIO::DIONODEITEMHANDLER_ENTRYGPIO(XDWORD entryID, bool 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIONODEITEMHANDLER_ENTRYGPIO::~DIONODEITEMHANDLER_ENTRYGPIO()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 * 
@@ -134,7 +134,7 @@ DIONODEITEMHANDLER_ENTRYGPIO::~DIONODEITEMHANDLER_ENTRYGPIO()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD DIONODEITEMHANDLER_ENTRYGPIO::GetEntryID()
-* @brief      GetEntryID
+* @brief      Get entry ID
 * @ingroup    DATAIO
 * 
 * @return     XDWORD : 
@@ -149,7 +149,7 @@ XDWORD DIONODEITEMHANDLER_ENTRYGPIO::GetEntryID()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIONODEITEMHANDLER_ENTRYGPIO::SetEntryID(XDWORD entryID)
-* @brief      SetEntryID
+* @brief      Set entry ID
 * @ingroup    DATAIO
 * 
 * @param[in]  entryID : 
@@ -164,7 +164,7 @@ void DIONODEITEMHANDLER_ENTRYGPIO::SetEntryID(XDWORD entryID)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIONODEITEMHANDLER_ENTRYGPIO::GetWriteMode()
-* @brief      GetWriteMode
+* @brief      Get write mode
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
@@ -179,7 +179,7 @@ bool DIONODEITEMHANDLER_ENTRYGPIO::GetWriteMode()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIONODEITEMHANDLER_ENTRYGPIO::SetWriteMode(bool writemode)
-* @brief      SetWriteMode
+* @brief      Set write mode
 * @ingroup    DATAIO
 * 
 * @param[in]  writemode : 
@@ -194,7 +194,7 @@ void DIONODEITEMHANDLER_ENTRYGPIO::SetWriteMode(bool writemode)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int DIONODEITEMHANDLER_ENTRYGPIO::GetGPIO()
-* @brief      GetGPIO
+* @brief      Get GPIO
 * @ingroup    DATAIO
 * 
 * @return     int : 
@@ -209,7 +209,7 @@ int DIONODEITEMHANDLER_ENTRYGPIO::GetGPIO()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIONODEITEMHANDLER_ENTRYGPIO::SetGPIO(int GPIO)
-* @brief      SetGPIO
+* @brief      Set GPIO
 * @ingroup    DATAIO
 * 
 * @param[in]  GPIO : 
@@ -224,7 +224,7 @@ void DIONODEITEMHANDLER_ENTRYGPIO::SetGPIO(int GPIO)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int DIONODEITEMHANDLER_ENTRYGPIO::GetPin()
-* @brief      GetPin
+* @brief      Get pin
 * @ingroup    DATAIO
 * 
 * @return     int : 
@@ -239,7 +239,7 @@ int DIONODEITEMHANDLER_ENTRYGPIO::GetPin()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIONODEITEMHANDLER_ENTRYGPIO::SetPin(int pin)
-* @brief      SetPin
+* @brief      Set pin
 * @ingroup    DATAIO
 * 
 * @param[in]  pin : 
@@ -254,7 +254,7 @@ void DIONODEITEMHANDLER_ENTRYGPIO::SetPin(int pin)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* DIONODEITEMHANDLER_ENTRYGPIO::GetDescription()
-* @brief      GetDescription
+* @brief      Get description
 * @ingroup    DATAIO
 * 
 * @return     XSTRING* : 
@@ -269,7 +269,7 @@ XSTRING* DIONODEITEMHANDLER_ENTRYGPIO::GetDescription()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XQWORD DIONODEITEMHANDLER_ENTRYGPIO::GetTimeLastActivation()
-* @brief      GetTimeLastActivation
+* @brief      Get time last activation
 * @ingroup    DATAIO
 * 
 * @return     XQWORD : 
@@ -284,7 +284,7 @@ XQWORD DIONODEITEMHANDLER_ENTRYGPIO::GetTimeLastActivation()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XQWORD DIONODEITEMHANDLER_ENTRYGPIO::GetTimeLastDeactivation()
-* @brief      GetTimeLastDeactivation
+* @brief      Get time last deactivation
 * @ingroup    DATAIO
 * 
 * @return     XQWORD : 
@@ -299,7 +299,7 @@ XQWORD DIONODEITEMHANDLER_ENTRYGPIO::GetTimeLastDeactivation()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIONODEITEMHANDLER_ENTRYGPIO::CopyFrom(DIONODEITEMHANDLER_ENTRYGPIO* entryGPIO)
-* @brief      CopyFrom
+* @brief      Copy from
 * @ingroup    DATAIO
 * 
 * @param[in]  entryGPIO : 
@@ -330,7 +330,7 @@ bool DIONODEITEMHANDLER_ENTRYGPIO::CopyFrom(DIONODEITEMHANDLER_ENTRYGPIO* entryG
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIONODEITEMHANDLER_ENTRYGPIO::CopyTo(DIONODEITEMHANDLER_ENTRYGPIO* entryGPIO)
-* @brief      CopyTo
+* @brief      Copy to
 * @ingroup    DATAIO
 * 
 * @param[in]  entryGPIO : 
@@ -361,7 +361,7 @@ bool DIONODEITEMHANDLER_ENTRYGPIO::CopyTo(DIONODEITEMHANDLER_ENTRYGPIO* entryGPI
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIONODEITEMHANDLER_ENTRYGPIO::AdjustTimeInChange(bool boolean_status)
-* @brief      AdjustTimeInChange
+* @brief      Adjust time in change
 * @ingroup    DATAIO
 * 
 * @param[in]  boolean_status : 
@@ -385,7 +385,7 @@ void DIONODEITEMHANDLER_ENTRYGPIO::AdjustTimeInChange(bool boolean_status)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIONODEITEMHANDLER_ENTRYGPIO::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 * 
@@ -413,7 +413,7 @@ void DIONODEITEMHANDLER_ENTRYGPIO::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIONODEITEMHANDLER_GPIODIGITAL::DIONODEITEMHANDLER_GPIODIGITAL(XLIST<DIONODEITEMHANDLER_ENTRYGPIO*>* entrysGPIO)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 * 
 * @param[in]  entrysGPIO : 
@@ -457,7 +457,7 @@ DIONODEITEMHANDLER_GPIODIGITAL::DIONODEITEMHANDLER_GPIODIGITAL(XLIST<DIONODEITEM
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIONODEITEMHANDLER_GPIODIGITAL::~DIONODEITEMHANDLER_GPIODIGITAL()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 * 
@@ -616,7 +616,7 @@ bool DIONODEITEMHANDLER_GPIODIGITAL::Close()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIONODEITEMHANDLER_GPIODIGITAL::SetNodeItem(DIONODEITEM* nodeitem)
-* @brief      SetNodeItem
+* @brief      Set node item
 * @ingroup    DATAIO
 * 
 * @param[in]  nodeitem : 
@@ -658,7 +658,7 @@ bool DIONODEITEMHANDLER_GPIODIGITAL::SetNodeItem(DIONODEITEM* nodeitem)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIONODEITEMHANDLER_GPIODIGITAL::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 * 

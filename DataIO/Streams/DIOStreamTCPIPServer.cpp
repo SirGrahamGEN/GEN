@@ -68,7 +68,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMTCPIPSERVER::DIOSTREAMTCPIPSERVER()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -85,7 +85,7 @@ DIOSTREAMTCPIPSERVER::DIOSTREAMTCPIPSERVER()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMTCPIPSERVER::~DIOSTREAMTCPIPSERVER()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -102,7 +102,7 @@ DIOSTREAMTCPIPSERVER::~DIOSTREAMTCPIPSERVER()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMCONFIG* DIOSTREAMTCPIPSERVER::GetConfig()
-* @brief      GetConfig
+* @brief      Get config
 * @ingroup    DATAIO
 *
 * @return     DIOSTREAMCONFIG* :
@@ -117,7 +117,7 @@ DIOSTREAMCONFIG* DIOSTREAMTCPIPSERVER::GetConfig()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMTCPIPSERVER::SetConfig(DIOSTREAMCONFIG* config)
-* @brief      SetConfig
+* @brief      Set config
 * @ingroup    DATAIO
 *
 * @param[in]  config :
@@ -137,7 +137,7 @@ bool DIOSTREAMTCPIPSERVER::SetConfig(DIOSTREAMCONFIG* config)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOSTREAMTCPIPSERVER::WaitToConnected(int timeout)
-* @brief      WaitToConnected
+* @brief      Wait to connected
 * @ingroup    DATAIO
 * 
 * @param[in]  timeout : 
@@ -190,7 +190,7 @@ bool DIOSTREAMTCPIPSERVER::WaitToConnected(int timeout)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOIP* DIOSTREAMTCPIPSERVER::GetClientIP()
-* @brief      GetClientIP
+* @brief      Get client IP
 * @ingroup    DATAIO
 *
 * @return     DIOIP* :
@@ -205,7 +205,7 @@ DIOIP* DIOSTREAMTCPIPSERVER::GetClientIP()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMENUMSERVERS* DIOSTREAMTCPIPSERVER::GetEnumServers()
-* @brief      GetEnumServers
+* @brief      Get enum servers
 * @ingroup    DATAIO
 *
 * @return     DIOSTREAMENUMSERVERS* :
@@ -220,7 +220,7 @@ DIOSTREAMENUMSERVERS* DIOSTREAMTCPIPSERVER::GetEnumServers()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMTCPIPSERVER::SetEnumServers(DIOSTREAMENUMSERVERS* enumservers)
-* @brief      SetEnumServers
+* @brief      Set enum servers
 * @ingroup    DATAIO
 *
 * @param[in]  enumservers :
@@ -239,7 +239,7 @@ bool DIOSTREAMTCPIPSERVER::SetEnumServers(DIOSTREAMENUMSERVERS* enumservers)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XVECTOR<DIOSTREAMTCPIP*>* DIOSTREAMTCPIPSERVER::GetMultiSocketStreams()
-* @brief      GetMultiSocketStreams
+* @brief      Get multi socket streams
 * @ingroup    DATAIO
 * 
 * @return     XVECTOR<DIOSTREAMTCPIP*>* : 
@@ -254,7 +254,7 @@ XVECTOR<DIOSTREAMTCPIP*>* DIOSTREAMTCPIPSERVER::GetMultiSocketStreams()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD DIOSTREAMTCPIPSERVER::GetNumMultiSocketStreams()
-* @brief      GetNumMultiSocketStreams
+* @brief      Get num multi socket streams
 * @ingroup    DATAIO
 * 
 * @return     XDWORD : 
@@ -269,7 +269,7 @@ XDWORD DIOSTREAMTCPIPSERVER::GetNumMultiSocketStreams()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD DIOSTREAMTCPIPSERVER::GetNumConnectedMultiSocketStreams()
-* @brief      GetNumConnectedMultiSocketStreams
+* @brief      Get num connected multi socket streams
 * @ingroup    DATAIO
 * 
 * @return     XDWORD : 
@@ -298,7 +298,7 @@ XDWORD DIOSTREAMTCPIPSERVER::GetNumConnectedMultiSocketStreams()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSTREAMTCPIPSERVER::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

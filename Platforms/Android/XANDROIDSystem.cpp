@@ -64,7 +64,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XANDROIDSYSTEM::XANDROIDSYSTEM()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_ANDROID
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -77,7 +77,7 @@ XANDROIDSYSTEM::XANDROIDSYSTEM(): XLINUXSYSTEM()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XANDROIDSYSTEM::~XANDROIDSYSTEM()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_ANDROID
 *
@@ -91,7 +91,7 @@ XANDROIDSYSTEM::~XANDROIDSYSTEM()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSYSTEM_HARDWARETYPE XANDROIDSYSTEM::GetTypeHardware(int* revision)
-* @brief      GetTypeHardware
+* @brief      Get type hardware
 * @ingroup    PLATFORM_ANDROID
 *
 * @param[out] revision : revision if is possible
@@ -108,7 +108,7 @@ XSYSTEM_HARDWARETYPE XANDROIDSYSTEM::GetTypeHardware(int* revision)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSYSTEM_PLATFORM XANDROIDSYSTEM::GetPlatform(XSTRING* namestring)
-* @brief      GetPlatform
+* @brief      Get platform
 * @ingroup    PLATFORM_ANDROID
 *
 * @param[in]  namestring : 

@@ -69,7 +69,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOWEBSERVER_ENDPOINT::DIOWEBSERVER_ENDPOINT()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -82,7 +82,7 @@ DIOWEBSERVER_ENDPOINT::DIOWEBSERVER_ENDPOINT()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOWEBSERVER_ENDPOINT::~DIOWEBSERVER_ENDPOINT()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -96,7 +96,7 @@ DIOWEBSERVER_ENDPOINT::~DIOWEBSERVER_ENDPOINT()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOWEBSERVER_ENDPOINT::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *
@@ -116,7 +116,7 @@ void DIOWEBSERVER_ENDPOINT::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOWEBSERVER_APIREST::DIOWEBSERVER_APIREST()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -129,7 +129,7 @@ DIOWEBSERVER_APIREST::DIOWEBSERVER_APIREST()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOWEBSERVER_APIREST::~DIOWEBSERVER_APIREST()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 * 
@@ -143,7 +143,7 @@ DIOWEBSERVER_APIREST::~DIOWEBSERVER_APIREST()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOWEBSERVER_APIREST::ResolveEndPoint(DIOWEBSERVER_XEVENT* event)
-* @brief      ResolveEndPoint
+* @brief      Resolve end point
 * @ingroup    DATAIO
 * 
 * @param[in]  event : 
@@ -160,7 +160,7 @@ bool DIOWEBSERVER_APIREST::ResolveEndPoint(DIOWEBSERVER_XEVENT* event)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOWEBSERVER_APIREST::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 * 

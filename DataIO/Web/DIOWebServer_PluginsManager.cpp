@@ -67,7 +67,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOWEBSERVER_PLUGINSMANAGER::DIOWEBSERVER_PLUGINSMANAGER()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -80,7 +80,7 @@ DIOWEBSERVER_PLUGINSMANAGER::DIOWEBSERVER_PLUGINSMANAGER()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOWEBSERVER_PLUGINSMANAGER::~DIOWEBSERVER_PLUGINSMANAGER()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 * 
@@ -94,7 +94,7 @@ DIOWEBSERVER_PLUGINSMANAGER::~DIOWEBSERVER_PLUGINSMANAGER()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWEBSERVER_PLUGINSMANAGER::Plugins_Add(DIOWEBSERVER_PLUGIN* plugin)
-* @brief      Plugins_Add
+* @brief      Plugins add
 * @ingroup    DATAIO
 *
 * @param[in]  plugin :
@@ -113,7 +113,7 @@ bool DIOWEBSERVER_PLUGINSMANAGER::Plugins_Add(DIOWEBSERVER_PLUGIN* plugin)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOWEBSERVER_PLUGIN* DIOWEBSERVER_PLUGINSMANAGER::Plugins_GetNPlugins()
-* @brief      Plugins_GetNPlugins
+* @brief      Plugins get N plugins
 * @ingroup    DATAIO
 *
 * @return     DIOWEBSERVER_PLUGIN* :
@@ -128,7 +128,7 @@ XDWORD DIOWEBSERVER_PLUGINSMANAGER::Plugins_GetNPlugins()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOWEBSERVER_PLUGIN* DIOWEBSERVER_PLUGINSMANAGER::Plugins_Get(int index)
-* @brief      Plugins_Get
+* @brief      Plugins get
 * @ingroup    DATAIO
 *
 * @param[in]  index :
@@ -145,7 +145,7 @@ DIOWEBSERVER_PLUGIN* DIOWEBSERVER_PLUGINSMANAGER::Plugins_Get(int index)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWEBSERVER_PLUGINSMANAGER::Plugins_Delete(DIOWEBSERVER_PLUGIN* plugin)
-* @brief      Plugins_Delete
+* @brief      Plugins delete
 * @ingroup    DATAIO
 *
 * @param[in]  plugin :
@@ -162,7 +162,7 @@ bool DIOWEBSERVER_PLUGINSMANAGER::Plugins_Delete(DIOWEBSERVER_PLUGIN* plugin)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWEBSERVER_PLUGINSMANAGER::Plugins_DeleteAll()
-* @brief      Plugins_DeleteAll
+* @brief      Plugins delete all
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -182,7 +182,7 @@ bool DIOWEBSERVER_PLUGINSMANAGER::Plugins_DeleteAll()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOWEBSERVER_PLUGINSMANAGER::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

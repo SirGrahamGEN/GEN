@@ -4,7 +4,7 @@
 * 
 * @class      XSYSTEM
 * @brief      eXtended Utils System class
-* @note       Can´t be construct Factory + singelton without depends of system. IT´S NOT A SINGLETON.
+* @note       Cant be construct Factory + singelton without depends of system. ITS NOT A SINGLETON.
 * @ingroup    XUTILS
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -72,7 +72,7 @@ XSYSTEM* XSYSTEM::instance            = NULL;
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSYSTEM::XSYSTEM()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -87,7 +87,7 @@ XSYSTEM::XSYSTEM()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSYSTEM::~XSYSTEM()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -106,7 +106,7 @@ XSYSTEM::~XSYSTEM()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSYSTEM::GetIsInstanced()
-* @brief      GetIsInstanced
+* @brief      Get is instanced
 * @note       STATIC
 * @ingroup    XUTILS
 *
@@ -122,7 +122,7 @@ bool XSYSTEM::GetIsInstanced()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSYSTEM& XSYSTEM::GetInstance()
-* @brief      GetInstance
+* @brief      Get instance
 * @note       STATIC
 * @ingroup    XUTILS
 *
@@ -140,7 +140,7 @@ XSYSTEM& XSYSTEM::GetInstance()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSYSTEM::SetInstance(XSYSTEM* _instance)
-* @brief      SetInstance
+* @brief      Set instance
 * @note       STATIC
 * @ingroup    XUTILS
 *
@@ -162,7 +162,7 @@ bool XSYSTEM::SetInstance(XSYSTEM* _instance)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSYSTEM::DelInstance()
-* @brief      DelInstance
+* @brief      Del instance
 * @note       STATIC
 * @ingroup    XUTILS
 *
@@ -186,7 +186,7 @@ bool XSYSTEM::DelInstance()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSYSTEM_HARDWARETYPE XSYSTEM::GetTypeHardware(int* revision)
-* @brief      Get Type Hardware
+* @brief      Get type hardware
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -204,7 +204,7 @@ XSYSTEM_HARDWARETYPE  XSYSTEM::GetTypeHardware(int* revision)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSYSTEM::HardwareUseLittleEndian()
-* @brief      Hardware Use LittleEndian
+* @brief      Hardware use little endian
 * @note       In ARM can be changed, can be used BIG ENDIAN or LITTLE ENDIAN
 * @ingroup    XUTILS
 *
@@ -242,7 +242,7 @@ bool XSYSTEM::HardwareUseLittleEndian()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSYSTEM_PLATFORM XSYSTEM::GetPlatform(XSTRING* namestring = NULL)
-* @brief      GetPlatform
+* @brief      Get platform
 * @ingroup    XUTILS
 *
 * @param[in]  namestring : 
@@ -261,7 +261,7 @@ XSYSTEM_PLATFORM XSYSTEM::GetPlatform(XSTRING* namestring)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XSYSTEM::GetOperativeSystemID(XSTRING& ID)
-* @brief      GetOperativeSystemID
+* @brief      Get operative system ID
 * @ingroup    XUTILS
 *
 * @param[in]  ID : 
@@ -280,7 +280,7 @@ bool XSYSTEM::GetOperativeSystemID(XSTRING& ID)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD XSYSTEM::GetLanguageSO()
-* @brief      GetLanguageSO
+* @brief      Get language SO
 * @ingroup    XUTILS
 * 
 * @return     XDWORD : 
@@ -295,7 +295,7 @@ XDWORD XSYSTEM::GetLanguageSO()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* XSYSTEM::GetBIOSSerialNumber()
-* @brief      GetBIOSSerialNumber
+* @brief      Get BIOS serial number
 * @ingroup    XUTILS
 * 
 * @return     XSTRING* : 
@@ -310,7 +310,7 @@ XSTRING* XSYSTEM::GetBIOSSerialNumber()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* XSYSTEM::GetCPUSerialNumber()
-* @brief      GetCPUSerialNumber
+* @brief      Get CPU serial number
 * @ingroup    XUTILS
 * 
 * @return     XSTRING* : 
@@ -325,7 +325,7 @@ XSTRING* XSYSTEM::GetCPUSerialNumber()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         float XSYSTEM::GetCPUTemperature()
-* @brief      GetCPUTemperature
+* @brief      Get CPU temperature
 * @ingroup    XUTILS
 * 
 * @return     float : 
@@ -340,7 +340,7 @@ float XSYSTEM::GetCPUTemperature()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSYSTEM::GetMemoryInfo(XDWORD& total,XDWORD& free)
-* @brief      GetMemoryInfo
+* @brief      Get memory info
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -362,7 +362,7 @@ bool XSYSTEM::GetMemoryInfo(XDWORD& total,XDWORD& free)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XSYSTEM::GetFreeMemoryPercent()
-* @brief      Get Free Memory Percent
+* @brief      Get free memory percent
 * @ingroup    XUTILS
 *
 * @return     int :
@@ -385,7 +385,7 @@ int XSYSTEM::GetFreeMemoryPercent()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSYSTEM::FreeCacheMemory()
-* @brief      FreeCacheMemory
+* @brief      Free cache memory
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful. 
@@ -400,7 +400,7 @@ bool XSYSTEM::FreeCacheMemory()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XSYSTEM::GetCPUUsageTotal()
-* @brief      GetCPUUsageTotal
+* @brief      Get CPU usage total
 * @ingroup    XUTILS
 *
 * @return     int : 
@@ -415,7 +415,7 @@ int XSYSTEM::GetCPUUsageTotal()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XSYSTEM::GetCPUUsageForProcessName(XCHAR* processname)
-* @brief      GetCPUUsageForProcessName
+* @brief      Get CPU usage for process name
 * @ingroup    XUTILS
 *
 * @param[in]  processname : 
@@ -432,7 +432,7 @@ int XSYSTEM::GetCPUUsageForProcessName(XCHAR* processname)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XSYSTEM::GetCPUUsageForProcessID(XDWORD processID)
-* @brief      GetCPUUsageForProcessID
+* @brief      Get CPU usage for process ID
 * @ingroup    XUTILS
 *
 * @param[in]  processID : 
@@ -449,7 +449,7 @@ int XSYSTEM::GetCPUUsageForProcessID(XDWORD processID)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XCHAR* XSYSTEM::GetEnviromentVariable(XCHAR* name)
-* @brief      GetEnviromentVariable
+* @brief      Get enviroment variable
 * @ingroup    XUTILS
 * 
 * @param[in]  name : 
@@ -466,7 +466,7 @@ XCHAR* XSYSTEM::GetEnviromentVariable(XCHAR* name)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XCHAR* XSYSTEM::GetEnviromentVariable(XSTRING& name)
-* @brief      GetEnviromentVariable
+* @brief      Get enviroment variable
 * @ingroup    XUTILS
 * 
 * @param[in]  name : 
@@ -483,7 +483,7 @@ XCHAR* XSYSTEM::GetEnviromentVariable(XSTRING& name)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XSYSTEM::SetEnviromentVariable(XCHAR* name, XCHAR* value)
-* @brief      SetEnviromentVariable
+* @brief      Set enviroment variable
 * @ingroup    XUTILS
 * 
 * @param[in]  name : 
@@ -501,7 +501,7 @@ bool XSYSTEM::SetEnviromentVariable(XCHAR* name, XCHAR* value)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XSYSTEM::SetEnviromentVariable(XSTRING& name, XSTRING& value)
-* @brief      SetEnviromentVariable
+* @brief      Set enviroment variable
 * @ingroup    XUTILS
 * 
 * @param[in]  name : 
@@ -519,7 +519,7 @@ bool XSYSTEM::SetEnviromentVariable(XSTRING& name, XSTRING& value)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XSYSTEM::DelEnviromentVariable(XCHAR* name)
-* @brief      DelEnviromentVariable
+* @brief      Del enviroment variable
 * @ingroup    XUTILS
 * 
 * @param[in]  name : 
@@ -536,7 +536,7 @@ bool XSYSTEM::DelEnviromentVariable(XCHAR* name)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XSYSTEM::DelEnviromentVariable(XSTRING& name)
-* @brief      DelEnviromentVariable
+* @brief      Del enviroment variable
 * @ingroup    XUTILS
 * 
 * @param[in]  name : 
@@ -553,7 +553,7 @@ bool XSYSTEM::DelEnviromentVariable(XSTRING& name)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSYSTEM::GetUserAndDomain(XSTRING& user, XSTRING& domain)
-* @brief      GetUserAndDomain
+* @brief      Get user and domain
 * @ingroup    XUTILS
 *
 * @param[in]  user : 
@@ -571,7 +571,7 @@ bool XSYSTEM::GetUserAndDomain(XSTRING& user, XSTRING& domain)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSYSTEM::ShutDown(XSYSTEM_CHANGESTATUSTYPE type)
-* @brief      ShutDown
+* @brief      Shut down
 * @ingroup    XUTILS
 *
 * @param[in]  type : type of shutdown (enum XSYSTEM_CHANGESTATUSTYPE)
@@ -588,7 +588,7 @@ bool XSYSTEM::ShutDown(XSYSTEM_CHANGESTATUSTYPE type)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XSYSTEM::Sound_GetLevel()
-* @brief      Sound_GetLevel
+* @brief      Sound get level
 * @ingroup    XUTILS
 *
 * @return     int : 
@@ -603,7 +603,7 @@ int XSYSTEM::Sound_GetLevel()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSYSTEM::Sound_SetLevel(int level)
-* @brief      Sound_SetLevel
+* @brief      Sound set level
 * @ingroup    XUTILS
 *
 * @param[in]  level : 
@@ -620,7 +620,7 @@ bool XSYSTEM::Sound_SetLevel(int level)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSYSTEM::Sound_SetMutex(bool on)
-* @brief      Sound_SetMutex
+* @brief      Sound set mutex
 * @ingroup    XUTILS
 *
 * @param[in]  on : 
@@ -637,7 +637,7 @@ bool XSYSTEM::Sound_SetMutex(bool on)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XSYSTEM::GetBatteryLevel (bool& isincharge, XBYTE& levelpercent)
-* @brief      GetBatteryLevel
+* @brief      Get battery level 
 * @ingroup    XUTILS
 *
 * @param[in]  isincharge : 
@@ -657,7 +657,7 @@ bool XSYSTEM::GetBatteryLevel (bool& isincharge, XBYTE& levelpercent)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XSYSTEM::HostFile(bool add, XCHAR* domain, XCHAR* IP)
-* @brief      HostFile
+* @brief      Host file
 * @ingroup    XUTILS
 *
 * @param[in]  add : 
@@ -718,7 +718,7 @@ bool XSYSTEM::HostFile(bool add, XCHAR* domain, XCHAR* IP)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XSYSTEM::HostFile(bool add, XSTRING& domain, XSTRING& IP)
-* @brief      HostFile
+* @brief      Host file
 * @ingroup    XUTILS
 *
 * @param[in]  add : 
@@ -737,7 +737,7 @@ bool XSYSTEM::HostFile(bool add, XSTRING& domain, XSTRING& IP)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int XSYSTEM::IsLineInHostFile(XFILETXT& xfileTXT, XCHAR* domain, XCHAR* IP)
-* @brief      IsLineInHostFile
+* @brief      Is line in host file
 * @ingroup    XUTILS
 *
 * @param[in]  xfileTXT : 
@@ -796,7 +796,7 @@ int XSYSTEM::IsLineInHostFile(XFILETXT& xfileTXT, XCHAR* domain, XCHAR* IP)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XSYSTEM::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    XUTILS
 *

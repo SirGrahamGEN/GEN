@@ -73,7 +73,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOI2CTEMHUMSENSORSHT20::DIOI2CTEMHUMSENSORSHT20()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -86,7 +86,7 @@ DIOI2CTEMHUMSENSORSHT20::DIOI2CTEMHUMSENSORSHT20(): DIODEVICEI2C()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOI2CTEMHUMSENSORSHT20::~DIOI2CTEMHUMSENSORSHT20()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -127,7 +127,7 @@ bool DIOI2CTEMHUMSENSORSHT20::Reset()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOI2CTEMHUMSENSORSHT20::SetResolution(XBYTE resolution)
-* @brief      SetResolution
+* @brief      Set resolution
 * @ingroup    DATAIO
 *
 * @param[in]  resolution :
@@ -207,7 +207,7 @@ bool DIOI2CTEMHUMSENSORSHT20::End()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOI2CTEMHUMSENSORSHT20::IniDevice()
-* @brief      IniDevice
+* @brief      Ini device
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -234,7 +234,7 @@ bool DIOI2CTEMHUMSENSORSHT20::IniDevice()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOI2CTEMHUMSENSORSHT20::ReadValue(XBYTE cmd, XWORD value)
-* @brief      ReadValue
+* @brief      Read value
 * @ingroup    DATAIO
 *
 * @param[in]  cmd :
@@ -299,7 +299,7 @@ bool DIOI2CTEMHUMSENSORSHT20::ReadValue(XBYTE cmd, XWORD& value)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOI2CTEMHUMSENSORSHT20::ReadUserRegister(XBYTE& userregister)
-* @brief      ReadUserRegister
+* @brief      Read user register
 * @ingroup    DATAIO
 *
 * @param[in]  userregister :
@@ -331,7 +331,7 @@ bool DIOI2CTEMHUMSENSORSHT20::ReadUserRegister(XBYTE& userregister)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOI2CTEMHUMSENSORSHT20::WriteUserRegister(XBYTE userregister)
-* @brief      WriteRegister
+* @brief      Write user register
 * @ingroup    DATAIO
 *
 * @param[in]  userregister :
@@ -359,7 +359,7 @@ bool DIOI2CTEMHUMSENSORSHT20::WriteUserRegister(XBYTE userregister)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOI2CTEMHUMSENSORSHT20::CheckCRC(XWORD datasensor, XBYTE checkvalue)
-* @brief      CheckCRC
+* @brief      Check CRC
 * @ingroup    DATAIO
 *
 * @param[in]  datasensor :
@@ -393,7 +393,7 @@ bool DIOI2CTEMHUMSENSORSHT20::CheckCRC(XWORD datasensor, XBYTE checkvalue)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOI2CTEMHUMSENSORSHT20::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

@@ -71,7 +71,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOANDROIDPCAP::DIOANDROIDPCAP()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_ANDROID
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -84,7 +84,7 @@ DIOANDROIDPCAP::DIOANDROIDPCAP() : DIOPCAP()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOANDROIDPCAP::~DIOANDROIDPCAP()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_ANDROID
 * 
@@ -100,7 +100,7 @@ DIOANDROIDPCAP::~DIOANDROIDPCAP()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOANDROIDPCAP::Capture_Start(DIOPCAPNETINTERFACE* netinterface, bool promiscuousmode, int timeout)
-* @brief      Capture_Start
+* @brief      Capture start
 * @ingroup    PLATFORM_ANDROID
 * 
 * @param[in]  netinterface : 
@@ -139,7 +139,7 @@ bool DIOANDROIDPCAP::Capture_Start(DIOPCAPNETINTERFACE* netinterface, bool promi
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOANDROIDPCAP::Capture_End()
-* @brief      Capture_End
+* @brief      Capture end
 * @ingroup    PLATFORM_ANDROID
 * 
 * @return     bool : true if is succesful. 
@@ -167,7 +167,7 @@ bool DIOANDROIDPCAP::Capture_End()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOANDROIDPCAP::CreateListNetInterfaces()
-* @brief      CreateListNetInterfaces
+* @brief      Create list net interfaces
 * @ingroup    PLATFORM_ANDROID
 * 
 * @return     bool : true if is succesful. 
@@ -206,7 +206,7 @@ bool DIOANDROIDPCAP::CreateListNetInterfaces()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOANDROIDPCAP::ThreadCapture(void* data)
-* @brief      ThreadCapture
+* @brief      Thread capture
 * @ingroup    PLATFORM_ANDROID
 * 
 * @param[in]  data : 
@@ -231,7 +231,7 @@ void DIOANDROIDPCAP::ThreadCapture(void* data)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOANDROIDPCAP::PacketHandler(u_char* param, const struct pcap_pkthdr* header, const u_char* data)
-* @brief      PacketHandler
+* @brief      Packet handler
 * @ingroup    PLATFORM_ANDROID
 * 
 * @param[in]  param : 
@@ -251,7 +251,7 @@ void DIOANDROIDPCAP::PacketHandler(u_char* param, const struct pcap_pkthdr* head
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOANDROIDPCAP::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_ANDROID
 * 

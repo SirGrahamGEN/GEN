@@ -67,7 +67,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XWINDOWSDRIVEIMAGEMANAGER::XWINDOWSDRIVEIMAGEMANAGER()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_WINDOWS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -80,7 +80,7 @@ XWINDOWSDRIVEIMAGEMANAGER::XWINDOWSDRIVEIMAGEMANAGER()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XWINDOWSDRIVEIMAGEMANAGER::~XWINDOWSDRIVEIMAGEMANAGER()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
 *
@@ -94,7 +94,7 @@ XWINDOWSDRIVEIMAGEMANAGER::~XWINDOWSDRIVEIMAGEMANAGER()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSDRIVEIMAGEMANAGER::GetDrives(XVECTOR<XDRIVEIMAGEMANAGER_DRIVE*>& drives)
-* @brief      GetDrives
+* @brief      Get drives
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  drives :
@@ -367,7 +367,7 @@ bool XWINDOWSDRIVEIMAGEMANAGER::Close(XDRIVEIMAGEMANAGER_DRIVE& drive)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         HANDLE XWINDOWSDRIVEIMAGEMANAGER::GetHandleFromDevice(int device, XDWORD access)
-* @brief      GetHandleFromDevice
+* @brief      Get handle from device
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  device :
@@ -388,7 +388,7 @@ HANDLE XWINDOWSDRIVEIMAGEMANAGER::GetHandleFromDevice(int device, XDWORD access)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         HANDLE XWINDOWSDRIVEIMAGEMANAGER::GetHandleFromVolume(int volume, XDWORD access)
-* @brief      GetHandleFromVolume
+* @brief      Get handle from volume
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  volume :
@@ -410,7 +410,7 @@ HANDLE XWINDOWSDRIVEIMAGEMANAGER::GetHandleFromVolume(int volume, XDWORD access)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD XWINDOWSDRIVEIMAGEMANAGER::GetDeviceID(HANDLE handlevolume);
-* @brief      GetDeviceID
+* @brief      Get device ID
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  handlevolume) :
@@ -439,7 +439,7 @@ bool XWINDOWSDRIVEIMAGEMANAGER::GetDeviceID(HANDLE handlevolume, XDWORD& deviceI
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSDRIVEIMAGEMANAGER::LockVolume(HANDLE handle, bool islock)
-* @brief      LockVolume
+* @brief      Lock volume
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  handle :
@@ -459,7 +459,7 @@ bool XWINDOWSDRIVEIMAGEMANAGER::LockVolume(HANDLE handle, bool islock)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSDRIVEIMAGEMANAGER::UnMountVolume(HANDLE handle)
-* @brief      UnMountVolume
+* @brief      Un mount volume
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  handle :
@@ -478,7 +478,7 @@ bool XWINDOWSDRIVEIMAGEMANAGER::UnMountVolume(HANDLE handle)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSDRIVEIMAGEMANAGER::IsVolumeUnmounted(HANDLE handle)
-* @brief      IsVolumeUnmounted
+* @brief      Is volume unmounted
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  handle :
@@ -497,7 +497,7 @@ bool XWINDOWSDRIVEIMAGEMANAGER::IsVolumeUnmounted(HANDLE handle)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSDRIVEIMAGEMANAGER::GetNumberOfSectors(HANDLE handle, XQWORD& sectorsize, XQWORD& numbersectors)
-* @brief      GetNumberOfSectors
+* @brief      Get number of sectors
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  handle :
@@ -530,7 +530,7 @@ bool XWINDOWSDRIVEIMAGEMANAGER::GetNumberOfSectors(HANDLE handle, XQWORD& sector
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSDRIVEIMAGEMANAGER::GetSpaceAvailable(XCHAR* location, XQWORD& spaveavailable)
-* @brief      GetSpaceAvailable
+* @brief      Get space available
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  location :
@@ -558,7 +558,7 @@ bool XWINDOWSDRIVEIMAGEMANAGER::GetSpaceAvailable(XCHAR* location, XQWORD& spave
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSDRIVEIMAGEMANAGER::GetDriveLabel(XCHAR* location, XSTRING& label)
-* @brief      GetDriveLabel
+* @brief      Get drive label
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  location :
@@ -582,7 +582,7 @@ bool XWINDOWSDRIVEIMAGEMANAGER::GetDriveLabel(XCHAR* location, XSTRING& label)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSDRIVEIMAGEMANAGER::CheckDriveType(XPATH& path, XQWORD& ID)
-* @brief      CheckDriveType
+* @brief      Check drive type
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  path :
@@ -711,7 +711,7 @@ bool XWINDOWSDRIVEIMAGEMANAGER::CheckDriveType(XPATH& path, XQWORD& ID)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSDRIVEIMAGEMANAGER::GetMediaType(HANDLE hdevice)
-* @brief      GetMediaType
+* @brief      Get media type
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  hdevice :
@@ -736,7 +736,7 @@ bool XWINDOWSDRIVEIMAGEMANAGER::GetMediaType(HANDLE hdevice)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSDRIVEIMAGEMANAGER::ReadSectorDataFromHandle(HANDLE handle, XQWORD startsector, XQWORD sectorsize, XBYTE* buffer, XQWORD& size)
-* @brief      ReadSectorDataFromHandle
+* @brief      Read sector data from handle
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  handle :
@@ -772,7 +772,7 @@ bool XWINDOWSDRIVEIMAGEMANAGER::ReadSectorDataFromHandle(HANDLE handle, XQWORD s
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSDRIVEIMAGEMANAGER::WriteSectorDataToHandle(HANDLE handle, XQWORD startsector, XQWORD sectorsize, XBYTE* buffer, XQWORD& size)
-* @brief      WriteSectorDataToHandle
+* @brief      Write sector data to handle
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  handle :
@@ -808,7 +808,7 @@ bool XWINDOWSDRIVEIMAGEMANAGER::WriteSectorDataToHandle(HANDLE handle, XQWORD st
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XWINDOWSDRIVEIMAGEMANAGER::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
 *

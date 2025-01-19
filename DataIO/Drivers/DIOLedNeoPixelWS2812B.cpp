@@ -69,7 +69,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOLEDNEOPIXELWS2812B::DIOLEDNEOPIXELWS2812B()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -82,7 +82,7 @@ DIOLEDNEOPIXELWS2812B::DIOLEDNEOPIXELWS2812B()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOLEDNEOPIXELWS2812B::~DIOLEDNEOPIXELWS2812B()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -119,7 +119,7 @@ bool DIOLEDNEOPIXELWS2812B::Ini(XDWORD nled)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD DIOLEDNEOPIXELWS2812B::GetDataGPIOEntryID()
-* @brief      GetDataGPIOEntryID
+* @brief      Get data GPIO entry ID
 * @ingroup    DATAIO
 *
 * @return     XDWORD : 
@@ -134,7 +134,7 @@ XDWORD DIOLEDNEOPIXELWS2812B::GetDataGPIOEntryID()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOLEDNEOPIXELWS2812B::SetDataGPIOEntryID(XDWORD GPIOentryID)
-* @brief      SetDataGPIOEntryID
+* @brief      Set data GPIO entry ID
 * @ingroup    DATAIO
 *
 * @param[in]  GPIOentryID : 
@@ -149,7 +149,7 @@ void DIOLEDNEOPIXELWS2812B::SetDataGPIOEntryID(XDWORD GPIOentryID)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOLEDNEOPIXELWS2812B::SendData(XBYTE* data, XDWORD size)
-* @brief      SendData
+* @brief      Send data
 * @ingroup    DATAIO
 *
 * @param[in]  data :
@@ -176,7 +176,7 @@ bool DIOLEDNEOPIXELWS2812B::SendData(XBYTE* data, XDWORD size)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTE DIOLEDNEOPIXELWS2812B::GetBrightnessLevel()
-* @brief      GetBrightnessLevel
+* @brief      Get brightness level
 * @ingroup    DATAIO
 *
 * @return     XBYTE : 
@@ -191,7 +191,7 @@ XBYTE DIOLEDNEOPIXELWS2812B::GetBrightnessLevel()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOLEDNEOPIXELWS2812B::SetBrightnessLevel(XBYTE brightnesslevel)
-* @brief      SetBrightnessLevel
+* @brief      Set brightness level
 * @ingroup    DATAIO
 * 
 * @param[in]  brightnesslevel : 
@@ -206,7 +206,7 @@ void DIOLEDNEOPIXELWS2812B::SetBrightnessLevel(XBYTE brightnesslevel)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOLEDNEOPIXELWS2812B::SendData(XBUFFER* data)
-* @brief      SendData
+* @brief      Send data
 * @ingroup    DATAIO
 *
 * @param[in]  data :
@@ -294,7 +294,7 @@ bool DIOLEDNEOPIXELWS2812B::End()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOLEDNEOPIXELWS2812B::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

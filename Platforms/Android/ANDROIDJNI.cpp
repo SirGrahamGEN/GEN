@@ -90,7 +90,7 @@ static void JavaEnvDestructor(void*)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void ANDROIDJNI::InitializeJNI(android_app* application, jint javaversion)
-* @brief      InitializeJNI
+* @brief      Initialize JNI
 * @ingroup    PLATFORM_ANDROID
 * 
 * @param[in]  application : 
@@ -125,7 +125,7 @@ void ANDROIDJNI::InitializeJNI(android_app* application, jint javaversion)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         JNIEnv* ANDROIDJNI::GetJNIEnv()
-* @brief      GetJNIEnv
+* @brief      Get JNI env
 * @ingroup    PLATFORM_ANDROID
 * 
 * @return     JNIEnv* : 
@@ -171,7 +171,7 @@ JNIEnv* ANDROIDJNI::GetJNIEnv()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void ANDROIDJNI::DetachJNIEnv()
-* @brief      DetachJNIEnv
+* @brief      Detach JNI env
 * @ingroup    PLATFORM_ANDROID
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -184,7 +184,7 @@ void ANDROIDJNI::DetachJNIEnv()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         jclass ANDROIDJNI::FindJNIClass(const XSTRING & name)
-* @brief      FindJNIClass
+* @brief      Find JNI class
 * @ingroup    PLATFORM_ANDROID
 * 
 * @param[in]  name : 
@@ -205,7 +205,7 @@ jclass ANDROIDJNI::FindJNIClass(const XSTRING & name)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         jclass ANDROIDJNI::FindJNIClass(XSTRING* name)
-* @brief      FindJNIClass
+* @brief      Find JNI class
 * @ingroup    PLATFORM_ANDROID
 * 
 * @param[in]  name : 
@@ -222,7 +222,7 @@ jclass ANDROIDJNI::FindJNIClass(XSTRING* name)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         jclass ANDROIDJNI::FindJNIClass(XCHAR* name)
-* @brief      FindJNIClass
+* @brief      Find JNI class
 * @ingroup    PLATFORM_ANDROID
 * 
 * @param[in]  name : 
@@ -239,7 +239,7 @@ jclass ANDROIDJNI::FindJNIClass(XCHAR* name)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         jclass ANDROIDJNI::FindJNIClass(const char* name)
-* @brief      FindJNIClass
+* @brief      Find JNI class
 * @ingroup    PLATFORM_ANDROID
 * 
 * @param[in]  name : 
@@ -267,7 +267,7 @@ jclass ANDROIDJNI::FindJNIClass(const char* name)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         jclass ANDROIDJNI::FindJNIEnvClassWrapper(const char* name)
-* @brief      FindJNIEnvClassWrapper
+* @brief      Find JNI env class wrapper
 * @ingroup    PLATFORM_ANDROID
 * 
 * @param[in]  name : 
@@ -290,7 +290,7 @@ jclass ANDROIDJNI::FindJNIEnvClassWrapper(const char* name)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool ANDROIDJNI::CheckJavaException()
-* @brief      CheckJavaException
+* @brief      Check java exception
 * @ingroup    PLATFORM_ANDROID
 * 
 * @return     bool : true if is succesful. 

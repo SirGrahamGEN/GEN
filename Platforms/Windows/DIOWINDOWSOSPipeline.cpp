@@ -66,7 +66,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOWINDOWSOSPIPELINE::DIOWINDOWSOSPIPELINE()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_WINDOWS
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -79,7 +79,7 @@ DIOWINDOWSOSPIPELINE::DIOWINDOWSOSPIPELINE() : DIOOSPIPELINE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOWINDOWSOSPIPELINE::~DIOWINDOWSOSPIPELINE()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
 *
@@ -96,7 +96,7 @@ DIOWINDOWSOSPIPELINE::~DIOWINDOWSOSPIPELINE()
 * 
 * @fn         bool DIOWINDOWSOSPIPELINE::Open()
 * @brief      Open
-* @ingroup    XUTILS
+* @ingroup    PLATFORM_WINDOWS
 * 
 * @return     bool : true if is succesful. 
 * 
@@ -115,7 +115,7 @@ bool DIOWINDOWSOSPIPELINE::Open()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOWINDOWSOSPIPELINE::IsOpen()
-* @brief      IsOpen
+* @brief      Is open
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @return     bool : true if is succesful. 
@@ -136,7 +136,7 @@ bool DIOWINDOWSOSPIPELINE::IsOpen()
 * 
 * @fn         bool DIOWINDOWSOSPIPELINE::Read(XBUFFER& buffer)
 * @brief      Read
-* @ingroup    XUTILS
+* @ingroup    PLATFORM_WINDOWS
 * 
 * @param[in]  buffer : 
 * 
@@ -198,7 +198,7 @@ bool DIOWINDOWSOSPIPELINE::Write(XBUFFER& buffer)
 * 
 * @fn         bool DIOWINDOWSOSPIPELINE::Close()
 * @brief      Close
-* @ingroup    XUTILS
+* @ingroup    PLATFORM_WINDOWS
 * 
 * @return     bool : true if is succesful. 
 * 
@@ -215,7 +215,7 @@ bool DIOWINDOWSOSPIPELINE::Close()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOWINDOWSOSPIPELINE::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
 *

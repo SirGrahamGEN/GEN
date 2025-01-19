@@ -69,7 +69,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSCRAPERWEBCACHE_RESULT::DIOSCRAPERWEBCACHE_RESULT()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -82,7 +82,7 @@ DIOSCRAPERWEBCACHE_RESULT::DIOSCRAPERWEBCACHE_RESULT()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSCRAPERWEBCACHE_RESULT::~DIOSCRAPERWEBCACHE_RESULT()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -96,7 +96,7 @@ DIOSCRAPERWEBCACHE_RESULT::~DIOSCRAPERWEBCACHE_RESULT()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSCRAPERWEBCACHE_RESULT::CopyFrom(DIOSCRAPERWEBCACHE_RESULT* result)
-* @brief      CopyFrom
+* @brief      Copy from
 * @ingroup    DATAIO
 *
 * @param[in]  result :
@@ -113,7 +113,7 @@ bool DIOSCRAPERWEBCACHE_RESULT::CopyFrom(DIOSCRAPERWEBCACHE_RESULT* result)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSCRAPERWEBCACHE_RESULT::CopyTo(DIOSCRAPERWEBCACHE_RESULT* result)
-* @brief      CopyTo
+* @brief      Copy to
 * @ingroup    DATAIO
 *
 * @param[in]  result :
@@ -136,7 +136,7 @@ bool DIOSCRAPERWEBCACHE_RESULT::CopyTo(DIOSCRAPERWEBCACHE_RESULT* result)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSCRAPERWEBCACHE::DIOSCRAPERWEBCACHE()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -151,7 +151,7 @@ DIOSCRAPERWEBCACHE::DIOSCRAPERWEBCACHE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSCRAPERWEBCACHE::~DIOSCRAPERWEBCACHE()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -243,7 +243,7 @@ DIOSCRAPERWEBCACHE_RESULT* DIOSCRAPERWEBCACHE::Get(XSTRING& ask)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSCRAPERWEBCACHE::DeleteAll()
-* @brief      DeleteAll
+* @brief      Delete all
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -268,7 +268,7 @@ bool DIOSCRAPERWEBCACHE::DeleteAll()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSCRAPERWEBCACHE::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

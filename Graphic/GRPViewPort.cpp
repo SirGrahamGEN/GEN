@@ -69,7 +69,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPVIEWPORT::GRPVIEWPORT()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    GRAPHIC
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -82,7 +82,7 @@ GRPVIEWPORT::GRPVIEWPORT()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPVIEWPORT::~GRPVIEWPORT()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
 *
@@ -101,7 +101,7 @@ GRPVIEWPORT::~GRPVIEWPORT()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* GRPVIEWPORT::GetID()
-* @brief      GetID
+* @brief      Get ID
 * @ingroup    GRAPHIC
 *
 * @return     XSTRING* :
@@ -116,7 +116,7 @@ XSTRING* GRPVIEWPORT::GetID()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPVIEWPORT::IsActive()
-* @brief      Is Active View Port
+* @brief      Is active
 * @ingroup    GRAPHIC
 *
 * @return     bool : true if is succesful.
@@ -131,7 +131,7 @@ bool GRPVIEWPORT::IsActive()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void GRPVIEWPORT::SetIsActive(bool active)
-* @brief      Set Is Active View Port
+* @brief      Set is active
 * @ingroup    GRAPHIC
 *
 * @param[in]  active : true to active
@@ -146,7 +146,7 @@ void GRPVIEWPORT::SetIsActive(bool active)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVIEWPORT_PROJECTIONTYPE GRPVIEWPORT::GetProjectionType()
-* @brief      GetProjectionType
+* @brief      Get projection type
 * @ingroup    GRAPHIC
 * 
 * @return     GRPVIEWPORT_PROJECTIONTYPE : 
@@ -161,7 +161,7 @@ GRPVIEWPORT_PROJECTIONTYPE GRPVIEWPORT::GetProjectionType()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void GRPVIEWPORT::SetProjectionType(GRPVIEWPORT_PROJECTIONTYPE projectiontype)
-* @brief      Set Projection Type
+* @brief      Set projection type
 * @ingroup    GRAPHIC
 *
 * @param[in]  projectiontype : new projection type
@@ -176,7 +176,7 @@ void GRPVIEWPORT::SetProjectionType(GRPVIEWPORT_PROJECTIONTYPE projectiontype)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPVIEWPORT::CreateCanvas(GRPPROPERTIES& canvasproperties)
-* @brief      CreateCanvas
+* @brief      Create canvas
 * @ingroup    GRAPHIC
 * 
 * @param[in]  canvasproperties : 
@@ -204,7 +204,7 @@ bool GRPVIEWPORT::CreateCanvas(GRPPROPERTIES& canvasproperties)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         float GRPVIEWPORT::GetPositionX()
-* @brief      GetPositionX
+* @brief      Get position x
 * @ingroup    GRAPHIC
 *
 * @return     float :
@@ -219,7 +219,7 @@ float GRPVIEWPORT::GetPositionX()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         float GRPVIEWPORT::GetPositionY()
-* @brief      GetPositionY
+* @brief      Get position y
 * @ingroup    GRAPHIC
 *
 * @return     float :
@@ -234,7 +234,7 @@ float  GRPVIEWPORT::GetPositionY()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void GRPVIEWPORT::SetPosition(float x, float y)
-* @brief      Set Position View Port
+* @brief      Set position
 * @ingroup    GRAPHIC
 *
 * @param[in]  x : Set X position
@@ -251,7 +251,7 @@ void GRPVIEWPORT::SetPosition(float x, float y)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         float GRPVIEWPORT::GetWidth()
-* @brief      GetWidth
+* @brief      Get width
 * @ingroup    GRAPHIC
 *
 * @return     float :
@@ -266,7 +266,7 @@ float GRPVIEWPORT::GetWidth()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         float GRPVIEWPORT::GetHeight()
-* @brief      GetHeight
+* @brief      Get height
 * @ingroup    GRAPHIC
 *
 * @return     float :
@@ -281,7 +281,7 @@ float GRPVIEWPORT::GetHeight()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void GRPVIEWPORT::SetSize(float width, float height)
-* @brief      SetSize
+* @brief      Set size
 * @ingroup    GRAPHIC
 *
 * @param[in]  width : Set Width of View Port
@@ -298,7 +298,7 @@ void GRPVIEWPORT::SetSize(float width, float height)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         float GRPVIEWPORT::GetCanvasPositionX()
-* @brief      GetCanvasPositionX
+* @brief      Get canvas position x
 * @ingroup    GRAPHIC
 * 
 * @return     float : 
@@ -313,7 +313,7 @@ float GRPVIEWPORT::GetCanvasPositionX()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         float GRPVIEWPORT::GetCanvasPositionY()
-* @brief      GetCanvasPositionY
+* @brief      Get canvas position y
 * @ingroup    GRAPHIC
 * 
 * @return     float : 
@@ -328,7 +328,7 @@ float GRPVIEWPORT::GetCanvasPositionY()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPVIEWPORT::SetCanvasPosition(float x, float y)
-* @brief      SetCanvasPosition
+* @brief      Set canvas position
 * @ingroup    GRAPHIC
 * 
 * @param[in]  x : 
@@ -382,7 +382,7 @@ bool GRPVIEWPORT::SetCanvasPosition(float x, float y)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPCANVAS* GRPVIEWPORT::GetCanvas()
-* @brief      GetCanvas
+* @brief      Get canvas
 * @ingroup    GRAPHIC
 *
 * @return     GRPCANVAS* :
@@ -397,7 +397,7 @@ GRPCANVAS*  GRPVIEWPORT::GetCanvas()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void GRPVIEWPORT::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    GRAPHIC
 *

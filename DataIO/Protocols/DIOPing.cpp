@@ -84,7 +84,7 @@ DIOPING* DIOPING::instance = NULL;
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOPINGREPLY::DIOPINGREPLY()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -97,7 +97,7 @@ DIOPINGREPLY::DIOPINGREPLY()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOPINGREPLY::~DIOPINGREPLY()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 * 
@@ -111,7 +111,7 @@ DIOPINGREPLY::~DIOPINGREPLY()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD DIOPINGREPLY::GetSequence()
-* @brief      GetSequence
+* @brief      Get sequence
 * @ingroup    DATAIO
 * 
 * @return     XDWORD : 
@@ -126,7 +126,7 @@ XDWORD DIOPINGREPLY::GetSequence()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOPINGREPLY::SetSequence(XDWORD sequence)
-* @brief      SetSequence
+* @brief      Set sequence
 * @ingroup    DATAIO
 * 
 * @param[in]  sequence : 
@@ -141,7 +141,7 @@ void DIOPINGREPLY::SetSequence(XDWORD sequence)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* DIOPINGREPLY::GetFromIP()
-* @brief      GetFromIP
+* @brief      Get from IP
 * @ingroup    DATAIO
 * 
 * @return     XSTRING* : 
@@ -156,7 +156,7 @@ XSTRING* DIOPINGREPLY::GetFromIP()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD DIOPINGREPLY::GetSizeRequest()
-* @brief      GetSizeRequest
+* @brief      Get size request
 * @ingroup    DATAIO
 * 
 * @return     XDWORD : 
@@ -171,7 +171,7 @@ XDWORD DIOPINGREPLY::GetSizeRequest()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOPINGREPLY::SetSizeRequest(XDWORD sizerequest)
-* @brief      SetSizeRequest
+* @brief      Set size request
 * @ingroup    DATAIO
 * 
 * @param[in]  sizerequest : 
@@ -186,7 +186,7 @@ void DIOPINGREPLY::SetSizeRequest(XDWORD sizerequest)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD DIOPINGREPLY::GetTimeElapsed()
-* @brief      GetTimeElapsed
+* @brief      Get time elapsed
 * @ingroup    DATAIO
 * 
 * @return     XDWORD : 
@@ -201,7 +201,7 @@ XDWORD DIOPINGREPLY::GetTimeElapsed()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOPINGREPLY::SetTimeElapsed(XDWORD timeelapsed)
-* @brief      SetTimeElapsed
+* @brief      Set time elapsed
 * @ingroup    DATAIO
 * 
 * @param[in]  timeelapsed : 
@@ -216,7 +216,7 @@ void DIOPINGREPLY::SetTimeElapsed(XDWORD timeelapsed)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTE DIOPINGREPLY::GetTTL()
-* @brief      GetTTL
+* @brief      Get TTL
 * @ingroup    DATAIO
 * 
 * @return     XBYTE : 
@@ -231,7 +231,7 @@ XBYTE DIOPINGREPLY::GetTTL()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOPINGREPLY::SetTTL(XBYTE TTL)
-* @brief      SetTTL
+* @brief      Set TTL
 * @ingroup    DATAIO
 * 
 * @param[in]  TTL : 
@@ -246,7 +246,7 @@ void DIOPINGREPLY::SetTTL(XBYTE TTL)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOPINGREPLY::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 * 
@@ -272,7 +272,7 @@ void DIOPINGREPLY::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOPING::DIOPING()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -312,7 +312,7 @@ DIOPING::DIOPING()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOPING::~DIOPING()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 * 
@@ -350,7 +350,7 @@ DIOPING::~DIOPING()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOPING::GetIsInstanced()
-* @brief      GetIsInstanced
+* @brief      Get is instanced
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
@@ -365,7 +365,7 @@ bool DIOPING::GetIsInstanced()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOPING& DIOPING::GetInstance()
-* @brief      GetInstance
+* @brief      Get instance
 * @ingroup    DATAIO
 * 
 * @return     DIOPING& : 
@@ -382,7 +382,7 @@ DIOPING& DIOPING::GetInstance()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOPING::SetInstance(DIOPING* _instance)
-* @brief      SetInstance
+* @brief      Set instance
 * @ingroup    DATAIO
 * 
 * @param[in]  _instance : 
@@ -403,7 +403,7 @@ bool DIOPING::SetInstance(DIOPING* _instance)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOPING::DelInstance()
-* @brief      DelInstance
+* @brief      Del instance
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
@@ -426,7 +426,7 @@ bool DIOPING::DelInstance()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOURL* DIOPING::GetTarget()
-* @brief      GetTarget
+* @brief      Get target
 * @ingroup    DATAIO
 * 
 * @return     DIOURL* : 
@@ -736,7 +736,7 @@ bool DIOPING::Do(XDWORD nretries, XDWORD timebetweenchecks, bool exitfirstgoodre
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOPING::WasConnected()
-* @brief      WasConnected
+* @brief      Was connected
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
@@ -759,7 +759,7 @@ bool DIOPING::WasConnected()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XVECTOR<DIOPINGREPLY*>* DIOPING::GetReplys()
-* @brief      GetReplys
+* @brief      Get replys
 * @ingroup    DATAIO
 * 
 * @return     XVECTOR<DIOPINGREPLY*>* : 
@@ -774,7 +774,7 @@ XVECTOR<DIOPINGREPLY*>* DIOPING::GetReplys()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD DIOPING::CalculateMeanTime()
-* @brief      CalculateMeanTime
+* @brief      Calculate mean time
 * @ingroup    DATAIO
 * 
 * @return     XDWORD : 
@@ -811,7 +811,7 @@ XDWORD DIOPING::CalculateMeanTime()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOPING::DeleteAllReplys()
-* @brief      DeleteAllReplys
+* @brief      Delete all replys
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
@@ -842,7 +842,7 @@ bool DIOPING::DeleteAllReplys()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOPING::AddReply(XWORD sequence, XCHAR* fromIP, XDWORD sizerequest, XDWORD timeelapsed, XBYTE TTL)
-* @brief      AddReply
+* @brief      Add reply
 * @ingroup    DATAIO
 * 
 * @param[in]  sequence : 
@@ -885,7 +885,7 @@ bool DIOPING::AddReply(XWORD sequence, XCHAR* fromIP, XDWORD sizerequest, XDWORD
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XWORD DIOPING::CalculeCheckSum(XWORD* addr, int len)
-* @brief      CalculeCheckSum
+* @brief      Calcule check sum
 * @ingroup    DATAIO
 * 
 * @param[in]  addr : 
@@ -936,7 +936,7 @@ XWORD DIOPING::CalculeCheckSum(XWORD* addr, int len)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOPING::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 * 

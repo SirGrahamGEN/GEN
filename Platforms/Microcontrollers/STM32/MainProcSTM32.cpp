@@ -83,8 +83,8 @@ MAINPROCSTM32    mainprocstm32;
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         MAINPROCSTM32::MAINPROCSTM32()
-* @brief      Constructor
-* @ingroup    PLATFORM_STM32    PLATFORM_STM32
+* @brief      Constructor of class
+* @ingroup    PLATFORM_STM32
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 MAINPROCSTM32::MAINPROCSTM32()
@@ -97,9 +97,9 @@ MAINPROCSTM32::MAINPROCSTM32()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         MAINPROCSTM32::~MAINPROCSTM32()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
-* @ingroup    PLATFORM_STM32    PLATFORM_STM32
+* @ingroup    PLATFORM_STM32
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 MAINPROCSTM32::~MAINPROCSTM32()
@@ -155,7 +155,7 @@ bool MAINPROCSTM32::Ini(APPFLOWMAIN* appmain)
 *
 * @fn         bool MAINPROCSTM32::Update()
 * @brief      Update
-* @ingroup    PLATFORM_STM32    PLATFORM_STM32
+* @ingroup    PLATFORM_STM32
 *
 * @return     bool : true if is succesful.
 *
@@ -183,7 +183,7 @@ bool MAINPROCSTM32::Update()
 *
 * @fn         bool MAINPROCSTM32::End()
 * @brief      End
-* @ingroup    PLATFORM_STM32    PLATFORM_STM32
+* @ingroup    PLATFORM_STM32
 *
 * @return     bool : true if is succesful.
 *
@@ -235,8 +235,8 @@ bool MAINPROCSTM32::End()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool MAINPROCSTM32::Factorys_Ini(XSTRING* xpath)
-* @brief      Factorys Ini
-* @ingroup    PLATFORM_STM32    PLATFORM_STM32
+* @brief      Factorys ini
+* @ingroup    PLATFORM_STM32
 *
 * @param[in]  xpath : always NULL in this platform
 *
@@ -284,8 +284,8 @@ bool MAINPROCSTM32::Factorys_Ini()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool MAINPROCSTM32::Factorys_End()
-* @brief      Factorys End
-* @ingroup    PLATFORM_STM32    PLATFORM_STM32
+* @brief      Factorys end
+* @ingroup    PLATFORM_STM32
 *
 * @return     bool : true if is succesful.
 *
@@ -343,9 +343,9 @@ bool MAINPROCSTM32::Factorys_End()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void MAINPROCSTM32::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
-* @ingroup    PLATFORM_STM32    PLATFORM_STM32
+* @ingroup    PLATFORM_STM32
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void MAINPROCSTM32::Clean()
@@ -370,7 +370,7 @@ void MAINPROCSTM32::Clean()
 *
 * @fn         int main()
 * @brief      main
-* @ingroup    PLATFORM_STM32    PLATFORM_STM32
+* @ingroup    PLATFORM_STM32
 *
 * @return     int :
 *

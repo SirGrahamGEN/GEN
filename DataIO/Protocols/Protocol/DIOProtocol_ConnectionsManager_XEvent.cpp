@@ -64,7 +64,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT::DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 * 
 * @param[in]  subject : 
@@ -81,7 +81,7 @@ DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT::DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT(XSU
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT::~DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -95,7 +95,7 @@ DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT::~DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMENUMSERVERS* DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT::GetDIOStreamEnumServers()
-* @brief      GetDIOStreamEnumServers
+* @brief      Get DIO stream enum servers
 * @ingroup    DATAIO
 *
 * @return     DIOSTREAMENUMSERVERS* :
@@ -110,7 +110,7 @@ DIOSTREAMENUMSERVERS* DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT::GetDIOStreamEnumSer
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT::SetDIOStreamEnumServers(DIOSTREAMENUMSERVERS* diostreamenumservers)
-* @brief      SetDIOStreamEnumServers
+* @brief      Set DIO stream enum servers
 * @ingroup    DATAIO
 *
 * @param[in]  diostreamenumservers :
@@ -125,7 +125,7 @@ void DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT::SetDIOStreamEnumServers(DIOSTREAMENU
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMCONFIG* DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT::GetDIOStreamConfig()
-* @brief      GetDIOStreamConfig
+* @brief      Get DIO stream config
 * @ingroup    DATAIO
 *
 * @return     DIOSTREAMCONFIG* :
@@ -140,7 +140,7 @@ DIOSTREAMCONFIG* DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT::GetDIOStreamConfig()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT::SetDIOStreamConfig(DIOSTREAMCONFIG* diostreamcfg)
-* @brief      SetDIOStreamConfig
+* @brief      Set DIO stream config
 * @ingroup    DATAIO
 *
 * @param[in]  diostreamcfg :
@@ -155,7 +155,7 @@ void DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT::SetDIOStreamConfig(DIOSTREAMCONFIG* 
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOPROTOCOL* DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT::GetDIOProtocol()
-* @brief      GetDIOProtocol
+* @brief      Get DIO protocol
 * @ingroup    DATAIO
 *
 * @return     DIOPROTOCOL* :
@@ -170,7 +170,7 @@ DIOPROTOCOL* DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT::GetDIOProtocol()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT::SetDIOProtocol(DIOPROTOCOL* dioprotocol)
-* @brief      SetDIOProtocol
+* @brief      Set DIO protocol
 * @ingroup    DATAIO
 *
 * @param[in]  dioprotocol :
@@ -185,7 +185,7 @@ void DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT::SetDIOProtocol(DIOPROTOCOL* dioproto
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOPROTOCOL_CONNECTION* DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT::GetProtocolConnection()
-* @brief      GetProtocolConnection
+* @brief      Get protocol connection
 * @ingroup    DATAIO
 *
 * @return     DIOPROTOCOL_CONNECTION* :
@@ -200,7 +200,7 @@ DIOPROTOCOL_CONNECTION* DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT::GetProtocolConnec
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT::SetProtocolConnection(DIOPROTOCOL_CONNECTION* protocolconnection)
-* @brief      SetProtocolConnection
+* @brief      Set protocol connection
 * @ingroup    DATAIO
 *
 * @param[in]  protocolconnection :
@@ -215,7 +215,7 @@ void DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT::SetProtocolConnection(DIOPROTOCOL_CO
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOPROTOCOL_CONNECTIONSMANAGER* DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT::GetProtocolConnectionsManager()
-* @brief      GetProtocolConnectionsManager
+* @brief      Get protocol connections manager
 * @ingroup    DATAIO
 *
 * @return     DIOPROTOCOL_CONNECTIONSMANAGER* :
@@ -230,7 +230,7 @@ DIOPROTOCOL_CONNECTIONSMANAGER* DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT::GetProtoc
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT::SetProtocolConnectionsManager(DIOPROTOCOL_CONNECTIONSMANAGER* protocolconnectionsmanager)
-* @brief      SetProtocolConnectionsManager
+* @brief      Set protocol connections manager
 * @ingroup    DATAIO
 *
 * @param[in]  protocolconnectionsmanager :
@@ -245,7 +245,7 @@ void DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT::SetProtocolConnectionsManager(DIOPRO
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT::IsInitialized()
-* @brief      IsInitialized
+* @brief      Is initialized
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -260,7 +260,7 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT::IsInitialized()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT::SetIsInitialized(bool isinitialized)
-* @brief      SetIsInitialized
+* @brief      Set is initialized
 * @ingroup    DATAIO
 *
 * @param[in]  isinitialized :
@@ -275,7 +275,7 @@ void DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT::SetIsInitialized(bool isinitialized)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

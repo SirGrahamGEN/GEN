@@ -72,7 +72,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         HASHCRC32::HASHCRC32()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    CIPHER
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -94,7 +94,7 @@ HASHCRC32::HASHCRC32() : HASH()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         HASHCRC32::~HASHCRC32()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    CIPHER
 * 
@@ -146,7 +146,7 @@ bool HASHCRC32::Do(XBYTE* input, XQWORD size)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool HASHCRC32::ResetResult()
-* @brief      ResetResult
+* @brief      Reset result
 * @ingroup    CIPHER
 * 
 * @return     bool : true if is succesful. 
@@ -167,7 +167,7 @@ bool HASHCRC32::ResetResult()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int HASHCRC32::GetDefaultSize()
-* @brief      GetDefaultSize
+* @brief      Get default size
 * @ingroup    CIPHER
 * 
 * @return     int : 
@@ -182,7 +182,7 @@ int HASHCRC32::GetDefaultSize()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBUFFER* HASHCRC32::GetResult()
-* @brief      GetResult
+* @brief      Get result
 * @ingroup    CIPHER
 * 
 * @return     XBUFFER* : 
@@ -199,7 +199,7 @@ XBUFFER* HASHCRC32::GetResult()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTE* HASHCRC32::GetResult(XDWORD& resultsize)
-* @brief      GetResult
+* @brief      Get result
 * @ingroup    CIPHER
 * 
 * @param[in]  resultsize : 
@@ -220,7 +220,7 @@ XBYTE* HASHCRC32::GetResult(XDWORD& resultsize)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD HASHCRC32::GetResultCRC32()
-* @brief      GetResultCRC32
+* @brief      Get result CRC32
 * @ingroup    CIPHER
 * 
 * @return     XDWORD : 
@@ -301,7 +301,7 @@ XDWORD HASHCRC32::Update(XDWORD CRC32, XBYTE data)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void HASHCRC32::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    CIPHER
 * 

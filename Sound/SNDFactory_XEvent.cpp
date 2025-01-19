@@ -64,7 +64,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         SNDFACTORY_XEVENT::SNDFACTORY_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    SOUND
 * 
 * @param[in]  subject : 
@@ -81,7 +81,7 @@ SNDFACTORY_XEVENT::SNDFACTORY_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD fami
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         SNDFACTORY_XEVENT::~SNDFACTORY_XEVENT()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    SOUND
 * 
@@ -94,7 +94,7 @@ SNDFACTORY_XEVENT::~SNDFACTORY_XEVENT()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         SNDITEM* SNDFACTORY_XEVENT::GetItem()
-* @brief      GetItem
+* @brief      Get item
 * @ingroup    SOUND
 * 
 * @return     SNDITEM* : 
@@ -109,7 +109,7 @@ SNDITEM* SNDFACTORY_XEVENT::GetItem()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void SNDFACTORY_XEVENT::SetItem(SNDITEM* item)
-* @brief      SetItem
+* @brief      Set item
 * @ingroup    SOUND
 * 
 * @param[in]  item : 
@@ -124,7 +124,7 @@ void SNDFACTORY_XEVENT::SetItem(SNDITEM* item)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void SNDFACTORY_XEVENT::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    SOUND
 * 

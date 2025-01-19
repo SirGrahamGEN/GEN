@@ -90,7 +90,7 @@ APPFLOWEXTENDED* APPFLOWEXTENDED::instance = NULL;
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool APPFLOWEXTENDED::GetIsInstanced()
-* @brief      GetIsInstanced
+* @brief      Get is instanced
 * @ingroup    APPFLOW
 *
 * @return     bool : true if is succesful. 
@@ -105,7 +105,7 @@ bool APPFLOWEXTENDED::GetIsInstanced()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         APPFLOWEXTENDED& APPFLOWEXTENDED::GetInstance()
-* @brief      GetInstance
+* @brief      Get instance
 * @ingroup    APPFLOW
 *
 * @return     APPFLOWEXTENDED& : 
@@ -122,7 +122,7 @@ APPFLOWEXTENDED& APPFLOWEXTENDED::GetInstance()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool APPFLOWEXTENDED::DelInstance()
-* @brief      DelInstance
+* @brief      Del instance
 * @ingroup    APPFLOW
 *
 * @return     bool : true if is succesful. 
@@ -145,7 +145,7 @@ bool APPFLOWEXTENDED::DelInstance()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool APPFLOWEXTENDED::APPStart(APPFLOWCFG* appcfg, APPFLOWCONSOLE* appconsole)
-* @brief      APPStart
+* @brief      APP start
 * @ingroup    APPFLOW
 * 
 * @param[in]  appcfg : 
@@ -298,7 +298,7 @@ bool APPFLOWEXTENDED::APPStart(APPFLOWCFG* appcfg, APPFLOWCONSOLE* appconsole)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool APPFLOWEXTENDED::APPEnd()
-* @brief      APPEnd
+* @brief      APP end
 * @ingroup    APPFLOW
 * 
 * @return     bool : true if is succesful. 
@@ -405,7 +405,7 @@ bool APPFLOWEXTENDED::APPEnd()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         APPFLOWCFG* APPFLOWEXTENDED::GetCFG()
-* @brief      get CFG
+* @brief      Get CFG
 * @ingroup    APPFLOW
 * 
 * @return     APPFLOWCFG* : 
@@ -420,7 +420,7 @@ APPFLOWCFG* APPFLOWEXTENDED::GetCFG()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         APPFLOWCONSOLE* APPFLOWEXTENDED::GetConsole()
-* @brief      get console
+* @brief      Get console
 * @ingroup    APPFLOW
 * 
 * @return     APPFLOWCONSOLE* : 
@@ -436,7 +436,7 @@ APPFLOWCONSOLE* APPFLOWEXTENDED::GetConsole()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         APPFLOWEXTENDED_APPLICATIONSTATUS* APPFLOWEXTENDED::GetApplicationStatus()
-* @brief      GetApplicationStatus
+* @brief      Get application status
 * @ingroup    APPFLOW
 * 
 * @return     APPFLOWEXTENDED_APPLICATIONSTATUS* : 
@@ -453,7 +453,7 @@ APPFLOWEXTENDED_APPLICATIONSTATUS* APPFLOWEXTENDED::GetApplicationStatus()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         APPFLOWEXTENDED_INTERNETSTATUS* APPFLOWEXTENDED::GetInternetStatus()
-* @brief      GetInternetStatus
+* @brief      Get internet status
 * @ingroup    APPFLOW
 * 
 * @return     APPFLOWEXTENDED_INTERNETSTATUS* : 
@@ -469,7 +469,7 @@ APPFLOWEXTENDED_INTERNETSTATUS* APPFLOWEXTENDED::GetInternetStatus()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool APPFLOWEXTENDED::ShowAll()
-* @brief      ShowAll
+* @brief      Show all
 * @ingroup    APPFLOW
 * 
 * @return     bool : true if is succesful. 
@@ -532,7 +532,7 @@ bool APPFLOWEXTENDED::ShowAll()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         APPFLOWEXTENDED::APPFLOWEXTENDED()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    APPFLOW
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -545,7 +545,7 @@ APPFLOWEXTENDED::APPFLOWEXTENDED()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         APPFLOWEXTENDED::~APPFLOWEXTENDED()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    APPFLOW
 *
@@ -559,7 +559,7 @@ APPFLOWEXTENDED::~APPFLOWEXTENDED()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void APPFLOWEXTENDED::ThreadFunction_Update(void* param)
-* @brief      ThreadFunction_Update
+* @brief      Thread function update
 * @ingroup    APPFLOW
 * 
 * @param[in]  param : 
@@ -617,7 +617,7 @@ void APPFLOWEXTENDED::ThreadFunction_Update(void* param)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void APPFLOWEXTENDED::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    APPFLOW
 *

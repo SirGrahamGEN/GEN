@@ -67,7 +67,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOPCAP_FILTER_ENTRY::DIOPCAP_FILTER_ENTRY()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -82,7 +82,7 @@ DIOPCAP_FILTER_ENTRY::DIOPCAP_FILTER_ENTRY()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOPCAP_FILTER_ENTRY::~DIOPCAP_FILTER_ENTRY()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 * 
@@ -98,7 +98,7 @@ DIOPCAP_FILTER_ENTRY::~DIOPCAP_FILTER_ENTRY()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* DIOPCAP_FILTER_ENTRY::GetName()
-* @brief      GetName
+* @brief      Get name
 * @ingroup    DATAIO
 * 
 * @return     XSTRING* : 
@@ -113,7 +113,7 @@ XSTRING* DIOPCAP_FILTER_ENTRY::GetName()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD DIOPCAP_FILTER_ENTRY::GetProtocolType()
-* @brief      GetProtocolType
+* @brief      Get protocol type
 * @ingroup    DATAIO
 * 
 * @return     XDWORD : 
@@ -128,7 +128,7 @@ XDWORD DIOPCAP_FILTER_ENTRY::GetProtocolType()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOPCAP_FILTER_ENTRY::SetProtocolType(XDWORD protocoltype)
-* @brief      SetProtocolType
+* @brief      Set protocol type
 * @ingroup    DATAIO
 * 
 * @param[in]  protocoltype : 
@@ -147,7 +147,7 @@ bool DIOPCAP_FILTER_ENTRY::SetProtocolType(XDWORD protocoltype)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XVECTOR<XDWORD>* DIOPCAP_FILTER_ENTRY::Ports_GetAll()
-* @brief      Ports_GetAll
+* @brief      Ports get all
 * @ingroup    DATAIO
 * 
 * @return     XVECTOR<XDWORD>* : 
@@ -162,7 +162,7 @@ XVECTOR<XDWORD>* DIOPCAP_FILTER_ENTRY::Ports_GetAll()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOPCAP_FILTER_ENTRY::Ports_Exists(XDWORD port)
-* @brief      Ports_Exists
+* @brief      Ports exists
 * @ingroup    DATAIO
 * 
 * @param[in]  port : 
@@ -188,7 +188,7 @@ bool DIOPCAP_FILTER_ENTRY::Ports_Exists(XDWORD port)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD DIOPCAP_FILTER_ENTRY::Ports_Get(int index)
-* @brief      Ports_Get
+* @brief      Ports get
 * @ingroup    DATAIO
 * 
 * @param[in]  index : 
@@ -215,7 +215,7 @@ XDWORD DIOPCAP_FILTER_ENTRY::Ports_Get(int index)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOPCAP_FILTER_ENTRY::Ports_Add(XDWORD port)
-* @brief      Ports_Add
+* @brief      Ports add
 * @ingroup    DATAIO
 * 
 * @param[in]  port : 
@@ -237,7 +237,7 @@ bool DIOPCAP_FILTER_ENTRY::Ports_Add(XDWORD port)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOPCAP_FILTER_ENTRY::Ports_Del(XDWORD port)
-* @brief      Ports_Del
+* @brief      Ports del
 * @ingroup    DATAIO
 * 
 * @param[in]  port : 
@@ -259,7 +259,7 @@ bool DIOPCAP_FILTER_ENTRY::Ports_Del(XDWORD port)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOPCAP_FILTER_ENTRY::Ports_DelAll()
-* @brief      Ports_DelAll
+* @brief      Ports del all
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
@@ -279,7 +279,7 @@ bool DIOPCAP_FILTER_ENTRY::Ports_DelAll()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOPCAP_FILTER_ENTRY::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 * 
@@ -300,7 +300,7 @@ void DIOPCAP_FILTER_ENTRY::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOPCAP_FILTERS::DIOPCAP_FILTERS()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -313,7 +313,7 @@ DIOPCAP_FILTERS::DIOPCAP_FILTERS()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOPCAP_FILTERS::~DIOPCAP_FILTERS()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 * 
@@ -329,7 +329,7 @@ DIOPCAP_FILTERS::~DIOPCAP_FILTERS()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XVECTOR<DIOPCAP_FILTER_ENTRY*>* DIOPCAP_FILTERS::Entrys_GetAll()
-* @brief      Entrys_GetAll
+* @brief      Entrys get all
 * @ingroup    DATAIO
 * 
 * @return     XVECTOR<DIOPCAP_FILTER_ENTRY*>* : 
@@ -344,7 +344,7 @@ XVECTOR<DIOPCAP_FILTER_ENTRY*>* DIOPCAP_FILTERS::Entrys_GetAll()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOPCAP_FILTER_ENTRY* DIOPCAP_FILTERS::Entrys_Get(XCHAR* name)
-* @brief      Entrys_Get
+* @brief      Entrys get
 * @ingroup    DATAIO
 * 
 * @param[in]  name : 
@@ -373,7 +373,7 @@ DIOPCAP_FILTER_ENTRY* DIOPCAP_FILTERS::Entrys_Get(XCHAR* name)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOPCAP_FILTER_ENTRY* DIOPCAP_FILTERS::Entrys_Get(XSTRING& name)
-* @brief      Entrys_Get
+* @brief      Entrys get
 * @ingroup    DATAIO
 * 
 * @param[in]  name : 
@@ -390,7 +390,7 @@ DIOPCAP_FILTER_ENTRY* DIOPCAP_FILTERS::Entrys_Get(XSTRING& name)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOPCAP_FILTER_ENTRY* DIOPCAP_FILTERS::Entrys_Get(int index)
-* @brief      Entrys_Get
+* @brief      Entrys get
 * @ingroup    DATAIO
 * 
 * @param[in]  index : 
@@ -417,7 +417,7 @@ DIOPCAP_FILTER_ENTRY* DIOPCAP_FILTERS::Entrys_Get(int index)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOPCAP_FILTERS::Entrys_Set(XCHAR* name, XDWORD typeprotocol, int nports, ...)
-* @brief      Entrys_Set
+* @brief      Entrys set
 * @ingroup    DATAIO
 * 
 * @param[in]  name : 
@@ -460,7 +460,7 @@ bool DIOPCAP_FILTERS::Entrys_Set(XCHAR* name, XDWORD typeprotocol, int nports, .
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOPCAP_FILTERS::Entrys_Add(XCHAR* name, XDWORD typeprotocol, int nports, ...)
-* @brief      Entrys_Add
+* @brief      Entrys add
 * @ingroup    DATAIO
 * 
 * @param[in]  name : 
@@ -505,7 +505,7 @@ bool DIOPCAP_FILTERS::Entrys_Add(XCHAR* name, XDWORD typeprotocol, int nports, .
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOPCAP_FILTERS::Entrys_Del(XCHAR* name)
-* @brief      Entrys_Del
+* @brief      Entrys del
 * @ingroup    DATAIO
 * 
 * @param[in]  name : 
@@ -528,7 +528,7 @@ bool DIOPCAP_FILTERS::Entrys_Del(XCHAR* name)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOPCAP_FILTERS::Entrys_Check(DIOPCAPFRAME* frame)
-* @brief      Entrys_Check
+* @brief      Entrys check
 * @ingroup    DATAIO
 * 
 * @param[in]  frame : 
@@ -605,7 +605,7 @@ bool DIOPCAP_FILTERS::Entrys_Check(DIOPCAPFRAME* frame)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOPCAP_FILTERS::Entrys_DelAll()
-* @brief      Entrys_DelAll
+* @brief      Entrys del all
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
@@ -628,7 +628,7 @@ bool DIOPCAP_FILTERS::Entrys_DelAll()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOPCAP_FILTERS::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 * 

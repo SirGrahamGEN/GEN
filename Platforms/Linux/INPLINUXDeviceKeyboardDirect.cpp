@@ -86,7 +86,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         INPLINUXDEVICEKEYBOARDDIRECT::INPLINUXDEVICEKEYBOARDDIRECT()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_LINUX
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -110,7 +110,7 @@ INPLINUXDEVICEKEYBOARDDIRECT::INPLINUXDEVICEKEYBOARDDIRECT(): INPDEVICE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         INPLINUXDEVICEKEYBOARDDIRECT::~INPLINUXDEVICEKEYBOARDDIRECT()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
 *
@@ -253,7 +253,7 @@ bool INPLINUXDEVICEKEYBOARDDIRECT::Update()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void INPLINUXDEVICEKEYBOARDDIRECT::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
 *
@@ -267,7 +267,7 @@ void INPLINUXDEVICEKEYBOARDDIRECT::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool INPLINUXDEVICEKEYBOARDDIRECT::CreateAllButtons()
-* @brief      Create All Buttons
+* @brief      Create all buttons
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
 *
@@ -380,7 +380,7 @@ bool INPLINUXDEVICEKEYBOARDDIRECT::CreateAllButtons()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool INPLINUXDEVICEKEYBOARDDIRECT::CreateDevices()
-* @brief      Get Handle Event
+* @brief      Create devices
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
 *
@@ -437,7 +437,7 @@ bool INPLINUXDEVICEKEYBOARDDIRECT::CreateDevices()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool INPLINUXDEVICEKEYBOARDDIRECT::Old_CreateDevices()
-* @brief      Create Devices (Old Style)
+* @brief      Old create devices
 * @ingroup    PLATFORM_LINUX
 *
 * @return     bool : true if is succesful.
@@ -483,7 +483,7 @@ bool INPLINUXDEVICEKEYBOARDDIRECT::Old_CreateDevices()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool INPLINUXDEVICEKEYBOARDDIRECT::Old_DeleteTerminalConfig()
-* @brief      Delete Terminal Config (Old Style)
+* @brief      Old delete terminal config
 * @ingroup    PLATFORM_LINUX
 *
 * @return     bool : true if is succesful.
@@ -506,7 +506,7 @@ bool INPLINUXDEVICEKEYBOARDDIRECT::Old_DeleteTerminalConfig()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int INPLINUXDEVICEKEYBOARDDIRECT::Old_IsConsole(int fd)
-* @brief      IsConsole
+* @brief      Old is console
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  fd :
@@ -527,7 +527,7 @@ int INPLINUXDEVICEKEYBOARDDIRECT::Old_IsConsole(int fd)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int INPLINUXDEVICEKEYBOARDDIRECT::Old_OpenConsole(const char*fnam)
-* @brief      Old_OpenConsole
+* @brief      Old open console
 * @ingroup    PLATFORM_LINUX
 * 
 * @param[in]  char*fnam : 
@@ -561,7 +561,7 @@ int INPLINUXDEVICEKEYBOARDDIRECT::Old_OpenConsole(const char *fnam)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int INPLINUXDEVICEKEYBOARDDIRECT::Old_GetFD(const char*fnam)
-* @brief      GetFD
+* @brief      Old get FD
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  char*fnam :

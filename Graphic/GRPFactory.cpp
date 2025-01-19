@@ -70,8 +70,8 @@ GRPFACTORY* GRPFACTORY::instance = NULL;
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPFACTORY::GRPFACTORY()
-* @brief      Constructor
-* @ingroup    XUTILS
+* @brief      Constructor of class
+* @ingroup    GRAPHIC
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 GRPFACTORY::GRPFACTORY()
@@ -83,9 +83,9 @@ GRPFACTORY::GRPFACTORY()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPFACTORY::~GRPFACTORY()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
-* @ingroup    XUTILS
+* @ingroup    GRAPHIC
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 GRPFACTORY::~GRPFACTORY()
@@ -97,7 +97,7 @@ GRPFACTORY::~GRPFACTORY()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPFACTORY::GetIsInstanced()
-* @brief      GetIsInstanced
+* @brief      Get is instanced
 * @ingroup    GRAPHIC
 * 
 * @return     bool : true if is succesful. 
@@ -112,7 +112,7 @@ bool GRPFACTORY::GetIsInstanced()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPFACTORY& GRPFACTORY::GetInstance()
-* @brief      GetInstance
+* @brief      Get instance
 * @ingroup    GRAPHIC
 * 
 * @return     GRPFACTORY& : 
@@ -132,7 +132,7 @@ GRPFACTORY& GRPFACTORY::GetInstance()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPFACTORY::SetInstance(GRPFACTORY* _instance)
-* @brief      SetInstance
+* @brief      Set instance
 * @ingroup    GRAPHIC
 * 
 * @param[in]  _instance : 
@@ -153,7 +153,7 @@ bool GRPFACTORY::SetInstance(GRPFACTORY* _instance)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPFACTORY::DelInstance()
-* @brief      DelInstance
+* @brief      Del instance
 * @ingroup    GRAPHIC
 * 
 * @return     bool : true if is succesful. 
@@ -173,7 +173,7 @@ bool GRPFACTORY::DelInstance()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPSCREEN* GRPFACTORY::CreateScreen()
-* @brief      Create Screen
+* @brief      Create screen
 * @ingroup    GRAPHIC
 *
 * @return     GRPSCREEN* : screen class
@@ -188,7 +188,7 @@ GRPSCREEN* GRPFACTORY::CreateScreen()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPFACTORY::DeleteScreen(GRPSCREEN* screen)
-* @brief      Delete Screen
+* @brief      Delete screen
 * @ingroup    GRAPHIC
 *
 * @param[in]  screen : screen class to delete
@@ -207,7 +207,7 @@ bool GRPFACTORY::DeleteScreen(GRPSCREEN* screen)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPCONTEXT* GRPFACTORY::CreateContext()
-* @brief      CreateContext
+* @brief      Create context
 * @ingroup    GRAPHIC
 *
 * @return     GRPCONTEXT* :
@@ -222,7 +222,7 @@ GRPCONTEXT* GRPFACTORY::CreateContext()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPFACTORY::DeleteContext(GRPCONTEXT* context)
-* @brief      Delete Context
+* @brief      Delete context
 * @ingroup    GRAPHIC
 *
 * @param[in]  context :
@@ -241,7 +241,7 @@ bool GRPFACTORY::DeleteContext(GRPCONTEXT* context)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPCANVAS* GRPFACTORY::CreateCanvas(GRPSCREEN* screen)
-* @brief      Create Canvas
+* @brief      Create canvas
 * @ingroup    GRAPHIC
 *
 * @param[in]  properties : properties to generate canvas
@@ -296,7 +296,7 @@ GRPCANVAS* GRPFACTORY::CreateCanvas(GRPPROPERTIES* properties)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPFACTORY::DeleteCanvas(GRPCANVAS* canvas)
-* @brief      DeleteCanvas
+* @brief      Delete canvas
 * @ingroup    GRAPHIC
 *
 * @param[in]  canvas : canvas to delete
@@ -322,7 +322,7 @@ bool GRPFACTORY::DeleteCanvas(GRPCANVAS* canvas)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPBITMAP* GRPFACTORY::CreateBitmap(int width, int height, GRPPROPERTYMODE mode, bool isbufferinverse)
-* @brief      CreateBitmap
+* @brief      Create bitmap
 * @ingroup    GRAPHIC
 *
 * @param[in]  width :
@@ -361,7 +361,7 @@ GRPBITMAP* GRPFACTORY::CreateBitmap(int width, int height, GRPPROPERTYMODE mode,
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPFACTORY::DeleteBitmap(GRPBITMAP* bitmap)
-* @brief      Delete Bitmap
+* @brief      Delete bitmap
 * @ingroup    GRAPHIC
 *
 * @param[in]  bitmap : bitmap class to delete
@@ -384,7 +384,7 @@ bool GRPFACTORY::DeleteBitmap(GRPBITMAP* bitmap)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPDESKTOPMANAGER* GRPFACTORY::CreateDesktopManager()
-* @brief      CreateDesktopManager
+* @brief      Create desktop manager
 * @ingroup    GRAPHIC
 * 
 * @return     GRPDESKTOPMANAGER* : 
@@ -399,7 +399,7 @@ GRPDESKTOPMANAGER* GRPFACTORY::CreateDesktopManager()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPFACTORY::DeleteDesktopManager(GRPDESKTOPMANAGER* desktopmanager)
-* @brief      DeleteDesktopManager
+* @brief      Delete desktop manager
 * @ingroup    GRAPHIC
 * 
 * @param[in]  desktopmanager : 
@@ -418,7 +418,7 @@ bool GRPFACTORY::DeleteDesktopManager(GRPDESKTOPMANAGER* desktopmanager)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void GRPFACTORY::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    GRAPHIC
 *

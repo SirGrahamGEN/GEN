@@ -68,7 +68,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_BACKGROUND::UI_BACKGROUND()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    USERINTERFACE
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -81,7 +81,7 @@ UI_BACKGROUND::UI_BACKGROUND()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_BACKGROUND::~UI_BACKGROUND()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
 * 
@@ -100,7 +100,7 @@ UI_BACKGROUND::~UI_BACKGROUND()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_COLOR* UI_BACKGROUND::GetColor()
-* @brief      GetColor
+* @brief      Get color
 * @ingroup    USERINTERFACE
 * 
 * @return     UI_COLOR* : 
@@ -115,7 +115,7 @@ UI_COLOR* UI_BACKGROUND::GetColor()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* UI_BACKGROUND::GetBitmapFileName()
-* @brief      GetBitmapFileName
+* @brief      Get bitmap file name
 * @ingroup    USERINTERFACE
 * 
 * @return     XSTRING* : 
@@ -130,7 +130,7 @@ XSTRING* UI_BACKGROUND::GetBitmapFileName()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPBITMAP* UI_BACKGROUND::GetBitmap()
-* @brief      GetBitmap
+* @brief      Get bitmap
 * @ingroup    USERINTERFACE
 * 
 * @return     GRPBITMAP* : 
@@ -145,7 +145,7 @@ GRPBITMAP* UI_BACKGROUND::GetBitmap()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_BACKGROUND::SetBitmap(GRPBITMAP* bitmap)
-* @brief      SetBitmap
+* @brief      Set bitmap
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  bitmap : 
@@ -164,7 +164,7 @@ bool UI_BACKGROUND::SetBitmap(GRPBITMAP* bitmap)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_BACKGROUND::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
 * 

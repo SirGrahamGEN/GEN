@@ -78,7 +78,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPWINDOWSSCREEN::GRPWINDOWSSCREEN()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_WINDOWS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -125,7 +125,7 @@ GRPWINDOWSSCREEN::GRPWINDOWSSCREEN(): GRPSCREEN()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPWINDOWSSCREEN::~GRPWINDOWSSCREEN()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
 *
@@ -139,7 +139,7 @@ GRPWINDOWSSCREEN::~GRPWINDOWSSCREEN()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPWINDOWSSCREEN::Create(void* handle)
-* @brief      Create screen
+* @brief      Create
 * @ingroup    PLATFORM_WINDOWS
 *
 * @return     bool : true if is succesful.
@@ -161,7 +161,7 @@ bool GRPWINDOWSSCREEN::Create(bool show)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPWINDOWSSCREEN::Update()
-* @brief      Update Screen
+* @brief      Update
 * @ingroup    PLATFORM_WINDOWS
 *
 * @return     bool : true if is succesful.
@@ -229,7 +229,7 @@ bool GRPWINDOWSSCREEN::Update(GRPCANVAS* canvas)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPWINDOWSSCREEN::UpdateTransparent(GRPCANVAS* canvas)
-* @brief      UpdateTransparent
+* @brief      Update transparent
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @param[in]  canvas : 
@@ -335,7 +335,7 @@ bool GRPWINDOWSSCREEN::Delete()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPWINDOWSSCREEN::Get_Position(int& x, int& y)
-* @brief      Get_Position
+* @brief      Get position
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @param[in]  x : 
@@ -360,7 +360,7 @@ bool GRPWINDOWSSCREEN::Get_Position(int& x, int& y)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPWINDOWSSCREEN::Set_Position(int x, int y)
-* @brief      Set_Position
+* @brief      Set position
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @param[in]  x : 
@@ -400,7 +400,7 @@ bool GRPWINDOWSSCREEN::Set_Position(int x, int y)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPWINDOWSSCREEN::Resize(int width, int height)
-* @brief      Resize Windows
+* @brief      Resize
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  width : new width of the screen
@@ -457,7 +457,7 @@ bool GRPWINDOWSSCREEN::Show(bool active)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPWINDOWSSCREEN::ShowCursor(bool active)
-* @brief      ShowCursor
+* @brief      Show cursor
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  active :
@@ -477,7 +477,7 @@ bool GRPWINDOWSSCREEN::ShowCursor(bool active)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void* GRPWINDOWSSCREEN::GetHandle()
-* @brief      GetHandle
+* @brief      Get handle
 * @ingroup    PLATFORM_WINDOWS
 *
 * @return     void* :
@@ -492,7 +492,7 @@ void* GRPWINDOWSSCREEN::GetHandle()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRPWINDOWSSCREEN::SetHandle(XDWORD handle_window)
-* @brief      SetHandle
+* @brief      Set handle
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @param[in]  handle_window : 
@@ -507,7 +507,7 @@ void GRPWINDOWSSCREEN::SetHandle(void* handle_window)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPWINDOWSSCREEN::Set_Focus()
-* @brief      Set_Focus
+* @brief      Set focus
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @return     bool : true if is succesful. 
@@ -580,7 +580,7 @@ bool GRPWINDOWSSCREEN::Maximize(bool active)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPBITMAP* GRPWINDOWSSCREEN::CaptureContent(GRPRECTINT* rect, void* handle_window)
-* @brief      CaptureContent
+* @brief      Capture content
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @param[in]  rect : 
@@ -672,7 +672,7 @@ GRPBITMAP* GRPWINDOWSSCREEN::CaptureContent(GRPRECTINT* rect, void* handle_windo
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void* GRPWINDOWSSCREEN::GetDesktopHandle()
-* @brief      GetDesktopHandle
+* @brief      Get desktop handle
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @return     void* : 
@@ -689,7 +689,7 @@ void* GRPWINDOWSSCREEN::GetDesktopHandle()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void* GRPWINDOWSSCREEN::GetShellHandle()
-* @brief      GetShellHandle
+* @brief      Get shell handle
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @return     void* : 
@@ -706,7 +706,7 @@ void* GRPWINDOWSSCREEN::GetShellHandle()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void* GRPWINDOWSSCREEN::GetHDC()
-* @brief      GetHDC
+* @brief      Get HDC
 * @ingroup    PLATFORM_WINDOWS
 *
 * @return     void* :
@@ -721,7 +721,7 @@ void* GRPWINDOWSSCREEN::GetHDC()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void GRPWINDOWSSCREEN::SetHDC(HDC hdc)
-* @brief      SetHDC
+* @brief      Set HDC
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  hdc :
@@ -736,7 +736,7 @@ void GRPWINDOWSSCREEN::SetHDC(HDC hdc)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         BITMAPINFO* GRPWINDOWSSCREEN::GetHInfo()
-* @brief      GetHInfo
+* @brief      Get H info
 * @ingroup    PLATFORM_WINDOWS
 *
 * @return     BITMAPINFO* : 
@@ -751,7 +751,7 @@ BITMAPINFO* GRPWINDOWSSCREEN::GetHInfo()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPWINDOWSSCREEN::IsBlockClose()
-* @brief      IsBlockClose
+* @brief      Is block close
 * @ingroup    PLATFORM_WINDOWS
 *
 * @return     bool : true if is succesful. 
@@ -766,7 +766,7 @@ bool GRPWINDOWSSCREEN::IsBlockClose()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRPWINDOWSSCREEN::SetIsBlockClose(bool activated)
-* @brief      SetIsBlockClose
+* @brief      Set is block close
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  activated : 
@@ -781,7 +781,7 @@ void GRPWINDOWSSCREEN::SetIsBlockClose(bool activated)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int GRPWINDOWSSCREEN::GetTaskbarHeight()
-* @brief      GetTaskbarHeight
+* @brief      Get taskbar height
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @return     int : 
@@ -805,7 +805,7 @@ int GRPWINDOWSSCREEN::GetTaskbarHeight()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPWINDOWSSCREEN::Create_Window(void* handle)
-* @brief      CreateWindow
+* @brief      Create window
 * @ingroup    PLATFORM_WINDOWS
 *
 * @return     bool : true if is succesful.
@@ -1089,7 +1089,7 @@ bool GRPWINDOWSSCREEN::Create_Window(bool show)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         LRESULT CALLBACK GRPWINDOWSSCREEN::BaseWndProc(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam)
-* @brief      BaseWndProc
+* @brief      Base wnd proc
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  hwnd : 
@@ -1184,7 +1184,7 @@ LRESULT CALLBACK GRPWINDOWSSCREEN::BaseWndProc(HWND hwnd, UINT msg, WPARAM wpara
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void GRPWINDOWSSCREEN::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
 *

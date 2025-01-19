@@ -4,7 +4,7 @@
 * 
 * @class      SQLITE_RESULT
 * @brief      DataBase SQL SQLite Result class
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 * 
 * @copyright  GEN Group. All rights reserved.
 * 
@@ -69,9 +69,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         SQLITE_RESULT::~SQLITE_RESULT()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 SQLITE_RESULT::~SQLITE_RESULT()
@@ -85,8 +85,8 @@ SQLITE_RESULT::~SQLITE_RESULT()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XQWORD SQLITE_RESULT::GetNumRows()
-* @brief      GetNumRows
-* @ingroup    DATABASES
+* @brief      Get num rows
+* @ingroup    DATABASE
 *
 * @return     XQWORD :
 *
@@ -100,8 +100,8 @@ XQWORD SQLITE_RESULT::GetNumRows()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XQWORD SQLITE_RESULT::GetNumColumns()
-* @brief      GetNumColumns
-* @ingroup    DATABASES
+* @brief      Get num columns
+* @ingroup    DATABASE
 *
 * @return     XQWORD :
 *
@@ -116,7 +116,7 @@ XQWORD SQLITE_RESULT::GetNumColumns()
 *
 * @fn         bool SQLITE_RESULT::Seek(int index)
 * @brief      Seek
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 *
 * @param[in]  index :
 *
@@ -134,7 +134,7 @@ bool SQLITE_RESULT::Seek(int index)
 *
 * @fn         bool SQLITE_RESULT::First()
 * @brief      First
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 *
 * @return     bool : true if is succesful.
 *
@@ -161,7 +161,7 @@ bool SQLITE_RESULT::First()
 *
 * @fn         bool SQLITE_RESULT::Last()
 * @brief      Last
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 *
 * @return     bool : true if is succesful.
 *
@@ -177,7 +177,7 @@ bool SQLITE_RESULT::Last()
 *
 * @fn         bool SQLITE_RESULT::Next()
 * @brief      Next
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 *
 * @return     bool : true if is succesful.
 *
@@ -199,8 +199,8 @@ bool SQLITE_RESULT::Next()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool SQLITE_RESULT::ProcessRow()
-* @brief      ProcessRow
-* @ingroup    DATABASES
+* @brief      Process row
+* @ingroup    DATABASE
 *
 * @return     bool : true if is succesful.
 *
@@ -273,7 +273,7 @@ bool SQLITE_RESULT::ProcessRow()
 *
 * @fn         bool SQLITE_RESULT::Abort()
 * @brief      Abort
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 *
 * @return     bool : true if is succesful.
 *
@@ -287,8 +287,8 @@ bool SQLITE_RESULT::Abort()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool SQLITE_RESULT::HasNext()
-* @brief      HasNext
-* @ingroup    DATABASES
+* @brief      Has next
+* @ingroup    DATABASE
 *
 * @return     bool : true if is succesful.
 *
@@ -302,8 +302,8 @@ bool SQLITE_RESULT::HasNext()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         SQLITE_RESULT::SQLITE_RESULT()
-* @brief      Constructor
-* @ingroup    DATABASES
+* @brief      Constructor of class
+* @ingroup    DATABASE
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 SQLITE_RESULT::SQLITE_RESULT(): DB_SQL_RESULT()
@@ -315,9 +315,9 @@ SQLITE_RESULT::SQLITE_RESULT(): DB_SQL_RESULT()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void SQLITE_RESULT::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
-* @ingroup    DATABASES
+* @ingroup    DATABASE
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void SQLITE_RESULT::Clean()

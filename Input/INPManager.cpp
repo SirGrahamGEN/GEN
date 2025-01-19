@@ -71,7 +71,7 @@ INPMANAGER* INPMANAGER::instance = NULL;
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool INPMANAGER::GetIsInstanced()
-* @brief      Get Is Instanced
+* @brief      Get is instanced
 * @ingroup    INPUT
 *
 * @return     bool : true if is succesful.
@@ -86,7 +86,7 @@ bool INPMANAGER::GetIsInstanced()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         INPMANAGER& INPMANAGER::GetInstance()
-* @brief      Get Instance
+* @brief      Get instance
 * @ingroup    INPUT
 *
 * @return     INPMANAGER& : inpmanager instance
@@ -103,7 +103,7 @@ INPMANAGER& INPMANAGER::GetInstance()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool INPMANAGER::DelInstance()
-* @brief      Delete Instance
+* @brief      Del instance
 * @ingroup    INPUT
 *
 * @return     bool : true if is succesful.
@@ -123,7 +123,7 @@ bool INPMANAGER::DelInstance()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool INPMANAGER::AddDevice(INPDEVICE* device)
-* @brief      Add Device
+* @brief      Add device
 * @ingroup    INPUT
 *
 * @param[in]  device : device to add
@@ -145,7 +145,7 @@ bool INPMANAGER::AddDevice(INPDEVICE* device)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool INPMANAGER::DelDevice(INPDEVICE* device)
-* @brief      Delete Device
+* @brief      Del device
 * @ingroup    INPUT
 *
 * @param[in]  device : device to delete
@@ -169,7 +169,7 @@ bool INPMANAGER::DelDevice(INPDEVICE* device)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool INPMANAGER::DeleteAllDevices()
-* @brief      Delete All Devices
+* @brief      Delete all devices
 * @ingroup    INPUT
 *
 * @return     bool : true if is succesful.
@@ -189,7 +189,7 @@ bool INPMANAGER::DeleteAllDevices()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int INPMANAGER::GetNDevices()
-* @brief      Get Number of Devices
+* @brief      Get N devices
 * @ingroup    INPUT
 *
 * @return     int : Number of Devices
@@ -204,7 +204,7 @@ int INPMANAGER::GetNDevices()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         INPDEVICE* INPMANAGER::GetDevice(int index)
-* @brief      Get Device by index
+* @brief      Get device
 * @ingroup    INPUT
 *
 * @param[in]  index : index of device
@@ -226,7 +226,7 @@ INPDEVICE* INPMANAGER::GetDevice(int index)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         INPDEVICE* INPMANAGER::GetDevice(INPDEVICE_TYPE type)
-* @brief      Get Device by type
+* @brief      Get device
 * @ingroup    INPUT
 *
 * @param[in]  type : type of device
@@ -274,7 +274,7 @@ bool INPMANAGER::Update()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         INPMANAGER::INPMANAGER()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    INPUT
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -287,7 +287,7 @@ INPMANAGER::INPMANAGER()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         INPMANAGER::~INPMANAGER()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    INPUT
 *
@@ -303,7 +303,7 @@ INPMANAGER::~INPMANAGER()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void INPMANAGER::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    INPUT
 *

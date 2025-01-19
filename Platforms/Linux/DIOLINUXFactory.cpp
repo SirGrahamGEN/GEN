@@ -160,7 +160,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMENUMDEVICES* DIOLINUXFACTORY::CreateStreamEnumDevices(DIOSTREAMENUMTYPE type)
-* @brief      Create Stream Enum Devices
+* @brief      Create stream enum devices
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  type : type of enum to create
@@ -213,7 +213,7 @@ DIOSTREAMENUMDEVICES* DIOLINUXFACTORY::CreateStreamEnumDevices(DIOSTREAMENUMTYPE
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOLINUXFACTORY::DeleteStreamEnumDevices(DIOSTREAMENUMDEVICES* enumdevices)
-* @brief      Delete Stream Enum Devices
+* @brief      Delete stream enum devices
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  enumdevices : enumdevices to delete
@@ -234,7 +234,7 @@ bool DIOLINUXFACTORY::DeleteStreamEnumDevices(DIOSTREAMENUMDEVICES* enumdevices)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOSTREAM* DIOLINUXFACTORY::CreateStreamIO(DIOSTREAMCONFIG* config)
-* @brief      CreateStreamIO
+* @brief      Create stream IO
 * @ingroup    PLATFORM_LINUX
 * 
 * @param[in]  config : 
@@ -314,7 +314,7 @@ DIOSTREAM* DIOLINUXFACTORY::CreateStreamIO(DIOSTREAMCONFIG* config)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOLINUXFACTORY::DeleteStreamIO(DIOSTREAM* diostream)
-* @brief      Delete Stream IO
+* @brief      Delete stream IO
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  diostream : diostream to delete
@@ -356,7 +356,7 @@ DELETEFUNC(DIOLINUXFACTORY, DIOPCAP   , DIOLINUXPCAP    , DeletePCap)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOLEDNEOPIXELWS2812B* DIOLINUXFACTORY::CreateLedNeopixelWS2812B()
-* @brief      CreateLedNeopixelWS2812B
+* @brief      Create led neopixel WS2812B
 * @ingroup    PLATFORM_LINUX
 *
 * @return     DIOLEDNEOPIXELWS2812B* : 
@@ -377,7 +377,7 @@ DIOLEDNEOPIXELWS2812B* DIOLINUXFACTORY::CreateLedNeopixelWS2812B()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOLINUXFACTORY::DeleteLedNeopixelWS2812B(DIOLEDNEOPIXELWS2812B* ledneopixelws2812b)
-* @brief      DeleteLedNeopixelWS2812B
+* @brief      Delete led neopixel WS2812B
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  ledneopixelws2812b : 

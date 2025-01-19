@@ -4,7 +4,7 @@
 * 
 * @class      DIOLINUXLEDNEOPIXELWS2812BRPI
 * @brief      LINUX Data Input/Output Led Neopixel WS2812B Raspberry Pi class
-* @ingroup    DATAIO
+* @ingroup    PLATFORM_LINUX
 * 
 * @copyright  GEN Group. All rights reserved.
 * 

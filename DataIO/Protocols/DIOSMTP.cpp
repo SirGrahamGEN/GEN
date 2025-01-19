@@ -76,7 +76,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSMTPRECIPIENT::DIOSMTPRECIPIENT()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -89,7 +89,7 @@ DIOSMTPRECIPIENT::DIOSMTPRECIPIENT()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSMTPRECIPIENT::~DIOSMTPRECIPIENT()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -103,7 +103,7 @@ DIOSMTPRECIPIENT::~DIOSMTPRECIPIENT()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSMTPRECIPIENTTYPE DIOSMTPRECIPIENT::GetType()
-* @brief      GetType
+* @brief      Get type
 * @ingroup    DATAIO
 *
 * @return     DIOSMTPRECIPIENTTYPE :
@@ -118,7 +118,7 @@ DIOSMTPRECIPIENTTYPE DIOSMTPRECIPIENT::GetType()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSMTPRECIPIENT::SetType(DIOSMTPRECIPIENTTYPE type)
-* @brief      SetType
+* @brief      Set type
 * @ingroup    DATAIO
 *
 * @param[in]  type :
@@ -133,7 +133,7 @@ void DIOSMTPRECIPIENT::SetType(DIOSMTPRECIPIENTTYPE type)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* DIOSMTPRECIPIENT::GetName()
-* @brief      GetName
+* @brief      Get name
 * @ingroup    DATAIO
 *
 * @return     XSTRING* :
@@ -148,7 +148,7 @@ XSTRING* DIOSMTPRECIPIENT::GetName()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOEMAILADDRESS* DIOSMTPRECIPIENT::GetEmail()
-* @brief      GetEmail
+* @brief      Get email
 * @ingroup    DATAIO
 *
 * @return     DIOEMAILADDRESS* :
@@ -163,7 +163,7 @@ DIOEMAILADDRESS* DIOSMTPRECIPIENT::GetEmail()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSMTPRECIPIENT::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *
@@ -183,7 +183,7 @@ void DIOSMTPRECIPIENT::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSMTPATTACHMENT::DIOSMTPATTACHMENT()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -196,7 +196,7 @@ DIOSMTPATTACHMENT::DIOSMTPATTACHMENT()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSMTPATTACHMENT::~DIOSMTPATTACHMENT()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -210,7 +210,7 @@ DIOSMTPATTACHMENT::~DIOSMTPATTACHMENT()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XPATH* DIOSMTPATTACHMENT::GetXPath()
-* @brief      GetXPath
+* @brief      Get X path
 * @ingroup    DATAIO
 *
 * @return     XPATH* :
@@ -225,7 +225,7 @@ XPATH* DIOSMTPATTACHMENT::GetXPath()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSMTPATTACHMENT::FileExists(XDWORD* size)
-* @brief      FileExists
+* @brief      File exists
 * @ingroup    DATAIO
 *
 * @param[in]  size :
@@ -256,7 +256,7 @@ bool DIOSMTPATTACHMENT::FileExists(XQWORD* size)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD DIOSMTPATTACHMENT::GetSize()
-* @brief      GetSize
+* @brief      Get size
 * @ingroup    DATAIO
 *
 * @return     XQWORD :
@@ -272,7 +272,7 @@ XQWORD DIOSMTPATTACHMENT::GetSize()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOSMTPATTACHMENT::GetSizeLimit()
-* @brief      GetSizeLimit
+* @brief      Get size limit
 * @ingroup    DATAIO
 *
 * @return     int :
@@ -287,7 +287,7 @@ XQWORD DIOSMTPATTACHMENT::GetSizeLimit()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSMTPATTACHMENT::SetSizeLimit(XDWORD sizelimit)
-* @brief      SetSizeLimit
+* @brief      Set size limit
 * @ingroup    DATAIO
 *
 * @param[in]  sizelimit :
@@ -302,7 +302,7 @@ void DIOSMTPATTACHMENT::SetSizeLimit(XQWORD sizelimit)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSMTPATTACHMENT::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *
@@ -323,7 +323,7 @@ void DIOSMTPATTACHMENT::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSMTP::DIOSMTP(DIOSTREAM* diostream)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * @param[in]  diostream :
@@ -340,7 +340,7 @@ DIOSMTP::DIOSMTP(DIOSTREAM* diostream)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSMTP::~DIOSMTP()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -377,7 +377,7 @@ bool DIOSMTP::Ini()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOURL* DIOSMTP::Server_GetURL()
-* @brief      Server_GetURL
+* @brief      Server get URL
 * @ingroup    DATAIO
 *
 * @return     DIOURL* :
@@ -392,7 +392,7 @@ DIOURL* DIOSMTP::Server_GetURL()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOSMTP::Server_GetPort()
-* @brief      Server_GetPort
+* @brief      Server get port
 * @ingroup    DATAIO
 *
 * @return     int :
@@ -407,7 +407,7 @@ int DIOSMTP::Server_GetPort()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSMTP::Server_SetPort(int port)
-* @brief      Server_SetPort
+* @brief      Server set port
 * @ingroup    DATAIO
 *
 * @param[in]  port :
@@ -422,7 +422,7 @@ void DIOSMTP::Server_SetPort(int port)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* DIOSMTP::Server_GetLogin()
-* @brief      Server_GetLogin
+* @brief      Server get login
 * @ingroup    DATAIO
 *
 * @return     XSTRING* :
@@ -437,7 +437,7 @@ XSTRING* DIOSMTP::Server_GetLogin()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* DIOSMTP::Server_GetPassword()
-* @brief      Server_GetPassword
+* @brief      Server get password
 * @ingroup    DATAIO
 *
 * @return     XSTRING* :
@@ -452,7 +452,7 @@ XSTRING* DIOSMTP::Server_GetPassword()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOSMTP::Server_GetConnectionTimeout()
-* @brief      Server_GetConnectionTimeout
+* @brief      Server get connection timeout
 * @ingroup    DATAIO
 *
 * @return     int :
@@ -467,7 +467,7 @@ int DIOSMTP::Server_GetConnectionTimeout()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSMTP::Server_SetConnectionTimeout(int timeout)
-* @brief      Server_SetConnectionTimeout
+* @brief      Server set connection timeout
 * @ingroup    DATAIO
 *
 * @param[in]  timeout :
@@ -482,7 +482,7 @@ void DIOSMTP::Server_SetConnectionTimeout(int timeout)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* DIOSMTP::Server_GetConnectionLocalIP()
-* @brief      Server_GetConnectionLocalIP
+* @brief      Server get connection local IP
 * @ingroup    DATAIO
 *
 * @return     XSTRING* :
@@ -497,7 +497,7 @@ XSTRING* DIOSMTP::Server_GetConnectionLocalIP()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSMTP::Server_IsAvailable()
-* @brief      Server_IsAvailable
+* @brief      Server is available
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -529,7 +529,7 @@ bool DIOSMTP::Server_IsAvailable()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSSMPTCONTENTTYPE DIOSMTP::GetContentType()
-* @brief      GetContentType
+* @brief      Get content type
 * @ingroup    DATAIO
 *
 * @return     DIOSSMPTCONTENTTYPE :
@@ -544,7 +544,7 @@ DIOSSMPTCONTENTTYPE DIOSMTP::GetContentType()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSMTP::SetContentType(DIOSSMPTCONTENTTYPE contenttype)
-* @brief      SetContentType
+* @brief      Set content type
 * @ingroup    DATAIO
 *
 * @param[in]  contenttype :
@@ -559,7 +559,7 @@ void DIOSMTP::SetContentType(DIOSSMPTCONTENTTYPE contenttype)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* DIOSMTP::GetSenderName()
-* @brief      GetSenderName
+* @brief      Get sender name
 * @ingroup    DATAIO
 *
 * @return     XSTRING* :
@@ -574,7 +574,7 @@ XSTRING* DIOSMTP::GetSenderName()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOEMAILADDRESS* DIOSMTP::GetSenderEmail()
-* @brief      GetSenderEmail
+* @brief      Get sender email
 * @ingroup    DATAIO
 *
 * @return     DIOEMAILADDRESS* :
@@ -589,7 +589,7 @@ DIOEMAILADDRESS* DIOSMTP::GetSenderEmail()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOEMAILADDRESS* DIOSMTP::GetReplytoEmail()
-* @brief      GetReplytoEmail
+* @brief      Get replyto email
 * @ingroup    DATAIO
 *
 * @return     DIOEMAILADDRESS* :
@@ -604,7 +604,7 @@ DIOEMAILADDRESS* DIOSMTP::GetReplytoEmail()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XVECTOR<DIOSMTPRECIPIENT*>* DIOSMTP::GetRecipients()
-* @brief      GetRecipients
+* @brief      Get recipients
 * @ingroup    DATAIO
 *
 * @return     XVECTOR<DIOSMTPRECIPIENT*>* :
@@ -619,7 +619,7 @@ XVECTOR<DIOSMTPRECIPIENT*>* DIOSMTP::GetRecipients()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSMTP::AddRecipient(DIOSMTPRECIPIENTTYPE type, XCHAR* name, XCHAR* email, bool check)
-* @brief      AddRecipient
+* @brief      Add recipient
 * @ingroup    DATAIO
 *
 * @param[in]  type :
@@ -655,7 +655,7 @@ bool DIOSMTP::AddRecipient(DIOSMTPRECIPIENTTYPE type, XCHAR* name, XCHAR* email,
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSMTP::AddRecipient(DIOSMTPRECIPIENTTYPE type, XSTRING& name, XSTRING& email, bool check)
-* @brief      AddRecipient
+* @brief      Add recipient
 * @ingroup    DATAIO
 *
 * @param[in]  type :
@@ -675,7 +675,7 @@ bool DIOSMTP::AddRecipient(DIOSMTPRECIPIENTTYPE type, XSTRING& name, XSTRING& em
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSMTP::AddRecipient(DIOSMTPRECIPIENTTYPE type, XCHAR* name, DIOEMAILADDRESS& email, bool check)
-* @brief      AddRecipient
+* @brief      Add recipient
 * @ingroup    DATAIO
 *
 * @param[in]  type :
@@ -695,7 +695,7 @@ bool DIOSMTP::AddRecipient(DIOSMTPRECIPIENTTYPE type, XCHAR* name, DIOEMAILADDRE
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSMTP::AddRecipient(DIOSMTPRECIPIENTTYPE type, XSTRING& name, DIOEMAILADDRESS& email, bool check)
-* @brief      AddRecipient
+* @brief      Add recipient
 * @ingroup    DATAIO
 *
 * @param[in]  type :
@@ -715,7 +715,7 @@ bool DIOSMTP::AddRecipient(DIOSMTPRECIPIENTTYPE type, XSTRING& name, DIOEMAILADD
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSMTP::DelRecipient(DIOEMAILADDRESS& email)
-* @brief      DelRecipient
+* @brief      Del recipient
 * @ingroup    DATAIO
 *
 * @param[in]  email :
@@ -749,7 +749,7 @@ bool DIOSMTP::DelRecipient(DIOEMAILADDRESS& email)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSMTP::DelAllRecipients()
-* @brief      DelAllRecipients
+* @brief      Del all recipients
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -769,7 +769,7 @@ bool DIOSMTP::DelAllRecipients()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* DIOSMTP::GetXMailer()
-* @brief      GetXMailer
+* @brief      Get X mailer
 * @ingroup    DATAIO
 *
 * @return     XSTRING* :
@@ -784,7 +784,7 @@ XSTRING* DIOSMTP::GetXMailer()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* DIOSMTP::GetSubject()
-* @brief      GetSubject
+* @brief      Get subject
 * @ingroup    DATAIO
 *
 * @return     XSTRING* :
@@ -799,7 +799,7 @@ XSTRING* DIOSMTP::GetSubject()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILETXT* DIOSMTP::GetMessage()
-* @brief      GetMessage
+* @brief      Get message
 * @ingroup    DATAIO
 *
 * @return     XFILETXT* :
@@ -814,7 +814,7 @@ XFILETXT* DIOSMTP::GetMessage()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSMTPXPRIORITY DIOSMTP::GetXPriority()
-* @brief      GetXPriority
+* @brief      Get X priority
 * @ingroup    DATAIO
 *
 * @return     DIOSMTPXPRIORITY :
@@ -829,7 +829,7 @@ DIOSMTPXPRIORITY DIOSMTP::GetXPriority()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSMTP::SetXPriority(DIOSMTPXPRIORITY xpriority)
-* @brief      SetXPriority
+* @brief      Set X priority
 * @ingroup    DATAIO
 *
 * @param[in]  xpriority :
@@ -844,7 +844,7 @@ void DIOSMTP::SetXPriority(DIOSMTPXPRIORITY xpriority)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSMTP::AddAttachment(XCHAR* path, bool check, XDWORD sizelimit)
-* @brief      AddAttachment
+* @brief      Add attachment
 * @ingroup    DATAIO
 *
 * @param[in]  path :
@@ -887,7 +887,7 @@ bool DIOSMTP::AddAttachment(XCHAR* path, bool check, XDWORD sizelimit)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSMTP::AddAttachment(XPATH& xpath, bool check, XDWORD sizelimit)
-* @brief      AddAttachment
+* @brief      Add attachment
 * @ingroup    DATAIO
 *
 * @param[in]  xpath :
@@ -906,7 +906,7 @@ bool DIOSMTP::AddAttachment(XPATH& xpath, bool check, XDWORD sizelimit)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSMTP::DelAttachment(XCHAR* path)
-* @brief      DelAttachment
+* @brief      Del attachment
 * @ingroup    DATAIO
 *
 * @param[in]  path :
@@ -940,7 +940,7 @@ bool DIOSMTP::DelAttachment(XCHAR* path)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSMTP::DelAttachment(XPATH& xpath)
-* @brief      DelAttachment
+* @brief      Del attachment
 * @ingroup    DATAIO
 *
 * @param[in]  xpath :
@@ -957,7 +957,7 @@ bool DIOSMTP::DelAttachment(XPATH& xpath)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSMTP::DelAllAttachments()
-* @brief      DelAllAttachments
+* @brief      Del all attachments
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -1299,7 +1299,7 @@ bool DIOSMTP::End()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSMTP::UpdateConnectionConfig()
-* @brief      UpdateConnectionConfig
+* @brief      Update connection config
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -1324,7 +1324,7 @@ bool DIOSMTP::UpdateConnectionConfig()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOSMTP::GetCodeResult(XSTRING& answer)
-* @brief      GetCodeResult
+* @brief      Get code result
 * @ingroup    DATAIO
 *
 * @param[in]  answer :
@@ -1348,7 +1348,7 @@ int DIOSMTP::GetCodeResult(XSTRING& answer)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSMTP::SendResponse(XSTRING& response, int codevalid)
-* @brief      SendResponse
+* @brief      Send response
 * @ingroup    DATAIO
 *
 * @param[in]  response :
@@ -1376,7 +1376,7 @@ bool DIOSMTP::SendResponse(XSTRING& response, int codevalid)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSMTP::SendResponseAndWait(XSTRING& response, int codevalid, int codecontinue)
-* @brief      SendResponseAndWait
+* @brief      Send response and wait
 * @ingroup    DATAIO
 *
 * @param[in]  response :
@@ -1419,7 +1419,7 @@ bool DIOSMTP::SendResponseAndWait(XSTRING& response, int codevalid, int codecont
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSMTP::CreateHeader(XSTRING& header)
-* @brief      CreateHeader
+* @brief      Create header
 * @ingroup    DATAIO
 *
 * @param[in]  header :
@@ -1589,7 +1589,7 @@ bool DIOSMTP::CreateHeader(XSTRING& header)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSMTP::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

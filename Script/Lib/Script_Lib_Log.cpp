@@ -71,7 +71,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         SCRIPT_LIB_LOG::SCRIPT_LIB_LOG()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    SCRIPT
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -84,7 +84,7 @@ SCRIPT_LIB_LOG::SCRIPT_LIB_LOG() : SCRIPT_LIB(SCRIPT_LIB_NAME_LOG)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         SCRIPT_LIB_LOG::~SCRIPT_LIB_LOG()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    SCRIPT
 *
@@ -98,7 +98,7 @@ SCRIPT_LIB_LOG::~SCRIPT_LIB_LOG()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool SCRIPT_LIB_LOG::AddLibraryFunctions(SCRIPT* script)
-* @brief      AddLibraryFunctions
+* @brief      Add library functions
 * @ingroup    SCRIPT
 *
 * @param[in]  script :
@@ -125,7 +125,7 @@ bool SCRIPT_LIB_LOG::AddLibraryFunctions(SCRIPT* script)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XLOGBASE* SCRIPT_LIB_LOG::GetLog()
-* @brief      GetLog
+* @brief      Get log
 * @ingroup    SCRIPT
 * 
 * @return     XLOGBASE* : 
@@ -140,7 +140,7 @@ XLOGBASE* SCRIPT_LIB_LOG::GetLog()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void SCRIPT_LIB_LOG::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    SCRIPT
 *

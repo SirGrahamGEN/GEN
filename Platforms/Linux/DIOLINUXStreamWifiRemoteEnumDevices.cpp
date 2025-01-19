@@ -87,7 +87,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOLINUXSTREAMWIFIREMOTEENUMDEVICES::DIOLINUXSTREAMWIFIREMOTEENUMDEVICES()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_LINUX
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -116,7 +116,7 @@ DIOLINUXSTREAMWIFIREMOTEENUMDEVICES::DIOLINUXSTREAMWIFIREMOTEENUMDEVICES() : DIO
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOLINUXSTREAMWIFIREMOTEENUMDEVICES::~DIOLINUXSTREAMWIFIREMOTEENUMDEVICES()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
 * 
@@ -163,7 +163,7 @@ bool DIOLINUXSTREAMWIFIREMOTEENUMDEVICES::Search()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOLINUXSTREAMWIFIREMOTEENUMDEVICES::StopSearch(bool waitend)
-* @brief      StopSearch
+* @brief      Stop search
 * @ingroup    PLATFORM_LINUX
 * 
 * @param[in]  waitend : 
@@ -197,7 +197,7 @@ bool DIOLINUXSTREAMWIFIREMOTEENUMDEVICES::StopSearch(bool waitend)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOLINUXSTREAMWIFIREMOTEENUMDEVICES::IsSearching()
-* @brief      IsSearching
+* @brief      Is searching
 * @ingroup    PLATFORM_LINUX
 * 
 * @return     bool : true if is succesful. 
@@ -217,7 +217,7 @@ bool DIOLINUXSTREAMWIFIREMOTEENUMDEVICES::IsSearching()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOLINUXSTREAMWIFIREMOTEENUMDEVICES::ThreadEnumDevices(void* param)
-* @brief      ThreadEnumDevices
+* @brief      Thread enum devices
 * @ingroup    PLATFORM_LINUX
 * 
 * @param[in]  param : 
@@ -301,7 +301,7 @@ void DIOLINUXSTREAMWIFIREMOTEENUMDEVICES::ThreadEnumDevices(void* param)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOLINUXSTREAMWIFIREMOTEENUMDEVICES::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
 * 

@@ -83,7 +83,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOLINUXSTREAMUARTLOCALENUMDEVICES::DIOLINUXSTREAMUARTLOCALENUMDEVICES()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_LINUX
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -96,7 +96,7 @@ DIOLINUXSTREAMUARTLOCALENUMDEVICES::DIOLINUXSTREAMUARTLOCALENUMDEVICES() : DIOST
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOLINUXSTREAMUARTLOCALENUMDEVICES::~DIOLINUXSTREAMUARTLOCALENUMDEVICES()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
 * 
@@ -230,7 +230,7 @@ bool DIOLINUXSTREAMUARTLOCALENUMDEVICES::Search()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOLINUXSTREAMUARTLOCALENUMDEVICES::IsDeviceAvailable(XCHAR* resource)
-* @brief      IsDeviceAvailable
+* @brief      Is device available
 * @ingroup    PLATFORM_LINUX
 * 
 * @param[in]  resource : 

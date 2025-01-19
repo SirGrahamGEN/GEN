@@ -71,7 +71,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOMPSSE::DIOMPSSE()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -87,7 +87,7 @@ DIOMPSSE::DIOMPSSE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOMPSSE::~DIOMPSSE()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -105,7 +105,7 @@ DIOMPSSE::~DIOMPSSE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOMPSSE_CHIP_TYPE DIOMPSSE::GetChipType()
-* @brief      GetChipType
+* @brief      Get chip type
 * @ingroup    DATAIO
 *
 * @return     DIOMPSSE_CHIP_TYPE :
@@ -120,7 +120,7 @@ DIOMPSSE_CHIP_TYPE DIOMPSSE::GetChipType()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XCHAR* DIOMPSSE::GetChipTypeName()
-* @brief      GetChipTypeName
+* @brief      Get chip type name
 * @ingroup    DATAIO
 *
 * @return     XCHAR* :
@@ -207,7 +207,7 @@ bool DIOMPSSE::Open(int index)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOMPSSE::IsOpen()
-* @brief      IsOpen
+* @brief      Is open
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -367,7 +367,7 @@ bool DIOMPSSE::Close()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOMPSSE::EnumDevices()
-* @brief      EnumDevices
+* @brief      Enum devices
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -412,7 +412,7 @@ bool DIOMPSSE::EnumDevices()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOMPSSE::SendCommand(XBYTE command, XBUFFER& buffer)
-* @brief      SendCommand
+* @brief      Send command
 * @ingroup    DATAIO
 *
 * @param[in]  command :
@@ -449,7 +449,7 @@ bool DIOMPSSE::SendCommand(XBYTE command, XBUFFER& buffer)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOMPSSE::ReadResponse(XBUFFER& xbuffer, int timeout)
-* @brief      ReadResponse
+* @brief      Read response
 * @ingroup    DATAIO
 *
 * @param[in]  xbuffer :
@@ -472,7 +472,7 @@ bool DIOMPSSE::ReadResponse(XBUFFER& xbuffer, int timeout)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOMPSSE::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

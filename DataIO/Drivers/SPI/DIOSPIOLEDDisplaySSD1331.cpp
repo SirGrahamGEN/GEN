@@ -72,7 +72,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSPIOLEDDISPLAYSSD1331::DIOSPIOLEDDISPLAYSSD1331()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -85,7 +85,7 @@ DIOSPIOLEDDISPLAYSSD1331::DIOSPIOLEDDISPLAYSSD1331(): DIODEVICESPI()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSPIOLEDDISPLAYSSD1331::~DIOSPIOLEDDISPLAYSSD1331()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
@@ -101,7 +101,7 @@ DIOSPIOLEDDISPLAYSSD1331::~DIOSPIOLEDDISPLAYSSD1331()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSPIOLEDDISPLAYSSD1331::IniDevice()
-* @brief      IniDevice
+* @brief      Ini device
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -198,7 +198,7 @@ bool DIOSPIOLEDDISPLAYSSD1331::Update(XBYTE* buffer)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSPIOLEDDISPLAYSSD1331::PutPixel(XWORD x, XWORD y, XWORD color)
-* @brief      PutPixel
+* @brief      Put pixel
 * @ingroup    DATAIO
 *
 * @param[in]  x :
@@ -338,7 +338,7 @@ bool DIOSPIOLEDDISPLAYSSD1331::Active(bool on)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSPIOLEDDISPLAYSSD1331::EnableFillMode(bool on)
-* @brief      EnableFillMode
+* @brief      Enable fill mode
 * @ingroup    DATAIO
 *
 * @param[in]  on :
@@ -359,7 +359,7 @@ bool DIOSPIOLEDDISPLAYSSD1331::EnableFillMode(bool on)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSPIOLEDDISPLAYSSD1331::EnableLockMode(bool on)
-* @brief      EnableLockMode
+* @brief      Enable lock mode
 * @ingroup    DATAIO
 *
 * @param[in]  on :
@@ -380,7 +380,7 @@ bool DIOSPIOLEDDISPLAYSSD1331::EnableLockMode(bool on)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSPIOLEDDISPLAYSSD1331::EnableScrollMode(bool on)
-* @brief      EnableScrollMode
+* @brief      Enable scroll mode
 * @ingroup    DATAIO
 *
 * @param[in]  on :
@@ -397,7 +397,7 @@ bool DIOSPIOLEDDISPLAYSSD1331::EnableScrollMode(bool on)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSPIOLEDDISPLAYSSD1331::SetScrollMode(XWORD horizontal, XWORD vertical)
-* @brief      SetScrollMode
+* @brief      Set scroll mode
 * @ingroup    DATAIO
 *
 * @param[in]  horizontal :
@@ -419,7 +419,7 @@ bool DIOSPIOLEDDISPLAYSSD1331::SetScrollMode(XWORD horizontal, XWORD vertical)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSPIOLEDDISPLAYSSD1331::ClearDisplay()
-* @brief      Clear
+* @brief      Clear display
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -441,7 +441,7 @@ bool DIOSPIOLEDDISPLAYSSD1331::ClearDisplay()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSPIOLEDDISPLAYSSD1331::MaxWindow()
-* @brief      MaxWindow
+* @brief      Max window
 * @ingroup    DATAIO
 *
 * @return     bool : true if is succesful.
@@ -458,7 +458,7 @@ bool DIOSPIOLEDDISPLAYSSD1331::MaxWindow()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSPIOLEDDISPLAYSSD1331::FillRect(XBYTE x0, XBYTE y0, XBYTE x1, XBYTE y1, XWORD color, XWORD background)
-* @brief      FillRect
+* @brief      Fill rect
 * @ingroup    DATAIO
 *
 * @param[in]  x0 :
@@ -511,7 +511,7 @@ bool DIOSPIOLEDDISPLAYSSD1331::FillRect(XBYTE x0, XBYTE y0, XBYTE x1, XBYTE y1, 
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSPIOLEDDISPLAYSSD1331::SendCommand(XBYTE command, int timeout)
-* @brief      SendCommand
+* @brief      Send command
 * @ingroup    DATAIO
 *
 * @param[in]  command :
@@ -536,7 +536,7 @@ bool DIOSPIOLEDDISPLAYSSD1331::SendCommand(XBYTE command, int timeout)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSPIOLEDDISPLAYSSD1331::SendCommand(XBYTE* command, XDWORD size, int timeout)
-* @brief      SendCommand
+* @brief      Send command
 * @ingroup    DATAIO
 *
 * @param[in]  command :
@@ -562,7 +562,7 @@ bool DIOSPIOLEDDISPLAYSSD1331::SendCommand(XBYTE* command, XDWORD size, int time
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSPIOLEDDISPLAYSSD1331::SendData(XBYTE data, int timeout)
-* @brief      SendData
+* @brief      Send data
 * @ingroup    DATAIO
 *
 * @param[in]  data :
@@ -587,7 +587,7 @@ bool DIOSPIOLEDDISPLAYSSD1331::SendData(XBYTE data, int timeout)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSPIOLEDDISPLAYSSD1331::SendData(XBYTE* data, XDWORD size, int timeout)
-* @brief      SendData
+* @brief      Send data
 * @ingroup    DATAIO
 *
 * @param[in]  data :
@@ -613,7 +613,7 @@ bool DIOSPIOLEDDISPLAYSSD1331::SendData(XBYTE* data, XDWORD size, int timeout)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSPIOLEDDISPLAYSSD1331::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 *

@@ -70,7 +70,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XWINDOWSDATETIME::XWINDOWSDATETIME()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    PLATFORM_WINDOWS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -83,7 +83,7 @@ XWINDOWSDATETIME::XWINDOWSDATETIME()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XWINDOWSDATETIME::~XWINDOWSDATETIME()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
 *
@@ -147,7 +147,7 @@ bool XWINDOWSDATETIME::Write(bool islocal)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSDATETIME::GetFileDateTime(XPATH& xpath, void* tmzip, XDWORD* dt)
-* @brief      GetFileDateTime
+* @brief      Get file date time
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  xpath :
@@ -180,7 +180,7 @@ bool XWINDOWSDATETIME::GetFileDateTime(XPATH& xpath, void* tmzip, XDWORD* dt)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSDATETIME::GetFileDateTime(XPATH& xpath)
-* @brief      GetFileDateTime
+* @brief      Get file date time
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  xpath :
@@ -221,7 +221,7 @@ bool XWINDOWSDATETIME::GetFileDateTime(XPATH& xpath)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int XWINDOWSDATETIME::GetMeridianDifference()
-* @brief      GetMeridianDifference
+* @brief      Get meridian difference
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @return     int : 
@@ -243,7 +243,7 @@ int XWINDOWSDATETIME::GetMeridianDifference()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSDATETIME::IsDayLigthSavingTime(int* bias)
-* @brief      IsDayLigthSavingTime
+* @brief      Is day ligth saving time
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  bias :
@@ -282,7 +282,7 @@ bool XWINDOWSDATETIME::IsDayLigthSavingTime(int* bias)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void XWINDOWSDATETIME::GetActualDateTime(XWINDOWSDATETIME* time, bool islocal)
-* @brief      GetActualDateTime
+* @brief      Get actual date time
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @param[in]  time : 
@@ -316,7 +316,7 @@ void XWINDOWSDATETIME::GetActualDateTime(XWINDOWSDATETIME* time, bool islocal)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void XWINDOWSDATETIME::SetActualDateTime(XWINDOWSDATETIME* time, bool islocal)
-* @brief      SetActualDateTime
+* @brief      Set actual date time
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @param[in]  time : 

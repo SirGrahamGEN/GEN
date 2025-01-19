@@ -79,7 +79,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILECOBOL_PIC::XFILECOBOL_PIC()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -92,7 +92,7 @@ XFILECOBOL_PIC::XFILECOBOL_PIC()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILECOBOL_PIC::~XFILECOBOL_PIC()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -106,7 +106,7 @@ XFILECOBOL_PIC::~XFILECOBOL_PIC()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILECOBOL_PIC_TYPE XFILECOBOL_PIC::GetType()
-* @brief      GetType
+* @brief      Get type
 * @ingroup    XUTILS
 *
 * @return     XFILECOBOL_PIC_TYPE :
@@ -121,7 +121,7 @@ XFILECOBOL_PIC_TYPE XFILECOBOL_PIC::GetType()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* XFILECOBOL_PIC::GetMask()
-* @brief      GetDefinition
+* @brief      Get mask
 * @ingroup    XUTILS
 *
 * @return     XSTRING* :
@@ -136,7 +136,7 @@ XSTRING* XFILECOBOL_PIC::GetMask()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* XFILECOBOL_PIC::GetMaskDecondensed()
-* @brief      GetMaskDecondensed
+* @brief      Get mask decondensed
 * @ingroup    XUTILS
 *
 * @return     XSTRING* :
@@ -151,7 +151,7 @@ XSTRING* XFILECOBOL_PIC::GetMaskDecondensed()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILECOBOL_PIC::ResolveMask()
-* @brief      ResolveMask
+* @brief      Resolve mask
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -304,7 +304,7 @@ bool XFILECOBOL_PIC::ResolveMask()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD XFILECOBOL_PIC::GetSizeData()
-* @brief      GetSizeData
+* @brief      Get size data
 * @ingroup    XUTILS
 *
 * @return     XDWORD :
@@ -319,7 +319,7 @@ XDWORD XFILECOBOL_PIC::GetSizeData()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XFILECOBOL_PIC::GetNDecimals()
-* @brief      GetNDecimals
+* @brief      Get N decimals
 * @ingroup    XUTILS
 *
 * @return     int :
@@ -334,7 +334,7 @@ int XFILECOBOL_PIC::GetNDecimals()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILECOBOL_PIC::HasSign()
-* @brief      HasSign
+* @brief      Has sign
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -349,7 +349,7 @@ bool XFILECOBOL_PIC::HasSign()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XFILECOBOL_PIC::GetComputationalType()
-* @brief      GetComputationalType
+* @brief      Get computational type
 * @ingroup    XUTILS
 *
 * @return     int :
@@ -364,7 +364,7 @@ int XFILECOBOL_PIC::GetComputationalType()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XFILECOBOL_PIC::SetComputationalType(int computationaltype)
-* @brief      SetComputationalType
+* @brief      Set computational type
 * @ingroup    XUTILS
 *
 * @param[in]  computationaltype :
@@ -379,7 +379,7 @@ void XFILECOBOL_PIC::SetComputationalType(int computationaltype)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XFILECOBOL_PIC::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    XUTILS
 *
@@ -404,7 +404,7 @@ void XFILECOBOL_PIC::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILECOBOL_FIELD::XFILECOBOL_FIELD()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -417,7 +417,7 @@ XFILECOBOL_FIELD::XFILECOBOL_FIELD()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILECOBOL_FIELD::~XFILECOBOL_FIELD()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -431,7 +431,7 @@ XFILECOBOL_FIELD::~XFILECOBOL_FIELD()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILECOBOL_FIELD_TYPE XFILECOBOL_FIELD::GetType()
-* @brief      GetType
+* @brief      Get type
 * @ingroup    XUTILS
 *
 * @return     XFILECOBOL_FIELD_TYPE :
@@ -446,7 +446,7 @@ XFILECOBOL_FIELD_TYPE XFILECOBOL_FIELD::GetType()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XFILECOBOL_FIELD::SetType(XFILECOBOL_FIELD_TYPE type)
-* @brief      SetType
+* @brief      Set type
 * @ingroup    XUTILS
 *
 * @param[in]  type :
@@ -461,7 +461,7 @@ void XFILECOBOL_FIELD::SetType(XFILECOBOL_FIELD_TYPE type)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XFILECOBOL_FIELD::GetLevel()
-* @brief      GetLevel
+* @brief      Get level
 * @ingroup    XUTILS
 *
 * @return     int :
@@ -476,7 +476,7 @@ int XFILECOBOL_FIELD::GetLevel()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XFILECOBOL_FIELD::SetLevel(int level)
-* @brief      SetLevel
+* @brief      Set level
 * @ingroup    XUTILS
 *
 * @param[in]  level :
@@ -491,7 +491,7 @@ void XFILECOBOL_FIELD::SetLevel(int level)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* XFILECOBOL_FIELD::GetName()
-* @brief      GetName
+* @brief      Get name
 * @ingroup    XUTILS
 *
 * @return     XSTRING* :
@@ -506,7 +506,7 @@ XSTRING* XFILECOBOL_FIELD::GetName()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* XFILECOBOL_FIELD::GetPIC()
-* @brief      GetPIC
+* @brief      Get PIC
 * @ingroup    XUTILS
 *
 * @return     XSTRING* :
@@ -521,7 +521,7 @@ XFILECOBOL_PIC* XFILECOBOL_FIELD::GetPIC()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XFILECOBOL_FIELD::GetNOccurs()
-* @brief      GetNOccurs
+* @brief      Get N occurs
 * @ingroup    XUTILS
 *
 * @return     int :
@@ -536,7 +536,7 @@ int XFILECOBOL_FIELD::GetNOccurs()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XFILECOBOL_FIELD::SetNOccurs(int noccurs)
-* @brief      SetNOccurs
+* @brief      Set N occurs
 * @ingroup    XUTILS
 *
 * @param[in]  noccurs :
@@ -551,7 +551,7 @@ void XFILECOBOL_FIELD::SetNOccurs(int noccurs)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILECOBOL_FIELD::IsRedefine()
-* @brief      IsRedefine
+* @brief      Is redefine
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -566,7 +566,7 @@ bool XFILECOBOL_FIELD::IsRedefine()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XFILECOBOL_FIELD::SetIsRedefine(bool isredefine)
-* @brief      SetIsRedefine
+* @brief      Set is redefine
 * @ingroup    XUTILS
 *
 * @param[in]  isredefine :
@@ -581,7 +581,7 @@ void XFILECOBOL_FIELD::SetIsRedefine(bool isredefine)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* XFILECOBOL_FIELD::GetRedefineName()
-* @brief      GetRedefineName
+* @brief      Get redefine name
 * @ingroup    XUTILS
 *
 * @return     XSTRING* :
@@ -596,7 +596,7 @@ XSTRING* XFILECOBOL_FIELD::GetRedefineName()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XFILECOBOL_FIELD::GetRedefineOffset()
-* @brief      GetRedefineOffset
+* @brief      Get redefine offset
 * @ingroup    XUTILS
 *
 * @return     int :
@@ -611,7 +611,7 @@ int XFILECOBOL_FIELD::GetRedefineOffset()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XFILECOBOL_FIELD::SetRedefineOffset(int redefineoffset)
-* @brief      SetRedefineOffset
+* @brief      Set redefine offset
 * @ingroup    XUTILS
 *
 * @param[in]  redefineoffset :
@@ -626,7 +626,7 @@ void XFILECOBOL_FIELD::SetRedefineOffset(int redefineoffset)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XFILECOBOL_FIELD::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    XUTILS
 *
@@ -653,7 +653,7 @@ void XFILECOBOL_FIELD::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XFILECOBOL_RECORD::XFILECOBOL_RECORD(XFILECOBOL_HANDLE* handle)
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 * 
 * @param[in]  handle : 
@@ -673,7 +673,7 @@ XFILECOBOL_RECORD::XFILECOBOL_RECORD(XFILECOBOL_HANDLE* handle)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILECOBOL_RECORD::~XFILECOBOL_RECORD()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -687,7 +687,7 @@ XFILECOBOL_RECORD::~XFILECOBOL_RECORD()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILECOBOL_RECORD_TYPE XFILECOBOL_RECORD::GetType()
-* @brief      GetType
+* @brief      Get type
 * @ingroup    XUTILS
 *
 * @return     XFILECOBOL_RECORD_TYPE :
@@ -704,7 +704,7 @@ XFILECOBOL_RECORD_TYPE XFILECOBOL_RECORD::GetType()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILECOBOL_RECORD::SetType(XFILECOBOL_RECORD_TYPE type)
-* @brief      SetType
+* @brief      Set type
 * @ingroup    XUTILS
 *
 * @param[in]  type :
@@ -725,7 +725,7 @@ bool XFILECOBOL_RECORD::SetType(XFILECOBOL_RECORD_TYPE type)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD XFILECOBOL_RECORD::GetNFields()
-* @brief      GetNFields
+* @brief      Get N fields
 * @ingroup    XUTILS
 *
 * @return     XDWORD :
@@ -746,7 +746,7 @@ XDWORD XFILECOBOL_RECORD::GetNFields()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILECOBOL_FIELD* XFILECOBOL_RECORD::GetField(int index)
-* @brief      GetField
+* @brief      Get field
 * @ingroup    XUTILS
 *
 * @param[in]  index :
@@ -782,7 +782,7 @@ XFILECOBOL_FIELD* XFILECOBOL_RECORD::GetField(int index)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILECOBOL_FIELD* XFILECOBOL_RECORD::GetField(XCHAR* name)
-* @brief      GetField
+* @brief      Get field
 * @ingroup    XUTILS
 *
 * @param[in]  name :
@@ -814,7 +814,7 @@ XFILECOBOL_FIELD* XFILECOBOL_RECORD::GetField(XCHAR* name)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XFILECOBOL_FIELD* XFILECOBOL_RECORD::GetField(XFILECOBOL_FD_TREENODEITERATOR& it)
-* @brief      GetField
+* @brief      Get field
 * @ingroup    XUTILS
 * 
 * @param[in]  it : 
@@ -833,7 +833,7 @@ XFILECOBOL_FIELD* XFILECOBOL_RECORD::GetField(XFILECOBOL_FD_TREENODEITERATOR& it
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILECOBOL_RECORD::GetFieldData(int index, XVARIANT& variant)
-* @brief      GetFieldData
+* @brief      Get field data
 * @ingroup    XUTILS
 *
 * @param[in]  index :
@@ -857,7 +857,7 @@ bool XFILECOBOL_RECORD::GetFieldData(int index, XVARIANT& variant)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILECOBOL_RECORD::GetFieldData(XCHAR* name, XVARIANT& variant)
-* @brief      GetFieldData
+* @brief      Get field data
 * @ingroup    XUTILS
 *
 * @param[in]  name :
@@ -881,7 +881,7 @@ bool XFILECOBOL_RECORD::GetFieldData(XCHAR* name, XVARIANT& variant)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XFILECOBOL_RECORD::GetFieldData(XFILECOBOL_FD_TREENODEITERATOR& it, XVARIANT& variant)
-* @brief      GetFieldData
+* @brief      Get field data
 * @ingroup    XUTILS
 * 
 * @param[in]  it : 
@@ -909,7 +909,7 @@ bool XFILECOBOL_RECORD::GetFieldData(XFILECOBOL_FD_TREENODEITERATOR& it, XVARIAN
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILECOBOL_RECORD::GetFieldData(int index, XSTRING& datastring)
-* @brief      GetFieldData
+* @brief      Get field data
 * @ingroup    XUTILS
 *
 * @param[in]  index :
@@ -933,7 +933,7 @@ bool XFILECOBOL_RECORD::GetFieldData(int index, XSTRING& datastring)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILECOBOL_RECORD::GetFieldData(XCHAR* name, XSTRING& datastring)
-* @brief      GetFieldData
+* @brief      Get field data
 * @ingroup    XUTILS
 *
 * @param[in]  name :
@@ -957,7 +957,7 @@ bool XFILECOBOL_RECORD::GetFieldData(XCHAR* name, XSTRING& datastring)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILECOBOL_RECORD::GetFieldData(XFILECOBOL_FD_TREENODEITERATOR& it, XSTRING& datastring)
-* @brief      GetFieldData
+* @brief      Get field data
 * @ingroup    XUTILS
 *
 * @param[in]  it :
@@ -984,7 +984,7 @@ bool XFILECOBOL_RECORD::GetFieldData(XFILECOBOL_FD_TREENODEITERATOR& it, XSTRING
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILECOBOL_RECORD::GetFieldData(int index, XBUFFER& data)
-* @brief      GetFieldData
+* @brief      Get field data
 * @ingroup    XUTILS
 *
 * @param[in]  index :
@@ -1008,7 +1008,7 @@ bool XFILECOBOL_RECORD::GetFieldData(int index, XBUFFER& data)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILECOBOL_RECORD::GetFieldData(XCHAR* name, XBUFFER& data)
-* @brief      GetFieldData
+* @brief      Get field data
 * @ingroup    XUTILS
 *
 * @param[in]  name :
@@ -1032,7 +1032,7 @@ bool XFILECOBOL_RECORD::GetFieldData(XCHAR* name, XBUFFER& data)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XFILECOBOL_RECORD::GetFieldData(XFILECOBOL_FD_TREENODEITERATOR& it, XBUFFER& data)
-* @brief      GetFieldData
+* @brief      Get field data
 * @ingroup    XUTILS
 * 
 * @param[in]  it : 
@@ -1064,7 +1064,7 @@ bool XFILECOBOL_RECORD::GetFieldData(XFILECOBOL_FD_TREENODEITERATOR& it, XBUFFER
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XBUFFER* XFILECOBOL_RECORD::GetData()
-* @brief      GetData
+* @brief      Get data
 * @ingroup    XUTILS
 *
 * @return     XBUFFER* :
@@ -1079,7 +1079,7 @@ XBUFFER* XFILECOBOL_RECORD::GetData()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILECOBOL_RECORD::ConvertDataTo(XFILECOBOL_PIC* picture, XBUFFER& bufferdata, XVARIANT& data)
-* @brief      ConvertDataTo
+* @brief      Convert data to
 * @ingroup    XUTILS
 *
 * @param[in]  picture :
@@ -1101,7 +1101,7 @@ bool XFILECOBOL_RECORD::ConvertDataTo(XFILECOBOL_PIC* picture, XBUFFER& bufferda
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILECOBOL_RECORD::ConvertDataTo(XFILECOBOL_PIC* picture, XBUFFER& bufferdata, XSTRING& datastring)
-* @brief      ConvertDataTo
+* @brief      Convert data to
 * @ingroup    XUTILS
 *
 * @param[in]  picture :
@@ -1221,7 +1221,7 @@ bool XFILECOBOL_RECORD::ConvertDataTo(XFILECOBOL_PIC* picture, XBUFFER& bufferda
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XFILECOBOL_RECORD::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    XUTILS
 *
@@ -1241,7 +1241,7 @@ void XFILECOBOL_RECORD::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILECOBOL_HANDLE::XFILECOBOL_HANDLE()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -1254,7 +1254,7 @@ XFILECOBOL_HANDLE::XFILECOBOL_HANDLE()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XFILECOBOL_HANDLE::~XFILECOBOL_HANDLE()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    XUTILS
 * 
@@ -1271,7 +1271,7 @@ XFILECOBOL_HANDLE::~XFILECOBOL_HANDLE()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* XFILECOBOL_HANDLE::GetName()
-* @brief      GetName
+* @brief      Get name
 * @ingroup    XUTILS
 *
 * @return     XSTRING* :
@@ -1286,7 +1286,7 @@ XSTRING* XFILECOBOL_HANDLE::GetName()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* XFILECOBOL_HANDLE::GetValueLabel()
-* @brief      GetValueLabel
+* @brief      Get value label
 * @ingroup    XUTILS
 *
 * @return     XSTRING* :
@@ -1301,7 +1301,7 @@ XSTRING* XFILECOBOL_HANDLE::GetValueLabel()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* XFILECOBOL_HANDLE::GetDataRecord()
-* @brief      GetDataRecord
+* @brief      Get data record
 * @ingroup    XUTILS
 *
 * @return     XSTRING* :
@@ -1316,7 +1316,7 @@ XSTRING* XFILECOBOL_HANDLE::GetDataRecord()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILECOBOL_FD_TREE* XFILECOBOL_HANDLE::GetFDTree()
-* @brief      GetFDTree
+* @brief      Get FD tree
 * @ingroup    XUTILS
 *
 * @return     XFILECOBOL_FD_TREE* :
@@ -1331,7 +1331,7 @@ XFILECOBOL_FD_TREE* XFILECOBOL_HANDLE::GetFDTree()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XFILECOBOL_HANDLE::GetIndexNodeForName(XFILECOBOL_FD_TREENODE* node, XCHAR* name)
-* @brief      GetIndexNodeForName
+* @brief      Get index node for name
 * @ingroup    XUTILS
 *
 * @param[in]  node :
@@ -1366,7 +1366,7 @@ int XFILECOBOL_HANDLE::GetIndexNodeForName(XFILECOBOL_FD_TREENODE* node, XCHAR* 
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILECOBOL_RECORD_TYPE XFILECOBOL_HANDLE::GetTypeRecord()
-* @brief      GetTypeRecord
+* @brief      Get type record
 * @ingroup    XUTILS
 *
 * @return     XFILECOBOL_RECORD_TYPE :
@@ -1381,7 +1381,7 @@ XFILECOBOL_RECORD_TYPE  XFILECOBOL_HANDLE::GetTypeRecord()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XFILECOBOL_HANDLE::SetTypeRecord(XFILECOBOL_RECORD_TYPE type)
-* @brief      SetTypeRecord
+* @brief      Set type record
 * @ingroup    XUTILS
 *
 * @param[in]  type :
@@ -1396,7 +1396,7 @@ void XFILECOBOL_HANDLE::SetTypeRecord(XFILECOBOL_RECORD_TYPE type)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILECOBOL_HANDLE::GetInterator(XDWORD index, XFILECOBOL_FD_TREENODEITERATOR& it);
-* @brief      GetInterator
+* @brief      Get interator
 * @ingroup    XUTILS
 *
 * @param[in]  index :
@@ -1436,7 +1436,7 @@ bool XFILECOBOL_HANDLE::GetInterator(XDWORD index, XFILECOBOL_FD_TREENODEITERATO
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILECOBOL_HANDLE::GetInterator(XCHAR* name, XFILECOBOL_FD_TREENODEITERATOR& it)
-* @brief      GetInterator
+* @brief      Get interator
 * @ingroup    XUTILS
 *
 * @param[in]  name :
@@ -1475,7 +1475,7 @@ bool XFILECOBOL_HANDLE::GetInterator(XCHAR* name, XFILECOBOL_FD_TREENODEITERATOR
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD XFILECOBOL_HANDLE::CalculateDataSizeNode(XFILECOBOL_FD_TREENODE* node)
-* @brief      CalculateDataSizeNode
+* @brief      Calculate data size node
 * @ingroup    XUTILS
 *
 * @param[in]  node :
@@ -1531,7 +1531,7 @@ XDWORD XFILECOBOL_HANDLE::CalculateDataSizeNode(XFILECOBOL_FD_TREENODE* node)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD XFILECOBOL_HANDLE::CalculateDataSize()
-* @brief      CalculateDataSize
+* @brief      Calculate data size
 * @ingroup    XUTILS
 *
 * @return     XDWORD :
@@ -1557,7 +1557,7 @@ XDWORD XFILECOBOL_HANDLE::CalculateDataSize()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XFILECOBOL_HANDLE::CalculatePositionData(XFILECOBOL_FD_TREENODEITERATOR it)
-* @brief      CalculatePositionData
+* @brief      Calculate position data
 * @ingroup    XUTILS
 *
 * @param[in]  it :
@@ -1630,7 +1630,7 @@ int XFILECOBOL_HANDLE::CalculatePositionData(XFILECOBOL_FD_TREENODEITERATOR& it)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILECOBOL_FIELD* XFILECOBOL_HANDLE::IsFieldRedefinedByAnother(XCHAR* name)
-* @brief      IsFieldRedefinedByAnother
+* @brief      Is field redefined by another
 * @ingroup    XUTILS
 *
 * @param[in]  name :
@@ -1668,7 +1668,7 @@ XFILECOBOL_FIELD* XFILECOBOL_HANDLE::IsFieldRedefinedByAnother(XCHAR* name)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XFILECOBOL_HANDLE::Clean();
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    XUTILS
 *
@@ -1690,7 +1690,7 @@ void XFILECOBOL_HANDLE::Clean()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILECOBOL::XFILECOBOL()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -1705,7 +1705,7 @@ XFILECOBOL::XFILECOBOL()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILECOBOL::~XFILECOBOL()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
@@ -1884,7 +1884,7 @@ bool XFILECOBOL::Open(int nfiles, XCHAR* xpathcpyfiles, XCHAR* xpathdatfiles, ..
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILECOBOL::IsOpen()
-* @brief      IsOpen
+* @brief      Is open
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -1900,7 +1900,7 @@ bool XFILECOBOL::IsOpen()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILECOBOL_FILE_TYPE XFILECOBOL::GetType()
-* @brief      GetType
+* @brief      Get type
 * @ingroup    XUTILS
 *
 * @return     XFILECOBOL_FILE_TYPE :
@@ -1915,7 +1915,7 @@ XFILECOBOL_FILE_TYPE XFILECOBOL::GetType()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XFILECOBOL::SetType(XFILECOBOL_FILE_TYPE type)
-* @brief      SetType
+* @brief      Set type
 * @ingroup    XUTILS
 *
 * @param[in]  type :
@@ -1930,7 +1930,7 @@ void XFILECOBOL::SetType(XFILECOBOL_FILE_TYPE type)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILECOBOL::HaveFileHeaders()
-* @brief      HaveFileHeaders
+* @brief      Have file headers
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -1945,7 +1945,7 @@ bool XFILECOBOL::HaveFileHeaders()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XFILECOBOL::SetHaveFileHeaders(bool havefileheaders)
-* @brief      SetHaveFileHeaders
+* @brief      Set have file headers
 * @ingroup    XUTILS
 *
 * @param[in]  havefileheaders :
@@ -1960,7 +1960,7 @@ void XFILECOBOL::SetHaveFileHeaders(bool havefileheaders)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD XFILECOBOL::GetNRecords()
-* @brief      GetNRecords
+* @brief      Get N records
 * @ingroup    XUTILS
 *
 * @return     XDWORD :
@@ -1986,7 +1986,7 @@ XDWORD XFILECOBOL::GetNRecords()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILECOBOL::ReadRecord(XDWORD index, XFILECOBOL_RECORD& record)
-* @brief      ReadRecord
+* @brief      Read record
 * @ingroup    XUTILS
 *
 * @param[in]  index :
@@ -2034,7 +2034,7 @@ bool XFILECOBOL::ReadRecord(XDWORD index, XFILECOBOL_RECORD& record)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILECOBOL::ReadRecords(XVECTOR<XFILECOBOL_RECORD*>& records, XDWORD startindex)
-* @brief      ReadRecords
+* @brief      Read records
 * @ingroup    XUTILS
 *
 * @param[in]  records :
@@ -2081,7 +2081,7 @@ bool XFILECOBOL::Close()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILECOBOL_HANDLE* XFILECOBOL::GetHandle()
-* @brief      GetHandle
+* @brief      Get handle
 * @ingroup    XUTILS
 *
 * @return     XFILECOBOL_HANDLE* :
@@ -2096,7 +2096,7 @@ XFILECOBOL_HANDLE* XFILECOBOL::GetHandle()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XPATH* XFILECOBOL::GetPathDataFile()
-* @brief      GetPathDataFile
+* @brief      Get path data file
 * @ingroup    XUTILS
 *
 * @return     XPATH* :
@@ -2111,7 +2111,7 @@ XPATH* XFILECOBOL::GetPathDataFile()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XFILECOBOL::CapabilitiesFile_Load(XPATH& xpathcapabilitiesfile)
-* @brief      CapabilitiesFile_Load
+* @brief      Capabilities file load
 * @ingroup    XUTILS
 * 
 * @param[in]  xpathcapabilitiesfile : 
@@ -2186,7 +2186,7 @@ bool XFILECOBOL::CapabilitiesFile_Load(XPATH& xpathcapabilitiesfile)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILECOBOL::CapabilitiesFile_UnLoad()
-* @brief      UnLoadCapabilitiesFile
+* @brief      Capabilities file un load
 * @ingroup    XUTILS
 *
 * @return     bool : true if is succesful.
@@ -2207,7 +2207,7 @@ bool XFILECOBOL::CapabilitiesFile_UnLoad()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILECOBOL::CapabilitiesFile_GetFile(XSTRING* fileID, XPATH& xpathfile)
-* @brief      CapabilitiesFile_GetFile
+* @brief      Capabilities file get file
 * @ingroup    XUTILS
 *
 * @param[in]  fileID :
@@ -2244,7 +2244,7 @@ bool XFILECOBOL::CapabilitiesFile_GetFile(XSTRING* fileID, XPATH& xpathfile)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILECOBOL::IsValidCharacter(XCHAR character)
-* @brief      IsValidCharacter
+* @brief      Is valid character
 * @ingroup    XUTILS
 *
 * @param[in]  character :
@@ -2268,7 +2268,7 @@ bool XFILECOBOL::IsValidCharacter(XCHAR character)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILECOBOL::Eliminate_InvalidCharacters(XSTRING& line)
-* @brief      Eliminate_InvalidCharacters
+* @brief      Eliminate invalid characters
 * @ingroup    XUTILS
 *
 * @param[in]  line :
@@ -2297,7 +2297,7 @@ bool XFILECOBOL::Eliminate_InvalidCharacters(XSTRING& line)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILECOBOL::Eliminate_TabsForSpaces(XVECTOR<XSTRING*>* lines)
-* @brief      Eliminate_TabsForSpaces
+* @brief      Eliminate tabs for spaces
 * @ingroup    XUTILS
 *
 * @param[in]  lines :
@@ -2337,7 +2337,7 @@ bool XFILECOBOL::Eliminate_TabsForSpaces(XVECTOR<XSTRING*>* lines)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILECOBOL::Eliminate_InvalidCharacters(XVECTOR<XSTRING*>* lines)
-* @brief      Eliminate_InvalidCharacters
+* @brief      Eliminate invalid characters
 * @ingroup    XUTILS
 *
 * @param[in]  lines :
@@ -2362,7 +2362,7 @@ bool XFILECOBOL::Eliminate_InvalidCharacters(XVECTOR<XSTRING*>* lines)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XFILECOBOL::Eliminate_Comments(XVECTOR<XSTRING*>* lines)
-* @brief      Eliminate_Comments
+* @brief      Eliminate comments
 * @ingroup    XUTILS
 * 
 * @param[in]  lines : 
@@ -2392,7 +2392,7 @@ bool XFILECOBOL::Eliminate_Comments(XVECTOR<XSTRING*>* lines)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILECOBOL::Eliminate_NumberLines(XVECTOR<XSTRING*>* lines)
-* @brief      Eliminate_NumberLines
+* @brief      Eliminate number lines
 * @ingroup    XUTILS
 *
 * @param[in]  lines :
@@ -2418,7 +2418,7 @@ bool XFILECOBOL::Eliminate_NumberLines(XVECTOR<XSTRING*>* lines)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILECOBOL::Eliminate_EmptyLines(XVECTOR<XSTRING*>* lines)
-* @brief      Eliminate_EmptyLines
+* @brief      Eliminate empty lines
 * @ingroup    XUTILS
 *
 * @param[in]  lines :
@@ -2455,7 +2455,7 @@ bool XFILECOBOL::Eliminate_EmptyLines(XVECTOR<XSTRING*>* lines)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILECOBOL::Eliminate_UnnecessarySpaces(XVECTOR<XSTRING*>* lines)
-* @brief      Eliminate_UnnecessarySpaces
+* @brief      Eliminate unnecessary spaces
 * @ingroup    XUTILS
 *
 * @param[in]  lines :
@@ -2493,7 +2493,7 @@ bool XFILECOBOL::Eliminate_UnnecessarySpaces(XVECTOR<XSTRING*>* lines)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILECOBOL::CreateUniqueLines(XVECTOR<XSTRING*>* lines)
-* @brief      CreateUniqueLines
+* @brief      Create unique lines
 * @ingroup    XUTILS
 *
 * @param[in]  lines :
@@ -2532,7 +2532,7 @@ bool XFILECOBOL::CreateUniqueLines(XVECTOR<XSTRING*>* lines)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILECOBOL::ExtractReservedToken(XSTRING& line, XCHAR* token, XSTRING& var)
-* @brief      ExtractReservedToken
+* @brief      Extract reserved token
 * @ingroup    XUTILS
 *
 * @param[in]  line :
@@ -2571,7 +2571,7 @@ bool XFILECOBOL::ExtractReservedToken(XSTRING& line, XCHAR* token, XSTRING& var)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILECOBOL::ExtractReservedToken(XSTRING& line, XCHAR* token)
-* @brief      ExtractReservedToken
+* @brief      Extract reserved token
 * @ingroup    XUTILS
 *
 * @param[in]  line :
@@ -2602,7 +2602,7 @@ bool XFILECOBOL::ExtractReservedToken(XSTRING& line, XCHAR* token)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILECOBOL_LINE_TYPE XFILECOBOL::InterpreterLineForHandle(XSTRING& line, int& level, XFILECOBOL_FIELD_TYPE& fieldtype, XFILECOBOL_HANDLE& handle, XSTRING& name, XSTRING& param, XSTRING& param2, int& noccurs, int& PICcomputationaltype)
-* @brief      InterpreterLineForHandle
+* @brief      Interpreter line for handle
 * @ingroup    XUTILS
 *
 * @param[in]  line :
@@ -2722,7 +2722,7 @@ XFILECOBOL_LINE_TYPE XFILECOBOL::InterpreterLineForHandle(XSTRING& line, int& le
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XFILECOBOL_FD_TREENODE* XFILECOBOL::GetParentNodeOfLevel(int level)
-* @brief      GetParentNodeOfLevel
+* @brief      Get parent node of level
 * @ingroup    XUTILS
 * 
 * @param[in]  level : 
@@ -2757,7 +2757,7 @@ XFILECOBOL_FD_TREENODE* XFILECOBOL::GetParentNodeOfLevel(int level)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILECOBOL::TraslateTextToHandle(XVECTOR<XSTRING*>* lines, XFILECOBOL_HANDLE& handle)
-* @brief      TraslateTextToHandle
+* @brief      Traslate text to handle
 * @ingroup    XUTILS
 *
 * @param[in]  lines :
@@ -2972,7 +2972,7 @@ bool XFILECOBOL::TraslateTextToHandle(XVECTOR<XSTRING*>* lines, XFILECOBOL_HANDL
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILECOBOL::ChangeNameNodeWithOccurs(int index, XSTRING* name)
-* @brief      ChangeNameNodeWithOccurs
+* @brief      Change name node with occurs
 * @ingroup    XUTILS
 *
 * @param[in]  index :
@@ -3010,7 +3010,7 @@ bool XFILECOBOL::ChangeNameNodeWithOccurs(int index, XSTRING* name)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILECOBOL_FD_TREENODE* XFILECOBOL::DuplicateNodeWithSubnodes(int index, XFILECOBOL_FD_TREENODE* node, XFILECOBOL_FD_TREENODE* cretednode)
-* @brief      DuplicateNodeWithSubnodes
+* @brief      Duplicate node with subnodes
 * @ingroup    XUTILS
 *
 * @param[in]  index :
@@ -3076,7 +3076,7 @@ XFILECOBOL_FD_TREENODE* XFILECOBOL::DuplicateNodeWithSubnodes(int index, XFILECO
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILECOBOL::AjustNodeWithOccurs(XFILECOBOL_FD_TREENODE* node)
-* @brief      AjustNodeWithOccurs
+* @brief      Ajust node with occurs
 * @ingroup    XUTILS
 *
 * @param[in]  node :
@@ -3128,7 +3128,7 @@ bool XFILECOBOL::AjustNodeWithOccurs(XFILECOBOL_FD_TREENODE* node)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XFILECOBOL::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    XUTILS
 *

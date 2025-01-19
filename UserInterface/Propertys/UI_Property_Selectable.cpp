@@ -69,7 +69,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_PROPERTY_SELECTABLE::UI_PROPERTY_SELECTABLE()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    USERINTERFACE
 *
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -85,7 +85,7 @@ UI_PROPERTY_SELECTABLE::UI_PROPERTY_SELECTABLE()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_PROPERTY_SELECTABLE::~UI_PROPERTY_SELECTABLE()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
 *
@@ -105,7 +105,7 @@ UI_PROPERTY_SELECTABLE::~UI_PROPERTY_SELECTABLE()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD UI_PROPERTY_SELECTABLE::GetTimeSelected()
-* @brief      GetTimeSelected
+* @brief      Get time selected
 * @ingroup    USERINTERFACE
 *
 * @return     XDWORD : 
@@ -120,7 +120,7 @@ XDWORD UI_PROPERTY_SELECTABLE::GetTimeSelected()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_PROPERTY_SELECTABLE::SetTimeSelected(XDWORD timeselected)
-* @brief      SetTimeSelected
+* @brief      Set time selected
 * @ingroup    USERINTERFACE
 *
 * @param[in]  timeselected : 
@@ -135,7 +135,7 @@ void UI_PROPERTY_SELECTABLE::SetTimeSelected(XDWORD timeselected)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XTIMER* UI_PROPERTY_SELECTABLE::GetXTimerSelected()
-* @brief      GetXTimerSelected
+* @brief      Get X timer selected
 * @ingroup    USERINTERFACE
 *
 * @return     XTIMER* : 
@@ -150,7 +150,7 @@ XTIMER* UI_PROPERTY_SELECTABLE::GetXTimerSelected()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_PROPERTY_SELECTABLE_STATE UI_PROPERTY_SELECTABLE::GetSelectableState()
-* @brief      GetSelectableState
+* @brief      Get selectable state
 * @ingroup    USERINTERFACE
 *
 * @return     UI_PROPERTY_SELECTABLE_STATE : 
@@ -165,7 +165,7 @@ UI_PROPERTY_SELECTABLE_STATE UI_PROPERTY_SELECTABLE::GetSelectableState()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_PROPERTY_SELECTABLE::SetSelectableState(UI_PROPERTY_SELECTABLE_STATE state)
-* @brief      SetSelectableState
+* @brief      Set selectable state
 * @ingroup    USERINTERFACE
 *
 * @param[in]  state : 
@@ -184,7 +184,7 @@ bool UI_PROPERTY_SELECTABLE::SetSelectableState(UI_PROPERTY_SELECTABLE_STATE sta
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_PROPERTY_SELECTABLE_STATE UI_PROPERTY_SELECTABLE::SetSelectableStateFromString(XCHAR* selectablestr)
-* @brief      SetSelectableStateFromString
+* @brief      Set selectable state from string
 * @ingroup    USERINTERFACE
 *
 * @param[in]  selectablestr : 
@@ -214,7 +214,7 @@ UI_PROPERTY_SELECTABLE_STATE UI_PROPERTY_SELECTABLE::SetSelectableStateFromStrin
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_PROPERTY_SELECTABLE_STATE UI_PROPERTY_SELECTABLE::SetSelectableStateFromString(XSTRING& selectablestr)
-* @brief      SetSelectableStateFromString
+* @brief      Set selectable state from string
 * @ingroup    USERINTERFACE
 *
 * @param[in]  selectablestr : 
@@ -231,7 +231,7 @@ UI_PROPERTY_SELECTABLE_STATE UI_PROPERTY_SELECTABLE::SetSelectableStateFromStrin
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_PROPERTY_SELECTABLE::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
 *

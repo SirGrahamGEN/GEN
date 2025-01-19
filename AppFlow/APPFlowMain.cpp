@@ -75,7 +75,7 @@ APPFLOWMAIN  GEN_appmain;
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         APPFLOWMAIN::APPFLOWMAIN()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    APPFLOW
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -88,7 +88,7 @@ APPFLOWMAIN::APPFLOWMAIN()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         APPFLOWMAIN::~APPFLOWMAIN()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    APPFLOW
 * 
@@ -104,7 +104,7 @@ APPFLOWMAIN::~APPFLOWMAIN()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         APPFLOWBASE* APPFLOWMAIN::GetApplication()
-* @brief      GetApplication
+* @brief      Get application
 * @ingroup    APPFLOW
 * 
 * @return     APPFLOWBASE* : 
@@ -283,7 +283,7 @@ bool APPFLOWMAIN::Delete()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void APPFLOWMAIN::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    APPFLOW
 * 

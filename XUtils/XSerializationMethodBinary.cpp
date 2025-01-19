@@ -69,7 +69,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSERIALIZATIONMETHODBINARY::XSERIALIZATIONMETHODBINARY()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    XUTILS
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -82,7 +82,7 @@ XSERIALIZATIONMETHODBINARY::XSERIALIZATIONMETHODBINARY()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSERIALIZATIONMETHODBINARY::~XSERIALIZATIONMETHODBINARY()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    XUTILS
 * 
@@ -451,7 +451,7 @@ bool XSERIALIZATIONMETHODBINARY::Add(XVARIANT* var, XCHAR* name)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XSERIALIZATIONMETHODBINARY::AddStruct(XCHAR* name, bool open)
-* @brief      AddStruct
+* @brief      Add struct
 * @ingroup    XUTILS
 * 
 * @param[in]  name : 
@@ -476,7 +476,7 @@ bool XSERIALIZATIONMETHODBINARY::AddStruct(XCHAR* name, bool open)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XSERIALIZATIONMETHODBINARY::AddArray(XDWORD nelements, XCHAR* name, bool open)
-* @brief      AddArray
+* @brief      Add array
 * @ingroup    XUTILS
 * 
 * @param[in]  nelements : 
@@ -755,7 +755,7 @@ bool XSERIALIZATIONMETHODBINARY::Extract(XVARIANT* var, XCHAR* name)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XSERIALIZATIONMETHODBINARY::ExtractStruct(XCHAR* name)
-* @brief      ExtractStruct
+* @brief      Extract struct
 * @ingroup    XUTILS
 * 
 * @param[in]  name : 
@@ -772,7 +772,7 @@ bool XSERIALIZATIONMETHODBINARY::ExtractStruct(XCHAR* name)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XSERIALIZATIONMETHODBINARY::ExtractArray(XDWORD nelements, XCHAR* name)
-* @brief      ExtractArray
+* @brief      Extract array
 * @ingroup    XUTILS
 * 
 * @param[in]  nelements : 
@@ -790,7 +790,7 @@ bool XSERIALIZATIONMETHODBINARY::ExtractArray(XDWORD nelements, XCHAR* name)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBUFFER* XSERIALIZATIONMETHODBINARY::GetBufferData()
-* @brief      GetBufferData
+* @brief      Get buffer data
 * @ingroup    XUTILS
 * 
 * @return     XBUFFER* : 
@@ -805,7 +805,7 @@ XBUFFER* XSERIALIZATIONMETHODBINARY::GetBufferData()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void XSERIALIZATIONMETHODBINARY::SetBufferData(XBUFFER* bufferdata)
-* @brief      SetBufferData
+* @brief      Set buffer data
 * @ingroup    XUTILS
 * 
 * @param[in]  bufferdata : 
@@ -820,7 +820,7 @@ void XSERIALIZATIONMETHODBINARY::SetBufferData(XBUFFER* bufferdata)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void XSERIALIZATIONMETHODBINARY::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    XUTILS
 * 

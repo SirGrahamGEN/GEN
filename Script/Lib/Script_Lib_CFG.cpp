@@ -69,7 +69,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         SCRIPT_LIB_CFG::SCRIPT_LIB_CFG()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    SCRIPT
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -82,7 +82,7 @@ SCRIPT_LIB_CFG::SCRIPT_LIB_CFG() : SCRIPT_LIB(SCRIPT_LIB_NAME_CFG)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         SCRIPT_LIB_CFG::~SCRIPT_LIB_CFG()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    SCRIPT
 *
@@ -96,7 +96,7 @@ SCRIPT_LIB_CFG::~SCRIPT_LIB_CFG()
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool SCRIPT_LIB_CFG::AddLibraryFunctions(SCRIPT* script)
-* @brief      AddLibraryFunctions
+* @brief      Add library functions
 * @ingroup    SCRIPT
 *
 * @param[in]  script :
@@ -119,7 +119,7 @@ bool SCRIPT_LIB_CFG::AddLibraryFunctions(SCRIPT* script)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XFILECFG* SCRIPT_LIB_CFG::GetXFileCFG()
-* @brief      GetXFileCFG
+* @brief      Get X file CFG
 * @ingroup    SCRIPT
 * 
 * @return     XFILECFG* : 
@@ -134,7 +134,7 @@ XFILECFG* SCRIPT_LIB_CFG::GetXFileCFG()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void SCRIPT_LIB_CFG::SetXFileCFG(XFILECFG* xfileCFG)
-* @brief      SetXFileCFG
+* @brief      Set X file CFG
 * @ingroup    SCRIPT
 * 
 * @param[in]  xfileCFG : 
@@ -149,7 +149,7 @@ void SCRIPT_LIB_CFG::SetXFileCFG(XFILECFG* xfileCFG)
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void SCRIPT_LIB_CFG::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    SCRIPT
 *

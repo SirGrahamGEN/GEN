@@ -66,7 +66,7 @@ UI_TEXTS* UI_TEXTS::instance = NULL;
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_TEXTS::GetIsInstanced()
-* @brief      GetIsInstanced
+* @brief      Get is instanced
 * @ingroup    USERINTERFACE
 *
 * @return     bool : true if is succesful. 
@@ -81,7 +81,7 @@ bool UI_TEXTS::GetIsInstanced()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_TEXTS& UI_TEXTS::GetInstance()
-* @brief      GetInstance
+* @brief      Get instance
 * @ingroup    USERINTERFACE
 *
 * @return     UI_TEXTS& : 
@@ -98,7 +98,7 @@ UI_TEXTS& UI_TEXTS::GetInstance()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_TEXTS::DelInstance()
-* @brief      DelInstance
+* @brief      Del instance
 * @ingroup    USERINTERFACE
 *
 * @return     bool : true if is succesful. 
@@ -222,7 +222,7 @@ XSTRING* UI_TEXTS::Get(XSTRING& name)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_TEXTS::DeleteAll()
-* @brief      DeleteAll
+* @brief      Delete all
 * @ingroup    USERINTERFACE
 *
 * @return     bool : true if is succesful. 
@@ -241,7 +241,7 @@ bool UI_TEXTS::DeleteAll()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_TEXTS::UI_TEXTS()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    USERINTERFACE
 *
 * ---------------------------------------------------------------------------------------------------------------------*/
@@ -254,7 +254,7 @@ UI_TEXTS::UI_TEXTS()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_TEXTS::~UI_TEXTS()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
 *
@@ -270,7 +270,7 @@ UI_TEXTS::~UI_TEXTS()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_TEXTS::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
 *

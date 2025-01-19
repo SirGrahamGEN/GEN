@@ -66,7 +66,7 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIONODEITEMHANDLER::DIONODEITEMHANDLER()
-* @brief      Constructor
+* @brief      Constructor of class
 * @ingroup    DATAIO
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -81,7 +81,7 @@ DIONODEITEMHANDLER::DIONODEITEMHANDLER()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIONODEITEMHANDLER::~DIONODEITEMHANDLER()
-* @brief      Destructor
+* @brief      Destructor of class
 * @note       VIRTUAL
 * @ingroup    DATAIO
 * 
@@ -99,7 +99,7 @@ DIONODEITEMHANDLER::~DIONODEITEMHANDLER()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD DIONODEITEMHANDLER::GetType()
-* @brief      GetType
+* @brief      Get type
 * @ingroup    DATAIO
 * 
 * @return     XDWORD : 
@@ -114,7 +114,7 @@ XDWORD DIONODEITEMHANDLER::GetType()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* DIONODEITEMHANDLER::GetName()
-* @brief      GetName
+* @brief      Get name
 * @ingroup    DATAIO
 * 
 * @return     XSTRING* : 
@@ -178,7 +178,7 @@ bool DIONODEITEMHANDLER::Close()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIONODEITEMHANDLER::IsOpen()
-* @brief      IsOpen
+* @brief      Is open
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
@@ -193,7 +193,7 @@ bool DIONODEITEMHANDLER::IsOpen()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIONODEITEMHANDLER::IsWorking()
-* @brief      IsWorking
+* @brief      Is working
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
@@ -208,7 +208,7 @@ bool DIONODEITEMHANDLER::IsWorking()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIONODEITEM* DIONODEITEMHANDLER::GetNodeItem()
-* @brief      GetNodeItem
+* @brief      Get node item
 * @ingroup    DATAIO
 * 
 * @return     DIONODEITEM* : 
@@ -223,7 +223,7 @@ DIONODEITEM* DIONODEITEMHANDLER::GetNodeItem()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIONODEITEMHANDLER::SetNodeItem(DIONODEITEM* nodeitem)
-* @brief      SetNodeItem
+* @brief      Set node item
 * @ingroup    DATAIO
 * 
 * @param[in]  nodeitem : 
@@ -247,7 +247,7 @@ bool DIONODEITEMHANDLER::SetNodeItem(DIONODEITEM* nodeitem)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIONODEITEMHANDLER::Clean()
-* @brief      Clean the attributes of the class: Default initialice
+* @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
 * @ingroup    DATAIO
 * 
