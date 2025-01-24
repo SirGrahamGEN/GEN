@@ -754,7 +754,7 @@ bool DIOCOREPROTOCOL_CONNECTION::Update()
                                                                                   break;
                                                                                 }
 
-                                                                              if(IsServer())
+                                                                              if(!IsServer())
                                                                                 {                                                                                                                                  
                                                                                   if(GetMsg(false, DIOCOREPROTOCOL_HEADER_OPERATION_KEYEXCHANGE, DIOCOREPROTOCOL_KEYEXCHANGE_CLIENT_OPERATION_PARAM, header, content, protocol->GetProtocolCFG()->GetTimeOutNoResponse()))
                                                                                     {                                                                                   
@@ -873,7 +873,6 @@ bool DIOCOREPROTOCOL_CONNECTION::Update()
                                                                                   break;
                                                                                 }  
 
-
                                                                               if(!protocol)
                                                                                 {
                                                                                   break;
@@ -977,7 +976,7 @@ bool DIOCOREPROTOCOL_CONNECTION::Update()
                                                                                 SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_KEYEXCHANGE);                                                                          
                                                                                 break;  
 
-              case DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_KEYEXCHANGE           : if(IsServer())
+              case DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_KEYEXCHANGE           : if(!IsServer())
                                                                                   {          
                                                                                     XUUID   ID_message;                                                                          
                                                                                     XBUFFER publickey;
@@ -1610,9 +1609,12 @@ bool DIOCOREPROTOCOL_CONNECTION::GetMsg(bool isrequest, DIOCOREPROTOCOL_HEADER_O
     {
       if(xtimerstatus)
         {
-          if(xtimerstatus->GetMeasureSeconds() >= timeoutresponse)
-            { 
-              SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_DISCONNECTED);  
+          if(operation != DIOCOREPROTOCOL_HEADER_OPERATION_KEYEXCHANGE)
+            {
+              if(xtimerstatus->GetMeasureSeconds() >= timeoutresponse)
+                { 
+                  SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_DISCONNECTED);  
+                }
             }
         }                                                                                            
     }  
@@ -1686,9 +1688,12 @@ bool DIOCOREPROTOCOL_CONNECTION::GetMsg(bool isrequest, DIOCOREPROTOCOL_HEADER_O
     {
       if(xtimerstatus)
         {
-          if(xtimerstatus->GetMeasureSeconds() >= timeoutresponse)
-            { 
-              SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_DISCONNECTED);  
+          if(operation != DIOCOREPROTOCOL_HEADER_OPERATION_KEYEXCHANGE)
+            {
+              if(xtimerstatus->GetMeasureSeconds() >= timeoutresponse)
+                { 
+                  SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_DISCONNECTED);  
+                }
             }
         }                                                                                            
     }  
@@ -1763,9 +1768,12 @@ bool DIOCOREPROTOCOL_CONNECTION::GetMsg(bool isrequest, DIOCOREPROTOCOL_HEADER_O
     {
       if(xtimerstatus)
         {
-          if(xtimerstatus->GetMeasureSeconds() >= timeoutresponse)
-            { 
-              SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_DISCONNECTED);  
+          if(operation != DIOCOREPROTOCOL_HEADER_OPERATION_KEYEXCHANGE)
+            {
+              if(xtimerstatus->GetMeasureSeconds() >= timeoutresponse)
+                { 
+                  SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_DISCONNECTED);  
+                }
             }
         }                                                                                            
     }  

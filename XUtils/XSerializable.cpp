@@ -249,7 +249,7 @@ bool XSERIALIZABLE::DoSerialize()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XSERIALIZABLE::DoSerialize(XSERIALIZATIONMETHOD* serializationmethod)
 {
-  if(serializationmethod)
+  if(!serializationmethod)
     {
       return false;
     }
@@ -273,7 +273,7 @@ bool XSERIALIZABLE::DoSerialize(XSERIALIZATIONMETHOD* serializationmethod)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XSERIALIZABLE::DoDeserialize(XSERIALIZATIONMETHOD* serializationmethod)
 {
-  if(serializationmethod)
+  if(!serializationmethod)
     {
       return false;
     }

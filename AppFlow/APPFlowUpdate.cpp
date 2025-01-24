@@ -48,7 +48,7 @@
 #include "DIOApplicationUpdate.h"
 
 #include "APPFlowBase.h"
-#include "APPFLOWCFG.h"
+#include "APPFlowCFG.h"
 
 #pragma endregion
 

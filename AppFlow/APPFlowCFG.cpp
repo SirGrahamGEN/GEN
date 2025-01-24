@@ -37,7 +37,7 @@
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
-#include "APPFLOWCFG.h"
+#include "APPFlowCFG.h"
 
 #include "Common_DefaultXTraceCFG.h"
 

@@ -605,6 +605,27 @@ bool XPROCESSMANAGER::Application_Execute(XCHAR* applicationpath, XCHAR* params,
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         bool XPROCESSMANAGER::Application_Execute(XBUFFER* applicationpath, XBUFFER* params, XBUFFER* in, XBUFFER* out, int* returncode)
+* @brief      application  execute
+* @ingroup    XUTILS
+* 
+* @param[in]  applicationpath : 
+* @param[in]  params : 
+* @param[in]  in : 
+* @param[in]  out : 
+* @param[in]  returncode : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XPROCESSMANAGER::Application_Execute(XBUFFER* applicationpath, XBUFFER* params, XBUFFER* in, XBUFFER* out, int* returncode)
+{
+  return false;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         bool XPROCESSMANAGER::Application_Execute(XCHAR* applicationpath, XCHAR* params, XSTRING* in, XSTRING* out, int* returncode)
 * @brief      Application execute
 * @ingroup    XUTILS

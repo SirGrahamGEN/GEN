@@ -673,19 +673,21 @@ XDWORD DIOCOREPROTOCOL::ReceivedMsg(DIOCOREPROTOCOL_HEADER& header, XBUFFER& con
   
   readbuffer->ResetPosition();
 
-  if(readbuffer->GetSize() < DIOCOREPROTOCOL_HEADER_SIZE_ID)
+  //if(readbuffer->GetSize() < DIOCOREPROTOCOL_HEADER_SIZE_ID)
+  if(readbuffer->GetSize() < 100)
     {
       return 0;
     }
 
-  XDWORD start    = 0;
-  XDWORD sizeread = 0;
-  XDWORD index    = 0;
-  bool   status   = false;
+  XDWORD start      = 0;
+  XDWORD sizeread   = 0;
+  XDWORD offsetini  = 0;
+  XDWORD index      = 0;
+  bool   status     = false;
  
-  for(index=0; index<readbuffer->GetSize()-sizeof(XDWORD); index++)
+  for(offsetini=0; offsetini<readbuffer->GetSize()-sizeof(XDWORD); offsetini++)
     {
-      if(readbuffer->Get((XDWORD&)start, index))
+      if(readbuffer->Get((XDWORD&)start, offsetini))
         {
            if(start == DIOCOREPROTOCOL_HEADER_MAGIC_ID)
              {
@@ -694,9 +696,10 @@ XDWORD DIOCOREPROTOCOL::ReceivedMsg(DIOCOREPROTOCOL_HEADER& header, XBUFFER& con
         }
     }
 
-  if(readbuffer->Get((XDWORD&)start, index))
+  if(readbuffer->Get((XDWORD&)start, offsetini))
     {
       sizeread += sizeof(XDWORD);
+      index    += (offsetini + sizeof(XDWORD)); 
 
       // Compress Data
       if(start == DIOCOREPROTOCOL_HEADER_MAGIC_ID)
@@ -705,18 +708,36 @@ XDWORD DIOCOREPROTOCOL::ReceivedMsg(DIOCOREPROTOCOL_HEADER& header, XBUFFER& con
           XWORD   sizeheader    = 0;
           XWORD   sizeheadercmp = 0;
           XDWORD  crc32header   = 0;
+          int     totalsizemsg  = 0;
 
-          if(readbuffer->Get((XWORD&)sizeheader))
+          if(readbuffer->Get((XWORD&)sizeheader, index))
             {
               sizeread += sizeof(XWORD);
+              index    += sizeof(XWORD); 
 
-              if(readbuffer->Get((XWORD&)sizeheadercmp))
+              if(readbuffer->Get((XWORD&)sizeheadercmp, index))
                 {
                   sizeread += sizeof(XWORD);
+                  index    += sizeof(XWORD);
+                            
+                  if(sizeheadercmp)
+                    {     
+                      totalsizemsg += sizeheadercmp;
+                    }
+                    else
+                    {
+                      totalsizemsg += sizeheader;
+                    } 
 
-                  if(readbuffer->Get((XDWORD&)crc32header))
+                  if(totalsizemsg > readbuffer->GetSize())
+                    {
+                      return 0;  
+                    }  
+
+                  if(readbuffer->Get((XDWORD&)crc32header, index))
                     {
                       sizeread += sizeof(XDWORD);
+                      index    += sizeof(XDWORD);
   
                       if(sizeheader)
                         {       
@@ -764,11 +785,26 @@ XDWORD DIOCOREPROTOCOL::ReceivedMsg(DIOCOREPROTOCOL_HEADER& header, XBUFFER& con
 
                               XFILEJSON* headerxfileJSON = header.GetSerializationXFileJSON();
                               if(headerxfileJSON)
-                                {                                                                                                  
+                                {                                                                                                
+  
                                   header.GetSerializationXFileJSON()->AddBufferLines(XFILETXTFORMATCHAR_UTF8, headerbuffer);
                                   header.GetSerializationXFileJSON()->DecodeAllLines();
                                   header.DoDeserialize();
-                                } 
+                                }                               
+                                                                      
+                              if(header.GetContentCompressSize())
+                                {
+                                  totalsizemsg += header.GetContentCompressSize();
+                                }
+                               else
+                                {
+                                  totalsizemsg += header.GetContentSize();
+                                }   
+
+                              if(totalsizemsg > readbuffer->GetSize())
+                                {
+                                  return 0;  
+                                }  
 
                               if(header.GetContentCompressSize() || header.GetContentSize())
                                 {
@@ -780,7 +816,7 @@ XDWORD DIOCOREPROTOCOL::ReceivedMsg(DIOCOREPROTOCOL_HEADER& header, XBUFFER& con
                                   crc32contentcalc = hashCRC32.GetResultCRC32();
                               
                                   if(header.GetContentCRC32() == crc32contentcalc)
-                                    {        
+                                    {                                              
                                       if(header.GetContentCompressSize())
                                         {
                                           content.Resize(header.GetContentSize());
@@ -829,7 +865,7 @@ XDWORD DIOCOREPROTOCOL::ReceivedMsg(DIOCOREPROTOCOL_HEADER& header, XBUFFER& con
                           */
                           // ------------------------------------------------------------------------------------------------------------------------
                           
-                          status = readbuffer->Extract(NULL, 0, sizeread +  index);
+                          status = readbuffer->Extract(NULL, 0, sizeread +  offsetini);
 
                           if(!status)
                             {
