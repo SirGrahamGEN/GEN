@@ -148,7 +148,7 @@ int APPFLOWCHECKRESOURCESHARDWARE_XEVENT::GetActualTotalCPUUsage()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void APPFLOWCHECKRESOURCESHARDWARE_XEVENT::SetActualTotalCPUUsage(int& CPUusage)
-* @brief      Set actual total CPU usage
+* @brief      set actual total CPUusage
 * @ingroup    APPFLOW
 * 
 * @param[in]  CPUusage : 
@@ -156,7 +156,7 @@ int APPFLOWCHECKRESOURCESHARDWARE_XEVENT::GetActualTotalCPUUsage()
 * --------------------------------------------------------------------------------------------------------------------*/
 void APPFLOWCHECKRESOURCESHARDWARE_XEVENT::SetActualTotalCPUUsage(int& CPUusage)
 {
-  this->totalCPUusage = totalCPUusage;
+  this->totalCPUusage = CPUusage;
 }
 
 
@@ -173,12 +173,12 @@ int APPFLOWCHECKRESOURCESHARDWARE_XEVENT::GetActualAppCPUUsage()
 {
   return appCPUusage;
 }
- 
+
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void APPFLOWCHECKRESOURCESHARDWARE_XEVENT::SetActualAppCPUUsage(int& CPUusage)
-* @brief      Set actual app CPU usage
+* @brief      set actual app CPUusage
 * @ingroup    APPFLOW
 * 
 * @param[in]  CPUusage : 
@@ -186,7 +186,7 @@ int APPFLOWCHECKRESOURCESHARDWARE_XEVENT::GetActualAppCPUUsage()
 * --------------------------------------------------------------------------------------------------------------------*/
 void APPFLOWCHECKRESOURCESHARDWARE_XEVENT::SetActualAppCPUUsage(int& CPUusage)
 {
-  this->appCPUusage = appCPUusage;
+  this->appCPUusage = CPUusage;
 }
 
 

@@ -110,7 +110,7 @@ HASHSHA1::~HASHSHA1()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool HASHSHA1::Do(XBYTE* input, XQWORD size)
 {
-  XDWORD msgdigest[5];
+  XDWORD msgdigest[5] = { 0, 0, 0, 0, 0 };
 
   result->Delete();
 

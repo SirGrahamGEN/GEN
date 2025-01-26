@@ -211,53 +211,53 @@ XDWORD COMPRESS_LZW::LZW_GIF_Encode(XBYTE* dibbuffer,XBYTE* outbuffer,XDWORD dib
   if((hash == NULL) || (dibbuffer == NULL) || (outbuffer == NULL)) return 0;
 
   bymincode     = (colorbit == 1) ? 2 : colorbit;
-  LZWclear     = 1 << bymincode;
-  LZWend       = LZWclear + 1;
-  origin       = curin = dibbuffer;
-  curout       = outbuffer;
+  LZWclear      = 1 << bymincode;
+  LZWend        = LZWclear + 1;
+  origin        = curin = dibbuffer;
+  curout        = outbuffer;
   byinbit       = 8;
   byoutbit      = 0;
 
   m_dibwidth    = dibwidth;
   m_dibheight   = dibheight;
- currpixel   = 0;
-  currheight  = 0;
-  pitch       = 4 * ((dibwidth * bymincode + 31) / 32);
+  currpixel     = 0;
+  currheight    = 0;
+  pitch         = 4 * ((dibwidth * bymincode + 31) / 32);
 
-  XWORD Old;
-  XBYTE Pixel;
+  XWORD old;
+  XBYTE pixel;
 
   this->Encode_InitStringTable();
   this->Encode_WriteIndex(LZWclear);
 
-  Old = this->Encode_GetNextPixel();
+  old = this->Encode_GetNextPixel();
 
   while(currheight<m_dibheight)
     {
-      Pixel = this->Encode_GetNextPixel();
+      pixel = this->Encode_GetNextPixel();
 
-      if(this->Encode_IsInTable (Old, Pixel))
+      if(this->Encode_IsInTable (old, pixel))
         {
-          Old = hash[(Old << 8) | Pixel];
+          old = hash[(old << 8) | pixel];
         }
        else
         {
-          this->Encode_WriteIndex(Old);
-          this->Encode_AddStringToTable(Old, Pixel);
+          this->Encode_WriteIndex(old);
+          this->Encode_AddStringToTable(old, pixel);
 
-          Old = Pixel ;
+          old = pixel ;
           if(currtableindex == LZW_MAX_TABLE_SIZE)
             {
-              this->Encode_WriteIndex(Pixel);
+              this->Encode_WriteIndex(pixel);
               this->Encode_WriteIndex(LZWclear);
               this->Encode_InitStringTable();
 
-              Old = this->Encode_GetNextPixel();
+              old = this->Encode_GetNextPixel();
             }
         }
     }
 
-  this->Encode_WriteIndex(Old);
+  this->Encode_WriteIndex(old);
   this->Encode_WriteIndex(LZWend);
 
   delete [] hash;
@@ -285,16 +285,16 @@ void COMPRESS_LZW::LZW_GIF_Decode(XBYTE* inbuffer,XBYTE* dibbuffer,XDWORD dibwid
 
   if((strbegin == NULL) || (inbuffer == NULL) || (dibbuffer == NULL)) return;
 
-  curin      = inbuffer + 1;
-  curout     = dibbuffer;
+  curin       = inbuffer + 1;
+  curout      = dibbuffer;
   byinbit     = 0;
   bymincode   = *inbuffer;
-  LZWclear   = 1 << bymincode;
-  LZWend     = LZWclear + 1;
+  LZWclear    = 1 << bymincode;
+  LZWend      = LZWclear + 1;
 
   m_dibwidth  = dibwidth;
- currpixel = 0;
-  pitch     = 4 * ((dibwidth * 8 + 31) / 32);
+  currpixel   = 0;
+  pitch       = 4 * ((dibwidth * 8 + 31) / 32);
 
   byinterval  = binterlace ? 0 : 0xFF;
 
@@ -306,7 +306,7 @@ void COMPRESS_LZW::LZW_GIF_Decode(XBYTE* inbuffer,XBYTE* dibbuffer,XDWORD dibwid
     }
 
   XWORD code;
-  XWORD Old;
+  XWORD old = 0;
 
   this->Decode_InitStringTable();
 
@@ -320,12 +320,12 @@ void COMPRESS_LZW::LZW_GIF_Decode(XBYTE* inbuffer,XBYTE* dibbuffer,XDWORD dibwid
        else
         {
           if(this->Decode_IsInTable (code))
-                 this->Decode_AddStringToTable (Old, this->Decode_GetFirstChar (code));
-            else this->Decode_AddStringToTable (Old, this->Decode_GetFirstChar (Old));
+                 this->Decode_AddStringToTable (old, this->Decode_GetFirstChar (code));
+            else this->Decode_AddStringToTable (old, this->Decode_GetFirstChar (old));
         }
 
       this->Decode_WriteString_to8(code);
-      Old = code;
+      old = code;
     }
 
   delete [] strbegin;
@@ -565,35 +565,35 @@ XBYTE COMPRESS_LZW::Encode_GetNextPixel()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool COMPRESS_LZW::Encode_IsInTable(XWORD Old, XWORD Pixel)
+* @fn         bool COMPRESS_LZW::Encode_IsInTable(XWORD old, XWORD pixel)
 * @brief      Encode is in table
 * @ingroup    COMPRESS
 * 
-* @param[in]  Old : 
-* @param[in]  Pixel : 
+* @param[in]  old : 
+* @param[in]  pixel : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool COMPRESS_LZW::Encode_IsInTable(XWORD Old, XWORD Pixel)
+bool COMPRESS_LZW::Encode_IsInTable(XWORD old, XWORD pixel)
 {
-  return (hash[(Old << 8) | Pixel] != 0);
+  return (hash[(old << 8) | pixel] != 0);
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void COMPRESS_LZW::Encode_AddStringToTable(XWORD Old, XWORD Pixel)
+* @fn         void COMPRESS_LZW::Encode_AddStringToTable(XWORD old, XWORD pixel)
 * @brief      Encode add string to table
 * @ingroup    COMPRESS
 * 
-* @param[in]  Old : 
-* @param[in]  Pixel : 
+* @param[in]  old : 
+* @param[in]  pixel : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void COMPRESS_LZW::Encode_AddStringToTable(XWORD Old, XWORD Pixel)
+void COMPRESS_LZW::Encode_AddStringToTable(XWORD old, XWORD pixel)
 {
-  hash[(Old << 8) | Pixel] = currtableindex++;
+  hash[(old << 8) | pixel] = currtableindex++;
 
   if ((currtableindex == 0x009) || (currtableindex == 0x011) ||
       (currtableindex == 0x021) || (currtableindex == 0x041) ||

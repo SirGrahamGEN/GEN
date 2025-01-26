@@ -253,7 +253,10 @@ bool CIPHERAES::Cipher(XBYTE* input,XDWORD size)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool CIPHERAES::Uncipher(XBYTE* input, XDWORD size)
 {
-  if(!size) return false;
+  if(size == 0) 
+    {
+      return false;
+    }
 
   CIPHERAES_CONTEXT ctx;
   XBYTE             iv[16];

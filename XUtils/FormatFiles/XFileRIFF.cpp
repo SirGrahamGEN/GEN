@@ -382,47 +382,70 @@ bool XFILERIFF::ReadAllLists()
   XDWORD               typelist = 0;  
   XFILERIFF_LIST_NODE* root;   
   XFILERIFF_LIST*      root_data;
-//bool                 status   = false;   
+
 
   root_data = new XFILERIFF_LIST();
-  if(!root_data) return false;
-   
-  if(!xfilebase->Read((XBYTE*)&type, sizeof(XDWORD)))                   return false;
-  if((type != XFILERIFF_TYPE_RIFF) && (type != XFILERIFF_TYPE_LIST))    return false;
-
-  if(!xfilebase->Read((XBYTE*)&size, sizeof(XDWORD)))      return false;
-  if(!size) return false;
-
-  if(!xfilebase->Read((XBYTE*)&typelist, sizeof(XDWORD)))  return false;
-
-  //XDWORD sizedata         = size - (sizeof(XDWORD)*2);   
-  XQWORD positionfiledata = 0;
-    
-  xfilebase->GetPosition(positionfiledata);
-
-  root_data->SetType(type);
-  root_data->SetSize(size - sizeof(XDWORD));
-  root_data->SetTypeList(typelist);
-  root_data->SetPositionFileData(positionfiledata);
-  
-  XSTRING string;
-  ConvertDWORDtoString(typelist, string);
-
-  //XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[LIST] %s"), string.Get());   
- 
-  root = new XFILERIFF_LIST_NODE(root_data);
-  if(!root) 
+  if(!root_data) 
     {
-      delete root;
+      return false;
+    }
+   
+  if(!xfilebase->Read((XBYTE*)&type, sizeof(XDWORD)))                   
+    { 
+      delete root_data;
+      return false;
+    }    
+ 
+  if((type != XFILERIFF_TYPE_RIFF) && (type != XFILERIFF_TYPE_LIST))    
+    {
+      delete root_data;
       return false;
     }
 
-  xtreelist.SetRoot(root);
+  if(!xfilebase->Read((XBYTE*)&size, sizeof(XDWORD)))      
+    {
+      delete root_data;
+      return false;
+    }
 
-  XQWORD size_calculed = ReadNodeLists(root);
-  if((size_calculed + sizeof(XDWORD)) != size) return false;
+  if(!size) 
+    {
+      delete root_data;
+      return false;
+    }
 
-  return true;
+  if(xfilebase->Read((XBYTE*)&typelist, sizeof(XDWORD)))  
+    {          
+      XQWORD positionfiledata = 0;
+    
+      xfilebase->GetPosition(positionfiledata);
+
+      root_data->SetType(type);
+      root_data->SetSize(size - sizeof(XDWORD));
+      root_data->SetTypeList(typelist);
+      root_data->SetPositionFileData(positionfiledata);
+  
+      XSTRING string;
+      ConvertDWORDtoString(typelist, string);
+
+      //XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[LIST] %s"), string.Get());   
+ 
+      root = new XFILERIFF_LIST_NODE(root_data);
+      if(root) 
+        {        
+          xtreelist.SetRoot(root);
+
+          XQWORD size_calculed = ReadNodeLists(root);
+          if((size_calculed + sizeof(XDWORD)) == size) 
+            {
+              return true;
+            }
+        }
+    }
+ 
+  delete root_data;
+
+  return false;
 }
 
 

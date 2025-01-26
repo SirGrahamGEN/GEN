@@ -84,9 +84,9 @@ class COMPRESS_LZW : public COMPRESSBASE
     void                   Decode_SwitchToFollowLine          ();
     void                   Encode_InitStringTable             ();
     XBYTE                  Encode_GetNextPixel                ();
-    bool                   Encode_IsInTable                   (XWORD Old, XWORD Pixel);
-    void                   Encode_AddStringToTable            (XWORD Old, XWORD Pixel);
-    void                   Encode_WriteIndex                  (XDWORD wIndex);
+    bool                   Encode_IsInTable                   (XWORD old, XWORD pixel);
+    void                   Encode_AddStringToTable            (XWORD old, XWORD pixel);
+    void                   Encode_WriteIndex                  (XDWORD windex);
 
     LZW_STRING*            strbegin;
     XWORD*                 hash;
