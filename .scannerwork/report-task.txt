@@ -1,0 +1,6 @@
+projectKey=glpat-cTcnXnWMTZ7TM415pjJN
+serverUrl=http://192.168.1.25:9000
+serverVersion=10.8.1.101195
+dashboardUrl=http://192.168.1.25:9000/dashboard?id=glpat-cTcnXnWMTZ7TM415pjJN
+ceTaskId=11205d98-ac45-42c9-ba4b-4beda8a32947
+ceTaskUrl=http://192.168.1.25:9000/api/ce/task?id=11205d98-ac45-42c9-ba4b-4beda8a32947

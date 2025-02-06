@@ -120,61 +120,91 @@ void DIOCOREPROTOCOL_CFG::SetIsServer(bool isserver)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOCOREPROTOCOL_CFG::GetCompressHeader()
-* @brief      Get compress header
+* @fn         bool DIOCOREPROTOCOL_CFG::GetIsCompressHeader()
+* @brief      get is compress header
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOCOREPROTOCOL_CFG::GetCompressHeader()
+bool DIOCOREPROTOCOL_CFG::GetIsCompressHeader()
 {
-  return compressheader;
+  return iscompressheader;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void DIOCOREPROTOCOL_CFG::SetCompressHeader(bool compressheader)
-* @brief      Set compress header
+* @fn         void DIOCOREPROTOCOL_CFG::SetIsCompressHeader(bool iscompressheader)
+* @brief      set is compress header
 * @ingroup    DATAIO
 * 
-* @param[in]  compressheader : 
+* @param[in]  iscompressheader : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void DIOCOREPROTOCOL_CFG::SetCompressHeader(bool compressheader)
+void DIOCOREPROTOCOL_CFG::SetIsCompressHeader(bool iscompressheader)
 {
-  this->compressheader = compressheader;
+  this->iscompressheader = iscompressheader;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOCOREPROTOCOL_CFG::GetCompressContent()
-* @brief      Get compress content
+* @fn         bool DIOCOREPROTOCOL_CFG::GetIsCompressContent()
+* @brief      get is compress content
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOCOREPROTOCOL_CFG::GetCompressContent()
+bool DIOCOREPROTOCOL_CFG::GetIsCompressContent()
 {
-  return compresscontent;
+  return iscompresscontent;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void DIOCOREPROTOCOL_CFG::SetCompressContent(bool compresscontent)
-* @brief      Set compress content
+* @fn         void DIOCOREPROTOCOL_CFG::SetIsCompressContent(bool iscompresscontent)
+* @brief      set is compress content
 * @ingroup    DATAIO
 * 
-* @param[in]  compresscontent : 
+* @param[in]  iscompresscontent : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void DIOCOREPROTOCOL_CFG::SetCompressContent(bool compresscontent)
+void DIOCOREPROTOCOL_CFG::SetIsCompressContent(bool iscompresscontent)
 {
-  this->compresscontent = compresscontent;
+  this->iscompresscontent;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOCOREPROTOCOL_CFG::GetIsEncapsulatedBase64()
+* @brief      get is encapsulated base64
+* @ingroup    DATAIO
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOCOREPROTOCOL_CFG::GetIsEncapsulatedBase64()
+{
+  return isencapsulatedbase64;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOCOREPROTOCOL_CFG::SetIsEncapsulatedBase64(bool isencapsulatedbase64)
+* @brief      set is encapsulated base64
+* @ingroup    DATAIO
+* 
+* @param[in]  isencapsulatedbase64 : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIOCOREPROTOCOL_CFG::SetIsEncapsulatedBase64(bool isencapsulatedbase64)
+{
+  this->isencapsulatedbase64 = isencapsulatedbase64;
 }
 
 
@@ -368,8 +398,11 @@ void DIOCOREPROTOCOL_CFG::SetNTrysToCheckConnection(XDWORD ntrystocheckconnectio
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOCOREPROTOCOL_CFG::Clean()
 {
-  compressheader                        = false;      
-  compresscontent                       = false;
+  isserver                              = false;
+
+  iscompressheader                      = false;      
+  iscompresscontent                     = false;
+  isencapsulatedbase64                  = false;
   minsizecompresscontent                = DIOCOREPROTOCOL_CFG_DEFAULT_MINSIZECOMPRESS;
 
   iscipher                              = false;

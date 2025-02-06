@@ -70,10 +70,14 @@ class DIOCOREPROTOCOL_CFG
     bool                                      GetIsServer                               ();
     void                                      SetIsServer                               (bool isserver);
 
-    bool                                      GetCompressHeader                         ();
-    void                                      SetCompressHeader                         (bool compressheader);
-    bool                                      GetCompressContent                        ();
-    void                                      SetCompressContent                        (bool compresscontent);
+    bool                                      GetIsCompressHeader                       ();
+    void                                      SetIsCompressHeader                       (bool iscompressheader);
+    bool                                      GetIsCompressContent                      ();
+    void                                      SetIsCompressContent                      (bool iscompresscontent);
+
+    bool                                      GetIsEncapsulatedBase64                   ();
+    void                                      SetIsEncapsulatedBase64                   (bool isencapsulatedbase64);
+
     XDWORD                                    GetMinSizeCompressContent                 ();
     void                                      SetMinSizeCompressContent                 (XDWORD minsizecompresscontent);
 
@@ -98,8 +102,9 @@ class DIOCOREPROTOCOL_CFG
 
     bool                                      isserver;
 
-    bool                                      compressheader;
-    bool                                      compresscontent;
+    bool                                      iscompressheader;
+    bool                                      iscompresscontent;
+    bool                                      isencapsulatedbase64;  
     XDWORD                                    minsizecompresscontent;    
     
     bool                                      iscipher;

@@ -90,6 +90,7 @@ DIOCOREPROTOCOL_CONNECTION::DIOCOREPROTOCOL_CONNECTION() : XFSMACHINE(0)
 
   xtimerstatus            = GEN_XFACTORY.CreateTimer();
   xtimerwithoutconnexion  = GEN_XFACTORY.CreateTimer();
+  xtimeroutresponse       = GEN_XFACTORY.CreateTimer();
 
   InitFSMachine();
 
@@ -138,6 +139,11 @@ DIOCOREPROTOCOL_CONNECTION::~DIOCOREPROTOCOL_CONNECTION()
       GEN_XFACTORY.DeleteTimer(xtimerwithoutconnexion);
     }
 
+  if(xtimeroutresponse)
+    {
+      GEN_XFACTORY.DeleteTimer(xtimeroutresponse);
+    }
+
   Clean();
 }
 
@@ -174,6 +180,11 @@ bool DIOCOREPROTOCOL_CONNECTION::InitFSMachine()
                 XFSMACHINESTATE_EVENTDEFEND)) return false;
 
   if(!AddState( DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_REGISTRATION       ,
+                DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_WAITREADY          ,  DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_WAITREADY           ,
+                DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_DISCONNECTED       ,  DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_DISCONNECTED        ,                
+                XFSMACHINESTATE_EVENTDEFEND)) return false;
+
+  if(!AddState( DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_WAITREADY          ,
                 DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_READY              ,  DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_READY               ,
                 DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_DISCONNECTED       ,  DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_DISCONNECTED        ,                
                 XFSMACHINESTATE_EVENTDEFEND)) return false;
@@ -384,6 +395,7 @@ bool DIOCOREPROTOCOL_CONNECTION::Status_GetString(DIOCOREPROTOCOL_CONNECTION_STA
       case DIOCOREPROTOCOL_CONNECTION_STATUS_KEYEXCHANGE    : statusstring = __L("Key exchange");         break;
       case DIOCOREPROTOCOL_CONNECTION_STATUS_AUTHENTICATED  : statusstring = __L("Authenticated");        break;
       case DIOCOREPROTOCOL_CONNECTION_STATUS_REGISTERED     : statusstring = __L("Registered");           break;
+      case DIOCOREPROTOCOL_CONNECTION_STATUS_WAITREADY      : statusstring = __L("WaitReady");            break;
       case DIOCOREPROTOCOL_CONNECTION_STATUS_READY          : statusstring = __L("Ready");                break;
       case DIOCOREPROTOCOL_CONNECTION_STATUS_INSTABILITY    : statusstring = __L("Instability");          break;
       case DIOCOREPROTOCOL_CONNECTION_STATUS_DISCONNECTED   : statusstring = __L("Disconnected");         break;
@@ -754,9 +766,21 @@ bool DIOCOREPROTOCOL_CONNECTION::Update()
                                                                                   break;
                                                                                 }
 
+                                                                              if(protocol->GetProtocolCFG()->GetTimeOutNoResponse())
+                                                                                {
+                                                                                  if(xtimeroutresponse)              
+                                                                                    {
+                                                                                      if(xtimeroutresponse->GetMeasureSeconds() >= protocol->GetProtocolCFG()->GetTimeOutNoResponse())
+                                                                                        {
+                                                                                          // First state don´t disconnected the secuence.
+                                                                                          // SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_DISCONNECTED);
+                                                                                        }
+                                                                                    }
+                                                                                }
+
                                                                               if(!IsServer())
                                                                                 {                                                                                                                                  
-                                                                                  if(GetMsg(false, DIOCOREPROTOCOL_HEADER_OPERATION_KEYEXCHANGE, DIOCOREPROTOCOL_KEYEXCHANGE_CLIENT_OPERATION_PARAM, header, content, protocol->GetProtocolCFG()->GetTimeOutNoResponse()))
+                                                                                  if(GetMsg(false, DIOCOREPROTOCOL_HEADER_OPERATION_KEYEXCHANGE, DIOCOREPROTOCOL_KEYEXCHANGE_CLIENT_OPERATION_PARAM, header, content))
                                                                                     {                                                                                   
                                                                                       if(header.GetContentType() == DIOCOREPROTOCOL_HEADER_CONTENTTYPE_BINARY)
                                                                                         {
@@ -775,7 +799,7 @@ bool DIOCOREPROTOCOL_CONNECTION::Update()
                                                                                 }                                                                                                                                                                                                                                                                                             
                                                                                else   
                                                                                 {                                                                                     
-                                                                                  if(GetMsg(true, DIOCOREPROTOCOL_HEADER_OPERATION_KEYEXCHANGE, DIOCOREPROTOCOL_KEYEXCHANGE_SERVER_OPERATION_PARAM, header, content, protocol->GetProtocolCFG()->GetTimeOutNoResponse()))
+                                                                                  if(GetMsg(true, DIOCOREPROTOCOL_HEADER_OPERATION_KEYEXCHANGE, DIOCOREPROTOCOL_KEYEXCHANGE_SERVER_OPERATION_PARAM, header, content))
                                                                                     {                                                                                      
                                                                                       if(header.GetContentType() == DIOCOREPROTOCOL_HEADER_CONTENTTYPE_BINARY)
                                                                                         {
@@ -815,9 +839,20 @@ bool DIOCOREPROTOCOL_CONNECTION::Update()
                                                                                   break;
                                                                                 }
 
+                                                                              if(protocol->GetProtocolCFG()->GetTimeOutNoResponse())
+                                                                                {
+                                                                                  if(xtimeroutresponse)              
+                                                                                    {
+                                                                                      if(xtimeroutresponse->GetMeasureSeconds() >= protocol->GetProtocolCFG()->GetTimeOutNoResponse())
+                                                                                        {
+                                                                                          SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_DISCONNECTED);  
+                                                                                        }
+                                                                                    }
+                                                                                }
+
                                                                               if(IsServer())
                                                                                 {      
-                                                                                  if(GetMsg(false, DIOCOREPROTOCOL_HEADER_OPERATION_AUTHENTICATE, DIOCOREPROTOCOL_AUTHENTICATION_RESPONSE_OPERATION_PARAM, header, content, protocol->GetProtocolCFG()->GetTimeOutNoResponse()))
+                                                                                  if(GetMsg(false, DIOCOREPROTOCOL_HEADER_OPERATION_AUTHENTICATE, DIOCOREPROTOCOL_AUTHENTICATION_RESPONSE_OPERATION_PARAM, header, content))
                                                                                     {
                                                                                       if(GetAuthenticationResponse()->Compare(content))
                                                                                         {
@@ -833,7 +868,7 @@ bool DIOCOREPROTOCOL_CONNECTION::Update()
                                                                                 }
                                                                                else 
                                                                                 {
-                                                                                  if(GetMsg(true, DIOCOREPROTOCOL_HEADER_OPERATION_AUTHENTICATE, DIOCOREPROTOCOL_AUTHENTICATION_CHALLENGE_OPERATION_PARAM, header, content, protocol->GetProtocolCFG()->GetTimeOutNoResponse()))
+                                                                                  if(GetMsg(true, DIOCOREPROTOCOL_HEADER_OPERATION_AUTHENTICATE, DIOCOREPROTOCOL_AUTHENTICATION_CHALLENGE_OPERATION_PARAM, header, content))
                                                                                     {
                                                                                       static bool sended =  false;
                                                                                       if(!sended)
@@ -877,12 +912,23 @@ bool DIOCOREPROTOCOL_CONNECTION::Update()
                                                                                 {
                                                                                   break;
                                                                                 }
+
+                                                                              if(protocol->GetProtocolCFG()->GetTimeOutNoResponse())
+                                                                                {
+                                                                                  if(xtimeroutresponse)              
+                                                                                    {
+                                                                                      if(xtimeroutresponse->GetMeasureSeconds() >= protocol->GetProtocolCFG()->GetTimeOutNoResponse())
+                                                                                        {
+                                                                                          SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_DISCONNECTED);  
+                                                                                        }
+                                                                                    }
+                                                                                }
    
                                                                               GetRegisterData()->SetSerializationMethod(serializationmethod);                                                           
   
                                                                               if(IsServer())
                                                                                 { 
-                                                                                  if(GetMsg(true, DIOCOREPROTOCOL_HEADER_OPERATION_REGISTERDATA, DIOCOREPROTOCOL_REGISTRATIONDATA_SEND_OPERATION_PARAM, header, classcontent, protocol->GetProtocolCFG()->GetTimeOutNoResponse()))
+                                                                                  if(GetMsg(true, DIOCOREPROTOCOL_HEADER_OPERATION_REGISTERDATA, DIOCOREPROTOCOL_REGISTRATIONDATA_SEND_OPERATION_PARAM, header, classcontent))
                                                                                     { 
                                                                                       static bool sended =  false;
 
@@ -916,7 +962,7 @@ bool DIOCOREPROTOCOL_CONNECTION::Update()
                                                                                                   messages.DeleteAll();
 
                                                                                                   Status_Set(DIOCOREPROTOCOL_CONNECTION_STATUS_REGISTERED); 
-                                                                                                  SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_READY);                                                                                               
+                                                                                                  SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_WAITREADY);                                                                                               
                                                                                                 }
 
                                                                                               sended = false;
@@ -932,7 +978,7 @@ bool DIOCOREPROTOCOL_CONNECTION::Update()
                                                                                 }
                                                                                else 
                                                                                 {
-                                                                                  if(GetMsg(false, DIOCOREPROTOCOL_HEADER_OPERATION_REGISTERDATA, DIOCOREPROTOCOL_REGISTRATIONDATA_RESPONSE_OPERATION_PARAM, header, classcontent, protocol->GetProtocolCFG()->GetTimeOutNoResponse()))
+                                                                                  if(GetMsg(false, DIOCOREPROTOCOL_HEADER_OPERATION_REGISTERDATA, DIOCOREPROTOCOL_REGISTRATIONDATA_RESPONSE_OPERATION_PARAM, header, classcontent))
                                                                                     {
                                                                                       GetRegisterData()->Deserialize();   
 
@@ -943,7 +989,7 @@ bool DIOCOREPROTOCOL_CONNECTION::Update()
                                                                                       messages.DeleteAll();
 
                                                                                       Status_Set(DIOCOREPROTOCOL_CONNECTION_STATUS_REGISTERED); 
-                                                                                      SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_READY);                                                                                                                                                                                                                                                                                      
+                                                                                      SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_WAITREADY);                                                                                                                                                                                                                                                                                      
                                                                                     }                                                                                                                                                             
                                                                                 }
 
@@ -952,6 +998,30 @@ bool DIOCOREPROTOCOL_CONNECTION::Update()
                                                                                   delete serializationmethod;
                                                                                   serializationmethod = NULL;  
                                                                                 }                                                                                           
+                                                                            }
+                                                                            break; 
+
+          case DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_WAITREADY             : { DIOCOREPROTOCOL_HEADER  header;
+                                                                              XSTRING                 content;
+
+                                                                              if(protocol->GetProtocolCFG()->GetTimeOutNoResponse())
+                                                                                {
+                                                                                  if(xtimeroutresponse)              
+                                                                                    {
+                                                                                      if(xtimeroutresponse->GetMeasureSeconds() >= protocol->GetProtocolCFG()->GetTimeOutNoResponse())
+                                                                                        {    
+                                                                                          SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_DISCONNECTED);                                                                                            
+                                                                                        }
+                                                                                    }
+                                                                                }
+
+                                                                              if(IsServer())
+                                                                                { 
+                                                                                  if(GetMsg(true, DIOCOREPROTOCOL_HEADER_OPERATION_TOREADY, DIOCOREPROTOCOL_WAITREADY_SEND_OPERATION_PARAM, header, content))
+                                                                                    {                                                                                      
+                                                                                      SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_READY);                                                                                      
+                                                                                    }
+                                                                                }                                                                               
                                                                             }
                                                                             break; 
    
@@ -967,6 +1037,11 @@ bool DIOCOREPROTOCOL_CONNECTION::Update()
       if(GetEvent()<DIOCOREPROTOCOL_CONNECTION_LASTEVENT)
         {
           CheckTransition();
+
+          if(xtimeroutresponse)              
+            {
+              xtimeroutresponse->Reset();
+            }
 
           switch(GetCurrentState())
             {
@@ -984,7 +1059,7 @@ bool DIOCOREPROTOCOL_CONNECTION::Update()
                                                                                     publickey.Add(ciphercurve.GetKey(CIPHERCURVE25519_TYPEKEY_PUBLIC), CIPHERCURVE25519_MAXKEY);
 
                                                                                     SendMsg(&ID_message, DIOCOREPROTOCOL_HEADER_OPERATION_KEYEXCHANGE, DIOCOREPROTOCOL_KEYEXCHANGE_SERVER_OPERATION_PARAM, &publickey);
-                                                                                  }
+                                                                                  }                                                                               
                                                                                 break;
                 
               case DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_AUTHENTICATION        : if(IsServer())
@@ -1023,6 +1098,19 @@ bool DIOCOREPROTOCOL_CONNECTION::Update()
                                                                                     SendMsg(&ID_message, DIOCOREPROTOCOL_HEADER_OPERATION_REGISTERDATA, DIOCOREPROTOCOL_REGISTRATIONDATA_SEND_OPERATION_PARAM, &classcontent);
                                                                                   }                                                                              
                                                                                 break;  
+
+              case DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_WAITREADY             : Status_Set(DIOCOREPROTOCOL_CONNECTION_STATUS_WAITREADY);
+
+                                                                                if(!IsServer())
+                                                                                  {   
+                                                                                    XUUID   ID_message;      
+                                                                                    XSTRING content;                                                                                                                                                   
+
+                                                                                    SendMsg(&ID_message, DIOCOREPROTOCOL_HEADER_OPERATION_TOREADY, DIOCOREPROTOCOL_WAITREADY_SEND_OPERATION_PARAM, &content);
+
+                                                                                    SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_READY);           
+                                                                                  }                                                                                  
+                                                                                break; 
              
               case DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_READY                 : Status_Set(DIOCOREPROTOCOL_CONNECTION_STATUS_READY); 
                                                                                 break; 
@@ -1031,6 +1119,8 @@ bool DIOCOREPROTOCOL_CONNECTION::Update()
                                                                                 break;
 
               case DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_DISCONNECTED          : Status_Set(DIOCOREPROTOCOL_CONNECTION_STATUS_DISCONNECTED);  
+
+                                                                                messages.DeleteAll(); 
 
                                                                                 if(GetCoreProtocol())
                                                                                   {
@@ -1452,7 +1542,7 @@ bool DIOCOREPROTOCOL_CONNECTION::SendMsg(XUUID* ID_message, DIOCOREPROTOCOL_HEAD
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL_CONNECTION::SendMsg(XUUID* ID_message, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XFILEJSON* content)
-* @brief      Send msg
+* @brief      send msg
 * @ingroup    DATAIO
 * 
 * @param[in]  ID_message : 
@@ -1547,8 +1637,8 @@ bool DIOCOREPROTOCOL_CONNECTION::SendMsg(XUUID* ID_message, DIOCOREPROTOCOL_HEAD
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOCOREPROTOCOL_CONNECTION::GetMsg(bool isrequest, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, DIOCOREPROTOCOL_HEADER& header, XBUFFER& content, XDWORD timeoutresponse)
-* @brief      Get msg
+* @fn         bool DIOCOREPROTOCOL_CONNECTION::GetMsg(bool isrequest, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, DIOCOREPROTOCOL_HEADER& header, XBUFFER& content)
+* @brief      get msg
 * @ingroup    DATAIO
 * 
 * @param[in]  isrequest : 
@@ -1556,12 +1646,11 @@ bool DIOCOREPROTOCOL_CONNECTION::SendMsg(XUUID* ID_message, DIOCOREPROTOCOL_HEAD
 * @param[in]  operation_param : 
 * @param[in]  header : 
 * @param[in]  content : 
-* @param[in]  timeoutresponse : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOCOREPROTOCOL_CONNECTION::GetMsg(bool isrequest, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, DIOCOREPROTOCOL_HEADER& header, XBUFFER& content, XDWORD timeoutresponse)
+bool DIOCOREPROTOCOL_CONNECTION::GetMsg(bool isrequest, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, DIOCOREPROTOCOL_HEADER& header, XBUFFER& content)
 {
   int index = NOTFOUND;
 
@@ -1569,11 +1658,6 @@ bool DIOCOREPROTOCOL_CONNECTION::GetMsg(bool isrequest, DIOCOREPROTOCOL_HEADER_O
     {
       return false;  
     }   
- 
-  if(protocol->GetProtocolCFG())
-    {
-      timeoutresponse = protocol->GetProtocolCFG()->GetTimeOutNoResponse();
-    }
  
   if(isrequest)
     {
@@ -1605,19 +1689,6 @@ bool DIOCOREPROTOCOL_CONNECTION::GetMsg(bool isrequest, DIOCOREPROTOCOL_HEADER_O
           return true;
         }
     }
-   else
-    {
-      if(xtimerstatus)
-        {
-          if(operation != DIOCOREPROTOCOL_HEADER_OPERATION_KEYEXCHANGE)
-            {
-              if(xtimerstatus->GetMeasureSeconds() >= timeoutresponse)
-                { 
-                  SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_DISCONNECTED);  
-                }
-            }
-        }                                                                                            
-    }  
 
   return false;
 }
@@ -1625,8 +1696,8 @@ bool DIOCOREPROTOCOL_CONNECTION::GetMsg(bool isrequest, DIOCOREPROTOCOL_HEADER_O
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOCOREPROTOCOL_CONNECTION::GetMsg(bool isrequest, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, DIOCOREPROTOCOL_HEADER& header, XSTRING& content, XDWORD timeoutresponse)
-* @brief      Get msg
+* @fn         bool DIOCOREPROTOCOL_CONNECTION::GetMsg(bool isrequest, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, DIOCOREPROTOCOL_HEADER& header, XSTRING& content)
+* @brief      get msg
 * @ingroup    DATAIO
 * 
 * @param[in]  isrequest : 
@@ -1634,12 +1705,11 @@ bool DIOCOREPROTOCOL_CONNECTION::GetMsg(bool isrequest, DIOCOREPROTOCOL_HEADER_O
 * @param[in]  operation_param : 
 * @param[in]  header : 
 * @param[in]  content : 
-* @param[in]  timeoutresponse : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOCOREPROTOCOL_CONNECTION::GetMsg(bool isrequest, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, DIOCOREPROTOCOL_HEADER& header, XSTRING& content, XDWORD timeoutresponse)
+bool DIOCOREPROTOCOL_CONNECTION::GetMsg(bool isrequest, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, DIOCOREPROTOCOL_HEADER& header, XSTRING& content)
 {
   int index = NOTFOUND;
 
@@ -1647,12 +1717,7 @@ bool DIOCOREPROTOCOL_CONNECTION::GetMsg(bool isrequest, DIOCOREPROTOCOL_HEADER_O
     {
       return false;  
     }   
- 
-  if(protocol->GetProtocolCFG())
-    {
-      timeoutresponse = protocol->GetProtocolCFG()->GetTimeOutNoResponse();
-    }
- 
+  
   if(isrequest)
     {
       index = Messages_GetAll()->FindRequest(operation, operation_param);                                                                        
@@ -1684,28 +1749,15 @@ bool DIOCOREPROTOCOL_CONNECTION::GetMsg(bool isrequest, DIOCOREPROTOCOL_HEADER_O
           return true;
         }
     }
-   else
-    {
-      if(xtimerstatus)
-        {
-          if(operation != DIOCOREPROTOCOL_HEADER_OPERATION_KEYEXCHANGE)
-            {
-              if(xtimerstatus->GetMeasureSeconds() >= timeoutresponse)
-                { 
-                  SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_DISCONNECTED);  
-                }
-            }
-        }                                                                                            
-    }  
 
   return false;
 }
- 
 
+ 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOCOREPROTOCOL_CONNECTION::GetMsg(bool isrequest, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, DIOCOREPROTOCOL_HEADER& header, XFILEJSON& content, XDWORD timeoutresponse)
-* @brief      Get msg
+* @fn         bool DIOCOREPROTOCOL_CONNECTION::GetMsg(bool isrequest, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, DIOCOREPROTOCOL_HEADER& header, XFILEJSON& content)
+* @brief      get msg
 * @ingroup    DATAIO
 * 
 * @param[in]  isrequest : 
@@ -1713,12 +1765,11 @@ bool DIOCOREPROTOCOL_CONNECTION::GetMsg(bool isrequest, DIOCOREPROTOCOL_HEADER_O
 * @param[in]  operation_param : 
 * @param[in]  header : 
 * @param[in]  content : 
-* @param[in]  timeoutresponse : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOCOREPROTOCOL_CONNECTION::GetMsg(bool isrequest, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, DIOCOREPROTOCOL_HEADER& header, XFILEJSON& content, XDWORD timeoutresponse)
+bool DIOCOREPROTOCOL_CONNECTION::GetMsg(bool isrequest, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, DIOCOREPROTOCOL_HEADER& header, XFILEJSON& content)
 {
   int index = NOTFOUND;
 
@@ -1726,11 +1777,6 @@ bool DIOCOREPROTOCOL_CONNECTION::GetMsg(bool isrequest, DIOCOREPROTOCOL_HEADER_O
     {
       return false;  
     }   
- 
-  if(protocol->GetProtocolCFG())
-    {
-      timeoutresponse = protocol->GetProtocolCFG()->GetTimeOutNoResponse();
-    }
  
   if(isrequest)
     {
@@ -1764,20 +1810,7 @@ bool DIOCOREPROTOCOL_CONNECTION::GetMsg(bool isrequest, DIOCOREPROTOCOL_HEADER_O
           return true;
         }
     }
-   else
-    {
-      if(xtimerstatus)
-        {
-          if(operation != DIOCOREPROTOCOL_HEADER_OPERATION_KEYEXCHANGE)
-            {
-              if(xtimerstatus->GetMeasureSeconds() >= timeoutresponse)
-                { 
-                  SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_DISCONNECTED);  
-                }
-            }
-        }                                                                                            
-    }  
-
+ 
   return false;
 }
 
@@ -1798,6 +1831,8 @@ void DIOCOREPROTOCOL_CONNECTION::Clean()
 
   xtimerstatus            = NULL;
   xtimerwithoutconnexion  = NULL;
+  xtimeroutresponse       = NULL;
+
   heartbetscounter        = 0;
 
   registerdata            = NULL;

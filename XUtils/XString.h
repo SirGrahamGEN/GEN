@@ -263,7 +263,8 @@ class GEN_API_LIB XSTRING
 
     int                   Replace                         (XCHAR* findWhat, XCHAR* replaceBy);
     int                   ReplaceFirst                    (XCHAR* findWhat, XCHAR* replaceBy);
-    bool                  Insert                          (XSTRING str, XDWORD position);
+    bool                  Insert                          (XCHAR* str,XDWORD position = 0);
+    bool                  Insert                          (XSTRING& str, XDWORD position = 0);
 
     bool                  ConvertFromNULL                 (bool uppercase);
     bool                  ConvertFromBoolean              (bool boolean, XBYTE mode = XSTRINGBOOLEANMODE_COMPUTER);

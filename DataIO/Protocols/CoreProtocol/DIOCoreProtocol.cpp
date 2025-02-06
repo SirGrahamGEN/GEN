@@ -40,6 +40,7 @@
 #include "DIOCoreProtocol.h"
 
 #include "XFactory.h"
+#include "XBuffer.h"
 #include "XString.h"
 #include "XFileJSON.h"
 #include "XDateTime.h"
@@ -485,13 +486,22 @@ DIOCOREPROTOCOL::DIOCOREPROTOCOL(DIOCOREPROTOCOL_CFG* protocolCFG, DIOSTREAM* di
         {
           delete compressmanager;          
         }
-    } 
+    }  
+
+  base64headermagic.Format(__L("%c%c%c%c")  , ((DIOCOREPROTOCOL_HEADER_MAGIC_ID >> 24) & 0x000000FF)
+                                            , ((DIOCOREPROTOCOL_HEADER_MAGIC_ID >> 16) & 0x000000FF) 
+                                            , ((DIOCOREPROTOCOL_HEADER_MAGIC_ID >>  8) & 0x000000FF) 
+                                            ,  (DIOCOREPROTOCOL_HEADER_MAGIC_ID        & 0x000000FF));
+ 
 
   this->protocolCFG = protocolCFG;
   this->diostream   = diostream;  
 
-  Commands_Add(DIOCOREPROTOCOL_COMMAND_TYPE_HEARTBEAT             , DIOCOREPROTOCOL_COMMAND_TYPE_STRING_HEARTBEAT             , DIOCOREPROTOCOL_BIDIRECTIONALITYMODE_BOTH);
-  Commands_Add(DIOCOREPROTOCOL_COMMAND_TYPE_UPDATECLASSINITIALIZED, DIOCOREPROTOCOL_COMMAND_TYPE_STRING_UPDATECLASSINITIALIZED, DIOCOREPROTOCOL_BIDIRECTIONALITYMODE_BOTH);
+  //Commands_Add(DIOCOREPROTOCOL_COMMAND_TYPE_HEARTBEAT             , DIOCOREPROTOCOL_COMMAND_TYPE_STRING_HEARTBEAT             , DIOCOREPROTOCOL_BIDIRECTIONALITYMODE_BOTH);
+  //Commands_Add(DIOCOREPROTOCOL_COMMAND_TYPE_UPDATECLASSINITIALIZED, DIOCOREPROTOCOL_COMMAND_TYPE_STRING_UPDATECLASSINITIALIZED, DIOCOREPROTOCOL_BIDIRECTIONALITYMODE_BOTH);
+
+  Commands_Add(DIOCOREPROTOCOL_COMMAND_TYPE_HEARTBEAT             , DIOCOREPROTOCOL_COMMAND_TYPE_STRING_HEARTBEAT             , DIOCOREPROTOCOL_BIDIRECTIONALITYMODE_TOCLIENT);
+  Commands_Add(DIOCOREPROTOCOL_COMMAND_TYPE_UPDATECLASSINITIALIZED, DIOCOREPROTOCOL_COMMAND_TYPE_STRING_UPDATECLASSINITIALIZED, DIOCOREPROTOCOL_BIDIRECTIONALITYMODE_TOCLIENT);
 }
 
 
@@ -674,20 +684,110 @@ XDWORD DIOCOREPROTOCOL::ReceivedMsg(DIOCOREPROTOCOL_HEADER& header, XBUFFER& con
   readbuffer->ResetPosition();
 
   //if(readbuffer->GetSize() < DIOCOREPROTOCOL_HEADER_SIZE_ID)
-  if(readbuffer->GetSize() < 100)
+  if(readbuffer->GetSize() < 24)
     {
       return 0;
     }
 
-  XDWORD start      = 0;
-  XDWORD sizeread   = 0;
-  XDWORD offsetini  = 0;
-  XDWORD index      = 0;
-  bool   status     = false;
- 
-  for(offsetini=0; offsetini<readbuffer->GetSize()-sizeof(XDWORD); offsetini++)
+  XDWORD    start      = 0;
+  XDWORD    sizeread   = 0;
+  XDWORD    offsetini  = 0;
+  XDWORD    index      = 0;
+  XBUFFER   dataread; 
+  XDWORD    base64size = 0;
+  bool      status     = false;
+
+  dataread.Empty();
+
+  if(protocolCFG->GetIsEncapsulatedBase64())
     {
-      if(readbuffer->Get((XDWORD&)start, offsetini))
+      int       sizeprelude = 22;
+      XSTRING   base64senddata;
+      XSTRING   base64header;
+      XSTRING   base64headermask;
+      XSTRING   extract;
+      HASHCRC32 hashCRC32;
+      XDWORD    CRC32value  = 0;
+ 
+      base64senddata.ConvertFromUTF8((*readbuffer));
+      base64senddata.Copy(0, sizeprelude, base64header);
+
+      base64headermask.Format(__L("%s"), base64headermagic.Get());
+      
+      base64header.Copy(0,4, extract);
+      if(extract.Compare(base64headermask, true))
+        {
+          return 0;
+        }
+
+      base64header.Copy(4,14, extract);
+      if(!extract.UnFormat(__L("%10d"), &base64size))
+        {
+          return 0;
+        }
+
+      base64header.Copy(14,22, extract);
+      if(!extract.UnFormat(__L("%08x"), &CRC32value))
+        {
+          return 0;
+        }
+
+      // ------------------------------------------------------------------------------------------------------------------------
+      
+      XBUFFER debugdata;
+      base64senddata.ConvertToASCII(debugdata);
+      debugdata.Resize(debugdata.GetSize()-1);
+
+      // ------------------------------------------------------------------------------------------------------------------------          
+      
+      base64senddata.DeleteCharacters(0, sizeprelude);
+      if(base64senddata.GetSize() < base64size)
+        {
+          return 0;
+        } 
+
+      // ------------------------------------------------------------------------------------------------------------------------
+      
+      XBYTE color = XTRACE_COLOR_GREEN;
+      /*
+      if(GetProtocolCFG()->GetIsServer())
+        {
+          color = XTRACE_COLOR_BLUE;      
+        }
+      */
+      XTRACE_PRINTCOLOR(color, __L("READ < < < < < < < < < < < <"));   
+      XTRACE_PRINTDATABLOCKCOLOR(color, debugdata); 
+      
+      // ------------------------------------------------------------------------------------------------------------------------
+
+      base64senddata.DeleteCharacters(base64size,  base64senddata.GetSize() - base64size); 
+      if(base64senddata.GetSize() != base64size)
+        {
+          return 0;
+        } 
+
+      if(!base64senddata.ConvertBase64ToBinary(dataread))
+        {
+          return 0;
+        } 
+
+      hashCRC32.Do(dataread);  
+      if(CRC32value != hashCRC32.GetResultCRC32())
+        {
+          readbuffer->Extract(NULL, 0, sizeprelude);  
+          return 0;
+        }
+      
+      base64size += sizeprelude;
+    }
+   else
+    {
+      dataread.CopyFrom((*readbuffer));
+    }
+ 
+  for(offsetini=0; offsetini<dataread.GetSize()-sizeof(XDWORD); offsetini++)
+    {
+      if(dataread.Get((XDWORD&)start, offsetini))
         {
            if(start == DIOCOREPROTOCOL_HEADER_MAGIC_ID)
              {
@@ -696,7 +796,7 @@ XDWORD DIOCOREPROTOCOL::ReceivedMsg(DIOCOREPROTOCOL_HEADER& header, XBUFFER& con
         }
     }
 
-  if(readbuffer->Get((XDWORD&)start, offsetini))
+  if(dataread.Get((XDWORD&)start, offsetini))
     {
       sizeread += sizeof(XDWORD);
       index    += (offsetini + sizeof(XDWORD)); 
@@ -710,12 +810,12 @@ XDWORD DIOCOREPROTOCOL::ReceivedMsg(DIOCOREPROTOCOL_HEADER& header, XBUFFER& con
           XDWORD  crc32header   = 0;
           int     totalsizemsg  = 0;
 
-          if(readbuffer->Get((XWORD&)sizeheader, index))
+          if(dataread.Get((XWORD&)sizeheader, index))
             {
               sizeread += sizeof(XWORD);
               index    += sizeof(XWORD); 
 
-              if(readbuffer->Get((XWORD&)sizeheadercmp, index))
+              if(dataread.Get((XWORD&)sizeheadercmp, index))
                 {
                   sizeread += sizeof(XWORD);
                   index    += sizeof(XWORD);
@@ -729,19 +829,19 @@ XDWORD DIOCOREPROTOCOL::ReceivedMsg(DIOCOREPROTOCOL_HEADER& header, XBUFFER& con
                       totalsizemsg += sizeheader;
                     } 
 
-                  if(totalsizemsg > readbuffer->GetSize())
+                  if(totalsizemsg > dataread.GetSize())
                     {
                       return 0;  
                     }  
 
-                  if(readbuffer->Get((XDWORD&)crc32header, index))
+                  if(dataread.Get((XDWORD&)crc32header, index))
                     {
                       sizeread += sizeof(XDWORD);
                       index    += sizeof(XDWORD);
   
                       if(sizeheader)
                         {       
-                          XBYTE*    ptrheader       = &readbuffer->Get()[DIOCOREPROTOCOL_HEADER_SIZE_ID];
+                          XBYTE*    ptrheader       = &dataread.Get()[DIOCOREPROTOCOL_HEADER_SIZE_ID];
                           XBYTE*    ptrcontent      = ptrheader;                           
                           HASHCRC32 hashCRC32;
                           XDWORD    crc32headercalc = 0;
@@ -801,7 +901,7 @@ XDWORD DIOCOREPROTOCOL::ReceivedMsg(DIOCOREPROTOCOL_HEADER& header, XBUFFER& con
                                   totalsizemsg += header.GetContentSize();
                                 }   
 
-                              if(totalsizemsg > readbuffer->GetSize())
+                              if(totalsizemsg > dataread.GetSize())
                                 {
                                   return 0;  
                                 }  
@@ -861,17 +961,27 @@ XDWORD DIOCOREPROTOCOL::ReceivedMsg(DIOCOREPROTOCOL_HEADER& header, XBUFFER& con
                             }
 
                           XTRACE_PRINTCOLOR(color, __L("READ -----------------------------------------------------------------------------------------------"));   
-                          XTRACE_PRINTDATABLOCKCOLOR(color, readbuffer->Get(), sizeread +  index); 
+                          XTRACE_PRINTDATABLOCKCOLOR(color, dataread.Get(), sizeread +  index); 
                           */
                           // ------------------------------------------------------------------------------------------------------------------------
                           
-                          status = readbuffer->Extract(NULL, 0, sizeread +  offsetini);
-
-                          if(!status)
+                          if(protocolCFG->GetIsEncapsulatedBase64())
                             {
-                              XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("[DIO Core Protocol Header] Error to read msg: eliminate buffer used: %d + %d"), sizeread, index);
+                              status = readbuffer->Extract(NULL, 0, base64size);  
+                              if(!status)
+                                {
+                                  XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("[DIO Core Protocol Header] Error to read msg: eliminate buffer used: %d"), base64size);
+                                }
                             }
-
+                           else 
+                            {
+                              status = readbuffer->Extract(NULL, 0, sizeread +  offsetini);  
+                              if(!status)
+                                {
+                                  XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("[DIO Core Protocol Header] Error to read msg: eliminate buffer used: %d + %d"), sizeread, index);
+                                }
+                            }
+                     
                           return sizeread;  
                         }
                        else
@@ -1120,7 +1230,7 @@ DIOCOREPROTOCOL_HEADER* DIOCOREPROTOCOL::CreateHeader(XUUID* ID_message, DIOCORE
           XBUFFER contentbinary;   
 
           content->GetAllInOneLine(contentstring);
-          contentstring.ConvertToUTF8(contentbinary);
+          contentstring.ConvertToUTF8(contentbinary, false);
 
           header->SetContentType(DIOCOREPROTOCOL_HEADER_CONTENTTYPE_JSON);
           header->SetContentSize(contentbinary.GetSize());   
@@ -1806,11 +1916,11 @@ bool DIOCOREPROTOCOL::GenerateHeaderToSend(DIOCOREPROTOCOL_HEADER* header, XBUFF
   headerxfileJSON->EncodeAllLines(false);  
   headerxfileJSON->GetAllInOneLine(headerstring);
 
-  headerstring.ConvertToUTF8(headerbuffer);
+  headerstring.ConvertToUTF8(headerbuffer, false);
 
   if(protocolCFG)
     {
-      if(protocolCFG->GetCompressHeader())
+      if(protocolCFG->GetIsCompressHeader())
         {
           if(!compressor->Compress(headerbuffer.Get(), headerbuffer.GetSize(), &headercmp))
             {
@@ -1893,18 +2003,37 @@ bool DIOCOREPROTOCOL::SendData(XBUFFER& senddata)
       return false;
     } 
 
+  if(protocolCFG->GetIsEncapsulatedBase64())
+    { 
+      HASHCRC32 hashCRC32;
+      XDWORD    CRC32value = 0;
+      XSTRING   base64senddata;
+      XSTRING   base64header;
 
-  // ------------------------------------------------------------------------------------------------------------------------
+      hashCRC32.Do(senddata);  
+      CRC32value = hashCRC32.GetResultCRC32();
+
+      base64senddata.ConvertBinaryToBase64(senddata);   
+
+      base64header.Format(__L("%s%010d%08X")  , base64headermagic.Get()
+                                              , base64senddata.GetSize() 
+                                              , CRC32value); 
+      base64senddata.Insert(base64header, 0);          
+      base64senddata.ConvertToUTF8(senddata, false);
+    }
+
+  // ------------------------------------------------------------------------------------------------------------------------  
+  XBYTE color = XTRACE_COLOR_PURPLE;
+
   /*
-  XBYTE color = XTRACE_COLOR_GREEN;
   if(GetProtocolCFG()->GetIsServer())
     {
       color = XTRACE_COLOR_BLUE;      
     }
-
-  XTRACE_PRINTCOLOR(color, __L("WRITE ----------------------------------------------------------------------------------------------"));   
-  XTRACE_PRINTDATABLOCKCOLOR(color, senddata); 
   */
+
+  XTRACE_PRINTCOLOR(color, __L("WRITE > > > > > > > > > > >"));     
+  XTRACE_PRINTDATABLOCKCOLOR(color, senddata);   
   // ------------------------------------------------------------------------------------------------------------------------
 
      
@@ -1933,7 +2062,7 @@ bool DIOCOREPROTOCOL::CompressContent(DIOCOREPROTOCOL_HEADER* header, XBUFFER& c
 
   if(protocolCFG)
     {    
-      if(protocolCFG->GetCompressContent())
+      if(protocolCFG->GetIsCompressContent())
         {
           if(content.GetSize() >= protocolCFG->GetMinSizeCompressContent())
             {

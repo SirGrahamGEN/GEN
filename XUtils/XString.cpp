@@ -2722,20 +2722,25 @@ int XSTRING::ReplaceFirst(XCHAR* findwhat, XCHAR* replaceby)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool XSTRING::Insert(XSTRING str,XDWORD position)
-* @brief      Insert
+* 
+* @fn         bool XSTRING::Insert(XCHAR* str,XDWORD position)
+* @brief      insert
 * @ingroup    XUTILS
-*
-* @param[in]  str :
-* @param[in]  position :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  str : 
+* @param[in]  position : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSTRING::Insert(XSTRING str,XDWORD position)
+bool XSTRING::Insert(XCHAR* str,XDWORD position)
 {
   XSTRING tmp;
+
+  if(!str)
+    {
+      return false;
+    }
 
   if(position > size)
     {
@@ -2754,6 +2759,24 @@ bool XSTRING::Insert(XSTRING str,XDWORD position)
   Set(tmp);
 
   return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         bool XSTRING::Insert(XSTRING& str,XDWORD position)
+* @brief      Insert
+* @ingroup    XUTILS
+*
+* @param[in]  str :
+* @param[in]  position :
+*
+* @return     bool : true if is succesful.
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XSTRING::Insert(XSTRING& str,XDWORD position)
+{  
+  return Insert(str.Get(), position);
 }
 
 
@@ -4032,7 +4055,10 @@ bool XSTRING::ConvertFromUTF8(XBYTE* data, XDWORD size)
       ptr++;
       c++;
 
-      if(index>=sizeutf8) break;
+      if(index >= sizeutf8) 
+        {
+          break;
+        }
     }
 
   return true;
@@ -4350,7 +4376,7 @@ bool XSTRING::ConvertToBase64(XSTRING& string)
 * @fn         bool XSTRING::ConvertBinaryToBase64(XBUFFER& inbuffer)
 * @brief      Convert binary to base64
 * @ingroup    XUTILS
-* 
+*
 * @param[in]  inbuffer : 
 * 
 * @return     bool : true if is succesful. 

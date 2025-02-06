@@ -2289,32 +2289,40 @@ void DIOCOREPROTOCOL_CONNECTIONSMANAGER::ThreadAutomaticOperations(void* param)
                       bool makeupdate = true;   
 
                       DIOCOREPROTOCOL_UPDATECLASS* updateclass = protocol->UpdateClass_GetAll()->Get(c);
-                      if(updateclass)
+                      if(updateclass)                        
                         {
-                          if(!connection->IsServer())
-                            {
-                              if(updateclass->GetBidirectionalityMode() == DIOCOREPROTOCOL_BIDIRECTIONALITYMODE_TOCLIENT)
+                          if(updateclass->IsInitialUpdate())                                    
+                            {                              
+                              if(!connection->IsServer() && (connection->Status_Get() == DIOCOREPROTOCOL_CONNECTION_STATUS_READY))
                                 {
-                                  if(updateclass->IsInitialUpdate())
-                                    {
-                                      protocol->UpdateClass_SetNInitialized(protocol->UpdateClass_GetNInitialized()+1);
-                                      updateclass->SetIsInitialUpdate(false);
-                                    }
-
-                                  makeupdate = false;
+                                   if(connection->GetXTimerStatus()->GetMeasureSeconds() < 5)
+                                     {
+                                       makeupdate = false;                                       
+                                     }
                                 }
-                            }
-                           else
-                            {
-                              if(updateclass->GetBidirectionalityMode() == DIOCOREPROTOCOL_BIDIRECTIONALITYMODE_TOSERVER)
-                                {
-                                  if(updateclass->IsInitialUpdate())
-                                    {
-                                      protocol->UpdateClass_SetNInitialized(protocol->UpdateClass_GetNInitialized()+1);
-                                      updateclass->SetIsInitialUpdate(false);
-                                    }
 
-                                  makeupdate = false;
+                              if(makeupdate)
+                                {
+                                  if(!connection->IsServer())
+                                    {
+                                      if(updateclass->GetBidirectionalityMode() == DIOCOREPROTOCOL_BIDIRECTIONALITYMODE_TOCLIENT)
+                                        {                                  
+                                          protocol->UpdateClass_SetNInitialized(protocol->UpdateClass_GetNInitialized()+1);
+                                          updateclass->SetIsInitialUpdate(false);
+                                   
+                                          makeupdate = false;  
+                                        }
+                                    }
+                                   else
+                                    {
+                                      if(updateclass->GetBidirectionalityMode() == DIOCOREPROTOCOL_BIDIRECTIONALITYMODE_TOSERVER)
+                                        {
+                                          protocol->UpdateClass_SetNInitialized(protocol->UpdateClass_GetNInitialized()+1);
+                                          updateclass->SetIsInitialUpdate(false);
+                                  
+                                          makeupdate = false;
+                                        }
+                                    }
                                 }
                             }
 
@@ -2323,11 +2331,10 @@ void DIOCOREPROTOCOL_CONNECTIONSMANAGER::ThreadAutomaticOperations(void* param)
                               if(updateclass->IsInitialUpdate())
                                 {
                                   updateclass->GetClassPtr()->HasBeenChanged();
-                                  updateclass->GetClassPtr()->SetHasBeenChanged(false);                                  
+                                  updateclass->GetClassPtr()->SetHasBeenChanged(false); 
+                                  updateclass->SetIsInitialUpdate(false);                                 
                                   
-                                  protocol->UpdateClass_SetNInitialized(protocol->UpdateClass_GetNInitialized()+1);
-
-                                  updateclass->SetIsInitialUpdate(false);
+                                  protocol->UpdateClass_SetNInitialized(protocol->UpdateClass_GetNInitialized()+1);                                  
                                 }
                                else
                                 {
@@ -2420,10 +2427,7 @@ void DIOCOREPROTOCOL_CONNECTIONSMANAGER::ThreadAutomaticOperations(void* param)
                             {
                               connection->SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_INSTABILITY);   
                             }
-
-                          // Test one time
-                          // protocol->GetProtocolCFG()->SetNTrysToCheckConnection(0);
-
+                      
                           if(connectionsmanager->GetProtocolCFG()->GetIsServer())
                             { 
                               if(!status)                            

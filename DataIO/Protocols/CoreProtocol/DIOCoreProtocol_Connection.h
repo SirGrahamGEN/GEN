@@ -40,6 +40,7 @@ enum DIOCOREPROTOCOL_CONNECTION_XFSMEVENTS
   DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_KEYEXCHANGE              ,
   DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_AUTHENTICATION           ,
   DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_REGISTRATION             ,  
+  DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_WAITREADY                ,
   DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_READY                    ,
   DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_INSTABILITY              ,
   DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_DISCONNECTED             ,
@@ -54,7 +55,8 @@ enum DIOCOREPROTOCOL_CONNECTION_XFSMSTATES
   DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_CONNECTED                ,
   DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_KEYEXCHANGE              ,
   DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_AUTHENTICATION           , 
-  DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_REGISTRATION             ,  
+  DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_REGISTRATION             , 
+  DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_WAITREADY                ,  
   DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_READY                    , 
   DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_INSTABILITY              ,  
   DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_DISCONNECTED             ,
@@ -69,7 +71,8 @@ enum DIOCOREPROTOCOL_CONNECTION_STATUS
   DIOCOREPROTOCOL_CONNECTION_STATUS_CONNECTED                   , 
   DIOCOREPROTOCOL_CONNECTION_STATUS_KEYEXCHANGE                 , 
   DIOCOREPROTOCOL_CONNECTION_STATUS_AUTHENTICATED               ,   
-  DIOCOREPROTOCOL_CONNECTION_STATUS_REGISTERED                  ,   
+  DIOCOREPROTOCOL_CONNECTION_STATUS_REGISTERED                  ,
+  DIOCOREPROTOCOL_CONNECTION_STATUS_WAITREADY                   ,   
   DIOCOREPROTOCOL_CONNECTION_STATUS_READY                       ,
   DIOCOREPROTOCOL_CONNECTION_STATUS_INSTABILITY                 ,
   DIOCOREPROTOCOL_CONNECTION_STATUS_DISCONNECTED                ,
@@ -157,9 +160,9 @@ class DIOCOREPROTOCOL_CONNECTION : public XFSMACHINE, public XSUBJECT
     bool                                  SendMsg                               (XUUID* ID_message, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XSTRING* content);
     bool                                  SendMsg                               (XUUID* ID_message, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XFILEJSON* content);   
 
-    bool                                  GetMsg                                (bool isrequest, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, DIOCOREPROTOCOL_HEADER& header, XBUFFER& content, XDWORD timeoutresponse);
-    bool                                  GetMsg                                (bool isrequest, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, DIOCOREPROTOCOL_HEADER& header, XSTRING& content, XDWORD timeoutresponse);
-    bool                                  GetMsg                                (bool isrequest, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, DIOCOREPROTOCOL_HEADER& header, XFILEJSON& content, XDWORD timeoutresponse);
+    bool                                  GetMsg                                (bool isrequest, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, DIOCOREPROTOCOL_HEADER& header, XBUFFER& content);
+    bool                                  GetMsg                                (bool isrequest, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, DIOCOREPROTOCOL_HEADER& header, XSTRING& content);
+    bool                                  GetMsg                                (bool isrequest, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, DIOCOREPROTOCOL_HEADER& header, XFILEJSON& content);
 
     void                                  Clean                                 ();    
     
@@ -173,8 +176,11 @@ class DIOCOREPROTOCOL_CONNECTION : public XFSMACHINE, public XSUBJECT
     CIPHERKEYSYMMETRICAL                  cipherkey;     
 
     DIOCOREPROTOCOL_CONNECTION_STATUS     status;
+    
     XTIMER*                               xtimerstatus;  
     XTIMER*                               xtimerwithoutconnexion;  
+    XTIMER*                               xtimeroutresponse;  
+
     XDWORD                                heartbetscounter;
 
     DIOCOREPROTOCOL_MESSAGES              messages; 

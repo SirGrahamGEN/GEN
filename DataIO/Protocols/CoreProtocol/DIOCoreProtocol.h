@@ -1,4 +1,4 @@
-/**-------------------------------------------------------------------------------------------------------------------
+/**-----------------------------------------------------------------------------------------------------------------
 * 
 * @file       DIOCoreProtocol.h
 * 
@@ -53,6 +53,7 @@
 #define DIOCOREPROTOCOL_REGISTRATIONDATA_SEND_OPERATION_PARAM             __L("registerdata send")
 #define DIOCOREPROTOCOL_REGISTRATIONDATA_RESPONSE_OPERATION_PARAM         __L("registerdata response")
 #define DIOCOREPROTOCOL_REGISTRATIONDATA_CONFIRM_PARAM                    __L("registerdata ok")
+#define DIOCOREPROTOCOL_WAITREADY_SEND_OPERATION_PARAM                    __L("Ready!")  
 
 #define DIOCOREPROTOCOL_UPDATECLASS_CONFIRM_PARAM                         __L("status")
 
@@ -228,6 +229,8 @@ class DIOCOREPROTOCOL
 
     void                                                  Clean                                       ();   
        
+
+    XSTRING                                               base64headermagic;
     COMPRESSMANAGER*	                                    compressmanager;
     COMPRESSBASE*			                                    compressor; 
 
