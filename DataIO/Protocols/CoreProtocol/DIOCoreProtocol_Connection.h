@@ -32,6 +32,22 @@
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
+#include "XFSMachine.h"
+
+#include "CipherKey.h"
+#include "CipherAES.h"
+#include "CipherCurve25519.h"
+
+#include "DIOCoreProtocol_Messages.h"
+#include "DIOCoreProtocol_RegisterData.h"
+
+
+#pragma endregion
+
+
+/*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma region DEFINES_ENUMS
+
 
 enum DIOCOREPROTOCOL_CONNECTION_XFSMEVENTS
 {
@@ -39,8 +55,8 @@ enum DIOCOREPROTOCOL_CONNECTION_XFSMEVENTS
   DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_CONNECTED                ,
   DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_KEYEXCHANGE              ,
   DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_AUTHENTICATION           ,
-  DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_REGISTRATION             ,  
-  DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_WAITREADY                ,
+  DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_REGISTRATION             , 
+  DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_WAITREADY                , 
   DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_READY                    ,
   DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_INSTABILITY              ,
   DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_DISCONNECTED             ,
@@ -56,7 +72,7 @@ enum DIOCOREPROTOCOL_CONNECTION_XFSMSTATES
   DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_KEYEXCHANGE              ,
   DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_AUTHENTICATION           , 
   DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_REGISTRATION             , 
-  DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_WAITREADY                ,  
+  DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_WAITREADY                ,
   DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_READY                    , 
   DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_INSTABILITY              ,  
   DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_DISCONNECTED             ,
@@ -78,21 +94,38 @@ enum DIOCOREPROTOCOL_CONNECTION_STATUS
   DIOCOREPROTOCOL_CONNECTION_STATUS_DISCONNECTED                ,
 };
 
-#pragma endregion
+
+ #define TIMEOUT_CHAGE_STATE(protocol, xtimeroutresponse)                     if(protocol->GetProtocolCFG()->GetTimeOutNoResponse())                                  \
+                                                                                {                                                                                     \
+                                                                                  if(xtimeroutresponse)                                                               \
+                                                                                    {                                                                                 \
+                                                                                      if(xtimeroutresponse->GetMeasureSeconds() >= protocol->GetProtocolCFG()->GetTimeOutNoResponse()) \
+                                                                                        {                                                                             \
+                                                                                          SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_DISCONNECTED);                \
+                                                                                        }                                                                             \
+                                                                                    }                                                                                 \
+                                                                                }
+  
+
+#define COMMAND_DO_WITHOUTPARAMS(command_type, result, timeout)                { XUUID ID_message;                                                                     \
+                                                                                 bool  status  = false;                                                                \
+                                                                                 if(Command_Do(&ID_message, command_type))                                             \
+                                                                                   {                                                                                   \
+                                                                                     status = GetResult(&ID_message, result, timeout);                                 \
+                                                                                   }                                                                                   \
+                                                                                 return status;                                                                        \
+                                                                               }                                                                                         
+
+ #define COMMAND_DO(command_type, params, result, timeout)                     { XUUID ID_message;                                                                     \
+                                                                                 bool  status  = false;                                                                \
+                                                                                 if(Command_Do(&ID_message, command_type, params))                                     \
+                                                                                   {                                                                                   \
+                                                                                     status = GetResult(&ID_message, result, timeout);                                 \
+                                                                                   }                                                                                   \
+                                                                                 return status;                                                                        \
+                                                                               }                                                                                         
 
 
-/*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
-#pragma region DEFINES_ENUMS
-
-#include "XFSMachine.h"
-
-#include "CipherKey.h"
-#include "CipherAES.h"
-#include "CipherCurve25519.h"
-
-
-#include "DIOCoreProtocol_Messages.h"
-#include "DIOCoreProtocol_RegisterData.h"
 
 #pragma endregion
 
@@ -134,15 +167,38 @@ class DIOCOREPROTOCOL_CONNECTION : public XFSMACHINE, public XSUBJECT
     XTIMER*                               GetXTimerWithoutConnexion             ();
        
     DIOCOREPROTOCOL_MESSAGES*             Messages_GetAll                       ();
-    
-    bool                                  DoCommand                             (XUUID* ID_message, XDWORD command_type);
-    bool                                  DoCommand                             (XUUID* ID_message, XDWORD command_type, XBUFFER* params);
-    bool                                  DoCommand                             (XUUID* ID_message, XDWORD command_type, XSTRING* params);
-    bool                                  DoCommand                             (XUUID* ID_message, XDWORD command_type, XFILEJSON* params);
 
-    bool                                  DoUpdateClass                         (XUUID* ID_message, XCHAR* classname, XFILEJSON* classcontent = NULL); 
-    bool                                  DoAskUpdateClass                      (XUUID* ID_message, XCHAR* classname, XSTRING* classcontent = NULL);
+    bool                                  Command_Do                            (XDWORD command_type, XBUFFER& result, XDWORD timeout);
+    bool                                  Command_Do                            (XDWORD command_type, XSTRING& result, XDWORD timeout);
+    bool                                  Command_Do                            (XDWORD command_type, XFILEJSON& result, XDWORD timeout);
+
+    bool                                  Command_Do                            (XDWORD command_type, XBUFFER* params, XBUFFER& result, XDWORD timeout);
+    bool                                  Command_Do                            (XDWORD command_type, XSTRING* params, XBUFFER& result, XDWORD timeout);
+    bool                                  Command_Do                            (XDWORD command_type, XFILEJSON* params, XBUFFER& result, XDWORD timeout);
     
+    bool                                  Command_Do                            (XDWORD command_type, XBUFFER* params, XSTRING& result, XDWORD timeout);
+    bool                                  Command_Do                            (XDWORD command_type, XSTRING* params, XSTRING& result, XDWORD timeout);
+    bool                                  Command_Do                            (XDWORD command_type, XFILEJSON* params, XSTRING& result, XDWORD timeout);
+    
+    bool                                  Command_Do                            (XDWORD command_type, XBUFFER* params, XFILEJSON& result, XDWORD timeout);
+    bool                                  Command_Do                            (XDWORD command_type, XSTRING* params, XFILEJSON& result, XDWORD timeout);
+    bool                                  Command_Do                            (XDWORD command_type, XFILEJSON* params, XFILEJSON& result, XDWORD timeout);    
+
+    bool                                  Command_Do                            (XUUID* ID_message, XDWORD command_type);
+    bool                                  Command_Do                            (XUUID* ID_message, XDWORD command_type, XBUFFER* params);
+    bool                                  Command_Do                            (XUUID* ID_message, XDWORD command_type, XSTRING* params);
+    bool                                  Command_Do                            (XUUID* ID_message, XDWORD command_type, XFILEJSON* params);
+    
+    bool                                  UpdateClass_Do                        (XCHAR* classname, XSERIALIZABLE* classcontent, XDWORD timeout);
+    bool                                  UpdateClass_DoAsk                     (XCHAR* classname, XSERIALIZABLE* classserializable, XDWORD timeout);    
+
+    bool                                  UpdateClass_Do                        (XUUID* ID_message, XCHAR* classname, XFILEJSON* classcontent = NULL); 
+    bool                                  UpdateClass_DoAsk                     (XUUID* ID_message, XCHAR* classname, XSTRING* classcontent = NULL);
+ 
+    bool                                  GetResult                             (XUUID* ID_message, XBUFFER& result, XDWORD timeout);
+    bool                                  GetResult                             (XUUID* ID_message, XSTRING& result, XDWORD timeout);
+    bool                                  GetResult                             (XUUID* ID_message, XFILEJSON& result, XDWORD timeout); 
+
     bool                                  Update                                ();  
 
     XDWORD                                GetHeartBetsCounter                   ();
@@ -150,6 +206,9 @@ class DIOCOREPROTOCOL_CONNECTION : public XFSMACHINE, public XSUBJECT
 
     DIOCOREPROTOCOL_REGISTERDATA*         GetRegisterData                       ();
     void                                  SetRegisterData                       (DIOCOREPROTOCOL_REGISTERDATA* registerdata);
+
+    bool                                  CompletedInitialUpdateClasses         ();
+    void                                  SetCompletedInitialUpdateClasses      (bool completedinitialupdateclasses);
 
   private:
 
@@ -184,8 +243,9 @@ class DIOCOREPROTOCOL_CONNECTION : public XFSMACHINE, public XSUBJECT
     XDWORD                                heartbetscounter;
 
     DIOCOREPROTOCOL_MESSAGES              messages; 
-
     DIOCOREPROTOCOL_REGISTERDATA*         registerdata;
+
+    bool                                  completedinitialupdateclasses;
 };
 
 

@@ -305,91 +305,74 @@ void DIOCOREPROTOCOL_UPDATECLASS::SetClassPtr(XSERIALIZABLE* classptr)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOCOREPROTOCOL_UPDATECLASS::IsAsk()
-* @brief      Is ask
+* @fn         bool DIOCOREPROTOCOL_UPDATECLASS::RequieredInitialUpdate()
+* @brief      requiered initial update
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOCOREPROTOCOL_UPDATECLASS::IsAsk()
+bool DIOCOREPROTOCOL_UPDATECLASS::RequieredInitialUpdate()
 {
-  return isask;
+  return requieredinitialupdate;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void DIOCOREPROTOCOL_UPDATECLASS::SetIsAsk(bool isask)
-* @brief      Set is ask
+* @fn         void DIOCOREPROTOCOL_UPDATECLASS::SetRequieredInitialUpdate(bool requieredinitialupdate)
+* @brief      set requiered initial update
 * @ingroup    DATAIO
 * 
-* @param[in]  isask : 
+* @param[in]  requieredinitialupdate : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void DIOCOREPROTOCOL_UPDATECLASS::SetIsAsk(bool isask)
+void DIOCOREPROTOCOL_UPDATECLASS::SetRequieredInitialUpdate(bool requieredinitialupdate)
 {
-  this->isask = isask;  
+  this->requieredinitialupdate = requieredinitialupdate;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         DIOCOREPROTOCOL_BIDIRECTIONALITYMODE DIOCOREPROTOCOL_UPDATECLASS::GetBidirectionalityMode()
-* @brief      Get bidirectionality mode
+* @fn         XQWORD DIOCOREPROTOCOL_UPDATECLASS::GetNUpdates()
+* @brief      get Nupdates
 * @ingroup    DATAIO
 * 
-* @return     DIOCOREPROTOCOL_BIDIRECTIONALITYMODE : 
+* @return     XQWORD : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIOCOREPROTOCOL_BIDIRECTIONALITYMODE DIOCOREPROTOCOL_UPDATECLASS::GetBidirectionalityMode()
+XQWORD DIOCOREPROTOCOL_UPDATECLASS::GetNUpdates()
 {
-  return bidirectionalitymode;
+  return nupdates;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void DIOCOREPROTOCOL_UPDATECLASS::SetBidirectionalityMode(DIOCOREPROTOCOL_BIDIRECTIONALITYMODE bidirectionalitymode)
-* @brief      Set bidirectionality mode
+* @fn         void DIOCOREPROTOCOL_UPDATECLASS::SetNUpdates(XQWORD nupdates)
+* @brief      set Nupdates
 * @ingroup    DATAIO
 * 
-* @param[in]  bidirectionalitymode : 
+* @param[in]  nupdates : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void DIOCOREPROTOCOL_UPDATECLASS::SetBidirectionalityMode(DIOCOREPROTOCOL_BIDIRECTIONALITYMODE bidirectionalitymode)
+void DIOCOREPROTOCOL_UPDATECLASS::SetNUpdates(XQWORD nupdates)
 {
-  this->bidirectionalitymode = bidirectionalitymode;
+  this->nupdates = nupdates;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOCOREPROTOCOL_UPDATECLASS::IsInitialUpdate()
-* @brief      Is initial update
+* @fn         void DIOCOREPROTOCOL_UPDATECLASS::AddOneToNUpdates()
+* @brief      add one to Nupdates
 * @ingroup    DATAIO
 * 
-* @return     bool : true if is succesful. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOCOREPROTOCOL_UPDATECLASS::IsInitialUpdate()
+void DIOCOREPROTOCOL_UPDATECLASS::AddOneToNUpdates()
 {
-  return isinitialupdate;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         void DIOCOREPROTOCOL_UPDATECLASS::SetIsInitialUpdate(bool isinitialupdate)
-* @brief      Set is initial update
-* @ingroup    DATAIO
-* 
-* @param[in]  isinitialupdate : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-void DIOCOREPROTOCOL_UPDATECLASS::SetIsInitialUpdate(bool isinitialupdate)
-{
-  this->isinitialupdate = isinitialupdate;
+  nupdates++;
 }
 
 
@@ -440,6 +423,58 @@ XTIMER* DIOCOREPROTOCOL_UPDATECLASS::GetTimerLastUpdate()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         XDWORD DIOCOREPROTOCOL_UPDATECLASS::GetFlags()
+* @brief      get flags
+* @ingroup    DATAIO
+* 
+* @return     XDWORD : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XDWORD DIOCOREPROTOCOL_UPDATECLASS::GetFlags()
+{
+  return flags;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOCOREPROTOCOL_UPDATECLASS::SetFlags(XDWORD flags)
+* @brief      set flags
+* @ingroup    DATAIO
+* 
+* @param[in]  flags : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIOCOREPROTOCOL_UPDATECLASS::SetFlags(XDWORD flags)
+{
+  this->flags = flags;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOCOREPROTOCOL_UPDATECLASS::IsFlag(XDWORD flag)
+* @brief      is flag
+* @ingroup    DATAIO
+* 
+* @param[in]  flag : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOCOREPROTOCOL_UPDATECLASS::IsFlag(XDWORD flag)
+{
+  if((flags & flag) == flag) 
+    {
+      return true;
+    }
+
+  return false;
+}
+  
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         void DIOCOREPROTOCOL_UPDATECLASS::Clean()
 * @brief      Clean the attributes of the class: Default initialize
 * @note       INTERNAL
@@ -449,13 +484,15 @@ XTIMER* DIOCOREPROTOCOL_UPDATECLASS::GetTimerLastUpdate()
 void DIOCOREPROTOCOL_UPDATECLASS::Clean()
 {  
   classname.Empty();   
-  classptr              = NULL;
-  isask                 = false;  
-  bidirectionalitymode  = DIOCOREPROTOCOL_BIDIRECTIONALITYMODE_NONE;
+  classptr                = NULL;
+  
+  requieredinitialupdate  = false;
 
-  isinitialupdate       = false;
-  timetoupdate          = 0;
-  timerlastupdate       = NULL;
+  nupdates                = 0;
+  timetoupdate            = 0;
+  timerlastupdate         = NULL;
+
+  flags                   = 0;
  }
 
 
@@ -497,11 +534,7 @@ DIOCOREPROTOCOL::DIOCOREPROTOCOL(DIOCOREPROTOCOL_CFG* protocolCFG, DIOSTREAM* di
   this->protocolCFG = protocolCFG;
   this->diostream   = diostream;  
 
-  //Commands_Add(DIOCOREPROTOCOL_COMMAND_TYPE_HEARTBEAT             , DIOCOREPROTOCOL_COMMAND_TYPE_STRING_HEARTBEAT             , DIOCOREPROTOCOL_BIDIRECTIONALITYMODE_BOTH);
-  //Commands_Add(DIOCOREPROTOCOL_COMMAND_TYPE_UPDATECLASSINITIALIZED, DIOCOREPROTOCOL_COMMAND_TYPE_STRING_UPDATECLASSINITIALIZED, DIOCOREPROTOCOL_BIDIRECTIONALITYMODE_BOTH);
-
-  Commands_Add(DIOCOREPROTOCOL_COMMAND_TYPE_HEARTBEAT             , DIOCOREPROTOCOL_COMMAND_TYPE_STRING_HEARTBEAT             , DIOCOREPROTOCOL_BIDIRECTIONALITYMODE_TOCLIENT);
-  Commands_Add(DIOCOREPROTOCOL_COMMAND_TYPE_UPDATECLASSINITIALIZED, DIOCOREPROTOCOL_COMMAND_TYPE_STRING_UPDATECLASSINITIALIZED, DIOCOREPROTOCOL_BIDIRECTIONALITYMODE_TOCLIENT);
+  Commands_Add(DIOCOREPROTOCOL_COMMAND_TYPE_HEARTBEAT             , DIOCOREPROTOCOL_COMMAND_TYPE_STRING_HEARTBEAT             , DIOCOREPROTOCOL_BIDIRECTIONALITYMODE_BOTH);
 }
 
 
@@ -684,7 +717,7 @@ XDWORD DIOCOREPROTOCOL::ReceivedMsg(DIOCOREPROTOCOL_HEADER& header, XBUFFER& con
   readbuffer->ResetPosition();
 
   //if(readbuffer->GetSize() < DIOCOREPROTOCOL_HEADER_SIZE_ID)
-  if(readbuffer->GetSize() < 24)
+  if(readbuffer->GetSize() < 100)
     {
       return 0;
     }
@@ -734,10 +767,12 @@ XDWORD DIOCOREPROTOCOL::ReceivedMsg(DIOCOREPROTOCOL_HEADER& header, XBUFFER& con
 
       // ------------------------------------------------------------------------------------------------------------------------
       
+            
       XBUFFER debugdata;
       base64senddata.ConvertToASCII(debugdata);
       debugdata.Resize(debugdata.GetSize()-1);
-
+      
+      
       // ------------------------------------------------------------------------------------------------------------------------          
       
       base64senddata.DeleteCharacters(0, sizeprelude);
@@ -748,15 +783,15 @@ XDWORD DIOCOREPROTOCOL::ReceivedMsg(DIOCOREPROTOCOL_HEADER& header, XBUFFER& con
 
       // ------------------------------------------------------------------------------------------------------------------------
       
-      XBYTE color = XTRACE_COLOR_GREEN;
-      /*
-      if(GetProtocolCFG()->GetIsServer())
+      
+      if(!GetProtocolCFG()->GetIsServer())
         {
-          color = XTRACE_COLOR_BLUE;      
+          XBYTE color = XTRACE_COLOR_GREEN;
+
+          XTRACE_PRINTCOLOR(color, __L("READ < < < < < < < < < < < <"));   
+          XTRACE_PRINTDATABLOCKCOLOR(color, debugdata); 
         }
-      */
-      XTRACE_PRINTCOLOR(color, __L("READ < < < < < < < < < < < <"));   
-      XTRACE_PRINTDATABLOCKCOLOR(color, debugdata); 
+      
       
       // ------------------------------------------------------------------------------------------------------------------------
 
@@ -1527,21 +1562,20 @@ XVECTOR<DIOCOREPROTOCOL_UPDATECLASS*>*  DIOCOREPROTOCOL::UpdateClass_GetAll()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOCOREPROTOCOL::UpdateClass_Add(bool isask, XCHAR* classname, XSERIALIZABLE* classptr, bool initupdate, XDWORD timetoupdate, DIOCOREPROTOCOL_BIDIRECTIONALITYMODE bidirectionalitymode)
-* @brief      Update class add
+* @fn         bool DIOCOREPROTOCOL::UpdateClass_Add(XCHAR* classname, XSERIALIZABLE* classptr, bool requieredinitialupdate, XDWORD timetoupdate, XDWORD flags)
+* @brief      update class  add
 * @ingroup    DATAIO
 * 
-* @param[in]  isask : 
 * @param[in]  classname : 
 * @param[in]  classptr : 
-* @param[in]  initupdate : 
+* @param[in]  requieredinitialupdate : 
 * @param[in]  timetoupdate : 
-* @param[in]  bidirectionalitymode : 
+* @param[in]  flags : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOCOREPROTOCOL::UpdateClass_Add(bool isask, XCHAR* classname, XSERIALIZABLE* classptr, bool initupdate, XDWORD timetoupdate, DIOCOREPROTOCOL_BIDIRECTIONALITYMODE bidirectionalitymode)
+bool DIOCOREPROTOCOL::UpdateClass_Add(XCHAR* classname, XSERIALIZABLE* classptr, bool requieredinitialupdate, XDWORD timetoupdate, XDWORD flags)
 {
   if(!classname)
     {
@@ -1564,7 +1598,6 @@ bool DIOCOREPROTOCOL::UpdateClass_Add(bool isask, XCHAR* classname, XSERIALIZABL
       return false;
     }
 
-  updateclass->SetIsAsk(isask);
   updateclass->GetClassName()->Set(classname);
   if(updateclass->GetClassName()->IsEmpty())
     {
@@ -1573,16 +1606,10 @@ bool DIOCOREPROTOCOL::UpdateClass_Add(bool isask, XCHAR* classname, XSERIALIZABL
     }
 
   updateclass->SetClassPtr(classptr);  
-  updateclass->SetIsInitialUpdate(initupdate);
-
-  if(initupdate)
-    {
-      updateclass_nforinitialization++;
-    }
-
+  updateclass->SetRequieredInitialUpdate(requieredinitialupdate);
   updateclass->SetTimeToUpdate(timetoupdate);
-  updateclass->SetBidirectionalityMode(bidirectionalitymode);
-
+  updateclass->SetFlags(flags);
+ 
   updateclass->InitCache();
 
   return updateclasses.Add(updateclass);
@@ -1643,131 +1670,6 @@ bool DIOCOREPROTOCOL::UpdateClass_DeleteAll()
   updateclasses.DeleteAll();  
 
   return true;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         XDWORD DIOCOREPROTOCOL::UpdateClass_GetNForInitialization()
-* @brief      Update class get N for initialization
-* @ingroup    DATAIO
-* 
-* @return     XDWORD : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-XDWORD DIOCOREPROTOCOL::UpdateClass_GetNForInitialization()
-{
-  return updateclass_nforinitialization;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         void DIOCOREPROTOCOL::UpdateClass_SetNForInitialization(XDWORD updateclass_nforinitialization)
-* @brief      Update class set N for initialization
-* @ingroup    DATAIO
-* 
-* @param[in]  updateclass_nforinitialization : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-void DIOCOREPROTOCOL::UpdateClass_SetNForInitialization(XDWORD updateclass_nforinitialization)
-{
-  this->updateclass_nforinitialization = updateclass_nforinitialization;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         XDWORD DIOCOREPROTOCOL::UpdateClass_GetNInitialized()
-* @brief      Update class get N initialized
-* @ingroup    DATAIO
-* 
-* @return     XDWORD : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-XDWORD DIOCOREPROTOCOL::UpdateClass_GetNInitialized()
-{
-  return updateclass_ninitialized;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         void DIOCOREPROTOCOL::UpdateClass_SetNInitialized(XDWORD updateclass_ninitialized)
-* @brief      Update class set N initialized
-* @ingroup    DATAIO
-* 
-* @param[in]  updateclass_ninitialized : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-void DIOCOREPROTOCOL::UpdateClass_SetNInitialized(XDWORD updateclass_ninitialized)
-{
-  this->updateclass_ninitialized = updateclass_ninitialized;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         void DIOCOREPROTOCOL::UpdateClass_SetRemoteAllInitialized(bool updateclass_remoteallinitialized)
-* @brief      Update class set remote all initialized
-* @ingroup    DATAIO
-* 
-* @param[in]  updateclass_remoteallinitialized : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-void DIOCOREPROTOCOL::UpdateClass_SetRemoteAllInitialized(bool updateclass_remoteallinitialized)
-{
-  this->updateclass_remoteallinitialized = updateclass_remoteallinitialized;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool DIOCOREPROTOCOL::UpdateClass_GetSendAllClassInitializated()
-* @brief      Update class get send all class initializated
-* @ingroup    DATAIO
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool DIOCOREPROTOCOL::UpdateClass_GetSendAllClassInitializated()
-{
-  return updateclass_sendallclassinitializated;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         void DIOCOREPROTOCOL::UpdateClass_SetSendAllClassInitializated(bool updateclass_sendallclassinitializated)
-* @brief      Update class set send all class initializated
-* @ingroup    DATAIO
-* 
-* @param[in]  updateclass_sendallclassinitializated : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-void DIOCOREPROTOCOL::UpdateClass_SetSendAllClassInitializated(bool updateclass_sendallclassinitializated)
-{
-  this->updateclass_sendallclassinitializated = updateclass_sendallclassinitializated;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool DIOCOREPROTOCOL::UpdateClass_IsAllInitialized()
-* @brief      Update class is all initialized
-* @ingroup    DATAIO
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool DIOCOREPROTOCOL::UpdateClass_IsAllInitialized()
-{
-  if((updateclass_nforinitialization == updateclass_ninitialized) && updateclass_remoteallinitialized)
-    {
-      return true;
-    }
-
-  return false;
 }
 
 
@@ -2023,21 +1925,18 @@ bool DIOCOREPROTOCOL::SendData(XBUFFER& senddata)
     }
 
   // ------------------------------------------------------------------------------------------------------------------------  
-  XBYTE color = XTRACE_COLOR_PURPLE;
-
   /*
-  if(GetProtocolCFG()->GetIsServer())
-    {
-      color = XTRACE_COLOR_BLUE;      
-    }
-  */
+  XBYTE color = XTRACE_COLOR_PURPLE;
 
   XTRACE_PRINTCOLOR(color, __L("WRITE > > > > > > > > > > >"));     
   XTRACE_PRINTDATABLOCKCOLOR(color, senddata);   
+  */
   // ------------------------------------------------------------------------------------------------------------------------
 
      
   status = diostream->Write(senddata);
+
+  diostream->WaitToFlushOutXBuffer(180);
 
   return status;
 }
@@ -2099,11 +1998,6 @@ void DIOCOREPROTOCOL::Clean()
   compressor                            = NULL;    	
   
   initialization                        = false;
-
-  updateclass_nforinitialization        = 0;
-  updateclass_ninitialized              = 0;
-  updateclass_remoteallinitialized      = false;
-  updateclass_sendallclassinitializated = false;
 }
 
 

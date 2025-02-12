@@ -53,11 +53,10 @@
 #define DIOCOREPROTOCOL_REGISTRATIONDATA_SEND_OPERATION_PARAM             __L("registerdata send")
 #define DIOCOREPROTOCOL_REGISTRATIONDATA_RESPONSE_OPERATION_PARAM         __L("registerdata response")
 #define DIOCOREPROTOCOL_REGISTRATIONDATA_CONFIRM_PARAM                    __L("registerdata ok")
-#define DIOCOREPROTOCOL_WAITREADY_SEND_OPERATION_PARAM                    __L("Ready!")  
+#define DIOCOREPROTOCOL_WAITREADY_READY_OPERATION_PARAM                   __L("ready!")  
 
 #define DIOCOREPROTOCOL_UPDATECLASS_CONFIRM_PARAM                         __L("status")
-
-#define DIOCOREPROTOCOL_UPDATECLASS_FORCHANGE                             0  
+#define DIOCOREPROTOCOL_UPDATECLASS_FLAG_FORCHANGE                        0x00000001
 
 
 enum DIOCOREPROTOCOL_BIDIRECTIONALITYMODE
@@ -73,20 +72,18 @@ enum DIOCOREPROTOCOL_COMMAND_TYPE
 {
   DIOCOREPROTOCOL_COMMAND_TYPE_UNKNOWN                      = 0 ,
   DIOCOREPROTOCOL_COMMAND_TYPE_HEARTBEAT                        ,
-  DIOCOREPROTOCOL_COMMAND_TYPE_UPDATECLASSINITIALIZED           ,
-
+  
   DIOCOREPROTOCOL_COMMAND_TYPE_LASTINTERNAL                   
 };
 
 
 #define DIOCOREPROTOCOL_COMMAND_TYPE_STRING_HEARTBEAT                     __L("hearbeat")
-#define DIOCOREPROTOCOL_COMMAND_TYPE_STRING_UPDATECLASSINITIALIZED        __L("updateclassinitialized")
 
 
 #pragma endregion
 
 
-/*---- CLASS ---------------------------------------------------------c------------------------------------------------*/
+/*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 #pragma region CLASS
 
 class XUUI;
@@ -135,19 +132,20 @@ class DIOCOREPROTOCOL_UPDATECLASS
     XSERIALIZABLE*                                        GetClassPtr                         ();    
     void                                                  SetClassPtr                         (XSERIALIZABLE* classptr);    
 
-    bool                                                  IsAsk                               ();
-    void                                                  SetIsAsk                            (bool isask);
-      
-    DIOCOREPROTOCOL_BIDIRECTIONALITYMODE                  GetBidirectionalityMode             ();
-    void                                                  SetBidirectionalityMode             (DIOCOREPROTOCOL_BIDIRECTIONALITYMODE bidirectionalitymode);
+    bool                                                  RequieredInitialUpdate              ();
+    void                                                  SetRequieredInitialUpdate           (bool requieredinitialupdate);
 
-    bool                                                  IsInitialUpdate                     ();
-    void                                                  SetIsInitialUpdate                  (bool isinitialupdate);
+    XQWORD                                                GetNUpdates                         ();
+    void                                                  SetNUpdates                         (XQWORD nupdates);
+    void                                                  AddOneToNUpdates                    ();
 
     XDWORD                                                GetTimeToUpdate                     ();
-    void                                                  SetTimeToUpdate                     (XDWORD timetoupdate);
-
+    void                                                  SetTimeToUpdate                     (XDWORD timetoupdate); 
     XTIMER*                                               GetTimerLastUpdate                  ();
+
+    XDWORD                                                GetFlags                            ();
+    void                                                  SetFlags                            (XDWORD flags);
+    bool                                                  IsFlag                              (XDWORD flag);
     
   private:
     
@@ -155,11 +153,13 @@ class DIOCOREPROTOCOL_UPDATECLASS
     
     XSTRING                                               classname;   
     XSERIALIZABLE*                                        classptr; 
-    bool                                                  isask;    
-    DIOCOREPROTOCOL_BIDIRECTIONALITYMODE                  bidirectionalitymode;  
-    bool                                                  isinitialupdate;
+   
+    bool                                                  requieredinitialupdate;
+    XQWORD                                                nupdates;
+
     XDWORD                                                timetoupdate; 
     XTIMER*                                               timerlastupdate;      
+    XDWORD                                                flags;
 };
 
 
@@ -199,20 +199,11 @@ class DIOCOREPROTOCOL
     bool                                                  Commands_DeleteAll                          ();
 
     XVECTOR<DIOCOREPROTOCOL_UPDATECLASS*>*                UpdateClass_GetAll                          ();
-    bool                                                  UpdateClass_Add                             (bool isask, XCHAR* classname, XSERIALIZABLE* classcontent, bool initupdate, XDWORD timetoupdate, DIOCOREPROTOCOL_BIDIRECTIONALITYMODE bidirectionalitymode);
+    bool                                                  UpdateClass_Add                             (XCHAR* classname, XSERIALIZABLE* classcontent, bool requieredinitialupdate, XDWORD timetoupdate, XDWORD flags = 0);
     DIOCOREPROTOCOL_UPDATECLASS*                          UpdateClass_Get                             (XCHAR* classname);
     bool                                                  UpdateClass_DeleteAll                       ();
-
-    XDWORD                                                UpdateClass_GetNForInitialization           ();
-    void                                                  UpdateClass_SetNForInitialization           (XDWORD nupdateclassforinitialization);
-    XDWORD                                                UpdateClass_GetNInitialized                 ();
-    void                                                  UpdateClass_SetNInitialized                 (XDWORD nupdateclassinitialized);
-    void                                                  UpdateClass_SetRemoteAllInitialized         (bool remoteallupdateclassinitialized);    
-    bool                                                  UpdateClass_GetSendAllClassInitializated    ();
-    void                                                  UpdateClass_SetSendAllClassInitializated    (bool updateclass_sendallclassinitializated);
-    bool                                                  UpdateClass_IsAllInitialized                ();        
-           
-    bool                                                  ShowDebug                                   (bool send, DIOCOREPROTOCOL_HEADER* header, XBUFFER& content, XDWORD sizeallmessage, bool showlongformat);  
+    
+    bool                                                  ShowDebug                                   (bool send, DIOCOREPROTOCOL_HEADER* header, XBUFFER& content, XDWORD sizeallmessage, bool showlongformat); 
 
   protected:
 
@@ -229,19 +220,13 @@ class DIOCOREPROTOCOL
 
     void                                                  Clean                                       ();   
        
-
     XSTRING                                               base64headermagic;
     COMPRESSMANAGER*	                                    compressmanager;
     COMPRESSBASE*			                                    compressor; 
 
     XVECTOR<DIOCOREPROTOCOL_COMMAND*>                     commands;
-    XVECTOR<DIOCOREPROTOCOL_UPDATECLASS*>                 updateclasses;  	
-    
-    XDWORD                                                updateclass_nforinitialization;
-    XDWORD                                                updateclass_ninitialized; 
-    bool                                                  updateclass_remoteallinitialized;   
-    bool                                                  updateclass_sendallclassinitializated;
-};
+    XVECTOR<DIOCOREPROTOCOL_UPDATECLASS*>                 updateclasses;
+};  
 
 
 #pragma endregion
