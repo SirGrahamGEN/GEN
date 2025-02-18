@@ -93,6 +93,7 @@ class DIOCOREPROTOCOL_CONNECTIONSMANAGER : public XOBSERVER, public XSUBJECT
     XVECTOR<DIOCOREPROTOCOL_CONNECTION*>*     Connections_GetAll                             ();
     XMUTEX*                                   Connections_GetXMutex                          ();  
     DIOCOREPROTOCOL_CONNECTION*               Connections_Add                                (DIOSTREAM* stream);
+  
     DIOCOREPROTOCOL_CONNECTION*               Connections_Get                                (DIOSTREAM* stream);
     DIOCOREPROTOCOL_CONNECTION*               Connections_Get                                (XDWORD index);
     bool                                      Connections_Delete                             (DIOCOREPROTOCOL_CONNECTION* connection);    
@@ -140,7 +141,9 @@ class DIOCOREPROTOCOL_CONNECTIONSMANAGER : public XOBSERVER, public XSUBJECT
     XTHREADCOLLECTED*                         connection_update_xthread;
     XTHREADCOLLECTED*                         automaticoperations_xthread;
    
-    XVECTOR<DIOCOREPROTOCOL_CONNECTION*>      connections;    
+    XVECTOR<DIOCOREPROTOCOL_CONNECTION*>      connections;   
+
+    bool                                      leavingactive; 
 };
 
 

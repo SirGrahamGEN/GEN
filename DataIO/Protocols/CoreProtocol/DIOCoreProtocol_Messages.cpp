@@ -608,6 +608,7 @@ bool DIOCOREPROTOCOL_MESSAGES::AddRequest(DIOCOREPROTOCOL_MESSAGE* message_reque
 
   int   index   = FindRequest(message_request->GetHeader()->GetIDMessage());
   bool  status  = false;
+
   if(index == NOTFOUND)
     {
       if(xmutexmessages)

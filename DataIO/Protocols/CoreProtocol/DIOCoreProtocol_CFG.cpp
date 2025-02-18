@@ -386,7 +386,75 @@ void DIOCOREPROTOCOL_CFG::SetNTrysToCheckConnection(XDWORD ntrystocheckconnectio
 {
   this->ntrystocheckconnection = ntrystocheckconnection;
 }
-  
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOCOREPROTOCOL_CFG::BusMode_Activate(bool activate, XDWORD timeoutbusfree, XDWORD timeoutsenddata)
+* @brief      bus mode  activate
+* @ingroup    DATAIO
+* 
+* @param[in]  activate : 
+* @param[in]  timeoutbusfree : 
+* @param[in]  timeoutsenddata : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOCOREPROTOCOL_CFG::BusMode_Activate(bool activate, XDWORD timeoutbusfree, XDWORD timeoutsenddata)
+{
+  busmodeactive           = activate;
+  busmodetimeoutbusfree   = timeoutbusfree;
+  busmodetimeoutsenddata  = timeoutsenddata;
+
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOCOREPROTOCOL_CFG::BusMode_IsActive()
+* @brief      bus mode  is active
+* @ingroup    DATAIO
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOCOREPROTOCOL_CFG::BusMode_IsActive()
+{
+  return busmodeactive;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XDWORD DIOCOREPROTOCOL_CFG::BusMode_GetTimeOutBusFree()
+* @brief      bus mode  get time out bus free
+* @ingroup    DATAIO
+* 
+* @return     XDWORD : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XDWORD DIOCOREPROTOCOL_CFG::BusMode_GetTimeOutBusFree()
+{
+  return busmodetimeoutbusfree;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XDWORD DIOCOREPROTOCOL_CFG::BusMode_GetTimeOutSendData()
+* @brief      bus mode  get time out send data
+* @ingroup    DATAIO
+* 
+* @return     XDWORD : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XDWORD DIOCOREPROTOCOL_CFG::BusMode_GetTimeOutSendData()
+{
+  return busmodetimeoutsenddata;
+}
+    
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
@@ -411,6 +479,10 @@ void DIOCOREPROTOCOL_CFG::Clean()
   timetoeliminateconnectiondisconnect   = DIOCOREPROTOCOL_CFG_DEFAULT_TIMETOELIMINATECONNECTIONDISCONNECT;
   timetocheckconnection                 = DIOCOREPROTOCOL_CFG_DEFAULT_TIMETOCHECKCONNECTION;
   ntrystocheckconnection                = DIOCOREPROTOCOL_CFG_DEFAULT_NTRYSTOCHECKCONNECTION;
+
+  busmodeactive                         = false;
+  busmodetimeoutbusfree                 = 0;
+  busmodetimeoutsenddata                = 0;
 }
 
 

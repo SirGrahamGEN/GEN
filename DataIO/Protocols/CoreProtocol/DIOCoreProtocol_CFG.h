@@ -52,6 +52,9 @@
 #define DIOCOREPROTOCOL_CFG_DEFAULT_TIMETOCHECKCONNECTION                   60 
 #define DIOCOREPROTOCOL_CFG_DEFAULT_NTRYSTOCHECKCONNECTION                  3 
 
+#define DIOCOREPROTOCOL_CFG_DEFAULT_MODEBUS_TIMEOUTBUSFREE                  30 
+#define DIOCOREPROTOCOL_CFG_DEFAULT_MODEBUS_TIMEOUTSENDDATA                 180 
+
 
 #pragma endregion
 
@@ -93,8 +96,13 @@ class DIOCOREPROTOCOL_CFG
     XDWORD                                    GetTimeToCheckConnection                  ();
     void                                      SetTimeToCheckConnection                  (XDWORD timetocheckconnection);
 
-    XDWORD                                    GetNTrysToCheckConnection                  ();
-    void                                      SetNTrysToCheckConnection                  (XDWORD ntrystocheckconnection);
+    XDWORD                                    GetNTrysToCheckConnection                 ();
+    void                                      SetNTrysToCheckConnection                 (XDWORD ntrystocheckconnection);
+
+    bool                                      BusMode_Activate                           (bool activate, XDWORD timeoutbusfree = DIOCOREPROTOCOL_CFG_DEFAULT_MODEBUS_TIMEOUTBUSFREE, XDWORD timeoutsenddata = DIOCOREPROTOCOL_CFG_DEFAULT_MODEBUS_TIMEOUTSENDDATA); 
+    bool                                      BusMode_IsActive                           ();
+    XDWORD                                    BusMode_GetTimeOutBusFree                  (); 
+    XDWORD                                    BusMode_GetTimeOutSendData                 (); 
     
   private:
 
@@ -113,6 +121,10 @@ class DIOCOREPROTOCOL_CFG
     XDWORD                                    timetoeliminateconnectiondisconnect;
     XDWORD                                    timetocheckconnection;  
     XDWORD                                    ntrystocheckconnection;
+
+    bool                                      busmodeactive;
+    XDWORD                                    busmodetimeoutbusfree;
+    XDWORD                                    busmodetimeoutsenddata;
 };
 
 

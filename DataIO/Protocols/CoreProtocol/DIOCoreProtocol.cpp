@@ -535,6 +535,7 @@ DIOCOREPROTOCOL::DIOCOREPROTOCOL(DIOCOREPROTOCOL_CFG* protocolCFG, DIOSTREAM* di
   this->diostream   = diostream;  
 
   Commands_Add(DIOCOREPROTOCOL_COMMAND_TYPE_HEARTBEAT             , DIOCOREPROTOCOL_COMMAND_TYPE_STRING_HEARTBEAT             , DIOCOREPROTOCOL_BIDIRECTIONALITYMODE_BOTH);
+  Commands_Add(DIOCOREPROTOCOL_COMMAND_TYPE_DISCONNECT            , DIOCOREPROTOCOL_COMMAND_TYPE_STRING_DISCONNECT            , DIOCOREPROTOCOL_BIDIRECTIONALITYMODE_BOTH);
 }
 
 
@@ -643,14 +644,14 @@ void DIOCOREPROTOCOL::SetDIOStream(DIOSTREAM* diostream)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOCOREPROTOCOL::SendMsg(DIOCOREPROTOCOL_HEADER* header, XBUFFER& contentresult)
-* @brief      Send msg
+* @fn         XDWORD DIOCOREPROTOCOL::SendMsg(DIOCOREPROTOCOL_HEADER* header, XBUFFER& contentresult)
+* @brief      send msg
 * @ingroup    DATAIO
 * 
 * @param[in]  header : 
 * @param[in]  contentresult : 
 * 
-* @return     bool : true if is succesful. 
+* @return     XDWORD : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOCOREPROTOCOL::SendMsg(DIOCOREPROTOCOL_HEADER* header, XBUFFER& contentresult)
@@ -716,7 +717,6 @@ XDWORD DIOCOREPROTOCOL::ReceivedMsg(DIOCOREPROTOCOL_HEADER& header, XBUFFER& con
   
   readbuffer->ResetPosition();
 
-  //if(readbuffer->GetSize() < DIOCOREPROTOCOL_HEADER_SIZE_ID)
   if(readbuffer->GetSize() < 100)
     {
       return 0;
@@ -729,8 +729,32 @@ XDWORD DIOCOREPROTOCOL::ReceivedMsg(DIOCOREPROTOCOL_HEADER& header, XBUFFER& con
   XBUFFER   dataread; 
   XDWORD    base64size = 0;
   bool      status     = false;
+  
+  dataread.Empty();  
+  dataread.CopyFrom((*readbuffer));
 
-  dataread.Empty();
+  for(offsetini=0; offsetini<dataread.GetSize()-sizeof(XDWORD); offsetini++)
+    {
+      if(dataread.Get((XDWORD&)start, offsetini))
+        {
+           if(start == DIOCOREPROTOCOL_HEADER_MAGIC_ID)
+             {
+                if(offsetini)  
+                  {
+                    readbuffer->Extract(NULL, 0, dataread.GetSize()-offsetini);
+                    dataread.CopyFrom((*readbuffer));                    
+                  }
+             
+               break;
+             }
+        }
+    }
+ 
+  if(dataread.IsEmpty())
+    {
+      readbuffer->Extract(NULL, 0, dataread.GetSize());
+      return 0;  
+    }
 
   if(protocolCFG->GetIsEncapsulatedBase64())
     {
@@ -741,12 +765,12 @@ XDWORD DIOCOREPROTOCOL::ReceivedMsg(DIOCOREPROTOCOL_HEADER& header, XBUFFER& con
       XSTRING   extract;
       HASHCRC32 hashCRC32;
       XDWORD    CRC32value  = 0;
- 
-      base64senddata.ConvertFromUTF8((*readbuffer));
-      base64senddata.Copy(0, sizeprelude, base64header);
 
-      base64headermask.Format(__L("%s"), base64headermagic.Get());
-      
+      base64senddata.ConvertFromUTF8(dataread);
+
+      base64headermask.Format(__L("%s"), base64headermagic.Get()); 
+      base64senddata.Copy(0, sizeprelude, base64header);
+    
       base64header.Copy(0,4, extract);
       if(extract.Compare(base64headermask, true))
         {
@@ -766,13 +790,13 @@ XDWORD DIOCOREPROTOCOL::ReceivedMsg(DIOCOREPROTOCOL_HEADER& header, XBUFFER& con
         }
 
       // ------------------------------------------------------------------------------------------------------------------------
-      
-            
+                  
+      /*
       XBUFFER debugdata;
       base64senddata.ConvertToASCII(debugdata);
       debugdata.Resize(debugdata.GetSize()-1);
-      
-      
+      */
+            
       // ------------------------------------------------------------------------------------------------------------------------          
       
       base64senddata.DeleteCharacters(0, sizeprelude);
@@ -782,17 +806,13 @@ XDWORD DIOCOREPROTOCOL::ReceivedMsg(DIOCOREPROTOCOL_HEADER& header, XBUFFER& con
         } 
 
       // ------------------------------------------------------------------------------------------------------------------------
-      
-      
-      if(!GetProtocolCFG()->GetIsServer())
-        {
-          XBYTE color = XTRACE_COLOR_GREEN;
+            
+      /*
+      XBYTE color = XTRACE_COLOR_GREEN;
 
-          XTRACE_PRINTCOLOR(color, __L("READ < < < < < < < < < < < <"));   
-          XTRACE_PRINTDATABLOCKCOLOR(color, debugdata); 
-        }
-      
-      
+      XTRACE_PRINTCOLOR(color, __L("READ < < < < < < < < < < < <"));   
+      XTRACE_PRINTDATABLOCKCOLOR(color, debugdata); 
+      */           
       // ------------------------------------------------------------------------------------------------------------------------
 
       base64senddata.DeleteCharacters(base64size,  base64senddata.GetSize() - base64size); 
@@ -801,6 +821,7 @@ XDWORD DIOCOREPROTOCOL::ReceivedMsg(DIOCOREPROTOCOL_HEADER& header, XBUFFER& con
           return 0;
         } 
 
+      dataread.Empty();
       if(!base64senddata.ConvertBase64ToBinary(dataread))
         {
           return 0;
@@ -815,26 +836,11 @@ XDWORD DIOCOREPROTOCOL::ReceivedMsg(DIOCOREPROTOCOL_HEADER& header, XBUFFER& con
       
       base64size += sizeprelude;
     }
-   else
-    {
-      dataread.CopyFrom((*readbuffer));
-    }
- 
-  for(offsetini=0; offsetini<dataread.GetSize()-sizeof(XDWORD); offsetini++)
-    {
-      if(dataread.Get((XDWORD&)start, offsetini))
-        {
-           if(start == DIOCOREPROTOCOL_HEADER_MAGIC_ID)
-             {
-               break;
-             }
-        }
-    }
-
-  if(dataread.Get((XDWORD&)start, offsetini))
+   
+  if(dataread.Get((XDWORD&)start, 0))
     {
       sizeread += sizeof(XDWORD);
-      index    += (offsetini + sizeof(XDWORD)); 
+      index    += sizeof(XDWORD); 
 
       // Compress Data
       if(start == DIOCOREPROTOCOL_HEADER_MAGIC_ID)
@@ -1716,9 +1722,13 @@ bool DIOCOREPROTOCOL::ShowDebug(bool send, DIOCOREPROTOCOL_HEADER* header, XBUFF
       XSTRING operationstring;
 
       header->GetIDMessage()->GetToString(ID_message);
-      header->GetOperationToString(operationstring);
 
+      #ifdef DIOCOREPROTOCOL_HUMANFORMAT_ACTIVE
+      header->GetOperationToString(operationstring);
       title.AddFormat(__L("%-20s %-15s [%s] "), ID_message.Get(), operationstring.Get(), header->GetOperationParam()->Get()); 
+      #else
+      title.AddFormat(__L("%-20s %03d [%s] "), ID_message.Get(),  header->GetOperation(), header->GetOperationParam()->Get()); 
+      #endif
 
       XTRACE_PRINTCOLOR(colormsg, title.Get()); 
     }
@@ -1893,7 +1903,8 @@ bool DIOCOREPROTOCOL::GenerateHeaderToSend(DIOCOREPROTOCOL_HEADER* header, XBUFF
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOCOREPROTOCOL::SendData(XBUFFER& senddata)
 {
-  bool status = false;
+  bool occupated = false;
+  bool status    = false;
 
   if(!protocolCFG)
     {
@@ -1904,6 +1915,31 @@ bool DIOCOREPROTOCOL::SendData(XBUFFER& senddata)
     {
       return false;
     } 
+
+  if(protocolCFG->BusMode_IsActive())
+    {
+      XTIMER* xtimer = GEN_XFACTORY.CreateTimer();
+      if(xtimer)
+        {
+          xtimer->Reset();
+
+          while(diostream->GetInXBuffer()->GetSize())
+            {    
+              if(xtimer->GetMeasureSeconds() > protocolCFG->BusMode_GetTimeOutBusFree())        
+                {
+                  occupated =  true;
+                  break;
+                }
+            }
+
+          GEN_XFACTORY.DeleteTimer(xtimer);
+        }
+
+      if(occupated)
+        {
+          return false;
+        }
+    }
 
   if(protocolCFG->GetIsEncapsulatedBase64())
     { 
@@ -1925,18 +1961,25 @@ bool DIOCOREPROTOCOL::SendData(XBUFFER& senddata)
     }
 
   // ------------------------------------------------------------------------------------------------------------------------  
+  
   /*
   XBYTE color = XTRACE_COLOR_PURPLE;
 
   XTRACE_PRINTCOLOR(color, __L("WRITE > > > > > > > > > > >"));     
   XTRACE_PRINTDATABLOCKCOLOR(color, senddata);   
   */
+  
   // ------------------------------------------------------------------------------------------------------------------------
-
      
   status = diostream->Write(senddata);
 
-  diostream->WaitToFlushOutXBuffer(180);
+  if(protocolCFG->BusMode_IsActive())
+    {
+      if(status)
+        {
+          status = diostream->WaitToFlushOutXBuffer(protocolCFG->BusMode_GetTimeOutSendData());
+        }
+    }
 
   return status;
 }

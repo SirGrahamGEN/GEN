@@ -72,12 +72,17 @@ enum DIOCOREPROTOCOL_COMMAND_TYPE
 {
   DIOCOREPROTOCOL_COMMAND_TYPE_UNKNOWN                      = 0 ,
   DIOCOREPROTOCOL_COMMAND_TYPE_HEARTBEAT                        ,
+  DIOCOREPROTOCOL_COMMAND_TYPE_DISCONNECT                       ,
   
   DIOCOREPROTOCOL_COMMAND_TYPE_LASTINTERNAL                   
 };
 
 
 #define DIOCOREPROTOCOL_COMMAND_TYPE_STRING_HEARTBEAT                     __L("hearbeat")
+#define DIOCOREPROTOCOL_COMMAND_TYPE_STRING_DISCONNECT                    __L("disconnect")
+
+//#define DIOCOREPROTOCOL_COMMAND_TYPE_STRING_DISCONNECTED_RESULT           __L("disconnected")
+
 
 
 #pragma endregion

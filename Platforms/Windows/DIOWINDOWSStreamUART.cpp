@@ -154,12 +154,25 @@ DIOSTREAMSTATUS DIOWINDOWSSTREAMUART::GetStatus()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWINDOWSSTREAMUART::Open()
 {
-  if(!threadconnection)  return false;
+  if(!threadconnection)
+    {
+      return false;
+    }
 
-  if(!inbuffer)         return false;
-  if(!outbuffer)        return false;
+  if(!inbuffer)         
+    {
+      return false;
+    }
 
-  if(!config)           return false;
+  if(!outbuffer)        
+    {
+      return false;
+    }
+
+  if(!config)           
+    {
+      return false;
+    }
 
   XSTRING comport;
   XSTRING cfg;
@@ -211,14 +224,6 @@ bool DIOWINDOWSSTREAMUART::Open()
 
   Config();
 
-  /*
-  if(!Config())
-    {
-      Close();
-      return false;
-    }
-  */
-
   memset(&ovi,0,sizeof(ovi));
 
   SetEvent(DIOWINDOWSUARTFSMEVENT_CONNECTED);
@@ -247,7 +252,7 @@ bool DIOWINDOWSSTREAMUART::Open()
 bool DIOWINDOWSSTREAMUART::Config(XWORD mask)
 {
   if(!config) return false;
-  if(GetStatus()==DIOSTREAMSTATUS_DISCONNECTED) return false;
+  // if(GetStatus()==DIOSTREAMSTATUS_DISCONNECTED) return false;
 
   DCB dcb;
 
@@ -452,6 +457,23 @@ XDWORD DIOWINDOWSSTREAMUART::WriteDirect(XBYTE* buffer, XDWORD size)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         bool DIOWINDOWSSTREAMUART::Disconnect()
+* @brief      disconnect
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOWINDOWSSTREAMUART::Disconnect() 
+{
+  SetEvent(DIOWINDOWSUARTFSMEVENT_DISCONNECTING);
+
+  return true; 
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         bool DIOWINDOWSSTREAMUART::Close()
 * @brief      Close
 * @ingroup    PLATFORM_WINDOWS
@@ -462,7 +484,7 @@ XDWORD DIOWINDOWSSTREAMUART::WriteDirect(XBYTE* buffer, XDWORD size)
 bool DIOWINDOWSSTREAMUART::Close()
 {
   if(threadconnection) threadconnection->End();
-  //if(GetStatus()==DIOSTREAMSTATUS_DISCONNECTED) return false;
+  //// if(GetStatus()==DIOSTREAMSTATUS_DISCONNECTED) return false;
 
   if(hcom != INVALID_HANDLE_VALUE)
     {
@@ -485,7 +507,7 @@ bool DIOWINDOWSSTREAMUART::Close()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWINDOWSSTREAMUART::GetCTS()
 {
-  if(GetStatus()==DIOSTREAMSTATUS_DISCONNECTED) return false;
+  // if(GetStatus()==DIOSTREAMSTATUS_DISCONNECTED) return false;
 
   DWORD status = 0;
   if(!GetCommModemStatus(hcom,&status))
@@ -509,7 +531,7 @@ bool DIOWINDOWSSTREAMUART::GetCTS()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWINDOWSSTREAMUART::GetDSR()
 {
-  if(GetStatus()==DIOSTREAMSTATUS_DISCONNECTED) return false;
+  // if(GetStatus()==DIOSTREAMSTATUS_DISCONNECTED) return false;
 
   DWORD status = 0;
   if(!GetCommModemStatus(hcom,&status))
@@ -533,7 +555,7 @@ bool DIOWINDOWSSTREAMUART::GetDSR()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWINDOWSSTREAMUART::GetRing()
 {
-  if(GetStatus()==DIOSTREAMSTATUS_DISCONNECTED) return false;
+  // if(GetStatus()==DIOSTREAMSTATUS_DISCONNECTED) return false;
 
   DWORD status = 0;
   if(!GetCommModemStatus(hcom,&status))
@@ -557,7 +579,7 @@ bool DIOWINDOWSSTREAMUART::GetRing()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWINDOWSSTREAMUART::GetRLSD()
 {
-  if(GetStatus()==DIOSTREAMSTATUS_DISCONNECTED) return false;
+  // if(GetStatus()==DIOSTREAMSTATUS_DISCONNECTED) return false;
 
   DWORD status = 0;
   if(!GetCommModemStatus(hcom,&status))
@@ -583,7 +605,7 @@ bool DIOWINDOWSSTREAMUART::GetRLSD()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWINDOWSSTREAMUART::SetRTS(bool on)
 {
-  if(GetStatus()==DIOSTREAMSTATUS_DISCONNECTED) return false;
+  // if(GetStatus()==DIOSTREAMSTATUS_DISCONNECTED) return false;
 
   if(!EscapeCommFunction(hcom,on?SETRTS:CLRRTS)) return false;
 
@@ -604,7 +626,7 @@ bool DIOWINDOWSSTREAMUART::SetRTS(bool on)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWINDOWSSTREAMUART::SetDTR(bool on)
 {
-  if(GetStatus()==DIOSTREAMSTATUS_DISCONNECTED) return false;
+  // if(GetStatus()==DIOSTREAMSTATUS_DISCONNECTED) return false;
 
   if(!EscapeCommFunction(hcom,on?SETDTR:CLRDTR)) return false;
 
@@ -624,7 +646,7 @@ bool DIOWINDOWSSTREAMUART::SetDTR(bool on)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWINDOWSSTREAMUART::CleanBuffers()
 {
-  if(GetStatus()==DIOSTREAMSTATUS_DISCONNECTED) return false;
+  // if(GetStatus()==DIOSTREAMSTATUS_DISCONNECTED) return false;
 
   if(!PurgeComm(hcom,PURGE_TXCLEAR|PURGE_RXCLEAR)) return false;
 
@@ -649,7 +671,7 @@ bool DIOWINDOWSSTREAMUART::CleanBuffers()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWINDOWSSTREAMUART::SetMask(XDWORD mask)
 {
-  if(GetStatus()==DIOSTREAMSTATUS_DISCONNECTED) return false;
+  // if(GetStatus()==DIOSTREAMSTATUS_DISCONNECTED) return false;
 
   if(!SetCommMask(hcom,mask))
     {
@@ -674,7 +696,7 @@ bool DIOWINDOWSSTREAMUART::SetMask(XDWORD mask)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWINDOWSSTREAMUART::SetTimeouts()
 {
-  if(GetStatus()==DIOSTREAMSTATUS_DISCONNECTED) return false;
+  // if(GetStatus()==DIOSTREAMSTATUS_DISCONNECTED) return false;
 
   COMMTIMEOUTS to;
 

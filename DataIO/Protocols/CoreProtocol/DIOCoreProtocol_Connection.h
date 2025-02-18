@@ -95,34 +95,42 @@ enum DIOCOREPROTOCOL_CONNECTION_STATUS
 };
 
 
- #define TIMEOUT_CHAGE_STATE(protocol, xtimeroutresponse)                     if(protocol->GetProtocolCFG()->GetTimeOutNoResponse())                                  \
-                                                                                {                                                                                     \
-                                                                                  if(xtimeroutresponse)                                                               \
-                                                                                    {                                                                                 \
+ #define TIMEOUT_CHAGE_STATE(protocol, xtimeroutresponse)                     if(protocol->GetProtocolCFG()->GetTimeOutNoResponse())                                    \
+                                                                                {                                                                                       \
+                                                                                  if(xtimeroutresponse)                                                                 \
+                                                                                    {                                                                                   \
                                                                                       if(xtimeroutresponse->GetMeasureSeconds() >= protocol->GetProtocolCFG()->GetTimeOutNoResponse()) \
-                                                                                        {                                                                             \
-                                                                                          SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_DISCONNECTED);                \
-                                                                                        }                                                                             \
-                                                                                    }                                                                                 \
+                                                                                        {                                                                               \
+                                                                                          SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_DISCONNECTED);                  \
+                                                                                        }                                                                               \
+                                                                                    }                                                                                   \
                                                                                 }
   
 
-#define COMMAND_DO_WITHOUTPARAMS(command_type, result, timeout)                { XUUID ID_message;                                                                     \
-                                                                                 bool  status  = false;                                                                \
-                                                                                 if(Command_Do(&ID_message, command_type))                                             \
-                                                                                   {                                                                                   \
-                                                                                     status = GetResult(&ID_message, result, timeout);                                 \
-                                                                                   }                                                                                   \
-                                                                                 return status;                                                                        \
+#define COMMAND_DO_WITHOUTPARAMS(command_type, result, timeout)                {  XUUID ID_message;                                                                     \
+                                                                                  bool  status  = false;                                                                \
+                                                                                  if(OperationMutex(true))                                                              \
+                                                                                    {                                                                                   \
+                                                                                      if(Command_Do(&ID_message, command_type))                                         \
+                                                                                        {                                                                               \
+                                                                                          status = GetResult(&ID_message, result, timeout);                             \
+                                                                                        }                                                                               \
+                                                                                      OperationMutex(false);                                                            \
+                                                                                    }                                                                                   \
+                                                                                  return status;                                                                        \
                                                                                }                                                                                         
 
- #define COMMAND_DO(command_type, params, result, timeout)                     { XUUID ID_message;                                                                     \
-                                                                                 bool  status  = false;                                                                \
-                                                                                 if(Command_Do(&ID_message, command_type, params))                                     \
-                                                                                   {                                                                                   \
-                                                                                     status = GetResult(&ID_message, result, timeout);                                 \
-                                                                                   }                                                                                   \
-                                                                                 return status;                                                                        \
+ #define COMMAND_DO(command_type, params, result, timeout)                     {  XUUID ID_message;                                                                     \
+                                                                                  bool  status  = false;                                                                \
+                                                                                  if(OperationMutex(true))                                                              \
+                                                                                    {                                                                                   \
+                                                                                      if(Command_Do(&ID_message, command_type, params))                                 \
+                                                                                        {                                                                               \
+                                                                                          status = GetResult(&ID_message, result, timeout);                             \
+                                                                                        }                                                                               \
+                                                                                      OperationMutex(false);                                                            \
+                                                                                    }                                                                                   \
+                                                                                 return status;                                                                         \
                                                                                }                                                                                         
 
 
@@ -210,7 +218,13 @@ class DIOCOREPROTOCOL_CONNECTION : public XFSMACHINE, public XSUBJECT
     bool                                  CompletedInitialUpdateClasses         ();
     void                                  SetCompletedInitialUpdateClasses      (bool completedinitialupdateclasses);
 
+    bool                                  Disconnect                            ();
+
+    bool                                  RemoteDisconnect                      ();
+
   private:
+
+    bool                                  OperationMutex                        (bool activated);
 
     bool                                  CreateIDConnection                    (XUUID& ID);
 
@@ -235,10 +249,12 @@ class DIOCOREPROTOCOL_CONNECTION : public XFSMACHINE, public XSUBJECT
     CIPHERKEYSYMMETRICAL                  cipherkey;     
 
     DIOCOREPROTOCOL_CONNECTION_STATUS     status;
+
+    XMUTEX*                               operation_mutex;  
     
     XTIMER*                               xtimerstatus;  
     XTIMER*                               xtimerwithoutconnexion;  
-    XTIMER*                               xtimeroutresponse;  
+    XTIMER*                               xtimeroutresponse; 
 
     XDWORD                                heartbetscounter;
 

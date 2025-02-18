@@ -84,39 +84,39 @@ enum DIOWINDOWSUARTFSMSTATES
 class DIOWINDOWSSTREAMUART : public DIOSTREAMUART , public XFSMACHINE
 {
   public:
-                          DIOWINDOWSSTREAMUART                          ();
-    virtual              ~DIOWINDOWSSTREAMUART                          ();
+                          DIOWINDOWSSTREAMUART            ();
+    virtual              ~DIOWINDOWSSTREAMUART            ();
 
-    DIOSTREAMSTATUS       GetStatus                              ();
+    DIOSTREAMSTATUS       GetStatus                       ();
 
-    bool                  Open                                          ();
+    bool                  Open                            ();
 
-    bool                  Config                                        (XWORD mask = DIOSTREAMUARTMASK_ALL);
+    bool                  Config                          (XWORD mask = DIOSTREAMUARTMASK_ALL);
 
-    XDWORD                ReadDirect                                    (XBYTE* buffer,XDWORD size);
-    XDWORD                WriteDirect                                   (XBYTE* buffer,XDWORD size);
+    XDWORD                ReadDirect                      (XBYTE* buffer,XDWORD size);
+    XDWORD                WriteDirect                     (XBYTE* buffer,XDWORD size);
 
-    bool                  Disconnect                                    ()                        { return false; };
-    bool                  Close                                         ();
+    bool                  Disconnect                      ();
+    bool                  Close                           ();
 
-    bool                  GetCTS                                        ();
-    bool                  GetDSR                                        ();
-    bool                  GetRing                                       ();
-    bool                  GetRLSD                                       ();
+    bool                  GetCTS                          ();
+    bool                  GetDSR                          ();
+    bool                  GetRing                         ();
+    bool                  GetRLSD                         ();
 
-    bool                  SetRTS                                        (bool on=true);
-    bool                  SetDTR                                        (bool on=true);
+    bool                  SetRTS                          (bool on=true);
+    bool                  SetDTR                          (bool on=true);
 
-    bool                  CleanBuffers                                  ();
+    bool                  CleanBuffers                    ();
 
   protected:
 
-    bool                  SetMask                                       (XDWORD mask);
-    bool                  SetTimeouts                                   ();
+    bool                  SetMask                         (XDWORD mask);
+    bool                  SetTimeouts                     ();
 
-    static void           ThreadConnection                              (void* data);
+    static void           ThreadConnection                (void* data);
 
-    void                  Clean                                         ();
+    void                  Clean                           ();
 
     XTHREADCOLLECTED*     threadconnection;
 

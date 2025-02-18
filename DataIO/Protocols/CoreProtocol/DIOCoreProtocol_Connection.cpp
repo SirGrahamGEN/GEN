@@ -86,7 +86,9 @@
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOCOREPROTOCOL_CONNECTION::DIOCOREPROTOCOL_CONNECTION() : XFSMACHINE(0)
 {
-  Clean();
+  Clean(); 
+
+  operation_mutex = GEN_XFACTORY.Create_Mutex();
 
   xtimerstatus            = GEN_XFACTORY.CreateTimer();
   xtimerwithoutconnexion  = GEN_XFACTORY.CreateTimer();
@@ -102,7 +104,7 @@ DIOCOREPROTOCOL_CONNECTION::DIOCOREPROTOCOL_CONNECTION() : XFSMACHINE(0)
   RegisterEvent(DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT_TYPE_STATUSCHANGE);
   RegisterEvent(DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT_TYPE_WRITEMSG);
 
-  SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_CONNECTED); 
+  SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_CONNECTED);  
 }
 
 
@@ -142,6 +144,11 @@ DIOCOREPROTOCOL_CONNECTION::~DIOCOREPROTOCOL_CONNECTION()
   if(xtimeroutresponse)
     {
       GEN_XFACTORY.DeleteTimer(xtimeroutresponse);
+    }
+
+  if(operation_mutex)
+    {
+      GEN_XFACTORY.Delete_Mutex(operation_mutex);
     }
 
   Clean();
@@ -947,6 +954,11 @@ bool DIOCOREPROTOCOL_CONNECTION::UpdateClass_Do(XCHAR* classname, XSERIALIZABLE*
     {
       return false;
     } 
+
+  if(!OperationMutex(true))
+    {
+      return false;
+    }
   
   classserializable->SetSerializationMethod(serializationmethod);
   classserializable->Serialize(); 
@@ -969,6 +981,11 @@ bool DIOCOREPROTOCOL_CONNECTION::UpdateClass_Do(XCHAR* classname, XSERIALIZABLE*
               status = value->GetValueBoolean();
             }  
         }
+    }
+
+  if(!OperationMutex(false))
+    {
+      return false;
     }
                                                                     
   return status;       
@@ -997,6 +1014,11 @@ bool DIOCOREPROTOCOL_CONNECTION::UpdateClass_DoAsk(XCHAR* classname, XSERIALIZAB
     {
       return false;
     } 
+
+  if(!OperationMutex(true))
+    {
+      return false;
+    }
                 
   if(UpdateClass_DoAsk(&ID_message, classname))
     {     
@@ -1008,6 +1030,7 @@ bool DIOCOREPROTOCOL_CONNECTION::UpdateClass_DoAsk(XCHAR* classname, XSERIALIZAB
           XSERIALIZATIONMETHOD* serializationmethod = XSERIALIZABLE::CreateInstance(resultcontent);
           if(!serializationmethod)
             {
+              OperationMutex(false);
               return false;
             }
                  
@@ -1019,6 +1042,11 @@ bool DIOCOREPROTOCOL_CONNECTION::UpdateClass_DoAsk(XCHAR* classname, XSERIALIZAB
               delete serializationmethod;
             }
         }
+    }
+
+  if(!OperationMutex(false))
+    {
+      return false;
     }
                                                                     
   return status;       
@@ -1263,12 +1291,11 @@ bool DIOCOREPROTOCOL_CONNECTION::Update()
                                                                                 {
                                                                                   break;
                                                                                 }
-                                                                              
-                                                                              // First state don´t disconnected the secuence.                                                                              
-                                                                              // TIMEOUT_CHAGE_STATE(protocol, xtimeroutresponse)
-                                                                              
+
+                                                                              TIMEOUT_CHAGE_STATE(protocol, xtimeroutresponse)     
+                                                                                                                                                                                                                                          
                                                                               if(!IsServer())
-                                                                                {                                                                                                                                  
+                                                                                {                                                                                  
                                                                                   if(GetMsg(false, DIOCOREPROTOCOL_HEADER_OPERATION_KEYEXCHANGE, DIOCOREPROTOCOL_KEYEXCHANGE_CLIENT_OPERATION_PARAM, header, content))
                                                                                     {                                                                                   
                                                                                       if(header.GetContentType() == DIOCOREPROTOCOL_HEADER_CONTENTTYPE_BINARY)
@@ -1391,7 +1418,7 @@ bool DIOCOREPROTOCOL_CONNECTION::Update()
                                                                                   break;
                                                                                 }
 
-                                                                             TIMEOUT_CHAGE_STATE(protocol, xtimeroutresponse)
+                                                                              TIMEOUT_CHAGE_STATE(protocol, xtimeroutresponse)
 
                                                                               GetRegisterData()->SetSerializationMethod(serializationmethod);                                                           
   
@@ -1468,16 +1495,12 @@ bool DIOCOREPROTOCOL_CONNECTION::Update()
           case DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_WAITREADY             : { DIOCOREPROTOCOL_HEADER  header;
                                                                               XSTRING                 content;
 
-                                                                              if(protocol->GetProtocolCFG()->GetTimeOutNoResponse())
+                                                                              if(!protocol)
                                                                                 {
-                                                                                  if(xtimeroutresponse)              
-                                                                                    {
-                                                                                      if(xtimeroutresponse->GetMeasureSeconds() >= protocol->GetProtocolCFG()->GetTimeOutNoResponse())
-                                                                                        {    
-                                                                                          SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_DISCONNECTED);                                                                                            
-                                                                                        }
-                                                                                    }
+                                                                                  break;
                                                                                 }
+
+                                                                              TIMEOUT_CHAGE_STATE(protocol, xtimeroutresponse)
 
                                                                               if(IsServer())
                                                                                 { 
@@ -1599,11 +1622,17 @@ bool DIOCOREPROTOCOL_CONNECTION::Update()
 
                                                                                 messages.DeleteAll(); 
 
+                                                                                RemoteDisconnect();  
+
                                                                                 if(GetCoreProtocol())
                                                                                   {
-                                                                                    if(GetCoreProtocol()->GetDIOStream())  
-                                                                                      {              
-                                                                                        GetCoreProtocol()->GetDIOStream()->Close();                                                                                                                                                                                   
+                                                                                    DIOSTREAM* diostream =  GetCoreProtocol()->GetDIOStream();  
+                                                                                    if(diostream)  
+                                                                                      { 
+                                                                                        if(diostream->GetStatus() != DIOSTREAMSTATUS_DISCONNECTED)
+                                                                                          {
+                                                                                            diostream->Disconnect();                                                                                                                                                                                  
+                                                                                          }
                                                                                       }                                                                                
                                                                                   }
                                                                                 break;         
@@ -1702,6 +1731,95 @@ bool DIOCOREPROTOCOL_CONNECTION::CompletedInitialUpdateClasses()
 void DIOCOREPROTOCOL_CONNECTION::SetCompletedInitialUpdateClasses(bool completedinitialupdateclasses)
 {
   this->completedinitialupdateclasses = completedinitialupdateclasses; 
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOCOREPROTOCOL_CONNECTION::Disconnect()
+* @brief      disconnect
+* @ingroup    DATAIO
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOCOREPROTOCOL_CONNECTION::Disconnect()
+{  
+  if(!GetCoreProtocol())
+    {
+      return false;
+    }
+
+  if(!GetCoreProtocol()->GetDIOStream())
+    {
+      return false;
+    }
+
+  return GetCoreProtocol()->GetDIOStream()->Disconnect();
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOCOREPROTOCOL_CONNECTION::RemoteDisconnect()
+* @brief      remote disconnect
+* @ingroup    DATAIO
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOCOREPROTOCOL_CONNECTION::RemoteDisconnect()
+{
+  XUUID  ID_message;                                        
+  bool   status      = false;
+  
+  status = Command_Do(&ID_message, DIOCOREPROTOCOL_COMMAND_TYPE_DISCONNECT);   
+                     
+  return status;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOCOREPROTOCOL_CONNECTION::OperationMutex(bool activated)
+* @brief      operation mutex
+* @ingroup    DATAIO
+* 
+* @param[in]  activated : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOCOREPROTOCOL_CONNECTION::OperationMutex(bool activated)
+{
+  if(!protocol)
+    {
+      return false;
+    }
+
+  if(!protocol->GetProtocolCFG())
+    {
+      return false;
+    }
+
+  if(!protocol->GetProtocolCFG()->BusMode_IsActive())
+    {
+      return true;
+    }
+
+  if(!operation_mutex)
+    {
+      return false;
+    }
+
+  if(activated)
+    {
+      return operation_mutex->Lock();
+    }
+   else
+    {
+      return operation_mutex->UnLock();
+    }
 }
 
 
@@ -2335,6 +2453,8 @@ void DIOCOREPROTOCOL_CONNECTION::Clean()
   protocol                        = NULL;
 
   status                          = DIOCOREPROTOCOL_CONNECTION_STATUS_NONE; 
+
+  operation_mutex                 = NULL;
 
   xtimerstatus                    = NULL;
   xtimerwithoutconnexion          = NULL;
